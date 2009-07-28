@@ -246,8 +246,8 @@
 		<posy>693</posy>
 		<width>600</width>
 		<font>Font_ShowcaseMainLabel</font>
-		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(wallfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(wallfloor)] | [!Skin.HasSetting(wallfloor)]">Colour_ShowcaseLabelNightShade</include>
 		<visible>!ControlGroup(7000).HasFocus()</visible>
 		<animation effect="slide" end="0,-11" time="200" condition="[!Control.IsVisible(72) | IsEmpty(Control.GetLabel(72))] | Window.IsActive(24)">Conditional</animation>
 	</include>
@@ -258,8 +258,8 @@
 		<posy>693</posy>
 		<width>880</width>
 		<font>Font_ShowcaseMainLabel</font>
-		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(wallfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(wallfloor)] | [!Skin.HasSetting(wallfloor)]">Colour_ShowcaseLabelNightShade</include>
 		<visible>!ControlGroup(7000).HasFocus()</visible>
 		<animation effect="slide" end="0,-11" time="200" condition="!Container.Content(seasons) + [!Control.IsVisible(72) | IsEmpty(Control.GetLabel(72))] | Window.IsActive(24)">Conditional</animation>
 	</include>
@@ -270,8 +270,8 @@
 		<posy>685</posy>
 		<width>600</width>
 		<font>Font_ShowcaseMainLabel</font>
-		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(wallfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(wallfloor)] | [!Skin.HasSetting(wallfloor)]">Colour_ShowcaseLabelNightShade</include>
 		<visible>ControlGroup(7000).HasFocus()</visible>
 	</include>
 
@@ -282,8 +282,8 @@
 		<width>600</width>
 		<font>Font_ShowcaseDetailLabel</font>
 		<visible>!ControlGroup(7000).HasFocus()</visible>
-		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(wallfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(wallfloor)] | [!Skin.HasSetting(wallfloor)]">Colour_ShowcaseLabelNightShade</include>
 	</include>
 
 	<control type="image" id="82">
