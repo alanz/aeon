@@ -343,5 +343,62 @@
 					<onclick>AlarmClock(,Shutdown,)</onclick>
 				</control>
 			</control>
-		</control>	</include>
+		</control>
+		<control type="group">
+			<posx>356</posx>
+			<posy>406</posy>
+			<visible>ControlGroup(945).HasFocus()</visible>
+			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<include>Animation_CommonFade</include>
+			<control type="image">
+				<width>562</width>
+				<height>33</height>
+				<texture>home/submenubar_weather.png</texture>
+			</control>
+			<control type="grouplist" id="945">
+				<posx>20</posx>
+				<width>524</width>
+				<height>33</height>
+				<itemgap>0</itemgap>
+				<align>center</align>
+				<onup>300</onup>
+				<ondown>352</ondown>
+				<scroll>false</scroll>
+				<orientation>horizontal</orientation>
+				<control type="button" id="40">
+					<description>4Day</description>
+					<include>Submenu_Button</include>
+					<label>31254</label>
+					<onclick>Skin.Reset(weatherpopup36hour)</onclick>
+					<onclick>Skin.Reset(weatherpopupweekend)</onclick>
+					<selected>[!Skin.HasSetting(weatherpopup36hour) + !Skin.HasSetting(weatherpopupweekend)] | !StringCompare(Weather.Plugin,weather.com plus)</selected>
+					<enable>!Skin.HasSetting(noweatherpopup)</enable>
+				</control>
+				<control type="button" id="41">
+					<description>36Hour</description>
+					<include>Submenu_Button</include>
+					<label>31255</label>
+					<onclick>Skin.SetBool(weatherpopup36hour)</onclick>
+					<onclick>Skin.Reset(weatherpopupweekend)</onclick>
+					<selected>Skin.HasSetting(weatherpopup36hour)</selected>
+					<enable>!Skin.HasSetting(noweatherpopup) + StringCompare(Weather.Plugin,weather.com plus)</enable>
+				</control>
+				<control type="button" id="42">
+					<description>Weekend</description>
+					<include>Submenu_Button</include>
+					<label>31256</label>
+					<onclick>Skin.SetBool(weatherpopupweekend)</onclick>
+					<onclick>Skin.Reset(weatherpopup36hour)</onclick>
+					<selected>Skin.HasSetting(weatherpopupweekend)</selected>
+					<enable>!Skin.HasSetting(noweatherpopup) + StringCompare(Weather.Plugin,weather.com plus)</enable>
+				</control>
+				<control type="button" id="43">
+					<include>Submenu_Button</include>
+					<label>31257</label>
+					<onclick>Skin.ToggleSetting(weathericons)</onclick>
+					<selected>Skin.HasSetting(weathericons)</selected>
+				</control>
+			</control>
+		</control>
+	</include>
 </includes>
