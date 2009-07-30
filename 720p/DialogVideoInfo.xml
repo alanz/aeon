@@ -12,7 +12,6 @@
 			<include>FullscreenDimensions</include>
 			<texture>common/darkgrey.png</texture>
 		</control>
-
 		<control type="image">
 			<description>background image</description>
 			<posx>486</posx>
@@ -22,7 +21,6 @@
 			<texture>info/info_rightpanelbottom.png</texture>
 			<animation effect="slide" time="0" start="22,0" end="22,0" condition="Container.Content(episodes)">Conditional</animation>
 		</control>
-
 		<control type="largeimage">
 			<posx>254</posx>
 			<posy>0</posy>
@@ -32,7 +30,6 @@
 			<texture>$INFO[listitem.property(fanart_image)]</texture>
 			<visible>!IsEmpty(listitem.property(fanart_image)) + !Skin.HasSetting(noinfofanart)</visible>
 		</control>
-
 		<control type="image">
 			<posx>0</posx>
 			<posy>0</posy>
@@ -41,7 +38,6 @@
 			<texture>common/darkgrey.png</texture>
 			<visible>Container.Content(episodes)</visible>
 		</control>
-
 		<control type="image">
 			<posx>0</posx>
 			<posy>83</posy>
@@ -50,9 +46,7 @@
 			<texture>info/musicinfogradient.png</texture>
 			<visible>Container.Content(episodes)</visible>
 		</control>
-
 		<control type="group">
-
 			<posx>55</posx>
 			<animation effect="rotatey" time="0" start="-20" end="-20" center="20,0" condition="true">Conditional</animation>
 			<animation effect="slide" start="430" end="0" time="700" tween="cubic" easing="out" delay="400">WindowOpen</animation>
@@ -66,7 +60,6 @@
 				<bordertexture border="-77">info/musicinfoshadow.png</bordertexture>
 				<aspectratio>stretch</aspectratio>
 			</control>
-
 			<control type="image">
 				<description>Cover image</description>
 				<posy>560</posy>
@@ -75,9 +68,7 @@
 				<texture flipy="true" diffuse="common/Thumb_Mask6.png">$INFO[listitem.thumb]</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
-
 		</control>
-
 		<control type="image">
 			<description>Cover image</description>
 			<posx>0</posx>
@@ -88,7 +79,6 @@
 			<aspectratio>stretch</aspectratio>
 			<visible>!Skin.HasSetting(videotv)</visible>
 		</control>
-
 		<control type="largeimage">
 			<description>Cover image</description>
 			<posx>0</posx>
@@ -98,7 +88,6 @@
 			<texture>$INFO[listitem.thumb]</texture>
 			<aspectratio>stretch</aspectratio>
 		</control>
-
 		<control type="largeimage">
 			<description>Cover image</description>
 			<posx>0</posx>
@@ -110,19 +99,17 @@
 			<fadetime>500</fadetime>
 			<visible>!Skin.HasSetting(videotv)</visible>
 		</control>
-
 		<control type="largeimage">
 			<description>Cover image</description>
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>486</width>
 			<height>720</height>
-			<texture>$INFO[listitem.path]poster.jpg</texture>
+			<texture>$INFO[listitem.path]folder.jpg</texture>
 			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<visible>Skin.HasSetting(videotv)</visible>
 		</control>
-
 		<control type="largeimage">
 			<description>Cover image</description>
 			<posx>0</posx>
@@ -134,7 +121,6 @@
 			<fadetime>500</fadetime>
 			<visible>!Skin.HasSetting(videotv)</visible>
 		</control>
-
 		<control type="image">
 			<description>background image</description>
 			<posx>486</posx>
@@ -143,10 +129,8 @@
 			<height>720</height>
 			<texture>info/info_rightpaneltop.png</texture>
 		</control>
-
 		<!-- Movie info -->
 		<control type="group">
-
 			<posx>550</posx>
 			<posy>45</posy>
 			<width>695</width>
@@ -161,73 +145,61 @@
 				<texture>info/info_panellines_movie.png</texture>
 				<animation effect="fade" start="70" end="70" time="0" condition="Skin.HasSetting(lite)">Conditional</animation>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/mpaa_restricted.png</texture>
 				<visible>substring(listitem.mpaa,Rated R)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/mpaa_pg13.png</texture>
 				<visible>substring(listitem.mpaa,Rated PG-13)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/mpaa_pg.png</texture>
 				<visible>substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/mpaa_nc17.png</texture>
 				<visible>substring(listitem.mpaa,Rated NC)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/mpaa_g.png</texture>
 				<visible>substring(listitem.mpaa,Rated G)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_u.png</texture>
 				<visible>substring(listitem.mpaa,UK:u)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_pg.png</texture>
 				<visible>substring(listitem.mpaa,UK:pg)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_12.png</texture>
 				<visible>substring(listitem.mpaa,UK:12)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_15.png</texture>
 				<visible>substring(listitem.mpaa,UK:15)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_18.png</texture>
 				<visible>substring(listitem.mpaa,UK:18)</visible>
 			</control>
-
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_18.png</texture>
 				<visible>substring(listitem.mpaa,UK:X)</visible>
 			</control>
-
 			<control type="label">
 				<description>Movie title</description>
 				<posx>0</posx>
@@ -237,7 +209,6 @@
 				<label>$INFO[ListItem.Title]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="label">
 				<description>Movie year</description>
 				<posx>181</posx>
@@ -245,7 +216,6 @@
 				<align>center</align>
 				<include>Objects_FSInfoYear</include>
 			</control>
-
 			<control type="label">
 				<description>Genre</description>
 				<posx>310</posx>
@@ -253,68 +223,59 @@
 				<width>370</width>
 				<include>Objects_FSInfoGenre</include>
 			</control>
-
 			<control type="label">
 				<description>Directed by:</description>
 				<posy>113</posy>
 				<include>Objects_FSInfoLabel</include>
 				<label>31402</label>
 			</control>
-
 			<control type="label">
 				<description>Written by:</description>
 				<posy>141</posy>
 				<include>Objects_FSInfoLabel</include>
 				<label>31401</label>
 			</control>
-
 			<control type="label">
 				<description>Duration:</description>
 				<posy>169</posy>
 				<include>Objects_FSInfoLabel</include>
 				<label>31434</label>
 			</control>
-
 			<control type="label">
 				<description>Starring:</description>
 				<posy>197</posy>
 				<include>Objects_FSInfoLabel</include>
 				<label>31405</label>
 			</control>
-
 			<control type="label">
 				<description>Director</description>
 				<posy>113</posy>
 				<include>Objects_FSInfoValue</include>
 				<label fallback="31425">$INFO[ListItem.Director]</label>
 			</control>
-
 			<control type="label">
 				<description>Writer</description>
 				<posy>142</posy>
 				<include>Objects_FSInfoValue</include>
 				<label fallback="31425">$INFO[ListItem.Writer]</label>
 			</control>
-
 			<control type="label">
 				<description>Writer</description>
 				<posy>170</posy>
 				<include>Objects_FSInfoValue</include>
 				<label fallback="31425">$INFO[ListItem.Duration]</label>
 			</control>
-
 			<control type="textbox">
 				<description>Cast</description>
 				<posx>120</posx>
 				<posy>203</posy>
 				<width>500</width>
-				<height>110</height>
+				<height>108</height>
 				<align>left</align>
 				<font>Font_FSInfoData</font>
 				<label fallback="31435">$INFO[ListItem.CastAndRole]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="grouplist" id="9000">
 				<include>Objects_FSInfoMenu</include>
 				<animation effect="slide" start="0,27" end="0,27" time="0" condition="true">Conditional</animation>
@@ -322,33 +283,27 @@
 					<label>31411</label>
 					<include>Objects_FSInfoButton</include>
 				</control>
-
 				<control type="button" id="6">
 					<label>31410</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
 				<control type="button" id="10">
 					<label>31418</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
 				<control type="button" id="12">
 					<label>31412</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
 				<control type="button" id="11">
 					<label>31409</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
 				</control>
-
 			</control>
-
 			<control type="textbox">
 				<description>Plot</description>
 				<posx>3</posx>
@@ -361,7 +316,6 @@
 				<autoscroll delay="15000" time="1000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="label">
 				<description>IMDB:</description>
 				<posx>3</posx>
@@ -374,21 +328,33 @@
 				<include>Colour_Grey</include>
 				<visible>false</visible>
 			</control>
-
 			<include>Furniture_MovieInfoMediaFlags</include>
 			<control type="label">
 				<description>IMDB rating</description>
-				<posx>60</posx>
-				<posy>570</posy>
-				<width>110</width>
-				<height>29</height>
+				<posx>411</posx>
+				<posy>578</posy>
+				<width>151</width>
+				<height>30</height>
 				<align>left</align>
 				<font>Font_FSIMDBData</font>
 				<label>[UPPERCASE]$INFO[ListItem.Rating][/UPPERCASE]</label>
 				<include>Colour_OffWhite</include>
-				<visible>false</visible>
+				<visible>Skin.HasSetting(inforatings) + Skin.HasSetting(movieratingtext)</visible>
+				<animation effect="slide" start="-58,0" end="-58,0" time="0" condition="Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-323,0" end="-323,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-302,0" end="-302,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + !Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-150,0" end="-150,0" time="0" condition="Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-260,0" end="-260,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-88,0" end="-88,0" time="0" condition="Control.IsVisible(91) + Control.IsVisible(92) + Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-108,0" end="-108,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-200,0" end="-200,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-407,0" end="-407,0" time="0" condition="![Control.IsVisible(91) | Control.IsVisible(92) | Control.IsVisible(93) | Control.IsVisible(94)]">Conditional</animation>
+				<animation effect="slide" start="-261,0" end="-261,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-148,0" end="-148,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-350,0" end="-350,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-238,0" end="-238,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
+				<animation effect="slide" start="-177,0" end="-177,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
 			</control>
-
 			<control type="image">
 				<description>IMDB rating</description>
 				<posx>411</posx>
@@ -396,7 +362,7 @@
 				<width>151</width>
 				<height>30</height>
 				<info>ListItem.StarRating</info>
-				<visible>Skin.HasSetting(inforatings)</visible>
+				<visible>Skin.HasSetting(inforatings) + !Skin.HasSetting(movieratingtext)</visible>
 				<colordiffuse>FF7c7c7c</colordiffuse>
 				<animation effect="slide" start="-58,0" end="-58,0" time="0" condition="Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
 				<animation effect="slide" start="-323,0" end="-323,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
@@ -413,12 +379,9 @@
 				<animation effect="slide" start="-238,0" end="-238,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93) + !Control.IsVisible(94)">Conditional</animation>
 				<animation effect="slide" start="-177,0" end="-177,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
 			</control>
-
 		</control>
-
 		<!-- TV info -->
 		<control type="group">
-
 			<posx>550</posx>
 			<posy>45</posy>
 			<width>695</width>
@@ -434,7 +397,6 @@
 				<visible>Container.Content(tvshows)</visible>
 				<animation effect="fade" start="70" end="70" time="0" condition="Skin.HasSetting(lite)">Conditional</animation>
 			</control>
-
 			<control type="label">
 				<description>Movie title</description>
 				<posx>0</posx>
@@ -444,7 +406,6 @@
 				<label>$INFO[ListItem.Title]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="label">
 				<description>Movie year</description>
 				<posx>0</posx>
@@ -452,7 +413,6 @@
 				<align>left</align>
 				<include>Objects_FSInfoYear</include>
 			</control>
-
 			<control type="label">
 				<description>Genre</description>
 				<posx>120</posx>
@@ -460,87 +420,74 @@
 				<width>370</width>
 				<include>Objects_FSInfoGenre</include>
 			</control>
-
 			<control type="label">
 				<description>Premiered:</description>
 				<posy>112</posy>
 				<label>31407</label>
 				<include>Objects_FSInfoLabel</include>
 			</control>
-
 			<control type="label">
 				<description>Written by:</description>
 				<posy>141</posy>
 				<label>31406</label>
 				<include>Objects_FSInfoLabel</include>
 			</control>
-
 			<control type="label">
 				<description>Starring:</description>
 				<posy>170</posy>
 				<label>31405</label>
 				<include>Objects_FSInfoLabel</include>
 			</control>
-
 			<control type="label">
 				<description>Director</description>
 				<posy>112</posy>
 				<label fallback="31425">$INFO[ListItem.Premiered]</label>
 				<include>Objects_FSInfoValue</include>
 			</control>
-
 			<control type="label">
 				<description>Writer</description>
 				<posy>141</posy>
 				<label fallback="31425">$INFO[ListItem.Episode]</label>
 				<include>Objects_FSInfoValue</include>
 			</control>
-
 			<control type="textbox">
 				<description>Cast</description>
 				<posx>120</posx>
 				<posy>173</posy>
 				<width>500</width>
-				<height>110</height>
+				<height>108</height>
 				<align>left</align>
 				<font>Font_FSInfoData</font>
 				<label fallback="31435">$INFO[ListItem.CastAndRole]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="grouplist" id="9000">
 				<include>Objects_FSInfoMenu</include>
 				<control type="button" id="8">
 					<label>31411</label>
 					<include>Objects_FSInfoButton</include>
 				</control>
-
 				<control type="button" id="6">
 					<label>31410</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
 				<control type="button" id="10">
 					<label>31418</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
 				<control type="button" id="12">
 					<label>31412</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
 				<control type="button" id="11">
 					<label>31409</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
 				</control>
-
 			</control>
-
 			<control type="textbox">
 				<description>Plot</description>
 				<posx>3</posx>
@@ -553,7 +500,6 @@
 				<label fallback="31414">$INFO[ListItem.Plot]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="label">
 				<description>IMDB:</description>
 				<posx>3</posx>
@@ -565,7 +511,6 @@
 				<label>31417</label>
 				<include>Colour_Grey</include>
 			</control>
-
 			<control type="label">
 				<description>IMDB rating</description>
 				<posx>76</posx>
@@ -578,7 +523,6 @@
 				<include>Colour_OffWhite</include>
 				<visible>Skin.HasSetting(movieratingtext)</visible>
 			</control>
-
 			<control type="image">
 				<description>IMDB rating</description>
 				<posx>76</posx>
@@ -588,12 +532,9 @@
 				<info>ListItem.StarRating</info>
 				<visible>!Skin.HasSetting(movieratingtext)</visible>
 			</control>
-
 		</control>
-
 		<!-- Episode info -->
 		<control type="group">
-
 			<posx>550</posx>
 			<posy>45</posy>
 			<width>695</width>
@@ -608,7 +549,6 @@
 				<texture>info/info_tv_panellines.png</texture>
 				<animation effect="fade" start="70" end="70" time="0" condition="Skin.HasSetting(lite)">Conditional</animation>
 			</control>
-
 			<control type="label">
 				<description>Movie title</description>
 				<posx>0</posx>
@@ -618,7 +558,6 @@
 				<label>$INFO[ListItem.Title]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="label">
 				<description>Movie year</description>
 				<posx>0</posx>
@@ -626,7 +565,6 @@
 				<align>left</align>
 				<include>Objects_FSInfoYear</include>
 			</control>
-
 			<control type="label">
 				<description>Genre</description>
 				<posx>120</posx>
@@ -639,74 +577,63 @@
 				<include>Colour_Grey</include>
 				<height>56</height>
 			</control>
-
 			<control type="label">
 				<description>Director:</description>
 				<posy>112</posy>
 				<label>31402</label>
 				<include>Objects_FSInfoLabel</include>
 			</control>
-
 			<control type="label">
 				<description>Writer:</description>
 				<posy>141</posy>
 				<label>31401</label>
 				<include>Objects_FSInfoLabel</include>
 			</control>
-
 			<control type="label">
 				<description>Starring:</description>
 				<posy>170</posy>
 				<label>31405</label>
 				<include>Objects_FSInfoLabel</include>
 			</control>
-
 			<control type="label">
 				<description>Director value</description>
 				<posy>112</posy>
 				<label fallback="31425">$INFO[ListItem.Director]</label>
 				<include>Objects_FSInfoValue</include>
 			</control>
-
 			<control type="label">
 				<description>Writer value</description>
 				<posy>141</posy>
 				<label fallback="31425">$INFO[ListItem.Writer]</label>
 				<include>Objects_FSInfoValue</include>
 			</control>
-
 			<control type="textbox">
 				<description>Cast</description>
 				<posx>120</posx>
 				<posy>173</posy>
 				<width>500</width>
-				<height>110</height>
+				<height>108</height>
 				<align>left</align>
 				<font>Font_FSInfoData</font>
 				<label fallback="31435">$INFO[ListItem.CastAndRole]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="grouplist" id="9000">
 				<include>Objects_FSInfoMenu</include>
 				<control type="button" id="8">
 					<label>31411</label>
 					<include>Objects_FSInfoButton</include>
 				</control>
-
 				<control type="button" id="6">
 					<label>31410</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
 				<control type="button" id="10">
 					<label>31418</label>
 					<include>Objects_FSInfoButton</include>
 				</control>
-
 			</control>
-
 			<control type="textbox">
 				<description>Plot</description>
 				<posx>3</posx>
@@ -719,7 +646,6 @@
 				<label fallback="31414">$INFO[ListItem.Plot]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-
 			<control type="label">
 				<description>IMDB:</description>
 				<posx>3</posx>
@@ -731,7 +657,6 @@
 				<label>31417</label>
 				<include>Colour_Grey</include>
 			</control>
-
 			<control type="label">
 				<description>IMDB rating</description>
 				<posx>76</posx>
@@ -744,7 +669,6 @@
 				<include>Colour_OffWhite</include>
 				<visible>Skin.HasSetting(movieratingtext)</visible>
 			</control>
-
 			<control type="image">
 				<description>IMDB rating</description>
 				<posx>76</posx>
@@ -754,9 +678,6 @@
 				<info>ListItem.StarRating</info>
 				<visible>!Skin.HasSetting(movieratingtext)</visible>
 			</control>
-
 		</control>
-
-		<!--<include>Background_ContextBlack</include>-->
-	</controls>
+		<!--<include>Background_ContextBlack</include>--></controls>
 </window>
