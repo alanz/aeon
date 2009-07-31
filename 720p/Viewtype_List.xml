@@ -212,15 +212,6 @@
 				<height>579</height>
 				<texture>list/listpanel_detailwide.png</texture>
 				<visible>[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) | [Window.IsActive(25) + Skin.HasSetting(videotv)]]</visible>
-
-
-
-
-
-
-
-
-
 				<visible>Control.IsVisible(50)</visible>
 			</control>
 			<control type="image">
@@ -230,19 +221,9 @@
 				<height>567</height>
 				<texture>list/listpanel_detailwide.png</texture>
 				<visible>Window.IsActive(2) | [Window.IsActive(25) + Skin.HasSetting(videotv)] | [Window.IsActive(25) + Skin.HasSetting(videomovies)] | [Window.IsActive(500) | Window.IsActive(501) | [Window.IsActive(502) + !Container.Content(artists) + !Container.Content(years) + !Container.Content(genres)]]</visible>
-
 				<visible>Control.IsVisible(50)</visible>
 			</control>
 			<control type="list" id="50">
-
-
-
-
-
-
-
-
-
 				<viewtype label="31752">list</viewtype>
 				<posx>60</posx>
 				<posy>105</posy>
@@ -250,13 +231,12 @@
 				<height>520</height>
 				<pagecontrol>61</pagecontrol>
 				<scrolltime>0</scrolltime>
-				<onleft>7000</onleft>
-				<onright>61</onright>
+				<onleft>61</onleft>
+				<onright>7000</onright>
 				<onup>50</onup>
 				<ondown>50</ondown>
 				<visible>![Window.IsActive(25) + Skin.HasSetting(videotv)] | [Window.IsActive(25) + Skin.HasSetting(videotv)]</visible>
 				<itemlayout condition="Window.IsActive(2) | Window.IsActive(24) | [Window.IsActive(25) + !Skin.HasSetting(videotv)] | [Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]" height="65">
-
 					<control type="image">
 						<posx>12</posx>
 						<posy>64</posy>
@@ -564,7 +544,6 @@
 						<height>1</height>
 						<width>739</width>
 						<texture>list/listpanel_line.png</texture>
-
 					</control>
 					<control type="label">
 						<include>ListLabel_TrackSmall</include>
@@ -594,7 +573,6 @@
 						<include>ListLabel_SubTV</include>
 						<include>subcolornofocus</include>
 						<label>$INFO[ListItem.Writer,$LOCALIZE[31401]: ,]</label>
-
 						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Writer)</visible>
 					</control>
 					<control type="label">
@@ -621,14 +599,12 @@
 						<include>ListLabel_DetailTV</include>
 						<include>detailcolornofocus</include>
 						<label>[UPPERCASE]$INFO[ListItem.Premiered][/UPPERCASE]</label>
-
 					</control>
 					<control type="label">
 						<include>ListLabel_DetailFull</include>
 						<include>detailcolornofocus</include>
 						<label>[UPPERCASE]$INFO[ListItem.Duration][/UPPERCASE]</label>
 						<visible>[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]</visible>
-
 					</control>
 					<control type="image">
 						<description>IMDB rating</description>
@@ -639,9 +615,6 @@
 						<info>ListItem.StarRating</info>
 						<colordiffuse>dcbdbdbd</colordiffuse>
 						<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(seasons)]</visible>
-
-
-
 					</control>
 					<control type="image">
 						<include>WatchedOverlay_TV</include>
@@ -650,7 +623,6 @@
 					</control>
 				</itemlayout>
 				<focusedlayout condition="[Window.IsActive(25) + Skin.HasSetting(videotv) + !Skin.HasSetting(tvlistmax)]" height="85">
-
 					<control type="image">
 						<posx>12</posx>
 						<posy>84</posy>
@@ -679,7 +651,6 @@
 						<include>listcolornofocus</include>
 						<info>ListItem.Title</info>
 						<include>Animation_ButtonFocusFade_fix</include>
-
 						<visible>!IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
@@ -687,7 +658,6 @@
 						<include>listcolornofocus</include>
 						<info>ListItem.Label</info>
 						<include>Animation_ButtonFocusFade_fix</include>
-
 						<visible>IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
@@ -695,7 +665,6 @@
 						<include>subcolornofocus</include>
 						<label>$INFO[ListItem.Episode] $LOCALIZE[31938]</label>
 						<include>Animation_ButtonFocusFade_fix</include>
-
 						<visible>!IsEmpty(ListItem.Episode) + !Container.Content(episodes)</visible>
 					</control>
 					<control type="label">
@@ -703,7 +672,6 @@
 						<include>subcolornofocus</include>
 						<label>$INFO[ListItem.Writer,$LOCALIZE[31401]: ,]</label>
 						<include>Animation_ButtonFocusFade_fix</include>
-
 						<visible>Container.Content(episodes) + !IsEmpty(ListItem.Writer)</visible>
 					</control>
 					<control type="label">
@@ -711,7 +679,6 @@
 						<include>subcolornofocus</include>
 						<label>$INFO[ListItem.Plot]</label>
 						<include>Animation_ButtonFocusFade_fix</include>
-
 						<visible>!IsEmpty(ListItem.Plot) + Container.Content(episodes)</visible>
 						<animation effect="slide" start="0,19" end="0,19" time="0" condition="true">Conditional</animation>
 					</control>
@@ -722,7 +689,6 @@
 						<include>Animation_ButtonFocusFade_fix</include>
 						<visible>!IsEmpty(ListItem.Genre) + Container.Content(tvshows)</visible>
 						<animation effect="slide" start="0,19" end="0,19" time="0" condition="true">Conditional</animation>
-
 					</control>
 					<control type="label">
 						<include>ListLabel_DetailFull</include>
@@ -736,7 +702,6 @@
 						<include>detailcolornofocus</include>
 						<include>Animation_ButtonFocusFade_fix</include>
 						<label>[UPPERCASE]$INFO[ListItem.Premiered][/UPPERCASE]</label>
-
 					</control>
 					<control type="label">
 						<include>ListLabel_DetailFull</include>
@@ -754,7 +719,6 @@
 						<info>ListItem.StarRating</info>
 						<include>Animation_ButtonFocusFade_fix</include>
 						<colordiffuse>dcbdbdbd</colordiffuse>
-
 						<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(seasons)]</visible>
 					</control>
 					<control type="label">
@@ -769,7 +733,6 @@
 						<include>listcolorfocus</include>
 						<info>ListItem.Title</info>
 						<include>Animation_ButtonFocusFade</include>
-
 						<visible>!IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
@@ -919,7 +882,6 @@
 						<width>743</width>
 						<height>75</height>
 						<texture>list/listpanel_selectbar.png</texture>
-
 						<include>Animation_ButtonFocusFade</include>
 						<visible>Control.IsVisible(50) | Window.IsActive(106) | Window.IsActive(129) | Window.IsActive(126) | Window.IsActive(601) | Window.IsActive(602) | Window.IsActive(111) | Window.IsActive(2003)</visible>
 					</control>
@@ -974,7 +936,6 @@
 						<include>Animation_ButtonFocusFade_fix</include>
 						<colordiffuse>dcbdbdbd</colordiffuse>
 						<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(seasons)]</visible>
-
 					</control>
 					<control type="label">
 						<include>ListLabel_TrackSmall</include>
@@ -989,8 +950,6 @@
 						<info>ListItem.Title</info>
 						<include>Animation_ButtonFocusFade</include>
 						<visible>!IsEmpty(ListItem.Title)</visible>
-
-
 					</control>
 					<control type="label">
 						<include>ListLabel_Main</include>
@@ -1004,7 +963,6 @@
 						<include>subcolorfocus</include>
 						<label>$INFO[ListItem.Episode,, $LOCALIZE[31938]]</label>
 						<include>Animation_ButtonFocusFade</include>
-
 						<visible>!IsEmpty(ListItem.Episode) + !Container.Content(episodes)</visible>
 					</control>
 					<control type="label">
@@ -1012,7 +970,6 @@
 						<include>subcolorfocus</include>
 						<label>$INFO[ListItem.Plot]</label>
 						<include>Animation_ButtonFocusFade</include>
-
 						<visible>!IsEmpty(ListItem.Plot) + Container.Content(episodes)</visible>
 					</control>
 					<control type="label">
@@ -1020,7 +977,6 @@
 						<include>detailcolorfocus</include>
 						<include>Animation_ButtonFocusFade</include>
 						<label>[UPPERCASE]$INFO[ListItem.Premiered][/UPPERCASE]</label>
-
 					</control>
 					<control type="image">
 						<description>IMDB rating</description>
@@ -1032,8 +988,6 @@
 						<include>Animation_ButtonFocusFade</include>
 						<colordiffuse>FF585858</colordiffuse>
 						<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(seasons)]</visible>
-
-
 					</control>
 					<control type="image">
 						<include>WatchedOverlay_Movies</include>
@@ -1131,18 +1085,6 @@
 				<animation effect="fade" start="0" end="100" time="000">VisibleChange</animation>
 				<visible>Control.IsVisible(102) + Container.Content(tvshows)</visible>
 			</control>
-
-
-
-
-
-
-
-
-
-
-
-
 			<control type="largeimage">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconDimensionsDVDCover</include>
@@ -1206,7 +1148,6 @@
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconMaskCDIcon</include>
 				<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
 			</control>
-
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormalReflect</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCoverReflect</include>
@@ -1215,12 +1156,7 @@
 				<texture flipy="true" diffuse="list/list_musicicon_flipmask.png">$INFO[ListItem.Icon]</texture>
 				<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
 			</control>
-
 			<control type="image">
-
-
-
-
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCase</include>
 				<fadetime>400</fadetime>
@@ -1240,25 +1176,24 @@
 		</control>
 		<control type="scrollbar" id="61">
 			<description>My first scroll bar control</description>
-			<posx>778</posx>
+			<posx>0</posx>
 			<posy>108</posy>
-			<width>45</width>
+			<width>65</width>
 			<height>545</height>
-			<visible>Control.IsVisible(50)</visible>
-			<texturesliderbackground>-</texturesliderbackground>
+			<visible allowhiddenfocus="true">Control.IsVisible(50) + Control.HasFocus(61)</visible>
+			<texturesliderbackground>windows/scrollbarbacklist.png</texturesliderbackground>
 			<texturesliderbar>-</texturesliderbar>
 			<texturesliderbarfocus>-</texturesliderbarfocus>
-			<textureslidernib>-</textureslidernib>
-			<textureslidernibfocus>list/list_scrollclip.png</textureslidernibfocus>
+			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
 			<pulseonselect/>
 			<orientation>vertical</orientation>
-			<showonepage>true</showonepage>
+			<showonepage>false</showonepage>
 			<onup>61</onup>
 			<ondown>61</ondown>
-			<onleft>50</onleft>
-			<onright>2</onright>
+			<onleft>7000</onleft>
+			<onright>50</onright>
 			<include>Animation_CommonFade</include>
-			<animation effect="fade" start="0" end="100" time="200">Focus</animation>
 		</control>
 		<control type="label" id="217">
 			<posx>0</posx>

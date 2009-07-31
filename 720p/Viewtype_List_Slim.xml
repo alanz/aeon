@@ -150,8 +150,8 @@
 				<height>520</height>
 				<pagecontrol>61</pagecontrol>
 				<scrolltime>0</scrolltime>
-				<onleft>7000</onleft>
-				<onright>61</onright>
+				<onleft>61</onleft>
+				<onright>7000</onright>
 				<onup>550</onup>
 				<ondown>550</ondown>
 				<visible>![Window.IsActive(25) + Skin.HasSetting(videotv)] | [Window.IsActive(25) + Skin.HasSetting(videotv)]</visible>
@@ -597,25 +597,24 @@
 		</control>
 		<control type="scrollbar" id="61">
 			<description>My first scroll bar control</description>
-			<posx>778</posx>
+			<posx>0</posx>
 			<posy>108</posy>
-			<width>45</width>
+			<width>65</width>
 			<height>545</height>
-			<visible>Control.IsVisible(550)</visible>
-			<texturesliderbackground>-</texturesliderbackground>
+			<visible allowhiddenfocus="true">Control.IsVisible(550) + Control.HasFocus(61)</visible>
+			<texturesliderbackground>windows/scrollbarbacklist.png</texturesliderbackground>
 			<texturesliderbar>-</texturesliderbar>
 			<texturesliderbarfocus>-</texturesliderbarfocus>
-			<textureslidernib>-</textureslidernib>
-			<textureslidernibfocus>list/list_scrollclip.png</textureslidernibfocus>
+			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
 			<pulseonselect/>
 			<orientation>vertical</orientation>
-			<showonepage>true</showonepage>
+			<showonepage>false</showonepage>
 			<onup>61</onup>
 			<ondown>61</ondown>
-			<onleft>550</onleft>
-			<onright>2</onright>
+			<onleft>7000</onleft>
+			<onright>50</onright>
 			<include>Animation_CommonFade</include>
-			<animation effect="fade" start="0" end="100" time="200">Focus</animation>
 		</control>
 		<control type="label" id="217">
 			<posx>0</posx>
