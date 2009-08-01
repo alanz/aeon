@@ -1985,8 +1985,14 @@
 
 			<control type="label">
 				<label>[UPPERCASE]$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title][/UPPERCASE]</label>
+				<include>ShowcaseMainLabel</include>
+				<visible>Container.Content(episodes) + !Skin.HasSetting(nomediaflags) + !Window.IsActive(24)</visible>
+			</control>
+						
+			<control type="label">
+				<label>[UPPERCASE]$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title][/UPPERCASE]</label>
 				<include>ShowcaseMainLabelWide</include>
-				<visible>Container.Content(episodes)</visible>
+				<visible>Container.Content(episodes) + Skin.HasSetting(nomediaflags) + !Window.IsActive(24)</visible>
 			</control>
 
 			<control type="label">
