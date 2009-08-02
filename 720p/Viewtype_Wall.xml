@@ -425,6 +425,97 @@
 	<include name="Viewtype_Wall">
 		<include condition="Window.IsActive(20) | Window.IsActive(2) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">MusicWall</include>
 		<include condition="Window.IsActive(28) | Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)">MovieWall</include>
+		<control type="image">
+			<posx>57</posx>
+			<posy>98</posy>
+			<width>20</width>
+			<height>524</height>
+			<texture>wall/wall_arrow.png</texture>
+			<visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
+			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="Container(53).Column(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
+		<control type="image">
+			<posx>1203</posx>
+			<posy>98</posy>
+			<width>20</width>
+			<height>524</height>
+			<texture flipx="true">wall/wall_arrow.png</texture>
+			<visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
+			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="[[Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)] + Container(53).Column(7)] | [[Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)] + Container(53).Column(8)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="-18" end="-18" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
+		<!--Music Wall-->
+		<control type="image">
+			<posx>88</posx>
+			<posy>70</posy>
+			<width>1100</width>
+			<height>20</height>
+			<texture>wall/wall_arrow_vertical.png</texture>
+			<visible>Control.IsVisible(53) + [Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)] + Skin.HasSetting(VerticalWall)</visible>
+			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
+		<control type="image">
+			<posx>88</posx>
+			<posy>630</posy>
+			<width>1100</width>
+			<height>20</height>
+			<texture flipy="true">wall/wall_arrow_vertical.png</texture>
+			<visible>Control.IsVisible(53) + [Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)] + Skin.HasSetting(VerticalWall)</visible>
+			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)] + [[Container(53).Row(3) + !Skin.HasSetting(smallmusicwall)] | [Container(53).Row(4) + Skin.HasSetting(smallmusicwall)]]] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
+		<!--Movie Wall - Grid: Default-->
+		<control type="image">
+			<posx>-10</posx>
+			<posy>70</posy>
+			<width>1300</width>
+			<height>20</height>
+			<texture>wall/wall_arrow_vertical.png</texture>
+			<visible>Control.IsVisible(53) + Window.IsActive(25) + Skin.HasSetting(VerticalWall) + !Skin.HasSetting(smallmoviewall)</visible>
+			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
+		<control type="image">
+			<posx>-10</posx>
+			<posy>630</posy>
+			<width>1300</width>
+			<height>20</height>
+			<texture flipy="true">wall/wall_arrow_vertical.png</texture>
+			<visible>Control.IsVisible(53) + Window.IsActive(25) + Skin.HasSetting(VerticalWall) + !Skin.HasSetting(smallmoviewall)</visible>
+			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)] + Container(53).Row(2)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
+		<!--Movie Wall - Grid: Max-->
+		<control type="image">
+			<posx>-10</posx>
+			<posy>51</posy>
+			<width>1300</width>
+			<height>20</height>
+			<texture>wall/wall_arrow_vertical.png</texture>
+			<visible>Control.IsVisible(53) + Window.IsActive(25) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(smallmoviewall)</visible>
+			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
+		<control type="image">
+			<posx>-10</posx>
+			<posy>645</posy>
+			<width>1300</width>
+			<height>20</height>
+			<texture flipy="true">wall/wall_arrow_vertical.png</texture>
+			<visible>Control.IsVisible(53) + Window.IsActive(25) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(smallmoviewall)</visible>
+			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)] + Container(53).Row(3)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
+		</control>
 		<!--FLOOR TITLE/DURATION-->
 		<control type="group">
 			<visible>Control.IsVisible(53) + Skin.HasSetting(newwall)</visible>
@@ -507,7 +598,7 @@
 			<include condition="Window.IsActive(502)">EmptyLibraryLabelMusic</include>
 			<include>Animation_CommonFade</include>
 			<visible>[Window.IsActive(25) | Window.IsActive(502)] + Control.IsVisible(53) + stringcompare(container(53).numitems,0)</visible>
-		</control>		
+		</control>
 		<control type="group">
 			<posx>115</posx>
 			<posy>655</posy>
