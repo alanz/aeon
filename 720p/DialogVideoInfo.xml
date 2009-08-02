@@ -116,7 +116,7 @@
 			<posy>0</posy>
 			<width>486</width>
 			<height>720</height>
-			<texture>$INFO[listitem.path]-big.png</texture>
+			<texture>$INFO[listitem.path]poster.jpg</texture>
 			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<visible>!Skin.HasSetting(videotv)</visible>
@@ -173,12 +173,12 @@
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_u.png</texture>
-				<visible>substring(listitem.mpaa,UK:u)</visible>
+				<visible>substring(listitem.mpaa,UK:U)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_pg.png</texture>
-				<visible>substring(listitem.mpaa,UK:pg)</visible>
+				<visible>substring(listitem.mpaa,UK:PG)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
@@ -199,6 +199,56 @@
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/bbfc_18.png</texture>
 				<visible>substring(listitem.mpaa,UK:X)</visible>
+			</control>
+			<control type="image" id="171">
+				<include>Objects_FSDEInfoCertificate</include>
+				<texture>flags/FSK-0_info.png</texture>
+				<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
+			</control>
+			<control type="image" id="171">
+				<include>Objects_FSDEInfoCertificate</include>
+				<texture>flags/FSK-6_info.png</texture>
+				<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
+			</control>
+			<control type="image" id="171">
+				<include>Objects_FSDEInfoCertificate</include>
+				<texture>flags/FSK-12_info.png</texture>
+				<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
+			</control>
+			<control type="image" id="171">
+				<include>Objects_FSDEInfoCertificate</include>
+				<texture>flags/FSK-16_info.png</texture>
+				<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
+			</control>
+			<control type="image" id="171">
+				<include>Objects_FSDEInfoCertificate</include>
+				<texture>flags/FSK-18_info.png</texture>
+				<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
+			</control>
+			<control type="image" id="170">
+				<include>Objects_FSInfoCertificate</include>
+				<texture>flags/australia_r.png</texture>
+				<visible>substring(listitem.mpaa,Australia:R)</visible>
+			</control>
+			<control type="image" id="170">
+				<include>Objects_FSInfoCertificate</include>
+				<texture>flags/australia_m.png</texture>
+				<visible>substring(listitem.mpaa,Australia:M) + ! substring(listitem.mpaa,Australia:MA)</visible>
+			</control>
+			<control type="image" id="170">
+				<include>Objects_FSInfoCertificate</include>
+				<texture>flags/australia_ma.png</texture>
+				<visible>substring(listitem.mpaa,Australia:MA)</visible>
+			</control>
+			<control type="image" id="170">
+				<include>Objects_FSInfoCertificate</include>
+				<texture>flags/australia_pg.png</texture>
+				<visible>substring(listitem.mpaa,Australia:PG)</visible>
+			</control>
+			<control type="image" id="170">
+				<include>Objects_FSInfoCertificate</include>
+				<texture>flags/australia_g.png</texture>
+				<visible>substring(listitem.mpaa,Australia:G)</visible>
 			</control>
 			<control type="label">
 				<description>Movie title</description>
