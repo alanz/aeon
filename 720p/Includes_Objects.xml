@@ -867,6 +867,38 @@
 			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(53) + Skin.HasSetting(wallinfooff)</visible>
 		</control>
 	</include>
+	<include name="Objects_ClearListButtons">
+		<control type="togglebutton" id="1090">
+			<include>Objects_MediaMenuButton</include>
+			<label>$LOCALIZE[310793]</label>
+			<altlabel>$LOCALIZE[310794]</altlabel>
+			<usealttexture>Skin.HasSetting(clearlistthin)</usealttexture>
+			<onclick>Skin.SetBool(clearlistthin)</onclick>
+			<altclick>Skin.Reset(clearlistthin)</altclick>
+			<visible>Control.IsVisible(54)</visible>
+		</control>
+		<control type="togglebutton" id="1091">
+			<include>Objects_MediaMenuButton</include>
+			<label>$LOCALIZE[310795]</label>
+			<altlabel>$LOCALIZE[310796]</altlabel>
+			<usealttexture>Skin.HasSetting(clearlistinfothin)</usealttexture>
+			<onclick>Skin.SetBool(clearlistinfothin)</onclick>
+			<altclick>Skin.Reset(clearlistinfothin)</altclick>
+			<visible>Control.IsVisible(54)</visible>
+		</control>
+		<control type="togglebutton" id="1092">
+			<include>Objects_MediaMenuButton</include>
+			<label>$LOCALIZE[310797]</label>
+			<altlabel>$LOCALIZE[310798]</altlabel>
+			<usealttexture>Skin.HasSetting(darkclearlist)</usealttexture>
+			<onclick>Skin.SetBool(darkclearlist)</onclick>
+			<altclick>Skin.Reset(darkclearlist)</altclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<altclick>XBMC.ReloadSkin</altclick>
+			<visible>Control.IsVisible(54)</visible>
+		</control>
+	</include>
+			
 	<include name="Objects_ViewtypeClick">
 		<onclick>SetFocus(69)</onclick>
 	</include>
@@ -1036,7 +1068,7 @@
 			<height>57</height>
 			<texture>showcase/showcase_menupanel.png</texture>
 			<include>Animation_MediaMenuSlide</include>
-			<visible>Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(51) | Control.IsVisible(57) | Control.IsVisible(53)</visible>
+			<visible>Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(51) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(54)</visible>
 		</control>
 	</include>
 	<!-- Context menus -->
