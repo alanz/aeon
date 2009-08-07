@@ -29,7 +29,8 @@
 			<imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath>
 		</control>
 		<include>Furniture_HomeNowPlaying</include>
-		<include>Objects_WeatherPopup</include>
+		<include condition="!StringCompare(Weather.Plugin,weather.com plus)">Objects_WeatherPopup</include>
+		<include condition="StringCompare(Weather.Plugin,weather.com plus)">Widget_Weather</include>
 		<include>Furniture_Time</include>
 		<include>latest_added</include>
 		<include>Furniture_HomeRSS</include>
