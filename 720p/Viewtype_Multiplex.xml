@@ -1626,6 +1626,48 @@
 				</control>
 				<include condition="!Skin.HasSetting(dvdcase)">MultiplexTVCaseNormalFocus</include>
 				<include condition="Skin.HasSetting(dvdcase)">MultiplexTVCaseDVDFocus</include>
+				<control type="image">
+					<posx>14</posx>
+					<posy>92</posy>
+					<width>185</width>
+					<height>60</height>
+					<texture>multiplex/multiplex_labelblock_focus.png</texture>
+					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+					<include>Animation_MultiplexTVFocusZoom</include>
+				</control>
+				<control type="label">
+					<posx>107</posx>
+					<posy>98</posy>
+					<width>185</width>
+					<height>60</height>
+					<align>center</align>
+					<label>[UPPERCASE]$LOCALIZE[31063] $INFO[ListItem.Season].$INFO[ListItem.Episode][/UPPERCASE]</label>
+					<font>Font_MultiplexInfoLabel</font>
+					<visible>Container.Content(episodes)</visible>
+					<include>Animation_MultiplexTVFocusZoom</include>
+				</control>
+				<control type="label">
+					<posx>107</posx>
+					<posy>98</posy>
+					<width>185</width>
+					<height>60</height>
+					<align>center</align>
+					<label>[UPPERCASE]$LOCALIZE[31062] $INFO[ListItem.Season][/UPPERCASE]</label>
+					<font>Font_MultiplexInfoLabel</font>
+					<visible>Container.Content(seasons) + !IsEmpty(ListItem.Season)</visible>
+					<include>Animation_MultiplexTVFocusZoom</include>
+				</control>
+				<control type="label">
+					<posx>107</posx>
+					<posy>98</posy>
+					<width>185</width>
+					<height>60</height>
+					<align>center</align>
+					<label>[UPPERCASE]$LOCALIZE[310621][/UPPERCASE]</label>
+					<font>Font_MultiplexInfoLabel</font>
+					<visible>Container.Content(seasons) + IsEmpty(ListItem.Season)</visible>
+					<include>Animation_MultiplexTVFocusZoom</include>
+				</control>
 			</focusedlayout>
 		</control>
 		<control type="scrollbar" id="60">
