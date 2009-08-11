@@ -1,4 +1,134 @@
-<includes>
+<includes>	
+	<!-- Library Totals -->
+	<include name="Library_Totals">	
+		<control type="label" id="71">
+			<posx>20</posx>
+			<posy>3</posy>
+			<width>400</width>
+			<font>Font_Time</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<label>MOVIES: $INFO[Window.Property(Movies.Count)]   |   WATCHED: $INFO[Window.Property(Movies.Watched)]   |   UNWATCHED: $INFO[Window.Property(Movies.UnWatched)]</label>
+			<visible>Container(300).HasFocus(6)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>20</posx>
+			<posy>-4</posy>
+			<width>600</width>
+			<font>Font_BigTime</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<label>MOVIES: $INFO[Window.Property(Movies.Count)]   |   WATCHED: $INFO[Window.Property(Movies.Watched)]   |   UNWATCHED: $INFO[Window.Property(Movies.UnWatched)]</label>
+			<visible>Container(300).HasFocus(6)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>20</posx>
+			<posy>3</posy>
+			<width>400</width>
+			<font>Font_Time</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<label>TV SHOWS: $INFO[Window.Property(TVShows.Count)]   |   EPISODES: $INFO[Window.Property(Episodes.Count)]   |   UNWATCHED: $INFO[Window.Property(Episodes.UnWatched)]</label>
+			<visible>Container(300).HasFocus(7)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>20</posx>
+			<posy>-4</posy>
+			<width>600</width>
+			<font>Font_BigTime</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<label>TV SHOWS: $INFO[Window.Property(TVShows.Count)]   |   EPISODES: $INFO[Window.Property(Episodes.Count)]   |   UNWATCHED: $INFO[Window.Property(Episodes.UnWatched)]</label>
+			<visible>Container(300).HasFocus(7)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>20</posx>
+			<posy>3</posy>
+			<width>400</width>
+			<font>Font_Time</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<label>ALBUMS: $INFO[Window.Property(Music.AlbumsCount)]   |   SONGS: $INFO[Window.Property(Music.SongsCount)]   |   ARTISTS: $INFO[Window.Property(Music.ArtistsCount)]</label>
+			<visible>Container(300).HasFocus(1)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>20</posx>
+			<posy>-4</posy>
+			<width>600</width>
+			<font>Font_BigTime</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<label>ALBUMS: $INFO[Window.Property(Music.AlbumsCount)]   |   SONGS: $INFO[Window.Property(Music.SongsCount)]   |   ARTISTS: $INFO[Window.Property(Music.ArtistsCount)]</label>
+			<visible>Container(300).HasFocus(1)</visible>
+		</control>
+	</include>
+	<include name="Furniture_LibraryGroupVars">
+		<posx>0</posx>
+		<posy>316</posy>
+		<width>451</width>
+		<height>27</height>
+	</include>
+	<include name="Furniture_LibraryGroupHighVars">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>451</width>
+		<height>27</height>
+	</include>
+	<include name="Furniture_LibraryGroupWindowVars">
+		<posx>0</posx>
+		<posy>45</posy>
+		<width>451</width>
+		<height>27</height>
+	</include>
+	<include name="Furniture_LibraryPanel">
+		<control type="image">
+			<posx>-10</posx>
+			<posy>0</posy>
+			<width>451</width>
+			<height>27</height>
+			<texture>common/librarypanel_mid.png</texture>
+			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+				<effect type="slide" start="-20,-7" end="-20,-7" time="0" />
+				<effect type="zoom" start="125" end="125" time="0" />
+			</animation>
+		</control>
+		<include>Library_Totals</include>
+	</include>
+	<include name="Furniture_LibraryPanelHigh">
+		<control type="image">
+			<posx>-10</posx>
+			<posy>0</posy>
+			<width>451</width>
+			<height>27</height>
+			<texture>common/librarypanel_mid.png</texture>
+			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+				<effect type="slide" start="-20,-7" end="-20,-7" time="0" />
+				<effect type="zoom" start="125" end="125" time="0" />
+			</animation>
+		</control>
+		<include>Library_Totals</include>
+	</include>
+	<include name="Furniture_Library">
+		<control type="group">
+			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+			<animation effect="slide" start="-600,0" end="0,0" time="600" tween="cubic" easing="inout" condition="true">visible</animation>
+			<animation effect="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="inout" condition="true">hidden</animation>
+			<include>Animation_CommonFade</include>
+			<include>Furniture_LibraryGroupVars</include>
+			<visible>!Skin.HasSetting(highertime) + Window.IsActive(Home)</visible>
+			<animation effect="slide" start="0,0" end="0,225" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<include>Furniture_LibraryPanel</include>
+		</control>
+		<control type="group">
+			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+			<animation effect="slide" start="-600,0" end="0,0" time="600" tween="cubic" easing="inout" condition="true">visible</animation>
+			<animation effect="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="inout" condition="true">hidden</animation>
+			<include>Animation_CommonFade</include>
+			<include>Furniture_LibraryGroupHighVars</include>
+			<visible>Skin.HasSetting(highertime) + Window.IsActive(Home)</visible>
+			<include>Furniture_LibraryPanelHigh</include>
+		</control>
+	</include>
 	<!-- Time -->
 	<include name="Furniture_TimeGroupVars">
 		<posx>900</posx>
