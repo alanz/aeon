@@ -1,4 +1,10 @@
 <includes>
+	<include name="movemenu">
+		<onclick>Skin.ToggleSetting(lowermainmenu)</onclick>
+	</include>
+	<include name="movewidgets">
+		<onclick>Skin.ToggleSetting(lowerwidgets)</onclick>
+	</include>
 	<include name="buttonVars">
 		<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 		<posy>0</posy>
@@ -28,6 +34,7 @@
 
 	<include name="groupVars">
 		<animation effect="slide" start="0,-20" end="0,-20" time="0" condition="!Skin.HasSetting(highertime)">Conditional</animation>
+		<animation effect="slide" start="0,20" end="0,20" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(highertime)">Conditional</animation>
 		<animation effect="zoom" start="100" end="84" time="200" center="640,80" condition="Player.HasAudio + Skin.HasSetting(lowermainmenu)">Conditional</animation>
 		<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 		<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
@@ -107,7 +114,11 @@
 			<onleft>510</onleft>
 			<onright>510</onright>
 			<animation effect="slide" start="0,-20" end="0,-20" time="0" condition="!Skin.HasSetting(highertime)">Conditional</animation>
-			<animation effect="zoom" start="100" end="84" time="200" center="640,80" condition="Player.HasAudio + Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" start="0,20" end="0,20" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(highertime)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(940).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,402" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,368" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="zoom" start="100" end="94" time="200" center="640,80" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			<control type="button" id="1">
@@ -158,6 +169,10 @@
 
 			<visible>Container(300).HasFocus(6) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestMovie.1.Title))</visible>
 			<animation effect="fade" start="0" end="100" delay="1000" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(940).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,402" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,368" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="zoom" start="100" end="94" time="200" center="640,80" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>46</posx>
 			<control type="label">
@@ -187,6 +202,10 @@
 
 			<visible>Container(300).HasFocus(6) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestMovie.2.Title))</visible>
 			<animation effect="fade" start="0" end="100" delay="1100" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(940).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,402" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,368" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="zoom" start="100" end="94" time="200" center="640,80" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>245</posx>
 			<control type="label">
@@ -216,6 +235,10 @@
 
 			<visible>Container(300).HasFocus(6) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestMovie.2.Title))</visible>
 			<animation effect="fade" start="0" end="100" delay="1200" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(940).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,402" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,368" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="zoom" start="100" end="94" time="200" center="640,80" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>444</posx>
 			<control type="label">
@@ -245,6 +268,10 @@
 
 			<visible>Container(300).HasFocus(6) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestMovie.2.Title))</visible>
 			<animation effect="fade" start="0" end="100" delay="1300" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(940).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,402" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,368" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="zoom" start="100" end="94" time="200" center="640,80" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>643</posx>
 			<control type="label">
@@ -274,6 +301,10 @@
 
 			<visible>Container(300).HasFocus(6) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestMovie.2.Title))</visible>
 			<animation effect="fade" start="0" end="100" delay="1400" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(940).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,402" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,368" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="zoom" start="100" end="94" time="200" center="640,80" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>842</posx>
 			<control type="label">
@@ -303,6 +334,10 @@
 
 			<visible>Container(300).HasFocus(6) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestMovie.2.Title))</visible>
 			<animation effect="fade" start="0" end="100" delay="1500" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(940).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,402" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,368" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="zoom" start="100" end="94" time="200" center="640,80" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>1041</posx>
 			<control type="label">
@@ -338,7 +373,8 @@
 			<onleft>510</onleft>
 			<onright>510</onright>
 			<animation effect="slide" start="0,-20" end="0,-20" time="0" condition="!Skin.HasSetting(highertime)">Conditional</animation>
-			<animation effect="zoom" start="100" end="84" time="200" center="640,80" condition="Player.HasAudio + Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" start="0,20" end="0,20" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(highertime)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,432" time="0" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			<control type="button" id="1">
@@ -389,6 +425,7 @@
 
 			<visible>Container(300).HasFocus(7) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestEpisode.1.ShowTitle))</visible>
 			<animation effect="fade" start="0" end="100" delay="1000" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,432" time="0" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>46</posx>
 			<control type="label">
@@ -417,6 +454,7 @@
 
 			<visible>Container(300).HasFocus(7) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestEpisode.2.ShowTitle))</visible>
 			<animation effect="fade" start="0" end="100" delay="1100" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,432" time="0" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>245</posx>
 			<control type="label">
@@ -445,6 +483,7 @@
 
 			<visible>Container(300).HasFocus(7) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestEpisode.2.ShowTitle))</visible>
 			<animation effect="fade" start="0" end="100" delay="1200" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,432" time="0" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>444</posx>
 			<control type="label">
@@ -473,6 +512,7 @@
 
 			<visible>Container(300).HasFocus(7) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestEpisode.2.ShowTitle))</visible>
 			<animation effect="fade" start="0" end="100" delay="1300" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,432" time="0" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>643</posx>
 			<control type="label">
@@ -501,6 +541,7 @@
 
 			<visible>Container(300).HasFocus(7) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestEpisode.2.ShowTitle))</visible>
 			<animation effect="fade" start="0" end="100" delay="1400" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,432" time="0" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>842</posx>
 			<control type="label">
@@ -529,6 +570,7 @@
 
 			<visible>Container(300).HasFocus(7) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestEpisode.2.ShowTitle))</visible>
 			<animation effect="fade" start="0" end="100" delay="1500" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,432" time="0" condition="Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>1041</posx>
 			<control type="label">
@@ -563,7 +605,10 @@
 			<onleft>510</onleft>
 			<onright>510</onright>
 			<animation effect="slide" start="0,-20" end="0,-20" time="0" condition="!Skin.HasSetting(highertime)">Conditional</animation>
-			<animation effect="zoom" start="100" end="84" time="200" center="640,80" condition="Player.HasAudio + Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" start="0,20" end="0,20" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(highertime)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(941).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,410" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,376" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			<control type="button" id="1">
@@ -614,6 +659,9 @@
 
 			<visible>Container(300).HasFocus(1) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestSong.1.Artist))</visible>
 			<animation effect="fade" start="0" end="100" delay="1000" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(941).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,410" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,376" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>46</posx>
 			<control type="label">
@@ -642,6 +690,9 @@
 
 			<visible>Container(300).HasFocus(1) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestSong.2.Artist))</visible>
 			<animation effect="fade" start="0" end="100" delay="1100" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(941).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,410" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,376" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>245</posx>
 			<control type="label">
@@ -670,6 +721,9 @@
 
 			<visible>Container(300).HasFocus(1) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestSong.2.Artist))</visible>
 			<animation effect="fade" start="0" end="100" delay="1200" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(941).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,410" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,376" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>444</posx>
 			<control type="label">
@@ -698,6 +752,9 @@
 
 			<visible>Container(300).HasFocus(1) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestSong.2.Artist))</visible>
 			<animation effect="fade" start="0" end="100" delay="1300" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(941).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,410" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,376" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>643</posx>
 			<control type="label">
@@ -726,6 +783,9 @@
 
 			<visible>Container(300).HasFocus(1) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestSong.2.Artist))</visible>
 			<animation effect="fade" start="0" end="100" delay="1400" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(941).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,410" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,376" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>842</posx>
 			<control type="label">
@@ -754,6 +814,9 @@
 
 			<visible>Container(300).HasFocus(1) + !Skin.HasSetting(noweatherpopup) + Skin.HasSetting(homelatest) + !IsEmpty(Window.Property(LatestSong.2.Artist))</visible>
 			<animation effect="fade" start="0" end="100" delay="1500" time="400">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,34" time="200" condition="Skin.HasSetting(lowerrss) + Skin.HasSetting(lowerwidgets) + ControlGroup(941).HasFocus()">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,410" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowerrss)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,376" time="0" condition="Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
 			<include>groupVars</include>
 			<posx>1041</posx>
 			<control type="label">
