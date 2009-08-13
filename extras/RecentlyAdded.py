@@ -82,7 +82,6 @@ class Main:
         # only need to make Totals not empty
         self.WINDOW.setProperty( "Database.Totals", "true" )
         # sql statement for movie totals
-        sql_totals = "select count(1), count(playCount) from movieview"
         sql_totals = "select count(1), count(playCount), * from movieview group by lastPlayed"
         totals_xml = xbmc.executehttpapi( "QueryVideoDatabase(%s)" % quote_plus( sql_totals ), )
         records = re.findall( "<record>(.+?)</record>", totals_xml, re.DOTALL )
@@ -93,12 +92,12 @@ class Main:
             fields = re.findall( "<field>(.*?)</field>", record, re.DOTALL )
             movies_totals[ 0 ] += int( fields[ 0 ] )
             movies_totals[ 1 ] += int( fields[ 1 ] )
-            movies_totals[ 2 ] = fields[ 3 ] # title
-            movies_totals[ 3 ] = fields[ 10 ] # year
-            movies_totals[ 4 ] = fields[ 14 ] # runningtime
-            movies_totals[ 5 ] = fields[ 17 ] # genre
-            movies_totals[ 6 ] = "" # last watched
             if ( fields[ 28 ] ):
+                movies_totals[ 2 ] = fields[ 3 ] # title
+                movies_totals[ 3 ] = fields[ 10 ] # year
+                movies_totals[ 4 ] = fields[ 14 ] # runningtime
+                movies_totals[ 5 ] = fields[ 17 ] # genre
+                movies_totals[ 6 ] = "" # last watched
                 date = fields[ 28 ].split( " " )[ 0 ].split( "-" )
                 movies_totals[ 6 ] = datetime.date( int( date[ 0 ] ), int( date[ 1 ] ), int( date[ 2 ] ) ).strftime( date_format ) # last played
         # sql statement for music videos totals
@@ -109,32 +108,37 @@ class Main:
         sql_totals = "select count(1), sum(totalCount), sum(watched), sum(watchedCount) from tvshowview"
         totals_xml = xbmc.executehttpapi( "QueryVideoDatabase(%s)" % quote_plus( sql_totals ), )
         tvshows_totals = re.findall( "<field>(.+?)</field>", totals_xml, re.DOTALL )
+        # if no tvshows we reset values
+        if ( tvshows_totals[ 0 ] == "0" ):
+            tvshows_totals = ( 0, 0, 0, 0, )
         # sql statement for tv albums/songs totals
         sql_totals = "select count(1), count(distinct strAlbum), count(distinct strArtist) from songview"
         totals_xml = xbmc.executehttpapi( "QueryMusicDatabase(%s)" % quote_plus( sql_totals ), )
         music_totals = re.findall( "<field>(.+?)</field>", totals_xml, re.DOTALL )
         # set properties
-        self.WINDOW.setProperty( "Movies.Count" , str( movies_totals[ 0 ] ) )
-        self.WINDOW.setProperty( "Movies.Watched" , str( movies_totals[ 1 ] ) )
-        self.WINDOW.setProperty( "Movies.UnWatched" , str( movies_totals[ 0 ] - movies_totals[ 1 ] ) )
-        self.WINDOW.setProperty( "Movies.LastWatchedTitle" , movies_totals[ 2 ] )
-        self.WINDOW.setProperty( "Movies.LastWatchedYear" , movies_totals[ 3 ] )
-        self.WINDOW.setProperty( "Movies.LastWatchedRuntime" , movies_totals[ 4 ] )
-        self.WINDOW.setProperty( "Movies.LastWatchedGenre" , movies_totals[ 5 ] )
-        self.WINDOW.setProperty( "Movies.LastWatchedDate" , movies_totals[ 6 ] )
+        self.WINDOW.setProperty( "Movies.Count" , str( movies_totals[ 0 ] ) or "" )
+        self.WINDOW.setProperty( "Movies.Watched" , str( movies_totals[ 1 ] ) or "" )
+        self.WINDOW.setProperty( "Movies.UnWatched" , str( movies_totals[ 0 ] - movies_totals[ 1 ] ) or "" )
+        self.WINDOW.setProperty( "Movies.LastWatchedTitle" , movies_totals[ 2 ] or "" )
+        self.WINDOW.setProperty( "Movies.LastWatchedYear" , movies_totals[ 3 ] or "" )
+        self.WINDOW.setProperty( "Movies.LastWatchedRuntime" , movies_totals[ 4 ] or "" )
+        self.WINDOW.setProperty( "Movies.LastWatchedGenre" , movies_totals[ 5 ] or "" )
+        self.WINDOW.setProperty( "Movies.LastWatchedDate" , movies_totals[ 6 ] or "" )
         
-        self.WINDOW.setProperty( "MusicVideos.Count" , mvideos_totals[ 0 ] )
-        self.WINDOW.setProperty( "MusicVideos.Watched" , mvideos_totals[ 1 ] )
-        self.WINDOW.setProperty( "MusicVideos.UnWatched" , str( int( mvideos_totals[ 0 ] ) - int( mvideos_totals[ 1 ] ) ) )
-        self.WINDOW.setProperty( "TVShows.Count" , tvshows_totals[ 0 ] )
-        self.WINDOW.setProperty( "TVShows.Watched" , tvshows_totals[ 2 ] )
-        self.WINDOW.setProperty( "TVShows.UnWatched" , str( int( tvshows_totals[ 0 ] ) - int( tvshows_totals[ 2 ] ) ) )
-        self.WINDOW.setProperty( "Episodes.Count" , tvshows_totals[ 1 ] )
-        self.WINDOW.setProperty( "Episodes.Watched" , tvshows_totals[ 3 ] )
-        self.WINDOW.setProperty( "Episodes.UnWatched" , str( int( tvshows_totals[ 1 ] ) - int( tvshows_totals[ 3 ] ) ) )
-        self.WINDOW.setProperty( "Music.SongsCount" , music_totals[ 0 ] )
-        self.WINDOW.setProperty( "Music.AlbumsCount" , music_totals[ 1 ] )
-        self.WINDOW.setProperty( "Music.ArtistsCount" , music_totals[ 2 ] )
+        self.WINDOW.setProperty( "MusicVideos.Count" , mvideos_totals[ 0 ] or "" )
+        self.WINDOW.setProperty( "MusicVideos.Watched" , mvideos_totals[ 1 ] or "" )
+        self.WINDOW.setProperty( "MusicVideos.UnWatched" , str( int( mvideos_totals[ 0 ] ) - int( mvideos_totals[ 1 ] ) ) or "" )
+        
+        self.WINDOW.setProperty( "TVShows.Count" , tvshows_totals[ 0 ] or "" )
+        self.WINDOW.setProperty( "TVShows.Watched" , tvshows_totals[ 2 ] or "" )
+        self.WINDOW.setProperty( "TVShows.UnWatched" , str( int( tvshows_totals[ 0 ] ) - int( tvshows_totals[ 2 ] ) ) or "" )
+        self.WINDOW.setProperty( "Episodes.Count" , tvshows_totals[ 1 ] or "" )
+        self.WINDOW.setProperty( "Episodes.Watched" , tvshows_totals[ 3 ] or "" )
+        self.WINDOW.setProperty( "Episodes.UnWatched" , str( int( tvshows_totals[ 1 ] ) - int( tvshows_totals[ 3 ] ) ) or "" )
+        
+        self.WINDOW.setProperty( "Music.SongsCount" , music_totals[ 0 ] or "" )
+        self.WINDOW.setProperty( "Music.AlbumsCount" , music_totals[ 1 ] or "" )
+        self.WINDOW.setProperty( "Music.ArtistsCount" , music_totals[ 2 ] or "" )
 
     def _fetch_movie_info( self ):
         # set our unplayed query

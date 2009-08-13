@@ -4,60 +4,66 @@
 		<control type="label" id="71">
 			<posx>20</posx>
 			<posy>3</posy>
-			<width>400</width>
+			<width>390</width>
 			<font>Font_Time</font>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>!Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
 			<label>MOVIES: $INFO[Window.Property(Movies.Count)]   |   WATCHED: $INFO[Window.Property(Movies.Watched)]   |   UNWATCHED: $INFO[Window.Property(Movies.UnWatched)]</label>
 			<visible>Container(300).HasFocus(6)</visible>
 		</control>
 		<control type="label" id="71">
 			<posx>20</posx>
 			<posy>-4</posy>
-			<width>600</width>
+			<width>470</width>
 			<font>Font_BigTime</font>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
 			<label>MOVIES: $INFO[Window.Property(Movies.Count)]   |   WATCHED: $INFO[Window.Property(Movies.Watched)]   |   UNWATCHED: $INFO[Window.Property(Movies.UnWatched)]</label>
 			<visible>Container(300).HasFocus(6)</visible>
 		</control>
 		<control type="label" id="71">
 			<posx>20</posx>
 			<posy>3</posy>
-			<width>400</width>
+			<width>390</width>
 			<font>Font_Time</font>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>!Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
 			<label>TV SHOWS: $INFO[Window.Property(TVShows.Count)]   |   EPISODES: $INFO[Window.Property(Episodes.Count)]   |   UNWATCHED: $INFO[Window.Property(Episodes.UnWatched)]</label>
 			<visible>Container(300).HasFocus(7)</visible>
 		</control>
 		<control type="label" id="71">
 			<posx>20</posx>
 			<posy>-4</posy>
-			<width>600</width>
+			<width>470</width>
 			<font>Font_BigTime</font>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
 			<label>TV SHOWS: $INFO[Window.Property(TVShows.Count)]   |   EPISODES: $INFO[Window.Property(Episodes.Count)]   |   UNWATCHED: $INFO[Window.Property(Episodes.UnWatched)]</label>
 			<visible>Container(300).HasFocus(7)</visible>
 		</control>
 		<control type="label" id="71">
 			<posx>20</posx>
 			<posy>3</posy>
-			<width>400</width>
+			<width>390</width>
 			<font>Font_Time</font>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>!Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
 			<label>ALBUMS: $INFO[Window.Property(Music.AlbumsCount)]   |   SONGS: $INFO[Window.Property(Music.SongsCount)]   |   ARTISTS: $INFO[Window.Property(Music.ArtistsCount)]</label>
 			<visible>Container(300).HasFocus(1)</visible>
 		</control>
 		<control type="label" id="71">
 			<posx>20</posx>
 			<posy>-4</posy>
-			<width>600</width>
+			<width>470</width>
 			<font>Font_BigTime</font>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
 			<label>ALBUMS: $INFO[Window.Property(Music.AlbumsCount)]   |   SONGS: $INFO[Window.Property(Music.SongsCount)]   |   ARTISTS: $INFO[Window.Property(Music.ArtistsCount)]</label>
 			<visible>Container(300).HasFocus(1)</visible>
 		</control>
@@ -71,12 +77,6 @@
 	<include name="Furniture_LibraryGroupHighVars">
 		<posx>0</posx>
 		<posy>0</posy>
-		<width>451</width>
-		<height>27</height>
-	</include>
-	<include name="Furniture_LibraryGroupWindowVars">
-		<posx>0</posx>
-		<posy>45</posy>
 		<width>451</width>
 		<height>27</height>
 	</include>
@@ -955,7 +955,7 @@
 			<posx>0</posx>
 			<posy>240</posy>
 			<width>1280</width>
-			<height>630</height>
+			<height>1100</height>
 			<texture>home/nowplaying_shadow.png</texture>
 			<visible>Player.HasAudio</visible>
 			<include>Animation_VisibleChange200</include>
@@ -967,6 +967,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-464" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 		</control>
 		<control type="group">
 			<posx>0</posx>
@@ -983,6 +984,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
 			<include>Furniture_HomeNowPlayingInfo</include>
@@ -1001,6 +1003,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-120" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<animation effect="slide" time="200" start="0,0" end="0,30" condition="ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus()">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
@@ -1020,6 +1023,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-125" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
 			<include>Furniture_HomeNowPlayingInfo</include>
@@ -1038,6 +1042,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<animation effect="slide" time="200" start="0,0" end="0,20" condition="ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus()">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
