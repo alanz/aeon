@@ -17,12 +17,15 @@
 		<height>471</height>
 	</include>
 	<include name="BackgroundVarsGlobal">
-		<include>FullscreenDimensions</include>
+		<include>FullScreenDimensions</include>
 		<timeperimage>20000</timeperimage>
 		<randomize>true</randomize>
 		<fadetime>1000</fadetime>
 		<include>Animation_BackgroundFade</include>
-		<visible>[!Control.IsVisible(52) | [Control.IsVisible(52) + Skin.HasSetting(nocurtains)]] | [!Control.IsVisible(552) | [Control.IsVisible(552) + Skin.HasSetting(nocurtains)]] | [!Control.IsVisible(57) | [Control.IsVisible(57) + Skin.HasSetting(nocurtains)]]</visible>
+		<animation effect="zoom" start="110" end="130" center="640,360" time="30000" tween="cubic" easing="inout" pulse="true" condition="!Skin.HasSetting(animation_bg)">Conditional</animation>
+		<animation effect="slide" start="-10,-10" end="10,10" time="20000" tween="cubic" easing="inout" pulse="true" condition="!Skin.HasSetting(animation_bg)">Conditional</animation>
+		<animation effect="rotate" center="640,360" start="-1" end="1" time="40000" tween="cubic" easing="inout" pulse="true" condition="!Skin.HasSetting(animation_bg)">Conditional</animation>
+		<visible>!Control.IsVisible(52) | [Control.IsVisible(52) + Skin.HasSetting(nocurtains)]</visible>
 	</include>
 	<include name="BackgroundVarsMultiplex">
 		<include>FullscreenDimensions</include>
