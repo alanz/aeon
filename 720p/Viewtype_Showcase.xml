@@ -1,4 +1,47 @@
 <includes>
+	<include name="ShowcasePlotWidth">
+		<width>285</width>
+	</include>
+	<include name="ShowcaseNoPlotWidth">
+		<width>200</width>
+	</include>
+	<include name="ShowcaseTVWidth">
+		<width>380</width>
+	</include>
+	<include name="ShowcaseInfoLabel">
+		<posx>0</posx>
+		<posy>0</posy>
+		<include condition="![Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)]">ShowcasePlotWidth</include>
+		<include condition="Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)">ShowcaseNoPlotWidth</include>
+		<height>13</height>
+		<font>Font_MultiplexInfoLabel</font>
+		<textcolor>abFFFFFF</textcolor>
+	</include>
+	<include name="ShowcaseInfoValue">
+		<posx>0</posx>
+		<posy>17</posy>
+		<include condition="![Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)]">ShowcasePlotWidth</include>
+		<include condition="Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)">ShowcaseNoPlotWidth</include>
+		<height>13</height>
+		<font>Font_MultiplexInfoValue</font>
+		<textcolor>FFFFFFFF</textcolor>
+	</include>
+	<include name="ShowcaseInfoLabelBigThumb">
+		<posx>235</posx>
+		<posy>0</posy>
+		<width>200</width>
+		<height>13</height>
+		<font>Font_MultiplexInfoLabel</font>
+		<textcolor>abFFFFFF</textcolor>
+	</include>
+	<include name="ShowcaseInfoValueBigThumb">
+		<posx>235</posx>
+		<posy>17</posy>
+		<width>200</width>
+		<height>13</height>
+		<font>Font_MultiplexInfoValue</font>
+		<textcolor>FFFFFFFF</textcolor>
+	</include>
 	<include name="ShowcaseOnDownTrailer">
 		<ondown>PlayMedia($INFO[ListItem.Trailer],1)</ondown>
 	</include>
@@ -18,7 +61,7 @@
 			<width>1280</width>
 			<height>381</height>
 			<animation effect="zoom" start="100" end="90" time="200" center="640,80" condition="true">Conditional</animation>
-			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
@@ -35,7 +78,7 @@
 				<width>1130</width>
 				<height>564</height>
 				<texture>multiplex/multiplex_tablet.png</texture>
-				<visible>Skin.HasSetting(showcaseplot) | Skin.HasSetting(showcasetrailer) | Skin.HasSetting(showcaseposter)</visible>
+				<visible>![Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)]</visible>
 			</control>
 			<control type="image">
 				<posx>75</posx>
@@ -50,33 +93,33 @@
 				<control type="group">
 					<posy>22</posy>
 					<control type="label">
-						<include>MultiplexInfoLabel</include>
+						<include>ShowcaseInfoLabel</include>
 						<label>$LOCALIZE[31402]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValue</include>
+						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Director]</label>
 					</control>
 				</control>
 				<control type="group">
 					<posy>72</posy>
 					<control type="label">
-						<include>MultiplexInfoLabel</include>
+						<include>ShowcaseInfoLabel</include>
 						<label>$LOCALIZE[31401]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValue</include>
+						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Writer]</label>
 					</control>
 				</control>
 				<control type="group">
 					<posy>122</posy>
 					<control type="label">
-						<include>MultiplexInfoLabel</include>
+						<include>ShowcaseInfoLabel</include>
 						<label>$LOCALIZE[31436]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValue</include>
+						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Year]</label>
 					</control>
 				</control>
@@ -84,11 +127,11 @@
 					<posy>172</posy>
 					<visible>Skin.HasSetting(showcaseplot) | Skin.HasSetting(showcasetrailer) | Skin.HasSetting(showcaseposter)</visible>
 					<control type="label">
-						<include>MultiplexInfoLabel</include>
+						<include>ShowcaseInfoLabel</include>
 						<label>$LOCALIZE[31709]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValue</include>
+						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Duration]</label>
 					</control>
 				</control>
@@ -96,11 +139,11 @@
 					<posy>222</posy>
 					<visible>Skin.HasSetting(showcaseplot) | Skin.HasSetting(showcasetrailer) | Skin.HasSetting(showcaseposter)</visible>
 					<control type="label">
-						<include>MultiplexInfoLabel</include>
+						<include>ShowcaseInfoLabel</include>
 						<label>$LOCALIZE[31438]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValue</include>
+						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Genre]</label>
 					</control>
 				</control>
@@ -108,11 +151,11 @@
 					<posy>272</posy>
 					<visible>Skin.HasSetting(showcaseplot) | Skin.HasSetting(showcasetrailer) | Skin.HasSetting(showcaseposter)</visible>
 					<control type="label">
-						<include>MultiplexInfoLabel</include>
+						<include>ShowcaseInfoLabel</include>
 						<label>$LOCALIZE[31417]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValue</include>
+						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.MPAA]</label>
 					</control>
 				</control>
@@ -120,11 +163,11 @@
 					<posy>322</posy>
 					<visible>Skin.HasSetting(showcaseplot) | Skin.HasSetting(showcasetrailer) | Skin.HasSetting(showcaseposter)</visible>
 					<control type="label">
-						<include>MultiplexInfoLabel</include>
+						<include>ShowcaseInfoLabel</include>
 						<label>$LOCALIZE[31408]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValue</include>
+						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.RatingAndVotes]</label>
 					</control>
 				</control>
@@ -132,11 +175,11 @@
 					<posy>22</posy>
 					<visible>Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)</visible>
 					<control type="label">
-						<include>MultiplexInfoLabelBigThumb</include>
+						<include>ShowcaseInfoLabelBigThumb</include>
 						<label>$LOCALIZE[31709]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValueBigThumb</include>
+						<include>ShowcaseInfoValueBigThumb</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Duration]</label>
 					</control>
 				</control>
@@ -144,11 +187,11 @@
 					<posy>72</posy>
 					<visible>Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)</visible>
 					<control type="label">
-						<include>MultiplexInfoLabelBigThumb</include>
+						<include>ShowcaseInfoLabelBigThumb</include>
 						<label>$LOCALIZE[31417]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValueBigThumb</include>
+						<include>ShowcaseInfoValueBigThumb</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.MPAA]</label>
 					</control>
 				</control>
@@ -156,11 +199,11 @@
 					<posy>122</posy>
 					<visible>Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasebigtrailer)</visible>
 					<control type="label">
-						<include>MultiplexInfoLabelBigThumb</include>
+						<include>ShowcaseInfoLabelBigThumb</include>
 						<label>$LOCALIZE[31408]:</label>
 					</control>
 					<control type="label">
-						<include>MultiplexInfoValueBigThumb</include>
+						<include>ShowcaseInfoValueBigThumb</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.RatingAndVotes]</label>
 					</control>
 				</control>
@@ -229,7 +272,7 @@
 					<height>163</height>
 					<texture>common/black.png</texture>
 					<colordiffuse>94FFFFFF</colordiffuse>
-					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkmultiplex)">Conditional</animation>
+					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
 				</control>
 				<control type="largeimage">
 					<posx>1</posx>
@@ -247,7 +290,7 @@
 					<height>163</height>
 					<texture>common/black.png</texture>
 					<colordiffuse>94FFFFFF</colordiffuse>
-					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkmultiplex)">Conditional</animation>
+					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
 				</control>
 				<control type="largeimage">
 					<posx>1</posx>
@@ -304,7 +347,7 @@
 					<height>335</height>
 					<texture>common/black.png</texture>
 					<colordiffuse>94FFFFFF</colordiffuse>
-					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkmultiplex)">Conditional</animation>
+					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
 				</control>
 				<control type="multiimage">
 					<posx>1</posx>
@@ -328,14 +371,14 @@
 					<height>256</height>
 					<texture>common/black.png</texture>
 					<colordiffuse>94FFFFFF</colordiffuse>
-					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkmultiplex)">Conditional</animation>
+					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
 				</control>
 				<control type="videowindow" id="2">
 					<posx>1</posx>
 					<posy>1</posy>
 					<width>453</width>
 					<height>254</height>
-					<visible>[Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies) + !VideoPlayer.Content(music)</visible>
+					<visible>[Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies) + !VideoPlayer.Content(music)</visible>
 				</control>
 				<control type="largeimage">
 					<posx>1</posx>
@@ -354,7 +397,7 @@
 					<width>240</width>
 					<height>32</height>
 					<texture>multiplex/multiplex_trailer_label.png</texture>
-					<visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 				</control>
 				<control type="label">
@@ -365,7 +408,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>Press DOWN to see trailer</label>
-					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -377,7 +420,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>Press 'X' to stop</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
@@ -394,14 +437,14 @@
 					<height>335</height>
 					<texture>common/black.png</texture>
 					<colordiffuse>94FFFFFF</colordiffuse>
-					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkmultiplex)">Conditional</animation>
+					<animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
 				</control>
 				<control type="videowindow" id="2">
 					<posx>1</posx>
 					<posy>1</posy>
 					<width>593</width>
 					<height>333</height>
-					<visible>[Control.IsVisible(57) + [Skin.HasSetting(showcasebigtrailer) | Skin.HasSetting(showcasefanart)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
+					<visible>[Control.IsVisible(57) + [Skin.HasSetting(showcasebigtrailer) | Skin.HasSetting(showcasefanart)] + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
 				</control>
 				<control type="largeimage">
 					<posx>1</posx>
@@ -420,7 +463,7 @@
 					<width>240</width>
 					<height>32</height>
 					<texture>multiplex/multiplex_trailer_label.png</texture>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasebigtrailer) + Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasebigtrailer) + Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 				</control>
 				<control type="label">
@@ -431,7 +474,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>Press DOWN to see trailer</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasebigtrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasebigtrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -443,7 +486,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>Press 'X' to stop</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasebigtrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasebigtrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(94) + [Control.IsVisible(109) | Control.HasFocus(85) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
@@ -683,8 +726,8 @@
 		<posy>693</posy>
 		<width>600</width>
 		<font>Font_ShowcaseMainLabel</font>
-		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(newwall)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(newwall)] | [!Skin.HasSetting(newwall)]">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 		<visible>!ControlGroup(7000).HasFocus()</visible>
 		<animation effect="slide" end="0,-11" time="200" condition="[!Control.IsVisible(72) | IsEmpty(Control.GetLabel(72))] | Window.IsActive(24)">Conditional</animation>
 	</include>
@@ -694,8 +737,8 @@
 		<posy>693</posy>
 		<width>880</width>
 		<font>Font_ShowcaseMainLabel</font>
-		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(newwall)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(newwall)] | [!Skin.HasSetting(newwall)]">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 		<visible>!ControlGroup(7000).HasFocus()</visible>
 		<animation effect="slide" end="0,-11" time="200" condition="!Container.Content(seasons) + [!Control.IsVisible(72) | IsEmpty(Control.GetLabel(72))] | Window.IsActive(24)">Conditional</animation>
 	</include>
@@ -705,8 +748,8 @@
 		<posy>685</posy>
 		<width>600</width>
 		<font>Font_ShowcaseMainLabel</font>
-		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(newwall)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(newwall)] | [!Skin.HasSetting(newwall)]">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 		<visible>ControlGroup(7000).HasFocus()</visible>
 	</include>
 	<include name="ShowcaseDetailLabel">
@@ -716,8 +759,8 @@
 		<width>600</width>
 		<font>Font_ShowcaseDetailLabel</font>
 		<visible>!ControlGroup(7000).HasFocus()</visible>
-		<include condition="!Skin.HasSetting(darkfloor) + Skin.HasSetting(newwall)">Colour_ShowcaseLabelLightShade</include>
-		<include condition="[Skin.HasSetting(darkfloor) + !Skin.HasSetting(newwall)] | [!Skin.HasSetting(newwall)]">Colour_ShowcaseLabelNightShade</include>
+		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 	</include>
 	<control type="image" id="82">
 		<texture>-</texture>
@@ -3724,16 +3767,6 @@
 			<include condition="Window.IsActive(2) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">ShowcaseSquare</include>
 			<include>Animation_HideShowcase</include>
 		</control>
-		<control type="button" id="85">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onleft>57</onleft>
-			<onright>57</onright>
-		</control>
 		<control type="button" id="94">
 			<posx>0</posx>
 			<posy>0</posy>
@@ -3742,34 +3775,8 @@
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onleft>57</onleft>
-			<onright>320</onright>
-			<onup>57</onup>
-			<ondown>57</ondown>
-		</control>
-		<control type="button" id="320">
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onleft>57</onleft>
 			<onright>57</onright>
-			<onup>57</onup>
-			<ondown>321</ondown>
-			<visible>Skin.HasSetting(nosettings)</visible>
-		</control>
-		<control type="button" id="321">
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onleft>322</onleft>
-			<onright>57</onright>
-			<onup>57</onup>
-			<ondown>57</ondown>
-		</control>
-		<control type="button" id="322">
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onleft>57</onleft>
-			<onright>57</onright>
-			<onup>Skin.Reset(nosettings)</onup>
-			<onup>SetFocus(57)</onup>
+			<onup>60</onup>
 			<ondown>57</ondown>
 		</control>
 		<control type="group">
