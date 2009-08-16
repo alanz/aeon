@@ -40,123 +40,12 @@
 			<include>Furniture_Time</include>
 			<include>Conditions_HiddenByInfoPages</include>
 			<include>Furniture_MediaPanel</include>
-			<include>Objects_ShowcaseMenuPanel</include>
 			<include>ListFade</include>
 			<include>ListFade2</include>
 			<include>ListFade_Low</include>
 			<include>Viewtype_Wall</include>
 			<include>Furniture_WallTime</include>
 			<include>Furniture_WallRSS</include>
-			<control type="group">
-				<control type="image">
-					<include>Objects_MediaLogo</include>
-					<texture>windows/logo_movies.png</texture>
-				</control>
-				<control type="label">
-					<label>31033</label>
-					<visible>Skin.HasSetting(videotv)</visible>
-					<include>Objects_MediaLabel</include>
-				</control>
-				<control type="label">
-					<label>31032</label>
-					<visible>Skin.HasSetting(videomovies)</visible>
-					<include>Objects_MediaLabel</include>
-				</control>
-				<control type="grouplist" id="7000">
-					<include>Animation_MediaMenuSlide</include>
-					<include>Objects_MediaMenuGroup</include>
-					<control type="button" id="2">
-						<label>$LOCALIZE[31050] $INFO[Container.ViewMode]</label>
-						<include>Objects_MediaMenuButton</include>
-					</control>
-					<include>Objects_FlattenFlowButton</include>
-					<control type="button" id="3">
-						<label>103</label>
-						<include>Objects_MediaMenuButton</include>
-					</control>
-					<include condition="!Skin.HasSetting(nomultiplexinfobuttons)">Objects_MultiplexInfoButtons</include>
-					<include>Objects_WallInfoButtons</include>
-					<include>Objects_MultiplexStyleButtons</include>
-					<include>Objects_PanelDensityButton</include>
-					<include condition="!Skin.HasSetting(nomultiplexstylebuttons)">Objects_MultiplexCoverStyleButtons</include>
-					<control type="togglebutton" id="940">
-						<include>Objects_MediaMenuButton</include>
-						<include>Objects_ListLayoutStrings</include>
-						<usealttexture>Skin.HasSetting(tvlistmax)</usealttexture>
-						<onclick>Skin.SetBool(tvlistmax)</onclick>
-						<altclick>Skin.Reset(tvlistmax)</altclick>
-						<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(50)</visible>
-					</control>
-					<control type="togglebutton" id="941">
-						<include>Objects_MediaMenuButton</include>
-						<include>Objects_WallLayoutStrings</include>
-						<usealttexture>Skin.HasSetting(VerticalWall)</usealttexture>
-						<onclick>Skin.SetBool(VerticalWall)</onclick>
-						<onclick>XBMC.ReloadSkin</onclick>
-						<altclick>Skin.Reset(VerticalWall)</altclick>
-						<altclick>XBMC.ReloadSkin</altclick>
-						<visible>Control.IsVisible(53)</visible>
-					</control>
-					<control type="togglebutton" id="901">
-						<include>Objects_MediaMenuButton</include>
-						<include>Objects_FanartToggleStrings</include>
-						<usealttexture>Skin.HasSetting(nomoviefanart)</usealttexture>
-						<onclick>Skin.SetBool(nomoviefanart)</onclick>
-						<altclick>Skin.Reset(nomoviefanart)</altclick>
-						<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + [Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(54)]</visible>
-					</control>
-					<control type="togglebutton" id="902">
-						<include>Objects_MediaMenuButton</include>
-						<include>Objects_FanartToggleStrings</include>
-						<usealttexture>Skin.HasSetting(notvfanart)</usealttexture>
-						<onclick>Skin.SetBool(notvfanart)</onclick>
-						<altclick>Skin.Reset(notvfanart)</altclick>
-						<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + [Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(54)]</visible>
-					</control>
-					<include>Objects_ClearListButtons</include>
-					<include condition="!Skin.HasSetting(nomediaflagsbutton)">Objects_FlagsButton</include>
-					<include>Objects_WallGridButton</include>
-					<include>Objects_WallBackdropButton</include>
-					<control type="togglebutton" id="991">
-						<include>Objects_MediaMenuButton</include>
-						<label>$LOCALIZE[31066]: $LOCALIZE[31077]</label>
-						<altlabel>$LOCALIZE[31066]: $LOCALIZE[31078]</altlabel>
-						<usealttexture>Skin.HasSetting(nomovieoverlays)</usealttexture>
-						<onclick>Skin.ToggleSetting(nomovieoverlays)</onclick>
-						<visible>Window.IsActive(25) + Skin.HasSetting(videomovies)</visible>
-					</control>
-					<control type="togglebutton" id="992">
-						<include>Objects_MediaMenuButton</include>
-						<label>$LOCALIZE[31066]: $LOCALIZE[31077]</label>
-						<altlabel>$LOCALIZE[31066]: $LOCALIZE[31078]</altlabel>
-						<usealttexture>Skin.HasSetting(notvoverlays)</usealttexture>
-						<onclick>Skin.ToggleSetting(notvoverlays)</onclick>
-						<visible>Window.IsActive(25) + Skin.HasSetting(videotv)</visible>
-					</control>
-					<include>Objects_CurtainsButton</include>
-					<include>Objects_LightNightButtons</include>
-					<control type="togglebutton" id="14">
-						<description>Watched Toggle Button</description>
-						<label>$LOCALIZE[31058]: $LOCALIZE[31078]</label>
-						<altlabel>$LOCALIZE[31058]: $LOCALIZE[31077]</altlabel>
-						<include>Objects_MediaMenuButton</include>
-						<visible>[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviewatched)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvwatched)]</visible>
-					</control>
-					<control type="button" id="8">
-						<label>137</label>
-						<include>Objects_MediaMenuButton</include>
-						<visible>[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviesearch)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvsearch)]</visible>
-					</control>
-					<control type="button" id="11">
-						<label>31057</label>
-						<include>Objects_MediaMenuButton</include>
-						<onclick>XBMC.ReplaceWindow(MyVideoFiles)</onclick>
-						<visible>!Skin.HasSetting(nomenufiles)</visible>
-					</control>
-					<include>Objects_VideoSetupButton</include>
-					<include>Objects_MediaDebugButtons</include>
-				</control>
-			</control>
 			<include>Viewtype_List_Slim</include>
 			<include>Viewtype_List</include>
 			<include>Viewtype_List_Low</include>
@@ -164,6 +53,7 @@
 			<include>Viewtype_Showcase</include>
 			<include condition="!Skin.HasSetting(oldmultiplex)">Viewtype_Multiplex</include>
 			<include condition="Skin.HasSetting(oldmultiplex)">Viewtype_MultiplexOld</include>
+			<include>NewMediaMenu</include>
 		</control>
 		<include condition="Skin.HasSetting(videomovies)">Furniture_ShowcaseMediaFlags</include>
 		<include condition="Skin.HasSetting(videotv)">Furniture_EpisodeMediaFlags</include>
