@@ -677,6 +677,112 @@
 			<visible>Skin.HasSetting(debug)</visible>
 		</control>
 	</include>
+	<include name="LowList_HighLowMediaMenuButton">
+		<control type="togglebutton" id="5517002">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[535]: $LOCALIZE[391]</label>
+			<altlabel>$LOCALIZE[535]: $LOCALIZE[393]</altlabel>
+			<onclick>Skin.SetBool(highlist)</onclick>
+			<altclick>Skin.Reset(highlist)</altclick>
+			<selected>Skin.HasSetting(highlist)</selected>
+			<visible>Control.IsVisible(551)</visible>
+		</control>
+	</include>
+	<include name="LowList_ToggleSlideshowMediaMenuButton">
+		<control type="togglebutton" id="5517003">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[539]: $LOCALIZE[31044]</label>
+			<altlabel>$LOCALIZE[539]: $LOCALIZE[31045]</altlabel>
+			<onclick>Skin.SetBool(widepanelthumbon)</onclick>
+			<altclick>Skin.Reset(widepanelthumbon)</altclick>
+			<selected>Skin.HasSetting(widepanelthumbon)</selected>
+			<visible>Control.IsVisible(551) + Window.IsActive(25)</visible>
+		</control>
+	</include>
+	<include name="LowList_BrowsingLayoutMediaMenuButton">
+		<control type="button" id="5517020">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31245]</label>
+			<onclick>SetFocus(55103)</onclick>
+			<visible>Control.IsVisible(551) + [Container.Content(movies) | Window.IsActive(502)]</visible>
+		</control>
+	</include>
+	<include name="LowList_AutoTriggerMediaMenuButton">
+		<control type="togglebutton" id="5517005">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
+			<altlabel>$LOCALIZE[31070]: $LOCALIZE[31049]</altlabel>
+			<onclick>Skin.SetBool(lowlistinfoauto)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<altclick>Skin.Reset(lowlistinfoauto)</altclick>
+			<altclick>XBMC.ReloadSkin</altclick>
+			<selected>Skin.HasSetting(lowlistinfoauto)</selected>
+			<visible>Control.IsVisible(551)</visible>
+		</control>
+	</include>
+	<include name="LowList_SlimFullMediaMenuButton">
+		<control type="togglebutton" id="5517006">
+			<include>MediaMenuButton</include>
+			<include>Objects_ListLayoutStrings</include>
+			<usealttexture>Skin.HasSetting(movieslistfull)</usealttexture>
+			<onclick>Skin.SetBool(movieslistfull)</onclick>
+			<altclick>Skin.Reset(movieslistfull)</altclick>
+			<visible>Control.IsVisible(551) + Container.Content(movies)</visible>
+		</control>
+		<control type="togglebutton" id="5517007">
+			<include>MediaMenuButton</include>
+			<include>Objects_ListLayoutStrings</include>
+			<usealttexture>Skin.HasSetting(artistlistfull)</usealttexture>
+			<onclick>Skin.SetBool(artistlistfull)</onclick>
+			<altclick>Skin.Reset(artistlistfull)</altclick>
+			<visible>Control.IsVisible(551) + Container.Content(artists)</visible>
+		</control>
+		<control type="togglebutton" id="5517008">
+			<include>MediaMenuButton</include>
+			<include>Objects_ListLayoutStrings</include>
+			<usealttexture>Skin.HasSetting(albumlistfull)</usealttexture>
+			<onclick>Skin.SetBool(albumlistfull)</onclick>
+			<altclick>Skin.Reset(albumlistfull)</altclick>
+			<visible>Control.IsVisible(551) + Container.Content(albums)</visible>
+		</control>
+		<control type="togglebutton" id="5517009">
+			<include>MediaMenuButton</include>
+			<include>Objects_ListLayoutStrings</include>
+			<usealttexture>Skin.HasSetting(songlistfull)</usealttexture>
+			<onclick>Skin.SetBool(songlistfull)</onclick>
+			<altclick>Skin.Reset(songlistfull)</altclick>
+			<visible>Control.IsVisible(551) + Container.Content(songs)</visible>
+		</control>
+	</include>
+	<include name="LowList_ToggleRollerMediaMenuButton">
+		<control type="togglebutton" id="5517010">
+			<include>MediaMenuButton</include>
+			<label>ROLLER: ON</label>
+			<altlabel>ROLLER: OFF</altlabel>
+			<onclick>Skin.SetBool(artistrolleroff)</onclick>
+			<altclick>Skin.Reset(artistrolleroff)</altclick>
+			<selected>Skin.HasSetting(artistrolleroff)</selected>
+			<visible>Control.IsVisible(551) + Container.Content(artists)</visible>
+		</control>
+		<control type="togglebutton" id="5517011">
+			<include>MediaMenuButton</include>
+			<label>ROLLER: ON</label>
+			<altlabel>ROLLER: OFF</altlabel>
+			<onclick>Skin.SetBool(albumrolleroff)</onclick>
+			<altclick>Skin.Reset(albumrolleroff)</altclick>
+			<selected>Skin.HasSetting(albumrolleroff)</selected>
+			<visible>Control.IsVisible(551) + Container.Content(albums)</visible>
+		</control>
+		<control type="togglebutton" id="5517012">
+			<include>MediaMenuButton</include>
+			<label>ROLLER: ON</label>
+			<altlabel>ROLLER: OFF</altlabel>
+			<onclick>Skin.SetBool(songrolleroff)</onclick>
+			<altclick>Skin.Reset(songrolleroff)</altclick>
+			<selected>Skin.HasSetting(songrolleroff)</selected>
+			<visible>Control.IsVisible(551) + Container.Content(songs)</visible>
+		</control>
+	</include>
 	<!--############################################ Media Menu #################################################-->
 	<!--#########################################################################################################-->
 	<include name="NewMediaMenu">
@@ -787,6 +893,11 @@
 				<include>MediaMenuButton_Files</include>
 				<include>MediaMenuButton_Setup</include>
 				<include>MediaMenuButton_MediaDebug</include>
+				<include>LowList_SlimFullMediaMenuButton</include>
+				<include>LowList_HighLowMediaMenuButton</include>
+				<include>LowList_ToggleSlideshowMediaMenuButton</include>
+				<include>LowList_BrowsingLayoutMediaMenuButton</include>
+				<!--<include condition="Window.IsActive(502)">LowList_ToggleRollerMediaMenuButton</include>--><include>LowList_AutoTriggerMediaMenuButton</include>
 			</control>
 		</control>
 	</include>
