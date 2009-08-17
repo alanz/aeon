@@ -17,7 +17,7 @@
 	<include name="MultiplexInfoLabel">
 		<posx>0</posx>
 		<posy>0</posy>
-		<include condition="Skin.HasSetting(multiplexposter) | Skin.HasSetting(multiplexplot) | Skin.HasSetting(multiplextrailer) + !Skin.HasSetting(videotv)">MultiplexPlotWidth</include>
+		<include condition="![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)] + !Skin.HasSetting(videotv)">MultiplexPlotWidth</include>
 		<include condition="Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer) + !Skin.HasSetting(videotv)">MultiplexNoPlotWidth</include>
 		<include condition="Skin.HasSetting(videotv)">MultiplexTVWidth</include>
 		<height>13</height>
@@ -27,7 +27,7 @@
 	<include name="MultiplexInfoValue">
 		<posx>0</posx>
 		<posy>17</posy>
-		<include condition="Skin.HasSetting(multiplexposter) | Skin.HasSetting(multiplexplot)  | Skin.HasSetting(multiplextrailer) + !Skin.HasSetting(videotv)">MultiplexPlotWidth</include>
+		<include condition="![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)] + !Skin.HasSetting(videotv)">MultiplexPlotWidth</include>
 		<include condition="Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer) + !Skin.HasSetting(videotv)">MultiplexNoPlotWidth</include>
 		<include condition="Skin.HasSetting(videotv)">MultiplexTVWidth</include>
 		<height>13</height>
@@ -73,7 +73,7 @@
 				<width>1130</width>
 				<height>564</height>
 				<texture>multiplex/multiplex_tablet.png</texture>
-				<visible>Skin.HasSetting(multiplexplot) | Skin.HasSetting(multiplextrailer) | Skin.HasSetting(multiplexposter)</visible>
+				<visible>![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)]</visible>
 			</control>
 			<control type="image">
 				<posx>75</posx>
@@ -120,7 +120,7 @@
 				</control>
 				<control type="group">
 					<posy>172</posy>
-					<visible>Skin.HasSetting(multiplexplot) | Skin.HasSetting(multiplextrailer) | Skin.HasSetting(multiplexposter)</visible>
+					<visible>![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)]</visible>
 					<control type="label">
 						<include>MultiplexInfoLabel</include>
 						<label>$LOCALIZE[31709]:</label>
@@ -132,7 +132,7 @@
 				</control>
 				<control type="group">
 					<posy>222</posy>
-					<visible>Skin.HasSetting(multiplexplot) | Skin.HasSetting(multiplextrailer) | Skin.HasSetting(multiplexposter)</visible>
+					<visible>![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)]</visible>
 					<control type="label">
 						<include>MultiplexInfoLabel</include>
 						<label>$LOCALIZE[31438]:</label>
@@ -144,7 +144,7 @@
 				</control>
 				<control type="group">
 					<posy>272</posy>
-					<visible>Skin.HasSetting(multiplexplot) | Skin.HasSetting(multiplextrailer) | Skin.HasSetting(multiplexposter)</visible>
+					<visible>![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)]</visible>
 					<control type="label">
 						<include>MultiplexInfoLabel</include>
 						<label>$LOCALIZE[31417]:</label>
@@ -156,7 +156,7 @@
 				</control>
 				<control type="group">
 					<posy>322</posy>
-					<visible>Skin.HasSetting(multiplexplot) | Skin.HasSetting(multiplextrailer) | Skin.HasSetting(multiplexposter)</visible>
+					<visible>![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)]</visible>
 					<control type="label">
 						<include>MultiplexInfoLabel</include>
 						<label>$LOCALIZE[31408]:</label>
@@ -232,7 +232,7 @@
 				<info>Container(52).ListItem.Plot</info>
 				<textcolor>d0FFFFFF</textcolor>
 				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
-				<visible>Skin.HasSetting(multiplexplot) | Skin.HasSetting(multiplexposter)</visible>
+				<visible>![Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexbigtrailer) | Skin.HasSetting(multiplextrailer)]</visible>
 			</control>
 			<control type="textbox">
 				<posx>905</posx>
@@ -259,7 +259,7 @@
 			<control type="group">
 				<posx>905</posx>
 				<posy>50</posy>
-				<visible>Skin.HasSetting(multiplexplot)</visible>
+				<visible>![Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexbigtrailer) | Skin.HasSetting(multiplexposter) | Skin.HasSetting(multiplextrailer)]</visible>
 				<control type="image">
 					<posx>0</posx>
 					<posy>0</posy>
@@ -424,7 +424,7 @@
 			<control type="group">
 				<posx>575</posx>
 				<posy>50</posy>
-				<visible>Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)</visible>
+				<visible>Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(multiplexbigtrailer)</visible>
 				<control type="image">
 					<posx>0</posx>
 					<posy>0</posy>
