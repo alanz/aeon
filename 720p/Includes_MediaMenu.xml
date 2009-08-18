@@ -783,6 +783,130 @@
 			<visible>Control.IsVisible(551) + Container.Content(songs)</visible>
 		</control>
 	</include>
+		<include name="MediaMenuButton_ShowcaseInfo">
+		<control type="button" id="700060">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
+			<onclick>Skin.SetBool(showcaseinfoauto)</onclick>
+			<onclick>Skin.Reset(showcaseinfooff)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcaseinfooff)</visible>
+		</control>
+		<control type="button" id="700061">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31049]</label>
+			<onclick>Skin.SetBool(showcaseinfotrigger)</onclick>
+			<onclick>Skin.Reset(showcaseinfoauto)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + ![Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfoon)]</visible>
+		</control>
+		<control type="button" id="700062">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
+			<onclick>Skin.SetBool(showcaseinfoon)</onclick>
+			<onclick>Skin.Reset(showcaseinfotrigger)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcaseinfotrigger)</visible>
+		</control>
+		<control type="button" id="700063">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31077]</label>
+			<onclick>Skin.SetBool(showcaseinfooff)</onclick>
+			<onclick>Skin.Reset(showcaseinfoon)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcaseinfoon)</visible>
+		</control>
+		<control type="button" id="700064">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
+			<onclick>Skin.SetBool(showcasetvinfoauto)</onclick>
+			<onclick>Skin.Reset(showcasetvinfooff)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(57) + Skin.HasSetting(showcasetvinfooff)</visible>
+		</control>
+		<control type="button" id="700065">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31049]</label>
+			<onclick>Skin.SetBool(showcasetvinfotrigger)</onclick>
+			<onclick>Skin.Reset(showcasetvinfoauto)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(57) + ![Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfooff) | Skin.HasSetting(showcasetvinfoon)]</visible>
+		</control>
+		<control type="button" id="700066">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
+			<onclick>Skin.SetBool(showcasetvinfoon)</onclick>
+			<onclick>Skin.Reset(showcasetvinfotrigger)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(57) + Skin.HasSetting(showcasetvinfotrigger)</visible>
+		</control>
+		<control type="button" id="700067">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31077]</label>
+			<onclick>Skin.SetBool(showcasetvinfooff)</onclick>
+			<onclick>Skin.Reset(showcasetvinfoon)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(57) + Skin.HasSetting(showcasetvinfoon)</visible>
+		</control>
+	</include>
+		<include name="MediaMenuButton_ShowcaseStyle">
+		<control type="button" id="700068">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31047]: $LOCALIZE[31046]</label>
+			<onclick>Skin.SetBool(showcasebigthumb)</onclick>
+			<onclick>Skin.Reset(showcaseplot)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + ![Skin.HasSetting(showcasebigthumb) | Skin.HasSetting(showcasefanart) | Skin.HasSetting(showcasetrailer) | Skin.HasSetting(showcasebigtrailer) | Skin.HasSetting(showcaseposter)]</visible>
+		</control>
+		<control type="button" id="700069">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31047]: $LOCALIZE[31045]</label>
+			<onclick>Skin.SetBool(showcasefanart)</onclick>
+			<onclick>Skin.Reset(showcasebigthumb)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcasebigthumb)</visible>
+		</control>
+		<control type="button" id="700070">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31047]: $LOCALIZE[31044]</label>
+			<onclick>Skin.SetBool(showcasetrailer)</onclick>
+			<onclick>Skin.Reset(showcasefanart)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcasefanart)</visible>
+		</control>
+		<control type="button" id="700071">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31047]: $LOCALIZE[32000]</label>
+			<onclick>Skin.SetBool(showcasebigtrailer)</onclick>
+			<onclick>Skin.Reset(showcasetrailer)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcasetrailer)</visible>
+		</control>
+		<control type="button" id="700072">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31047]: $LOCALIZE[32001]</label>
+			<onclick>Skin.SetBool(showcaseposter)</onclick>
+			<onclick>Skin.Reset(showcasebigtrailer)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcasebigtrailer)</visible>
+		</control>
+		<control type="button" id="700073">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31047]: POSTER</label>
+			<onclick>Skin.SetBool(showcaseplot)</onclick>
+			<onclick>Skin.Reset(showcaseposter)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcaseposter)</visible>
+		</control>
+		<control type="togglebutton" id="700074">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31045]: $LOCALIZE[31063]</label>
+			<altlabel>$LOCALIZE[31045]: $LOCALIZE[31064]</altlabel>
+			<usealttexture>!Skin.HasSetting(showcasetvbigthumb)</usealttexture>
+			<onclick>Skin.ToggleSetting(showcasetvbigthumb)</onclick>
+			<visible>Container.Content(episodes) + Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(57)</visible>
+		</control>
+	</include>
 	<!--############################################ Media Menu #################################################-->
 	<!--#########################################################################################################-->
 	<include name="NewMediaMenu">
@@ -899,6 +1023,8 @@
 				<include>LowList_BrowsingLayoutMediaMenuButton</include>
 				<!--<include condition="Window.IsActive(502)">LowList_ToggleRollerMediaMenuButton</include>-->
 				<include>LowList_AutoTriggerMediaMenuButton</include>
+				<include>MediaMenuButton_ShowcaseInfo</include>
+				<include>MediaMenuButton_ShowcaseStyle</include>
 			</control>
 		</control>
 	</include>

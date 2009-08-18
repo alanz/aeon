@@ -9,11 +9,20 @@
 			<width>0</width>
 			<height>0</height>
 			<texture>-</texture>
-			<visible>[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomultiplexpopup) + ![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] + [Control.HasFocus(52) | Control.HasFocus(61) | Control.HasFocus(94) | ControlGroup(7000).HasFocus()] + [!Container(52).OnNext + !Container(52).OnPrevious]] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomultiplextvpopup) + ![Skin.HasSetting(multiplextvinfooff) | Skin.HasSetting(multiplextvinfotrigger)] + [Control.HasFocus(52) | Control.HasFocus(61) | Control.HasFocus(94) | ControlGroup(7000).HasFocus()] + [!Container(52).OnNext + !Container(52).OnPrevious]] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomultiplextvpopup) + ![Skin.HasSetting(multiplextvinfooff) | Skin.HasSetting(multiplextvinfotrigger)] + [Control.HasFocus(552) | Control.HasFocus(61) | Control.HasFocus(94) | ControlGroup(7000).HasFocus()] + [!Container(552).OnNext + !Container(552).OnPrevious]]</visible>
+			<visible>[Skin.HasSetting(videomovies) + ![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] + [Control.HasFocus(52)| Control.HasFocus(94)] + [!Container(52).OnNext + !Container(52).OnPrevious]] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomultiplextvpopup) + ![Skin.HasSetting(multiplextvinfooff) | Skin.HasSetting(multiplextvinfotrigger)] + [Control.HasFocus(52) | Control.HasFocus(94)] + [!Container(52).OnNext + !Container(52).OnPrevious]] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomultiplextvpopup) + ![Skin.HasSetting(multiplextvinfooff) | Skin.HasSetting(multiplextvinfotrigger)] + [Control.HasFocus(552) | Control.HasFocus(94)] + [!Container(552).OnNext + !Container(552).OnPrevious]]</visible>
+			<animation effect="fade" start="0" end="100" time="150" delay="3000">Visible</animation>
+		</control>
+		<control type="image" id="70109">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texture>-</texture>
+			<visible>[Skin.HasSetting(videomovies) + ![Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfotrigger)] + [Control.HasFocus(57) | Control.HasFocus(70197)] + [!Container(57).OnNext + !Container(57).OnPrevious]]</visible>
 			<animation effect="fade" start="0" end="100" time="150" delay="3000">Visible</animation>
 		</control>
 		<control type="group">
-			<visible>[!Skin.HasSetting(genre_fanart_onoff)+Container.Content(genres)] | !Container.Content(genres)</visible>
+			<visible>[!Skin.HasSetting(genre_fanart_onoff) + Container.Content(genres)] | !Container.Content(genres)</visible>
 			<!-- <<<<< ADD this -->
 			<include condition="Skin.HasSetting(videotv)">MediaBackdropsTV</include>
 			<include condition="Skin.HasSetting(videomovies)">MediaBackdropsMovies</include>
@@ -22,7 +31,7 @@
 			<include>FullscreenDimensions</include>
 			<fadetime>400</fadetime>
 			<texture>genrefanart/$INFO[ListItem.Label].jpg</texture>
-			<visible>[Skin.HasSetting(genre_fanart_onoff)+Container.Content(genres)]</visible>
+			<visible>[Skin.HasSetting(genre_fanart_onoff) + Container.Content(genres)]</visible>
 		</control>
 		<control type="largeimage" id="102">
 			<include>FullscreenDimensions</include>
@@ -60,6 +69,7 @@
 		<include condition="!Skin.HasSetting(newwall)">Furniture_WallMediaFlags</include>
 		<include>Furniture_DarkGradient</include>
 		<include>ScrollOffsetLabel</include>
-		<!--<include>Background_ContextBlack</include>--><include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
+		<!--<include>Background_ContextBlack</include>-->
+		<include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
 	</controls>
 </window>
