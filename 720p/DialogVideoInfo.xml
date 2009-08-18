@@ -87,6 +87,7 @@
 			<height>720</height>
 			<texture>$INFO[listitem.thumb]</texture>
 			<aspectratio>stretch</aspectratio>
+			<visible>!Container.Content(episodes)</visible>
 		</control>
 		<control type="largeimage">
 			<description>Cover image</description>
@@ -437,11 +438,25 @@
 					<align>center</align>
 					<include>Objects_FSInfoButton</include>
 					<onleft>12</onleft>
-					<onright>5</onright>
+					<onright>13</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
 				</control>
+				<control type="button" id="13">
+					<posx>597</posx>
+					<posy>0</posy>
+					<width>135</width>
+					<height>29</height>
+					<label>CINEMA</label>
+					<align>center</align>
+					<include>Objects_FSInfoButton</include>
+					<visible>Skin.HasSetting(EnableCinema) + !IsEmpty(Skin.String(CinemaPath))</visible>
+					<onclick>Playlist.Clear</onclick>
+					<onclick>Dialog.Close(MovieInformation)</onclick>
+					<onclick>Action(Queue,25)</onclick>
+					<onclick>RunScript($INFO[Skin.String(CinemaPath)])</onclick>
+				</control>			
 			</control>
 			<!-- end castmod new buttons added-->
 			<control type="textbox">
@@ -629,6 +644,15 @@
 					<label>31409</label>
 					<include>Objects_FSInfoButton</include>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
+				</control>
+				<control type="button" id="13">
+					<label>CINEMA</label>
+					<include>Objects_FSInfoButton</include>
+					<visible>Skin.HasSetting(EnableCinema) + !IsEmpty(Skin.String(CinemaPath))</visible>
+					<onclick>Playlist.Clear</onclick>
+					<onclick>Dialog.Close(MovieInformation)</onclick>
+					<onclick>Action(Queue,25)</onclick>
+					<onclick>RunScript($INFO[Skin.String(CinemaPath)])</onclick>
 				</control>
 			</control>
 			<control type="textbox">
@@ -896,4 +920,5 @@
 			</control>
 		</control>
 		<!-- castmod displays selectable cast -->
-	</controls></window>
+	</controls>
+</window>
