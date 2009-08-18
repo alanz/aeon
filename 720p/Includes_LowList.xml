@@ -89,565 +89,452 @@
 			<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
 		</include>
 		
-	<!----------------------------- LOW LIST ICON ROLLER --------------------------->
+	<!----------------------------- LOW LIST MEDIA ICONS --------------------------->
+			
+			<!-- Poster icon variables -->
 
+				<include name="ListIcon_PosterIconGroup">
+					<posx>22</posx>
+					<posy>-87</posy>>
+				</include>
+			
+				<include name="LowList_DVDCaseVars">
+					<posx>-17</posx>
+					<posy>0</posy>>
+					<width>310</width>
+					<height>405</height>
+					<visible>Window.IsActive(25) + [!Container.Content(episodes) | [Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]]</visible>
+				</include>
+
+				<include name="LowList_DVDCaseReflect">
+					<posy>380</posy>
+					<include>LowList_DVDCaseVars</include>
+				</include>				
+				
+				<include name="LowList_PosterIconVars">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>266</width>
+					<height>400</height>
+				</include>	
+				
+				<include name="LowList_PosterIconInCase">
+					<posx>25</posx>
+					<posy>10</posy>
+					<width>251</width>
+					<height>375</height>
+				</include>
+			
+				<include name="LowList_PosterIconReflect">
+					<posy>405</posy>
+					<colordiffuse>ccFFFFFF</colordiffuse>
+					<include>LowList_PosterIconVars</include>
+				</include>
+				
+				<include name="LowList_PosterIconInCaseReflect">
+					<posy>414</posy>
+					<colordiffuse>aaFFFFFF</colordiffuse>
+					<include>LowList_PosterIconInCase</include>
+				</include>
+
+				<include name="LowList_PosterIconGlass">
+					<texture>thumbs/poster_glass.png</texture>
+					<include>LowList_PosterIconVars</include>
+				</include>
+
+				<include name="LowList_DVDCaseGlass">
+					<texture>thumbs/boxes/poster_glass.png</texture>
+					<include>LowList_DVDCaseVars</include>
+				</include>
+				
+				<include name="LowList_PosterIconNormal">
+					<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
+				</include>
+				
+				<include name="LowList_PosterIconPoster">
+					<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
+				</include>
+				
+				<include name="LowList_PosterIconSeason">
+					<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
+				</include>
+				
+				<include name="LowList_DVDIconNormal">
+					<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
+				</include>
+				
+				<include name="LowList_DVDIconPoster">
+					<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
+				</include>
+				
+				<include name="LowList_DVDIconSeason">
+					<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
+				</include>
+				
+				<include name="LowList_PosterIconNormalReflect">
+					<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+				</include>
+				
+				<include name="LowList_PosterIconPosterReflect">
+					<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
+				</include>
+				
+				<include name="LowList_PosterIconSeasonReflect">
+					<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
+				</include>
+				
+				<include name="LowList_DVDIconNormalReflect">
+					<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+				</include>
+				
+				<include name="LowList_DVDIconPosterReflect">
+					<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
+				</include>
+				
+				<include name="LowList_DVDIconSeasonReflect">
+					<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
+				</include>
+
+			
+			<!-- Poster Media Icons -->
+					
+				<include name="LowList_PosterMediaIcons">
+				
+					<control type="group">
+						<include>ListIcon_PosterIconGroup</include>
+						
+						<control type="image">
+							<description>DVD Case Frame</description>
+							<include>LowList_DVDCaseVars</include>		
+							<texture>thumbs/boxes/poster_shadow.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>Poster Icon Mask</description>
+							<include>LowList_PosterIconVars</include>		
+							<texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
+							<bordertexture border="-18">thumbs/movieposter_frame.png</bordertexture>
+							<visible>!Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="largeimage">
+							<description>POSTER.JPG icon</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconVars</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCase</include>	
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconPoster</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconPoster</include>
+							<visible>Container.Content(tvshows)</visible>
+						</control>
+						<control type="largeimage">
+							<description>SEASON THUMB icon</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconVars</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCase</include>	
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconSeason</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconSeason</include>
+							<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+						</control>
+						<control type="largeimage">
+							<description>POSTER icon</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconVars</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCase</include>		
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconNormal</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconNormal</include>
+							<visible>Container.Content(movies) | Container.Content(seasons)</visible>
+						</control>
+						<control type="image">
+							<description>Poster Icon Glass</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconGlass</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_DVDCaseGlass</include>
+						</control>
+						<control type="image">
+							<description>DVD Case Double Thick Glass</description>
+							<include>LowList_DVDCaseGlass</include>		
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>DVD Case Frame Reflect</description>
+							<include>LowList_DVDCaseReflect</include>		
+							<texture>thumbs/boxes/poster_shadow_reflect.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="largeimage">
+							<description>POSTER.JPG icon</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconReflect</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCaseReflect</include>	
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconPosterReflect</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconPosterReflect</include>
+							<visible>Container.Content(tvshows)</visible>
+						</control>
+						<control type="largeimage">
+							<description>SEASON THUMB icon</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconReflect</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCaseReflect</include>	
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconSeasonReflect</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconSeasonReflect</include>
+							<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+						</control>
+						<control type="largeimage">
+							<description>POSTER icon</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconReflect</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCaseReflect</include>		
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconNormalReflect</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconNormalReflect</include>
+							<visible>Container.Content(movies) | Container.Content(seasons)</visible>
+						</control>
+						<control type="image">
+							<description>DVD Case Frame Reflect</description>
+							<include>LowList_DVDCaseReflect</include>		
+							<texture>thumbs/boxes/poster_glass_reflect.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						
+					</control>
+			
+				</include>
+			
+				
 			<!-- Square icon variables -->
 			
-				<include name="ListIcon_SquarePos-3">
-					<posx>60</posx>
-					<posy>-20</posy>
-				</include>
-				
-				<include name="ListIcon_SquarePos-2">
-					<posx>50</posx>
-					<posy>-5</posy>
-				</include>
-				
-				<include name="ListIcon_SquarePos-1">
-					<posx>40</posx>
-					<posy>13</posy>
-				</include>
-				
 				<include name="ListIcon_SquareIconGroup(0)">
 					<posx>8</posx>
 					<posy>0</posy>
 				</include>
 				
-				<include name="ListIcon_SquarePos1">
-					<posx>40</posx>
-					<posy>100</posy>
-				</include>
-				
-				<include name="ListIcon_SquarePos2">
-					<posx>50</posx>
-					<posy>140</posy>
-				</include>
-				
-				<include name="ListIcon_SquarePos3">
-					<posx>60</posx>
-					<posy>177</posy>
-				</include>
-				
-				<include name="ListIcon_SquareVars_Z4">
+				<include name="LowList_CDCaseVars">
 					<posx>0</posx>
 					<posy>0</posy>
-					<width>170</width>
-					<height>170</height>
-					<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-					<visible>!Player.HasAudio</visible>
-					<include>Animation_HighListSlideSmall</include>
+					<width>305</width>
+					<height>278</height>
 				</include>
+
+				<include name="LowList_CDCaseReflect">
+					<posy>269</posy>
+					<include>LowList_CDCaseVars</include>
+				</include>				
 				
-				<include name="ListIcon_SquareVars_Z3">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>190</width>
-					<height>190</height>
-					<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-					<visible>!Player.HasAudio</visible>
-					<include>Animation_HighListSlideSmall</include>
-				</include>
-			
-				<include name="ListIcon_SquareVars_Z2">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>210</width>
-					<height>210</height>
-					<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-					<visible>!Player.HasAudio</visible>
-					<include>Animation_HighListSlideSmall</include>
-				</include>
-				
-				<include name="ListIcon_SquareVars_Z1">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>230</width>
-					<height>230</height>
-					<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-					<visible>!Player.HasAudio</visible>
-					<include>Animation_HighListSlideSmall</include>
-				</include>
-					
-				<include name="ListIcon_SquareVars_Z0">
+				<include name="LowList_SquareIconVars">
 					<posx>0</posx>
 					<posy>0</posy>
 					<width>285</width>
 					<height>285</height>
-				</include>
-		
-			
-			
-			<!-- Square icons -->
-			
-				<include name="ListIcon_Square_Z3">
-					<control type="image">
-						<include>ListIcon_SquareVars_Z3</include>
-						<bordertexture border="-13">thumbs/cd_shadow_light.png</bordertexture>
-						<texture>thumbs/cd_glass_noedge.png</texture>
-					</control>
-					<control type="image">
-						<include>ListIcon_SquareVars_Z3</include>
-						<include>MusicShowcaseOverlay</include>
-					</control>
-				</include>
+				</include>	
 				
-				<include name="ListIcon_Square_Z2">
-					<control type="image">
-						<include>ListIcon_SquareVars_Z2</include>
-						<bordertexture border="-14">thumbs/cd_shadow_light.png</bordertexture>
-						<texture>thumbs/cd_glass_noedge.png</texture>
-					</control>
-					<control type="image">
-						<include>ListIcon_SquareVars_Z2</include>
-						<include>MusicShowcaseOverlay</include>
-					</control>
-				</include>
-				
-				<include name="ListIcon_Square_Z1">
-					<control type="image">
-						<include>ListIcon_SquareVars_Z1</include>
-						<bordertexture border="-16">thumbs/cd_shadow_light.png</bordertexture>
-						<texture>thumbs/cd_glass_noedge.png</texture>
-					</control>
-					<control type="image">
-						<include>ListIcon_SquareVars_Z1</include>
-						<include>MusicShowcaseOverlay</include>
-					</control>
-				</include>
-				
-				<include name="ListIcon_Square_Z0">
-					<control type="image">
-						<include>ListIcon_SquareVars_Z0</include>
-						<bordertexture border="-20">thumbs/cd_shadow_light.png</bordertexture>
-						<texture>thumbs/cd_glass_noedge.png</texture>
-						<visible>![Container.Content(artists) + Skin.HasSetting(artistrolleroff)]</visible>
-					</control>
-					<control type="image">
-						<include>ListIcon_SquareVars_Z0</include>
-						<include>MusicShowcaseOverlay</include>
-						<visible>![Container.Content(artists) + Skin.HasSetting(artistrolleroff)]</visible>
-					</control>
+				<include name="LowList_SquareIconInCase">
+					<posx>41</posx>
+					<posy>12</posy>
+					<width>250</width>
+					<height>248</height>
 				</include>
 			
-			<!-- Square icon roller -->
-			
-				<include name="LowList_SquareIconRoller">
-					
-				<!-- Static Icons -->
+				<include name="LowList_SquareIconReflect">
+					<posy>294</posy>
+					<include>LowList_SquareIconVars</include>
+					<texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+				</include>
 				
-					<control type="group">
-						<posx>0</posx>
-						<posy>0</posy>
-						<visible>[!Container.OnPrevious + !Container.OnNext] | [Container.Content(artists) + Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + Skin.HasSetting(songrolleroff)] | Player.HasAudio</visible>
-						<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
-						<animation effect="fade" start="0" end="100" time="0" delay="200">Visible</animation>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-3</include>
-							<animation effect="fade" start="0" end="60" time="0" condition="true">Conditional</animation>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-3).Icon</info>
-							</control>
-							<include>ListIcon_Square_Z3</include>
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos3</include>
-							<animation effect="fade" start="0" end="60" time="0" condition="true">Conditional</animation>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(3).Icon</info>
-							</control>
-							<include>ListIcon_Square_Z3</include>
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-2</include>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-2).Icon</info>
-							</control>
-							<include>ListIcon_Square_Z2</include>
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos2</include>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(2).Icon</info>
-							</control>
-							<include>ListIcon_Square_Z2</include>
-						</control>
-											
-						<control type="group">
-							<include>ListIcon_SquarePos-1</include>						
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-1).Icon</info>
-							</control>
-							<include>ListIcon_Square_Z1</include>
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos1</include>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(1).Icon</info>
-							</control>
-							<include>ListIcon_Square_Z1</include>
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos0</include>						
-							<control type="image">
-								<include>ListIcon_SquareVars_Z0</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem.Icon</info>
-								<visible>![Container.Content(artists) + Skin.HasSetting(artistrolleroff)]</visible>
-							</control>
-							<include>ListIcon_Square_Z0</include>
-							<control type="image">
-								<posy>259</posy>
-								<include>ListIcon_SquareVars_Z0</include>
-								<include>MusicShowcaseThumbReflection</include>
-								<info>ListItem.Icon</info>
-								<visible>false</visible>
-							</control>
-						</control>
-						
-					</control>
-				
-				
-				<!-- Rolling Down -->
-				
-					<control type="group">
-						<posx>0</posx>
-						<posy>0</posy>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos2</include>			
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(3).Icon</info>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="100" end="60" time="200" />
-									<effect type="zoom" end="10,37,190,190" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>
-								<bordertexture border="-14">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="100" end="60" time="200" />
-									<effect type="zoom" end="10,37,190,190" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-3</include>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-3).Icon</info>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="10" end="60" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>
-								<bordertexture border="-10">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="10" end="60" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-3</include>			
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-2).Icon</info>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,15,210,210" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>
-								<bordertexture border="-12">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,15,210,210" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos1</include>					
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(2).Icon</info>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="10,40,210,210" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>
-								<bordertexture border="-16">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="10,40,210,210" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-2</include>					
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-1).Icon</info>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,18,230,230" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>
-								<bordertexture border="-14">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnPrevious</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,18,230,230" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos0</include>					
-							<control type="image">
-								<include>ListIcon_SquareVars_Z0</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(1).Icon</info>
-								<visible>Container.OnPrevious</visible>
-								<visible>!Player.HasAudio</visible>
-								<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-								<animation effect="zoom" end="10,55,230,230" time="200">Hidden</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z0</include>
-								<bordertexture border="-20">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnPrevious</visible>
-								<visible>!Player.HasAudio</visible>
-								<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-								<animation effect="zoom" end="10,55,230,230" time="200">Hidden</animation>
-							</control>
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-1</include>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem.Icon</info>
-								<visible>Container.OnPrevious</visible>
-								<animation effect="zoom" end="-10,32,250,250" time="200">Hidden</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>
-								<bordertexture border="-16">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnPrevious</visible>
-								<animation effect="zoom" end="-10,32,250,250" time="200">Hidden</animation>
-							</control>						
-						</control>
-											
-					</control>
-			
-			
-				<!-- Rolling Up -->
-				
-					<control type="group">
-						<posx>0</posx>
-						<posy>0</posy>
-						
+				<include name="LowList_SquareIconInCaseReflect">
+					<posy>287</posy>
+					<include>LowList_SquareIconInCase</include>
+					<texture flipy="true" diffuse="thumbs/boxes/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+				</include>
 
-						<control type="group">
-							<include>ListIcon_SquarePos3</include>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(3).Icon</info>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="10" end="60" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>
-								<bordertexture border="-10">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="10" end="60" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-2</include>			
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-3).Icon</info>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="100" end="60" time="200" />
-									<effect type="zoom" end="10,-15,190,190" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>
-								<bordertexture border="-14">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="fade" start="100" end="60" time="200" />
-									<effect type="zoom" end="10,-15,190,190" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos3</include>			
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(2).Icon</info>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,-37,210,210" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z3</include>
-								<bordertexture border="-12">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,-37,210,210" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos-1</include>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-2).Icon</info>
-								<visible>Container.OnNext</visible>
-								<animation effect="zoom" end="10,-18,210,210" time="200">Hidden</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>
-								<bordertexture border="-16">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnNext</visible>
-								<animation effect="zoom" end="10,-18,210,210" time="200">Hidden</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos2</include>					
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(1).Icon</info>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,-40,230,230" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z2</include>
-								<bordertexture border="-14">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,-40,230,230" time="200" />
-								</animation>
-							</control>						
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos0</include>					
-							<control type="image">
-								<include>ListIcon_SquareVars_Z0</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem(-1).Icon</info>
-								<visible>Container.OnNext</visible>
-								<visible>!Player.HasAudio</visible>
-								<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-								<animation effect="zoom" end="10,-32,230,230" time="200">Hidden</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z0</include>
-								<bordertexture border="-20">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnNext</visible>
-								<visible>!Player.HasAudio</visible>
-								<visible>[Container.Content(artists) + !Skin.HasSetting(artistrolleroff)] | [Container.Content(albums) + !Skin.HasSetting(albumrolleroff)] | [Container.Content(songs) + !Skin.HasSetting(songrolleroff)] | Window.IsActive(500) | Window.IsActive(501)</visible>
-								<animation effect="zoom" end="10,-32,230,230" time="200">Hidden</animation>
-							</control>
-						</control>
-						
-						<control type="group">
-							<include>ListIcon_SquarePos1</include>					
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>		
-								<include>MusicShowcaseThumbMain</include>
-								<info>ListItem.Icon</info>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,-55,250,250" time="200" />
-								</animation>
-							</control>
-							<control type="image">
-								<include>ListIcon_SquareVars_Z1</include>
-								<bordertexture border="-16">thumbs/cd_shadow_light.png</bordertexture>
-								<texture>thumbs/cd_glass_noedge.png</texture>
-								<visible>Container.OnNext</visible>
-								<animation type="Hidden">
-									<effect type="zoom" end="-10,-55,250,250" time="200" />
-								</animation>
-							</control>					
-						</control>
-						
-					</control>
+				<include name="LowList_SquareIconGlass">
+					<texture>thumbs/cd_glass_noedge.png</texture>
+					<include>LowList_SquareIconVars</include>
+				</include>
+
+				<include name="LowList_CDCaseGlass">
+					<texture>thumbs/boxes/cd_glass.png</texture>
+					<include>LowList_CDCaseVars</include>
+				</include>
+
 			
-			</include>
+			<!-- Square Media Icons -->
+			
+				<include name="LowList_SquareMediaIcons">
+				
+					<control type="group">
+						<include>ListIcon_SquareIconGroup(0)</include>
+						<animation effect="slide" delay="1500" time="500" start="0,0" end="0,-50" tween="cubic" easing="inout" condition="Player.HasAudio">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,-50" time="200" condition="[[Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] | ControlGroup(55103).HasFocus()] + !Player.HasAudio">Conditional</animation>
+						<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
+						
+						<control type="image">
+							<description>CD Case Frame</description>
+							<include>LowList_CDCaseVars</include>		
+							<texture>thumbs/boxes/cd_shadow_light.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>Square Icon Mask</description>
+							<include>ListIcon_SquareIconVars</include>		
+							<texture diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
+							<bordertexture border="-16">thumbs/cd_shadow.png</bordertexture>
+							<visible>!Skin.HasSetting(dvdcase)</visible>
+						</control>						
+						<control type="image">
+							<description>Square Icon</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_SquareIconVars</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_SquareIconInCase</include>		
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture diffuse="thumbs/cdcover_mask.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<description>Square Icon Overlay</description>
+							<include>LowList_SquareIconVars</include>		
+							<texture>home/nowplaying_overlay.png</texture>
+							<visible>!Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>Square Icon Glass</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_SquareIconGlass</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_CDCaseGlass</include>
+						</control>
+						<control type="image">
+							<description>CD Case Double Thick Glass</description>
+							<include>LowList_CDCaseGlass</include>		
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>CD Case Frame Reflect</description>
+							<include>LowList_CDCaseReflect</include>		
+							<texture>thumbs/boxes/cd_shadow_reflect.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>Square Icon Reflection</description>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_SquareIconReflect</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_SquareIconInCaseReflect</include>	
+							<colordiffuse>66FFFFFF</colordiffuse>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+						<control type="image">
+							<description>CD Case Frame Reflect</description>
+							<include>LowList_CDCaseReflect</include>		
+							<texture>thumbs/boxes/cd_glass_reflect.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						
+					</control>				
+				</include>
+			
+		
+		<!-- Episode icon variables -->
+			
+				<include name="ListIcon_EpisodeIconGroup">
+					<posx>14</posx>
+					<posy>37</posy>
+				</include>
+				
+				<include name="LowList_EpisodeCaseVars">
+					<posx>-13</posx>
+					<posy>-13</posy>
+					<width>343</width>
+					<height>251</height>
+				</include>
+
+				<include name="LowList_EpisodeCaseReflect">
+					<posy>220</posy>
+					<include>LowList_EpisodeCaseVars</include>
+				</include>				
+				
+				<include name="LowList_EpisodeIconVars">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>319</width>
+					<height>223</height>
+				</include>	
+				
+				<include name="LowList_EpisodeIconReflect">
+					<posy>240</posy>
+					<include>LowList_EpisodeIconVars</include>
+					<texture flipy="true" fallback="defaultvideo.png" diffuse="thumbs/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+				</include>
+				
+				<include name="LowList_EpisodeIconInCaseReflect">
+					<posy>252</posy>
+					<include>LowList_EpisodeIconVars</include>
+					<texture flipy="true" diffuse="thumbs/boxes/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+				</include>
+
+				<include name="LowList_EpisodeIconGlass">
+					<texture>thumbs/cd_glass_noedge.png</texture>
+					<include>LowList_EpisodeIconVars</include>
+				</include>
+
+				<include name="LowList_EpisodeCaseGlass">
+					<texture>multiplex/boxes/multiplex_tvglass.png</texture>
+					<include>LowList_EpisodeCaseVars</include>
+				</include>
+				
+		<!-- Episode Media Icons -->
+				
+				<include name="LowList_EpisodeMediaIcons">
+				
+					<control type="group">
+						<include>ListIcon_EpisodeIconGroup</include>
+						<animation type="Visible">
+							<effect type="fade" time="450" start="0" end="100" />
+							<effect type="slide" start="0,-50" end="0,0" time="200" />
+						</animation>
+						<animation effect="fade" time="500" start="100" end="0">Hidden</animation>
+						<animation effect="slide" start="0,0" end="-10,0" time="300" condition="Control.HasFocus(61)">Conditional</animation>
+						<visible>Container.Content(episodes) + ![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+				
+						<control type="image">
+							<description>Episode Case Frame</description>
+							<include>LowList_EpisodeCaseVars</include>		
+							<texture>multiplex/boxes/multiplex_tvborder.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="largeimage">
+							<include>LowList_EpisodeIconVars</include>
+							<texture diffuse="thumbs/cdcover_mask.png">defaultvideo.png</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<info>ListItem.Icon</info>
+						</control>					
+						<control type="image">
+							<include>LowList_EpisodeIconVars</include>
+							<bordertexture border="-42,-18,-42,-20">thumbs/cd_shadow_light.png</bordertexture>
+							<texture>common/blank.png</texture>
+							<visible>!Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>Episode Icon Glass</description>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include condition="!Skin.HasSetting(dvdcase)">LowList_EpisodeIconGlass</include>
+							<include condition="Skin.HasSetting(dvdcase)">LowList_EpisodeCaseGlass</include>
+						</control>
+						<control type="image">
+							<description>Episode Case Double Thick Glass</description>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<include>LowList_EpisodeCaseGlass</include>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<description>Episode Case Frame Reflect</description>
+							<include>LowList_EpisodeCaseReflect</include>		
+							<texture>multiplex/boxes/multiplex_tvborderreflect.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+						<control type="image">
+							<include>LowList_EpisodeIconReflect</include>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+						</control>
+						<control type="image">
+							<description>Episode Case Frame Reflect</description>
+							<include>LowList_EpisodeCaseReflect</include>		
+							<texture>multiplex/boxes/multiplex_tvglassreflect.png</texture>
+							<visible>Skin.HasSetting(dvdcase)</visible>
+						</control>
+					
+					</control>					
+				</include>
 		
 	<!----------------------------- LOW LIST DETAIL LABELS --------------------->
 		
@@ -1125,7 +1012,7 @@
 				</control>
 			
 		</include>
-
+			
 	<!----------------------------- LOW LIST FLAGS ------------------------------------------>
 
 		<include name="LowList_MovieFlagVars">

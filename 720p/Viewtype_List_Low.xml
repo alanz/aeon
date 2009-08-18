@@ -206,30 +206,30 @@
 		
 		<include name="ListLabel_DetailAlbumCover_Low">
 			<control type="group">
-				<posx>507</posx>
-				<posy>3</posy>
+				<posx>508</posx>
+				<posy>0</posy>
 				<visible>Container.Content(artists) | Container.Content(albums)</visible>
 				
 				<control type="image">
-					<posx>3</posx>
-					<posy>3</posy>
-					<width>54</width>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>55</width>
 					<height>54</height>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<texture diffuse="thumbs/cdcover_mask.png">$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="image">
-					<posx>3</posx>
-					<posy>3</posy>
-					<width>54</width>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>55</width>
 					<height>54</height>
 					<bordertexture border="-2">thumbs/cd_shadow_light.png</bordertexture>
 					<texture>thumbs/cd_glass_noedge.png</texture>
 				</control>
 				<control type="image">
-					<posx>3</posx>
-					<posy>3</posy>
-					<width>54</width>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>55</width>
 					<height>54</height>
 					<include>MusicShowcaseOverlay</include>
 				</control>
@@ -308,7 +308,7 @@
 			<height>39</height>
 			<width>506</width>
 			<texture>dialogs/setcontent_button_focus.png</texture>
-			<animation effect="slide" start="0,0" end="0,26" time="0" condition="[Window.IsActive(25) + Skin.HasSetting(movieslistfull)] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,26" time="0" condition="[Window.IsActive(25) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]">Conditional</animation>
 			<animation effect="slide" start="10,0" end="10,0" time="0" condition="Container.Content(tvshows) | Container.Content(series)">Conditional</animation>
 			<animation effect="zoom" end="129,0,458,39" time="0" condition="Container.Content(episodes)">Conditional</animation>
 		</include>
@@ -904,8 +904,8 @@
 						<focusposition>1</focusposition>
 						<onleft>55104</onleft>
 						<onright>55105</onright>
-						<onup>50</onup>
-						<ondown>50</ondown>
+						<onup>551</onup>
+						<ondown>551</ondown>
 						<preloaditems>8</preloaditems>
 						<include>Animation_HighListSlide</include>
 						<visible>![Window.IsActive(25) + Skin.HasSetting(videotv)] | [Window.IsActive(25) + Skin.HasSetting(videotv)]</visible>
@@ -1077,133 +1077,11 @@
 			<animation effect="slide" start="0,0" end="0,-57" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(20)">Conditional</animation>
 			<animation effect="slide" time="1000" start="-600,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
 			<animation effect="fade" time="400" start="0" end="100">Visible</animation>
-			<animation effect="fade" time="400" start="100" end="0">Hidden</animation>			
-			
-			
-				<!-- Poster Icons -->
+			<animation effect="fade" time="400" start="100" end="0">Hidden</animation>						
 				
-					<control type="largeimage">
-						<description>Default icon</description>
-						<include>ListIcon_PosterVars_Low</include>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png">$INFO[listitem.Icon]</texture>
-						<visible>Container.Content(tvshows)</visible>
-						<fadetime>300</fadetime>
-					</control>
-					<control type="largeimage">
-						<description>POSTER.JPG icon</description>
-						<include>ListIcon_PosterVars_Low</include>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
-						<visible>Container.Content(tvshows)</visible>
-						<fadetime>300</fadetime>
-					</control>
-					<control type="largeimage">
-						<description>SEASON THUMB icon</description>
-						<include>ListIcon_PosterVars_Low</include>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
-						<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
-						<fadetime>300</fadetime>
-					</control>
-					<control type="largeimage">
-						<description>POSTER icon</description>
-						<include>ListIcon_PosterVars_Low</include>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
-						<visible>Container.Content(movies) | Container.Content(seasons)</visible>
-						<fadetime>300</fadetime>
-					</control>
-					<control type="image"> 
-						<description>POSTER glass overlay</description>
-						<include>ListIcon_PosterVars_Low</include>
-						<bordertexture border="-50">thumbs/poster_shadow.png</bordertexture>
-						<texture>thumbs/poster_glass_noedge.png</texture>
-					</control>
-					<control type="image">
-						<description>POSTER black overlay</description>
-						<include>ListIcon_PosterVars_Low</include>
-						<include>MovieShowcaseOverlay</include>
-					</control>
-					<control type="image">
-						<description>Default icon reflection</description>
-						<posy>322</posy>
-						<include>ListIcon_PosterVars_Low</include>
-						<colordiffuse>52FFFFFF</colordiffuse>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture flipy="true" fallback="defaultvideobigposter.png" background="true" diffuse="list/list_movieicon_flipmask.png">$INFO[ListItem.Icon]</texture>
-						<visible>Container.Content(tvshows)</visible>
-					</control>
-					<control type="image">
-						<description>POSTER.JPG icon reflection</description>
-						<posy>322</posy>
-						<include>ListIcon_PosterVars_Low</include>
-						<colordiffuse>52FFFFFF</colordiffuse>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture flipy="true" fallback="defaultvideobigposter.png" background="true" diffuse="list/list_movieicon_flipmask.png">$INFO[Container(551).ListItem.Path,,poster.jpg]</texture>
-						<visible>Container.Content(tvshows)</visible>
-					</control>
-					<control type="image">
-						<description>SEASON THUMB icon reflection</description>
-						<posy>322</posy>
-						<include>ListIcon_PosterVars_Low</include>
-						<colordiffuse>52FFFFFF</colordiffuse>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture flipy="true" fallback="defaultvideobigposter.png" background="true" diffuse="list/list_movieicon_flipmask.png">$INFO[Container(551).SeasonThumb]</texture>
-						<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
-					</control>
-					<control type="image">
-						<description>POSTER icon reflection</description>
-						<posy>322</posy>
-						<include>ListIcon_PosterVars_Low</include>
-						<colordiffuse>aaFFFFFF</colordiffuse>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture flipy="true" fallback="defaultvideobigposter.png" background="true" diffuse="list/list_movieicon_flipmask.png">$INFO[ListItem.Icon]</texture>
-						<visible>Container.Content(movies) | Container.Content(seasons)</visible>
-					</control>
-				
-				
-				<!-- Square Icons -->
-				
-					<!--<include>LowList_SquareIconRoller</include>-->
-					
-					<control type="group">
-						<include>ListIcon_SquareIconGroup(0)</include>
-						<animation effect="slide" delay="1500" time="500" start="0,0" end="0,-50" tween="cubic" easing="inout" condition="Player.HasAudio">Conditional</animation>
-						<animation effect="slide" start="0,0" end="0,-50" time="200" condition="[[Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] | ControlGroup(55103).HasFocus()] + !Player.HasAudio">Conditional</animation>
-						<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
-						
-						<control type="image">
-							<description>Square Icon Mask</description>
-							<include>ListIcon_SquareVars_Z0</include>		
-							<texture diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
-							<bordertexture border="-16">list/list_musicicon_frame.png</bordertexture>
-						</control>						
-						<control type="image">
-							<description>Square Icon</description>
-							<include>ListIcon_SquareVars_Z0</include>		
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture diffuse="thumbs/cdcover_mask.png">$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="image">
-							<description>Square Icon Glass</description>
-							<include>ListIcon_SquareVars_Z0</include>		
-							<texture>home/nowplaying_overlay.png</texture>
-						</control>
-						<control type="image">
-							<description>Square Icon Glass</description>
-							<include>ListIcon_SquareVars_Z0</include>		
-							<texture>list/list_musicicon_glass.png</texture>
-						</control>
-						<control type="image">
-							<description>Square Icon Reflection</description>
-							<posy>294</posy>
-							<include>ListIcon_SquareVars_Z0</include>		
-							<colordiffuse>66FFFFFF</colordiffuse>
-							<aspectratio scalediffuse="false">stretch</aspectratio>
-							<texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
-						</control>
-					</control>
+				<include condition="[Window.IsActive(25) + Skin.HasSetting(videotv)]">LowList_EpisodeMediaIcons</include>				
+				<include condition="[Window.IsActive(25)]">LowList_PosterMediaIcons</include>				
+				<include condition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]">LowList_SquareMediaIcons</include>
 					
 					
 				<!-- Landscape Icons -->
@@ -1293,37 +1171,7 @@
 						</control>-->
 					</control>
 				
-				<!-- Episode Icons -->
 				
-					<control type="largeimage">
-						<include>ListIcon_EpisodeVars_Low</include>		
-						<texture diffuse="thumbs/cdcover_mask.png">defaultvideo.png</texture>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<info>ListItem.Icon</info>
-					</control>					
-					<control type="image">
-						<include>ListIcon_EpisodeVars_Low</include>
-						<bordertexture border="-42,-18,-42,-20">thumbs/cd_shadow_light.png</bordertexture>
-						<texture>common/blank.png</texture>
-					</control>
-					<control type="image">
-						<include>ListIcon_EpisodeVars_Low</include>
-						<texture>thumbs/cd_glass_noedge.png</texture>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-					</control>
-					<control type="image">
-						<include>ListIcon_EpisodeVars_Low</include>
-						<colordiffuse>4e000000</colordiffuse>
-						<texture>-</texture>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-					</control>
-					<control type="image">
-						<posy>316</posy>
-						<include>ListIcon_EpisodeVars_Low</include>
-						<colordiffuse>a0FFFFFF</colordiffuse>
-						<aspectratio align="center" aligny="top">scale</aspectratio>
-						<texture flipy="true" fallback="defaultvideo.png" diffuse="thumbs/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
-				</control>
 				
 		</control>
 		
