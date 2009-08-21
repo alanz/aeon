@@ -179,7 +179,7 @@
 	<control type="image">
 		<include>movie_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/movieposter_mask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+Container.Content(genres)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 		<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 	</control>
@@ -188,14 +188,14 @@
 	<control type="image">
 		<include>movie_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/movieposter_mask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+Container.Content(genres)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 	</control>
 </include>
 <include name="genre_Showcase_22">
 	<control type="image">
 		<include>music_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/cdcover_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)]+Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<animation effect="zoom" start="100" end="110" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 		<animation effect="zoom" start="110" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
 	</control>
@@ -204,7 +204,7 @@
 	<control type="image">
 		<include>music_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/cdcover_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)]+Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 	</control>
 </include>
 <!-- Showcase End -->
@@ -225,13 +225,13 @@
 	<include>movie_ShowcaseThumbDimensions_ref_mod</include>
 	<colordiffuse>d0FFFFFF</colordiffuse>
 	<aspectratio scalediffuse="false">scale</aspectratio>
-	<visible>Container.Content(genres)+!Skin.HasSetting(moviegenre_onoff)</visible>
+	<visible>Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 	<visible>Window.IsActive(25)</visible>
 </include>
 <include name="music_genre_Showcase_image_ref_mod">
 	<include>music_ShowcaseThumbDimensions_ref_mod</include>
 	<colordiffuse>d0FFFFFF</colordiffuse>
-	<visible>Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+	<visible>Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 	<visible>Window.IsActive(502)</visible>
 </include>
 <include name="genre_Showcase_ref_1">
@@ -390,7 +390,7 @@
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<texture flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+Container.Content(genres)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 		<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 	</control>
@@ -401,14 +401,14 @@
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<texture flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+Container.Content(genres)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 	</control>
 </include>
 <!-- Showcase reflection End -->
 <!-- wall -->
 <include name="mod_moviegenre_wall_1">
 	<control type="image">
-		<visible>Container.Content(genres)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<include>WallIconMovieDimensions</include>
 		<texture diffuse="wall/wall_mask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
@@ -417,7 +417,7 @@
 </include>
 <include name="mod_moviegenre_wall_2">
 	<control type="image">
-		<visible>Container.Content(genres)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<include>WallIconMovieDimensionsSmall</include>
 		<texture diffuse="wall/wall_mask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
@@ -428,7 +428,7 @@
 <!-- List -->
 <include name="mod_moviegenre_list1">
 	<control type="image">
-		<visible>Container.Content(genres)+!Window.IsActive(502)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Window.IsActive(502) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<width>346</width>
 		<height>511</height>
 		<fadetime>400</fadetime>
@@ -439,7 +439,7 @@
 </include>
 <include name="mod_moviegenre_list2">
 	<control type="image">
-		<visible>Container.Content(genres)+!Window.IsActive(502)+!Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Window.IsActive(502) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<posy>513</posy>
 		<width>346</width>
 		<height>511</height>
@@ -452,7 +452,7 @@
 <!-- Multiplex End -->
 <include name="mod_musicgenre_Multiplex1">
 	<control type="image">
-		<visible>Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<posx>0</posx>
 		<posy>20</posy>
 		<width>130</width>
@@ -463,7 +463,7 @@
 </include>
 <include name="mod_musicgenre_Multiplex2">
 	<control type="image">
-		<visible>Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<posx>0</posx>
 		<posy>20</posy>
 		<width>130</width>
@@ -478,7 +478,7 @@
 <!-- List -->
 <include name="mod_musicgenre_list1">
 	<control type="image">
-		<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)+Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<!-- <<<<<< Add this -->
 		<posy>165</posy>
 		<width>346</width>
@@ -491,7 +491,7 @@
 </include>
 <include name="mod_musicgenre_list2">
 	<control type="image">
-		<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)+Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<!-- <<<<<< Add this -->
 		<posy>513</posy>
 		<width>346</width>
@@ -505,7 +505,7 @@
 <!-- wall -->
 <include name="mod_musicgenre_wall_1">
 	<control type="image">
-		<visible> Window.IsActive(502)+Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<include>WallIconDimensionsSmall</include>
 		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
@@ -514,7 +514,7 @@
 </include>
 <include name="mod_musicgenre_wall_2">
 	<control type="image">
-		<visible> Window.IsActive(502)+Container.Content(genres)+!Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<include>WallIconDimensions</include>
 		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
