@@ -215,7 +215,7 @@
 			<onclick>Skin.SetBool(multiplextvinfoauto)</onclick>
 			<onclick>Skin.Reset(multiplextvinfooff)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(52) + Skin.HasSetting(multiplextvinfooff)</visible>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(multiplextvinfooff)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
 		<control type="button" id="700008">
@@ -224,7 +224,7 @@
 			<onclick>Skin.SetBool(multiplextvinfotrigger)</onclick>
 			<onclick>Skin.Reset(multiplextvinfoauto)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(52) + ![Skin.HasSetting(multiplextvinfotrigger) | Skin.HasSetting(multiplextvinfooff) | Skin.HasSetting(multiplextvinfoon)]</visible>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + ![Skin.HasSetting(multiplextvinfotrigger) | Skin.HasSetting(multiplextvinfooff) | Skin.HasSetting(multiplextvinfoon)]</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
 		<control type="button" id="700009">
@@ -233,7 +233,7 @@
 			<onclick>Skin.SetBool(multiplextvinfoon)</onclick>
 			<onclick>Skin.Reset(multiplextvinfotrigger)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(52) + Skin.HasSetting(multiplextvinfotrigger)</visible>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(multiplextvinfotrigger)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
 		<control type="button" id="700010">
@@ -242,7 +242,7 @@
 			<onclick>Skin.SetBool(multiplextvinfooff)</onclick>
 			<onclick>Skin.Reset(multiplextvinfoon)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(52) + Skin.HasSetting(multiplextvinfoon)</visible>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(multiplextvinfoon)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
 	</include>
@@ -1005,9 +1005,11 @@
 				<include condition="Window.IsActive(500) | Window.IsActive(28)">MediaMenuButton_Playlist</include>
 				<include>MediaMenuButton_FlattenFlow</include>
 				<include>MediaMenuButton_MultiplexInfo</include>
+				<include>MediaMenuButton_ShowcaseInfo</include>
 				<include>MediaMenuButton_WallInfo</include>
 				<include>MediaMenuButton_GamesPoster</include>
 				<include>MediaMenuButton_MultiplexStyle</include>
+				<include>MediaMenuButton_ShowcaseStyle</include>
 				<include>MediaMenuButton_PanelDensity</include>
 				<include>MediaMenuButton_ListLayout</include>
 				<include>MediaMenuButton_VerticalWall</include>
@@ -1031,8 +1033,6 @@
 				<include>LowList_ToggleSlideshowMediaMenuButton</include>
 				<include>LowList_BrowsingLayoutMediaMenuButton</include>
 				<!--<include condition="Window.IsActive(502)">LowList_ToggleRollerMediaMenuButton</include>--><include>LowList_AutoTriggerMediaMenuButton</include>
-				<include>MediaMenuButton_ShowcaseInfo</include>
-				<include>MediaMenuButton_ShowcaseStyle</include>
 			</control>
 		</control>
 	</include>

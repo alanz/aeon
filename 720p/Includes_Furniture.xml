@@ -113,7 +113,7 @@
 	</include>
 	<include name="Furniture_Library">
 		<control type="group">
-			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+			<visible>[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + ![Skin.HasSetting(homevis) + [Player.HasAudio | Player.HasVideo]]</visible>
 			<animation effect="slide" start="-600,0" end="0,0" delay="400" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
 			<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
 			<include>Animation_CommonFade</include>
@@ -123,7 +123,7 @@
 			<include>Furniture_LibraryPanel</include>
 		</control>
 		<control type="group">
-			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+			<visible>[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + ![Skin.HasSetting(homevis) + [Player.HasAudio | Player.HasVideo]]</visible>
 			<animation effect="slide" start="-600,0" end="0,0" delay="400" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
 			<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
 			<include>Animation_CommonFade</include>
@@ -970,7 +970,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-464" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-464" condition="!Skin.HasSetting(homevis) + Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 		</control>
 		<control type="group">
 			<posx>0</posx>
@@ -987,7 +987,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="!Skin.HasSetting(homevis) + Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
 			<include>Furniture_HomeNowPlayingInfo</include>
@@ -1006,7 +1006,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-120" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="!Skin.HasSetting(homevis) + Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<animation effect="slide" time="200" start="0,0" end="0,30" condition="ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus()">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
@@ -1026,7 +1026,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-125" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="!Skin.HasSetting(homevis) + Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
 			<include>Furniture_HomeNowPlayingInfo</include>
@@ -1045,7 +1045,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="!Skin.HasSetting(homevis) + Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<animation effect="slide" time="200" start="0,0" end="0,20" condition="ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus()">Conditional</animation>
 			<include>Animation_VisibleChange200</include>
 			<include>Furniture_HomeNowPlayingObjects</include>
