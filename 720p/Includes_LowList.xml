@@ -115,45 +115,46 @@
 	<include>LowList_DVDCaseVars</include>
 </include>
 <include name="LowList_PosterIconNormal">
-	<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
+	<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
 </include>
 <include name="LowList_PosterIconPoster">
-	<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
+	<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
 </include>
 <include name="LowList_PosterIconSeason">
-	<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
+	<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
 </include>
 <include name="LowList_DVDIconNormal">
-	<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
+	<texture fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
 </include>
 <include name="LowList_DVDIconPoster">
-	<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
+	<texture fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
 </include>
 <include name="LowList_DVDIconSeason">
-	<texture background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
+	<texture fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
 </include>
 <include name="LowList_PosterIconNormalReflect">
-	<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+	<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
 </include>
 <include name="LowList_PosterIconPosterReflect">
-	<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
+	<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
 </include>
 <include name="LowList_PosterIconSeasonReflect">
-	<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
+	<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
 </include>
 <include name="LowList_DVDIconNormalReflect">
-	<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+	<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
 </include>
 <include name="LowList_DVDIconPosterReflect">
-	<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
+	<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
 </include>
 <include name="LowList_DVDIconSeasonReflect">
-	<texture flipy="true" background="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
+	<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
 </include>
 <!-- Poster Media Icons -->
 <include name="LowList_PosterMediaIcons">
 	<control type="group">
 		<include>ListIcon_PosterIconGroup</include>
+		<visible>![Container.Content(episodes) + ![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]</visible>
 		<control type="image">
 			<description>DVD Case Frame</description>
 			<include>LowList_DVDCaseVars</include>
@@ -174,6 +175,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconPoster</include>
 			<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconPoster</include>
+			<fadetime>400</fadetime>
 			<visible>Container.Content(tvshows)</visible>
 		</control>
 		<control type="largeimage">
@@ -183,9 +185,10 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconSeason</include>
 			<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconSeason</include>
+			<fadetime>400</fadetime>
 			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		</control>
-		<control type="largeimage">
+		<control type="image">
 			<description>POSTER icon</description>
 			<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconVars</include>
 			<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCase</include>
@@ -217,6 +220,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconPosterReflect</include>
 			<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconPosterReflect</include>
+			<fadetime>400</fadetime>
 			<visible>Container.Content(tvshows)</visible>
 		</control>
 		<control type="largeimage">
@@ -226,9 +230,10 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconSeasonReflect</include>
 			<include condition="Skin.HasSetting(dvdcase)">LowList_DVDIconSeasonReflect</include>
+			<fadetime>400</fadetime>
 			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		</control>
-		<control type="largeimage">
+		<control type="image">
 			<description>POSTER icon</description>
 			<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconReflect</include>
 			<include condition="Skin.HasSetting(dvdcase)">LowList_PosterIconInCaseReflect</include>
@@ -401,7 +406,7 @@
 			<effect type="fade" time="450" start="0" end="100" />
 			<effect type="slide" start="0,-50" end="0,0" time="200" />
 		</animation>
-		<animation effect="fade" time="500" start="100" end="0">Hidden</animation>
+		<animation effect="fade" time="500" start="100" end="0" condition="[Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
 		<animation effect="slide" start="0,0" end="-10,0" time="300" condition="Control.HasFocus(61)">Conditional</animation>
 		<visible>Container.Content(episodes) + ![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		<control type="image">
@@ -2179,7 +2184,7 @@
 			<texture>$INFO[Container(551).listitem.property(fanart_image)]</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>!IsEmpty(Container(551).listitem.property(fanart_image))</visible>
-			<visible>!Container.Content(episodes) + !Skin.HasSetting(widepanelthumbon)</visible>
+			<visible>!Container.Content(episodes) + !Skin.HasSetting(widetvpanelthumbon)</visible>
 			<visible>!Player.HasVideo</visible>
 			<include>LowList_WideImageVarsBig</include>
 			<include>Animation_BackgroundFade</include>
@@ -2188,7 +2193,7 @@
 			<texture>$INFO[container.property(fanart_image)]</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>!IsEmpty(container.property(fanart_image))</visible>
-			<visible>!Container.Content(episodes) + !Skin.HasSetting(widepanelthumbon)</visible>
+			<visible>!Container.Content(episodes) + !Skin.HasSetting(widetvpanelthumbon)</visible>
 			<visible>!Player.HasVideo</visible>
 			<include>LowList_WideImageVarsBig</include>
 			<include>Animation_BackgroundFade</include>
@@ -2197,7 +2202,7 @@
 			<timeperimage>6000</timeperimage>
 			<imagepath fallback="common/black.png" background="true">$INFO[ListItem.Icon]</imagepath>
 			<aspectratio scalediffuse="false">scale</aspectratio>
-			<visible>Container.Content(episodes) | Skin.HasSetting(widepanelthumbon)</visible>
+			<visible>Container.Content(episodes) | Skin.HasSetting(widetvpanelthumbon)</visible>
 			<visible>!Player.HasVideo</visible>
 			<include>LowList_WideImageVarsBig</include>
 			<include>Animation_BackgroundFade</include>
