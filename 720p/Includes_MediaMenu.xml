@@ -696,7 +696,16 @@
 			<onclick>Skin.SetBool(widepanelthumbon)</onclick>
 			<altclick>Skin.Reset(widepanelthumbon)</altclick>
 			<selected>Skin.HasSetting(widepanelthumbon)</selected>
-			<visible>Control.IsVisible(551) + Window.IsActive(25)</visible>
+			<visible>Control.IsVisible(551) + Window.IsActive(25) + !Skin.HasSetting(videotv)</visible>
+		</control>
+		<control type="togglebutton" id="5517004">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[539]: $LOCALIZE[31044]</label>
+			<altlabel>$LOCALIZE[539]: $LOCALIZE[31045]</altlabel>
+			<onclick>Skin.SetBool(widetvpanelthumbon)</onclick>
+			<altclick>Skin.Reset(widetvpanelthumbon)</altclick>
+			<selected>Skin.HasSetting(widetvpanelthumbon)</selected>
+			<visible>Control.IsVisible(551) + Window.IsActive(25) + Skin.HasSetting(videotv)</visible>
 		</control>
 	</include>
 	<include name="LowList_BrowsingLayoutMediaMenuButton">
@@ -783,7 +792,7 @@
 			<visible>Control.IsVisible(551) + Container.Content(songs)</visible>
 		</control>
 	</include>
-		<include name="MediaMenuButton_ShowcaseInfo">
+	<include name="MediaMenuButton_ShowcaseInfo">
 		<control type="button" id="700060">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
@@ -849,7 +858,7 @@
 			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(57) + Skin.HasSetting(showcasetvinfoon)</visible>
 		</control>
 	</include>
-		<include name="MediaMenuButton_ShowcaseStyle">
+	<include name="MediaMenuButton_ShowcaseStyle">
 		<control type="button" id="700068">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31047]: $LOCALIZE[31046]</label>
@@ -1021,8 +1030,7 @@
 				<include>LowList_HighLowMediaMenuButton</include>
 				<include>LowList_ToggleSlideshowMediaMenuButton</include>
 				<include>LowList_BrowsingLayoutMediaMenuButton</include>
-				<!--<include condition="Window.IsActive(502)">LowList_ToggleRollerMediaMenuButton</include>-->
-				<include>LowList_AutoTriggerMediaMenuButton</include>
+				<!--<include condition="Window.IsActive(502)">LowList_ToggleRollerMediaMenuButton</include>--><include>LowList_AutoTriggerMediaMenuButton</include>
 				<include>MediaMenuButton_ShowcaseInfo</include>
 				<include>MediaMenuButton_ShowcaseStyle</include>
 			</control>
