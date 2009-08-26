@@ -378,7 +378,8 @@
 			<usealttexture>Skin.HasSetting(nomoviefanart)</usealttexture>
 			<onclick>Skin.SetBool(nomoviefanart)</onclick>
 			<altclick>Skin.Reset(nomoviefanart)</altclick>
-			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + [Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(54)]</visible>
+			<altclick>Skin.SetBool(nomoviecurtains)</altclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies)</visible>
 		</control>
 		<control type="togglebutton" id="700026">
 			<include>MediaMenuButton</include>
@@ -386,7 +387,8 @@
 			<usealttexture>Skin.HasSetting(notvfanart)</usealttexture>
 			<onclick>Skin.SetBool(notvfanart)</onclick>
 			<altclick>Skin.Reset(notvfanart)</altclick>
-			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + [Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(54)]</visible>
+			<altclick>Skin.SetBool(notvcurtains)</altclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv)</visible>
 		</control>
 		<control type="togglebutton" id="700027">
 			<include>MediaMenuButton</include>
@@ -402,7 +404,7 @@
 			<usealttexture>Skin.HasSetting(nomusicfanart)</usealttexture>
 			<onclick>Skin.SetBool(nomusicfanart)</onclick>
 			<altclick>Skin.Reset(nomusicfanart)</altclick>
-			<visible>Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551)</visible>
+			<altclick>Skin.SetBool(nomusiccurtains)</altclick>
 			<visible>Window.IsActive(502)</visible>
 		</control>
 	</include>
@@ -531,13 +533,31 @@
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31067]S: $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31067]S: $LOCALIZE[31077]</altlabel>
-			<usealttexture>Skin.HasSetting(nocurtains)</usealttexture>
-			<onclick>Skin.ToggleSetting(nocurtains)</onclick>
-			<onclick>Skin.SetBool(notvfanart)</onclick>
-			<onclick>Skin.SetBool(nomoviefanart)</onclick>
-			<onclick>Skin.SetBool(nomusicfanart)</onclick>
-			<onclick>Skin.SetBool(nopicturefanart)</onclick>
-			<visible>Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57)</visible>
+			<usealttexture>Skin.HasSetting(nomoviecurtains)</usealttexture>
+			<onclick>Skin.SetBool(nomoviecurtains)</onclick>
+			<altclick>Skin.Reset(nomoviecurtains)</altclick>
+			<altclick>Skin.SetBool(nomoviefanart)</altclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies)</visible>
+		</control>
+		<control type="togglebutton" id="7000401">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31067]S: $LOCALIZE[31078]</label>
+			<altlabel>$LOCALIZE[31067]S: $LOCALIZE[31077]</altlabel>
+			<usealttexture>Skin.HasSetting(notvcurtains)</usealttexture>
+			<onclick>Skin.SetBool(notvcurtains)</onclick>
+			<altclick>Skin.Reset(notvcurtains)</altclick>
+			<altclick>Skin.SetBool(notvfanart)</altclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv)</visible>
+		</control>
+		<control type="togglebutton" id="7000402">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31067]S: $LOCALIZE[31078]</label>
+			<altlabel>$LOCALIZE[31067]S: $LOCALIZE[31077]</altlabel>
+			<usealttexture>Skin.HasSetting(nomusiccurtains)</usealttexture>
+			<onclick>Skin.SetBool(nomusiccurtains)</onclick>
+			<altclick>Skin.Reset(nomusiccurtains)</altclick>
+			<altclick>Skin.SetBool(nomusicfanart)</altclick>
+			<visible>Window.IsActive(502)</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_LightNight">

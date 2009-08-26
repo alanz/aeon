@@ -24,15 +24,14 @@
 		<include>Animation_BackgroundFade</include>
 		<animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
 		<animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-		<animation effect="rotate" center="auto" start="-1" end="1" time="11000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-		<visible>!Control.IsVisible(52) | [Control.IsVisible(52) + Skin.HasSetting(nocurtains)]</visible>
+		<visible>Skin.HasSetting(nomoviecurtains) | Skin.HasSetting(notvcurtains) | Skin.HasSetting(nomusiccurtains)</visible>
 	</include>
 	<include name="BackgroundVarsMultiplex">
 		<include>FullscreenDimensions</include>
 		<timeperimage>20000</timeperimage>
 		<randomize>true</randomize>
 		<fadetime>1000</fadetime>
-		<visible>[Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57)] + !Skin.HasSetting(nocurtains)</visible>
+		<visible>[!Skin.HasSetting(nomoviecurtains) + Window.IsActive(25) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(notvcurtains) + Window.IsActive(25) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(nomusiccurtains) + Window.IsActive(502)]</visible>
 		<include>Animation_BackgroundFade</include>
 	</include>
 	<include name="BackgroundVarsVirtual">
