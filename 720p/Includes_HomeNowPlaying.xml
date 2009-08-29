@@ -1,0 +1,436 @@
+<includes>
+	<!-- Home Now Playing panel -->
+	<include name="Furniture_HomeNowPlayingObjects">
+		<control type="image">
+			<posx>18</posx>
+			<posy>446</posy>
+			<height>262</height>
+			<width>262</width>
+			<texture>home/nowplaying_back.png</texture>
+			<visible>Player.HasAudio</visible>
+		</control>
+		<control type="image">
+			<posx>261</posx>
+			<posy>506</posy>
+			<height>176</height>
+			<width>259</width>
+			<texture>home/nowplaying_info.png</texture>
+			<visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+		</control>
+		<control type="image">
+			<posx>28</posx>
+			<posy>456</posy>
+			<height>242</height>
+			<width>242</width>
+			<texture fallback="defaultmusicbig.png" diffuse="home/nowplaying_mask.png">$INFO[MusicPlayer.Cover]</texture>
+			<visible>Player.HasAudio</visible>
+		</control>
+		<control type="image">
+			<posx>28</posx>
+			<posy>456</posy>
+			<height>242</height>
+			<width>242</width>
+			<texture>home/nowplaying_overlay.png</texture>
+			<visible>Player.HasAudio</visible>
+		</control>
+	</include>
+	<include name="Furniture_HomeNowPlayingMetrics">
+		<posx>296</posx>
+		<width>533</width>
+		<height>25</height>
+		<aligny>left</aligny>
+		<visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+	</include>
+	<include name="Furniture_HomeNowPlayingInfo">
+		<control type="label">
+			<posy>478</posy>
+			<label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
+			<font>Font_HomeNowPlayingArtist</font>
+			<include>Furniture_HomeNowPlayingMetrics</include>
+		</control>
+		<control type="label">
+			<posy>510</posy>
+			<include>Furniture_HomeNowPlayingMetrics</include>
+			<textcolor>abFFFFFF</textcolor>
+			<label>[UPPERCASE]$INFO[MusicPlayer.Album][/UPPERCASE]</label>
+			<font>Font_HomeNowPlayingAlbum</font>
+		</control>
+		<control type="label">
+			<include>Furniture_HomeNowPlayingMetrics</include>
+			<posy>634</posy>
+			<textcolor>ab749a9a</textcolor>
+			<label>31006</label>
+			<font>Font_HomeNowPlayingAlbum</font>
+			<visible>!Player.Paused</visible>
+		</control>
+		<control type="label">
+			<include>Furniture_HomeNowPlayingMetrics</include>
+			<posy>634</posy>
+			<textcolor>ab749a9a</textcolor>
+			<label>31007</label>
+			<font>Font_HomeNowPlayingAlbum</font>
+			<visible>Player.Paused</visible>
+		</control>
+		<control type="label">
+			<include>Furniture_HomeNowPlayingMetrics</include>
+			<posy>650</posy>
+			<textcolor>abFFFFFF</textcolor>
+			<label>[UPPERCASE]$INFO[MusicPlayer.Title][/UPPERCASE]</label>
+			<font>Font_HomeNowPlayingTrack</font>
+		</control>
+	</include>	
+	<include name="Furniture_HomeNowPlayingObjectsCDArt">	
+		<control type="image">
+			<description>Cd overlay</description>
+			<animation effect="slide" start="-118" end="0" time="700" tween="cubic" easing="out" delay="500">WindowOpen</animation>
+			
+			<animation type="WindowClose">
+			<effect type="slide" start="0" end="-114" time="700" tween="cubic" easing="in" delay="0"/>
+			<effect type="fade" start="100" end="0" time="600"/>
+			<condition type="!Player.Playing"/>
+			</animation>
+           <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+			<width>230</width>
+			<height>194</height>
+			<posx>150</posx><!-- 112 -->
+			<posy>470</posy><!-- -143 -->
+			<texture fallback="backdrops/artist_fanart/default/default.png">backdrops/artist_fanart/cd/$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Album].png</texture>
+			<aspectratio align="bottom">keep</aspectratio>
+			<visible>Player.HasAudio</visible>
+		</control>		
+		<!-- Cover and Overlay-->
+		<control type="group">
+		<animation effect="slide" start="-620" end="10" time="700" tween="cubic" easing="out" delay="0">WindowOpen</animation>
+		<animation effect="slide" start="10" end="-120" time="1200" tween="cubic" easing="in" delay="0">WindowClose</animation>
+			<control type="image">
+				<posx>28</posx>
+				<posy>455</posy>
+				<height>230</height>
+				<width>255</width>
+				<texture fallback="defaultmusicbig.png" diffuse="thumbs/cdcover_mask.png">$INFO[MusicPlayer.Cover]</texture>
+				<visible>Player.HasAudio</visible>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<posx>28</posx>
+				<posy>455</posy>
+				<height>230</height>
+				<width>255</width>
+				<texture>home/nowplaying_overlay.png</texture>
+				<visible>Player.HasAudio</visible>
+				<aspectratio align="bottom">keep</aspectratio>
+			</control>
+		</control>	
+	</include>
+	<include name="Furniture_HomeNowPlayingMetricsCDArt">
+		<animation effect="slide" start="1280" end="0" time="1000" tween="cubic" easing="out" delay="700">WindowOpen</animation>
+		<width>533</width>
+		<height>25</height>
+		<aligny>left</aligny>
+		<visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+	</include>	
+	<include name="Furniture_HomeNowPlayingInfoCDArt">
+		<control type="label">
+			<posx>370</posx>
+			<posy>478</posy>
+			<label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
+			<font>Font_HomeNowPlayingArtist</font>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
+		</control>
+		<control type="label">
+		    <posx>390</posx>
+			<posy>510</posy>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
+			<textcolor>abFFFFFF</textcolor>
+			<label>[UPPERCASE]$INFO[MusicPlayer.Album][/UPPERCASE]</label>
+			<font>Font_HomeNowPlayingAlbum</font>
+		</control>
+		<control type="label">
+			<posx>390</posx>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
+			<posy>614</posy>
+			<textcolor>ab749a9a</textcolor>
+			<label>31006</label>
+			<font>Font_HomeNowPlayingAlbum</font>
+			<visible>!Player.Paused</visible>
+		</control>
+		<control type="label">
+			<posx>390</posx>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
+			<posy>614</posy>
+			<textcolor>ab749a9a</textcolor>
+			<label>31007</label>
+			<font>Font_HomeNowPlayingAlbum</font>
+			<visible>Player.Paused</visible>
+		</control>
+		<control type="label">
+			<posx>371</posx>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
+			<posy>635</posy>			
+			<textcolor>abFFFFFF</textcolor>
+			<label>[UPPERCASE]$INFO[MusicPlayer.Title][/UPPERCASE]</label>
+			<font>Font_HomeNowPlayingTrack</font>
+		</control>
+	</include>
+		<!-- HomeNowPlaying2 -->
+	<include name="Furniture_HomeNowPlaying2">
+		<control type="group">
+			<visible>Skin.HasSetting(homevis) + Player.HasVideo</visible>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>common/black.png</texture>
+			</control>
+			<control type="videowindow">
+				<include>FullscreenDimensions</include>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(homevis) + Player.HasAudio</visible>			
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>common/black.png</texture>
+			</control>
+			<control type="visualisation">
+				<include>FullscreenDimensions</include>
+			</control>
+		</control>	
+		<control type="image">
+			<posx>0</posx>
+			<posy>240</posy>
+			<width>1280</width>
+			<height>630</height>
+			<texture>home/nowplaying_shadow.png</texture>
+			<visible>Player.HasAudio + !Control.HasFocus(8001)</visible>
+			<include>Animation_VisibleChange200</include>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" delay="500" time="400" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			
+		</control>
+		<control type="group">
+			<animation effect="slide" start="0,0" end="-980,0" time="500" easing="inout" tween="cubic" condition="control.HasFocus(8001)">Conditional</animation>
+			
+			<posx>0</posx>
+			<posy>0</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)]</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="slide" start="0,0" end="-800,0" time="200" easing="in" tween="quadratic" />
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+		</control>
+		<control type="group">
+			<animation effect="slide" start="0,0" end="-980,0" time="500" easing="inout" tween="cubic" condition="control.HasFocus(8001)">Conditional</animation>			
+			<posx>0</posx>
+			<posy>-30</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-120" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="200" start="0,0" end="0,30" condition="Control.HasFocus(941)">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+		</control>
+		<control type="group">
+			<animation effect="slide" start="0,0" end="-980,0" time="500" easing="inout" tween="cubic" condition="control.HasFocus(8001)">Conditional</animation>
+			
+			<posx>0</posx>
+			<posy>-15</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>Skin.HasSetting(lowerrss) + !system.getbool(lookandfeel.enablerssfeeds)</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-125" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+		</control>
+		<control type="group">
+			<animation effect="slide" start="0,0" end="-980,0" time="500" easing="inout" tween="cubic" condition="control.HasFocus(8001)">Conditional</animation>
+			
+			<posx>0</posx>
+			<posy>-15</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>![Skin.HasSetting(lowerrss) | system.getbool(lookandfeel.enablerssfeeds)]</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="200" start="0,0" end="0,20" condition="Control.HasFocus(941)">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+		</control>
+	</include>
+	<include name="Furniture_HomeNowPlaying">
+		<control type="group">
+			<visible>Skin.HasSetting(homevis) + Player.HasVideo</visible>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>common/black.png</texture>
+			</control>
+			<control type="videowindow">
+				<include>FullscreenDimensions</include>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(homevis) + Player.HasAudio</visible>			
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>common/black.png</texture>
+			</control>
+			<control type="visualisation">
+				<include>FullscreenDimensions</include>
+			</control>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>240</posy>
+			<width>1280</width>
+			<height>1100</height>
+			<texture>home/nowplaying_shadow.png</texture>
+			<visible>Player.HasAudio</visible>
+			<include>Animation_VisibleChange200</include>
+			<include>Conditions_HiddenByAeonAssistant</include>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" delay="500" time="400" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-464" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+		</control>
+		<control type="group">
+			<posx>0</posx>
+			<posy>0</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)]</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="slide" start="0,0" end="-800,0" time="200" easing="in" tween="quadratic" />
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+		</control>
+		<control type="group">
+			<posx>0</posx>
+			<posy>-30</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-120" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<animation effect="slide" time="200" start="0,0" end="0,30" condition="Control.HasFocus(941)">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>		</control>
+		<control type="group">
+			<posx>0</posx>
+			<posy>-15</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>Skin.HasSetting(lowerrss) + !system.getbool(lookandfeel.enablerssfeeds)</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-125" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+		</control>
+		<control type="group">
+			<posx>0</posx>
+			<posy>-15</posy>
+			<height>720</height>
+			<width>1280</width>
+			<visible>![Skin.HasSetting(lowerrss) | system.getbool(lookandfeel.enablerssfeeds)]</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
+				<effect type="fade" start="0" end="100" delay="500" time="200" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+			<animation effect="slide" time="200" start="0,0" end="0,20" condition="Control.HasFocus(941)">Conditional</animation>
+			<include>Animation_VisibleChange200</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+		</control>
+	</include>
+</includes>
