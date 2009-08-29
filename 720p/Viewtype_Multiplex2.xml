@@ -1,0 +1,994 @@
+<includes>
+
+	<include name="OldMultiplexMovieVarsWrap2">
+		<posx>65</posx>
+		<posy>534</posy>
+		<width>1150</width>
+		<height>169</height>	
+	</include>
+	
+	<include name="OldMultiplexTVVarsWrap2">
+		<posx>67</posx>
+		<posy>534</posy>
+		<width>1145</width>
+		<height>169</height>	
+	</include>		
+
+	<include name="OldMultiplexIconDimensionsWrap2">
+		<posx>0</posx>
+		<posy>20</posy>
+		<width>89</width>
+		<height>129</height>	
+	</include>
+	
+	<include name="OldMultiplexIconDimensionsTVWrap2">
+		<posx>0</posx>
+		<posy>20</posy>
+		<width>229</width>
+		<height>129</height>	
+	</include>	
+
+	<include name="OldMultiplexSeasonOverlayWrap2">
+		<posx>0</posx>
+		<posy>119</posy>
+		<width>229</width>
+		<height>30</height>	
+	</include>		
+
+	<include name="OldMultiplexTVLabel2">
+		<posx>60</posx>
+		<posy>2</posy>
+		<height>85</height>
+		<aligny>center</aligny>
+		<font>Font_MultiplexTVLabelOld</font>
+	</include>
+	
+	<include name="OldMultiplexPlotWidth2">
+		<width>305</width>	
+	</include>
+	
+	<include name="OldMultiplexNoPlotWidth2">
+		<width>516</width>	
+	</include>	
+	
+	<include name="OldMultiplexInfoLabel2">
+		<posx>0</posx>
+		<posy>0</posy>
+		<include condition="![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart)] + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth2</include>		
+		<include condition="Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth2</include>
+		<height>13</height>
+		<font>Font_MultiplexInfoLabelOld</font>	
+		<textcolor>FFFFFAA6</textcolor>
+	</include>
+	
+	<include name="OldMultiplexInfoValue2">
+		<posx>0</posx>	
+		<posy>17</posy>
+		<include condition="![Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart)] + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth2</include>		
+		<include condition="Skin.HasSetting(multiplexbigthumb) | Skin.HasSetting(multiplexfanart) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth2</include>
+		<height>13</height>
+		<font>Font_MultiplexInfoValueOld</font>
+		<textcolor>FFFFFFFF</textcolor>		
+	</include>	
+	
+	<include name="OldMultiplexInfoAutoUp2">
+		<onup>7000</onup>
+	</include>
+	
+	<include name="OldMultiplexInfoTriggerUp2">
+		<onup>110</onup>
+	</include>
+
+	<include name="OldMultiplexFocusMovies2">
+		<focusposition>5</focusposition>	
+	</include>
+	
+	<include name="OldMultiplexFocusTV2">
+		<focusposition>2</focusposition>	
+	</include>
+
+	<include name="OldMultiplexInfoPaneMovies2">
+		<control type="group" id="37">
+			<posx>0</posx>
+			<posy>85</posy>
+			<width>1280</width>
+			<height>381</height>
+			<visible>Container.Content(movies) + Control.IsVisible(555) + !Control.HasFocus(197)</visible>
+			<animation effect="fade" end="0" time="200">WindowClose</animation>
+			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>					
+	
+			<control type="image">
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+					<posx>0</posx>
+					<posy>-85</posy>	
+					<width>1280</width>
+					<height>720</height>
+					<texture>mod/bg.png</texture>
+			</control>
+			
+				<control type="image">
+					<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+					<posx>200</posx>
+					<posy>396</posy>	
+					<width>670</width>
+					<height>200</height>
+					<texture>mod/base.png</texture>
+			</control>
+			
+			<control type="label">
+			<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="100" end="0" time="500" >Hidden</animation>
+						<posx>610</posx>	
+						<posy>20</posy>
+						<align>center</align>
+						<width>60</width>
+						<font>Plot</font>
+						<shadowcolor>ff000000</shadowcolor>
+						<textcolor>FFFFFFFF</textcolor>				
+						<label>[UPPERCASE]$INFO[Container(555).ListItem.Year][/UPPERCASE]</label>
+					</control>	
+					      	
+			<control type="textbox">
+			<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+			<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<animation effect="fade" delay="500" start="100" end="0" time="500" condition="Player.HasVideo">conditional</animation>
+				<posx>20</posx>
+				<posy>20</posy>
+				<width>1240</width>
+				<height>150</height>
+				<align>center</align>
+				<font>tagline</font>	
+				<shadowcolor>ff000000</shadowcolor>
+				<info>Container(555).ListItem.Tagline</info>
+				<autoscroll delay="10000" time="2000" repeat="5000">Skin.HasSetting(allowscroll)</autoscroll>
+				<textcolor>d0FFFFFF</textcolor>
+			</control>
+		
+			<control type="group">
+				<posx>200</posx>
+				<posy>385</posy>
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+			
+					<control type="label">
+					<posx>640</posx>
+						<posy>16</posy>
+						<width>120</width>
+						<textcolor>FFFFFFFF</textcolor>		
+						<label>Released $INFO[Container(555).ListItem.Year]</label>
+						<align>right</align>
+						<font>cast</font>
+					</control>					
+					
+					<control type="label">
+					<posx>640</posx>
+						<posy>32</posy>
+						<width>200</width>
+						<textcolor>FFFFFFFF</textcolor>		
+						<label>Run Time: $INFO[Container(555).ListItem.Duration]</label>
+						<align>right</align>
+						<font>cast</font>
+					</control>
+						
+					<control type="label">
+						<posx>652</posx>	
+						<posy>160</posy>
+						<width>250</width>
+						<font>cast</font>
+						<height>13</height>
+						<textcolor>FFFFFFFF</textcolor>	
+						<align>right</align>						
+						<label>User Rating: $INFO[Container(555).ListItem.RatingAndVotes]</label>
+					</control>	
+					
+					<control type="label">
+						<posx>30</posx>	
+						<posy>32</posy>
+						<width>290</width>
+						<height>90</height>
+						<autoscroll>false</autoscroll>
+						<font>cast</font>
+						<align>left</align>
+						<textcolor>FFFFFFFF</textcolor>		
+   						<label>Director: $INFO[Container(555).ListItem.Director]</label>
+					</control>
+					
+					<control type="label">
+						<posx>30</posx>	
+						<posy>16</posy>
+						<width>400</width>
+						<height>90</height>
+						<autoscroll>false</autoscroll>
+						<font>cast</font>
+						<align>left</align>
+						<textcolor>FFFFFFFF</textcolor>		
+   						<label>$INFO[Container(555).ListItem.Genre]</label>
+					</control>	
+					
+					<control type="textbox">
+						<posx>30</posx>	
+						<posy>50</posy>
+						<width>610</width>
+						<height>104</height>
+						<autoscroll>false</autoscroll>
+						<align>left</align>
+						<textcolor>FFFFFFFF</textcolor>	
+						<autoscroll delay="5000" time="3000" repeat="5000">Skin.HasSetting(allowscroll)</autoscroll>
+						<label>$INFO[Container(555).ListItem.plotoutline]</label>
+						<font>Plot</font>
+					</control>				
+		</control>
+
+	<control type="group">
+				<posx>900</posx>
+				<posy>397</posy>
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+		
+			<control type="image">
+					<posx>-2</posx>
+					<posy>-2</posy>	
+					<width>356</width>
+					<height>200</height>
+					<texture diffuse="list/list_episodeicon_mask.png">mod/black.png</texture>
+			</control>
+			
+			<control type="multiimage">	
+					<posx>0</posx>
+					<width>352</width>
+					<height>196</height>
+					<aspectratio></aspectratio>
+					<fadetime>500</fadetime>
+					<timeperimage>3000</timeperimage>
+					<randomize>true</randomize>
+					<imagepath diffuse="list/list_episodeicon_mask.png" background="true">$INFO[Container(555).ListItem.Path,,extrathumbs]</imagepath>		
+			</control>
+
+			<control type="image">	
+					<width>352</width>
+					<height>196</height>
+					<aspectratio></aspectratio>
+					<fadetime>500</fadetime>
+					<texture>list/list_musicicon_glass.png</texture>
+					<animation effect="fade" delay="500" start="100" end="0" time="500" condition="Player.HasVideo">conditional</animation>
+			</control>
+	</control>
+			
+		<control type="group">
+				<posx>35</posx>
+				<posy>397</posy>
+					<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+					
+			<control type="image">
+					<posx>-2</posx>
+					<posy>-2</posy>	
+					<width>138</width>
+					<height>204</height>
+					<texture diffuse="list/list_movieicon_mask.png">mod/black.png</texture>
+			</control>
+
+			<control type="largeimage">	
+					<width>134</width>
+					<height>200</height>
+					<aspectratio></aspectratio>
+					<fadetime>400</fadetime>
+					<texture diffuse="list/list_movieicon_mask.png">$INFO[Container(555).ListItem.Icon]</texture>
+			</control>	
+			
+			<control type="image">	
+					<width>134</width>
+					<height>200</height>
+					<aspectratio></aspectratio>
+					<fadetime>400</fadetime>
+					<texture>list/list_movieicon_glass.png</texture>
+			</control>
+			
+		</control>		
+				
+					
+		<control type="group">
+			<posx>320</posx>
+			<posy>15</posy>						
+			<control type="videowindow" id="2">
+       				<posx>0</posx>
+      				<width>640</width>
+     				<height>360</height>
+					<visible>[Control.IsVisible(555) + !Control.HasFocus(197) ] | VideoPlayer.Content(movies)</visible> 
+					<animation effect="zoom" start="0" end="100" center="320,180" time="1000" condition="Player.HasVideo">Conditional</animation>
+			</control>				
+		</control>
+		
+		
+		 <control type="group">
+	       			 <posx>395</posx>
+					<posy>370</posy>
+				<animation effect="fade" start="20" time="800" condition="!IsEmpty(ListItem.Trailer)" pulse="true">Conditional</animation>
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>				
+				<control type="image">
+					<posx>174</posx>
+					<align>center</align>
+					<width>142</width>
+					<height>28</height>
+					<texture>list/progress_back.png</texture>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</visible> 
+				</control>
+						
+				<control type="label">
+					<posx>2</posx>
+					<posy>6</posy>
+					<align>center</align>
+					<width>486</width>
+					<height>271</height>
+					<font>trailer</font>
+					<label>Press Down to see Trailer</label>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</visible>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+					<textcolor>FFffffff</textcolor>		
+				</control>
+				
+				<control type="image">
+					<posx>201</posx>
+					<align>center</align>
+					<width>88</width>
+					<height>28</height>
+					<texture>list/progress_back.png</texture>
+					<visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo</visible> 
+					<animation effect="fade" start="0" end="100" time="400" delay="1000">Visible</animation>										
+				</control>
+				
+				<control type="label">
+					<posx>2</posx>
+					<posy>6</posy>
+					<align>center</align>
+					<width>486</width>
+					<height>271</height>
+					<font>trailer</font>
+					<label>Press 'x' to stop</label>
+					<visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo</visible> 
+					<colordiffuse>d0FFFFFF</colordiffuse>
+					<textcolor>FFffffff</textcolor>		
+					<animation effect="fade" start="0" end="100" time="400" delay="1000">Visible</animation>						
+				</control>
+			</control>
+			
+	</control>
+		
+		<control type="image">
+				<visible>Control.IsVisible(555)</visible>
+				<animation effect="fade" start="100" end="0" time="500" condition="Control.IsVisible(37)">Conditional</animation>
+				<posy>60</posy>
+				<width>1280</width>
+				<height>74</height>
+				<texture>mod/tbg.png</texture>
+			</control>
+
+</include>
+	
+	<include name="OldMultiplexInfoPaneTV2">
+		<control type="group">
+			<posx>0</posx>
+			<posy>65</posy>
+			<width>1280</width>
+			<height>453</height>
+			<visible>Skin.HasSetting(videotv) + Control.IsVisible(555) + !Control.HasFocus(197)</visible>
+			<animation effect="fade" end="0" time="200">WindowClose</animation>
+			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>			
+			<control type="image">
+				<width>1280</width>
+				<height>453</height>
+				<texture>multiplex/old/multiplex_full_infotv.png</texture>
+			</control>		
+
+			<control type="group">
+				<posx>60</posx>
+				<posy>21</posy>
+				<visible>Container.Content(episodes)</visible>
+				<control type="group">
+					<posy>72</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31402]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Director]</label>
+					</control>			
+				</control>
+				
+				<control type="group">
+					<posy>122</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31401]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Writer]</label>
+					</control>			
+				</control>
+
+				<control type="group">
+					<posy>172</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31407]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Date]</label>
+					</control>			
+				</control>
+
+			</control>
+			
+			<control type="group">
+				<posx>60</posx>
+				<posy>21</posy>
+				<visible>Container.Content(tvshows)</visible>
+				<control type="group">
+					<posy>72</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31438]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Genre]</label>
+					</control>			
+				</control>
+				
+				<control type="group">
+					<posy>122</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31406]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Episode]</label>
+					</control>			
+				</control>
+
+				<control type="group">
+					<posy>172</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31407]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Date]</label>
+					</control>			
+				</control>
+
+			</control>
+
+			<control type="group">
+				<posx>60</posx>
+				<posy>21</posy>
+				<visible>Container.Content(seasons)</visible>
+				<control type="group">
+					<posy>72</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>31403</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Episode]</label>
+					</control>			
+				</control>
+				
+				<control type="group">
+					<posy>122</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31439]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Property(WatchedEpisodes)]</label>
+					</control>			
+				</control>
+
+				<control type="group">
+					<posy>172</posy>
+					<control type="label">
+						<include>OldMultiplexInfoLabel2</include>
+						<label>$LOCALIZE[31440]:</label>
+					</control>
+					
+					<control type="label">
+						<include>OldMultiplexInfoValue2</include>				
+						<label fallback="31425">$INFO[Container(555).ListItem.Property(UnwatchedEpisodes)]</label>
+					</control>			
+				</control>
+
+			</control>				
+			
+			<control type="textbox">
+				<posx>60</posx>
+				<posy>245</posy>
+				<width>570</width>
+				<height>197</height>
+				<font>Font_MultiplexPlotOld</font>
+				<info fallback="31414">Container(555).ListItem.Plot</info>
+				<textcolor>d0FFFFFF</textcolor>
+				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>					
+				<visible>!Container.Content(seasons)</visible>
+			</control>
+			
+			<control type="textbox">
+				<posx>60</posx>
+				<posy>245</posy>
+				<width>570</width>
+				<height>197</height>
+				<font>Font_MultiplexPlotOld</font>
+				<info fallback="31414">Container(555).ShowPlot</info>
+				<textcolor>d0FFFFFF</textcolor>
+				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>					
+				<visible>Container.Content(seasons)</visible>
+			</control>			
+			
+			<control type="group">
+				<posx>670</posx>
+				<posy>97</posy>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>545</width>
+					<height>342</height>
+					<texture>common/black.png</texture>
+					<colordiffuse>94FFFFFF</colordiffuse>
+				</control>				
+				<control type="largeimage">
+					<posx>2</posx>
+					<posy>2</posy>
+					<width>541</width>
+					<height>338</height>
+					<fadetime>400</fadetime>
+					<aspectratio>scale</aspectratio>
+					<texture>$INFO[Container(555).listitem.property(fanart_image)]</texture>
+					<visible>!Skin.HasSetting(multiplextvbigthumb) | !Container.Content(episodes)</visible>					
+					<include>Animation_VisibleChange200</include>
+				</control>
+				<control type="largeimage">
+					<posx>2</posx>
+					<posy>2</posy>
+					<width>541</width>
+					<height>338</height>
+					<fadetime>400</fadetime>
+					<aspectratio>scale</aspectratio>
+					<texture>$INFO[Fanart.Image]</texture>
+					<visible>!Skin.HasSetting(multiplextvbigthumb) | !Container.Content(episodes)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+				<control type="image">
+					<posx>2</posx>
+					<posy>2</posy>
+					<width>541</width>
+					<height>338</height>
+					<fadetime>400</fadetime>
+					<aspectratio>scale</aspectratio>
+					<texture>$INFO[Container(555).listitem.thumb]</texture>
+					<visible>Skin.HasSetting(multiplextvbigthumb) + Container.Content(episodes)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+	
+			</control>
+			
+			<control type="group">
+				<control type="label">
+					<width>300</width>
+					<include>OldMultiplexTVLabel2</include>
+					<visible>Container.Content(seasons)</visible>
+					<label>$INFO[Container(555).ListItem.Label]</label>					
+				</control>
+				
+				<control type="label">
+					<width>800</width>
+					<include>OldMultiplexTVLabel2</include>
+					<visible>Container.Content(tvshows)</visible>
+					<label>$INFO[Container(555).ListItem.Label]</label>					
+				</control>
+
+				<control type="label">
+					<width>1000</width>
+					<include>OldMultiplexTVLabel2</include>
+					<visible>Container.Content(episodes)</visible>
+					<label>$INFO[Container(555).ListItem.Season].$INFO[Container(555).ListItem.Episode] $INFO[Container(555).ListItem.Title]</label>					
+				</control>				
+				
+				<control type="label">
+					<posx>1216</posx>
+					<posy>2</posy>
+					<width>550</width>
+					<height>85</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>Font_MultiplexTVLabelOld</font>
+					<label>$INFO[Container(555).ListItem.TVShowTitle]</label>
+					<visible>Container.Content(seasons)</visible>
+				</control>			
+
+			</control>	
+			
+		</control>	
+	</include>
+	
+	<include name="OldMultiplexBaseMovies2">
+		<control type="group">
+			<posx>0</posx>
+			<posy>446</posy>
+			<width>1280</width>
+			<height>253</height>
+			<include>Animation_HideMultiplex</include>
+			
+					
+		</control>	
+	</include>
+	
+	<include name="OldMultiplexBaseTV2">
+		<control type="group">
+			<posx>0</posx>
+			<posy>518</posy>
+			<width>1280</width>
+			<height>202</height>
+			<visible>Skin.HasSetting(videotv) + Control.IsVisible(555)</visible>
+			<include>Animation_HideMultiplex</include>
+
+			<control type="image" id="304">
+				<width>1280</width>
+				<height>202</height>
+				<texture>multiplex/old/multiplex_full_basetv.png</texture>
+			</control>			
+			
+			<control type="image">
+				<posx>63</posx>
+				<posy>33</posy>
+				<width>1154</width>
+				<height>136</height>
+				<texture>multiplex/old/multiplex_frame.png</texture>
+				<animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60)">Conditional</animation>
+				<visible>!Control.IsVisible(775)</visible>
+			</control>
+			
+			<control type="image">
+				<posx>20</posx>
+				<posy>-10</posy>
+				<width>19</width>
+				<height>221</height>
+				<texture flipx="true">Multiplex/old/multiplex_arrow.png</texture>
+				<visible>Control.IsVisible(555)</visible>
+				<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+				<visible>!Control.IsVisible(105)</visible>
+				<include>Animation_CommonFade</include>					
+			</control>
+			
+			<control type="image">
+				<posx>1241</posx>
+				<posy>-10</posy>
+				<width>19</width>
+				<height>221</height>
+				<texture>multiplex/old/multiplex_arrow.png</texture>
+				<visible>Control.IsVisible(555)</visible>
+				<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+				<visible>!Control.IsVisible(105)</visible>
+				<include>Animation_CommonFade</include>					
+			</control>				
+		</control>	
+	</include>
+	
+	<include name="OldMultiplexLabelsMovies2">
+		<control type="group">
+			<visible>Container.Content(movies)</visible>
+
+		<control type="label">	
+				<posx>40</posx>
+				<posy>45</posy>
+				<width>1200</width>
+				<height>71</height>
+				<scroll>true</scroll>
+				<aligny>center</aligny>
+				<align>center</align>
+				<font>Font_MultiplexMainLabelOld</font>
+				<shadowcolor>fff000000</shadowcolor>
+				<textcolor>cFffffff</textcolor>		
+				<label>$INFO[Container(555).ListItem.Label]</label>
+				<include>Animation_HideMultiplex</include>			
+			</control>	
+
+		</control>	
+	</include>
+	
+	<include name="Viewtype_MultiplexOld2">
+
+        <control type="button" id="110">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>0</width>
+            <height>0</height>
+            <texturefocus>-</texturefocus>
+            <texturenofocus>-</texturenofocus>
+            <onleft>555</onleft>
+            <onright>555</onright>
+            <onup>7000</onup>
+            <ondown>555</ondown>
+        </control>
+	
+		<include condition="Skin.HasSetting(videotv)">OldMultiplexInfoPaneTV2</include>
+		<include condition="Skin.HasSetting(videomovies)">OldMultiplexInfoPaneMovies2</include>		
+		<include condition="Skin.HasSetting(videotv)">OldMultiplexBaseTV2</include>
+		<include condition="Skin.HasSetting(videomovies)">OldMultiplexBaseMovies2</include>	
+		
+		<include condition="Skin.HasSetting(videomovies)">Furniture_MultiplexMediaFlags</include>
+	
+		<control type="wraplist" id="555">
+			<viewtype label="31757">wrap</viewtype>
+			<include condition="Skin.HasSetting(videomovies)">OldMultiplexMovieVarsWrap2</include>
+			<include condition="Skin.HasSetting(videotv)">OldMultiplexTVVarsWrap2</include>			
+			<pagecontrol>60</pagecontrol>
+			<onleft>555</onleft>
+			<onright>555</onright>
+			<include condition="[Skin.HasSetting(videomovies) + !Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(multiplextvinfotrigger)]">OldMultiplexInfoAutoUp2</include>
+			<include condition="[Skin.HasSetting(videomovies) + Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + Skin.HasSetting(multiplextvinfotrigger)]">OldMultiplexInfoTriggerUp2</include>
+			<ondown>PlayMedia($INFO[ListItem.Trailer],1)</ondown>
+			<orientation>horizontal</orientation>
+			<include condition="Skin.HasSetting(videomovies)">OldMultiplexFocusMovies2</include>
+			<include condition="Skin.HasSetting(videotv)">OldMultiplexFocusTV2</include>
+			<scrolltime>300</scrolltime>
+			<visible>Window.IsActive(25)</visible>
+			<include>Animation_HideMultiplex</include>
+			<animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60) | Control.HasFocus(197)">Conditional</animation>
+			<itemlayout width="106" height="129" condition="Container.Content(movies)">
+
+				<control type="image">
+					<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="100" end="0" time="200" >Hidden</animation>
+					<include>OldMultiplexIconDimensionsWrap2</include>
+					<texture diffuse="wall/wall_movie_mask.png" background="true">defaultvideobig.png</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<info>ListItem.Icon</info>
+				</control>		
+				
+				<control type="image">
+					<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="100" end="0" time="200" >Hidden</animation>
+					<include>OldMultiplexIconDimensionsWrap2</include>
+					<bordertexture border="-3">wall/wall_movie_nfborder.png</bordertexture>
+					<texture>multiplex/multiplex_glass.png</texture>
+				</control>	
+			
+			</itemlayout>
+			<focusedlayout width="106" height="129" condition="Container.Content(movies)">
+				<control type="image">
+					<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="100" end="0" time="200" >Hidden</animation>
+					<include>OldMultiplexIconDimensionsWrap2</include>
+					<texture diffuse="wall/wall_movie_mask.png" background="true">defaultvideobig.png</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<info>ListItem.Icon</info>
+					<animation type="Focus" reversible="false">
+						<effect type="zoom" center="45,75" start="100" end="140" time="400" easing="out" tween="cubic" reversible="false" />
+					</animation>			
+				</control>
+				<control type="image">
+					<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="100" end="0" time="200" >Hidden</animation>
+					<include>OldMultiplexIconDimensionsWrap2</include>
+					<bordertexture border="-2">wall/wall_movie_nfborder.png</bordertexture>
+					<texture>multiplex/multiplex_glass.png</texture>
+					<animation type="Focus" reversible="false">
+						<effect type="fade" start="100" end="0" time="200" reversible="false" />
+						<effect type="zoom" center="45,75" start="100" end="140" time="400" easing="out" tween="cubic" reversible="false" />
+					</animation>
+				</control>
+				<control type="image">
+									<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="100" end="0" time="300" >Hidden</animation>
+					<include>OldMultiplexIconDimensionsWrap2</include>
+					<bordertexture border="-10">wall/wall_movie_fborder.png</bordertexture>
+					<texture>common/blank.png</texture>
+					<animation type="Focus" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" reversible="false" />
+						<effect type="zoom" center="45,75" start="100" end="140" time="400" easing="out" tween="cubic" reversible="false" />
+					</animation>			
+				</control>					
+			</focusedlayout>
+			
+			<itemlayout width="229" height="129" condition="Skin.HasSetting(videotv)">
+				<control type="image">
+					<include>OldMultiplexIconDimensionsTVWrap2</include>
+					<texture>common/black.png</texture>
+				</control>				
+				<control type="image">
+					<include>OldMultiplexIconDimensionsTVWrap2</include>
+					<texture>defaultvideo.png</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<info>ListItem.Icon</info>
+				</control>
+				<control type="image">
+					<include>OldMultiplexSeasonOverlayWrap2</include>
+					<texture>common/black.png</texture>
+					<colordiffuse>b6FFFFFF</colordiffuse>	
+					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>					
+				</control>
+				<control type="label">
+					<posx>115</posx>
+					<posy>129</posy>
+					<width>229</width>
+					<height>30</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_MultiplexSeasonLabelOld</font>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>Container.Content(seasons)</visible>
+					<animation effect="zoom" center="115,100" start="80" end="80" time="0" condition="true">Conditional</animation>						
+				</control>
+				<control type="label">
+					<posx>115</posx>
+					<posy>129</posy>
+					<width>229</width>
+					<height>30</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_MultiplexSeasonLabelOld</font>
+					<label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
+					<animation effect="zoom" center="115,100" start="80" end="80" time="0" condition="true">Conditional</animation>						
+					<visible>Container.Content(episodes)</visible>					
+				</control>							
+				<control type="image">
+					<include>OldMultiplexSeasonOverlayWrap2</include>
+					<texture>multiplex/old/multiplex_seasongradient.png</texture>			
+					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>					
+				</control>							
+				<control type="image">
+					<include>OldMultiplexIconDimensionsTVWrap2</include>
+					<bordertexture border="-53">multiplex/old/multiplex_iconframetv.png</bordertexture>
+					<texture>-</texture>
+				</control>			
+				<control type="image">
+					<include>OldMultiplexIconDimensionsTVWrap2</include>
+					<texture>common/black.png</texture>
+					<colordiffuse>58FFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>181</posx>
+					<posy>39</posy>
+					<width>48</width>
+					<height>52</height>
+					<info>ListItem.Overlay</info>
+					<visible>!Skin.HasSetting(nooverlays) + !IsEmpty(ListItem.Overlay)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="229" height="129" condition="Skin.HasSetting(videotv)">
+				<control type="image">
+					<include>OldMultiplexIconDimensionsTVWrap2</include>
+					<texture>common/black.png</texture>
+					<animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>					
+				</control>			
+				<control type="image">
+					<include>OldMultiplexIconDimensionsTVWrap2</include>
+					<texture>defaultvideo.png</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<info>ListItem.Icon</info>
+					<animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>					
+				</control>
+				<control type="image">
+					<include>OldMultiplexSeasonOverlayWrap2</include>
+					<texture>common/black.png</texture>
+					<colordiffuse>b6FFFFFF</colordiffuse>
+					<animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>						
+					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>					
+				</control>
+				<control type="label">
+					<posx>115</posx>
+					<posy>129</posy>
+					<width>229</width>
+					<height>30</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_MultiplexSeasonLabelOld</font>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="zoom" center="115,100" start="80" end="100" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>						
+					<visible>Container.Content(seasons)</visible>					
+				</control>
+				<control type="label">
+					<posx>115</posx>
+					<posy>129</posy>
+					<width>229</width>
+					<height>30</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_MultiplexSeasonLabelOld</font>
+					<label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
+					<animation effect="zoom" center="115,100" start="80" end="100" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>						
+					<visible>Container.Content(episodes)</visible>					
+				</control>				
+				<control type="image">
+					<include>OldMultiplexSeasonOverlayWrap2</include>
+					<texture>multiplex/old/multiplex_seasongradient.png</texture>
+					<animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>						
+					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>					
+				</control>				
+				<control type="image">
+					<include>OldMultiplexIconDimensionsTVWrap2</include>
+					<bordertexture border="-30">multiplex/old/multiplex_iconframetv.png</bordertexture>
+					<texture>common/blank.png</texture>
+					<animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>					
+					<visible>!Container(555).Column(4)</visible>					
+				</control>
+				<control type="image">
+					<posx>181</posx>
+					<posy>39</posy>
+					<width>48</width>
+					<height>52</height>
+					<info>ListItem.Overlay</info>
+					<visible>!Skin.HasSetting(nooverlays) + !IsEmpty(ListItem.Overlay)</visible>
+					<include>Animation_VisibleChange200</include>
+					<animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>					
+				</control>				
+			</focusedlayout>			
+		</control>	
+
+		<include condition="Skin.HasSetting(videomovies)">OldMultiplexLabelsMovies2</include>
+		
+		<control type="scrollbar" id="60">
+			<description>My first scroll bar control</description>
+			<posx>67</posx>
+			<posy>673</posy>
+	        <width>1147</width>
+			<height>41</height>
+			<visible allowhiddenfocus="true">Control.IsVisible(555) + Control.HasFocus(60) + !Control.IsVisible(105)</visible>
+	        <texturesliderbackground>stripshow/stripshow_scrollbar.png</texturesliderbackground>
+			<texturesliderbar>-</texturesliderbar>
+			<texturesliderbarfocus>-</texturesliderbarfocus>
+			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+			<pulseonselect></pulseonselect>
+			<orientation>horizontal</orientation>
+			<showonepage>false</showonepage>
+			<onup>555</onup>
+			<ondown>197</ondown>
+			<onleft>60</onleft>
+			<onright>60</onright>
+			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+			<include>Animation_HideMultiplex</include>			
+		</control>
+		
+        <control type="button" id="197">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>0</width>
+            <height>0</height>
+            <texturefocus>-</texturefocus>
+            <texturenofocus>-</texturenofocus>
+            <onleft>555</onleft>
+            <onright>555</onright>
+            <onup>555</onup>
+            <ondown>555</ondown>
+        </control>		
+		
+	</include>
+
+</includes>
