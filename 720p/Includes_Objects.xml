@@ -312,90 +312,6 @@
 		<font>Font_MediaWindowMenu</font>
 		<include>Animation_CommonFade</include>
 	</include>
-	<include name="Objects_WallBackdropButton">
-		<control type="togglebutton" id="907">
-			<label>$LOCALIZE[31067]: $LOCALIZE[31078]</label>
-			<altlabel>$LOCALIZE[31067]: $LOCALIZE[31077]</altlabel>
-			<usealttexture>Skin.HasSetting(transparentwall)</usealttexture>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(transparentwall)</onclick>
-			<visible>Control.IsVisible(53)</visible>
-		</control>
-	</include>
-	<include name="Objects_FlagsButton">
-		<control type="togglebutton" id="916">
-			<label>$LOCALIZE[31069]: $LOCALIZE[31077]</label>
-			<altlabel>$LOCALIZE[31069]: $LOCALIZE[31078]</altlabel>
-			<usealttexture>Skin.HasSetting(nomediaflags)</usealttexture>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(nomediaflags)</onclick>
-			<visible>[Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(50) | Control.IsVisible(550)] + [Container.Content(movies) | Container.Content(episodes)]</visible>
-		</control>
-	</include>
-	<include name="Objects_PanelDensityButton">
-		<!--##############################################-->
-		<control type="togglebutton" id="942">
-			<include>Objects_MediaMenuButton</include>
-			<label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
-			<altlabel>$LOCALIZE[31065]: $LOCALIZE[31053]</altlabel>
-			<usealttexture>Skin.HasSetting(listpanelthin)</usealttexture>
-			<onclick>Skin.SetBool(listpanelthin)</onclick>
-			<altclick>Skin.Reset(listpanelthin)</altclick>
-			<visible>Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551)</visible>
-		</control>
-		<control type="togglebutton" id="944">
-			<include>Objects_MediaMenuButton</include>
-			<label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
-			<altlabel>$LOCALIZE[31065]: $LOCALIZE[31053]</altlabel>
-			<usealttexture>Skin.HasSetting(multiplexthin)</usealttexture>
-			<onclick>Skin.ToggleSetting(multiplexthin)</onclick>
-			<visible>[Control.IsVisible(52) | Control.IsVisible(552)]</visible>
-		</control>
-	</include>
-	<include name="Objects_WallLayoutStrings">
-		<label>$LOCALIZE[310791]</label>
-		<altlabel>$LOCALIZE[310792]</altlabel>
-	</include>
-	<include name="Objects_ListLayoutStrings">
-		<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
-		<altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
-	</include>
-	<include name="Objects_FanartToggleStrings">
-		<label>$LOCALIZE[31064]: $LOCALIZE[31077]</label>
-		<altlabel>$LOCALIZE[31064]: $LOCALIZE[31078]</altlabel>
-	</include>
-	<include name="Objects_VideoSetupButton">
-		<control type="button" id="915">
-			<label>31016</label>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>XBMC.ActivateWindow(VideosSettings)</onclick>
-			<visible>!Skin.HasSetting(nomenusettings)</visible>
-		</control>
-	</include>
-	<include name="Objects_PicturesSetupButton">
-		<control type="button" id="915">
-			<label>31016</label>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>XBMC.ActivateWindow(PicturesSettings)</onclick>
-			<visible>!Skin.HasSetting(nomenusettings)</visible>
-		</control>
-	</include>
-	<include name="Objects_ProgramsSetupButton">
-		<control type="button" id="915">
-			<label>31016</label>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>XBMC.ActivateWindow(ProgramsSettings)</onclick>
-			<visible>!Skin.HasSetting(nomenusettings)</visible>
-		</control>
-	</include>
-	<include name="Objects_MusicSetupButton">
-		<control type="button" id="915">
-			<label>31016</label>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>XBMC.ActivateWindow(MusicSettings)</onclick>
-			<visible>!Skin.HasSetting(nomenusettings)</visible>
-		</control>
-	</include>
 	<include name="Objects_FlattenFlowButton">
 		<control type="togglebutton" id="908">
 			<label>31061</label>
@@ -426,28 +342,6 @@
 			<onclick>Skin.ToggleSetting(debuginfo)</onclick>
 			<include>Objects_MediaMenuButton</include>
 			<visible>Skin.HasSetting(debug)</visible>
-		</control>
-	</include>
-	<include name="Objects_LightNightButtons">
-		<control type="togglebutton" id="996">
-			<include>Objects_MediaMenuButton</include>
-			<label>$LOCALIZE[31042]</label>
-			<altlabel>$LOCALIZE[31043]</altlabel>
-			<usealttexture>Skin.HasSetting(darkfloor)</usealttexture>
-			<onclick>Skin.ToggleSetting(darkfloor)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>[Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57)] | [Control.IsVisible(53) + Skin.HasSetting(newwall)]</visible>
-			<!--REENABLED FOR WALL FLOOR ONLY-->
-		</control>
-	</include>
-	<include name="Objects_CurtainsButton">
-		<control type="togglebutton" id="997">
-			<include>Objects_MediaMenuButton</include>
-			<label>$LOCALIZE[31067]S: $LOCALIZE[31078]</label>
-			<altlabel>$LOCALIZE[31067]S: $LOCALIZE[31077]</altlabel>
-			<usealttexture>Skin.HasSetting(nocurtains)</usealttexture>
-			<onclick>Skin.ToggleSetting(nocurtains)</onclick>
-			<visible>Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57)</visible>
 		</control>
 	</include>
 	<!-- Multiplex Flat/Flow Layout Button -->
