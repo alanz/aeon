@@ -312,24 +312,6 @@
 		<font>Font_MediaWindowMenu</font>
 		<include>Animation_CommonFade</include>
 	</include>
-	<include name="Objects_FlattenFlowButton">
-		<control type="togglebutton" id="908">
-			<label>31061</label>
-			<altlabel>31060</altlabel>
-			<usealttexture>Skin.HasSetting(flattenshowcase)</usealttexture>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(flattenshowcase)</onclick>
-			<visible>Control.IsVisible(57) + !Container.Content(episodes)</visible>
-		</control>
-		<control type="togglebutton" id="909">
-			<label>31061</label>
-			<altlabel>31060</altlabel>
-			<usealttexture>Skin.HasSetting(flattenflow)</usealttexture>
-			<include>Objects_MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(flattenflow)</onclick>
-			<visible>Control.IsVisible(55) + !Container.Content(episodes)</visible>
-		</control>
-	</include>
 	<include name="Objects_MediaDebugButtons">
 		<control type="button" id="910">
 			<label>31607</label>
@@ -344,8 +326,7 @@
 			<visible>Skin.HasSetting(debug)</visible>
 		</control>
 	</include>
-	<!-- Multiplex Flat/Flow Layout Button -->
-	<!--<include name="Objects_MultiplexCoverStyleButtons"><control type="togglebutton" id="998"><include>Objects_MediaMenuButton</include><label>COVER $LOCALIZE[31060]</label><altlabel>COVER $LOCALIZE[31061]</altlabel><usealttexture>Skin.HasSetting(multiplexflow)</usealttexture><onclick>Skin.ToggleSetting(multiplexflow)</onclick><visible>Skin.HasSetting(videomovies) + Control.IsVisible(52)</visible></control></include>--><include name="Objects_MultiplexInfoButtons">
+	<include name="Objects_MultiplexInfoButtons">
 		<control type="button" id="980">
 			<include>Objects_MediaMenuButton</include>
 			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
@@ -592,9 +573,6 @@
 	<include name="FSInfoButtonWidth">
 		<width>90</width>
 	</include>
-	<include name="FSInfoButtonWidth_French">
-		<width>90</width>
-	</include>
 	<include name="Objects_FSInfoButton">
 		<include>Colour_Grey</include>
 		<texturenofocus>-</texturenofocus>
@@ -602,8 +580,8 @@
 		<textoffsetx>0</textoffsetx>
 		<align>left</align>
 		<aligny>center</aligny>
-		<include condition="!stringcompare(system.language,French)">FSInfoButtonWidth</include>
-		<include condition="stringcompare(system.language,French)">FSInfoButtonWidth_French</include>
+		<include>FSInfoButtonWidth</include>
+
 		<height>29</height>
 		<font>Font_FSInfoData</font>
 	</include>
@@ -657,24 +635,6 @@
 		<aligny>center</aligny>
 		<font>Font_FSInfoData</font>
 		<include>Colour_OffWhite</include>
-	</include>
-	<include name="Objects_BookmarkMenu">
-		<posx>3</posx>
-		<posy>159</posy>
-		<width>570</width>
-		<height>29</height>
-		<texturenofocus>-</texturenofocus>
-		<texturefocus>-</texturefocus>
-		<alttexturenofocus>-</alttexturenofocus>
-		<alttexturefocus>-</alttexturefocus>
-		<pulseonselect>false</pulseonselect>
-		<include>Colour_Grey</include>
-		<disabledcolor>3cFFFFFF</disabledcolor>
-		<textoffsetx>0</textoffsetx>
-		<orientation>horizontal</orientation>
-		<align>left</align>
-		<font>Font_FSInfoData</font>
-		<include>Animation_CommonFade</include>
 	</include>
 	<include name="Objects_BookmarkButton">
 		<include>Colour_Grey</include>
@@ -1001,41 +961,6 @@
 		<include>Objects_KeyOnVars</include>
 	</include>
 	<!-- Button menu -->
-	<include name="Objects_ButtonMenuLabel">
-		<width>320</width>
-		<height>120</height>
-		<posx>0</posx>
-		<posy>230</posy>
-		<align>center</align>
-		<aligny>center</aligny>
-		<font>Font_ViewChangeLabel</font>
-		<textcolor>61FFFFFF</textcolor>
-	</include>
-	<include name="Objects_ButtonMenuButton">
-		<posx>24</posx>
-		<posy>30</posy>
-		<width>273</width>
-		<height>273</height>
-		<colordiffuse>abFFFFFF</colordiffuse>
-	</include>
-	<include name="Objects_ButtonMenuLabelFocused">
-		<width>320</width>
-		<height>120</height>
-		<posx>0</posx>
-		<posy>230</posy>
-		<align>center</align>
-		<aligny>center</aligny>
-		<font>Font_ViewChangeLabel</font>
-		<include>Colour_OffWhite</include>
-		<include>Animation_VisibleChange400</include>
-	</include>
-	<include name="Objects_ButtonMenuButtonFocused">
-		<posx>24</posx>
-		<posy>30</posy>
-		<width>273</width>
-		<height>273</height>
-		<include>Animation_VisibleChange400</include>
-	</include>
 	<include name="Objects_ButtonMenu10Group">
 		<height>390</height>
 	</include>

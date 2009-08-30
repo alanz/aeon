@@ -31,7 +31,22 @@
 						<include>Objects_MediaMenuButton</include>
 						<onfocus>Skin.Reset(bmtransitnowplaying)</onfocus>
 					</control>
-					<include>Objects_FlattenFlowButton</include>
+					<control type="togglebutton" id="908">
+						<label>31061</label>
+						<altlabel>31060</altlabel>
+						<usealttexture>Skin.HasSetting(flattenshowcase)</usealttexture>
+						<include>Objects_MediaMenuButton</include>
+						<onclick>Skin.ToggleSetting(flattenshowcase)</onclick>
+						<visible>Control.IsVisible(57) + !Container.Content(episodes)</visible>
+					</control>
+					<control type="togglebutton" id="909">
+						<label>31061</label>
+						<altlabel>31060</altlabel>
+						<usealttexture>Skin.HasSetting(flattenflow)</usealttexture>
+						<include>Objects_MediaMenuButton</include>
+						<onclick>Skin.ToggleSetting(flattenflow)</onclick>
+						<visible>Control.IsVisible(55) + !Container.Content(episodes)</visible>
+					</control>
 					<control type="togglebutton" id="20">
 						<label>ORDER: NORMAL</label>
 						<altlabel>ORDER: RANDOM</altlabel>
