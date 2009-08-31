@@ -1,4 +1,18 @@
 <includes>
+<!-- Add Item -->
+	<include name="TV_Link">
+		<onclick>Skin.SetBool(videotv)</onclick>
+		<onclick>Skin.Reset(videomovies)</onclick>
+	</include>
+	<include name="Movie_Link">
+		<onclick>Skin.SetBool(videomovies)</onclick>
+		<onclick>Skin.Reset(videotv)</onclick>
+	</include>
+	<include name="video_Link">
+		<onclick>Skin.SetBool(videomovies)</onclick>
+		<onclick>Skin.Reset(videotv)</onclick>
+	</include>
+<!-- Add Item End -->
 	<include name="MainMenu_Label">
 		<posy>1</posy>
 		<height>61</height>
@@ -156,6 +170,118 @@
 					<onclick>XBMC.ActivateWindow(2600)</onclick>
 					<visible>Skin.HasSetting(weather)</visible>
 				</item>
+			<!-- Add Items -->
+				<item id="30">
+					<label>$INFO[Skin.String(mainmenu_1name)]</label>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_1)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_1path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_1path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_1path),videodb://2)+!substring(Skin.String(mainmenu_1path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_1path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_1)</visible>
+					<visible>Skin.HasSetting(mainmenu_1)</visible>
+				</item>
+				<item id="31">
+					<label>$INFO[Skin.String(mainmenu_2name)]</label>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_2)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_2path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_2path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_2path),videodb://2)+!substring(Skin.String(mainmenu_2path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_2path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_2)</visible>
+					<visible>Skin.HasSetting(mainmenu_2)</visible>
+				</item>
+				<item id="32">
+					<label>$INFO[Skin.String(mainmenu_3name)]</label>
+					<icon>special://skin/media/backdrops/default_movies/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_3)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_3path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_3path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_3path),videodb://2)+!substring(Skin.String(mainmenu_3path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_3path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_3)</visible>
+					<visible>Skin.HasSetting(mainmenu_3)</visible>
+				</item>
+				<item id="33">
+					<label>$INFO[Skin.String(mainmenu_4name)]</label>
+					<icon>special://skin/media/backdrops/default_music/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_4)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_4path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_4path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_4path),videodb://2)+!substring(Skin.String(mainmenu_4path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_4path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_4)</visible>
+					<visible>Skin.HasSetting(mainmenu_4)</visible>
+				</item>
+				<item id="34">
+					<label>$INFO[Skin.String(mainmenu_5name)]</label>
+					<icon>special://skin/media/backdrops/default_pictures/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_5)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_5path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_5path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_5path),videodb://2)+!substring(Skin.String(mainmenu_5path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_5path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_5)</visible>
+					<visible>Skin.HasSetting(mainmenu_5)</visible>
+				</item>
+				<item id="35">
+					<label>$INFO[Skin.String(mainmenu_6name)]</label>
+					<icon>special://skin/media/backdrops/default_scripts/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_6)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_6path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_6path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_6path),videodb://2)+!substring(Skin.String(mainmenu_6path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_6path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_6)</visible>
+					<visible>Skin.HasSetting(mainmenu_96)</visible>
+				</item>
+				<item id="36">
+					<label>$INFO[Skin.String(mainmenu_7name)]</label>
+					<icon>special://skin/media/backdrops/default_settings/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_7)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_7path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_7path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_7path),videodb://2)+!substring(Skin.String(mainmenu_7path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_7path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_7)</visible>
+					<visible>Skin.HasSetting(mainmenu_7)</visible>
+				</item>
+				<item id="37">
+					<label>$INFO[Skin.String(mainmenu_8name)]</label>
+					<icon>special://skin/media/backdrops/default_tvshows/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_8)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_8path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_8path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_8path),videodb://2)+!substring(Skin.String(mainmenu_8path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_8path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_8)</visible>
+					<visible>Skin.HasSetting(mainmenu_8)</visible>
+				</item>
+				<item id="38">
+					<label>$INFO[Skin.String(mainmenu_9name)]</label>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_9)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_9path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_9path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_9path),videodb://2)+!substring(Skin.String(mainmenu_9path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_9path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_9)</visible>
+					<visible>Skin.HasSetting(mainmenu_9)</visible>
+				</item>
+				<item id="39">
+					<label>$INFO[Skin.String(mainmenu_10name)]</label>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_10)]</thumb>
+					<include condition="substring(Skin.String(mainmenu_10path),videodb://2)">TV_Link</include>
+					<include condition="substring(Skin.String(mainmenu_10path),videodb://1)">Movie_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_10path),videodb://2)+!substring(Skin.String(mainmenu_10path),videodb://1)">video_Link</include>
+					<onclick>$INFO[Skin.String(mainmenu_10path)]</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_10)</visible>
+					<visible>Skin.HasSetting(mainmenu_10)</visible>
+				</item>
+			<!-- Add Item End -->
 				<item id="9">
 					<label>31016</label>
 					<include>BackgroundVarsSettings</include>
@@ -307,6 +433,98 @@
 					<onclick>SetFocus(92)</onclick>
 					<visible>Skin.HasSetting(weather)</visible>
 				</item>
+			<!-- Add Item -->
+				<item id="30">
+					<label>$INFO[Skin.String(mainmenu_1name)]</label>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_1)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_1)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_1)</visible>
+					<visible>Skin.HasSetting(mainmenu_1)</visible>
+				</item>
+				<item id="31">
+					<label>$INFO[Skin.String(mainmenu_2name)]</label>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_2)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_2)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_2)</visible>
+					<visible>Skin.HasSetting(mainmenu_2)</visible>
+				</item>
+				<item id="32">
+					<label>$INFO[Skin.String(mainmenu_3name)]</label>
+					<icon>special://skin/media/backdrops/default_movies/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_3)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_3)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_3)</visible>
+					<visible>Skin.HasSetting(mainmenu_3)</visible>
+				</item>
+				<item id="33">
+					<label>$INFO[Skin.String(mainmenu_4name)]</label>
+					<icon>special://skin/media/backdrops/default_music/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_4)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_4)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_4)</visible>
+					<visible>Skin.HasSetting(mainmenu_4)</visible>
+				</item>
+				<item id="34">
+					<label>$INFO[Skin.String(mainmenu_5name)]</label>
+					<icon>special://skin/media/backdrops/default_pictures/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_5)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_5)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_5)</visible>
+					<visible>Skin.HasSetting(mainmenu_5)</visible>
+				</item>
+				<item id="35">
+					<label>$INFO[Skin.String(mainmenu_6name)]</label>
+					<icon>special://skin/media/backdrops/default_scripts/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_6)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_6)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_6)</visible>
+					<visible>Skin.HasSetting(mainmenu_6)</visible>
+				</item>
+				<item id="36">
+					<label>$INFO[Skin.String(mainmenu_7name)]</label>
+					<icon>special://skin/media/backdrops/default_settings/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_7)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_7)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_7)</visible>
+					<visible>Skin.HasSetting(mainmenu_7)</visible>
+				</item>
+				<item id="37">
+					<label>$INFO[Skin.String(mainmenu_8name)]</label>
+					<icon>special://skin/media/backdrops/default_tvshows/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_8)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_8)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_8)</visible>
+					<visible>Skin.HasSetting(mainmenu_8)</visible>
+				</item>
+				<item id="38">
+					<label>$INFO[Skin.String(mainmenu_9name)]</label>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_9)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_9)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_9)</visible>
+					<visible>Skin.HasSetting(mainmenu_9)</visible>
+				</item>
+				<item id="39">
+					<label>$INFO[Skin.String(mainmenu_10name)]</label>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_10)]</thumb>
+					<onclick>Skin.SetString(custom,Custom_mainmenu_10)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_10)</visible>
+					<visible>Skin.HasSetting(mainmenu_10)</visible>
+				</item>
+			<!-- Add Item End -->
 				<item id="13">
 					<description>Play DVD</description>
 					<label>31018</label>
@@ -475,6 +693,175 @@
 					<onclick>Skin.SetBool(weather)</onclick>
 					<visible>!Skin.HasSetting(weather)</visible>
 				</item>
+			<!-- Add item settings -->
+				<item id="40">
+					<label>Aeon Mod</label>
+					<include>BackgroundVarsSettings</include>
+					<onclick>Skin.Reset(settingsfade)</onclick>
+					<onclick>XBMC.ActivateWindow(801)</onclick>
+				</item>
+			<!-- Add Items -->
+				<item id="30">
+					<label>$INFO[Skin.String(mainmenu_1name)]</label>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_1)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_1)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_1)</visible>
+					<visible>Skin.HasSetting(mainmenu_1)</visible>
+				</item>
+				<item id="30">
+					<label2>$INFO[Skin.String(mainmenu_1name)]</label2>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_1)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_1)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_1)</visible>
+					<visible>Skin.HasSetting(mainmenu_1)</visible>
+				</item>
+				<item id="31">
+					<label>$INFO[Skin.String(mainmenu_2name)]</label>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_2)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_2)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_2)</visible>
+					<visible>Skin.HasSetting(mainmenu_2)</visible>
+				</item>
+				<item id="31">
+					<label2>$INFO[Skin.String(mainmenu_2name)]</label2>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_2)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_2)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_2)</visible>
+					<visible>Skin.HasSetting(mainmenu_2)</visible>
+				</item>
+				<item id="32">
+					<label>$INFO[Skin.String(mainmenu_3name)]</label>
+					<icon>special://skin/media/backdrops/default_movies/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_3)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_3)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_3)</visible>
+					<visible>Skin.HasSetting(mainmenu_3)</visible>
+				</item>
+				<item id="32">
+					<label2>$INFO[Skin.String(mainmenu_3name)]</label2>
+					<icon>special://skin/media/backdrops/default_movies/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_3)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_3)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_3)</visible>
+					<visible>Skin.HasSetting(mainmenu_3)</visible>
+				</item>
+				<item id="33">
+					<label>$INFO[Skin.String(mainmenu_4name)]</label>
+					<icon>special://skin/media/backdrops/default_music/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_4)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_4)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_4)</visible>
+					<visible>Skin.HasSetting(mainmenu_4)</visible>
+				</item>
+				<item id="33">
+					<label2>$INFO[Skin.String(mainmenu_4name)]</label2>
+					<icon>special://skin/media/backdrops/default_music/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_4)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_4)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_4)</visible>
+					<visible>Skin.HasSetting(mainmenu_4)</visible>
+				</item>
+				<item id="34">
+					<label>$INFO[Skin.String(mainmenu_5name)]</label>
+					<icon>special://skin/media/backdrops/default_pictures/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_5)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_5)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_5)</visible>
+					<visible>Skin.HasSetting(mainmenu_5)</visible>
+				</item>
+				<item id="34">
+					<label2>$INFO[Skin.String(mainmenu_5name)]</label2>
+					<icon>special://skin/media/backdrops/default_pictures/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_5)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_5)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_5)</visible>
+					<visible>Skin.HasSetting(mainmenu_5)</visible>
+				</item>
+				<item id="35">
+					<label>$INFO[Skin.String(mainmenu_6name)]</label>
+					<icon>special://skin/media/backdrops/default_scripts/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_6)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_6)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_6)</visible>
+					<visible>Skin.HasSetting(mainmenu_6)</visible>
+				</item>
+				<item id="35">
+					<label2>$INFO[Skin.String(mainmenu_6name)]</label2>
+					<icon>special://skin/media/backdrops/default_scripts/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_6)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_6)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_6)</visible>
+					<visible>Skin.HasSetting(mainmenu_6)</visible>
+				</item>
+				<item id="36">
+					<label>$INFO[Skin.String(mainmenu_7name)]</label>
+					<icon>special://skin/media/backdrops/default_settings/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_7)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_7)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_7)</visible>
+					<visible>Skin.HasSetting(mainmenu_7)</visible>
+				</item>
+				<item id="36">
+					<label2>$INFO[Skin.String(mainmenu_7name)]</label2>
+					<icon>special://skin/media/backdrops/default_settings/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_7)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_7)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_7)</visible>
+					<visible>Skin.HasSetting(mainmenu_7)</visible>
+				</item>
+				<item id="37">
+					<label>$INFO[Skin.String(mainmenu_8name)]</label>
+					<icon>special://skin/media/backdrops/default_tvshows/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_8)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_8)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_8)</visible>
+					<visible>Skin.HasSetting(mainmenu_8)</visible>
+				</item>
+				<item id="37">
+					<label2>$INFO[Skin.String(mainmenu_8name)]</label2>
+					<icon>special://skin/media/backdrops/default_tvshows/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_8)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_8)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_8)</visible>
+					<visible>Skin.HasSetting(mainmenu_8)</visible>
+				</item>
+				<item id="38">
+					<label>$INFO[Skin.String(mainmenu_9name)]</label>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_9)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_9)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_9)</visible>
+					<visible>Skin.HasSetting(mainmenu_1)</visible>
+				</item>
+				<item id="38">
+					<label2>$INFO[Skin.String(mainmenu_9name)]</label2>
+					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_9)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_9)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu9)</visible>
+					<visible>Skin.HasSetting(mainmenu_9)</visible>
+				</item>
+				<item id="39">
+					<label>$INFO[Skin.String(mainmenu_10name)]</label>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_10)]</thumb>
+					<onclick>Skin.SetBool(no_mainmenu_10)</onclick>
+					<visible>!Skin.HasSetting(no_mainmenu_10)</visible>
+					<visible>Skin.HasSetting(mainmenu_10)</visible>
+				</item>
+				<item id="39">
+					<label2>$INFO[Skin.String(mainmenu_10name)]</label2>
+					<icon>special://skin/media/backdrops/default_games/default.png</icon>
+					<thumb>$INFO[Skin.String(Custom_mainmenu_10)]</thumb>
+					<onclick>Skin.Reset(no_mainmenu_10)</onclick>
+					<visible>Skin.HasSetting(no_mainmenu_10)</visible>
+					<visible>Skin.HasSetting(mainmenu_10)</visible>
+				</item>
+		<!-- Add Item End -->
 				<item id="24">
 					<description>My Pictures</description>
 					<label>31020</label>

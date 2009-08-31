@@ -131,7 +131,7 @@
 	</include>	
 	<include name="Furniture_HomeNowPlayingInfoCDArt">
 		<control type="label">
-			<posx>370</posx>
+			<posx>360</posx>
 			<posy>478</posy>
 			<label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
 			<font>Font_HomeNowPlayingArtist</font>
@@ -139,7 +139,7 @@
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
 		</control>
 		<control type="label">
-		    <posx>390</posx>
+		    <posx>380</posx>
 			<posy>510</posy>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
@@ -148,7 +148,7 @@
 			<font>Font_HomeNowPlayingAlbum</font>
 		</control>
 		<control type="label">
-			<posx>390</posx>
+			<posx>380</posx>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
 			<posy>614</posy>
@@ -158,7 +158,7 @@
 			<visible>!Player.Paused</visible>
 		</control>
 		<control type="label">
-			<posx>390</posx>
+			<posx>380</posx>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
 			<posy>614</posy>
@@ -168,7 +168,7 @@
 			<visible>Player.Paused</visible>
 		</control>
 		<control type="label">
-			<posx>371</posx>
+			<posx>361</posx>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetricsCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingMetrics</include>
 			<posy>635</posy>			
@@ -178,7 +178,7 @@
 		</control>
 	</include>
 		<!-- HomeNowPlaying2 -->
-	<include name="Furniture_HomeNowPlaying2">
+<!--	<include name="Furniture_HomeNowPlaying2">
 		<control type="group">
 			<visible>Skin.HasSetting(homevis) + Player.HasVideo</visible>
 			<control type="image">
@@ -284,8 +284,7 @@
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
 		</control>
 		<control type="group">
-			<animation effect="slide" start="0,0" end="-980,0" time="500" easing="inout" tween="cubic" condition="control.HasFocus(8001)">Conditional</animation>
-			
+			<animation effect="slide" start="0,0" end="-980,0" time="500" easing="inout" tween="cubic" condition="control.HasFocus(8001)">Conditional</animation>			
 			<posx>0</posx>
 			<posy>-15</posy>
 			<height>720</height>
@@ -306,7 +305,7 @@
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
 		</control>
-	</include>
+	</include>-->
 	<include name="Furniture_HomeNowPlaying">
 		<control type="group">
 			<visible>Skin.HasSetting(homevis) + Player.HasVideo</visible>
@@ -350,7 +349,7 @@
 			<posy>0</posy>
 			<height>720</height>
 			<width>1280</width>
-			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)]</visible>
+			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)] </visible>
 			<animation type="WindowOpen" reversible="false">
 				<effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic" />
 				<effect type="fade" start="0" end="100" delay="500" time="200" />
@@ -381,6 +380,7 @@
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-120" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-270" condition="Control.HasFocus(510)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-400" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
 			<animation effect="slide" time="200" start="0,0" end="0,30" condition="Control.HasFocus(941)">Conditional</animation>
 			<include>Animation_VisibleChange200</include>

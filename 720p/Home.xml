@@ -27,6 +27,12 @@
 		<control type="multiimage">
 			<include>BackgroundVarsGlobal</include>
 			<imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath>
+			<visible>![control.HasFocus(510)+[Container(300).HasFocus(6)|Container(300).HasFocus(7)]]</visible>
+		</control>
+		<control type="multiimage">
+			<include>BackgroundVarsGlobal</include>
+			<imagepath background="true">$INFO[Container(510).ListItem.ActualIcon]</imagepath>
+			<visible>control.HasFocus(510)+[Container(300).HasFocus(6)|Container(300).HasFocus(7)]</visible>
 		</control>
 		<include>Furniture_HomeNowPlaying</include>
 		<include condition="!StringCompare(Weather.Plugin,weather.com plus)">Objects_WeatherPopup</include>
