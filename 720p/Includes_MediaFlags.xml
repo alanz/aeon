@@ -203,14 +203,22 @@
 		<visible>[Control.IsVisible(50) | Control.IsVisible(550)] + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(nomediaflags)</visible>
 		<include>Animation_CommonFade</include>
 		<control type="group">
-			<posx>1105</posx>
+			<posx>1115</posx>		
+			<control type="image">
+				<include>Furniture_ListMediaFlagsVars</include>
+				<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>
+				<visible>Skin.HasSetting(nostudio)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<posx>1015</posx>
 			<control type="image" id="187">
 				<include>Furniture_ListMediaFlagsVars</include>
 				<texture>$INFO[ListItem.VideoResolution,flags/,.png]</texture>
 			</control>
 		</control>
 		<control type="group">
-			<posx>981</posx>
+			<posx>915</posx>
 			<control type="image" id="188">
 				<include>Furniture_ListMediaFlagsVars</include>
 				<texture>$INFO[ListItem.AudioCodec,flags/,.png]</texture>
@@ -221,7 +229,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<posx>855</posx>
+			<posx>815</posx>
 			<control type="image" id="189">
 				<include>Furniture_ListMediaFlagsVars</include>
 				<texture>$INFO[ListItem.VideoCodec,flags/,.png]</texture>
