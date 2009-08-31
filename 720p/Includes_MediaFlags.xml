@@ -291,7 +291,59 @@
 			<!--ADDED WALL-->
 			<include>Animation_CommonFade</include>
 			<control type="group">
-				<posx>80</posx>
+				<posx>15</posx>
+				<posy>658</posy>
+				<include>Animation_CommonFade</include>
+				<include>Animation_HideShowcase</include>
+				<include>Animation_HideMultiplex</include>
+				<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
+				<control type="image">
+					<posx>-23</posx>
+					<posy>-11</posy>
+					<width>110</width>
+					<height>72</height>
+					<include>Animation_CommonFade</include>
+					<include>Animation_HideShowcase</include>
+					<include>Animation_HideMultiplex</include>
+					<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
+					<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
+					<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
+					<texture>flags/default.png</texture>
+					<visible>!Control.IsVisible(171) + !Skin.HasSetting(nodefaultflags)</visible>
+				</control>		
+				<control type="image" id="171">
+					<width>58</width>
+					<height>50</height>	
+					<texture>flags/rating/FSK-0_info.png</texture>
+					<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
+				</control>
+				<control type="image" id="171">
+					<width>58</width>
+					<height>50</height>	
+					<texture>flags/rating/FSK-6_info.png</texture>
+					<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
+				</control>
+				<control type="image" id="171">
+					<width>58</width>
+					<height>50</height>	
+					<texture>flags/rating/FSK-12_info.png</texture>
+					<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
+				</control>
+				<control type="image" id="171">
+					<width>58</width>
+					<height>50</height>	
+					<texture>flags/rating/FSK-16_info.png</texture>
+					<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
+				</control>
+				<control type="image" id="171">
+					<width>58</width>
+					<height>50</height>	
+					<texture>flags/rating/FSK-18_info.png</texture>
+					<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<posx>85</posx>
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/default.png</texture>
@@ -299,17 +351,20 @@
 				</control>
 				<control type="image" id="81">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>
-					<visible>!Skin.HasSetting(nostudio)</visible>
+					<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>				
 				</control>
+			</control>			
+			<control type="group">
+				<posx>950</posx>
 				<control type="image" id="81">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>
-					<visible>Skin.HasSetting(nostudio)</visible>
+					<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>					
 				</control>
 			</control>
+			
+			
 			<control type="group">
-				<posx>975</posx>
+				<posx>1050</posx>
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/defaultscreen.png</texture>
@@ -321,7 +376,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<posx>1085</posx>
+				<posx>1150</posx>
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[ListItem.AudioChannels,flags/,ch.png]</texture>
@@ -332,7 +387,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<posx>190</posx>
+				<posx>200</posx>
 				<control type="image" id="82">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[ListItem.VideoCodec,flags/,.png]</texture>
