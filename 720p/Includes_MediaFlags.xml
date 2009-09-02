@@ -307,119 +307,112 @@
 				<include>Animation_HideShowcase</include>
 				<include>Animation_HideMultiplex</include>
 				<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
-				<control type="image">
-					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
-					<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
-					<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
-					<texture>flags/default.png</texture>
-					<visible>!Control.IsVisible(171) + !Skin.HasSetting(nodefaultflags)</visible>
-				</control>		
+		
 						<!-- UK Certification -->
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,UK:U)</visible>
+					<visible>substring(listitem.mpaa,UK:U)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,UK:PG)</visible>
+					<visible>substring(listitem.mpaa,UK:PG)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,UK:12) + !substring(listitem.mpaa,UK:12A)</visible>
+					<visible>substring(listitem.mpaa,UK:12) + !substring(listitem.mpaa,UK:12A)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,UK:12A)</visible>
+					<visible>substring(listitem.mpaa,UK:12A)</visible>
 				</control>
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,UK:15)</visible>
+					<visible>substring(listitem.mpaa,UK:15)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,UK:18)</visible>
+					<visible>substring(listitem.mpaa,UK:18)</visible>
 				</control>				
 
 				<!-- US Certification -->
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/MPAA_G_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + [substring(listitem.mpaa,US:G) | substring(listitem.mpaa,USA:G) | substring(listitem.mpaa,Rated G)]</visible>
+					<visible>[substring(listitem.mpaa,US:G) | substring(listitem.mpaa,USA:G) | substring(listitem.mpaa,Rated G)]</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + [substring(listitem.mpaa,US:PG) | substring(listitem.mpaa,USA:PG) | [substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)]]</visible>
+					<visible>[substring(listitem.mpaa,US:PG) | substring(listitem.mpaa,USA:PG) | [substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)]]</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + [substring(listitem.mpaa,US:PG-13) | substring(listitem.mpaa,USA:PG-13) | substring(listitem.mpaa,Rated PG-13)]</visible>
+					<visible>[substring(listitem.mpaa,US:PG-13) | substring(listitem.mpaa,USA:PG-13) | substring(listitem.mpaa,Rated PG-13)]</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/MPAA_R_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + [substring(listitem.mpaa,US:R) | substring(listitem.mpaa,USA:R) | substring(listitem.mpaa,Rated R)]</visible>
+					<visible>[substring(listitem.mpaa,US:R) | substring(listitem.mpaa,USA:R) | substring(listitem.mpaa,Rated R)]</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + [substring(listitem.mpaa,US:NC-17) | substring(listitem.mpaa,USA:NC-17) | substring(listitem.mpaa,Rated NC-17)]</visible>
+					<visible>[substring(listitem.mpaa,US:NC-17) | substring(listitem.mpaa,USA:NC-17) | substring(listitem.mpaa,Rated NC-17)]</visible>
 				</control>				
 
 				<!-- Germany Certification -->
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
 					<texture>flags/rating/FSK-0.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
+					<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
 					<texture>flags/rating/FSK-6.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
+					<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
 					<texture>flags/rating/FSK-12.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
+					<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
 				</control>
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
 					<texture>flags/rating/FSK-16.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
+					<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
 					<texture>flags/rating/FSK-18.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
+					<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
 				</control>				
 
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/TV-G_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,TV-G)</visible>
+					<visible>substring(listitem.mpaa,TV-G)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/TV-PG_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,TV-PG)</visible>
+					<visible>substring(listitem.mpaa,TV-PG)</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/TV-14_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,TV-14)]</visible>
+					<visible>substring(listitem.mpaa,TV-14)]</visible>
 				</control>				
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/rating/TV-MA_Certificate_US.png</texture>
-					<visible>!Skin.HasSetting(nocertflag) + substring(listitem.mpaa,TV-MA)]</visible>
+					<visible>substring(listitem.mpaa,TV-MA)]</visible>
 				</control>		
 					
 			</control>
