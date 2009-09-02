@@ -871,41 +871,100 @@
 		<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
 		<animation effect="fade" start="100" end="0" time="100">Hidden</animation>
 		<control type="group">
-			<posx>80</posx>
+			<posx>0</posx>
 			<control type="image" id="81">
 				<include>LowList_MovieFlagVars</include>
 				<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>				
-				<animation effect="slide" start="0,0" end="-80,0" time="0" condition="!Control.IsVisible(1171)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="85,0" easing="inout" tween="cubic" time="200" condition="Control.IsVisible(1171)">Conditional</animation>
 			</control>
 		</control>
 		<control type="group">
 			<posx>0</posx>
 			<control type="image" id="1171">
 				<include>LowList_MovieFlagVars</include>
-				<texture>flags/rating/FSK-0_info.png</texture>
+				<texture>flags/rating/FSK-0.png</texture>
 				<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
 			</control>
 			<control type="image" id="1171">
 				<include>LowList_MovieFlagVars</include>
-				<texture>flags/rating/FSK-6_info.png</texture>
+				<texture>flags/rating/FSK-6.png</texture>
 				<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
 			</control>
 			<control type="image" id="1171">
 				<include>LowList_MovieFlagVars</include>
-				<texture>flags/rating/FSK-12_info.png</texture>
+				<texture>flags/rating/FSK-12.png</texture>
 				<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
 			</control>
 			<control type="image" id="1171">
 				<include>LowList_MovieFlagVars</include>
-				<texture>flags/rating/FSK-16_info.png</texture>
+				<texture>flags/rating/FSK-16.png</texture>
 				<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
 			</control>
 			<control type="image" id="1171">
 				<include>LowList_MovieFlagVars</include>
-				<texture>flags/rating/FSK-18_info.png</texture>
+				<texture>flags/rating/FSK-18.png</texture>
 				<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
 			</control>
-
+			
+			
+			
+					<!-- UK Certification -->
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
+				<visible>substring(listitem.mpaa,UK:U)</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
+				<visible>substring(listitem.mpaa,UK:PG)</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
+				<visible>substring(listitem.mpaa,UK:12) + !substring(listitem.mpaa,UK:12A)</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
+				<visible>substring(listitem.mpaa,UK:12A)</visible>
+			</control>
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
+				<visible>substring(listitem.mpaa,UK:15)</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
+				<visible>substring(listitem.mpaa,UK:18)</visible>
+			</control>				
+				<!-- US Certification -->
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/MPAA_G_Certificate_US.png</texture>
+				<visible>[substring(listitem.mpaa,US:G) | substring(listitem.mpaa,USA:G) | substring(listitem.mpaa,Rated G)]</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
+				<visible>[substring(listitem.mpaa,US:PG) | substring(listitem.mpaa,USA:PG) | [substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)]]</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
+				<visible>[substring(listitem.mpaa,US:PG-13) | substring(listitem.mpaa,USA:PG-13) | substring(listitem.mpaa,Rated PG-13)]</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/MPAA_R_Certificate_US.png</texture>
+				<visible>[substring(listitem.mpaa,US:R) | substring(listitem.mpaa,USA:R) | substring(listitem.mpaa,Rated R)]</visible>
+			</control>				
+			<control type="image" id="1171">>
+				<include>LowList_MovieFlagVars</include>
+				<texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
+				<visible>[substring(listitem.mpaa,US:NC-17) | substring(listitem.mpaa,USA:NC-17) | substring(listitem.mpaa,Rated NC-17)]</visible>
+			</control>					
 		</control>
 	</control>
 	<!-- Browsing flags -->
