@@ -3,7 +3,7 @@
 		<animation effect="fade" start="0" end="100" delay="300" time="500">WindowOpen</animation>
 		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 		<animation effect="fade" start="0" end="100" delay="600" time="500" reversible="false">Visible</animation>
-		<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
+		<animation effect="fade" start="100" end="0" time="400" reversible="false">Hidden</animation>
 	</include>
 	<include name="animation_Window_ocvh2">
 		<animation effect="fade" start="0" end="100" time="800" reversible="false">Visible</animation>
@@ -20,153 +20,6 @@
 			<posx>0</posx>
 			<onfocus>XBMC.RunScript(special://skin/extras/RecentlyAdded.py,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
 			<onfocus>SetFocus(300)</onfocus>
-		</control>
-		<control type="group">  <!-- Small Preview Pic-->
-			<visible>Skin.HasSetting(homelatest)</visible>
-			<visible>[Container(300).HasFocus(6)+!IsEmpty(Window.Property(LatestEpisode.1.ShowTitle))] | [Container(300).HasFocus(7)+!IsEmpty(Window.Property(LatestMovie.1.Title))] | [Container(300).HasFocus(1)+!IsEmpty(Window.Property(LatestSong.1.Album))]</visible>
-			<visible>!Control.IsVisible(87)</visible>
-			<posx>1030</posx>
-			<posy>455</posy>
-			<animation effect="slide" start="0" end="300,0" time="500" easing="inout" tween="cubic" condition="Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)">Conditional</animation>
-			<animation effect="slide" start="0" end="0,-165" time="350" easing="inout" tween="cubic" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>animation_Window_ocvh</include>
-			<control type="image">
-				<width>240</width>
-				<height>240</height>
-				<texture border="20">home/home_weather_big.png</texture>
-				<colordiffuse>cc000000</colordiffuse>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="image">
-				<width>240</width>
-				<height>240</height>
-				<texture border="20">home/home_weather_big.png</texture>
-				<colordiffuse>ccffffff</colordiffuse>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="label">
-				<posx>10</posx>
-				<posy>10</posy>
-				<width>220</width>
-				<height>40</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font_WeatherTitle</font>
-				<textcolor>c0FFFFFF</textcolor>
-				<label>31879</label>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="image">
-				<texture diffuse="multiplex/multiplex_tvmask.png" background="true" fallback="defaultvideo.png">$INFO[Container(510).ListItem.ActualIcon]</texture>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<posx>10</posx>
-				<posy>70</posy>
-				<width>220</width>
-				<height>123</height>
-				<visible>Container(300).HasFocus(7)</visible>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="image">
-				<texture diffuse="multiplex/multiplex_tvmask.png" background="true" fallback="defaultvideo.png">$INFO[Container(510).ListItem.ActualIcon]</texture>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<posx>10</posx>
-				<posy>70</posy>
-				<width>220</width>
-				<height>123</height>
-				<visible>Container(300).HasFocus(6)</visible>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="image">
-				<texture diffuse="multiplex/multiplex_tvmask.png">multiplex/multiplex_tvglass.png</texture>
-				<posx>10</posx>
-				<posy>70</posy>
-				<width>220</width>
-				<height>123</height>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<visible>Container(300).HasFocus(6)|Container(300).HasFocus(7)</visible>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="image">
-				<texture diffuse="multiplex/multiplex_tvmask.png">home/list_episodeicon_glass.png</texture>
-				<posx>10</posx>
-				<posy>70</posy>
-				<width>220</width>
-				<height>123</height>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<visible>Container(300).HasFocus(6)|Container(300).HasFocus(7)</visible>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="image">
-				<texture diffuse="multiplex/multiplex_tvmask.png">home/list_episodeicon_glass.png</texture>
-				<posx>10</posx>
-				<posy>70</posy>
-				<width>220</width>
-				<height>123</height>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<visible>Container(300).HasFocus(6)|Container(300).HasFocus(7)</visible>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="label">
-				<posx>10</posx>
-				<posy>200</posy>
-				<width>220</width>
-				<height>10</height>
-				<font>Font_Time</font>
-				<textcolor>c0FFFFFF</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<visible>Container(300).HasFocus(7)</visible>
-				<label>$INFO[Container(510).ListItem.Label2]</label>
-				<include>animation_Window_ocvh2</include>
-			</control>
-			<control type="label">
-				<posx>10</posx>
-				<posy>210</posy>
-				<width>220</width>
-				<height>20</height>
-				<font>Font_Time</font>
-				<textcolor>c0FFFFFF</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<visible>!Container(300).HasFocus(1)</visible>
-				<label>[UPPERCASE]$INFO[Container(510).ListItem.Label][/UPPERCASE]</label>
-				<animation effect="slide" start="0,0" end="0,-10" time="1" condition="Container(300).HasFocus(6)">Conditional</animation>
-				<include>animation_Window_ocvh2</include>
-			</control>
-		<!-- LatestSong -->
-			<control type="group">
-				<visible>Container(300).HasFocus(1)</visible>
-				<include>animation_Window_ocvh</include>
-				<control type="image">
-					<texture diffuse="home/nowplaying_mask.png" background="true">defaultvideo.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>Window.Property(LatestSong.1.Thumb)</info>
-					<posx>50</posx>
-					<posy>70</posy>
-					<width>140</width>
-					<height>140</height>
-				</control>
-				<control type="image">
-					<texture diffuse="home/nowplaying_mask.png">home/nowplaying_overlay.png</texture>
-					<posx>50</posx>
-					<posy>70</posy>
-					<width>140</width>
-					<height>140</height>
-					<colordiffuse>aaFFFFFF</colordiffuse>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-				</control>
-				<control type="label">
-					<posx>10</posx>
-					<posy>210</posy>
-					<width>220</width>
-					<height>20</height>
-					<font>Font_HomeNowPlayingAlbum</font>
-					<textcolor>c0FFFFFF</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>[UPPERCASE]$INFO[Window.Property(LatestSong.1.Album)][/UPPERCASE]</label>
-				</control>
-			</control>
 		</control>
 		<control type="group">
 			<visible>Skin.HasSetting(homelatest)</visible>
@@ -223,9 +76,8 @@
 			<control type="group">
 				<posx>-1120</posx>
 				<posy>430</posy>
-				<animation effect="slide" start="0,0" end="1020,0" time="500" delay="1000" easing="inout" tween="cubic" condition="Container(300).HasFocus(6)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="1020,0" time="500" delay="1000" easing="inout" tween="cubic" condition="Container(300).HasFocus(1)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="1020,0" time="500" delay="1000" easing="inout" tween="cubic" condition="Container(300).HasFocus(7)">Conditional</animation>
+
 				<animation effect="slide" start="0,-30" end="0,-380" time="0" condition="!Skin.HasSetting(lowermainmenu)+!Skin.HasSetting(lowerwidgets)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,15" time="0" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
 				<animation effect="slide" start="0,-0" end="0,-14" time="0" condition="Skin.HasSetting(bighome)">Conditional</animation>
@@ -235,6 +87,8 @@
 					<posx>120</posx>
 					<posy>0</posy>
 					<control type="group">
+						<animation effect="slide" start="0,0" end="1020,0" time="500" delay="1000" easing="inout" tween="cubic" reversible="false" condition="Container(300).HasFocus(6)">Conditional</animation>	
+						<animation effect="slide" start="0,0" end="1020,0" time="500" delay="1000" easing="inout" tween="cubic" reversible="false" condition="Container(300).HasFocus(7)">Conditional</animation>
 						<posx>159</posx>
 						<animation effect="slide" start="0,0" end="150,50" time="1" condition="Container(300).HasFocus(7)|Container(300).HasFocus(1)">Conditional</animation>
 						<control type="image">
@@ -349,8 +203,8 @@
 					</control>
 				<!-- Movies Thumb -->
 					<control type="group">
-						
-						<visible>Container(300).HasFocus(6)</visible>
+						<animation effect="slide" start="0,0" end="1020,0" time="500" delay="700" easing="inout" tween="cubic" reversible="false" condition="Container(300).HasFocus(6)">Conditional</animation>						
+				<!--		<visible>Container(300).HasFocus(6)</visible>-->
 						<control type="image">
 							<posx>-14</posx>
 							<posy>-14</posy>
@@ -376,8 +230,8 @@
 					</control>
 				<!-- TV Thumb -->
 					<control type="group">
-					
-						<visible>Container(300).HasFocus(7)</visible>
+						<animation effect="slide" start="0,0" end="1020,0" time="500" delay="700" easing="inout" tween="cubic" reversible="false" condition="Container(300).HasFocus(7)">Conditional</animation>
+				<!--		<visible>Container(300).HasFocus(7)</visible>-->
 						<posx>0</posx>
 						<control type="image">
 							<posx>-14</posx>
@@ -419,7 +273,7 @@
 			<!-- Music -->
 			<control type="group">
 				<animation effect="slide" start="0,-30" end="0,-410" time="0" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="1020,0" time="500" delay="1000" easing="inout" tween="cubic" condition="Container(300).HasFocus(1)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,380" time="0" condition="Skin.HasSetting(lowerwidgets)+!Skin.HasSetting(lowermainmenu)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,25" time="500" easing="inout" tween="cubic" condition="Skin.HasSetting(lowerwidgets)+!Skin.HasSetting(lowermainmenu)+[ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus() | ControlGroup(943).HasFocus()]">Conditional</animation>
 				<visible>Container(300).HasFocus(1)</visible>
