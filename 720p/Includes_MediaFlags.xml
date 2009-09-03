@@ -57,6 +57,22 @@
 		<include>Animation_CommonFade</include>
 		<visible>Control.IsVisible(553)</visible>
 	</include>
+	<include name="Furniture_PanelMediaFlagsVars2">
+		<posy>620</posy>
+		<width>90</width>
+		<height>59</height>
+		<aligny>top</aligny>
+		<include>Animation_CommonFade</include>
+		<visible>Control.IsVisible(555)</visible>
+	</include>
+	<include name="Furniture_PanelMediaFlagsVarsS">
+		<posy>650</posy>
+		<width>90</width>
+		<height>19</height>
+		<align>center</align>
+		<include>Animation_CommonFade</include>
+		<visible>Control.IsVisible(555)</visible>
+	</include>
 	<include name="Furniture_ShowcaseMediaFlagsBlack">
 		<posy>647</posy>
 		<width>110</width>
@@ -580,6 +596,117 @@
 					<texture>flags/dvb.png</texture>
 					<visible>substring(listitem.filename,dvb)</visible>
 				</control>
+			</control>
+		</control>
+	</include>
+		<include name="Furniture_MultiplexMediaFlags2">
+		<control type="group">
+			<visible>Window.IsActive(25) + Control.IsVisible(555) + !Skin.HasSetting(nomediaflags) + Container.Content(movies)</visible>
+			<include>Animation_CommonFade</include>
+			<include>Animation_HideMultiplex</include>
+			<control type="group">
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+				<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+				<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>290</posx>
+				<control type="image" id="91">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+				<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+				<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>370</posx>
+				<control type="image" id="91">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/hdtv.png</texture>
+					<visible>substring(listitem.filename,hdtv) | substring(listitem.filename,hd-tv)</visible>
+				</control>
+				<control type="image" id="91">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/hddvd.png</texture>
+					<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
+				</control>
+				<control type="image" id="91">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/bluray.png</texture>
+					<visible>[substring(listitem.VideoResolution,720) | substring(listitem.VideoResolution,1080)] + ![substring(listitem.filename,hdtv) | substring(listitem.filename,hddvd)]</visible>
+				</control>
+				<control type="image" id="91">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/dvd.png</texture>
+					<visible>substring(listitem.VideoResolution,480)</visible>
+				</control>
+			</control>
+			<control type="group">
+			<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>450</posx>
+				<control type="image" id="93">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>$INFO[ListItem.VideoResolution,flags/custom/,.png]</texture>
+				</control>
+			</control>
+			<control type="group">
+			<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>540</posx>
+				<control type="image">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>$INFO[ListItem.AudioCodec,flags/custom/,2.png]</texture>
+					<visible>substring(ListItem.AudioChannels,2)</visible>
+				</control>
+			</control>
+				<control type="group">
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>540</posx>
+				<control type="image">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>$INFO[ListItem.AudioCodec,flags/custom/,6.png]</texture>
+					<visible>substring(ListItem.AudioChannels,6) | substring(ListItem.AudioChannels,7)</visible>
+				</control>
+			</control>
+			<control type="group">
+			<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>760</posx>
+				<control type="image" id="93">
+					<include>Furniture_PanelMediaFlagsVarsS</include>
+					<texture>$INFO[ListItem.StarRating]</texture>
+				</control>
+			</control>
+			<control type="group">
+			<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
+					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>210</posx>	
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/r.png</texture>
+					<visible>substring(listitem.mpaa,rated r)</visible>
+				</control>
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/pg13.png</texture>
+					<visible>substring(listitem.mpaa,pg-13)</visible>
+				</control>
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/pg.png</texture>
+					<visible>substring(listitem.mpaa,pg) + !substring(listitem.mpaa,pg-13)</visible>
+				</control>
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/custom/g.png</texture>
+					<visible>substring(listitem.mpaa,rated g)</visible>
+				</control>		
 			</control>
 		</control>
 	</include>
