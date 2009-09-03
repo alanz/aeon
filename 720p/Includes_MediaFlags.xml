@@ -11,7 +11,7 @@
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
 	</include>
 	<include name="ShowcaseMediaFlagLightShade">
-		<colordiffuse>74000000</colordiffuse>
+		<colordiffuse>C4000000</colordiffuse>
 	</include>
 	<include name="ShowcaseMediaFlagNightShade">
 		<colordiffuse>FFe1e1e1</colordiffuse>
@@ -35,8 +35,7 @@
 		<include>Animation_HideShowcase</include>
 		<include>Animation_HideMultiplex</include>
 		<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
-		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
-		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
+		<include>ShowcaseMediaFlagNightShade</include>
 	</include>
 	
 	<include name="Furniture_ListMediaFlagsVars">
@@ -368,31 +367,34 @@
 				</control>				
 
 				<!-- Germany Certification -->
-				<control type="image">
-					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
-					<texture>flags/rating/FSK-0.png</texture>
-					<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
-				</control>				
-				<control type="image">
-					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
-					<texture>flags/rating/FSK-6.png</texture>
-					<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
-				</control>				
-				<control type="image">
-					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
-					<texture>flags/rating/FSK-12.png</texture>
-					<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
+				<control type="group">
+					<posy>-5</posy>
+					<control type="image">
+						<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
+						<texture>flags/rating/FSK-0.png</texture>
+						<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
+					</control>				
+					<control type="image">
+						<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
+						<texture>flags/rating/FSK-6.png</texture>
+						<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
+					</control>				
+					<control type="image">
+						<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
+						<texture>flags/rating/FSK-12.png</texture>
+						<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
+					</control>
+					<control type="image">
+						<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
+						<texture>flags/rating/FSK-16.png</texture>
+						<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
+					</control>				
+					<control type="image">
+						<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
+						<texture>flags/rating/FSK-18.png</texture>
+						<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
+					</control>		
 				</control>
-				<control type="image">
-					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
-					<texture>flags/rating/FSK-16.png</texture>
-					<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
-				</control>				
-				<control type="image">
-					<include>Furniture_ShowcaseMediaFlagsVarsGerman</include>
-					<texture>flags/rating/FSK-18.png</texture>
-					<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
-				</control>				
 
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
