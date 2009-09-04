@@ -240,7 +240,7 @@
 			<posx>1015</posx>
 			<control type="image" id="187">
 				<include>Furniture_ListMediaFlagsVars</include>
-				<texture>$INFO[ListItem.VideoResolution,flags/,.png]</texture>
+				<texture>$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -464,7 +464,7 @@
 				</control>
 				<control type="image" id="83">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>$INFO[ListItem.VideoResolution,flags/,.png]</texture>
+					<texture>$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -545,7 +545,7 @@
 				</control>
 				<control type="image" id="93">
 					<include>Furniture_PanelMediaFlagsVars</include>
-					<texture>$INFO[ListItem.VideoResolution,flags/,.png]</texture>
+					<texture>$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -621,23 +621,7 @@
 				<posx>370</posx>
 				<control type="image" id="91">
 					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/hdtv.png</texture>
-					<visible>substring(listitem.filename,hdtv) | substring(listitem.filename,hd-tv)</visible>
-				</control>
-				<control type="image" id="91">
-					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/hddvd.png</texture>
-					<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
-				</control>
-				<control type="image" id="91">
-					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/bluray.png</texture>
-					<visible>[substring(listitem.VideoResolution,720) | substring(listitem.VideoResolution,1080)] + ![substring(listitem.filename,hdtv) | substring(listitem.filename,hddvd)]</visible>
-				</control>
-				<control type="image" id="91">
-					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/dvd.png</texture>
-					<visible>substring(listitem.VideoResolution,480)</visible>
+					<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -647,7 +631,7 @@
 				<posx>450</posx>
 				<control type="image" id="93">
 					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>$INFO[ListItem.VideoResolution,flags/custom/,.png]</texture>
+					<texture>$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -687,26 +671,117 @@
 					<animation effect="fade" delay="1000" start="0" end="100" time="500" >Visible</animation>
 					<animation effect="fade" delay="1000" start="0" end="100" time="500" >WindowOpen</animation>
 				<posx>210</posx>	
+						<!-- UK Certification -->
 				<control type="image" id="92">
 					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/r.png</texture>
-					<visible>substring(listitem.mpaa,rated r)</visible>
+					<texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
+					<visible>substring(listitem.mpaa,UK:U)</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
+					<visible>substring(listitem.mpaa,UK:PG)</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
+					<visible>substring(listitem.mpaa,UK:12) + !substring(listitem.mpaa,UK:12A)</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
+					<visible>substring(listitem.mpaa,UK:12A)</visible>
 				</control>
 				<control type="image" id="92">
 					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/pg13.png</texture>
-					<visible>substring(listitem.mpaa,pg-13)</visible>
-				</control>
+					<texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
+					<visible>substring(listitem.mpaa,UK:15)</visible>
+				</control>				
 				<control type="image" id="92">
 					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/pg.png</texture>
-					<visible>substring(listitem.mpaa,pg) + !substring(listitem.mpaa,pg-13)</visible>
-				</control>
+					<texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
+					<visible>substring(listitem.mpaa,UK:18)</visible>
+				</control>				
+
+				<!-- US Certification -->
 				<control type="image" id="92">
 					<include>Furniture_PanelMediaFlagsVars2</include>
-					<texture>flags/custom/g.png</texture>
-					<visible>substring(listitem.mpaa,rated g)</visible>
+					<texture>flags/rating/MPAA_G_Certificate_US.png</texture>
+					<visible>[substring(listitem.mpaa,US:G) | substring(listitem.mpaa,USA:G) | substring(listitem.mpaa,Rated G)]</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
+					<visible>[substring(listitem.mpaa,US:PG) | substring(listitem.mpaa,USA:PG) | [substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)]]</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
+					<visible>[substring(listitem.mpaa,US:PG-13) | substring(listitem.mpaa,USA:PG-13) | substring(listitem.mpaa,Rated PG-13)]</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/MPAA_R_Certificate_US.png</texture>
+					<visible>[substring(listitem.mpaa,US:R) | substring(listitem.mpaa,USA:R) | substring(listitem.mpaa,Rated R)]</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
+					<visible>[substring(listitem.mpaa,US:NC-17) | substring(listitem.mpaa,USA:NC-17) | substring(listitem.mpaa,Rated NC-17)]</visible>
+				</control>				
+
+				<!-- Germany Certification -->
+				<control type="group">
+					<posy>-5</posy>
+					<control type="image" id="92">
+						<include>Furniture_PanelMediaFlagsVars2</include>
+						<texture>flags/rating/FSK-0.png</texture>
+						<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
+					</control>				
+					<control type="image" id="92">
+						<include>Furniture_PanelMediaFlagsVars2</include>
+						<texture>flags/rating/FSK-6.png</texture>
+						<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
+					</control>				
+					<control type="image" id="92">
+						<include>Furniture_PanelMediaFlagsVars2</include>
+						<texture>flags/rating/FSK-12.png</texture>
+						<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
+					</control>
+					<control type="image" id="92">
+						<include>Furniture_PanelMediaFlagsVars2</include>
+						<texture>flags/rating/FSK-16.png</texture>
+						<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
+					</control>				
+					<control type="image" id="92">
+						<include>Furniture_PanelMediaFlagsVars2</include>
+						<texture>flags/rating/FSK-18.png</texture>
+						<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
+					</control>		
+				</control>
+
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/TV-G_Certificate_US.png</texture>
+					<visible>substring(listitem.mpaa,TV-G)</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/TV-PG_Certificate_US.png</texture>
+					<visible>substring(listitem.mpaa,TV-PG)</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/TV-14_Certificate_US.png</texture>
+					<visible>substring(listitem.mpaa,TV-14)]</visible>
+				</control>				
+				<control type="image" id="92">
+					<include>Furniture_PanelMediaFlagsVars2</include>
+					<texture>flags/rating/TV-MA_Certificate_US.png</texture>
+					<visible>substring(listitem.mpaa,TV-MA)]</visible>
 				</control>		
+					
+				
 			</control>
 		</control>
 	</include>
@@ -790,7 +865,7 @@
 				</control>
 				<control type="image" id="93">
 					<include>Furniture_EpisodeMediaFlagsVars</include>
-					<texture>$INFO[ListItem.VideoResolution,flags/,.png]</texture>
+					<texture>$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -840,7 +915,7 @@
 			</control>
 			<control type="image" id="93">
 				<include>Furniture_PanelMediaFlagsVars</include>
-				<texture>$INFO[Container(53).ListItem.VideoResolution,flags/,.png]</texture>
+				<texture>$INFO[Container(53).ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 			</control>
 		</control>
 		<control type="group">
