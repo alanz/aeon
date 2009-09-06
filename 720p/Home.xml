@@ -1,7 +1,44 @@
 <window id="0">
-	<defaultcontrol always="true">500</defaultcontrol>
+	<defaultcontrol always="true">5043</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
+		<control type="button" id="5043">
+			<description>visible at startup</description>
+			<posx>-20</posx>
+			<posy>-20</posy>
+			<width>1</width>
+			<height>1</height>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
+			<onfocus>Skin.SetBool(NotStartup)</onfocus>
+			<onfocus>SetFocus(500)</onfocus>
+			<visible>!Skin.HasSetting(NotStartup)</visible>
+		</control>
+		<control type="button" id="5043">
+			<description>visible after library update has finished</description>
+			<posx>-20</posx>
+			<posy>-20</posy>
+			<width>1</width>
+			<height>1</height>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
+			<onfocus>Skin.Reset(LibraryUpdated)</onfocus>
+			<onfocus>SetFocus(500)</onfocus>
+			<visible>Skin.HasSetting(NotStartup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
+		</control>
+		<control type="button" id="5043">
+			<description>visible in all other cases</description>
+			<posx>-20</posx>
+			<posy>-20</posy>
+			<width>1</width>
+			<height>1</height>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<onfocus>SetFocus(500)</onfocus>
+			<visible>Skin.HasSetting(NotStartup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
+		</control>
 		<control type="label">
 			<description>Force Weather update on load</description>
 			<posx>0</posx>
