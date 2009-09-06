@@ -221,7 +221,7 @@
 			<width>1280</width>
 			<height>1100</height>
 			<texture flipy="true">home/nowplaying_shadow.png</texture>
-			<visible>Player.HasAudio+[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]</visible>
+			<visible>Player.HasAudio+[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]+Skin.HasSetting(lowerwidgets)</visible>
 			<include>Animation_VisibleChange400</include>
 			<animation type="WindowOpen" reversible="false">
 				<effect type="fade" start="0" end="100" delay="500" time="6000" />
@@ -245,16 +245,18 @@
 				<effect type="slide" start="0,0" end="-800,0" time="200" easing="in" tween="quadratic" />
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
-			<posx>-17</posx>
-			<posy>0</posy>			
+			<posx>-517</posx>
+			<posy>-10</posy>			
 			<height>720</height>
 			<width>1280</width>
+			<animation effect="slide" time="800" tween="cubic" easing="inout" end="500,0" condition="Player.HasAudio">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,50" delay="700" condition="Container(300).HasFocus(7)+Skin.HasSetting(lowermainmenu)+Skin.HasSetting(homelatest)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-370" condition="Control.HasFocus(510)+!Skin.HasSetting(lowermainmenu)+Skin.HasSetting(lowerwidgets)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-270" delay="700" condition="Skin.HasSetting(lowermainmenu) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]+Skin.HasSetting(homelatest)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" delay="700" condition="!Skin.HasSetting(lowermainmenu) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]+Skin.HasSetting(homelatest)+Skin.HasSetting(lowerwidgets)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-15" delay="700" condition="Skin.HasSetting(lowermainmenu) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]+Skin.HasSetting(homelatest)+Skin.HasSetting(bighome)+!Skin.HasSetting(highertime)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,50" delay="700" condition="Container(300).HasFocus(7) + Skin.HasSetting(lowermainmenu)+Skin.HasSetting(autolatestadded) | Container(300).HasFocus(7) + Control.HasFocus(510) + Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
+		<!--	<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-370" condition="Control.HasFocus(510) + !Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets)">Conditional</animation>-->
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-280" delay="700" condition="Skin.HasSetting(lowermainmenu) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + Skin.HasSetting(homelatest) + Skin.HasSetting(autolatestadded)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-280" condition="Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" delay="700" condition="!Skin.HasSetting(lowermainmenu) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + Skin.HasSetting(homelatest) + Skin.HasSetting(lowerwidgets) + Skin.HasSetting(autolatestadded)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest) + Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
 			<animation effect="slide" time="200" start="0,0" end="0,30" condition="Control.HasFocus(941)">Conditional</animation>
 		</control>			
 	</include>
