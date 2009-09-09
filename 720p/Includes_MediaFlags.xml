@@ -36,8 +36,7 @@
 		<include>Animation_HideMultiplex</include>
 		<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
 		<include>ShowcaseMediaFlagNightShade</include>
-	</include>
-	
+	</include>	
 	<include name="Furniture_ListMediaFlagsVars">
 		<include condition="Skin.HasSetting(dvdcase)">Furniture_ListMediaFlagsXPos</include>
 		<posy>630</posy>
@@ -453,8 +452,6 @@
 					<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>					
 				</control>
 			</control>
-			
-			
 			<control type="group">
 				<posx>1050</posx>
 				<control type="image">
@@ -482,7 +479,7 @@
 				<posx>215</posx>
 				<control type="image" id="82">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>$INFO[ListItem.VideoCodec,flags/,.png]</texture>
+					<texture>$INFO[ListItem.VideoCodec,flags/VideoCodec/,.png]</texture>
 					<visible>!substring(listitem.filename,hdtv) + !substring(listitem.filename,dvd) + !substring(listitem.filename,bluray) + !substring(listitem.filename,blu-ray) + !substring(listitem.filename,bdrip) + !substring(listitem.filename,.iso,Right) + !substring(listitem.filename,.ifo,Right)</visible>
 				</control>
 				<control type="image" id="82">
@@ -599,7 +596,7 @@
 			</control>
 		</control>
 	</include>
-		<include name="Furniture_MultiplexMediaFlags2">
+	<include name="Furniture_MultiplexMediaFlags2">
 		<control type="group">
 			<visible>Window.IsActive(25) + Control.IsVisible(555) + !Skin.HasSetting(nomediaflags) + Container.Content(movies)</visible>
 			<include>Animation_CommonFade</include>
