@@ -7,7 +7,6 @@
 			<height>262</height>
 			<width>262</width>
 			<texture>home/nowplaying_back.png</texture>
-			<visible>Player.HasAudio</visible>
 		</control>
 		<control type="image">
 			<posx>261</posx>
@@ -15,7 +14,7 @@
 			<height>176</height>
 			<width>259</width>
 			<texture>home/nowplaying_info.png</texture>
-			<visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+			<visible>!Control.HasFocus(93)</visible>
 		</control>
 		<control type="image">
 			<posx>28</posx>
@@ -23,7 +22,6 @@
 			<height>242</height>
 			<width>242</width>
 			<texture fallback="defaultmusicbig.png" diffuse="home/nowplaying_mask.png">$INFO[MusicPlayer.Cover]</texture>
-			<visible>Player.HasAudio</visible>
 		</control>
 		<control type="image">
 			<posx>28</posx>
@@ -31,7 +29,6 @@
 			<height>242</height>
 			<width>242</width>
 			<texture>home/nowplaying_overlay.png</texture>
-			<visible>Player.HasAudio</visible>
 		</control>
 	</include>
 	<include name="Furniture_HomeNowPlayingMetrics">
@@ -39,7 +36,7 @@
 		<width>533</width>
 		<height>25</height>
 		<aligny>left</aligny>
-		<visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+		<visible>!Control.HasFocus(93)</visible>
 	</include>
 	<include name="Furniture_HomeNowPlayingInfo">
 		<control type="label">
@@ -81,6 +78,20 @@
 	</include>	
 	<include name="Furniture_HomeNowPlayingObjectsCDArt">	
 		<control type="image">
+			<posx>200</posx>
+			<posy>505</posy>
+			<width>309</width>
+			<aspectratio>stretch</aspectratio>
+			<texture>home/nowplaying_line.png</texture>
+		</control>
+		<control type="image">
+			<posx>200</posx>
+			<posy>635</posy>
+			<width>309</width>
+			<aspectratio>stretch</aspectratio>
+			<texture>home/nowplaying_line.png</texture>
+		</control>
+		<control type="image">
 			<description>Cd overlay</description>
 			<animation effect="slide" start="-118" end="0" time="700" tween="cubic" easing="out" delay="500">WindowOpen</animation>
 			
@@ -96,19 +107,18 @@
 			<posy>470</posy><!-- -143 -->
 			<texture fallback="backdrops/artist_fanart/default/default.png">backdrops/artist_fanart/cd/$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Album].png</texture>
 			<aspectratio align="bottom">keep</aspectratio>
-			<visible>Player.HasAudio</visible>
+		<!--	<visible>Player.HasAudio</visible>-->
 		</control>		
 		<!-- Cover and Overlay-->
 		<control type="group">
-		<animation effect="slide" start="-620" end="10" time="700" tween="cubic" easing="out" delay="0">WindowOpen</animation>
-		<animation effect="slide" start="10" end="-120" time="800" tween="cubic" easing="in" delay="0">WindowClose</animation>
+			<animation effect="slide" start="-620" end="10" time="700" tween="cubic" easing="out" delay="0">WindowOpen</animation>
+			<animation effect="slide" start="10" end="-120" time="800" tween="cubic" easing="in" delay="0">WindowClose</animation>
 			<control type="image">
 				<posx>28</posx>
 				<posy>455</posy>
 				<height>230</height>
 				<width>255</width>
 				<texture fallback="defaultmusicbig.png" diffuse="thumbs/cdcover_mask.png">$INFO[MusicPlayer.Cover]</texture>
-				<visible>Player.HasAudio</visible>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
@@ -117,10 +127,9 @@
 				<height>230</height>
 				<width>255</width>
 				<texture>home/nowplaying_overlay.png</texture>
-				<visible>Player.HasAudio</visible>
 				<aspectratio align="bottom">keep</aspectratio>
 			</control>
-		</control>	
+		</control>
 	</include>
 	<include name="Furniture_HomeNowPlayingMetricsCDArt">
 		<animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="700">WindowOpen</animation>
@@ -217,22 +226,21 @@
 		</control>
 		<control type="image">
 			<posx>0</posx>
-			<posy>-720</posy>
+			<posy>-700</posy>
 			<width>1280</width>
 			<height>1100</height>
 			<texture flipy="true">home/nowplaying_shadow.png</texture>
-			<visible>Player.HasAudio+[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]+Skin.HasSetting(lowerwidgets)</visible>
+			<visible>Player.HasAudio+[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]+[[Skin.HasSetting(lowerwidgets)+!Skin.HasSetting(lowermainmenu)] | Skin.HasSetting(lowermainmenu)]</visible>
 			<include>Animation_VisibleChange400</include>
 			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" delay="500" time="6000" />
+				<effect type="fade" start="0" end="100" delay="500" time="2000" />
 			</animation>
 			<animation type="WindowClose" reversible="false">
 				<effect type="fade" start="100" end="0" time="200" />
 			</animation>
-			<animation effect="slide" time="6000" tween="cubic" easing="inout" end="0,450" delay="1000" condition="Skin.HasSetting(lowerwidgets)  + !Skin.HasSetting(lowermainmenu)+ [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+	<!--		<animation effect="slide" time="6000" tween="cubic" easing="inout" end="0,450" delay="1000" condition="Skin.HasSetting(lowerwidgets)  + !Skin.HasSetting(lowermainmenu)+ [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>-->
 		</control>
 		<control type="group">
-			<include>Animation_VisibleChange400</include>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
@@ -249,7 +257,9 @@
 			<posy>-10</posy>			
 			<height>720</height>
 			<width>1280</width>
-			<animation effect="slide" time="800" tween="cubic" easing="inout" end="500,0" condition="Player.HasAudio">Conditional</animation>
+			<animation effect="slide" tween="cubic" easing="inout" time="800"end="500,0" condition="Player.HasAudio">Conditional</animation>
+			<animation type="fade" start="0" end="100" delay="0" time="700" condition="Player.HasAudio">Conditional</animation>
+			<animation effect="slide" time="800" tween="cubic" easing="inout" end="1000,0" >Visible</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,50" delay="700" condition=" Container(300).HasFocus(7) + Control.HasFocus(510) + Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
 		<!--	<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-370" condition="Control.HasFocus(510) + !Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets)">Conditional</animation>-->
