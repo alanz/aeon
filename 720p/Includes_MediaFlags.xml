@@ -434,7 +434,7 @@
 					
 			</control>
 			<control type="group">
-				<posx>108</posx>
+				<posx>102</posx>
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>flags/default.png</texture>
@@ -470,13 +470,45 @@
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[ListItem.AudioChannels,flags/Audio/,ch.png]</texture>
 				</control>
+				<control type="image" id="92">
+					<include>Furniture_ShowcaseMediaFlagsVars</include>
+					<texture>flags/Audio/dd71.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>substring(ListItem.AudioChannels,8) + substring(ListItem.AudioCodec,ac3)</visible>
+				</control>
+				<control type="image" id="92">
+					<include>Furniture_ShowcaseMediaFlagsVars</include>
+					<texture>flags/Audio/dd20.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>substring(ListItem.AudioChannels,2) + substring(ListItem.AudioCodec,ac3)</visible>
+				</control>
+				<control type="image" id="92">
+					<include>Furniture_ShowcaseMediaFlagsVars</include>
+					<texture>flags/Audio/dts51.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>substring(ListItem.AudioChannels,6) + substring(ListItem.AudioCodec,dca)</visible>
+				</control>
+				<control type="image" id="92">
+					<include>Furniture_ShowcaseMediaFlagsVars</include>
+					<texture>flags/Audio/dts71.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>substring(ListItem.AudioChannels,8) + substring(ListItem.AudioCodec,dca)</visible>
+				</control>
+				<control type="image" id="92">
+					<include>Furniture_ShowcaseMediaFlagsVars</include>
+					<texture>flags/Audio/dd51.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>substring(ListItem.AudioChannels,6) + substring(ListItem.AudioCodec,ac3)</visible>
+					
+				</control>
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
+					<visible>!Control.IsVisible(92)</visible>
 				</control>
 			</control>
 			<control type="group">
-				<posx>215</posx>
+				<posx>218</posx>
 				<control type="image" id="82">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[ListItem.VideoCodec,flags/VideoCodec/,.png]</texture>
