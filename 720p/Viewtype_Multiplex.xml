@@ -383,7 +383,18 @@
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
 					<texture>$INFO[Container(52).listitem.property(fanart_image)]</texture>
-					<visible>!Player.HasVideo</visible>
+					<visible>!Player.HasVideo + !Skin.HasSetting(trailerthumbs)</visible>
+				</control>
+				<control type="multiimage">
+					<posx>1</posx>
+					<posy>1</posy>
+					<width>453</width>
+					<height>254</height>
+					<aspectratio>scale</aspectratio>
+					<fadetime>400</fadetime>
+					<timeperimage>4000</timeperimage>
+					<imagepath background="true">$INFO[Container(52).ListItem.Path,,extrathumbs]</imagepath>
+					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs)</visible>
 				</control>
 				<control type="image">
 					<posx>105</posx>
@@ -450,6 +461,17 @@
 					<fadetime>400</fadetime>
 					<texture>$INFO[Container(52).listitem.property(fanart_image)]</texture>
 					<visible>!Player.HasVideo</visible>
+				</control>
+				<control type="multiimage">
+					<posx>1</posx>
+					<posy>1</posy>
+					<width>593</width>
+					<height>333</height>
+					<aspectratio>scale</aspectratio>
+					<fadetime>400</fadetime>
+					<timeperimage>4000</timeperimage>
+					<imagepath background="true">$INFO[Container(52).ListItem.Path,,extrathumbs]</imagepath>
+					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs) + Skin.HasSetting(multiplexbigtrailer)</visible>
 				</control>
 				<control type="image">
 					<posx>177</posx>
