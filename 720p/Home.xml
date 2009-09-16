@@ -11,9 +11,9 @@
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
 			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
-			<onfocus>Skin.SetBool(NotStartup)</onfocus>
+			<onfocus>Skin.SetBool(Startup)</onfocus>
 			<onfocus>SetFocus(500)</onfocus>
-			<visible>!Skin.HasSetting(NotStartup)</visible>
+			<visible>!Skin.HasSetting(Startup)</visible>
 		</control>
 		<control type="button" id="5043">
 			<description>visible after library update has finished</description>
@@ -26,7 +26,7 @@
 			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
 			<onfocus>Skin.Reset(LibraryUpdated)</onfocus>
 			<onfocus>SetFocus(500)</onfocus>
-			<visible>Skin.HasSetting(NotStartup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
+			<visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
 		</control>
 		<control type="button" id="5043">
 			<description>visible in all other cases</description>
@@ -37,7 +37,7 @@
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
 			<onfocus>SetFocus(500)</onfocus>
-			<visible>Skin.HasSetting(NotStartup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
+			<visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
 		</control>
 		<control type="label">
 			<description>Force Weather update on load</description>
@@ -45,6 +45,8 @@
 			<posy>-100</posy>
 			<label>$INFO[Weather.Conditions]</label>
 			<font>-</font>
+			<onfocus>Skin.SetBool(Startup2)</onfocus>
+			<visible>Skin.HasSetting(Startup2)</visible>
 		</control>
 		<control type="image" id="87">
 			<texture>-</texture>
