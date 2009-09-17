@@ -7,14 +7,6 @@
 		<height>258</height>	
 	</include>
 
-	<include name="Anoobie2InfoAutoUp">
-		<onup>7000</onup>
-	</include>
-	
-	<include name="Anoobie2InfoTriggerUp">
-		<onup>110</onup>
-	</include>
-
 	<include name="Anoobie2InfoPaneMovies">
 		<control type="group" id="37">
 			<posx>0</posx>
@@ -291,36 +283,10 @@
 
 </include>
 		
-	<include name="Anoobie2BaseMovies">
-		<control type="group">
-			<posx>0</posx>
-			<posy>446</posy>
-			<width>1280</width>
-			<height>253</height>
-			<include>Animation_HideMultiplex</include>					
-		</control>	
-	</include>
 	
 	<include name="Viewtype_Anoobie2">
-
-        <control type="button" id="110">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>0</width>
-            <height>0</height>
-            <texturefocus>-</texturefocus>
-            <texturenofocus>-</texturenofocus>
-            <onleft>555</onleft>
-            <onright>555</onright>
-            <onup>7000</onup>
-            <ondown>555</ondown>
-        </control>
-	
-		
-		<include>Anoobie2InfoPaneMovies</include>		
-		<include>Anoobie2BaseMovies</include>			
-		<include>Furniture_Anoobie2MediaFlags</include>
-	
+		<include>Anoobie2InfoPaneMovies</include>					
+		<include>Furniture_Anoobie2MediaFlags</include>	
 		<control type="wraplist" id="555">
 			<viewtype label="31785">wrap</viewtype>
 			<posx>-100</posx>
@@ -330,8 +296,7 @@
 			<pagecontrol>60</pagecontrol>
 			<onleft>555</onleft>
 			<onright>555</onright>
-			<include condition="!Skin.HasSetting(multiplexinfotrigger)">Anoobie2InfoAutoUp</include>
-			<include condition="Skin.HasSetting(multiplexinfotrigger)">Anoobie2InfoTriggerUp</include>
+			<onup>7000</onup>
 			<ondown>PlayMedia($INFO[ListItem.Trailer],1)</ondown>
 			<orientation>horizontal</orientation>
 			<focusposition>3</focusposition>	
@@ -383,7 +348,7 @@
 					</animation>
 				</control>
 				<control type="image">
-									<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
+					<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
 					<animation effect="fade" delay="2000" start="100" end="0" time="300" >Hidden</animation>
 					<include>Anoobie2IconDimensionsWrap</include>
 					<bordertexture border="-10">wall/wall_movie_fborder.png</bordertexture>
