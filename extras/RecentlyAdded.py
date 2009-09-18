@@ -1,9 +1,6 @@
-import xbmc
-from xbmcgui import Window
+import xbmc, re, sys, os
+from xbmcgui import Window, ListItem
 from urllib import quote_plus, unquote_plus
-import re
-import sys
-import os
 # Current Working Directory
 CWD = os.getcwd()
 if CWD[-1] == ';': CWD = CWD[0:-1]
@@ -246,7 +243,7 @@ class Main:
 			self.WINDOW.setProperty( "LatestSong.%d.Album" % ( count + 1, ), fields[ 1 ] )
 			self.WINDOW.setProperty( "LatestSong.%d.Review" % ( count + 1, ), fields[ 14 ] )
 			# Album Path  (ID)
-			path = 'XBMC.RunScript(' + CWD + 'extras.py,albumid=' + fields[ 0 ] + ')'
+			path = 'XBMC.RunScript(' + CWD + 'recentlyadded.py,albumid=' + fields[ 0 ] + ')'
 			self.WINDOW.setProperty( "LatestSong.%d.Path" % ( count + 1, ), path )
 			# get cache name of path to use for fanart
 			cache_name = xbmc.getCacheThumbName( fields[ 6 ] )
