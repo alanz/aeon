@@ -830,5 +830,165 @@
 				</control>
 			</control>
 		</control>
+	
+	
+		<control type="group">
+			<visible>[Container(300).HasFocus(6)+!IsEmpty(Window.Property(LatestEpisode.1.ShowTitle))] | [Container(300).HasFocus(7)+!IsEmpty(Window.Property(LatestMovie.1.Title))] | [Container(300).HasFocus(1)+!IsEmpty(Window.Property(LatestSong.1.Album))] + !Control.IsVisible(87)</visible>
+			<visible> !Skin.HasSetting(autolatestadded)</visible>
+			<visible>Skin.HasSetting(homelatest)</visible>
+			<posx>1400</posx>
+			<posy>430</posy>
+			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			<animation effect="slide" start="0,-10" end="0,-375" time="0"  condition="!Skin.HasSetting(lowermainmenu)+!Skin.HasSetting(lowerwidgets)">Conditional</animation>				
+			<animation effect="slide" start="0,0" end="-372,0" time="500" easing="inout" tween="cubic" condition="!control.HasFocus(510)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-25" time="0" easing="inout" tween="cubic" condition="!Skin.HasSetting(lowermainmenu)+Skin.HasSetting(lowerwidgets)+ Skin.HasSetting(lowerrss)">Conditional</animation>	
+			<animation effect="slide" start="0,0" end="0,20" time="0" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,22" time="0" delay="0" easing="inout" tween="cubic" reversible="false" condition="Skin.HasSetting(lowerwidgets)+!Skin.HasSetting(lowermainmenu)">Conditional</animation>	
+			<animation effect="slide" start="0,0" end="0,28" time="0" condition="Skin.HasSetting(highertime)+![Skin.HasSetting(lowerwidgets)+!Skin.HasSetting(lowermainmenu)]">Conditional</animation>
+			<control type="image">
+				<width>240</width>
+				<height>240</height>
+				<texture border="20">home/home_weather_big.png</texture>
+				<colordiffuse>FFFFFFFF</colordiffuse>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+			<control type="label">
+				<posx>10</posx>
+				<posy>5</posy>	
+				<width>220</width>
+				<height>40</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font_WeatherTitle</font>
+				<textcolor>c0FFFFFF</textcolor>
+				<label>31879</label>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+
+			<control type="image">
+				<texture diffuse="multiplex/multiplex_tvmask.png" background="true" fallback="defaultvideo.png">$INFO[Container(510).ListItem.ActualIcon]</texture>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<posx>10</posx>
+				<posy>65</posy>
+				<width>220</width>
+				<height>123</height>
+				<visible>Container(300).HasFocus(7)</visible>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+			<control type="image">
+				<texture diffuse="multiplex/multiplex_tvmask.png" background="true" fallback="defaultvideo.png">$INFO[Container(510).ListItem.ActualIcon]</texture>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<posx>10</posx>
+				<posy>65</posy>
+				<width>220</width>
+				<height>123</height>
+				<visible>Container(300).HasFocus(6)</visible>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+			<control type="image">
+				<texture diffuse="multiplex/multiplex_tvmask.png">home/list_episodeicon_glass.png</texture>
+				<posx>10</posx>
+				<posy>65</posy>
+				<width>220</width>
+				<height>123</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<visible>Container(300).HasFocus(6)|Container(300).HasFocus(7)</visible>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+			<control type="label">
+				<posx>10</posx>
+				<posy>200</posy>
+				<width>220</width>
+				<height>10</height>
+				<font>Font_Time</font>
+				<textcolor>c0FFFFFF</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<visible>Container(300).HasFocus(7)</visible>
+				<label>$INFO[Container(510).ListItem.Label2]</label>
+				<animation effect="fade" start="0" end="100" delay="200" time="300">Visible</animation>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+			<control type="label">
+				<posx>10</posx>
+				<posy>213</posy>
+				<width>220</width>
+				<height>20</height>
+				<font>Font_MediaWindowMenu</font>
+				<textcolor>c0FFFFFF</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<visible>!Container(300).HasFocus(1)</visible>
+				<label>[UPPERCASE]$INFO[Container(510).ListItem.Label][/UPPERCASE]</label>
+				<scrollspeed>30</scrollspeed>
+				<scrollout>true</scrollout>
+				<pauseatend>1500</pauseatend>
+				<scroll>true</scroll>
+				<animation effect="slide" start="0,0" end="0,-10" time="1" condition="Container(300).HasFocus(6)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+		<!-- LatestSong -->
+			<control type="group">
+				<visible>Container(300).HasFocus(1)</visible>
+				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<control type="image">
+					<texture diffuse="home/nowplaying_mask.png" background="true">defaultAudio.png</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<info>Window.Property(LatestSong.1.Thumb)</info>
+					<posx>50</posx>
+					<posy>70</posy>
+					<width>140</width>
+					<height>140</height>
+				</control>
+				<control type="image">
+					<texture diffuse="home/nowplaying_mask.png">home/nowplaying_overlay.png</texture>
+					<posx>50</posx>
+					<posy>70</posy>
+					<width>140</width>
+					<height>140</height>
+					<colordiffuse>aaFFFFFF</colordiffuse>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="label">
+					<posx>10</posx>
+					<posy>210</posy>
+					<width>220</width>
+					<height>20</height>
+					<font>Font_HomeNowPlayingAlbum</font>
+					<textcolor>c0FFFFFF</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<!--label2>$INFO[Window.Property(LatestSong.5.Artist)]</label2-->
+					<label>[UPPERCASE]$INFO[Window.Property(LatestSong.1.Album)][/UPPERCASE]</label>
+				</control>
+			</control>
+		</control>
 	</include>
 </includes>
