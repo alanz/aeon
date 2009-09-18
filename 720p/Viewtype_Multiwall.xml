@@ -283,277 +283,278 @@
 	</include>	
 	
 	<include name="MusicMultiwall">
-		
-		<include>MultiwallButtons</include>
-		
-		<control type="wraplist" id="556">
-			<viewtype label="multiwall">wrap</viewtype>
-			<include>MusicMultiWallVars</include>
-			<scrolltime>250</scrolltime>
-			<onleft>556</onleft>
-			<onright>556</onright>
-			<include condition="!Skin.HasSetting(multiwallmusicinfotrigger)">MultiwallInfoAutoUp</include>
-			<include condition="Skin.HasSetting(multiwallmusicinfotrigger)">MultiwallInfoTriggerUp</include>
-			<ondown>-</ondown>
-			<focusposition>5</focusposition>
-			<orientation>horizontal</orientation>
-			<visible>!Container.Content(songs) + [Window.IsActive(501) | Window.IsActive(502)]</visible>
-			<include>Animation_HideMultiplex</include>
-			<preloaditems>2</preloaditems>
-			<itemlayout width="102" height="104">
-				<include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormal</include>	
-				<include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>			
-			</itemlayout>
-			<focusedlayout width="102" height="104">
-				<include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormalFocus</include>
-				<include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVDFocus</include>				
-			</focusedlayout>	
-		</control>
-		
 		<control type="group">
-			
-			<include>MusicMultiWallVars</include>
-			<visible>Window.IsActive(500) | [Container.Content(songs) + Window.IsActive(502)]</visible>
-			<include>Animation_HideMultiplex</include>
-			
-			<control type="group">
-				<include>MultiWallSongCover</include>
+			<visible>!Container.Content(songs)</visible>		
+			<include>MultiwallButtons</include>
+			<control type="wraplist" id="556">
+				<viewtype label="multiwall">wrap</viewtype>
+				<include>MusicMultiWallVars</include>
+				<scrolltime>250</scrolltime>
+				<onleft>556</onleft>
+				<onright>556</onright>
+				<include condition="!Skin.HasSetting(multiwallmusicinfotrigger)">MultiwallInfoAutoUp</include>
+				<include condition="Skin.HasSetting(multiwallmusicinfotrigger)">MultiwallInfoTriggerUp</include>
+				<ondown>-</ondown>
+				<focusposition>5</focusposition>
+				<orientation>horizontal</orientation>
+				<visible>!Container.Content(songs) + [Window.IsActive(501) | Window.IsActive(502)]</visible>
+				<include>Animation_HideMultiplex</include>
+				<preloaditems>2</preloaditems>
+				<itemlayout width="102" height="104">
+					<include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormal</include>	
+					<include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>			
+				</itemlayout>
+				<focusedlayout width="102" height="104">
+					<include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormalFocus</include>
+					<include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVDFocus</include>				
+				</focusedlayout>	
 			</control>
 			
 			<control type="group">
-				<posx>102</posx>
-				<include>MultiWallSongCover</include>	
+				
+				<include>MusicMultiWallVars</include>
+				<visible>Window.IsActive(500) | [Container.Content(songs) + Window.IsActive(502)]</visible>
+				<include>Animation_HideMultiplex</include>
+				
+				<control type="group">
+					<include>MultiWallSongCover</include>
+				</control>
+				
+				<control type="group">
+					<posx>102</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>204</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>306</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>408</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>612</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>714</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>816</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>918</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>1020</posx>
+					<include>MultiWallSongCover</include>	
+				</control>
+				
+				<control type="group">
+					<posx>510</posx>
+					<include>MultiWallSongCover</include>
+					<animation effect="zoom" center="558,48" start="170" end="170" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
+					<animation effect="zoom" center="561,51" start="165" end="165" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+				</control>
+				
+			</control>
+			
+			<control type="scrollbar" id="71">
+				<description>MultiWall scroll bar control</description>
+				<posx>-53</posx>
+				<posy>140</posy>
+				<width>32</width>
+				<height>360</height>
+				<visible allowhiddenfocus="false">Control.IsVisible(556)</visible>
+				<texturesliderbackground>multiwall/multiwall_scrollbar.png</texturesliderbackground>
+				<texturesliderbar>-</texturesliderbar>
+				<texturesliderbarfocus>-</texturesliderbarfocus>
+				<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+				<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+				<pulseonselect></pulseonselect>
+				<orientation>vertical</orientation>
+				<showonepage>false</showonepage>
+				<onup>71</onup>
+				<ondown>71</ondown>
+				<onleft>7000</onleft>
+				<onright>556</onright>
+				<visible>Container.Content(songs)</visible>
+				<animation type="Focus" reversible="false">
+					<effect type="slide" start="0,0" end="500,0" />
+					<effect type="fade" start="0" end="100" time="300" />
+					<effect type="slide" start="0,0" end="-50,0" time="300" tween="cubic" easing="out" />
+				</animation>
+				<animation type="Unfocus" reversible="false">
+					<effect type="fade" start="100" end="0" time="300" />
+					<effect type="slide" start="450,0" end="500,0" time="300" tween="cubic" easing="in" />
+				</animation>
 			</control>
 			
 			<control type="group">
-				<posx>204</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>306</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>408</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>612</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>714</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>816</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>918</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>1020</posx>
-				<include>MultiWallSongCover</include>	
-			</control>
-			
-			<control type="group">
-				<posx>510</posx>
-				<include>MultiWallSongCover</include>
-				<animation effect="zoom" center="558,48" start="170" end="170" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
-				<animation effect="zoom" center="561,51" start="165" end="165" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
-			</control>
-			
-		</control>
-		
-		<control type="scrollbar" id="71">
-			<description>MultiWall scroll bar control</description>
-			<posx>-53</posx>
-			<posy>140</posy>
-			<width>32</width>
-			<height>360</height>
-			<visible allowhiddenfocus="false">Control.IsVisible(556)</visible>
-			<texturesliderbackground>multiwall/multiwall_scrollbar.png</texturesliderbackground>
-			<texturesliderbar>-</texturesliderbar>
-			<texturesliderbarfocus>-</texturesliderbarfocus>
-			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
-			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
-			<pulseonselect></pulseonselect>
-			<orientation>vertical</orientation>
-			<showonepage>false</showonepage>
-			<onup>71</onup>
-			<ondown>71</ondown>
-			<onleft>7000</onleft>
-			<onright>556</onright>
-			<visible>Container.Content(songs)</visible>
-			<animation type="Focus" reversible="false">
-				<effect type="slide" start="0,0" end="500,0" />
-				<effect type="fade" start="0" end="100" time="300" />
-				<effect type="slide" start="0,0" end="-50,0" time="300" tween="cubic" easing="out" />
-			</animation>
-			<animation type="Unfocus" reversible="false">
-				<effect type="fade" start="100" end="0" time="300" />
-				<effect type="slide" start="450,0" end="500,0" time="300" tween="cubic" easing="in" />
-			</animation>
-		</control>
-		
-		<control type="group">
-			
-			<posx>424</posx>
-			<posy>112</posy>
-			<width>432</width>
-			<height>424</height>
-			
-			<include>MultiWallShowHideAnimationSongList</include>
-			<include>MultiWallInfoFlipAnimationSongList</include>
-			<visible>Window.IsActive(500) | [[Container.Content(songs) | Container.Content(albums)] + Window.IsActive(502)]</visible>
-			<include>Animation_HideMultiplex</include>
-			
-			<control type="image">
+				
+				<posx>424</posx>
+				<posy>112</posy>
 				<width>432</width>
 				<height>424</height>
-				<texture>multiwall/multiwall_list_back.png</texture>
-			</control>
-			
-			<control type="image">
-				<posy>12</posy>
-				<posx>20</posx>
-				<height>384</height>
-				<width>36</width>
-				<texture>list/listpanel_detailwide.png</texture>
-			</control>
-			
-			<control type="image">
-				<posy>12</posy>
-				<posx>358</posx>
-				<height>384</height>
-				<width>54</width>
-				<texture>list/listpanel_detailwide.png</texture>
-			</control>
-			
-			<control type="list" id="556">
-				<viewtype label="multiwall">list</viewtype>
-				<posy>28</posy>
-				<width>432</width>
-				<height>360</height>
-				<onup>556</onup>
-				<ondown>556</ondown>
-				<onleft>71</onleft>
-				<onright>7000</onright>
-				<pagecontrol>71</pagecontrol>
-				<scrolltime>0</scrolltime>
-				<visible>Window.IsActive(500) | [Container.Content(songs) + Window.IsActive(502)]</visible>
-				<itemlayout height="40">
-					<control type="image">
-						<height>1</height>
-						<posx>8</posx>
-						<posy>40</posy>
-						<width>416</width>
-						<texture>multiwall/multiwall_line.png</texture>
-					</control>
-					<control type="label">
-						<include>MultiWallTrackLabel</include>
-						<textcolor>35ffffff</textcolor>
-						<selectedcolor>FF417fa4</selectedcolor>
-					</control>
-					<control type="image">
-						<include>MultiWallStarRating</include>
-						<colordiffuse>dcbdbdbd</colordiffuse>			
-					</control>
-					<control type="label">
-						<include>MultiWallDurationLabel</include>
-						<include>subcolornofocus</include>
-					</control>
-					<control type="label">
-						<include>MultiWallSongTitleLabel</include>
-						<include>listcolornofocus</include>
-					</control>
-					<control type="label">
-						<include>MultiWallArtistLabel</include>
-						<include>subcolornofocus</include>
-					</control>
-				</itemlayout>
-				<focusedlayout height="40">
-					<control type="image">
-						<height>1</height>
-						<posx>8</posx>
-						<posy>40</posy>
-						<width>416</width>
-						<texture>multiwall/multiwall_line.png</texture>
-						<include>Animation_ButtonFocusFade_fix</include>
-					</control>
-					<control type="image">
-						<posx>8</posx>
-						<posy>-14</posy>
-						<height>68</height>
-						<width>416</width>
-						<texture>multiwall/multiwall_focus.png</texture>
-						<include>Animation_ButtonFocusFade</include>
-					</control>
-					<control type="label">
-						<include>MultiWallTrackLabel</include>
-						<textcolor>35ffffff</textcolor>
-						<selectedcolor>FF417fa4</selectedcolor>
-						<include>Animation_ButtonFocusFade_fix</include>
-					</control>	
-					<control type="label">
-						<include>MultiWallTrackLabel</include>
-						<textcolor>ff2e2e2e</textcolor>
-						<selectedcolor>DD6d300b</selectedcolor>
-						<include>Animation_ButtonFocusFade</include>
-					</control>
-					<control type="image">
-						<include>MultiWallStarRating</include>
-						<colordiffuse>dcbdbdbd</colordiffuse>
-						<include>Animation_ButtonFocusFade_fix</include>				
-					</control>
-					<control type="image">
-						<include>MultiWallStarRating</include>
-						<colordiffuse>FF313131</colordiffuse>
-						<include>Animation_ButtonFocusFade</include>				
-					</control>
-					<control type="label">
-						<include>MultiWallDurationLabel</include>
-						<include>subcolornofocus</include>
-						<include>Animation_ButtonFocusFade_fix</include>
-					</control>
-					<control type="label">
-						<include>MultiWallDurationLabel</include>
-						<textcolor>FF242424</textcolor>
-						<selectedcolor>FF242424</selectedcolor>
-						<include>Animation_ButtonFocusFade</include>
-					</control>
-					<control type="label">
-						<include>MultiWallSongTitleLabel</include>
-						<include>listcolornofocus</include>
-						<include>Animation_ButtonFocusFade_fix</include>
-					</control>
-					<control type="label">
-						<include>MultiWallSongTitleLabel</include>
-						<textcolor>FF141414</textcolor>
-						<selectedcolor>FF141414</selectedcolor>
-						<include>Animation_ButtonFocusFade</include>
-					</control>
-					<control type="label">
-						<include>MultiWallArtistLabel</include>
-						<include>subcolornofocus</include>
-						<include>Animation_ButtonFocusFade_fix</include>
-					</control>
-					<control type="label">
-						<include>MultiWallArtistLabel</include>
-						<textcolor>FF242424</textcolor>
-						<selectedcolor>FF242424</selectedcolor>
-						<include>Animation_ButtonFocusFade</include>
-					</control>
-				</focusedlayout>	
+				
+				<include>MultiWallShowHideAnimationSongList</include>
+				<include>MultiWallInfoFlipAnimationSongList</include>
+				<visible>Window.IsActive(500) | [[Container.Content(songs) | Container.Content(albums)] + Window.IsActive(502)]</visible>
+				<include>Animation_HideMultiplex</include>
+				
+				<control type="image">
+					<width>432</width>
+					<height>424</height>
+					<texture>multiwall/multiwall_list_back.png</texture>
+				</control>
+				
+				<control type="image">
+					<posy>12</posy>
+					<posx>20</posx>
+					<height>384</height>
+					<width>36</width>
+					<texture>list/listpanel_detailwide.png</texture>
+				</control>
+				
+				<control type="image">
+					<posy>12</posy>
+					<posx>358</posx>
+					<height>384</height>
+					<width>54</width>
+					<texture>list/listpanel_detailwide.png</texture>
+				</control>
+				
+				<control type="list" id="556">
+					<viewtype label="multiwall">list</viewtype>
+					<posy>28</posy>
+					<width>432</width>
+					<height>360</height>
+					<onup>556</onup>
+					<ondown>556</ondown>
+					<onleft>71</onleft>
+					<onright>7000</onright>
+					<pagecontrol>71</pagecontrol>
+					<scrolltime>0</scrolltime>
+					<visible>Window.IsActive(500) | [Container.Content(songs) + Window.IsActive(502)]</visible>
+					<itemlayout height="40">
+						<control type="image">
+							<height>1</height>
+							<posx>8</posx>
+							<posy>40</posy>
+							<width>416</width>
+							<texture>multiwall/multiwall_line.png</texture>
+						</control>
+						<control type="label">
+							<include>MultiWallTrackLabel</include>
+							<textcolor>35ffffff</textcolor>
+							<selectedcolor>FF417fa4</selectedcolor>
+						</control>
+						<control type="image">
+							<include>MultiWallStarRating</include>
+							<colordiffuse>dcbdbdbd</colordiffuse>			
+						</control>
+						<control type="label">
+							<include>MultiWallDurationLabel</include>
+							<include>subcolornofocus</include>
+						</control>
+						<control type="label">
+							<include>MultiWallSongTitleLabel</include>
+							<include>listcolornofocus</include>
+						</control>
+						<control type="label">
+							<include>MultiWallArtistLabel</include>
+							<include>subcolornofocus</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40">
+						<control type="image">
+							<height>1</height>
+							<posx>8</posx>
+							<posy>40</posy>
+							<width>416</width>
+							<texture>multiwall/multiwall_line.png</texture>
+							<include>Animation_ButtonFocusFade_fix</include>
+						</control>
+						<control type="image">
+							<posx>8</posx>
+							<posy>-14</posy>
+							<height>68</height>
+							<width>416</width>
+							<texture>multiwall/multiwall_focus.png</texture>
+							<include>Animation_ButtonFocusFade</include>
+						</control>
+						<control type="label">
+							<include>MultiWallTrackLabel</include>
+							<textcolor>35ffffff</textcolor>
+							<selectedcolor>FF417fa4</selectedcolor>
+							<include>Animation_ButtonFocusFade_fix</include>
+						</control>	
+						<control type="label">
+							<include>MultiWallTrackLabel</include>
+							<textcolor>ff2e2e2e</textcolor>
+							<selectedcolor>DD6d300b</selectedcolor>
+							<include>Animation_ButtonFocusFade</include>
+						</control>
+						<control type="image">
+							<include>MultiWallStarRating</include>
+							<colordiffuse>dcbdbdbd</colordiffuse>
+							<include>Animation_ButtonFocusFade_fix</include>				
+						</control>
+						<control type="image">
+							<include>MultiWallStarRating</include>
+							<colordiffuse>FF313131</colordiffuse>
+							<include>Animation_ButtonFocusFade</include>				
+						</control>
+						<control type="label">
+							<include>MultiWallDurationLabel</include>
+							<include>subcolornofocus</include>
+							<include>Animation_ButtonFocusFade_fix</include>
+						</control>
+						<control type="label">
+							<include>MultiWallDurationLabel</include>
+							<textcolor>FF242424</textcolor>
+							<selectedcolor>FF242424</selectedcolor>
+							<include>Animation_ButtonFocusFade</include>
+						</control>
+						<control type="label">
+							<include>MultiWallSongTitleLabel</include>
+							<include>listcolornofocus</include>
+							<include>Animation_ButtonFocusFade_fix</include>
+						</control>
+						<control type="label">
+							<include>MultiWallSongTitleLabel</include>
+							<textcolor>FF141414</textcolor>
+							<selectedcolor>FF141414</selectedcolor>
+							<include>Animation_ButtonFocusFade</include>
+						</control>
+						<control type="label">
+							<include>MultiWallArtistLabel</include>
+							<include>subcolornofocus</include>
+							<include>Animation_ButtonFocusFade_fix</include>
+						</control>
+						<control type="label">
+							<include>MultiWallArtistLabel</include>
+							<textcolor>FF242424</textcolor>
+							<selectedcolor>FF242424</selectedcolor>
+							<include>Animation_ButtonFocusFade</include>
+						</control>
+					</focusedlayout>	
+				</control>
 			</control>
 		</control>
 	</include>
@@ -702,7 +703,7 @@
 		<control type="group">
 			<posx>1200</posx>
 			<posy>679</posy>
-			<visible>Control.IsVisible(556) + [Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]</visible>
+			<visible>Control.IsVisible(556) + [Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]+ ![Container.Content(genres) | Container.Content(songs)]</visible>
 			<control type="label">
 				<posy>0</posy>
 				<align>right</align>
@@ -799,7 +800,7 @@
 		
 		<include condition="Skin.HasSetting(videomovies) + ![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]">MultiWallInfoPaneMovies</include>
 		<include condition="Skin.HasSetting(videotv) + ![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]">MultiWallInfoPaneTV</include>
-		<include contition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">MultiWallInfoPaneMusic</include>
+		<include contition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + ![Container.Content(genres) | Container.Content(songs)]">MultiWallInfoPaneMusic</include>
 		<include>MultiWallNowPlayingInfo</include>
 		
 	</include>
