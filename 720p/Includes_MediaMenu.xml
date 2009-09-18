@@ -1038,6 +1038,80 @@
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
 	</include>
+	<include name="MediaMenuButton_multiwallInfo">
+		<control type="button" id="704100">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
+			<onclick>Skin.SetBool(multiwallinfoauto)</onclick>
+			<onclick>Skin.Reset(multiwallinfooff)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(556) + Skin.HasSetting(multiwallinfooff)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704101">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31049]</label>
+			<onclick>Skin.SetBool(multiwallinfotrigger)</onclick>
+			<onclick>Skin.Reset(multiwallinfoauto)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(556) + ![Skin.HasSetting(multiwallinfotrigger) | Skin.HasSetting(multiwallinfooff) | Skin.HasSetting(multiwallinfoon)]</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704102">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
+			<onclick>Skin.SetBool(multiwallinfoon)</onclick>
+			<onclick>Skin.Reset(multiwallinfotrigger)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(556) + Skin.HasSetting(multiwallinfotrigger)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704103">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31077]</label>
+			<onclick>Skin.SetBool(multiwallinfooff)</onclick>
+			<onclick>Skin.Reset(multiwallinfoon)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(556) + Skin.HasSetting(multiwallinfoon)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704104">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
+			<onclick>Skin.SetBool(multiwalltvinfoauto)</onclick>
+			<onclick>Skin.Reset(multiwalltvinfooff)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(556) + Skin.HasSetting(multiwalltvinfooff)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704105">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31049]</label>
+			<onclick>Skin.SetBool(multiwalltvinfotrigger)</onclick>
+			<onclick>Skin.Reset(multiwalltvinfoauto)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(556) + ![Skin.HasSetting(multiwalltvinfotrigger) | Skin.HasSetting(multiwalltvinfooff) | Skin.HasSetting(multiwalltvinfoon)]</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704106">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
+			<onclick>Skin.SetBool(multiwalltvinfoon)</onclick>
+			<onclick>Skin.Reset(multiwalltvinfotrigger)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(556) + Skin.HasSetting(multiwalltvinfotrigger)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704107">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31077]</label>
+			<onclick>Skin.SetBool(multiwalltvinfooff)</onclick>
+			<onclick>Skin.Reset(multiwalltvinfoon)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(556) + Skin.HasSetting(multiwalltvinfoon)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+	</include>
 	<include name="MediaMenuButton_OldMultiplexStyle">
 		<control type="button" id="700110">
 			<include>MediaMenuButton</include>
@@ -1194,6 +1268,7 @@
 				<include>MediaMenuButton_FlattenFlow</include>
 				<include>MediaMenuButton_MultiplexInfo</include>
 				<include>MediaMenuButton_OldMultiplexInfo</include>
+				<include>MediaMenuButton_multiwallInfo</include>
 				<include>MediaMenuButton_ShowcaseInfo</include>
 				<include>MediaMenuButton_WallInfo</include>
 				<include>MediaMenuButton_GamesPoster</include>
