@@ -54,7 +54,7 @@
 		<width>90</width>
 		<height>59</height>
 		<include>Animation_CommonFade</include>
-		<visible>Control.IsVisible(553)</visible>
+		<visible>Control.IsVisible(553) | Control.IsVisible(556)</visible>
 	</include>
 	<include name="Furniture_PanelMediaFlagsVars2">
 		<posy>620</posy>
@@ -987,4 +987,158 @@
 			<visible>[!Skin.HasSetting(smallmoviewall) + [Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)]] | [Skin.HasSetting(smallmoviewall) + [Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)]] </visible>
 		</control>
 	</include>
+	<include name="Furniture_MultiWallMediaFlags">
+		<control type="group">
+				<visible>Window.IsActive(25) + Control.IsVisible(556) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
+			<include>Animation_CommonFade</include>
+			<include>Animation_WindowFade200</include>
+			<animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
+			<posy>207</posy>
+			<control type="group">
+			<posx>85</posx>
+			<visible>Container.Content(episodes)</visible>
+				<control type="image" id="81">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture fallback="flags/default.png">$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+					<visible>substring(ListItem.VideoResolution,480) | substring(ListItem.VideoResolution,540) | substring(listitem.filename,sddvd)</visible>
+				</control>
+				<control type="image" id="81">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture fallback="flags/default.png">$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
+					<visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+				</control>
+			</control>
+			<control type="group">
+			<posx>85</posx>
+			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<control type="image" id="81">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture fallback="flags/default.png">$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+				</control>
+			</control>
+			<control type="group">
+			<visible>!Container.Content(tvshows)</visible>
+				<posx>305</posx>
+				<control type="image" id="93">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
+					<visible>!substring(listitem.filename,.iso,Right)]</visible>
+				</control>
+				<control type="image" id="83">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/480.png</texture>
+					<visible>substring(listitem.filename,.iso,Right)</visible>
+				</control>
+			</control>
+			<control type="group"> <!-- tvshows certificate-->
+			<posx>305</posx>
+			<visible>Container.Content(tvshows)</visible>
+				<control type="image">
+                    <include>Furniture_PanelMediaFlagsVars</include>
+                    <texture>flags/rating/TV-G_Certificate_US.png</texture>
+                    <visible>substring(listitem.mpaa,TV-G)</visible>
+                </control>				
+                <control type="image">
+                   <include>Furniture_PanelMediaFlagsVars</include>
+                    <texture>flags/TV-PG_Certificate_US.png</texture>
+                    <visible>substring(listitem.mpaa,TV-PG)</visible>
+                </control>				
+                <control type="image">
+                    <include>Furniture_PanelMediaFlagsVars</include>
+                    <texture>flags/TV-14_Certificate_US.png</texture>
+                    <visible>substring(listitem.mpaa,TV-14)</visible>
+                </control>				
+                <control type="image">
+                    <include>Furniture_PanelMediaFlagsVars</include>
+                    <texture>flags/TV-MA_Certificate_US.png</texture>
+                    <visible>substring(listitem.mpaa,TV-MA)</visible>
+                </control>				
+				<control type="image">
+                   <include>Furniture_PanelMediaFlagsVars</include>
+                    <texture>flags/tv-y.png</texture>
+                    <visible>substring(listitem.mpaa,Y)</visible>
+                </control>
+				<control type="image">
+                    <include>Furniture_PanelMediaFlagsVars</include>
+                    <texture>flags/tv-y7.png</texture>
+                    <visible>substring(listitem.mpaa,7)</visible>
+                </control>
+			</control>
+			<control type="group"> <!-- sound-->
+			<visible>!Container.Content(tvshows)</visible>
+				<posx>415</posx>
+				<control type="image">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>$INFO[ListItem.AudioChannels,flags/,ch.png]</texture>
+				</control>
+				<control type="image">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/6ch.png</texture>
+					<visible>substring(listitem.filename,.iso,Right)]</visible>
+				</control>
+				<control type="image">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture fallback="flags/defaultsound.png">$INFO[ListItem.AudioCodec,flags/,.png]</texture>
+					<visible>!substring(listitem.filename,.iso,Right)]</visible>
+				</control>
+				<control type="image">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/dolbydigital.png</texture>
+					<visible>substring(listitem.filename,.iso,Right)]</visible>
+				</control>
+			</control>
+			<control type="group"> <!-- source-->
+			<visible>!Container.Content(tvshows)</visible>
+				<posx>195</posx>
+				<control type="image">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/defaultsource.png</texture>
+					<visible>!Control.IsVisible(188)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/mpg4.png</texture>
+					<visible>!Container.Content(episodes)</visible>
+					<visible>substring(listitem.filename,.mkv,Right) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,bluray) | substring(listitem.filename,.mp4,Right) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,bluray + !substring(listitem.filename,hdtv + !substring(listitem.filename,sdtv + !substring(listitem.filename,sddvd)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/avi.png</texture>
+					<visible>substring(listitem.filename,.avi,Right)</visible>
+					<visible>!Container.Content(episodes)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/hddvd.png</texture>
+					<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/hdtv.png</texture>
+					<visible>substring(listitem.filename,hdtv)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/sdtv.png</texture>
+					<visible>substring(listitem.filename,sdtv)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/bluray.png</texture>
+					<visible>substring(listitem.filename,bluray) | substring(listitem.filename,blu-ray)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/dvd.png</texture>
+					<visible>[substring(listitem.filename,sddvd) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,hd-dvd)] | substring(listitem.filename,.iso,Right) | substring(listitem.filename,.ifo,Right)</visible>
+				</control>
+				<control type="image" id="188">
+					<include>Furniture_PanelMediaFlagsVars</include>
+					<texture>flags/dvb.png</texture>
+					<visible>substring(listitem.filename,dvb)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+    
 </includes>
