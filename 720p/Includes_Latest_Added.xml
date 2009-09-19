@@ -833,15 +833,15 @@
 	
 	
 		<control type="group">
-			<visible>[Container(300).HasFocus(6)+!IsEmpty(Window.Property(LatestEpisode.1.ShowTitle))] | [Container(300).HasFocus(7)+!IsEmpty(Window.Property(LatestMovie.1.Title))] | [Container(300).HasFocus(1)+!IsEmpty(Window.Property(LatestSong.1.Album))] + !Control.IsVisible(87)</visible>
+		<!--	<visible>[Container(300).HasFocus(6)+!IsEmpty(Window.Property(LatestEpisode.1.ShowTitle))] | [Container(300).HasFocus(7)+!IsEmpty(Window.Property(LatestMovie.1.Title))] | [Container(300).HasFocus(1)+!IsEmpty(Window.Property(LatestSong.1.Album))] + !Control.IsVisible(87)</visible>-->
+			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
 			<visible> !Skin.HasSetting(autolatestadded)</visible>
 			<visible>Skin.HasSetting(homelatest)</visible>
 			<posx>1400</posx>
 			<posy>430</posy>
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			<animation effect="slide" start="400,0" end="0,0" easing="inout" tween="cubic" time="500" delay="1000">VisibleChange</animation>
 			<animation effect="slide" start="0,-10" end="0,-375" time="0"  condition="!Skin.HasSetting(lowermainmenu)+!Skin.HasSetting(lowerwidgets)">Conditional</animation>				
 			<animation effect="slide" start="0,0" end="-372,0" time="500" easing="inout" tween="cubic" condition="!control.HasFocus(510)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="0,-25" time="0" easing="inout" tween="cubic" condition="!Skin.HasSetting(lowermainmenu)+Skin.HasSetting(lowerwidgets)+ Skin.HasSetting(lowerrss)">Conditional</animation>	
@@ -854,10 +854,10 @@
 				<height>240</height>
 				<texture border="20">home/home_weather_big.png</texture>
 				<colordiffuse>FFFFFFFF</colordiffuse>
-				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
+	<!--			<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>-->
 			</control>
 			<control type="label">
 				<posx>10</posx>
@@ -885,8 +885,8 @@
 				<visible>Container(300).HasFocus(7)</visible>
 				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="1200">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
 			</control>
 			<control type="image">
 				<texture diffuse="multiplex/multiplex_tvmask.png" background="true">$INFO[Container(510).ListItem.ActualIcon]</texture>
@@ -898,8 +898,8 @@
 				<visible>Container(300).HasFocus(6)</visible>
 				<animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<animation effect="fade" start="0" end="100" delay="500" time="1200">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
 			</control>
 			<control type="image">
 				<texture diffuse="multiplex/multiplex_tvmask.png">home/list_episodeicon_glass.png</texture>
