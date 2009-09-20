@@ -64,14 +64,6 @@
 		<include>Animation_CommonFade</include>
 		<visible>Control.IsVisible(555)</visible>
 	</include>
-	<include name="Furniture_PanelMediaFlagsVarsS">
-		<posy>650</posy>
-		<width>90</width>
-		<height>19</height>
-		<align>center</align>
-		<include>Animation_CommonFade</include>
-		<visible>Control.IsVisible(555)</visible>
-	</include>
 	<include name="Furniture_MovieInfoFlagSource">
 		<posx>4</posx>
 		<posy>589</posy>
@@ -87,30 +79,6 @@
 		<colordiffuse>FF7c7c7c</colordiffuse>
 		<animation effect="slide" start="-148,0" end="-148,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92)">Conditional</animation>
 		<animation effect="slide" start="-111,0" end="-111,0" time="0" condition="!Control.IsVisible(91)">Conditional</animation>
-	</include>
-	<include name="Furniture_MovieInfoFlagSubs">
-		<posx>263</posx>
-		<posy>589</posy>
-		<width>39</width>
-		<height>30</height>
-		<colordiffuse>FF7c7c7c</colordiffuse>
-		<animation effect="slide" start="-111,0" end="-111,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92)">Conditional</animation>
-		<animation effect="slide" start="-259,0" end="-259,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92)">Conditional</animation>
-		<animation effect="slide" start="-148,0" end="-148,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92)">Conditional</animation>
-	</include>
-	<include name="Furniture_MovieInfoFlagRes">
-		<posx>325</posx>
-		<posy>589</posy>
-		<width>67</width>
-		<height>30</height>
-		<colordiffuse>FF7c7c7c</colordiffuse>
-		<animation effect="slide" start="-210,0" end="-210,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + !Control.IsVisible(93)">Conditional</animation>
-		<animation effect="slide" start="-147,0" end="-147,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93)">Conditional</animation>
-		<animation effect="slide" start="-260,0" end="-260,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93)">Conditional</animation>
-		<animation effect="slide" start="-110,0" end="-110,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + Control.IsVisible(93)">Conditional</animation>
-		<animation effect="slide" start="-173,0" end="-173,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93)">Conditional</animation>
-		<animation effect="slide" start="-59,0" end="-59,0" time="0" condition="Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93)">Conditional</animation>
-		<animation effect="slide" start="-321,0" end="-321,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
 	</include>
 	<include name="Furniture_FlagUpright">
 		<posy>581</posy>
@@ -207,12 +175,30 @@
 			<visible>substring(ListItem.AudioChannels,1)</visible>
 		</control>
 		<control type="image" id="93">
-			<include>Furniture_MovieInfoFlagSubs</include>
+			<posx>263</posx>
+			<posy>589</posy>
+			<width>39</width>
+			<height>30</height>
+			<colordiffuse>FF7c7c7c</colordiffuse>
+			<animation effect="slide" start="-111,0" end="-111,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92)">Conditional</animation>
+			<animation effect="slide" start="-259,0" end="-259,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92)">Conditional</animation>
+			<animation effect="slide" start="-148,0" end="-148,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92)">Conditional</animation>
 			<texture>flags/info/cc.png</texture>
 			<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
 		</control>
 		<control type="image" id="94">
-			<include>Furniture_MovieInfoFlagRes</include>
+			<posx>325</posx>
+			<posy>589</posy>
+			<width>67</width>
+			<height>30</height>
+			<colordiffuse>FF7c7c7c</colordiffuse>
+			<animation effect="slide" start="-210,0" end="-210,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + !Control.IsVisible(93)">Conditional</animation>
+			<animation effect="slide" start="-147,0" end="-147,0" time="0" condition="Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93)">Conditional</animation>
+			<animation effect="slide" start="-260,0" end="-260,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + Control.IsVisible(93)">Conditional</animation>
+			<animation effect="slide" start="-110,0" end="-110,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + Control.IsVisible(93)">Conditional</animation>
+			<animation effect="slide" start="-173,0" end="-173,0" time="0" condition="!Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93)">Conditional</animation>
+			<animation effect="slide" start="-59,0" end="-59,0" time="0" condition="Control.IsVisible(91) + Control.IsVisible(92) + !Control.IsVisible(93)">Conditional</animation>
+			<animation effect="slide" start="-321,0" end="-321,0" time="0" condition="!Control.IsVisible(91) + !Control.IsVisible(92) + !Control.IsVisible(93) + Control.IsVisible(94)">Conditional</animation>
 			<texture>$INFO[ListItem.VideoResolution,flags/info/,.png]</texture>
 		</control>
 	</include>
@@ -672,7 +658,12 @@
 					<animation effect="fade" delay="2000" start="0" end="100" time="500" >WindowOpen</animation>
 				<posx>760</posx>
 				<control type="image" id="93">
-					<include>Furniture_PanelMediaFlagsVarsS</include>
+					<posy>650</posy>
+					<width>90</width>
+					<height>19</height>
+					<align>center</align>
+					<include>Animation_CommonFade</include>
+					<visible>Control.IsVisible(555)</visible>
 					<texture>$INFO[ListItem.StarRating]</texture>
 				</control>
 			</control>
