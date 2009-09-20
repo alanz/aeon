@@ -35,7 +35,7 @@
 		</control>
 		<control type="largeimage" id="102">
 			<include>FullscreenDimensions</include>
-			<visible>[Control.IsVisible(553) | Control.IsVisible(555) | Control.IsVisible(556) | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(54)] + [[Container.Content(movies) + !Skin.HasSetting(nomoviefanart)] | [Container.Content(tvshows) + !Skin.HasSetting(notvfanart)]] + !IsEmpty(listitem.property(fanart_image))</visible>
+			<visible>[Control.IsVisible(553) | Control.IsVisible(555) | Control.IsVisible(556) | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(54)] + [[Container.Content(movies) + !Skin.HasSetting(nomoviefanart)] | [Container.Content(tvshows) + !Skin.HasSetting(notvfanart)]] + !IsEmpty(listitem.property(fanart_image))</visible>
 			<fadetime>400</fadetime>
 			<texture>$INFO[listitem.property(fanart_image)]</texture>
 			<include>Animation_FanartFade</include>
@@ -66,12 +66,12 @@
 			<include>Viewtype_Anoobie2</include>
 			<include>NewMediaMenu</include>
 		</control>
-		<include condition="Skin.HasSetting(videomovies)">Furniture_ShowcaseMediaFlags</include>
-		<include condition="Skin.HasSetting(videomovies)">Furniture_MultiWallMediaFlags</include>
-		<include condition="Skin.HasSetting(videotv)">Furniture_EpisodeMediaFlags</include>
-		<include condition="!Skin.HasSetting(newwall)">Furniture_WallMediaFlags</include>
+		<include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_ShowcaseMediaFlags</include>
+		<include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_MultiWallMediaFlags</include>
+		<include condition="Skin.HasSetting(videotv) + !Skin.HasSetting(nomediaflags)">Furniture_EpisodeMediaFlags</include>
+		<include condition="!Skin.HasSetting(newwall) + !Skin.HasSetting(nomediaflags)">Furniture_WallMediaFlags</include>
 		<include>Furniture_DarkGradient</include>
-		<include>ScrollOffsetLabel</include>
+		<include condition="Skin.HasSetting(scrollletters)">ScrollOffsetLabel</include>
 		<include>Background_ContextBlack</include>
 		<include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
 	</controls>
