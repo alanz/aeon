@@ -10,12 +10,6 @@
 		<randomize>true</randomize>
 		<fadetime>1000</fadetime>
 	</include>
-	<include name="VirtualDimensions">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>840</width>
-		<height>471</height>
-	</include>
 	<include name="BackgroundVarsGlobal">
 		<include>FullscreenDimensions</include>
 		<timeperimage>20000</timeperimage>
@@ -26,16 +20,11 @@
 		<animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
 		<visible>![Window.IsActive(25) | Window.IsActive(502)] | [[Skin.HasSetting(nomoviecurtains) + Window.IsActive(25) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(notvcurtains) + Window.IsActive(25) + Skin.HasSetting(videotv)] | [Skin.HasSetting(nomusiccurtains) + Window.IsActive(502)]]</visible>
 	</include>
-	<include name="BackgroundVarsMultiplex">
-		<include>FullscreenDimensions</include>
-		<timeperimage>20000</timeperimage>
-		<randomize>true</randomize>
-		<fadetime>1000</fadetime>
-		<visible>[!Skin.HasSetting(nomoviecurtains) + Window.IsActive(25) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(notvcurtains) + Window.IsActive(25) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(nomusiccurtains) + Window.IsActive(502)]</visible>
-		<include>Animation_BackgroundFade</include>
-	</include>
 	<include name="BackgroundVarsVirtual">
-		<include>VirtualDimensions</include>
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>840</width>
+		<height>471</height>
 		<timeperimage>20000</timeperimage>
 		<randomize>true</randomize>
 		<fadetime>1000</fadetime>
@@ -171,42 +160,13 @@
 	</include>
 	<include name="MediaBackdropsMultiplex">
 		<control type="multiimage">
-			<include>BackgroundVarsMultiplex</include>
+			<include>FullscreenDimensions</include>
+			<timeperimage>20000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+			<visible>[!Skin.HasSetting(nomoviecurtains) + Window.IsActive(25) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(notvcurtains) + Window.IsActive(25) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(nomusiccurtains) + Window.IsActive(502)]</visible>
+			<include>Animation_BackgroundFade</include>
 			<include>BackgroundVarsCurtains</include>
-		</control>
-	</include>
-	<include name="Background_Wallpaper">
-		<control type="multiimage">
-			<include>Background_WeatherSingleImage</include>
-			<imagepath>backdrops/winter</imagepath>
-			<info>Skin.String(CustomWeather)</info>
-			<visible>Container(300).HasFocus(10) + Control.IsVisible(300)</visible>
-			<visible>!Skin.String(CustomWeatherFolder)</visible>
-			<visible>System.Date(12-21,03-21)</visible>
-		</control>
-		<control type="multiimage">
-			<include>Background_WeatherSingleImage</include>
-			<imagepath>backdrops/spring</imagepath>
-			<info>Skin.String(CustomWeather)</info>
-			<visible>Container(300).HasFocus(10) + Control.IsVisible(300)</visible>
-			<visible>!Skin.String(CustomWeatherFolder)</visible>
-			<visible>System.Date(03-21,06-21)</visible>
-		</control>
-		<control type="multiimage">
-			<include>Background_WeatherSingleImage</include>
-			<imagepath>backdrops/summer</imagepath>
-			<info>Skin.String(CustomWeather)</info>
-			<visible>Container(300).HasFocus(10) + Control.IsVisible(300)</visible>
-			<visible>!Skin.String(CustomWeatherFolder)</visible>
-			<visible>System.Date(06-21,09-23)</visible>
-		</control>
-		<control type="multiimage">
-			<include>Background_WeatherSingleImage</include>
-			<imagepath>backdrops/autumn</imagepath>
-			<info>Skin.String(CustomWeather)</info>
-			<visible>Container(300).HasFocus(10) + Control.IsVisible(300)</visible>
-			<visible>!Skin.String(CustomWeatherFolder)</visible>
-			<visible>System.Date(09-23,12-21)</visible>
 		</control>
 	</include>
 </includes>

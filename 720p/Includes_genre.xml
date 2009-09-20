@@ -1,26 +1,20 @@
 <includes>
 	<!-- Showcase -->
-	<include name="movie_ShowcaseThumbDimensions_mod">
+	<include name="movie_genre_Showcase_image_mod">
 		<posx>49</posx>
 		<posy>8</posy>
 		<width>173</width>
 		<height>254</height>
-	</include>
-	<include name="music_ShowcaseThumbDimensions_mod">
-		<posx>18</posx>
-		<posy>18</posy>
-		<width>234</width>
-		<height>234</height>
-	</include>
-	<include name="movie_genre_Showcase_image_mod">
-		<include>movie_ShowcaseThumbDimensions_mod</include>
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<visible>!Control.HasFocus(85) + Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<visible>Window.IsActive(25)</visible>
 	</include>
 	<include name="music_genre_Showcase_image_mod">
-		<include>music_ShowcaseThumbDimensions_mod</include>
+		<posx>18</posx>
+		<posy>18</posy>
+		<width>234</width>
+		<height>234</height>
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<visible>!Control.HasFocus(85) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
@@ -215,12 +209,6 @@
 	<width>173</width>
 	<height>254</height>
 </include>
-<include name="music_ShowcaseThumbDimensions_ref_mod">
-	<posx>18</posx>
-	<posy>252</posy>
-	<width>234</width>
-	<height>234</height>
-</include>
 <include name="movie_genre_Showcase_image_ref_mod">
 	<include>movie_ShowcaseThumbDimensions_ref_mod</include>
 	<colordiffuse>d0FFFFFF</colordiffuse>
@@ -229,7 +217,10 @@
 	<visible>Window.IsActive(25)</visible>
 </include>
 <include name="music_genre_Showcase_image_ref_mod">
-	<include>music_ShowcaseThumbDimensions_ref_mod</include>
+	<posx>18</posx>
+	<posy>252</posy>
+	<width>234</width>
+	<height>234</height>
 	<colordiffuse>d0FFFFFF</colordiffuse>
 	<visible>Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 	<visible>Window.IsActive(502)</visible>
@@ -424,6 +415,24 @@
 		<animation effect="zoom" center="44,71" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
 	</control>
 </include>
+<include name="mod_musicgenre_wall_1">
+	<control type="image">
+		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
+		<include>WallIconDimensionsSmall</include>
+		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
+		<aspectratio scalediffuse="false">scale</aspectratio>
+		<animation effect="zoom" center="51,51" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+	</control>
+</include>
+<include name="mod_musicgenre_wall_2">
+	<control type="image">
+		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
+		<include>WallIconDimensions</include>
+		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
+		<aspectratio scalediffuse="false">scale</aspectratio>
+		<animation effect="zoom" center="66,66" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+	</control>
+</include>
 <!-- wall End -->
 <!-- List -->
 <include name="mod_moviegenre_list1">
@@ -524,24 +533,4 @@
 	</control>
 </include>
 <!-- LowList End -->
-<!-- wall -->
-<include name="mod_musicgenre_wall_1">
-	<control type="image">
-		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
-		<include>WallIconDimensionsSmall</include>
-		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
-		<aspectratio scalediffuse="false">scale</aspectratio>
-		<animation effect="zoom" center="51,51" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</control>
-</include>
-<include name="mod_musicgenre_wall_2">
-	<control type="image">
-		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
-		<include>WallIconDimensions</include>
-		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
-		<aspectratio scalediffuse="false">scale</aspectratio>
-		<animation effect="zoom" center="66,66" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</control>
-</include>
-<!-- wall End -->
 </includes>
