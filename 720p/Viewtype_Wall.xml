@@ -444,7 +444,7 @@
 			<texture flipx="true">wall/wall_arrow.png</texture>
 			<visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
 			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="400" condition="[[Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)] + Container(53).Column(7)] | [[Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)] + Container(53).Column(8)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="[[Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)] + Container(53).Column(7)] | [[Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)] + Container(53).Column(8)+!Skin.HasSetting(smallmoviewall)] | [[Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)] + Container(53).Column(10)+Skin.HasSetting(smallmoviewall)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
 			<animation effect="slide" start="-18" end="-18" time="0" condition="Window.IsActive(2) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>
 		</control>
 		<!--Music Wall-->
