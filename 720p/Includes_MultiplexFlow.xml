@@ -55,10 +55,6 @@
 		<texture>multiplex/boxes/multiplex_glass.png</texture>
 	</include>
 
-	<include name="MovieMultiplexGlassOverlay">
-		<include condition="!Skin.HasSetting(dvdcase)">MovieMultiplexNormalCase</include>
-		<include condition="Skin.HasSetting(dvdcase)">MovieMultiplexDVDCase</include>
-	</include>
 
 	<include name="MovieMultiplexMaskReflectionNormal">
 		<include>MultiplexIconDimensionsWrapReflectFlow</include>
@@ -83,10 +79,7 @@
 	</include>
 
 	<include name="MovieMultiplexCaseReflectionDVD">
-		<include>MultiplexIconDimensionsWrapReflectDVDCaseFlow</include>
-		<texture>multiplex/boxes/multiplex_borderreflect.png</texture>
-		<aspectratio scalediffuse="false">stretch</aspectratio>
-		<visible>Skin.HasSetting(dvdcase)</visible>
+
 	</include>
 
 	<include name="MovieMultiplexThumbReflectionDVD">
@@ -114,12 +107,16 @@
 	<include name="MultiplexMovieOverlays">
 		<control type="image">
 			<description>Glass overlay</description>
-			<include>MovieMultiplexGlassOverlay</include>
+			<include condition="!Skin.HasSetting(dvdcase)">MovieMultiplexNormalCase</include>
+			<include condition="Skin.HasSetting(dvdcase)">MovieMultiplexDVDCase</include>
 		</control>
 
 		<control type="image">
 			<description>Case reflection</description>
-			<include>MovieMultiplexCaseReflectionDVD</include>
+			<include>MultiplexIconDimensionsWrapReflectDVDCaseFlow</include>
+			<texture>multiplex/boxes/multiplex_borderreflect.png</texture>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<visible>Skin.HasSetting(dvdcase)</visible>
 		</control>
 
 	</include>
