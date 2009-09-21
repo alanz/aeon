@@ -1,31 +1,8 @@
 <includes>
 
 	<!-- Multiwall -->
-	
-		<!-- Info Pane Movies -->
 
-		
-		<!-- Info Pane Movies Trailer -->
-		
-		<!-- Info Pane Movies + Title -->
-		<include name="MultiWallInfoPaneMidInfo">
-			<posy>-10</posy>
-			<width>670</width>
-			<height>374</height>
-			<texture>multiwall/info_pane_info_title.png</texture>
-		</include>
-		
-		<!-- Info Pane Movies Trailer + Title -->
-		<include name="MultiWallInfoPaneMidTrailer">
-			<posy>-10</posy>
-			<width>670</width>
-			<height>374</height>
-			<texture>multiwall/info_pane_trailer_title.png</texture>
-		</include>
-	
-	
 	<!-- Info Label Vars -->
-	
 		<!-- Info -->
 		<include name="MultiWallInfoLabel">
 			<posx>15</posx>
@@ -35,7 +12,6 @@
 			<font>Font_WallInfoLabelLow</font>	
 			<textcolor>abFFFFFF</textcolor>
 		</include>
-		
 		<include name="MultiWallInfoValue">
 			<posx>15</posx>	
 			<posy>47</posy>
@@ -44,7 +20,6 @@
 			<font>Font_WallInfoValueLow</font>
 			<textcolor>FFFFFFFF</textcolor>		
 		</include>
-	
 		<!-- Title Vars -->
 		<include name="MultiWallTitleLabelVars">
 			<posy>1</posy>
@@ -53,77 +28,59 @@
 			<font>Font_MultiWallTitleMod</font>	
 			<textcolor>cdFFFFFF</textcolor>
 		</include>
-		
-		<!-- Title Movies -->
+				<!-- Title Movies -->
 		<include name="MultiWallTitleLabel">
 			<posx>15</posx>
 			<include>MultiWallTitleLabelVars</include>
 			<align>center</align>
 			<label>$INFO[Container(556).ListItem.Title]</label>
 		</include>
-	
-	<!-- Animations -->
-	
-		<!-- Open Animation Delay -->
+		<!-- Animations -->
+			<!-- Open Animation Delay -->
 		<include name="MultiWallInfoOpenAnimation">
 			<animation type="WindowOpen" reversible="false">
 				<effect type="fade" start="0" end="100" time="400" delay="3085" />
 				<effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2" />
 			</animation>
 		</include>
-		
-		<!-- Open Animation No Delay -->
+			<!-- Open Animation No Delay -->
 		<include name="MultiWallInfoOpenAnimationOn">
 			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 		</include>
-	
-		<!-- Hide Animation -->
-		
-			<!-- Normal -->
+			<!-- Hide Animation -->
+					<!-- Normal -->
 			<include name="MultiWallInfoHideAnimation">
 				<animation effect="fade" start="100" end="0" time="300">Hidden</animation>
 			</include>
-		
-			<!-- Trigger Movies -->
+					<!-- Trigger Movies -->
 			<include name="MultiWallInfoHideAnimationTriggerMovies">
 				<animation type="Hidden" reversible="false">
 					<effect type="slide" start="0,35" end="0,35" time="0" />
 					<effect type="fade" start="100" end="0" time="300" />
 				</animation>
 			</include>
-		
-			<!-- Trigger TV -->
+					<!-- Trigger TV -->
 			<include name="MultiWallInfoHideAnimationTriggerTV">
 				<animation type="Hidden" reversible="false">
 					<effect type="slide" start="0,23" end="0,23" time="0" />
 					<effect type="fade" start="100" end="0" time="300" />
 				</animation>
 			</include>
-	
-			<!-- Trigger Music -->
+				<!-- Trigger Music -->
 			<include name="MultiWallInfoHideAnimationTriggerMusic">
 				<animation type="Hidden" reversible="false">
 					<effect type="slide" start="0,25" end="0,25" time="0" />
 					<effect type="fade" start="100" end="0" time="300" />
 				</animation>
 			</include>
-	
-			<!-- Trailer ( Off ) -->
+				<!-- Trailer ( Off ) -->
 			<include name="MultiWallInfoHideAnimationTrailer">
 				<animation type="Conditional" condition="!Player.HasVideo" reversible="false">
 					<effect type="fade" start="100" end="0" time="300" />
 				</animation>
 			</include>
-	
-			<!-- Trailer ( Auto ) -->
-			<include name="MultiWallInfoShowAnimationTrailerAuto">
-				<animation type="Conditional" condition="!Player.HasVideo + !Control.IsVisible(209)" reversible="false">
-					<effect type="fade" start="100" end="0" time="300" />
-				</animation>
-			</include>
-	
-		<!-- Show Animation -->
-
+				<!-- Trailer ( Auto ) -->
+			<!-- Show Animation -->
 			<!-- Normal -->
 			<include name="MultiWallInfoShowAnimation">
 				<animation type="Visible" reversible="false">
@@ -131,7 +88,6 @@
 					<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
 				</animation>
 			</include>
-	
 			<!-- Trigger Movies -->
 			<include name="MultiWallInfoShowAnimationTriggerMovies">
 				<animation type="Visible" reversible="false">
@@ -140,7 +96,6 @@
 					<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
 				</animation>
 			</include>
-	
 			<!-- Trigger TV -->
 			<include name="MultiWallInfoShowAnimationTriggerTV">
 				<animation type="Visible" reversible="false">
@@ -149,7 +104,6 @@
 					<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
 				</animation>
 			</include>
-	
 			<!-- Trigger Music -->
 			<include name="MultiWallInfoShowAnimationTriggerMusic">
 				<animation type="Visible" reversible="false">
@@ -158,7 +112,6 @@
 					<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
 				</animation>
 			</include>
-	
 			<!-- Trailer ( Off ) -->
 			<include name="MultiWallInfoShowAnimationTrailer">
 				<animation type="Conditional" condition="Player.HasVideo" reversible="false">
@@ -166,33 +119,31 @@
 					<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
 				</animation>
 			</include>
-	
 			<!-- Trailer ( Auto ) -->
 			<include name="MultiWallInfoShowAnimationTrailerAuto">
 				<animation type="Conditional" condition="Player.HasVideo + !Control.IsVisible(209)" reversible="false">
 					<effect type="fade" start="0" end="100" time="400" delay="85" />
 					<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
 				</animation>
+				<animation type="Conditional" condition="!Player.HasVideo + !Control.IsVisible(209)" reversible="false">
+					<effect type="fade" start="100" end="0" time="300" />
+				</animation>
 			</include>
-	
 		<!-- Slide Animation Movies -->
 		<include name="MultiWallInfoSlideAnimationMovies">
 			<animation effect="slide" start="0,0" end="0,35" time="400" tween="cubic" easing="in" reversible="false" condition="ControlGroup(7000).HasFocus()">Conditional</animation>
 			<animation effect="slide" start="0,35" end="0,0" time="400" tween="cubic" easing="out" reversible="false" condition="!ControlGroup(7000).HasFocus()">Conditional</animation>
 		</include>
-	
 		<!-- Slide Animation TV -->
 		<include name="MultiWallInfoSlideAnimationTVShows">
 			<animation effect="slide" start="0,0" end="0,23" time="400" tween="cubic" easing="in" reversible="false" condition="ControlGroup(7000).HasFocus()">Conditional</animation>
 			<animation effect="slide" start="0,23" end="0,0" time="400" tween="cubic" easing="out" reversible="false" condition="!ControlGroup(7000).HasFocus()">Conditional</animation>
 		</include>
-	
 		<!-- Slide Animation Music -->
 		<include name="MultiWallInfoSlideAnimationMusic">
 			<animation effect="slide" start="0,0" end="0,31" time="400" tween="cubic" easing="in" reversible="false" condition="ControlGroup(7000).HasFocus()">Conditional</animation>
 			<animation effect="slide" start="0,31" end="0,0" time="400" tween="cubic" easing="out" reversible="false" condition="!ControlGroup(7000).HasFocus()">Conditional</animation>
 		</include>
-		
 		<!-- Background Flip Animation -->
 		<include name="MultiWallInfoFlipAnimation">
 			<animation type="Conditional" condition="Player.HasVideo" reversible="false">
@@ -206,9 +157,7 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
 			</animation>
 		</include>
-	
 		<!-- Background Flip Animation TV -->
-	
 		<include name="MultiWallInfoFlipAnimationTVShows">
 			<animation type="Conditional" condition="Skin.HasSetting(multiwallposterlayout)" reversible="false">
 				<effect type="rotatey" center="335" start="0" end="-90" time="450" tween="cubic" easing="in" />
@@ -221,7 +170,6 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
 			</animation>
 		</include>
-	
 		<include name="MultiWallInfoFlipAnimationTVShowsFanart">
 			<animation type="Conditional" condition="Skin.HasSetting(multiwallposterlayout)" reversible="false">
 				<effect type="rotatey" center="335" start="0" end="-90" time="450" tween="cubic" easing="in" />
@@ -236,7 +184,6 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
 			</animation>
 		</include>
-	
 		<include name="MultiWallInfoFlipAnimationTVShowsPoster">
 			<animation type="Conditional" condition="Skin.HasSetting(multiwallposterlayout)" reversible="false">
 				<effect type="rotatey" center="335" start="0" end="-90" time="450" tween="cubic" easing="in" />
@@ -251,7 +198,6 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
 			</animation>
 		</include>
-		
 		<!-- Info Flip Animation -->
 		<include name="MultiWallInfoFlipAnimationInfo">
 			<animation type="Conditional" condition="Player.HasVideo" reversible="false">
@@ -267,7 +213,6 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
 			</animation>
 		</include>
-		
 		<!-- Trailer Flip Animaiton -->
 		<include name="MultiWallInfoFlipAnimationTrailer">
 			<animation type="Conditional" condition="Player.HasVideo" reversible="false">
@@ -283,7 +228,6 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
 			</animation>
 		</include>
-	
 		<!-- Info Flip Animaiton Trigger -->
 		<include name="MultiWallInfoFlipAnimationInfoTrigger">
 			<animation type="Conditional" condition="Player.HasVideo + Control.HasFocus(208)" reversible="false">
@@ -300,7 +244,6 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="1000" tween="cubic" easing="out" />
 			</animation>
 		</include>
-	
 		<!-- Trailer Flip Animaiton Trigger -->
 		<include name="MultiWallInfoFlipAnimationTrailerTrigger">
 			<animation type="Conditional" condition="Player.HasVideo + Control.HasFocus(208)" reversible="false">
@@ -318,8 +261,7 @@
 				<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="1000" tween="cubic" easing="out" />
 			</animation>
 		</include>
-	
-		<!-- Now Playing Flip Animaiton -->
+		<!-- Now Playing Flip Animaiton
 		<include name="MultiWallInfoFlipAnimationNowPlaying">
 			<animation type="Conditional" condition="[Player.HasAudio + Skin.HasSetting(showplaying) + !Container.Content(songs)] | [Player.HasAudio + !Skin.HasSetting(showplaying) + Container.Content(songs)]" reversible="false">
 				<effect type="rotatey" center="175" start="0" end="-90" time="450" tween="cubic" easing="in" />
@@ -334,24 +276,6 @@
 				<effect type="rotatey" center="175" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
 			</animation>
 		</include>
-	
-		<!-- Music Info Flip Animation -->
-		<include name="MultiWallInfoFlipAnimationMusicInfo">
-			<animation type="Conditional" condition="Container.Content(songs) + Control.IsVisible(208) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
-				<effect type="rotatey" center="216" start="0" end="-90" time="450" tween="cubic" easing="in" />
-				<effect type="rotatey" center="216" start="-90" end="90" time="0" delay="450"/>
-				<effect type="fade" start="100" end="0" time="0" delay="450" />
-				<effect type="rotatey" center="216" start="90" end="0" time="450" delay="450" tween="cubic" easing="out" />
-			</animation> 
-			<animation type="Conditional" condition="Container.Content(albums) + Control.IsVisible(207) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
-				<effect type="rotatey" center="216" start="0" end="90" time="450" tween="cubic" easing="in" />
-				<effect type="rotatey" center="216" start="90" end="-90" time="0" delay="450"/>
-				<effect type="fade" start="0" end="100" time="0" delay="450" />
-				<effect type="rotatey" center="216" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
-			</animation>
-			<animation effect="fade" start="100" end="0" condition="Container.Content(songs) + [[Control.IsVisible(209) + !Control.IsVisible(208)] | [Skin.HasSetting(multiwallmusicinfoon) + !Control.IsVisible(208)]]">Conditional</animation>
-		</include>
-	
 		<!-- Song List Flip Animation -->
 		<include name="MultiWallInfoFlipAnimationSongList">
 			<animation type="Conditional" condition="Container.Content(songs) + Control.IsVisible(208) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
@@ -368,9 +292,7 @@
 			</animation>
 			<animation effect="fade" start="100" end="0" condition="Container.Content(albums) + !Control.IsVisible(207) + ![Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]">Conditional</animation>
 		</include>
-	
 		<!-- Song Show/Hide Animation -->
-	
 		<include name="MultiWallShowHideAnimationSongList">
 			<animation type="Conditional" reversible="false" condition="Window.IsActive(500) | [Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]]">
 				<effect type="fade" start="0" end="100" time="400" delay="85" />
@@ -380,32 +302,27 @@
 				<effect type="fade" start="100" end="0" time="400"/>
 			</animation>
 		</include>
-
-	
 	<!-- Info Pane Movies -->	
-		
 	<include name="MultiWallInfoPaneMovieInfo">
 		<control type="group">		
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>670</width>
 			<height>374</height>
-			
 			<visible>!Skin.HasSetting(multiwallinfooff)</visible>
-
 			<include condition="!Skin.HasSetting(multiwallinfooff) + !Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoFlipAnimationInfo</include>
 			<include condition="Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoFlipAnimationInfoTrigger</include>
 			<include condition="!Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoSlideAnimationMovies</include>
-			
 			<control type="image">
-				<include>MultiWallInfoPaneMidInfo</include>
+				<posy>-10</posy>
+				<width>670</width>
+				<height>374</height>
+				<texture>multiwall/info_pane_info_title.png</texture>
 			</control>
-			
 			<!-- Title -->
 			<control type="label">
 				<include>MultiWallTitleLabel</include>				
 			</control>
-				
 			<control type="group">
 				<control type="label">
 					<include>MultiWallInfoLabel</include>
@@ -417,7 +334,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Director]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posy>41</posy>
 				<control type="label">
@@ -430,7 +346,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Writer]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posy>82</posy>
 				<control type="label">
@@ -443,7 +358,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Year]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posx>213</posx>
 				<control type="label">
@@ -456,7 +370,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Duration]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posy>41</posy>
 				<posx>213</posx>				
@@ -470,7 +383,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.MPAA]</label>
 				</control>					
 			</control>
-
 			<control type="group">
 				<posy>82</posy>
 				<posx>213</posx>						
@@ -484,7 +396,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.RatingAndVotes]</label>
 				</control>			
 			</control>
-			
 			<control type="textbox">
 				<posy>152</posy>
 				<posx>15</posx>
@@ -495,7 +406,6 @@
 				<textcolor>d0FFFFFF</textcolor>
 				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
 			</control>
-				
 			<control type="group">
 				<posx>442</posx>
 				<posy>41</posy>				
@@ -536,26 +446,23 @@
 			</control>
 		</control>
 	</include>
-	
-	
 	<!-- Trailer Pane -->
-	
 	<include name="MultiWallMovieInfoTrailer">
 		<control type="group">
-			
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>670</width>
 			<height>374</height>
-
 			<include condition="!Skin.HasSetting(multiwallinfooff) + !Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoFlipAnimationTrailer</include>
 			<include condition="Skin.HasSetting(multiwallinfooff)">MultiWallInfoShowAnimationTrailer</include>
 			<include condition="!Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoSlideAnimationMovies</include>
 			<include condition="Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoFlipAnimationTrailerTrigger</include>
 			<include condition="Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoHideAnimationTrailer</include>
-
 			<control type="image">
-			<include>MultiWallInfoPaneMidTrailer</include>
+				<posy>-10</posy>
+				<width>670</width>
+				<height>374</height>
+				<texture>multiwall/info_pane_trailer_title.png</texture>
 			</control>		
 			<include>MultiWallInfoPaneMovieInfo</include>
 			<posx>108</posx>
@@ -578,9 +485,7 @@
 			</control>
 		</control>
 	</include>
-	
 	<!-- Info Pane TV -->
-	
 	<include name="MultiWallInfoPaneTVInfo">
 
 		<control type="group">
@@ -983,26 +888,33 @@
 		</control>		
 
 	</include>
-	
 	<!-- Info Pane Music -->	
-		
 	<include name="MultiWallInfoPaneMusicInfo">
 		<control type="group">		
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>432</width>
 			<height>424</height>
-
-			<include>MultiWallInfoFlipAnimationMusicInfo</include>
+			<animation type="Conditional" condition="Container.Content(songs) + Control.IsVisible(208) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">	
+				<effect type="rotatey" center="216" start="0" end="-90" time="450" tween="cubic" easing="in" />
+				<effect type="rotatey" center="216" start="-90" end="90" time="0" delay="450"/>
+				<effect type="fade" start="100" end="0" time="0" delay="450" />
+				<effect type="rotatey" center="216" start="90" end="0" time="450" delay="450" tween="cubic" easing="out" />
+			</animation> 
+			<animation type="Conditional" condition="Container.Content(albums) + Control.IsVisible(207) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
+				<effect type="rotatey" center="216" start="0" end="90" time="450" tween="cubic" easing="in" />
+				<effect type="rotatey" center="216" start="90" end="-90" time="0" delay="450"/>
+				<effect type="fade" start="0" end="100" time="0" delay="450" />
+				<effect type="rotatey" center="216" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
+			</animation>
+			<animation effect="fade" start="100" end="0" condition="Container.Content(songs) + [[Control.IsVisible(209) + !Control.IsVisible(208)] | [Skin.HasSetting(multiwallmusicinfoon) + !Control.IsVisible(208)]]">Conditional</animation>
 			<include condition="!Skin.HasSetting(multiwallmusicinfotrigger)">MultiWallInfoSlideAnimationMusic</include>
-			
 			<control type="image">
 				<description>background</description>
 				<width>432</width>
 				<height>424</height>
 				<texture>multiwall/info_pane_music.png</texture>
 			</control>
-				
 			<control type="group">
 				<posx>1</posx>
 				<posy>0</posy>
@@ -1017,7 +929,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Artist]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posx>1</posx>
 				<posy>40</posy>
@@ -1033,7 +944,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Property(Genre)]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posx>1</posx>
 				<posy>40</posy>
@@ -1042,14 +952,12 @@
 					<include>MultiWallInfoLabel</include>
 					<label>$LOCALIZE[31436]:</label>
 				</control>
-				
 				<control type="label">
 					<width>243</width>
 					<include>MultiWallInfoValue</include>				
 					<label fallback="31425">$INFO[Container(556).ListItem.Year]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posx>1</posx>
 				<posy>80</posy>
@@ -1065,7 +973,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Property(Formed)]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posx>1</posx>
 				<posy>80</posy>
@@ -1081,7 +988,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Property(Label)]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posx>1</posx>
 				<posy>120</posy>
@@ -1097,7 +1003,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Property(YearsActive)] $LOCALIZE[31923]</label>
 				</control>			
 			</control>
-			
 			<control type="group">
 				<posx>1</posx>
 				<posy>120</posy>
@@ -1113,7 +1018,6 @@
 					<label fallback="31425">$INFO[Container(556).ListItem.Property(Style)]</label>
 				</control>			
 			</control>
-			
 			<control type="textbox">
 				<posy>190</posy>
 				<posx>16</posx>
@@ -1124,7 +1028,6 @@
 				<textcolor>d0FFFFFF</textcolor>
 				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
 			</control>
-				
 			<control type="group">
 				<posx>268</posx>
 				<posy>32</posy>				
@@ -1148,7 +1051,6 @@
 			</control>
 		</control>
 	</include>
-	
 	<include name="MultiWallNowPlayingInfo">
 		<control type="group">
 			
@@ -1250,9 +1152,7 @@
 			</control>
 		</control>
 	</include>
-	
 	<!-- Pane Movies -->
-
 	<include name="MultiWallInfoPaneMovies">
 		<control type="group">
 			<width>670</width>
@@ -1271,9 +1171,7 @@
 			<visible>Skin.HasSetting(videomovies) + Control.IsVisible(556) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwallinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwallinfotrigger)] | [[Skin.HasSetting(multiwallinfooff) | Skin.HasSetting(multiwallinfotrigger)]  + Player.HasVideo]]</visible>
 		</control>
 	</include>
-		
-	<!-- Pane TV -->
-
+		<!-- Pane TV -->
 	<include name="MultiWallInfoPaneTV">
 		<control type="group">
 			<width>670</width>
@@ -1307,9 +1205,7 @@
 			<visible>Skin.HasSetting(videotv) + Control.IsVisible(556) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwalltvinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwalltvinfotrigger)]]</visible>
 		</control>
 	</include>
-	
 	<!-- Pane Music -->
-	
 	<include name="MultiWallInfoPaneMusic">
 		<control type="group">
 			<width>432</width>
