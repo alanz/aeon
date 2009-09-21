@@ -3,21 +3,12 @@
 	<!-- Multiwall -->
 	
 		<!-- Info Pane Movies -->
-		<include name="MultiWallInfoPaneMidInfo">
-			<width>670</width>
-			<height>364</height>
-			<texture>multiwall/info_pane_info.png</texture>
-		</include>
+
 		
 		<!-- Info Pane Movies Trailer -->
-		<include name="MultiWallInfoPaneMidTrailer">
-			<width>670</width>
-			<height>364</height>
-			<texture>multiwall/info_pane_trailer.png</texture>
-		</include>
 		
 		<!-- Info Pane Movies + Title -->
-		<include name="MultiWallInfoPaneMidInfoTitle">
+		<include name="MultiWallInfoPaneMidInfo">
 			<posy>-10</posy>
 			<width>670</width>
 			<height>374</height>
@@ -25,50 +16,13 @@
 		</include>
 		
 		<!-- Info Pane Movies Trailer + Title -->
-		<include name="MultiWallInfoPaneMidTrailerTitle">
+		<include name="MultiWallInfoPaneMidTrailer">
 			<posy>-10</posy>
 			<width>670</width>
 			<height>374</height>
 			<texture>multiwall/info_pane_trailer_title.png</texture>
 		</include>
 	
-		<!-- Info Pane TV -->
-		<include name="MultiWallInfoPaneTVShows">
-			<width>670</width>
-			<height>364</height>
-			<texture>multiwall/info_pane_tvshows.png</texture>
-			<include>MultiWallInfoFlipAnimationTVShowsFanart</include>
-			<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>		
-		</include>
-	
-		<!-- Info Pane TV Poster -->
-		<include name="MultiWallInfoPaneTVShowsPoster">
-			<width>670</width>
-			<height>364</height>
-			<texture>multiwall/info_pane_tvshows_poster.png</texture>
-			<include>MultiWallInfoFlipAnimationTVShowsPoster</include>
-			<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>		
-		</include>
-	
-		<!-- Info Pane TV + Title -->
-		<include name="MultiWallInfoPaneTVShowsTitle">
-			<posy>-10</posy>
-			<width>670</width>
-			<height>374</height>
-			<texture>multiwall/info_pane_tvshows_title.png</texture>
-			<include>MultiWallInfoFlipAnimationTVShowsFanart</include>
-			<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>		
-		</include>
-	
-		<!-- Info Pane TV Poster + Title -->
-		<include name="MultiWallInfoPaneTVShowsPosterTitle">
-			<posy>-10</posy>
-			<width>670</width>
-			<height>374</height>
-			<texture>multiwall/info_pane_tvshows_poster_title.png</texture>
-			<include>MultiWallInfoFlipAnimationTVShowsPoster</include>
-			<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>		
-		</include>
 	
 	<!-- Info Label Vars -->
 	
@@ -106,41 +60,6 @@
 			<include>MultiWallTitleLabelVars</include>
 			<align>center</align>
 			<label>$INFO[Container(556).ListItem.Title]</label>
-		</include>
-	
-		<!-- Title TV -->
-		<include name="MultiWallTitleLabelTV">
-			<control type="label">
-				<posx>15</posx>
-				<include>MultiWallTitleLabelVars</include>
-				<align>center</align>
-				<label>$INFO[Container(556).ListItem.Title]</label>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-			
-			<control type="label">
-				<posx>15</posx>
-				<include>MultiWallTitleLabelVars</include>
-				<align>center</align>
-				<label>$INFO[Container(556).ListItem.TVShowTitle] - $INFO[Container(556).ListItem.Title]</label>
-				<visible>Container.Content(seasons) + !IsEmpty(Listitem.Title)</visible>
-			</control>
-			
-			<control type="label">
-				<posx>15</posx>
-				<include>MultiWallTitleLabelVars</include>
-				<align>center</align>
-				<label>$LOCALIZE[20366]</label>
-				<visible>Container.Content(seasons) + IsEmpty(Listitem.Title)</visible>
-			</control>
-			
-			<control type="label">
-				<posx>15</posx>
-				<include>MultiWallTitleLabelVars</include>
-				<align>left</align>
-				<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title]</label>
-				<visible>Container.Content(episodes)</visible>
-			</control>
 		</include>
 	
 	<!-- Animations -->
@@ -479,13 +398,12 @@
 			<include condition="!Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoSlideAnimationMovies</include>
 			
 			<control type="image">
-				<include condition="!Skin.HasSetting(showtitle)">MultiWallInfoPaneMidInfo</include>
-				<include condition="Skin.HasSetting(showtitle)">MultiWallInfoPaneMidInfoTitle</include>
+				<include>MultiWallInfoPaneMidInfo</include>
 			</control>
 			
 			<!-- Title -->
 			<control type="label">
-				<include condition="Skin.HasSetting(showtitle)">MultiWallTitleLabel</include>				
+				<include>MultiWallTitleLabel</include>				
 			</control>
 				
 			<control type="group">
@@ -637,12 +555,9 @@
 			<include condition="Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoHideAnimationTrailer</include>
 
 			<control type="image">
-				<include condition="!Skin.HasSetting(showtitle)">MultiWallInfoPaneMidTrailer</include>
-				<include condition="Skin.HasSetting(showtitle)">MultiWallInfoPaneMidTrailerTitle</include>
-			</control>
-			
-			<include condition="Skin.HasSetting(showtitle)">MultiWallInfoPanelMovieInfoTitle</include>
-			
+			<include>MultiWallInfoPaneMidTrailer</include>
+			</control>		
+			<include>MultiWallInfoPaneMovieInfo</include>
 			<posx>108</posx>
 			<posy>65</posy>				
 			<control type="image">
@@ -679,7 +594,37 @@
 			
 			<!-- Title -->
 			<control type="group">
-				<include condition="Skin.HasSetting(showtitle)">MultiWallTitleLabelTV</include>				
+				<control type="label">
+					<posx>15</posx>
+					<include>MultiWallTitleLabelVars</include>
+					<align>center</align>
+					<label>$INFO[Container(556).ListItem.Title]</label>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				
+				<control type="label">
+					<posx>15</posx>
+					<include>MultiWallTitleLabelVars</include>
+					<align>center</align>
+					<label>$INFO[Container(556).ListItem.TVShowTitle] - $INFO[Container(556).ListItem.Title]</label>
+					<visible>Container.Content(seasons) + !IsEmpty(Listitem.Title)</visible>
+				</control>
+				
+				<control type="label">
+					<posx>15</posx>
+					<include>MultiWallTitleLabelVars</include>
+					<align>center</align>
+					<label>$LOCALIZE[20366]</label>
+					<visible>Container.Content(seasons) + IsEmpty(Listitem.Title)</visible>
+				</control>
+				
+				<control type="label">
+					<posx>15</posx>
+					<include>MultiWallTitleLabelVars</include>
+					<align>left</align>
+					<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title]</label>
+					<visible>Container.Content(episodes)</visible>
+				</control>				
 			</control>	
 			
 			<control type="group">
@@ -1343,12 +1288,20 @@
 			<posx>304</posx>
 			<posy>193</posy>
 			<control type="image">
-				<include condition="!Skin.HasSetting(showtitle)">MultiWallInfoPaneTVShows</include>
-				<include condition="Skin.HasSetting(showtitle)">MultiWallInfoPaneTVShowsTitle</include>
+				<posy>-10</posy>
+				<width>670</width>
+				<height>374</height>
+				<texture>multiwall/info_pane_tvshows_title.png</texture>
+				<include>MultiWallInfoFlipAnimationTVShowsFanart</include>
+				<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>		
 			</control>
 			<control type="image">
-				<include condition="!Skin.HasSetting(showtitle)">MultiWallInfoPaneTVShowsPoster</include>
-				<include condition="Skin.HasSetting(showtitle)">MultiWallInfoPaneTVShowsPosterTitle</include>
+				<posy>-10</posy>
+				<width>670</width>
+				<height>374</height>
+				<texture>multiwall/info_pane_tvshows_poster_title.png</texture>
+				<include>MultiWallInfoFlipAnimationTVShowsPoster</include>
+				<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>		
 			</control>
 			<include>MultiWallInfoPaneTVInfo</include>
 			<visible>Skin.HasSetting(videotv) + Control.IsVisible(556) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwalltvinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwalltvinfotrigger)]]</visible>
