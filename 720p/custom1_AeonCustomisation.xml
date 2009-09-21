@@ -151,7 +151,7 @@
 					<label>31126</label>
 					<include>Objects_SettingsSectionMenuButton</include>
 					<onup>8</onup>
-					<ondown>10</ondown>
+					<ondown>11</ondown>
 					<onleft>40</onleft>
 					<onright>40</onright>
 					<visible allowhiddenfocus="true">!Control.HasFocus(40)</visible>
@@ -162,7 +162,7 @@
 					<label>31126</label>
 					<include>Objects_SettingsSectionMenuButtonFocused</include>
 					<onup>8</onup>
-					<ondown>10</ondown>
+					<ondown>11</ondown>
 					<onleft>40</onleft>
 					<onright>40</onright>
 					<visible>Control.HasFocus(40)</visible>
@@ -183,66 +183,28 @@
 					<include>Objects_SettingsSectionMenuButtonSubtitle</include>
 					<visible>Control.HasFocus(9) | Control.HasFocus(40)</visible>
 				</control>
-				<control type="button" id="10">
-					<description>OSD</description>
-					<posy>232</posy>
-					<label>31128</label>
-					<include>Objects_SettingsSectionMenuButton</include>
-					<onup>9</onup>
-					<ondown>11</ondown>
-					<onleft>60</onleft>
-					<onright>60</onright>
-					<visible allowhiddenfocus="true">!Control.HasFocus(10)</visible>
-				</control>
-				<control type="button">
-					<description>OSD</description>
-					<posy>232</posy>
-					<label>31128</label>
-					<include>Objects_SettingsSectionMenuButtonFocused</include>
-					<onup>9</onup>
-					<ondown>11</ondown>
-					<onleft>60</onleft>
-					<onright>60</onright>
-					<visible>Control.HasFocus(10)</visible>
-				</control>
-				<control type="label">
-					<description>OSD Sub Unfocused</description>
-					<posy>264</posy>
-					<label>31129</label>
-					<textcolor>FFf5f5f5</textcolor>
-					<include>Objects_SettingsSectionMenuButtonSubtitle</include>
-					<visible>!Control.HasFocus(10)</visible>
-				</control>
-				<control type="label">
-					<description>OSD Sub Unfocused</description>
-					<posy>264</posy>
-					<label>31129</label>
-					<textcolor>FF262728</textcolor>
-					<include>Objects_SettingsSectionMenuButtonSubtitle</include>
-					<visible>Control.HasFocus(10)</visible>
-				</control>
 				<control type="button" id="11">
 					<description>Advanced</description>
-					<posy>290</posy>
+					<posy>232</posy>
 					<label>31158</label>
 					<include>Objects_SettingsSectionMenuButton</include>
-					<onup>10</onup>
+					<onup>9</onup>
 					<ondown>6</ondown>
 					<onclick>XBMC.ActivateWindow(56)</onclick>
 					<visible allowhiddenfocus="true">!Control.HasFocus(11)</visible>
 				</control>
 				<control type="button">
 					<description>Advanced</description>
-					<posy>290</posy>
+					<posy>232</posy>
 					<label>31158</label>
 					<include>Objects_SettingsSectionMenuButtonFocused</include>
-					<onup>10</onup>
+					<onup>9</onup>
 					<ondown>6</ondown>
 					<visible>Control.HasFocus(11)</visible>
 				</control>
 				<control type="label">
 					<description>Advanced Sub Unfocused</description>
-					<posy>322</posy>
+					<posy>264</posy>
 					<label>31159</label>
 					<textcolor>FFf5f5f5</textcolor>
 					<include>Objects_SettingsSectionMenuButtonSubtitle</include>
@@ -250,7 +212,7 @@
 				</control>
 				<control type="label">
 					<description>Advanced Sub Unfocused</description>
-					<posy>322</posy>
+					<posy>264</posy>
 					<label>31159</label>
 					<textcolor>FF262728</textcolor>
 					<include>Objects_SettingsSectionMenuButtonSubtitle</include>
@@ -292,8 +254,122 @@
 					<visible>Control.IsVisible(301)</visible>
 				</control>
 
-				<include>Furniture_VirtualTime</include>
-				<include>Furniture_VirtualRSS</include>
+				<control type="group">   <!-- Virtual Time !highertime-->
+					<posx>586</posx>
+					<posy>208</posy>
+					<width>297</width>
+					<height>18</height>
+					<visible>!Window.IsActive(Home) + !Skin.HasSetting(highertime)</visible>
+					<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
+					<include>Animation_CommonFade</include>
+					<control type="image">
+						<posx>-43</posx>
+						<posy>0</posy>
+						<width>297</width>
+						<height>18</height>
+						<texture>common/timepanel_mid.png</texture>
+					</control>
+					<control type="label" id="70">
+						<posx>243</posx>
+						<posy>2</posy>
+						<width>263</width>
+						<font>Font_VirtualRSS</font>
+						<align>right</align>
+						<textcolor>d0ffffff</textcolor>
+						<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+					</control>
+				</control>
+				<control type="group">  <!-- Virtual Time highertime-->
+					<posx>586</posx>
+					<posy>0</posy>
+					<width>297</width>
+					<height>18</height>
+					<visible>Skin.HasSetting(highertime)</visible>
+					<include>Animation_CommonFade</include>
+					<control type="image">
+						<posx>-43</posx>
+						<posy>0</posy>
+						<width>297</width>
+						<height>16</height>
+						<texture flipy="true">common/timepanel_mid.png</texture>
+					</control>
+					<control type="label" id="70">
+						<posx>243</posx>
+						<posy>2</posy>
+						<width>263</width>
+						<font>Font_VirtualRSS</font>
+						<align>right</align>
+						<textcolor>d0ffffff</textcolor>
+						<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+					</control>
+				</control>
+				<control type="group">
+					<posx>0</posx>
+					<posy>266</posy>
+					<width>810</width>
+					<height>38</height>
+					<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible>
+					<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
+					<include>Animation_CommonFade</include>
+					<control type="image">
+						<posx>36</posx>
+						<posy>0</posy>
+						<width>804</width>
+						<height>38</height>
+						<texture>common/rssbar_mid.png</texture>
+					</control>
+					<control type="rss" id="1">
+						<description>My First RSS control</description>
+						<posx>72</posx>
+						<posy>3</posy>
+						<width>769</width>
+						<visible>true</visible>
+						<font>Font_VirtualRSS</font>
+						<include>Colour_RSS</include>
+						<urlset>1</urlset>
+					</control>
+					<control type="image">
+						<posx>52</posx>
+						<posy>0</posy>
+						<width>85</width>
+						<height>18</height>
+						<texture>common/rssbar_mid_fade.png</texture>
+						<colordiffuse>e3FFFFFF</colordiffuse>
+					</control>
+				</control>
+				<control type="group">
+					<posx>0</posx>
+					<posy>434</posy>
+					<width>810</width>
+					<height>38</height>
+					<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible>
+					<include>Animation_CommonFade</include>
+					<control type="image">
+						<posx>36</posx>
+						<posy>0</posy>
+						<width>804</width>
+						<height>38</height>
+						<texture flipy="true">common/rssbar_mid.png</texture>
+					</control>
+					<control type="rss" id="1">
+						<description>My First RSS control</description>
+						<posx>72</posx>
+						<posy>22</posy>
+						<width>769</width>
+						<visible>true</visible>
+						<font>Font_VirtualRSS</font>
+						<include>Colour_RSS</include>
+						<urlset>1</urlset>
+					</control>
+					<control type="image">
+						<posx>52</posx>
+						<posy>20</posy>
+						<width>85</width>
+						<height>18</height>
+						<texture flipy="true">common/rssbar_mid_fade.png</texture>
+						<colordiffuse>e3FFFFFF</colordiffuse>
+					</control>
+				</control>
 				<control type="image">
 					<description>Darken screen for Backdrop type select</description>
 					<posx>0</posx>
@@ -347,28 +423,7 @@
 
 			</control>
 
-			<!-- Virtual OSD environment starts -->
-			<control type="image" id="213">
-				<texture>-</texture>
-				<visible>![Control.HasFocus(10) | Control.HasFocus(60) | Control.HasFocus(61) | Control.HasFocus(62)]</visible>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-			</control>
-
-			<control type="group">
-
-				<posx>332</posx>
-				<posy>58</posy>
-				<include>Furniture_SettingsVHPVars</include>
-				<include>Animation_CommonFade</include>
-				<visible>Control.HasFocus(10) | Control.HasFocus(60) | Control.HasFocus(61) | Control.HasFocus(62)</visible>
-				<control type="multiimage">
-					<include>BackgroundVarsVirtual</include>
-					<imagepath>backdrops/virtualosd</imagepath>
-				</control>
-
-				<include>Furniture_VirtualOSD</include>
-			</control>
-
+				
 			<control type="button" id="30">
 				<description>Home Menu furniture select button</description>
 				<posx>307</posx>
@@ -464,58 +519,6 @@
 				<include>Animation_CommonFadeFocus</include>
 			</control>
 
-			<!-- Furniture select buttons end -->
-			<control type="button" id="60">
-				<description>Home Menu furniture select button</description>
-				<posx>307</posx>
-				<posy>40</posy>
-				<width>890</width>
-				<height>127</height>
-				<onclick>Skin.ToggleSetting(osdbigtop)</onclick>
-				<onup>10</onup>
-				<ondown>10</ondown>
-				<onleft>62</onleft>
-				<onright>61</onright>
-				<texturefocus>settings/settings_osd_progress.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<pulseonselect>true</pulseonselect>
-				<include>Animation_CommonFadeFocus</include>
-			</control>
-
-			<control type="button" id="61">
-				<description>Home Menu furniture select button</description>
-				<posx>307</posx>
-				<posy>415</posy>
-				<width>890</width>
-				<height>127</height>
-				<onclick>Skin.ToggleSetting(noosdprogress)</onclick>
-				<onup>10</onup>
-				<ondown>10</ondown>
-				<onleft>60</onleft>
-				<onright>62</onright>
-				<texturefocus>settings/settings_osd_progress.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<pulseonselect>true</pulseonselect>
-				<include>Animation_CommonFadeFocus</include>
-			</control>
-
-			<control type="button" id="62">
-				<description>Home Menu furniture select button</description>
-				<posx>307</posx>
-				<posy>440</posy>
-				<width>890</width>
-				<height>80</height>
-				<onclick>Skin.ToggleSetting(osdshowtime)</onclick>
-				<onup>10</onup>
-				<ondown>10</ondown>
-				<onleft>61</onleft>
-				<onright>60</onright>
-				<texturefocus>settings/settings_osd_titletime.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<pulseonselect>true</pulseonselect>
-				<include>Animation_CommonFadeFocus</include>
-			</control>
-
 			<control type="button" id="40">
 				<description>The Big Red Purge Button</description>
 				<posx>332</posx>
@@ -554,9 +557,7 @@
 				<texture>settings/settings_intframe_top.png</texture>
 				<include>Animation_SettingsInternalPanel</include>
 			</control>
-
 			<control type="group">
-
 				<description>Main instruction labels</description>
 				<include>FullscreenDimensions</include>
 				<include>Animation_CommonFade</include>
@@ -652,50 +653,7 @@
 						<visible>Control.HasFocus(32) + !Skin.HasSetting(lowerrss)</visible>
 					</control>
 				</control>
-				<control type="group">
-					<include>Labels_MainLabelGroup</include>
-					<visible>Control.HasFocus(10) | Control.HasFocus(60) | Control.HasFocus(61) | Control.HasFocus(62)</visible>
-					<control type="label">
-						<include>Labels_MainLabelBigVars</include>
-						<label>31106</label>
-						<visible>Control.HasFocus(10) | Control.HasFocus(60) | Control.HasFocus(61) | Control.HasFocus(62)</visible>
-					</control>
-					<control type="label">
-						<include>Labels_MainLabelSmallVars</include>
-						<label>31107</label>
-						<visible>Control.HasFocus(10)</visible>
-					</control>
-					<control type="label">
-						<include>Labels_MainLabelSmallVars</include>
-						<label>31109</label>
-						<visible>Control.HasFocus(61) + !Skin.HasSetting(noosdprogress)</visible>
-					</control>
-					<control type="label">
-						<include>Labels_MainLabelSmallVars</include>
-						<label>31108</label>
-						<visible>Control.HasFocus(60) + !Skin.HasSetting(osdbigtop)</visible>
-					</control>
-					<control type="label">
-						<include>Labels_MainLabelSmallVars</include>
-						<label>31110</label>
-						<visible>Control.HasFocus(62) + !Skin.HasSetting(osdshowtime)</visible>
-					</control>
-					<control type="label">
-						<include>Labels_MainLabelSmallVars</include>
-						<label>31112</label>
-						<visible>Control.HasFocus(61) + Skin.HasSetting(noosdprogress)</visible>
-					</control>
-					<control type="label">
-						<include>Labels_MainLabelSmallVars</include>
-						<label>31111</label>
-						<visible>Control.HasFocus(60) + Skin.HasSetting(osdbigtop)</visible>
-					</control>
-					<control type="label">
-						<include>Labels_MainLabelSmallVars</include>
-						<label>31113</label>
-						<visible>Control.HasFocus(62) + Skin.HasSetting(osdshowtime)</visible>
-					</control>
-				</control>
+			
 				<control type="group">
 					<description>31097</description>
 					<include>Labels_MainLabelGroup</include>

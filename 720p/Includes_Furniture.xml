@@ -239,57 +239,6 @@
 		</control>
 	</include>
 
-	<include name="Furniture_VirtualTime">
-		<control type="group">
-			<posx>586</posx>
-			<posy>208</posy>
-			<width>297</width>
-			<height>18</height>
-			<visible>!Window.IsActive(Home) + !Skin.HasSetting(highertime)</visible>
-			<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<posx>-43</posx>
-				<posy>0</posy>
-				<width>297</width>
-				<height>18</height>
-				<texture>common/timepanel_mid.png</texture>
-			</control>
-			<control type="label" id="70">
-				<posx>243</posx>
-				<posy>2</posy>
-				<width>263</width>
-				<font>Font_VirtualRSS</font>
-				<align>right</align>
-				<textcolor>d0ffffff</textcolor>
-				<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
-			</control>
-		</control>
-		<control type="group">
-			<posx>586</posx>
-			<posy>0</posy>
-			<width>297</width>
-			<height>18</height>
-			<visible>Skin.HasSetting(highertime)</visible>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<posx>-43</posx>
-				<posy>0</posy>
-				<width>297</width>
-				<height>16</height>
-				<texture flipy="true">common/timepanel_mid.png</texture>
-			</control>
-			<control type="label" id="70">
-				<posx>243</posx>
-				<posy>2</posy>
-				<width>263</width>
-				<font>Font_VirtualRSS</font>
-				<align>right</align>
-				<textcolor>d0ffffff</textcolor>
-				<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
-			</control>
-		</control>
-	</include>
 	<!-- RSS Feeds -->
 	<include name="Furniture_WallRSS">
 		<control type="group">
@@ -470,251 +419,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="Furniture_VirtualOSD">
-		<control type="group">
-			<width>840</width>
-			<height>471</height>
-			<control type="progress" id="23">
-				<description>Progressbar</description>
-				<posx>0</posx>
-				<posy>372</posy>
-				<width>840</width>
-				<height>99</height>
-				<info>Player.Progress</info>
-				<texturebg>osd/osd_progress_clear.png</texturebg>
-				<lefttexture>-</lefttexture>
-				<midtexture>osd/osd_progressmid.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
-				<include>Animation_CommonFade</include>
-				<visible>!Skin.HasSetting(noosdprogress) + !Control.IsVisible(213)</visible>
-			</control>
-			<control type="image">
-				<posy>372</posy>
-				<width>840</width>
-				<height>99</height>
-				<texture>osd/fullscreen_bottom.png</texture>
-			</control>
-			<control type="group">
-				<visible>!Skin.HasSetting(osdbigtop)</visible>
-				<include>Animation_CommonFade</include>
-				<control type="image">
-					<width>840</width>
-					<height>32</height>
-					<texture>osd/fullscreen_top.png</texture>
-				</control>
-				<control type="label">
-					<posx>13</posx>
-					<posy>0</posy>
-					<width>394</width>
-					<height>31</height>
-					<aligny>center</aligny>
-					<font>Font_OSDCodecInfo_Virtual</font>
-					<label>[COLOR AAa7a4a4]$LOCALIZE[31700][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Codec] [/COLOR][COLOR AAa7a4a4]$LOCALIZE[31701][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.BitRate,,KPS][/COLOR] [COLOR AAa7a4a4]$LOCALIZE[31702][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.SampleRate,,KHZ] [COLOR AAa7a4a4]$LOCALIZE[31703][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Channels][/COLOR]</label>
-				</control>
-				<control type="label">
-					<posx>827</posx>
-					<posy>0</posy>
-					<width>394</width>
-					<height>31</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Font_OSDCodecInfo_Virtual</font>
-					<label>[COLOR AAa7a4a4]$LOCALIZE[31704][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Offset(1).Title] [/COLOR]</label>
-				</control>
-			</control>
-			<control type="group">
-				<visible>Skin.HasSetting(osdbigtop)</visible>
-				<include>Animation_CommonFade</include>
-				<control type="image">
-					<width>840</width>
-					<height>88</height>
-					<texture>osd/wider_top.png</texture>
-				</control>
-				<control type="label">
-					<posx>13</posx>
-					<posy>28</posy>
-					<width>394</width>
-					<height>31</height>
-					<aligny>center</aligny>
-					<font>Font_OSDCodecInfo_Virtual</font>
-					<label>[COLOR AAa7a4a4]$LOCALIZE[31713][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.PlayListLength][/COLOR][CR][COLOR AAa7a4a4]$LOCALIZE[31714][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.PlayListPosition][/COLOR][CR][COLOR AAa7a4a4]$LOCALIZE[31700][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Codec][CR][COLOR AAa7a4a4]$LOCALIZE[31701][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.BitRate,, KPS][/COLOR]</label>
-				</control>
-				<control type="label">
-					<posx>827</posx>
-					<posy>28</posy>
-					<width>394</width>
-					<height>31</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Font_OSDCodecInfo_Virtual</font>
-					<label>[COLOR AAa7a4a4]$LOCALIZE[31715][/COLOR][CR][COLOR AAFFFFFF] $INFO[MusicPlayer.Offset(-1).Title][/COLOR][CR][COLOR AAa7a4a4]$LOCALIZE[31704][/COLOR][CR][COLOR AAFFFFFF] $INFO[MusicPlayer.Offset(1).Title][/COLOR]</label>
-				</control>
-				<control type="image">
-					<posx>385</posx>
-					<posy>8</posy>
-					<width>71</width>
-					<height>71</height>
-					<info>MusicPlayer.Cover</info>
-					<bordertexture border="-1">osd/osd_musicthumbframe.png</bordertexture>
-				</control>
-			</control>
-			<control type="label">
-				<posx>0</posx>
-				<posy>402</posy>
-				<width>840</width>
-				<height>20</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<visible>Player.HasAudio</visible>
-				<font>Font_OSDMusicArtist_Virtual</font>
-				<label>[COLOR 91FFFFFF]$INFO[MusicPlayer.Artist][/COLOR] [COLOR AA777777]$INFO[MusicPlayer.Album][/COLOR]</label>
-				<animation effect="slide" start="0,0" end="0,-8" time="200" condition="Control.IsVisible(212)">Conditional</animation>
-				<include>Animation_CommonFade</include>
-			</control>
-			<control type="label">
-				<posx>0</posx>
-				<posy>402</posy>
-				<width>840</width>
-				<height>20</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<visible>!Player.HasAudio</visible>
-				<font>Font_OSDMusicArtist_Virtual</font>
-				<label>[COLOR 91FFFFFF]$LOCALIZE[31718][/COLOR] [COLOR AA777777]$LOCALIZE[31717][/COLOR]</label>
-				<animation effect="slide" start="0,0" end="0,-8" time="200" condition="Control.IsVisible(212)">Conditional</animation>
-				<include>Animation_CommonFade</include>
-			</control>
-			<control type="label">
-				<posx>0</posx>
-				<posy>421</posy>
-				<width>840</width>
-				<height>20</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<visible>Player.HasAudio</visible>
-				<font>Font_OSDMusicTitle_Virtual</font>
-				<label>[COLOR FFFFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
-				<animation effect="slide" start="0,0" end="0,-8" time="200" condition="Control.IsVisible(212)">Conditional</animation>
-				<include>Animation_CommonFade</include>
-			</control>
-			<control type="label">
-				<posx>0</posx>
-				<posy>421</posy>
-				<width>840</width>
-				<height>20</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<visible>!Player.HasAudio</visible>
-				<font>Font_OSDMusicTitle_Virtual</font>
-				<label>[COLOR FFFFFFFF]$LOCALIZE[31716][/COLOR]</label>
-				<animation effect="slide" start="0,0" end="0,-8" time="200" condition="Control.IsVisible(212)">Conditional</animation>
-				<include>Animation_CommonFade</include>
-			</control>
-			<control type="group" id="212">
-				<visible>Skin.HasSetting(osdshowtime)</visible>
-				<include>Animation_CommonFade</include>
-				<control type="label">
-					<posx>0</posx>
-					<posy>432</posy>
-					<width>840</width>
-					<height>20</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<visible>Player.HasAudio</visible>
-					<font>Font_OSDMusicArtist_Virtual</font>
-					<label>[COLOR 91FFFFFF]$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration][/COLOR]</label>
-				</control>
-				<control type="label">
-					<posx>0</posx>
-					<posy>432</posy>
-					<width>840</width>
-					<height>20</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<visible>!Player.HasAudio</visible>
-					<font>Font_OSDMusicArtist_Virtual</font>
-					<label>[COLOR 91FFFFFF]$LOCALIZE[31719][/COLOR]</label>
-				</control>
-			</control>
-		</control>
-	</include>
-	<include name="Furniture_VirtualRSS">
-		<control type="group">
-			<posx>0</posx>
-			<posy>266</posy>
-			<width>810</width>
-			<height>38</height>
-			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible>
-			<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<posx>36</posx>
-				<posy>0</posy>
-				<width>804</width>
-				<height>38</height>
-				<texture>common/rssbar_mid.png</texture>
-			</control>
-			<control type="rss" id="1">
-				<description>My First RSS control</description>
-				<posx>72</posx>
-				<posy>3</posy>
-				<width>769</width>
-				<visible>true</visible>
-				<font>Font_VirtualRSS</font>
-				<include>Colour_RSS</include>
-				<urlset>1</urlset>
-			</control>
-			<control type="image">
-				<posx>52</posx>
-				<posy>0</posy>
-				<width>85</width>
-				<height>18</height>
-				<texture>common/rssbar_mid_fade.png</texture>
-				<colordiffuse>e3FFFFFF</colordiffuse>
-			</control>
-		</control>
-		<control type="group">
-			<posx>0</posx>
-			<posy>434</posy>
-			<width>810</width>
-			<height>38</height>
-			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<posx>36</posx>
-				<posy>0</posy>
-				<width>804</width>
-				<height>38</height>
-				<texture flipy="true">common/rssbar_mid.png</texture>
-			</control>
-			<control type="rss" id="1">
-				<description>My First RSS control</description>
-				<posx>72</posx>
-				<posy>22</posy>
-				<width>769</width>
-				<visible>true</visible>
-				<font>Font_VirtualRSS</font>
-				<include>Colour_RSS</include>
-				<urlset>1</urlset>
-			</control>
-			<control type="image">
-				<posx>52</posx>
-				<posy>20</posy>
-				<width>85</width>
-				<height>18</height>
-				<texture flipy="true">common/rssbar_mid_fade.png</texture>
-				<colordiffuse>e3FFFFFF</colordiffuse>
-			</control>
-		</control>
-	</include>
 	<!-- Media windows -->
-	<include name="Furniture_MediaPanelVars">
-		<posx>0</posx>
-		<posy>-8</posy>
-		<width>1280</width>
-		<height>718</height>
-	</include>
 	<include name="ShowcaseFloorNight">
 		<texture>showcase/showcase_floor.png</texture>
 	</include>
@@ -726,18 +431,6 @@
 	</include>
 	<include name="ListFloorLight">
 		<texture>list/lite/list_floor.png</texture>
-	</include>
-	<include name="WatchedOverlayWall">
-		<posx>87</posx>
-		<posy>8</posy>
-		<width>30</width>
-		<height>30</height>
-	</include>
-	<include name="WatchedOverlayWallSmall">
-		<posx>68</posx>
-		<posy>6</posy>
-		<width>30</width>
-		<height>30</height>
 	</include>
 	<include name="Furniture_MediaPanel">
 		<control type="image">
@@ -933,38 +626,20 @@
 		<height>638</height>
 		<texture>settings/settings_intframe_bottom.png</texture>
 	</include>
-	<include name="Furniture_SettingsSlideVars">
-		<width>840</width>
-		<height>472</height>
-	</include>
 	<include name="Furniture_SettingsVHPVars">
 		<width>840</width>
 		<height>472</height>
 	</include>
 	<include name="Furniture_SettingsTutorialSlide">
-		<include>Furniture_SettingsSlideVars</include>
+		<animation effect="fade" time="500">Visible</animation>
+		<animation effect="fade" time="200">Hidden</animation>
+		<animation effect="fade" time="500">WindowOpen</animation>
+		<animation effect="fade" time="200">WindowClose</animation>
+		<width>840</width>
+		<height>472</height>
 		<timeperimage>999999</timeperimage>
 		<fadetime>300</fadetime>
 		<randomize>true</randomize>
-		<include>Animation_SettingsSlide</include>
-	</include>
-	<include name="Furniture_SettingsNewsSlide">
-		<include>Furniture_SettingsSlideVars</include>
-		<include>Animation_SettingsSlide</include>
-	</include>
-	<include name="Furniture_SettingsNewsSlideBig">
-		<width>840</width>
-		<height>602</height>
-		<include>Animation_SettingsSlide</include>
-	</include>
-	<include name="Furniture_SettingsVitals">
-		<posy>56</posy>
-		<height>491</height>
-		<font>Font_Vitals</font>
-		<align>left</align>
-		<aligny>center</aligny>
-		<textoffsetx>15</textoffsetx>
-		<include>Animation_SettingsSlide</include>
 	</include>
 	<include name="Furniture_Debug">
 		<control type="label">
