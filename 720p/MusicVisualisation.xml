@@ -58,7 +58,7 @@
 		<posy>0</posy>
 		<width>1280</width>
 		<height>48</height>
-		<visible>Player.ShowInfo + !Skin.HasSetting(osdbigtop) + !Window.IsActive(120)</visible>
+		<visible>Player.ShowInfo + !Window.IsActive(120)</visible>
 		<animation type="Visible">
 			<effect type="fade" time="400" start="0" end="100" />
 			<effect type="slide" time="400" start="0,-48" end="0,0" easing="out" tween="cubic" />
@@ -91,7 +91,7 @@
 			<height>48</height>			
 			<aligny>center</aligny>
 			<font>Font_OSDCodecInfo</font>
-			<label>[COLOR AAa7a4a4]$LOCALIZE[31700][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Codec] [/COLOR][COLOR AAa7a4a4]$LOCALIZE[31701][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.BitRate,,KPS][/COLOR] [COLOR AAa7a4a4]$LOCALIZE[31702][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.SampleRate,,KHZ] [COLOR AAa7a4a4]$LOCALIZE[31703][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Channels][/COLOR]</label>
+			<label>[COLOR AAa7a4a4]$LOCALIZE[31713][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.PlayListLength][/COLOR]</label>
 		</control>
 		
 		<control type="label">
@@ -102,64 +102,11 @@
 			<align>right</align>
 			<aligny>center</aligny>
 			<font>Font_OSDCodecInfo</font>
-			<label>[COLOR AAa7a4a4]$LOCALIZE[31704][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Offset(1).Title] [/COLOR]</label>
+			<label>[COLOR AAa7a4a4]$LOCALIZE[31714][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.PlayListPosition][/COLOR]</label>
 		</control>		
 	</control>
 
-	<control type="group">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>1280</width>
-		<height>134</height>
-		<visible>Player.ShowInfo + Skin.HasSetting(osdbigtop) + !Window.IsActive(120)</visible>
-		<animation type="Visible">
-			<effect type="fade" time="400" start="0" end="100" />
-			<effect type="slide" time="400" start="0,-134" end="0,0" easing="out" tween="cubic" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="fade" time="400" start="100" end="0" />
-			<effect type="slide" time="400" start="0,0" end="0,-134" easing="in" tween="cubic" />
-		</animation>
-		<animation type="WindowOpen">
-			<effect type="fade" time="400" start="0" end="100" />
-			<effect type="slide" time="400" start="0,-134" end="0,0" easing="out" tween="cubic" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="fade" time="400" start="100" end="0" />
-			<effect type="slide" time="400" start="0,0" end="0,-134" easing="in" tween="cubic" />
-		</animation>		
-		<control type="image">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1280</width>			
-			<height>134</height>
-			<texture>osd/wider_top.png</texture>
-			<visible>Player.HasAudio</visible>
-		</control>
-
-		<control type="label">
-			<posx>20</posx>
-			<posy>43</posy>
-			<width>600</width>
-			<height>48</height>			
-			<aligny>center</aligny>
-			<font>Font_OSDCodecInfo</font>
-			<label>[COLOR AAa7a4a4]$LOCALIZE[31713][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.PlayListLength][/COLOR][CR][COLOR AAa7a4a4]$LOCALIZE[31714][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.PlayListPosition][/COLOR][CR][COLOR AAa7a4a4]$LOCALIZE[31700][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.Codec][CR][COLOR AAa7a4a4]$LOCALIZE[31701][/COLOR][COLOR AAFFFFFF] $INFO[MusicPlayer.BitRate,, KPS][/COLOR]</label>
-		</control>
 		
-		<control type="label">
-			<posx>1260</posx>
-			<posy>43</posy>
-			<width>600</width>
-			<height>48</height>		
-			<align>right</align>
-			<aligny>center</aligny>
-			<font>Font_OSDCodecInfo</font>
-			<label>[COLOR AAa7a4a4]$LOCALIZE[31715][/COLOR][CR][COLOR AAFFFFFF] $INFO[MusicPlayer.Offset(-1).Title][/COLOR][CR][COLOR AAa7a4a4]$LOCALIZE[31704][/COLOR][CR][COLOR AAFFFFFF] $INFO[MusicPlayer.Offset(1).Title][/COLOR]</label>
-		</control>
-			
-	</control>
-	
 	<control type="group">
 		<posx>0</posx>
 		<posy>569</posy>
