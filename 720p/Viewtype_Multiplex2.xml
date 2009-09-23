@@ -13,20 +13,19 @@
 			<posy>85</posy>
 			<width>1280</width>
 			<height>381</height>
-			<visible>Container.Content(movies) + Control.IsVisible(555) + !Control.HasFocus(197)</visible>
+			<visible>Container.Content(movies) + Control.IsVisible(555)</visible>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>						
 			<control type="image">
-					<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>
-					<posx>200</posx>
-					<posy>396</posy>	
-					<width>670</width>
-					<height>200</height>
-					<texture>mod/base.png</texture>
+				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>
+				<posx>200</posx>
+				<posy>396</posy>	
+				<width>670</width>
+				<height>200</height>
+				<texture>mod/base.png</texture>
 			</control>
-			
 			<control type="label">
 				<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
 				<animation effect="fade" delay="3000" start="100" end="0" time="500" >Hidden</animation>
@@ -39,7 +38,6 @@
 				<textcolor>FFFFFFFF</textcolor>				
 				<label>[UPPERCASE]$INFO[Container(555).ListItem.Year][/UPPERCASE]</label>
 			</control>	
-					      	
 			<control type="textbox">
 				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
 				<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
@@ -55,100 +53,81 @@
 				<info>Container(555).ListItem.Tagline</info>
 				<autoscroll delay="9000" time="3000" repeat="5000">Skin.HasSetting(allowscroll)</autoscroll>
 				<textcolor>d0FFFFFF</textcolor>
-			</control>
-		
+			</control>		
 			<control type="group">
 				<posx>200</posx>
 				<posy>385</posy>
 				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>
-			
-					<control type="label">
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>
+				<control type="label">
 					<posx>640</posx>
-						<posy>16</posy>
-						<width>120</width>
-						<textcolor>FFFFFFFF</textcolor>		
-						<label>Released $INFO[Container(555).ListItem.Year]</label>
-						<align>right</align>
-						<font>cast</font>
-					</control>					
-					
-					<control type="label">
+					<posy>16</posy>
+					<width>120</width>
+					<textcolor>FFFFFFFF</textcolor>		
+					<label>Released $INFO[Container(555).ListItem.Year]</label>
+					<align>right</align>
+					<font>cast</font>
+				</control>					
+				<control type="label">
 					<posx>640</posx>
-						<posy>32</posy>
-						<width>200</width>
-						<textcolor>FFFFFFFF</textcolor>		
-						<label>Run Time: $INFO[Container(555).ListItem.Duration]</label>
-						<align>right</align>
-						<font>cast</font>
-					</control>
-						
-					<control type="label">
-						<posx>652</posx>	
-						<posy>160</posy>
-						<width>250</width>
-						<font>cast</font>
-						<height>13</height>
-						<textcolor>FFFFFFFF</textcolor>	
-						<align>right</align>						
-						<label>User Rating: $INFO[Container(555).ListItem.RatingAndVotes]</label>
-					</control>	
-					
-					<control type="label">
-						<posx>30</posx>	
-						<posy>32</posy>
-						<width>290</width>
-						<height>90</height>
-						<autoscroll>false</autoscroll>
-						<font>cast</font>
-						<align>left</align>
-						<textcolor>FFFFFFFF</textcolor>		
-   						<label>Director: $INFO[Container(555).ListItem.Director]</label>
-					</control>
-					
-					<control type="label">
-						<posx>30</posx>	
-						<posy>16</posy>
-						<width>400</width>
-						<height>90</height>
-						<autoscroll>false</autoscroll>
-						<font>cast</font>
-						<align>left</align>
-						<textcolor>FFFFFFFF</textcolor>		
-   						<label>$INFO[Container(555).ListItem.Genre]</label>
-					</control>	
-					
-					<control type="textbox">
-						<posx>30</posx>	
-						<posy>50</posy>
-						<width>610</width>
-						<height>104</height>
-						<autoscroll>false</autoscroll>
-						<align>left</align>
-						<textcolor>FFFFFFFF</textcolor>	
-						<autoscroll delay="5000" time="3000" repeat="5000">Skin.HasSetting(allowscroll)</autoscroll>
-						<label>$INFO[Container(555).ListItem.plotoutline]</label>
-						<font>Plot</font>
-					</control>				
-		</control>
+					<posy>32</posy>
+					<width>200</width>
+					<textcolor>FFFFFFFF</textcolor>		
+					<label>Run Time: $INFO[Container(555).ListItem.Duration]</label>
+					<align>right</align>
+					<font>cast</font>
+				</control>
+				<control type="label">
+					<posx>30</posx>	
+					<posy>32</posy>
+					<width>290</width>
+					<height>90</height>
+					<autoscroll>false</autoscroll>
+					<font>cast</font>
+					<align>left</align>
+					<textcolor>FFFFFFFF</textcolor>		
+   					<label>Director: $INFO[Container(555).ListItem.Director]</label>
+				</control>
+				<control type="label">
+					<posx>30</posx>	
+					<posy>16</posy>
+					<width>400</width>
+					<height>90</height>
+					<autoscroll>false</autoscroll>
+					<font>cast</font>
+					<align>left</align>
+					<textcolor>FFFFFFFF</textcolor>		
+   					<label>$INFO[Container(555).ListItem.Genre]</label>
+				</control>	
+				<control type="textbox">
+					<posx>30</posx>	
+					<posy>50</posy>
+					<width>610</width>
+					<height>104</height>
+					<autoscroll>false</autoscroll>
+					<align>left</align>
+					<textcolor>FFFFFFFF</textcolor>	
+					<autoscroll delay="5000" time="3000" repeat="5000">Skin.HasSetting(allowscroll)</autoscroll>
+					<label>$INFO[Container(555).ListItem.plotoutline]</label>
+					<font>Plot</font>
+				</control>				
+			</control>
 
-	<control type="group">
+			<control type="group">
 				<posx>900</posx>
 				<posy>397</posy>
 				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>
-		
-			<control type="image">
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>
+				<control type="image">
 					<posx>-2</posx>
 					<posy>-2</posy>	
 					<width>356</width>
 					<height>200</height>
 					<texture diffuse="list/list_episodeicon_mask.png">mod/black.png</texture>
-			</control>
-			
-			<control type="multiimage">	
+				</control>			
+				<control type="multiimage">	
 					<posx>0</posx>
 					<width>352</width>
 					<height>196</height>
@@ -157,81 +136,73 @@
 					<timeperimage>3000</timeperimage>
 					<randomize>true</randomize>
 					<imagepath diffuse="list/list_episodeicon_mask.png" background="true">$INFO[Container(555).ListItem.Path,,extrathumbs]</imagepath>		
-			</control>
-
-			<control type="image">	
+				</control>
+				<control type="image">	
 					<width>352</width>
 					<height>196</height>
 					<aspectratio></aspectratio>
 					<fadetime>500</fadetime>
 					<texture>list/list_musicicon_glass.png</texture>
 					<animation effect="fade" delay="500" start="100" end="0" time="500" condition="Player.HasVideo">conditional</animation>
-			</control>
-	</control>
-			
-		<control type="group">
+				</control>
+			</control>			
+			<control type="group">
 				<posx>35</posx>
 				<posy>397</posy>
 				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
 				<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
 				<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>
-					
-			<control type="image">
+				<control type="image">
 					<posx>-2</posx>
 					<posy>-2</posy>	
 					<width>138</width>
 					<height>204</height>
 					<texture diffuse="list/list_movieicon_mask.png">mod/black.png</texture>
-			</control>
-
-			<control type="largeimage">	
+				</control>
+				<control type="largeimage">	
 					<width>134</width>
 					<height>200</height>
 					<aspectratio></aspectratio>
 					<fadetime>400</fadetime>
 					<texture diffuse="list/list_movieicon_mask.png">$INFO[Container(555).ListItem.Icon]</texture>
-			</control>	
-			
-			<control type="image">	
+				</control>				
+				<control type="image">	
 					<width>134</width>
 					<height>200</height>
 					<aspectratio></aspectratio>
 					<fadetime>400</fadetime>
 					<texture>list/list_movieicon_glass.png</texture>
-			</control>
-			
-		</control>		
+				</control>
 				
+			</control>		
 					
-		<control type="group">
-			<posx>320</posx>
-			<posy>15</posy>						
-			<control type="videowindow" id="2">
-       				<posx>0</posx>
-      				<width>640</width>
-     				<height>360</height>
-					<visible>[Control.IsVisible(555) + !Control.HasFocus(197) ] | VideoPlayer.Content(movies)</visible> 
+						
+			<control type="group">
+				<posx>320</posx>
+				<posy>15</posy>						
+				<control type="videowindow" id="2">
+					<posx>0</posx>
+					<width>640</width>
+					<height>360</height>
+					<visible>Control.IsVisible(555) | VideoPlayer.Content(movies)</visible> 
 					<animation effect="zoom" start="0" end="100" center="320,180" time="3000" condition="Player.HasVideo">Conditional</animation>
-			</control>				
-		</control>
-		
-		
-		 <control type="group">
-	       			 <posx>395</posx>
-					<posy>370</posy>
+				</control>				
+			</control>	
+			<control type="group">
+				<posx>395</posx>
+				<posy>370</posy>
 				<animation effect="fade" start="20" time="800" condition="!IsEmpty(ListItem.Trailer)" pulse="true">Conditional</animation>
 				<visible>!Container(555).OnNext + !Container(555).OnPrevious</visible>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
-					<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>				
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >Visible</animation>
+				<animation effect="fade" delay="3000" start="0" end="100" time="500" >WindowOpen</animation>				
 				<control type="image">
-					<posx>174</posx>
+					<posx>154</posx>
 					<align>center</align>
-					<width>142</width>
-					<height>28</height>
+					<width>182</width>
+					<height>32</height>
 					<texture>list/progress_back.png</texture>
 					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</visible> 
 				</control>
-						
 				<control type="label">
 					<posx>2</posx>
 					<posy>6</posy>
@@ -244,7 +215,6 @@
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<textcolor>FFffffff</textcolor>		
 				</control>
-				
 				<control type="image">
 					<posx>201</posx>
 					<align>center</align>
@@ -254,7 +224,6 @@
 					<visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo</visible> 
 					<animation effect="fade" start="0" end="100" time="400" delay="3000">Visible</animation>										
 				</control>
-				
 				<control type="label">
 					<posx>2</posx>
 					<posy>6</posy>
@@ -268,20 +237,9 @@
 					<textcolor>FFffffff</textcolor>		
 					<animation effect="fade" start="0" end="100" time="400" delay="3000">Visible</animation>						
 				</control>
-			</control>
-			
-	</control>
-		
-		<control type="image">
-				<visible>Control.IsVisible(555)</visible>
-				<animation effect="fade" start="100" end="0" time="500" condition="Control.IsVisible(37)">Conditional</animation>
-				<posy>60</posy>
-				<width>1280</width>
-				<height>74</height>
-				<texture>mod/bg.png</texture>
-			</control>
-
-</include>
+			</control>			
+		</control>		
+	</include>
 		
 	
 	<include name="Viewtype_Anoobie2">
@@ -303,9 +261,7 @@
 			<scrolltime>300</scrolltime>
 			<visible>Window.IsActive(25)+Container.Content(movies)</visible>
 			<include>Animation_HideMultiplex</include>
-			<animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60) | Control.HasFocus(197)">Conditional</animation>
 			<itemlayout width="212" height="258">
-
 				<control type="image">
 					<visible>Container(555).OnNext | Container(555).OnPrevious</visible>
 					<animation effect="fade" delay="3000" start="100" end="0" time="200" >Hidden</animation>
@@ -347,44 +303,5 @@
 			<label>$INFO[Container(555).ListItem.Label]</label>
 			<include>Animation_HideMultiplex</include>			
 		</control>	
-		
-		<control type="scrollbar" id="60">
-			<description>My first scroll bar control</description>
-			<posx>67</posx>
-			<posy>673</posy>
-	        <width>1147</width>
-			<height>41</height>
-			<visible allowhiddenfocus="true">Control.IsVisible(555) + Control.HasFocus(60) + !Control.IsVisible(105)</visible>
-	        <texturesliderbackground>stripshow/stripshow_scrollbar.png</texturesliderbackground>
-			<texturesliderbar>-</texturesliderbar>
-			<texturesliderbarfocus>-</texturesliderbarfocus>
-			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
-			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
-			<pulseonselect></pulseonselect>
-			<orientation>horizontal</orientation>
-			<showonepage>false</showonepage>
-			<onup>555</onup>
-			<ondown>197</ondown>
-			<onleft>60</onleft>
-			<onright>60</onright>
-			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-			<include>Animation_HideMultiplex</include>			
-		</control>
-		
-        <control type="button" id="197">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>0</width>
-            <height>0</height>
-            <texturefocus>-</texturefocus>
-            <texturenofocus>-</texturenofocus>
-            <onleft>555</onleft>
-            <onright>555</onright>
-            <onup>555</onup>
-            <ondown>555</ondown>
-        </control>		
-		
 	</include>
-	
-
 </includes>
