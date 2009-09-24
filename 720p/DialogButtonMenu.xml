@@ -79,29 +79,24 @@
 					<include>Objects_ContextMenuButton</include>
 					<onclick>Skin.SetBool(bmtransit)</onclick>
 					<onclick>XBMC.ActivateWindow(604)</onclick>
-				</control>
+				</control>				
 
-				<control type="button" id="812">
-					<description>Favourites</description>
-					<label>$LOCALIZE[1036]</label>
-					<include>Objects_ContextMenuButton</include>
-					<onclick>ActivateWindow(Favourites)</onclick>
-				</control>
-
-				<control type="button" id="811">
-					<description>File Manager</description>
-					<label>10003</label>
-					<include>Objects_ContextMenuButton</include>
-					<onclick>XBMC.ActivateWindow(3)</onclick>
-				</control>
-
-				<control type="togglebutton" id="804">
-					<description>Home Visualiser</description>
+				<control type="togglebutton" id="803">
+					<description>Home Visualiser (Video)</description>
 					<label>31203</label>
 					<altlabel>31204</altlabel>
 					<include>Objects_ContextMenuButton</include>
-					<onclick>Skin.Togglesetting(homevis)</onclick>
-					<usealttexture>Skin.HasSetting(homevis)</usealttexture>
+					<onclick>Skin.Togglesetting(homevisvideo)</onclick>
+					<usealttexture>Skin.HasSetting(homevisvideo)</usealttexture>
+				</control>
+				
+				<control type="togglebutton" id="804">
+					<description>Home Visualiser (Audio)</description>
+					<label>312030</label>
+					<altlabel>312040</altlabel>
+					<include>Objects_ContextMenuButton</include>
+					<onclick>Skin.Togglesetting(homevisaudio)</onclick>
+					<usealttexture>Skin.HasSetting(homevisaudio)</usealttexture>
 				</control>
 
 				<control type="button" id="805">
@@ -127,14 +122,6 @@
 					<visible>system.hasloginscreen</visible>
 				</control>
 
-				<control type="button" id="810">
-					<description>Eject Tray</description>
-					<label>31210</label>
-					<include>Objects_ContextMenuButton</include>
-					<onclick>EjectTray()</onclick>
-					<visible>System.HasMediaDVD</visible>
-				</control>
-
 				<control type="button" id="808">
 					<description>Restart</description>
 					<label>31207</label>
@@ -147,6 +134,28 @@
 					<label>31208</label>
 					<include>Objects_ContextMenuButton</include>
 					<onclick>Shutdown</onclick>
+				</control>
+				
+				<control type="button" id="810">
+					<description>Eject Tray</description>
+					<label>31210</label>
+					<include>Objects_ContextMenuButton</include>
+					<onclick>EjectTray()</onclick>
+					<visible>System.HasMediaDVD</visible>
+				</control>
+				
+				<control type="button" id="811">
+					<description>File Manager</description>
+					<label>10003</label>
+					<include>Objects_ContextMenuButton</include>
+					<onclick>XBMC.ActivateWindow(3)</onclick>
+				</control>
+
+				<control type="button" id="812">
+					<description>Favourites</description>
+					<label>$LOCALIZE[1036]</label>
+					<include>Objects_ContextMenuButton</include>
+					<onclick>ActivateWindow(Favourites)</onclick>
 				</control>
 
 			</control>
