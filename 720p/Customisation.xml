@@ -255,6 +255,24 @@
 				<include>Objects_SettingsSectionMenuButtonSubtitle</include>
 				<visible>Control.HasFocus(111) | ControlGroup(15).HasFocus</visible>
 			</control>
+			<control type="image">
+				<posx>88</posx>
+				<posy>-13</posy>
+				<width>1100</width>
+				<height>20</height>
+				<texture>wall/wall_arrow_vertical.png</texture>
+				<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="125" condition="Control.HasFocus(111) | ControlGroup(15).HasFocus | Control.HasFocus(9) | ControlGroup(13).HasFocus">Conditional</animation>
+			</control>
+			<control type="image">
+				<posx>88</posx>
+				<posy>486</posy>
+				<width>1100</width>
+				<height>20</height>
+				<texture flipy="true">wall/wall_arrow_vertical.png</texture>
+				<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="125" condition="Control.HasFocus(111) | ControlGroup(15).HasFocus | Control.HasFocus(9) | ControlGroup(13).HasFocus">Conditional</animation>
+			</control>
 		</control>
 		<control type="grouplist" id="20">
 			<include>Objects_SettingsControlAreaVars</include>
@@ -530,8 +548,7 @@
  				<label>312696</label>
  				<onclick>Skin.ToggleSetting(trailerthumbs)</onclick>
  				<selected>Skin.HasSetting(trailerthumbs)</selected>
-			</control>
-				
+			</control>				
 		</control>
 		<control type="grouplist" id="13">
 			<include>Objects_SettingsControlAreaVars</include>
@@ -540,56 +557,6 @@
 			<onleft>9</onleft>
 			<onright>9</onright>
 			<visible>Control.HasFocus(9) | ControlGroup(13).HasFocus</visible>
-			<control type="radiobutton" id="700">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>31264</label>
-				<onclick>Skin.ToggleSetting(nomoviefanart)</onclick>
-				<selected>!Skin.HasSetting(nomoviefanart)</selected>
-			</control>
-			<control type="radiobutton" id="701">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>31265</label>
-				<onclick>Skin.ToggleSetting(notvfanart)</onclick>
-				<selected>!Skin.HasSetting(notvfanart)</selected>
-			</control>
-			<control type="radiobutton" id="702">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>31266</label>
-				<onclick>Skin.ToggleSetting(nopicturefanart)</onclick>
-				<selected>!Skin.HasSetting(nopicturefanart)</selected>
-			</control>
-			<control type="radiobutton" id="703">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>31279</label>
-				<onclick>Skin.ToggleSetting(noinfofanart)</onclick>
-				<selected>!Skin.HasSetting(noinfofanart)</selected>
-			</control>
-			<control type="radiobutton" id="704">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>31262</label>
-				<onclick>Skin.ToggleSetting(nomusicfanart)</onclick>
-				<selected>!Skin.HasSetting(nomusicfanart)</selected>
-			</control>
-			<control type="button" id="705">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>31242</label>
-				<onclick>Skin.Reset(nomusicfanart)</onclick>
-				<onclick>Skin.Reset(nomoviefanart)</onclick>
-				<onclick>Skin.Reset(notvfanart)</onclick>
-				<onclick>Skin.Reset(nopicturefanart)</onclick>
-				<onclick>Skin.Reset(noinfofanart)</onclick>
-				<visible>Skin.HasSetting(nomusicfanart) | Skin.HasSetting(nomoviefanart) | Skin.HasSetting(notvfanart) | Skin.HasSetting(nopicturefanart) | Skin.HasSetting(noinfofanart)</visible>
-			</control>
-			<control type="button" id="706">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>31243</label>
-				<onclick>Skin.SetBool(nomusicfanart)</onclick>
-				<onclick>Skin.SetBool(nomoviefanart)</onclick>
-				<onclick>Skin.SetBool(notvfanart)</onclick>
-				<onclick>Skin.SetBool(nopicturefanart)</onclick>
-				<onclick>Skin.SetBool(noinfofanart)</onclick>
-				<visible>![Skin.HasSetting(nomusicfanart) | Skin.HasSetting(nomoviefanart) | Skin.HasSetting(notvfanart) | Skin.HasSetting(nopicturefanart) | Skin.HasSetting(noinfofanart)]</visible>
-			</control>
 			<control type="radiobutton" id="707">
 				<include>Objects_SettingsDefaultRadioButton</include>
 				<label>USE MOVIE GENRE ICONS</label>

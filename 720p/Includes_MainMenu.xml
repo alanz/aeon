@@ -411,13 +411,6 @@
 					<onclick>SetFocus(92)</onclick>
 					<visible>!Skin.HasSetting(novideos)</visible>
 				</item>
-				<item id="24">
-					<label>31020</label>
-					<include>BackgroundVarsScripts</include>
-					<onclick>Skin.SetString(custom,CustomScripts)</onclick>
-					<onclick>SetFocus(92)</onclick>
-					<visible>Skin.HasSetting(scripts)</visible>
-				</item>
 				<item id="9">
 					<include>BackgroundVarsSettings</include>
 					<onclick>Skin.SetString(custom,CustomSettings)</onclick>
@@ -432,6 +425,36 @@
 					<onclick>Skin.SetString(custom,CustomWeather)</onclick>
 					<onclick>SetFocus(92)</onclick>
 					<visible>Skin.HasSetting(weather)</visible>
+				</item>
+				<item id="13">
+					<description>Play DVD</description>
+					<label>31018</label>
+					<include>BackgroundVarsPlayDVD</include>
+					<onclick>Skin.SetString(custom,CustomPlayDVD)</onclick>
+					<onclick>SetFocus(92)</onclick>
+				</item>
+				<item id="22">
+					<description>Shutdown</description>
+					<label>31019</label>
+					<include>BackgroundVarsShutdown</include>
+					<onclick>Skin.SetString(custom,CustomShutdown)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>Skin.HasSetting(shutdown)</visible>
+				</item>
+				<item id="23">
+					<description>Sign Out</description>
+					<label>31209</label>
+					<include>BackgroundVarsSignOut</include>
+					<onclick>Skin.SetString(custom,CustomSignOut)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>Skin.HasSetting(signout)</visible>
+				</item>
+				<item id="24">
+					<label>31020</label>
+					<include>BackgroundVarsScripts</include>
+					<onclick>Skin.SetString(custom,CustomScripts)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>Skin.HasSetting(scripts)</visible>
 				</item>
 			<!-- Add Item -->
 				<item id="30">
@@ -525,29 +548,6 @@
 					<visible>Skin.HasSetting(mainmenu_10)</visible>
 				</item>
 			<!-- Add Item End -->
-				<item id="13">
-					<description>Play DVD</description>
-					<label>31018</label>
-					<include>BackgroundVarsPlayDVD</include>
-					<onclick>Skin.SetString(custom,CustomPlayDVD)</onclick>
-					<onclick>SetFocus(92)</onclick>
-				</item>
-				<item id="23">
-					<description>Sign Out</description>
-					<label>31209</label>
-					<include>BackgroundVarsSignOut</include>
-					<onclick>Skin.SetString(custom,CustomSignOut)</onclick>
-					<onclick>SetFocus(92)</onclick>
-					<visible>Skin.HasSetting(signout)</visible>
-				</item>
-				<item id="22">
-					<description>Shutdown</description>
-					<label>31019</label>
-					<include>BackgroundVarsShutdown</include>
-					<onclick>Skin.SetString(custom,CustomShutdown)</onclick>
-					<onclick>SetFocus(92)</onclick>
-					<visible>Skin.HasSetting(shutdown)</visible>
-				</item>
 			</content>
 		</control>
 	</include>
@@ -678,6 +678,18 @@
 					<onclick>Skin.Reset(novideos)</onclick>
 					<visible>Skin.HasSetting(novideos)</visible>
 				</item>
+				<item id="9">
+					<label>31016</label>
+					<include>BackgroundVarsSettings</include>
+					<onclick>Skin.SetBool(nosettings)</onclick>
+					<visible>!Skin.HasSetting(nosettings)</visible>
+				</item>
+				<item id="9">
+					<label2>31016</label2>
+					<include>BackgroundVarsSettings</include>
+					<onclick>Skin.Reset(nosettings)</onclick>
+					<visible>Skin.HasSetting(nosettings)</visible>
+				</item>
 				<item id="10">
 					<label>31017</label>
 					<include condition="Skin.HasSetting(CustomWeather)">BackgroundVarsWeather2</include>
@@ -693,14 +705,49 @@
 					<onclick>Skin.SetBool(weather)</onclick>
 					<visible>!Skin.HasSetting(weather)</visible>
 				</item>
-			<!-- Add item settings -->
-				<item id="40">
-					<label>Aeon Mod</label>
-					<include>BackgroundVarsSettings</include>
-					<onclick>Skin.Reset(settingsfade)</onclick>
-					<onclick>XBMC.ActivateWindow(801)</onclick>
+				<item id="22">
+					<description>Shutdown</description>
+					<label>31019</label>
+					<include>BackgroundVarsShutdown</include>
+					<onclick>Skin.Reset(shutdown)</onclick>
+					<visible>Skin.HasSetting(shutdown)</visible>
 				</item>
-			<!-- Add Items -->
+				<item id="22">
+					<description>Shutdown</description>
+					<label2>31019</label2>
+					<include>BackgroundVarsShutdown</include>
+					<onclick>Skin.SetBool(shutdown)</onclick>
+					<visible>!Skin.HasSetting(shutdown)</visible>
+				</item>
+				<item id="23">
+					<description>Sign Out</description>
+					<label>31209</label>
+					<include>BackgroundVarsSignOut</include>
+					<onclick>Skin.Reset(signout)</onclick>
+					<visible>Skin.HasSetting(signout)</visible>
+				</item>
+				<item id="23">
+					<description>Sign Out</description>
+					<label2>31209</label2>
+					<include>BackgroundVarsSignOut</include>
+					<onclick>Skin.SetBool(signout)</onclick>
+					<visible>!Skin.HasSetting(signout)</visible>
+				</item>
+				<item id="24">
+					<description>My Pictures</description>
+					<label>31020</label>
+					<include>BackgroundVarsScripts</include>
+					<onclick>Skin.Reset(scripts)</onclick>
+					<visible>Skin.HasSetting(scripts)</visible>
+				</item>
+				<item id="24">
+					<description>My Pictures</description>
+					<label2>31020</label2>
+					<include>BackgroundVarsScripts</include>
+					<onclick>Skin.SetBool(scripts)</onclick>
+					<visible>!Skin.HasSetting(scripts)</visible>
+				</item>
+		<!-- Add Items -->
 				<item id="30">
 					<label>$INFO[Skin.String(mainmenu_1name)]</label>
 					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
@@ -861,61 +908,17 @@
 					<visible>Skin.HasSetting(no_mainmenu_10)</visible>
 					<visible>Skin.HasSetting(mainmenu_10)</visible>
 				</item>
+		<!-- Add item settings -->
+				<item id="40">
+					<label>Aeon Mod</label>
+					<include>BackgroundVarsSettings</include>
+					<onclick>Skin.Reset(settingsfade)</onclick>
+					<onclick>XBMC.ActivateWindow(801)</onclick>
+				</item>
 		<!-- Add Item End -->
-				<item id="24">
-					<description>My Pictures</description>
-					<label>31020</label>
-					<include>BackgroundVarsScripts</include>
-					<onclick>Skin.Reset(scripts)</onclick>
-					<visible>Skin.HasSetting(scripts)</visible>
-				</item>
-				<item id="24">
-					<description>My Pictures</description>
-					<label2>31020</label2>
-					<include>BackgroundVarsScripts</include>
-					<onclick>Skin.SetBool(scripts)</onclick>
-					<visible>!Skin.HasSetting(scripts)</visible>
-				</item>
-				<item id="9">
-					<label>31016</label>
-					<include>BackgroundVarsSettings</include>
-					<onclick>Skin.SetBool(nosettings)</onclick>
-					<visible>!Skin.HasSetting(nosettings)</visible>
-				</item>
-				<item id="9">
-					<label2>31016</label2>
-					<include>BackgroundVarsSettings</include>
-					<onclick>Skin.Reset(nosettings)</onclick>
-					<visible>Skin.HasSetting(nosettings)</visible>
-				</item>
-				<item id="22">
-					<description>Shutdown</description>
-					<label>31019</label>
-					<include>BackgroundVarsShutdown</include>
-					<onclick>Skin.Reset(shutdown)</onclick>
-					<visible>Skin.HasSetting(shutdown)</visible>
-				</item>
-				<item id="22">
-					<description>Shutdown</description>
-					<label2>31019</label2>
-					<include>BackgroundVarsShutdown</include>
-					<onclick>Skin.SetBool(shutdown)</onclick>
-					<visible>!Skin.HasSetting(shutdown)</visible>
-				</item>
-				<item id="23">
-					<description>Sign Out</description>
-					<label>31209</label>
-					<include>BackgroundVarsSignOut</include>
-					<onclick>Skin.Reset(signout)</onclick>
-					<visible>Skin.HasSetting(signout)</visible>
-				</item>
-				<item id="23">
-					<description>Sign Out</description>
-					<label2>31209</label2>
-					<include>BackgroundVarsSignOut</include>
-					<onclick>Skin.SetBool(signout)</onclick>
-					<visible>!Skin.HasSetting(signout)</visible>
-				</item>
+
+
+
 			</content>
 		</control>
 	</include>
