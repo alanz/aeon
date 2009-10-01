@@ -6,8 +6,6 @@
 
 			<posx>0</posx>
 			<posy>620</posy>
-			<width>1280</width>
-			<height>159</height>
 			<animation type="Visible">
 				<effect type="fade" time="400" start="0" end="100" />
 				<effect type="slide" time="400" start="0,151" end="0,0" easing="out" tween="cubic" />
@@ -34,7 +32,6 @@
 				<colordiffuse>cdffffff</colordiffuse>
 				<texture>osd/osd_back.png</texture>
 			</control>
-
 			<control type="progress" id="23">
 				<description>Progressbar</description>
 				<posx>112</posx>
@@ -49,31 +46,6 @@
 				<overlaytexture>-</overlaytexture>
 				<visible>true</visible>
 			</control>
-
-			<control type="image">
-				<posx>499</posx>
-				<posy>-20</posy>
-				<width>281</width>
-				<height>28</height>
-				<texture>osd/osd_button_paused.png</texture>
-				<include>Animation_CommonFade</include>
-				<visible>Player.Paused</visible>
-			</control>
-
-			<control type="label">
-				<posx>499</posx>
-				<posy>-20</posy>
-				<width>281</width>
-				<height>28</height>
-				<aligny>center</aligny>
-				<align>center</align>
-				<font>Font_OSDSeek</font>
-				<textcolor>FF363636</textcolor>
-				<include>Animation_CommonFade</include>
-				<label>PAUSED</label>
-				<visible>Player.Paused</visible>
-			</control>
-
 			<control type="group">
 
 				<posx>-500</posx>
@@ -124,7 +96,6 @@
 				</control>
 
 			</control>
-
 			<control type="group">
 
 				<posx>1280</posx>
@@ -175,7 +146,6 @@
 				</control>
 
 			</control>
-
 			<control type="label">
 				<posx>30</posx>
 				<posy>36</posy>
@@ -185,7 +155,6 @@
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$INFO[VideoPlayer.Time]</label>
 			</control>
-
 			<control type="label">
 				<posx>30</posx>
 				<posy>65</posy>
@@ -196,7 +165,6 @@
 				<label>$LOCALIZE[31720]: $INFO[System.Time]</label>
 				<visible>!Skin.HasSetting(currenttimeoff)</visible>
 			</control>
-
 			<control type="label">
 				<posx>0</posx>
 				<posy>64</posy>
@@ -208,7 +176,6 @@
 				<label>$INFO[VideoPlayer.Title]</label>
 				<animation effect="slide" start="0,0" end="0,-12" time="200" condition="Control.IsVisible(212)">Conditional</animation>
 			</control>
-
 			<control type="label">
 				<posx>1250</posx>
 				<posy>36</posy>
@@ -219,7 +186,6 @@
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$INFO[VideoPlayer.Duration]</label>
 			</control>
-
 			<control type="label">
 				<posx>1250</posx>
 				<posy>65</posy>
@@ -231,69 +197,95 @@
 				<label>$LOCALIZE[31710]: $INFO[Player.FinishTime]</label>
 				<visible>!Skin.HasSetting(finishtimeoff)</visible>
 			</control>
-			
-			
+		
 <!--  Size and implementation of covers -->
-<control type="group">
-
-  <control type="image">
-	  <description>cover image movie</description> 
-	  <posx>1130</posx> 
-	  <posy>-217</posy> 
-	  <width>150</width> 
-	  <height>225</height>
-	  <texture diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.cover]</texture>
-	  <visible>VideoPlayer.Content(movies)</visible>
-  </control>
-  
-  <control type="image">
-      <posx>1130</posx> 
-	  <posy>-217</posy> 
-	  <width>150</width> 
-	  <height>225</height>
-	  <texture>thumbs/poster_glass.png</texture>
-	  <aspectratio>stretch</aspectratio>
-	  <visible>VideoPlayer.Content(movies)</visible>
- </control>
-
-</control>
-
-<control type="group">
-	<control type ="image"> 
-		<description>tv show image</description>
-		<posx>1049</posx>     
-		<posy>-108</posy>    
-		<width>230</width>     
-		<height>115</height> 
-		<texture>clearart/$INFO[VideoPlayer.TVShowTitle].png</texture>
-		<aspectratio>keep</aspectratio>
-		<visible>VideoPlayer.Content(episodes) + !Skin.HasSetting(yesclearart)</visible>
-	</control>
-
-	<control type ="image"> 
-		<description>tv show image</description>
-		<posx>1049</posx>     
-		<posy>-108</posy>    
-		<width>230</width>     
-		<height>115</height> 
-		<texture diffuse="thumbs/movieposter_mask.png">showart/$INFO[VideoPlayer.TVShowTitle].jpg</texture>
-		<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
-	</control>
-
-	<control type="image">
-		<posx>1049</posx>     
-		<posy>-108</posy>    
-		<width>230</width>     
-		<height>115</height> 
-		<texture>thumbs/fanart_glass.png</texture>
-		<aspectratio>stretch</aspectratio>
-		<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
-	</control>
-
-</control>
-
+			<control type="group">
+				<control type="image">
+					<description>cover image movie</description> 
+					<posx>1130</posx> 
+					<posy>-217</posy> 
+					<width>150</width> 
+					<height>225</height>
+					<texture diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.cover]</texture>
+					<visible>VideoPlayer.Content(movies)</visible>
+				</control>
+				<control type="image">
+				<posx>1130</posx> 
+				<posy>-217</posy> 
+				<width>150</width> 
+				<height>225</height>
+				<texture>thumbs/poster_glass.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<visible>VideoPlayer.Content(movies)</visible>
+			</control>
+			</control>
+			<control type="group">
+				<control type ="image"> 
+					<description>ClearArt</description>
+					<posx>1049</posx>     
+					<posy>-108</posy>    
+					<width>230</width>     
+					<height>115</height> 
+					<texture>clearart/$INFO[VideoPlayer.TVShowTitle].png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>VideoPlayer.Content(episodes) + !Skin.HasSetting(yesclearart)</visible>
+				</control>
+				<control type ="image"> 
+					<description>tv show image</description>
+					<posx>1000</posx>     
+					<posy>-78</posy>    
+					<width>230</width>     
+					<height>115</height> 
+					<texture diffuse="thumbs/movieposter_mask.png">showart/$INFO[VideoPlayer.TVShowTitle].jpg</texture>
+					<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
+				</control>
+				<control type ="image">
+					<posx>1049</posx>     
+					<posy>-108</posy>    
+					<width>230</width>     
+					<height>115</height> 
+					<texture>thumbs/fanart_glass.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
+				</control>
+			</control>
 
 		</control>
+		<!-- stoli - Add Big paused text to screen - font is from Alaska skin - Alaska_Menu.ttf  -->
+<!-- stoli - added this far down to ensure it stays on top of other text/images          -->
+
+			<control type="label">
+				<posx>-320</posx>
+				<posy>320</posy>
+				<width>1920</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Big_Text</font>
+				<label>PAUSED</label>
+				<textcolor>33ffffff</textcolor>
+				<visible>Player.Paused</visible>
+				<!-- stoli - animation added -->
+				<animation type="Visible">
+					<effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out" />
+					<effect type="fade" start="0" end="100" time="600" />
+				</animation>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out" />
+					<effect type="fade" start="0" end="100" time="600" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="out" />
+					<effect type="fade" start="100" end="0" time="600" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="out" />
+					<effect type="fade" start="100" end="0" time="600" />
+				</animation>
+
+				<!-- stoli - animation end -->
+
+			</control>
+		
 
 	</controls>
 </window>
