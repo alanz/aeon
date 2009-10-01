@@ -13,7 +13,7 @@
 			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
 			<onfocus>Skin.SetBool(Startup)</onfocus>
 			<onfocus>SetFocus(500)</onfocus>
-			<visible>!Skin.HasSetting(Startup)+[Skin.HasSetting(homelatest) | Skin.HasSetting(showtotals)]</visible>
+			<visible>!Skin.HasSetting(Startup)</visible>
 		</control>
 		<control type="button" id="5043">
 			<description>visible after library update has finished</description>
@@ -26,7 +26,7 @@
 			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
 			<onfocus>Skin.Reset(LibraryUpdated)</onfocus>
 			<onfocus>SetFocus(500)</onfocus>
-			<visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)+[Skin.HasSetting(homelatest) | Skin.HasSetting(showtotals)]</visible>
+			<visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
 		</control>
 		<control type="button" id="5043">
 			<description>visible in all other cases</description>
@@ -37,18 +37,7 @@
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
 			<onfocus>SetFocus(500)</onfocus>
-			<visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]+[Skin.HasSetting(homelatest) | Skin.HasSetting(showtotals)]</visible>
-		</control>
-		<control type="button" id="5043">
-			<description>visible when latest added off</description>
-			<posx>-20</posx>
-			<posy>-20</posy>
-			<width>1</width>
-			<height>1</height>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<onfocus>SetFocus(300)</onfocus>
-			<visible>![Skin.HasSetting(homelatest) | Skin.HasSetting(showtotals)]</visible>
+			<visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
 		</control>
 		<control type="button" id="500">
 			<texturefocus>-</texturefocus>
@@ -99,7 +88,7 @@
 		<include condition="Skin.HasSetting(homelatest)">latest_added</include>
 		<include>Furniture_HomeNowPlaying</include>
 		<include>Furniture_Time</include>
-		<include condition="Skin.HasSetting(showtotals)">Furniture_Library</include>
+		<include>Furniture_Library</include>
 		<include>Furniture_HomeRSS</include>
 		<include>Submenu</include>
 		<control type="group">
