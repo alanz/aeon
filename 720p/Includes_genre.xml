@@ -436,7 +436,7 @@
 <!-- wall End -->
 <!-- List -->
 <include name="mod_moviegenre_list1">
-	<control type="image">
+	<control type="image"> <!--genre-->
 		<visible>Container.Content(genres) + !Window.IsActive(502) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<width>346</width>
 		<height>511</height>
@@ -445,6 +445,33 @@
 		<texture diffuse="list/list_movieicon_mask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem(0).Label].bmp</texture>
 		<bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
 	</control>
+	<control type="image"> <!--studio-->
+		<visible>[Container.Content(studios) | Container.Content(years)] + !Window.IsActive(502)</visible>
+		<width>346</width>
+		<height>511</height>
+		<fadetime>400</fadetime>
+		<aspectratio scalediffuse="false">scale</aspectratio>
+		<texture diffuse="list/list_movieicon_mask.png" >genredefault.jpg</texture>
+		<bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
+	</control>
+	<control type="image">
+		<visible>Container.Content(studios) + !Window.IsActive(502)</visible>
+		<posy>170</posy>
+		<posx>72</posx>
+		<width>210</width>
+		<height>162</height>
+		<texture>flags/studios/$INFO[ListItem(0).Label].png</texture>
+	</control>
+	<control type="image"> <!--year-->
+		<posy>40</posy>
+		<posx>92</posx>
+		<visible>Container.Content(years) + !Window.IsActive(502)</visible>
+		<width>185</width>
+		<height>450</height>
+		<fadetime>400</fadetime>
+		<texture>$INFO[ListItem(0).Label].png</texture>
+	</control>
+	
 </include>
 <include name="mod_moviegenre_list2">
 	<control type="image">
@@ -454,6 +481,14 @@
 		<height>511</height>
 		<fadetime>400</fadetime>
 		<texture  flipy="true" diffuse="list/list_movieicon_flipmask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem(0).Label].bmp</texture>
+	</control>
+	<control type="image">
+		<visible>Container.Content(studios) + !Window.IsActive(502)</visible>
+		<posy>513</posy>
+		<width>346</width>
+		<height>511</height>
+		<fadetime>400</fadetime>
+		<texture  flipy="true" diffuse="list/list_movieicon_flipmask.png" >flags/studios/$INFO[ListItem(0).Label].png</texture>
 	</control>
 </include>
 <!-- list End -->
