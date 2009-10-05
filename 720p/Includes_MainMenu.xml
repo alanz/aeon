@@ -911,4 +911,101 @@
 			</content>
 		</control>
 	</include>
+	<include name="HomeRSS">
+		<control type="group">
+			<posx>0</posx>
+			<posy>406</posy>
+			<width>1280</width>
+			<height>57</height>
+			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus() | ControlGroup(943).HasFocus() | ControlGroup(944).HasFocus() | ControlGroup(945).HasFocus()]</visible>
+			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_VisibleChange200</include>
+			<control type="image">
+				<posx>54</posx>
+				<posy>0</posy>
+				<width>1253</width>
+				<height>57</height>
+				<texture>common/rssbar_mid.png</texture>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" start="0,1" end="0,1" time="0" />
+					<effect type="zoom" start="125" end="125" time="0" />
+				</animation>
+				<include>Animation_CommonFade</include>
+			</control>
+			<control type="rss" id="1">
+				<posx>110</posx>
+				<posy>5</posy>
+				<width>1170</width>
+				<visible>true</visible>
+				<font>Font_RSS</font>
+				<include>Colour_RSS</include>
+				<urlset>1</urlset>
+				<include>Animation_CommonFade</include>
+				<visible>!Skin.HasSetting(bighome)</visible>
+			</control>
+			<control type="rss" id="1">
+				<posx>110</posx>
+				<posy>3</posy>
+				<width>1170</width>
+				<visible>true</visible>
+				<font>Font_BigRSS</font>
+				<include>Colour_RSS</include>
+				<urlset>1</urlset>
+				<include>Animation_CommonFade</include>
+				<visible>Skin.HasSetting(bighome)</visible>
+			</control>
+			<control type="image">
+				<posx>77</posx>
+				<posy>0</posy>
+				<width>133</width>
+				<height>27</height>
+				<texture>common/rssbar_mid_fade.png</texture>
+				<colordiffuse>e3FFFFFF</colordiffuse>
+				<include>Animation_CommonFade</include>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" start="0,1" end="0,1" time="0" />
+					<effect type="zoom" start="125" end="125" time="0" />
+				</animation>
+			</control>
+		</control>
+		<control type="group">
+			<posx>0</posx>
+			<posy>664</posy>
+			<width>1280</width>
+			<height>57</height>
+			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus() | ControlGroup(943).HasFocus()]</visible>
+			<include>Animation_CommonFade</include>
+			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+				<effect type="slide" start="0,-181" end="0,-181" time="0" />
+				<effect type="zoom" start="125" end="125" time="0" />
+			</animation>
+			<control type="image">
+				<posx>54</posx>
+				<posy>0</posy>
+				<width>1253</width>
+				<height>57</height>
+				<texture flipy="true">common/rssbar_mid.png</texture>
+				<include>Animation_CommonFade</include>
+			</control>
+			<control type="rss" id="1">
+				<posx>110</posx>
+				<posy>34</posy>
+				<width>1280</width>
+				<visible>true</visible>
+				<font>Font_RSS</font>
+				<include>Colour_RSS</include>
+				<urlset>1</urlset>
+				<include>Animation_CommonFade</include>
+			</control>
+			<control type="image">
+				<posx>77</posx>
+				<posy>30</posy>
+				<width>133</width>
+				<height>27</height>
+				<texture flipy="true">common/rssbar_mid_fade.png</texture>
+				<include>Animation_CommonFade</include>
+			</control>
+		</control>
+	</include>
 </includes>

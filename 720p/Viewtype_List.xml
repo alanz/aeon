@@ -163,14 +163,6 @@
 		<visible>Control.IsVisible(50)</visible>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) | [Window.IsActive(25) + Skin.HasSetting(videotv)]]">Conditional</animation>
 	</include>
-	<include name="List_NowPlaying">
-		<include condition="Skin.HasSetting(dvdcase)">NowPlaylingWidgetXPosList</include>
-		<posx>960</posx>
-		<width>200</width>
-		<height>18</height>
-		<scroll>false</scroll>
-		<font>Font_ListPlaying</font>
-	</include>
 	<include name="Animation_ListPanelSlide">
 		<animation effect="slide" time="700" start="-800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
 		<animation effect="fade" time="200" start="100" end="0">Hidden</animation>
@@ -1135,8 +1127,9 @@
 				<fadetime>400</fadetime>
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconGlassNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconGlassDVD</include>
-				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos)]</visible>
+				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]</visible>
 			</control>
+
 			<control type="largeimage">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconDimensionsDVDCover</include>
@@ -1208,7 +1201,6 @@
 			<!-- CD front reflection -->
 			<include>MusicIconGlassReflect</include>
 		</control>
-		<include>Furniture_NowPlayingWidget</include>
 		<control type="group">
 			<animation effect="fade" delay="500" start="0" end="100" time="1000" condition="Control.IsVisible(50)">Conditional</animation>
 			<animation effect="fade" delay="1500" start="100" end="0" time="200" condition="Player.HasAudio">Conditional</animation>

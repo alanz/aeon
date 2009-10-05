@@ -488,14 +488,14 @@
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconMaskNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconMaskDVD</include>
 				<info>ListItem.Icon</info>
-				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos)] + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
+				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)] + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormalReflect</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconDimensionsDVDCoverReflect</include>
 				<fadetime>400</fadetime>
 				<texture flipy="true" diffuse="list/list_movieicon_flipmask.png">$INFO[ListItem.Icon]</texture>
-				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos)] + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
+				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)] + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
 			</control>
 			<control type="largeimage">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
@@ -540,7 +540,7 @@
 				<fadetime>400</fadetime>
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconGlassNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconGlassDVD</include>
-				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos)] + !Window.IsActive(24)</visible>
+				<visible>[Window.IsActive(1) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(25) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)] + !Window.IsActive(24)</visible>
 			</control>
 			<control type="largeimage">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
@@ -611,7 +611,6 @@
 			<!-- CD front reflection -->
 			<include>MusicIconGlassReflect</include>
 		</control>
-		<include>Furniture_NowPlayingWidget</include>
 		<control type="group">
 			<animation effect="fade" delay="500" start="0" end="100" time="1000" condition="Control.IsVisible(550)">Conditional</animation>
 			<animation effect="fade" delay="1500" start="100" end="0" time="200" condition="Player.HasAudio">Conditional</animation>
