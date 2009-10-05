@@ -69,14 +69,14 @@
 	</include>
 	<!--############################################ Buttons ####################################################-->
 	<!--#########################################################################################################-->
-	<include name="MediaMenuButton_Viewmode">
+	<include name="MediaMenuButton_Viewmode"> <!--2-->
 		<control type="button" id="2">
 			<label>$LOCALIZE[31050] $INFO[Container.ViewMode]</label>
 			<include>MediaMenuButton</include>
 		</control>
 	</include>
-	<include name="MediaMenuButton_FlattenFlow">
-		<control type="togglebutton" id="700001">
+	<include name="MediaMenuButton_FlattenFlow"><!-- 700001 700002 -->
+		<control type="togglebutton" id="700001"> 
 			<label>31061</label>
 			<altlabel>31060</altlabel>
 			<usealttexture>Skin.HasSetting(flattenshowcase)</usealttexture>
@@ -93,13 +93,13 @@
 			<visible>Control.IsVisible(55) + !Container.Content(episodes)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_Sort">
+	<include name="MediaMenuButton_Sort"> <!--3-->
 		<control type="button" id="3">
 			<label>103</label>
 			<include>MediaMenuButton</include>
 		</control>
 	</include>
-	<include name="MediaMenuButton_MultiplexInfo">
+	<include name="MediaMenuButton_MultiplexInfo"><!-- 700003 700010 -->
 		<control type="button" id="700003">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
@@ -173,7 +173,7 @@
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_WallInfo">
+	<include name="MediaMenuButton_WallInfo"><!-- 700011 700013 -->
 		<control type="button" id="700011">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31070]: $LOCALIZE[31049]</label>
@@ -199,7 +199,7 @@
 			<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + Control.IsVisible(53) + Skin.HasSetting(wallinfooff)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_MultiplexStyle">
+	<include name="MediaMenuButton_MultiplexStyle"><!-- 700014 700020 -->
 		<control type="button" id="700014">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31047]: $LOCALIZE[31046]</label>
@@ -257,7 +257,7 @@
 			<visible>Container.Content(episodes) + Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(552)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_PanelDensity">
+	<include name="MediaMenuButton_PanelDensity"><!-- 700021 700022 -->
 		<control type="togglebutton" id="700021">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
@@ -284,7 +284,7 @@
 			<visible>Control.IsVisible(57) + Window.IsActive(25)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_ListLayout">
+	<include name="MediaMenuButton_ListLayout"><!-- 700023 -->
 		<control type="togglebutton" id="700023">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
@@ -295,7 +295,7 @@
 			<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + Control.IsVisible(50)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_VerticalWall">
+	<include name="MediaMenuButton_VerticalWall"><!-- 700024 -->
 		<control type="togglebutton" id="700024">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[310791]</label>
@@ -308,7 +308,6 @@
 			<visible>Control.IsVisible(53)</visible>
 		</control>
 	</include>
-
 	<include name="MediaMenuButton_Background">
 		<control type="togglebutton" id="700324">
 			<include>MediaMenuButton</include>
@@ -388,7 +387,7 @@
 			<label>$LOCALIZE[314121]: $LOCALIZE[31412]</label>
 			<onclick>Skin.SetBool(nomusicfanart)</onclick>
 			<onclick>Skin.Reset(nomusiccurtains)</onclick>
-			<visible>Window.IsActive(502) + [!Skin.HasSetting(nomusicfanart) + Skin.HasSetting(nomusiccurtains)  | [!Skin.HasSetting(notvfanart) + !Skin.HasSetting(notvcurtains)]]</visible>
+			<visible>Window.IsActive(502) + [!Skin.HasSetting(nomusicfanart) + Skin.HasSetting(nomusiccurtains)  | [!Skin.HasSetting(nomusicfanart) + !Skin.HasSetting(nomusiccurtains)]]</visible>
 			<onclick>SetFocus(7000)</onclick>
 		</control>
 	</include>
