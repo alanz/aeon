@@ -461,11 +461,12 @@
 		<width>210</width>
 		<height>162</height>
 		<texture>flags/studios/$INFO[ListItem(0).Label].png</texture>
+		<fadetime>400</fadetime>
 	</control>
 	<control type="image"> <!--year-->
 		<posy>40</posy>
 		<posx>92</posx>
-		<visible>Container.Content(years) + !Window.IsActive(502)</visible>
+		<visible>Container.Content(years) + !Window.IsActive(502) + !Skin.HasSetting(yeariconsoff)</visible>
 		<width>185</width>
 		<height>450</height>
 		<fadetime>400</fadetime>
@@ -556,6 +557,14 @@
 		<aspectratio scalediffuse="false">keep</aspectratio>
 		<texture fallback="moviegenre/default.png">moviegenre/$INFO[ListItem(0).Label].png</texture>						
 	</control>
+	<control type="image">
+		<visible>Container.Content(years) + !Window.IsActive(502) + !Skin.HasSetting(yeariconsoff)</visible>
+		<width>346</width>
+		<height>311</height>
+		<fadetime>400</fadetime>
+		<aspectratio scalediffuse="false">keep</aspectratio>
+		<texture>yearicons/$INFO[ListItem(0).Label]/folder.png</texture>						
+	</control>
 </include>
 <include name="mod_moviegenre_lowlist2">
 	<control type="image">
@@ -565,6 +574,14 @@
 		<height>511</height>
 		<fadetime>400</fadetime>
 		<texture  flipy="true" diffuse="list/list_movieicon_flipmask.png" fallback="moviegenre/default.png">moviegenre/$INFO[ListItem(0).Label].png</texture>
+	</control>
+	<control type="image">
+		<visible>Container.Content(years) + !Window.IsActive(502) + !Skin.HasSetting(yeariconsoff)</visible>
+		<posy>513</posy>
+		<width>346</width>
+		<height>511</height>
+		<fadetime>400</fadetime>
+		<texture  flipy="true" diffuse="list/list_movieicon_flipmask.png">yearicons/$INFO[ListItem(0).Label]/folder.png</texture>
 	</control>
 </include>
 <!-- LowList End -->
