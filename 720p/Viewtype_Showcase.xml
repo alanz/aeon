@@ -295,7 +295,7 @@
 					<height>150</height>
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
-					<texture>$INFO[Container(57).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
+					<texture fallback="defaultVideo.png">$INFO[Container(57).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
 				</control>
 				<control type="image">
 					<posx>0</posx>
@@ -313,7 +313,7 @@
 					<height>150</height>
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
-					<texture>$INFO[Container(57).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+					<texture fallback="defaultVideo.png">$INFO[Container(57).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
 				</control>
 			</control>
 			<!--New Poster Group-->
@@ -3989,7 +3989,6 @@
 				<scrolltime>250</scrolltime>
 				<include>Animation_HideShowcase</include>
 				<focusposition>3</focusposition>
-				<visible>![Window.IsActive(25) + Skin.HasSetting(videotv)] | [Window.IsActive(25) + Skin.HasSetting(videotv) + Skin.HasSetting(unlockTVviews)]</visible>
 				<preloaditems>2</preloaditems>
 				<itemlayout height="350" width="196" condition="Window.IsActive(28) | Window.IsActive(24) | [Window.IsActive(25) + !Container.Content(episodes)] | Window.IsActive(1)">
 					<control type="image">
