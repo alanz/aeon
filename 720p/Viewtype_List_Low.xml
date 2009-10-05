@@ -30,9 +30,17 @@
 	<include name="ListLabel_Main_LowSmall_Low">
 		<posx>45</posx>
 		<posy>0</posy>
-		<width>354</width>
+		<width>410</width>
 		<height>39</height>
 		<font>Font_ListSmall</font>
+		<aligny>center</aligny>
+		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) | Window.IsActive(25)]">Conditional</animation>
+	</include>
+	<include name="ListLabel_Main2_LowSmall_Low">
+		<posx>45</posx>
+		<posy>48</posy>
+		<width>420</width>
+		<font>Font_ListSmall2</font>
 		<aligny>center</aligny>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) | Window.IsActive(25)]">Conditional</animation>
 	</include>
@@ -279,12 +287,6 @@
 		<visible>Control.IsVisible(551)</visible>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) | [Window.IsActive(25) + Skin.HasSetting(videotv)]]">Conditional</animation>
 	</include>
-	<include name="LowList_NowPlaying">
-		<posx>860</posx>
-		<width>336</width>
-		<height>18</height>
-		<font>Font_ListPlaying</font>
-	</include>
 	<include name="LowList_Layouts">
 		<!-- Slim item layout -->
 		<itemlayout condition="[Window.IsActive(2) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(24) | [Window.IsActive(25) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
@@ -344,10 +346,10 @@
 			</control>
 		</itemlayout>
 		<!-- Slim focused layout -->
-		<focusedlayout condition="[Window.IsActive(2) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(24) | [Window.IsActive(25) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
+		<focusedlayout condition="[Window.IsActive(2) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(24) | [Window.IsActive(25) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="62">
 			<include>LowList_Separator</include>
 			<control type="image">
-				<height>39</height>
+				<height>60</height>
 				<include>LowList_SelectbarVars</include>
 			</control>
 			<control type="label">
@@ -365,12 +367,22 @@
 				<visible>[Window.IsActive(500) | Window.IsActive(501) | Container.Content(songs)]</visible>
 				<include>Animation_MusicContentSlide</include>
 			</control>
-			<control type="button">
+			<control type="label">
 				<textoffsetx>-2</textoffsetx>
-				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
 				<include>ListLabel_Main_LowSmall_Low</include>
 				<include>lowlistcolorfocus</include>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>[![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+			</control>
+			<control type="label">
+				<textoffsetx>-2</textoffsetx>
+				<include>ListLabel_Main2_LowSmall_Low</include>
+				<include>lowlistcolorfocus</include>
+				<label>$INFO[ListItem.duration]  -  $INFO[ListItem.Genre]</label>
+				<visible>[![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+			</control>
+			<control type="button">
+				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
 				<visible>[![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
 			</control>
 			<control type="label">
@@ -923,9 +935,9 @@
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<onfocus>Skin.SetBool(lowlistinfoshowing)</onfocus>
-				<onup>7000</onup>
-				<ondown>50</ondown>
-				<onleft>50</onleft>
+				<onup>551</onup>
+				<ondown>551</ondown>
+				<onleft>551</onleft>
 				<onright>PlayMedia($INFO[ListItem.Trailer],1)</onright>
 				<include condition="!Skin.HasSetting(videotv)">WideArtToggleNoTV</include>
 				<include condition="Skin.HasSetting(videotv)">WideArtToggleTV</include>
@@ -1061,51 +1073,6 @@
 			<onright>50</onright>
 			<visible allowhiddenfocus="true">Control.IsVisible(551) + Control.HasFocus(61)</visible>
 			<visible>Skin.HasSetting(highlist)</visible>
-		</control>
-		<control type="group">
-			<!-- MUSIC PROGRESS BAR/LABEL -->
-			<posx>20</posx>
-			<posy>650</posy>
-			<width>290</width>
-			<height>18</height>
-			<animation effect="slide" start="0,0" end="-22,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(61)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-30" time="150" condition="Skin.HasSetting(highlist)">Conditional</animation>
-			<animation effect="fade" delay="1500" start="0" end="100" time="400">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="100">Hidden</animation>
-			<visible>Control.IsVisible(551) + Player.HasAudio + [Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]</visible>
-			<control type="label">
-				<posx>-10</posx>
-				<posy>-22</posy>
-				<width>310</width>
-				<height>26</height>
-				<font>Font_List</font>
-				<textcolor>ffffffff</textcolor>
-				<scroll>false</scroll>
-				<align>center</align>
-				<label>[COLOR abffffff][UPPERCASE]$INFO[MusicPlayer.Artist][/COLOR][CR]"$INFO[MusicPlayer.Title]"[/UPPERCASE]</label>
-			</control>
-			<control type="progress" id="20">
-				<description>Progressbar</description>
-				<posx>50</posx>
-				<posy>36</posy>
-				<width>180</width>
-				<height>10</height>
-				<texturebg>list/progress_back.png</texturebg>
-				<lefttexture>list/progress_left.png</lefttexture>
-				<midtexture>list/progress_mid.png</midtexture>
-				<righttexture>list/progress_right.png</righttexture>
-				<overlaytexture>-</overlaytexture>
-				<info>Player.Progress</info>
-			</control>
-			<control type="image">
-				<description>Progressbar overlay</description>
-				<posx>50</posx>
-				<posy>36</posy>
-				<width>180</width>
-				<height>10</height>
-				<bordertexture border="-53">multiplex/multiplex_iconframe.png</bordertexture>
-				<texture>-</texture>
-			</control>
 		</control>
 		<control type="label" id="217">
 			<posx>0</posx>

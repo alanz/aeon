@@ -982,7 +982,7 @@
 		<animation effect="fade" start="100" end="0" time="100">Hidden</animation>
 		<!--<animation effect="slide" start="0,0" end="0,-5" time="200" condition="![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(highlist) + [Control.IsVisible(7814) | Control.IsVisible(7850)]">Conditional</animation><include>Animation_HideMultiplex</include>--><!-- Studio flag -->
 		<control type="group">
-			<posx>0</posx>
+			<posx>-7</posx>
 			<control type="image">
 				<include>LowList_MovieFlagVars</include>
 				<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>
@@ -1060,7 +1060,7 @@
 		<animation effect="fade" start="100" end="0" time="100">Hidden</animation>
 		<!--<animation effect="slide" start="0,0" end="0,-5" time="200" condition="![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(highlist) + [Control.IsVisible(7814) | Control.IsVisible(7850)]">Conditional</animation><include>Animation_HideMultiplex</include>--><!-- Studio flag -->
 		<control type="group">
-			<posx>0</posx>
+			<posx>-7</posx>
 			<control type="image">
 				<include>LowList_MovieFlagVars</include>
 				<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>
@@ -1365,14 +1365,14 @@
 		</control>
 		<!-- Wide Music Info Panel Fanart/Slideshow -->
 		<control type="largeimage">
-			<texture>$INFO[Container(551).listitem.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).listitem.property(fanart_image)]</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>!IsEmpty(Container(551).listitem.property(fanart_image))</visible>
 			<include>LowList_WideImageVarsBig</include>
 			<include>Animation_BackgroundFade</include>
 		</control>
 		<control type="largeimage">
-			<texture>$INFO[container.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[container.property(fanart_image)]</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>!IsEmpty(container.property(fanart_image))</visible>
 			<include>LowList_WideImageVarsBig</include>
@@ -1884,18 +1884,9 @@
 		</control>
 		<include>LowList_MpaaLabels</include>
 		<!-- Wide Info Panel Fanart/Slideshow -->
-		<control type="image">
-			<posx>256</posx>
-			<posy>-96</posy>
-			<width>417</width>
-			<height>228</height>
-			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture>common/black.png</texture>
-			<include>LowList_WideImageVars</include>
-		</control>
 		<control type="largeimage">
 			<include>LowList_WideImageVars</include>
-			<texture>$INFO[Container(551).listitem.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).listitem.property(fanart_image)]</texture>
 			<visible>!IsEmpty(Container(551).listitem.property(fanart_image))</visible>
 			<include>Animation_BackgroundFade</include>
 			<visible>!Skin.HasSetting(widepanelthumbon)</visible>
@@ -1903,7 +1894,7 @@
 		</control>
 		<control type="largeimage">
 			<include>LowList_WideImageVars</include>
-			<texture>$INFO[container.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[container.property(fanart_image)]</texture>
 			<visible>!IsEmpty(container.property(fanart_image))</visible>
 			<include>Animation_BackgroundFade</include>
 			<visible>!Skin.HasSetting(widepanelthumbon)</visible>
@@ -1912,7 +1903,7 @@
 		<control type="multiimage">
 			<include>LowList_WideImageVars</include>
 			<timeperimage>6000</timeperimage>
-			<imagepath fallback="common/black.png" background="true">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
+			<imagepath fallback="common/black.png" diffuse="list/list_episodeicon_mask.png" background="true">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
 			<include>Animation_BackgroundFade</include>
 			<visible>Skin.HasSetting(widepanelthumbon)</visible>
 			<visible>!Player.HasVideo</visible>
@@ -2077,7 +2068,7 @@
 			<fadetime>400</fadetime>
 			<aspectratio>scale</aspectratio>
 			<timeperimage>6000</timeperimage>
-			<imagepath fallback="common/black.png" background="true">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
+			<imagepath fallback="common/black.png" background="true" diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
 			<include>Animation_BackgroundFade</include>
@@ -2264,17 +2255,9 @@
 			</control>
 		</control>
 		<!-- Wide TV Info Panel Fanart/Slideshow -->
-		<control type="image">
-			<posx>207</posx>
-			<posy>-131</posy>
-			<width>465</width>
-			<height>263</height>
-			<texture>common/black.png</texture>
-			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<include>LowList_WideImageVarsBig</include>
-		</control>
+
 		<control type="largeimage">
-			<texture>$INFO[Container(551).listitem.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).listitem.property(fanart_image)]</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>!IsEmpty(Container(551).listitem.property(fanart_image))</visible>
 			<visible>!Container.Content(episodes) + !Skin.HasSetting(widetvpanelthumbon)</visible>
@@ -2283,7 +2266,7 @@
 			<include>Animation_BackgroundFade</include>
 		</control>
 		<control type="largeimage">
-			<texture>$INFO[container.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[container.property(fanart_image)]</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>!IsEmpty(container.property(fanart_image))</visible>
 			<visible>!Container.Content(episodes) + !Skin.HasSetting(widetvpanelthumbon)</visible>
@@ -2293,7 +2276,7 @@
 		</control>
 		<control type="multiimage">
 			<timeperimage>6000</timeperimage>
-			<imagepath fallback="common/black.png" background="true">$INFO[ListItem.Icon]</imagepath>
+			<imagepath fallback="common/black.png" background="true" diffuse="list/list_episodeicon_mask.png">$INFO[ListItem.Icon]</imagepath>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>Container.Content(episodes) | Skin.HasSetting(widetvpanelthumbon)</visible>
 			<visible>!Player.HasVideo</visible>
@@ -2524,7 +2507,7 @@
 			<height>196</height>
 			<fadetime>400</fadetime>
 			<aspectratio>scale</aspectratio>
-			<texture>$INFO[Container(551).listitem.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).listitem.property(fanart_image)]</texture>
 			<visible>!IsEmpty(Container(551).listitem.property(fanart_image)) + [Container.Content(artists) | Container.Content(movies)]</visible>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
@@ -2537,21 +2520,11 @@
 			<height>196</height>
 			<fadetime>400</fadetime>
 			<aspectratio>scale</aspectratio>
-			<texture>$INFO[container.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[container.property(fanart_image)]</texture>
 			<visible>!IsEmpty(container.property(fanart_image)) + [Container.Content(albums) | Container.Content(songs)]</visible>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
 			<include>Animation_BackgroundFade</include>
-		</control>
-		<control type="image">
-			<posx>5</posx>
-			<posy>150</posy>
-			<width>360</width>
-			<height>61</height>
-			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture>common/black.png</texture>
-			<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
-			<visible>!Skin.HasSetting(highlist)</visible>
 		</control>
 		<include condition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">LowList_ItemCountLabel</include>
 		<include condition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">ListDetail_Stars</include>
