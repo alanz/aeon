@@ -51,6 +51,7 @@
 		<aligny>center</aligny>
 		<include>common-fade-quick</include>
 	</include>
+
 	<include name="MediaMenuGroup">
 		<posx>0</posx>
 		<posy>60</posy>
@@ -82,14 +83,6 @@
 			<include>MediaMenuButton</include>
 			<onclick>Skin.ToggleSetting(flattenshowcase)</onclick>
 			<visible>Control.IsVisible(57) + !Container.Content(episodes)</visible>
-		</control>
-		<control type="togglebutton" id="700002">
-			<label>31061</label>
-			<altlabel>31060</altlabel>
-			<usealttexture>Skin.HasSetting(flattenflow)</usealttexture>
-			<include>MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(flattenflow)</onclick>
-			<visible>Control.IsVisible(55) + !Container.Content(episodes)</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_Sort"> <!--3-->
@@ -440,17 +433,6 @@
 			<visible>Control.IsVisible(51)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_Flags">
-		<control type="togglebutton" id="700034">
-			<label>$LOCALIZE[31069]: $LOCALIZE[31077]</label>
-			<altlabel>$LOCALIZE[31069]: $LOCALIZE[31078]</altlabel>
-			<usealttexture>Skin.HasSetting(nomediaflags)</usealttexture>
-			<include>MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(nomediaflags)</onclick>
-			<visible>[Control.IsVisible(553) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(50) | Control.IsVisible(550) + Container.Content(movies)] | [Control.IsVisible(552) + Container.Content(episodes)]</visible>
-			<visible>!Skin.HasSetting(nomediaflagsbutton)</visible>
-		</control>
-	</include>
 	<include name="MediaMenuButton_WallGrid">
 		<control type="togglebutton" id="700035">
 			<include>MediaMenuButton</include>
@@ -512,30 +494,20 @@
 			<visible>[Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57)] | [Control.IsVisible(53) + Skin.HasSetting(newwall)]</visible>
 		</control>
 	</include>
-<!--	<include name="MediaMenuButton_MultiplexFlow">
-		<control type="togglebutton" id="700099">
-		<include>MediaMenuButton</include>
-		<label>COVER $LOCALIZE[31060]</label>
-		<altlabel>COVER $LOCALIZE[31061]</altlabel>
-		<usealttexture>Skin.HasSetting(multiplexflow)</usealttexture>
-		<onclick>Skin.ToggleSetting(multiplexflow)</onclick>
-		<visible>Skin.HasSetting(videomovies) + Control.IsVisible(52)</visible>
-		</control>
-	</include>-->
 	<include name="MediaMenuButton_Watched">
 		<control type="togglebutton" id="14">
 			<description>Watched Toggle Button</description>
 			<label>$LOCALIZE[31058]: $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31058]: $LOCALIZE[31077]</altlabel>
 			<include>MediaMenuButton</include>
-			<visible>[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviewatched)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvwatched)]</visible>
+			<visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviewatched)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvwatched)]] + !Window.IsActive(500) + !Window.IsActive(503)</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_Search">
 		<control type="button" id="8">
 			<label>137</label>
 			<include>MediaMenuButton</include>
-			<visible>[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviesearch)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvsearch)]</visible>
+			<visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviesearch)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvsearch)]] + !Window.IsActive(500) + !Window.IsActive(503)</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_Filter">
@@ -588,6 +560,22 @@
 			<visible>Window.IsActive(28) | Window.IsActive(500)</visible>
 		</control>
 	</include>
+	<include name="MediaMenuButton_PlaylistEditor">	
+		<control type="button" id="6">
+			<label>21385</label>
+			<include>MediaMenuButton</include>
+		</control>
+		<control type="button" id="7">
+			<label>190</label>
+			<include>MediaMenuButton</include>
+		</control>
+		<control type="button" id="8">
+			<label>192</label>
+			<include>MediaMenuButton</include>
+		</control>
+	</include>	
+	
+	
 	<include name="MediaMenuButton_Random">
 		<control type="togglebutton" id="9">
 			<label>$LOCALIZE[31051]: $LOCALIZE[31078]</label>
@@ -1180,11 +1168,12 @@
 				<include>MediaMenuButton_Viewmode</include>
 				<include>MediaMenuButton_Sort</include>
 				<include>MediaMenuButton_Random</include>
+				<include>MediaMenuButton_PlaylistEditor</include>
 				<include condition="Window.IsActive(500) | Window.IsActive(28)">MediaMenuButton_Playlist</include>
 				<include>MediaMenuButton_FlattenFlow</include>
 				<include>MediaMenuButton_MultiplexInfo</include>
 				<include>MediaMenuButton_OldMultiplexInfo</include>
-				<include>MediaMenuButton_multiwallInfo</include>
+				<include condition="!Skin.HasSetting(MultiwallOff)">MediaMenuButton_multiwallInfo</include>
 				<include>MediaMenuButton_ShowcaseInfo</include>
 				<include>MediaMenuButton_WallInfo</include>
 				<include>MediaMenuButton_GamesPoster</include>
@@ -1197,8 +1186,7 @@
 				<include>MediaMenuButton_VerticalWall</include>
 				<include>MediaMenuButton_Stripshow</include>
 				<include>MediaMenuButton_Background</include>
-				<include>MediaMenuButton_ClearList</include>
-				<include>MediaMenuButton_Flags</include>
+				<include condition="!Skin.HasSetting(ClearListOff) | !Skin.HasSetting(MusicClearListOff)">MediaMenuButton_ClearList</include>
 				<include>MediaMenuButton_WallGrid</include>
 				<include>MediaMenuButton_WallBackdrop</include>
 				<include>MediaMenuButton_Overlay</include>
