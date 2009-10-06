@@ -239,26 +239,25 @@
 		</control>
 	</include>
 
-	<!-- RSS Feeds
-	<include name="Furniture_WallRSS">
+	<!-- RSS Feeds-->
+	<include name="Furniture_RSS">
 		<control type="group">
 			<posx>-400</posx>
 			<posy>0</posy>
 			<width>1280</width>
 			<height>57</height>
-			<visible>Control.IsVisible(53)</visible>
+			<visible>!Player.HasMedia</visible>
 			<animation effect="slide" start="0,0" end="0,-37" time="200" condition="[Control.IsVisible(53) + !Control.HasFocus(53) + !Control.HasFocus(71)] | [Control.IsVisible(57) + ![Control.HasFocus(57) | Control.HasFocus(71) | Control.HasFocus(85) | Control.HasFocus(60)]]">Conditional</animation>
 			<include>Animation_CommonFade</include>
 			<control type="image">
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>1203</width>
+				<width>1240</width>
 				<height>27</height>
 				<texture>common/rssbar_fs.png</texture>
 				<include>Animation_CommonFade</include>
-				<visible>system.getbool(lookandfeel.enablerssfeeds) | [!system.getbool(lookandfeel.enablerssfeeds) + Player.HasAudio]</visible>
 				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" start="-500,0" end="-500,0" time="0" />
+					<effect type="slide" start="-472,0" end="-472,0" time="0" />
 					<effect type="zoom" start="125" end="125" time="0" />
 				</animation>
 			</control>
@@ -283,7 +282,7 @@
 				<include>Animation_CommonFade</include>
 				<visible>!Player.HasAudio + Skin.HasSetting(bighome)</visible>
 			</control>
-			<control type="label">
+	<!--		<control type="label">
 				<posx>310</posx>
 				<posy>3</posy>
 				<width>1170</width>
@@ -305,23 +304,9 @@
 				<label>$LOCALIZE[31041] $INFO[MusicPlayer.Artist] ($INFO[Player.Time] / $INFO[Player.Duration])</label>
 				<include>Colour_RSSLight</include>
 				<include>Animation_WindowRSS</include>
-			</control>
-			<control type="image">
-				<posx>1102</posx>
-				<posy>0</posy>
-				<width>133</width>
-				<height>27</height>
-				<texture flipx="true">common/rssbar_mid_fs.png</texture>
-				<colordiffuse>e3FFFFFF</colordiffuse>
-				<include>Animation_CommonFade</include>
-				<visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
-				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" start="-500,0" end="-500,0" time="0" />
-					<effect type="zoom" start="125" end="125" time="0" />
-				</animation>
-			</control>
+			</control>-->
 		</control>
-	</include>-->
+	</include>
 
 	<!-- Media windows -->
 	<include name="ShowcaseFloorNight">
