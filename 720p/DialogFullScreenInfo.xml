@@ -1,16 +1,14 @@
 <!-- Copied from DialogSeekBar.xml -->
 <window id="142">
 	<defaultcontrol>23</defaultcontrol>
-	<!--<visible>!Window.IsActive(115)+Player.HasMedia</visible>-->
-	<controls>
-	
+	<controls>	
 	<control type="group">
 		<posx>0</posx>
 		<posy>620</posy>
 		<width>1280</width>
 		<height>159</height>
 		<include>Animation_CommonFade</include>
-		<!--<visible>!Window.IsActive(2901)</visible> <!-- Added for mod to disappear when menu is active -->
+		<visible>!Window.IsActive(2901)</visible> <!-- Added for mod to disappear when menu is active -->
 		<control type="image">
 			<description>Panel</description>
 			<posx>0</posx>
@@ -101,6 +99,18 @@
 				<label>[COLOR cdc1c2c3]$INFO[VideoPlayer.Tagline][/COLOR]</label>
 				<visible>VideoPlayer.Content(movies)</visible>
 			</control>
+			<!-- stoli - added star rating to floor -->
+			  <control type="image">
+				<description>IMDB Rating</description>
+				<posx>575</posx>
+				<posy>58</posy>
+				<width>130</width>
+				<height>25</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<info>Player.StarRating</info>
+				<visible>VideoPlayer.Content(movies)</visible>
+			   </control>
 		</control>
 					<!-- End of adds title, year and cover art -->
 		<control type="progress" id="23">
