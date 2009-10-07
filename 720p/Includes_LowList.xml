@@ -79,7 +79,7 @@
 	<posy>0</posy>
 	<width>310</width>
 	<height>405</height>
-	<visible>Window.IsActive(25) + [!Container.Content(episodes) | [Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]]</visible>
+	<visible>Window.IsActive(videolibrary) + [!Container.Content(episodes) | [Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]]</visible>
 </include>
 <include name="LowList_DVDCaseReflect">
 	<posy>380</posy>
@@ -304,7 +304,7 @@
 	<control type="group">
 		<include>ListIcon_SquareIconGroup(0)</include>
 		<animation effect="slide" start="0,0" end="0,-50" time="200" condition="[[Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] | ControlGroup(55103).HasFocus()] + !Player.HasAudio">Conditional</animation>
-		<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
+		<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)</visible>
 		<control type="image">
 			<description>CD Case Frame</description>
 			<include>LowList_CDCaseVars</include>
@@ -782,7 +782,7 @@
 			<effect type="slide" start="0,0" end="10,-32" time="0" />
 			<effect type="zoom" end="50,100" time="0" />
 		</animation>
-		<animation type="Conditional" condition="[Container.Content(episodes) | Window.IsActive(502)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]">
+		<animation type="Conditional" condition="[Container.Content(episodes) | Window.IsActive(musiclibrary)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]">
 			<effect type="slide" start="0,0" end="10,-32" time="0" />
 			<effect type="zoom" end="170,100" time="0" />
 		</animation>
@@ -820,7 +820,7 @@
 		<control type="image">
 			<include>LowList_Detail_Separator</include>
 			<posy>58</posy>
-			<visible>![Container.Content(episodes) | Window.IsActive(502)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+			<visible>![Container.Content(episodes) | Window.IsActive(musiclibrary)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		</control>
 		<control type="image">
 			<include>LowList_Detail_Separator</include>
@@ -830,7 +830,7 @@
 		<control type="image">
 			<include>LowList_Detail_Separator</include>
 			<posy>117</posy>
-			<visible>![Container.Content(episodes) | Window.IsActive(502)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+			<visible>![Container.Content(episodes) | Window.IsActive(musiclibrary)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		</control>
 		<!-- Low list separators -->
 		<control type="image">
@@ -865,7 +865,7 @@
 	<height>59</height>
 	<aspectratio>keep</aspectratio>
 	<fadetime>300</fadetime>
-	<visible>Control.IsVisible(551) + Window.IsActive(25)</visible>
+	<visible>Control.IsVisible(551) + Window.IsActive(videolibrary)</visible>
 </include>
 <include name="LowList_MediaFlags">
 	<control type="group">
@@ -1151,7 +1151,7 @@
 	<height>260</height>
 	<fadetime>400</fadetime>
 	<aspectratio>scale</aspectratio>
-	<animation effect="slide" start="0,0" end="240,0" time="0" condition="Container.Content(episodes) | Window.IsActive(502)">Conditional</animation>
+	<animation effect="slide" start="0,0" end="240,0" time="0" condition="Container.Content(episodes) | Window.IsActive(musiclibrary)">Conditional</animation>
 	<!--<animation effect="zoom" end="257,-95,414,225" time="0" condition="Container.Content(episodes)">Conditional</animation>--></include>
 <include name="LowList_SettingsButtonVars">
 	<posx>10</posx>
@@ -1244,7 +1244,7 @@
 		<width>940</width>
 		<include>Animation_FadeInSlideOut</include>
 		<include>LowList_DetailPanelVars</include>
-		<visible>Control.IsVisible(551) + Window.IsActive(502) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+		<visible>Control.IsVisible(551) + Window.IsActive(musiclibrary) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		<!-- Tagline bar 	<control type="label"><posx>30</posx><posy>-150</posy><height>41</height><width>870</width><textcolor>d0ffffff</textcolor><align>center</align><aligny>center</aligny><font>Font_SettingsMainLabelBig</font><label fallback="...">$INFO[ListItem.TVShowTitle]: $LOCALIZE[20373] $INFO[ListItem.Season]</label><visible>Container.Content(episodes)</visible></control>--><!-- Info Labels -->
 		<control type="group">
 			<posx>0</posx>
@@ -1451,7 +1451,7 @@
 		<description>MUSIC DESCRIPTION detail panel</description>
 		<include>LowList_DetailPanelVars</include>
 		<visible>Control.IsVisible(551) + [Control.HasFocus(7701) | [![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(musicdescpanelon) + !ControlGroup(55103).HasFocus()]]]</visible>
-		<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
+		<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)</visible>
 		<control type="textbox">
 			<description>BIOGROPHY: (Short)</description>
 			<include>LowList_ShortTextBox</include>
@@ -1526,7 +1526,7 @@
 		<description>MUSIC INFO detail panel</description>
 		<include>LowList_DetailPanelVars</include>
 		<visible>Control.IsVisible(551) + [Control.HasFocus(7702) | [![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(musicinfopaneloff) + !ControlGroup(55103).HasFocus()]]</visible>
-		<visible>Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
+		<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)</visible>
 		<!-- Song page -->
 		<control type="group">
 			<posx>0</posx>
@@ -2023,21 +2023,21 @@
 			<description>DIRECTED BY: info label</description>
 			<include>LowList_DetailInfoLabelPos1</include>
 			<label>$LOCALIZE[31402]: [COLOR d0ffffff]$INFO[ListItem.director][/COLOR]</label>
-			<visible>Window.IsActive(25)</visible>
+			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HighListSlide</include>
 		</control>
 		<control type="label">
 			<description>GENRE: info label</description>
 			<include>LowList_DetailInfoLabelPos2</include>
 			<label>$LOCALIZE[515]: [COLOR d0ffffff]$INFO[ListItem.genre][/COLOR]</label>
-			<visible>Window.IsActive(25)</visible>
+			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HighListSlide</include>
 		</control>
 		<control type="label">
 			<description>MPAA: info label</description>
 			<include>LowList_DetailInfoLabelPos3</include>
 			<label>$LOCALIZE[20074]: [COLOR d0ffffff]$INFO[ListItem.mpaa][/COLOR]</label>
-			<visible>Window.IsActive(25)</visible>
+			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HighListSlide</include>
 		</control>
 		<control type="textbox">
@@ -2050,7 +2050,7 @@
 			<description>RUNTIME: info label</description>
 			<include>LowList_DetailInfoLabelPos4L</include>
 			<label>$LOCALIZE[2050]: [COLOR d0ffffff]$INFO[ListItem.duration][/COLOR]</label>
-			<visible>Window.IsActive(25)</visible>
+			<visible>Window.IsActive(videolibrary)</visible>
 		</control>
 		<include>LowList_VideoAspectLabel4R</include>
 	</control>
@@ -2094,7 +2094,7 @@
 		<width>940</width>
 		<include>Animation_FadeInSlideOut</include>
 		<include>LowList_DetailPanelVars</include>
-		<visible>Control.IsVisible(551) + Window.IsActive(25) + Skin.HasSetting(videotv) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+		<visible>Control.IsVisible(551) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		<!-- Tagline bar 	<control type="label"><posx>30</posx><posy>-150</posy><height>41</height><width>870</width><textcolor>d0ffffff</textcolor><align>center</align><aligny>center</aligny><font>Font_SettingsMainLabelBig</font><label fallback="...">$INFO[ListItem.TVShowTitle]: $LOCALIZE[20373] $INFO[ListItem.Season]</label><visible>Container.Content(episodes)</visible></control>--><!-- Info Labels -->
 		<control type="group">
 			<posx>0</posx>
@@ -2356,7 +2356,7 @@
 	<!-- TV description detail panel-->
 	<control type="group" id="7831">
 		<description>TV DESCRIPTION detail panel</description>
-		<visible>Control.IsVisible(551) + [Window.IsActive(25) + Skin.HasSetting(videotv)] + !Skin.HasSetting(tvdescpaneloff) + !Control.IsVisible(7898)</visible>
+		<visible>Control.IsVisible(551) + [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + !Skin.HasSetting(tvdescpaneloff) + !Control.IsVisible(7898)</visible>
 		<include>LowList_DetailPanelVars</include>
 		<include>Animation_HideList</include>
 		<control type="textbox">
@@ -2446,7 +2446,7 @@
 	<control type="group" id="7850">
 		<description>FANART detail panel</description>
 		<include>LowList_DetailPanelVars</include>
-		<visible>Control.IsVisible(551) + [[Control.HasFocus(7713) | [Container.Content(movies) + ![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(moviefanartpanelon) + !ControlGroup(55103).HasFocus()]] | [Control.HasFocus(7703) | [![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(musicfanartpanelon) + !Control.IsVisible(7898) + [Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]]]]</visible>
+		<visible>Control.IsVisible(551) + [[Control.HasFocus(7713) | [Container.Content(movies) + ![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(moviefanartpanelon) + !ControlGroup(55103).HasFocus()]] | [Control.HasFocus(7703) | [![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(musicfanartpanelon) + !Control.IsVisible(7898) + [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]]]]</visible>
 		<!-- Music Labels -->
 		<control type="group">
 			<posx>0</posx>
@@ -2525,9 +2525,9 @@
 			<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
 			<include>Animation_BackgroundFade</include>
 		</control>
-		<include condition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">LowList_ItemCountLabel</include>
-		<include condition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">ListDetail_Stars</include>
-		<include condition="Window.IsActive(25)">LowList_TaglineLabel</include>
+		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">LowList_ItemCountLabel</include>
+		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">ListDetail_Stars</include>
+		<include condition="Window.IsActive(videolibrary)">LowList_TaglineLabel</include>
 	</control>
 	<include>LowList_MediaFlags</include>
 	<!-- Settings detail panel -->
@@ -2595,7 +2595,7 @@
 				<onfocus>Skin.Reset(movieplotpaneloff)</onfocus>
 				<onfocus>Skin.Reset(moviegallerypanelon)</onfocus>
 				<selected>!Skin.HasSetting(movieplotpaneloff)</selected>
-				<visible>Window.IsActive(25) + !Skin.HasSetting(videotv)</visible>
+				<visible>Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
 			</control>
 			<control type="togglebutton" id="789812">
 				<width>90</width>
@@ -2608,7 +2608,7 @@
 				<onfocus>Skin.Reset(moviegallerypanelon)</onfocus>
 				<onfocus>Skin.SetBool(movieinfopanelon)</onfocus>
 				<selected>Skin.HasSetting(movieinfopanelon)</selected>
-				<visible>Window.IsActive(25) + !Skin.HasSetting(videotv)</visible>
+				<visible>Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
 			</control>
 			<control type="togglebutton" id="789813">
 				<width>90</width>
@@ -2621,7 +2621,7 @@
 				<onfocus>Skin.Reset(movieinfopanelon)</onfocus>
 				<onfocus>Skin.SetBool(moviefanartpanelon)</onfocus>
 				<selected>Skin.HasSetting(moviefanartpanelon)</selected>
-				<visible>Window.IsActive(25) + !Skin.HasSetting(videotv)</visible>
+				<visible>Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
 			</control>
 			<control type="togglebutton" id="789814">
 				<width>90</width>
@@ -2634,7 +2634,7 @@
 				<onfocus>Skin.Reset(movieinfopanelon)</onfocus>
 				<onfocus>Skin.SetBool(moviegallerypanelon)</onfocus>
 				<selected>Skin.HasSetting(moviegallerypanelon)</selected>
-				<visible>Window.IsActive(25) + !Skin.HasSetting(videotv)</visible>
+				<visible>Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
 			</control>
 		</control>
 		<!-- Vertical menu 	<control type="grouplist" id="78982"><posx>0</posx><posy>46</posy><width>350</width><height>154</height><orientation>vertical</orientation><onleft>50</onleft><ondown>78982</ondown><onright>7003</onright><onup>78981</onup><control type="radiobutton" id="7898201"><include>LowList_SettingsRadioButtonVars</include><label>USE THUMBS FOR WIDE INFO</label><onclick>Skin.ToggleSetting(widepanelthumbon)</onclick><selected>Skin.HasSetting(widepanelthumbon)</selected><visible>Container.Content(movies)</visible></control><control type="radiobutton" id="7898203"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[557] $LOCALIZE[535] $LOCALIZE[31072]</label><onclick>Skin.ToggleSetting(artistlistfull)</onclick><selected>Skin.HasSetting(artistlistfull)</selected><visible>Container.Content(artists)</visible></control><control type="radiobutton" id="7898204"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[558] $LOCALIZE[535] $LOCALIZE[31072]</label><onclick>Skin.ToggleSetting(albumlistfull)</onclick><selected>Skin.HasSetting(albumlistfull)</selected><visible>Container.Content(albums)</visible></control><control type="radiobutton" id="7898205"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[179] $LOCALIZE[535] $LOCALIZE[31072]</label><onclick>Skin.ToggleSetting(songlistfull)</onclick><selected>Skin.HasSetting(songlistfull)</selected><visible>Container.Content(songs)</visible></control><control type="radiobutton" id="7898206"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[20338] $LOCALIZE[535] $LOCALIZE[31072]</label>						<onclick>Skin.ToggleSetting(movieslistfull)</onclick><selected>Skin.HasSetting(movieslistfull)</selected><visible>Container.Content(movies)</visible></control><control type="radiobutton" id="7898208"><include>LowList_SettingsRadioButtonVars</include><label>SINGLE $LOCALIZE[31045] FOR $LOCALIZE[133]</label><include>fast-fade</include><onclick>Skin.ToggleSetting(artistrolleroff)</onclick><selected>Skin.HasSetting(artistrolleroff)</selected><visible>Container.Content(artists)</visible></control><control type="radiobutton" id="7898209"><include>LowList_SettingsRadioButtonVars</include><label>SINGLE $LOCALIZE[31045] FOR $LOCALIZE[132]</label><onclick>Skin.ToggleSetting(albumrolleroff)</onclick><selected>Skin.HasSetting(albumrolleroff)</selected><visible>Container.Content(albums)</visible></control><control type="radiobutton" id="7898210"><include>LowList_SettingsRadioButtonVars</include><label>SINGLE $LOCALIZE[31045] FOR $LOCALIZE[134]</label><onclick>Skin.ToggleSetting(songrolleroff)</onclick><selected>Skin.HasSetting(songrolleroff)</selected><visible>Container.Content(songs)</visible></control><control type="radiobutton" id="7898211"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[393] $LOCALIZE[535] $LOCALIZE[31077]/$LOCALIZE[31078]</label><onclick>Skin.ToggleSetting(highlist)</onclick><selected>Skin.HasSetting(highlist)</selected></control><control type="radiobutton" id="7898212"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[557] $LOCALIZE[536] $LOCALIZE[1405] $LOCALIZE[535]</label><onclick>Skin.ToggleSetting(hidelistartisticons)</onclick><selected>!Skin.HasSetting(hidelistartisticons)</selected><visible>Container.Content(artists)</visible></control><control type="radiobutton" id="7898213"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[558] $LOCALIZE[536] $LOCALIZE[1405] $LOCALIZE[535]</label><onclick>Skin.ToggleSetting(hidelistalbumicons)</onclick><selected>!Skin.HasSetting(hidelistalbumicons)</selected><visible>Container.Content(albums)</visible></control><control type="radiobutton" id="7898214"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[179] $LOCALIZE[536] $LOCALIZE[1405] $LOCALIZE[535]</label><onclick>Skin.ToggleSetting(hidelistsongicons)</onclick><selected>!Skin.HasSetting(hidelistsongicons)</selected><visible>Container.Content(songs)</visible></control><control type="radiobutton" id="7898215"><include>LowList_SettingsRadioButtonVars</include><label>USE POSTERS FOR TV SHOWS</label><onclick>Skin.ToggleSetting(tvshowposterthumbs)</onclick><selected>Skin.HasSetting(tvshowposterthumbs)</selected><visible>Container.Content(tvshows)</visible></control><control type="radiobutton" id="7898216"><include>LowList_SettingsRadioButtonVars</include><label>USE POSTER.JPG</label><onclick>Skin.ToggleSetting(useposter.jpg)</onclick><selected>Skin.HasSetting(useposter.jpg)</selected><visible>Container.Content(tvshows) + Skin.HasSetting(tvshowposterthumbs)</visible></control><control type="radiobutton" id="7898217"><include>LowList_SettingsRadioButtonVars</include><label>USE POSTERS FOR SEASONS</label><onclick>Skin.ToggleSetting(seasonposterthumbs)</onclick><selected>Skin.HasSetting(seasonposterthumbs)</selected><visible>Container.Content(seasons)</visible></control><control type="radiobutton" id="7898250"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[31079] MENU BAR</label><onclick>Skin.ToggleSetting(detailmenuishidden)</onclick><onclick>Skin.Reset(lowlistrsson)</onclick><selected>Skin.HasSetting(detailmenuishidden)</selected></control><control type="radiobutton" id="7898251"><include>LowList_SettingsRadioButtonVars</include><label>$LOCALIZE[13305]</label><onclick>Skin.ToggleSetting(lowlistrsson)</onclick><onclick>Skin.Reset(detailmenuishidden)</onclick><selected>Skin.HasSetting(lowlistrsson)</selected></control></control>--></control>

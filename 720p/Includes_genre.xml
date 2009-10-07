@@ -8,7 +8,7 @@
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<visible>!Control.HasFocus(85) + Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
-		<visible>Window.IsActive(25)</visible>
+		<visible>Window.IsActive(videolibrary)</visible>
 	</include>
 	<include name="music_genre_Showcase_image_mod">
 		<posx>18</posx>
@@ -18,7 +18,7 @@
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<visible>!Control.HasFocus(85) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
-		<visible>Window.IsActive(502)</visible>
+		<visible>Window.IsActive(musiclibrary)</visible>
 	</include>
 	<include name="genre_Showcase_1">
 		<control type="image">
@@ -214,7 +214,7 @@
 	<colordiffuse>d0FFFFFF</colordiffuse>
 	<aspectratio scalediffuse="false">scale</aspectratio>
 	<visible>Container.Content(genres) + !Skin.HasSetting(moviegenre_onoff)</visible>
-	<visible>Window.IsActive(25)</visible>
+	<visible>Window.IsActive(videolibrary)</visible>
 </include>
 <include name="music_genre_Showcase_image_ref_mod">
 	<posx>18</posx>
@@ -223,7 +223,7 @@
 	<height>234</height>
 	<colordiffuse>d0FFFFFF</colordiffuse>
 	<visible>Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
-	<visible>Window.IsActive(502)</visible>
+	<visible>Window.IsActive(musiclibrary)</visible>
 </include>
 <include name="genre_Showcase_ref_1">
 	<control type="image">
@@ -417,7 +417,7 @@
 </include>
 <include name="mod_musicgenre_wall_1">
 	<control type="image">
-		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible> Window.IsActive(musiclibrary) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<include>WallIconDimensionsSmall</include>
 		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
@@ -426,7 +426,7 @@
 </include>
 <include name="mod_musicgenre_wall_2">
 	<control type="image">
-		<visible> Window.IsActive(502) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible> Window.IsActive(musiclibrary) + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<include>WallIconDimensions</include>
 		<texture diffuse="wall/wall_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
@@ -437,7 +437,7 @@
 <!-- List -->
 <include name="mod_moviegenre_list1">
 	<control type="image"> <!--genre-->
-		<visible>Container.Content(genres) + !Window.IsActive(502) + !Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<width>346</width>
 		<height>511</height>
 		<fadetime>400</fadetime>
@@ -446,7 +446,7 @@
 		<bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
 	</control>
 	<control type="image">  <!--black background-->
-		<visible>[Container.Content(studios) | Container.Content(years)] + !Window.IsActive(502)</visible>
+		<visible>[Container.Content(studios) | Container.Content(years)] + !Window.IsActive(musiclibrary)</visible>
 		<width>346</width>
 		<height>511</height>
 		<fadetime>400</fadetime>
@@ -455,7 +455,7 @@
 		<bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
 	</control>
 	<control type="image"> <!--studio-->
-		<visible>Container.Content(studios) + !Window.IsActive(502)</visible>
+		<visible>Container.Content(studios) + !Window.IsActive(musiclibrary)</visible>
 		<posy>170</posy>
 		<posx>72</posx>
 		<width>210</width>
@@ -466,7 +466,7 @@
 	<control type="image"> <!--year-->
 		<posy>40</posy>
 		<posx>92</posx>
-		<visible>Container.Content(years) + !Window.IsActive(502) + !Skin.HasSetting(yeariconsoff)</visible>
+		<visible>Container.Content(years) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(yeariconsoff)</visible>
 		<width>185</width>
 		<height>450</height>
 		<fadetime>400</fadetime>
@@ -476,7 +476,7 @@
 </include>
 <include name="mod_moviegenre_list2">
 	<control type="image">
-		<visible>Container.Content(genres) + !Window.IsActive(502) + !Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<posy>513</posy>
 		<width>346</width>
 		<height>511</height>
@@ -484,7 +484,7 @@
 		<texture  flipy="true" diffuse="list/list_movieicon_flipmask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem(0).Label].bmp</texture>
 	</control>
 	<control type="image">
-		<visible>Container.Content(studios) + !Window.IsActive(502)</visible>
+		<visible>Container.Content(studios) + !Window.IsActive(musiclibrary)</visible>
 		<posy>513</posy>
 		<width>346</width>
 		<height>511</height>
@@ -523,7 +523,7 @@
 <!-- List -->
 <include name="mod_musicgenre_list1">
 	<control type="image">
-		<visible>[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<!-- <<<<<< Add this -->
 		<posy>165</posy>
 		<width>346</width>
@@ -536,7 +536,7 @@
 </include>
 <include name="mod_musicgenre_list2">
 	<control type="image">
-		<visible>[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(genres) + !Skin.HasSetting(musicgenre_onoff)</visible>
 		<!-- <<<<<< Add this -->
 		<posy>513</posy>
 		<width>346</width>
@@ -550,7 +550,7 @@
 <!-- LowList -->
 <include name="mod_moviegenre_lowlist1">
 	<control type="image">
-		<visible>Container.Content(genres) + !Window.IsActive(502) + !Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<width>346</width>
 		<height>311</height>
 		<fadetime>400</fadetime>
@@ -558,7 +558,7 @@
 		<texture fallback="moviegenre/default.png">moviegenre/$INFO[ListItem(0).Label].png</texture>						
 	</control>
 	<control type="image">
-		<visible>Container.Content(years) + !Window.IsActive(502) + !Skin.HasSetting(yeariconsoff)</visible>
+		<visible>Container.Content(years) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(yeariconsoff)</visible>
 		<width>346</width>
 		<height>311</height>
 		<fadetime>400</fadetime>
@@ -568,7 +568,7 @@
 </include>
 <include name="mod_moviegenre_lowlist2">
 	<control type="image">
-		<visible>Container.Content(genres) + !Window.IsActive(502) + !Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>Container.Content(genres) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(moviegenre_onoff)</visible>
 		<posy>513</posy>
 		<width>346</width>
 		<height>511</height>
@@ -576,7 +576,7 @@
 		<texture  flipy="true" diffuse="list/list_movieicon_flipmask.png" fallback="moviegenre/default.png">moviegenre/$INFO[ListItem(0).Label].png</texture>
 	</control>
 	<control type="image">
-		<visible>Container.Content(years) + !Window.IsActive(502) + !Skin.HasSetting(yeariconsoff)</visible>
+		<visible>Container.Content(years) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(yeariconsoff)</visible>
 		<posy>513</posy>
 		<width>346</width>
 		<height>511</height>

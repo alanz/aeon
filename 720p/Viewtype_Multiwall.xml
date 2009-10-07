@@ -4,19 +4,19 @@
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture>multiwall/multiwall_background.png</texture>
-			<visible>Control.IsVisible(556) + Window.IsActive(25) + !Skin.HasSetting(videotv)</visible>
+			<visible>Control.IsVisible(556) + Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
 			<include>Animation_WindowFade200</include>
 		</control>
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture>multiwall/multiwall_background_tvshows.png</texture>
-			<visible>Control.IsVisible(556) + Window.IsActive(25) + Skin.HasSetting(videotv)</visible>
+			<visible>Control.IsVisible(556) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 			<include>Animation_WindowFade200</include>
 		</control>
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture>multiwall/multiwall_background_music.png</texture>
-			<visible>Window.IsActive(20) | Window.IsActive(2) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)</visible>
+			<visible>Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)</visible>
 			<include>Animation_WindowFade200</include>
 		</control>
 	</include>	
@@ -75,7 +75,7 @@
             <onright>556</onright>
             <onup>7000</onup>
             <ondown>556</ondown>
-			<visible>Window.IsActive(25) | [!Container.Content(songs) + [Container.Content(albums) | Container.Content(artists)]]</visible>
+			<visible>Window.IsActive(videolibrary) | [!Container.Content(songs) + [Container.Content(albums) | Container.Content(artists)]]</visible>
 			<animation effect="fade" reversible="false" type="fade" start="100" end="0" delay="900">Hidden</animation>
 			<animation effect="fade" reversible="false" type="fade" start="0" end="100">Visible</animation>
         </control>
@@ -90,7 +90,7 @@
 			<ondown>556</ondown>
 			<onleft>-</onleft>
 			<onright>-</onright>
-			<visible>[Window.IsActive(25) + Skin.HasSetting(videomovies) + ![Skin.HasSetting(multiwallinfooff) | Skin.HasSetting(multiwallinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [Window.IsActive(25) + Skin.HasSetting(videotv) + ![Skin.HasSetting(multiwalltvinfooff) | Skin.HasSetting(multiwalltvinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + [[[Container.Content(artists) | Container.Content(albums)] + [!Container(556).OnNext + !Container(556).OnPrevious]] | Container.Content(songs)] + ![Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()]]</visible>
+			<visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + ![Skin.HasSetting(multiwallinfooff) | Skin.HasSetting(multiwallinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + ![Skin.HasSetting(multiwalltvinfooff) | Skin.HasSetting(multiwalltvinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[[Container.Content(artists) | Container.Content(albums)] + [!Container(556).OnNext + !Container(556).OnPrevious]] | Container.Content(songs)] + ![Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()]]</visible>
 			<animation effect="fade" reversible="false" type="fade" start="0" end="100" delay="3000">Visible</animation>
 		</control>
 	</include>
@@ -112,7 +112,7 @@
 			<ondown>PlayMedia($INFO[ListItem.Trailer],1)</ondown>
 			<focusposition>5</focusposition>
 			<orientation>horizontal</orientation>
-			<visible>Window.IsActive(25)</visible>
+			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HideMultiplex</include>
 			<preloaditems>2</preloaditems>
 			<itemlayout width="101" height="146">
@@ -164,7 +164,7 @@
 			<ondown>-</ondown>
 			<focusposition>3</focusposition>
 			<orientation>horizontal</orientation>
-			<visible>Window.IsActive(25)</visible>
+			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HideMultiplex</include>
 			<preloaditems>2</preloaditems>
 			<itemlayout width="159" height="93">
@@ -260,7 +260,7 @@
 				<ondown>-</ondown>
 				<focusposition>5</focusposition>
 				<orientation>horizontal</orientation>
-				<visible>!Container.Content(songs) + [Window.IsActive(501) | Window.IsActive(502)]</visible>
+				<visible>!Container.Content(songs) + [Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
 				<include>Animation_HideMultiplex</include>
 				<preloaditems>2</preloaditems>
 				<itemlayout width="102" height="104">
@@ -276,7 +276,7 @@
 			<control type="group">
 				
 				<include>MusicMultiWallVars</include>
-				<visible>Window.IsActive(500) | [Container.Content(songs) + Window.IsActive(502)]</visible>
+				<visible>Window.IsActive(musicplaylist) | [Container.Content(songs) + Window.IsActive(musiclibrary)]</visible>
 				<include>Animation_HideMultiplex</include>
 				
 				<control type="group">
@@ -377,7 +377,7 @@
 				
 				<include>MultiWallShowHideAnimationSongList</include>
 				<include>MultiWallInfoFlipAnimationSongList</include>
-				<visible>Window.IsActive(500) | [[Container.Content(songs) | Container.Content(albums)] + Window.IsActive(502)]</visible>
+				<visible>Window.IsActive(musicplaylist) | [[Container.Content(songs) | Container.Content(albums)] + Window.IsActive(musiclibrary)]</visible>
 				<include>Animation_HideMultiplex</include>
 				
 				<control type="image">
@@ -413,7 +413,7 @@
 					<onright>7000</onright>
 					<pagecontrol>71</pagecontrol>
 					<scrolltime>0</scrolltime>
-					<visible>Window.IsActive(500) | [Container.Content(songs) + Window.IsActive(502)]</visible>
+					<visible>Window.IsActive(musicplaylist) | [Container.Content(songs) + Window.IsActive(musiclibrary)]</visible>
 					<itemlayout height="40">
 						<control type="image">
 							<height>1</height>
@@ -529,7 +529,7 @@
 			<width>19</width>
 			<height>146</height>
 			<texture>multiwall/multiwall_arrow.png</texture>
-			<visible>Control.IsVisible(556) + Skin.HasSetting(videomovies) + ![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]</visible>
+			<visible>Control.IsVisible(556) + Skin.HasSetting(videomovies) + ![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
 			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>			
 		</control>
 		
@@ -539,7 +539,7 @@
 			<width>19</width>
 			<height>146</height>
 			<texture flipx="true">multiwall/multiwall_arrow.png</texture>
-			<visible>Control.IsVisible(556) + Skin.HasSetting(videomovies) + ![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]</visible>
+			<visible>Control.IsVisible(556) + Skin.HasSetting(videomovies) + ![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
 			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>			
 		</control>
 		
@@ -549,9 +549,9 @@
 			<width>19</width>
 			<height>146</height>
 			<texture>multiwall/multiwall_arrow_tvshows.png</texture>
-			<visible>Control.IsVisible(556) + [Skin.HasSetting(videotv) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]</visible>
+			<visible>Control.IsVisible(556) + [Skin.HasSetting(videotv) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
 			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>			
-			<animation effect="slide" start="-5,-7" end="-5,-7" time="0" condition="Window.IsActive(20) | Window.IsActive(2) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>				
+			<animation effect="slide" start="-5,-7" end="-5,-7" time="0" condition="Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>				
 		</control>
 		
 		<control type="image">
@@ -560,20 +560,20 @@
 			<width>19</width>
 			<height>146</height>
 			<texture flipx="true">multiwall/multiwall_arrow_tvshows.png</texture>
-			<visible>Control.IsVisible(556) + [Skin.HasSetting(videotv) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]</visible>
+			<visible>Control.IsVisible(556) + [Skin.HasSetting(videotv) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
 			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="slide" start="5,-7" end="5,-7" time="0" condition="Window.IsActive(20) | Window.IsActive(2) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">Conditional</animation>				
+			<animation effect="slide" start="5,-7" end="5,-7" time="0" condition="Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>				
 		</control>
 		
-		<include condition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">MusicMultiwall</include>
-		<include condition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)">MusicMultiwall2</include>
-		<include condition="!Skin.HasSetting(videotv) + [Window.IsActive(28) | Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)]">MovieMultiwall</include>
-		<include condition="Skin.HasSetting(videotv) + [Window.IsActive(28) | Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)]">TVMultiwall</include>
+		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicMultiwall</include>
+		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicMultiwall2</include>
+		<include condition="!Skin.HasSetting(videotv) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">MovieMultiwall</include>
+		<include condition="Skin.HasSetting(videotv) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">TVMultiwall</include>
 		<include>Furniture_MultiWallMediaFlags</include>
 		<control type="group">
 			<posx>1190</posx>
 			<posy>679</posy>
-			<visible>Window.IsActive(25) + Control.IsVisible(556) + Skin.HasSetting(videomovies)</visible>
+			<visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + Skin.HasSetting(videomovies)</visible>
 			<control type="label">
 				<posy>0</posy>
 				<align>right</align>
@@ -589,7 +589,7 @@
 				<label>$INFO[ListItem.Label2]</label>
 				<include>Colour_DarkGrey</include>
 				<include>MultiWallLabelVars</include>
-				<visible>![Window.IsActive(2) | Window.IsActive(24) | Window.IsActive(25)]</visible>				
+				<visible>![Window.IsActive(pictures) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]</visible>				
 			</control>
 			
 			<control type="label" id="72">
@@ -598,7 +598,7 @@
 				<label>$INFO[ListItem.Year]</label>
 				<include>Colour_DarkGrey</include>
 				<include>MultiWallLabelVars</include>
-				<visible>Window.IsActive(24) | Window.IsActive(25)</visible>				
+				<visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>				
 			</control>		
 			
 		</control>
@@ -606,7 +606,7 @@
 		<control type="group">
 			<posx>1193</posx>
 			<posy>669</posy>
-			<visible>Window.IsActive(25) + Control.IsVisible(556) + Skin.HasSetting(videotv)</visible>
+			<visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + Skin.HasSetting(videotv)</visible>
 			<control type="label">
 				<posy>0</posy>
 				<align>right</align>
@@ -665,7 +665,7 @@
 		<control type="group">
 			<posx>1200</posx>
 			<posy>679</posy>
-			<visible>Control.IsVisible(556) + [Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]+ ![Container.Content(genres) | Container.Content(songs)]</visible>
+			<visible>Control.IsVisible(556) + [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]+ ![Container.Content(genres) | Container.Content(songs)]</visible>
 			<control type="label">
 				<posy>0</posy>
 				<align>right</align>
@@ -692,7 +692,7 @@
 				<label>$INFO[ListItem.Label2]</label>
 				<include>Colour_DarkGrey</include>
 				<include>MultiWallLabelVars</include>
-				<visible>![Window.IsActive(2) | Window.IsActive(24) | Window.IsActive(25)] + !Container.Content(songs)</visible>				
+				<visible>![Window.IsActive(pictures) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(songs)</visible>				
 			</control>
 			
 			<control type="label">
@@ -731,7 +731,7 @@
 				<label>$INFO[Container(556).NumItems] $LOCALIZE[31936]</label>
 				<include>Colour_Grey</include>
 				<include>MultiWallLabelVars</include>
-				<visible>Container.Content(songs) | Window.IsActive(500)</visible>	
+				<visible>Container.Content(songs) | Window.IsActive(musicplaylist)</visible>	
 			</control>
 			
 			<control type="label">
@@ -741,7 +741,7 @@
 				<label>$INFO[Container(556).NumItems] $LOCALIZE[31935]</label>
 				<include>Colour_Grey</include>
 				<include>MultiWallLabelVars</include>
-				<visible>!Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Window.IsActive(500)</visible>	
+				<visible>!Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Window.IsActive(musicplaylist)</visible>	
 			</control>
 		</control>
 		
@@ -754,14 +754,14 @@
 			<align>center</align>
 			<aligny>center</aligny>
 			<textcolor>98FFFFFF</textcolor>
-			<include condition="Window.IsActive(25)">EmptyLibraryLabelMovies</include>
-			<include condition="Window.IsActive(502)">EmptyLibraryLabelMusic</include>
+			<include condition="Window.IsActive(videolibrary)">EmptyLibraryLabelMovies</include>
+			<include condition="Window.IsActive(musiclibrary)">EmptyLibraryLabelMusic</include>
 			<include>Animation_CommonFade</include>
-			<visible>[Window.IsActive(25) | Window.IsActive(502)] + Control.IsVisible(556) + stringcompare(container(556).numitems,0)</visible>
+			<visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + Control.IsVisible(556) + stringcompare(container(556).numitems,0)</visible>
 		</control>
 		
-		<include condition="Skin.HasSetting(videomovies) + ![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]">MultiWallInfoPaneMovies</include>
-		<include condition="Skin.HasSetting(videotv) + ![Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)]">MultiWallInfoPaneTV</include>
-		<include contition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502)] + ![Container.Content(genres) | Container.Content(songs)]">MultiWallInfoPaneMusic</include>
+		<include condition="Skin.HasSetting(videomovies) + ![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]">MultiWallInfoPaneMovies</include>
+		<include condition="Skin.HasSetting(videotv) + ![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]">MultiWallInfoPaneTV</include>
+		<include contition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![Container.Content(genres) | Container.Content(songs)]">MultiWallInfoPaneMusic</include>
 	</include>
 </includes>

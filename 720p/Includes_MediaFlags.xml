@@ -245,7 +245,7 @@
 	</include>
 	<include name="Furniture_ShowcaseMediaFlags">
 		<control type="group">
-			<visible>Window.IsActive(25) + [Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
 			<!--ADDED WALL-->
 			<include>Animation_CommonFade</include>
 			<control type="image">
@@ -268,7 +268,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Window.IsActive(25) + [Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
 			<!--ADDED WALL-->
 			<include>Animation_CommonFade</include>
 			<control type="group">
@@ -495,7 +495,7 @@
 	</include>
 	<include name="Furniture_MultiplexMediaFlags">
 		<control type="group">
-			<visible>Window.IsActive(25) + [[Control.IsVisible(52) + !Skin.HasSetting(nomediaflags) + Container.Content(movies)] | [Control.IsVisible(552) + !Skin.HasSetting(nomediaflags) + Container.Content(episodes)] | [Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)]]</visible>
+			<visible>Window.IsActive(videolibrary) + [[Control.IsVisible(52) + !Skin.HasSetting(nomediaflags) + Container.Content(movies)] | [Control.IsVisible(552) + !Skin.HasSetting(nomediaflags) + Container.Content(episodes)] | [Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)]]</visible>
 			<include>Animation_CommonFade</include>
 			<include>Animation_HideMultiplex</include>
 			<control type="group">
@@ -565,7 +565,7 @@
 	</include>
 	<include name="Furniture_Anoobie2MediaFlags">
 		<control type="group">
-			<visible>Window.IsActive(25) + Control.IsVisible(555) + !Skin.HasSetting(nomediaflags) + Container.Content(movies)</visible>
+			<visible>Window.IsActive(videolibrary) + Control.IsVisible(555) + !Skin.HasSetting(nomediaflags) + Container.Content(movies)</visible>
 			<include>Animation_CommonFade</include>
 			<include>Animation_HideMultiplex</include>
 			<control type="group">
@@ -761,7 +761,7 @@
 	</include>
 	<include name="Furniture_EpisodeMediaFlags">
 		<control type="group">
-			<visible>Window.IsActive(25) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
 			<include>Animation_CommonFade</include>
 			<control type="image">
 				<posx>0</posx>
@@ -783,7 +783,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Window.IsActive(25) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(episodes) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(episodes) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
 			<include>Animation_CommonFade</include>
 			<control type="group">
 				<posx>80</posx>
@@ -846,10 +846,10 @@
 		</control>
 	</include>
 	<include name="Furniture_WallMediaFlagsVars">
-		<visible>Window.IsActive(25) + Control.IsVisible(53) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes)]</visible>
+		<visible>Window.IsActive(videolibrary) + Control.IsVisible(53) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes)]</visible>
 		<include>Animation_CommonFade</include>
 		<include>Animation_WindowFade200</include>
-		<animation effect="slide" start="0,12" end="0,12" time="0" condition="Skin.HasSetting(smallmoviewall) + [Window.IsActive(1) | Window.IsActive(24) | Window.IsActive(25)] + !Container.Content(episodes)">Conditional</animation>
+		<animation effect="slide" start="0,12" end="0,12" time="0" condition="Skin.HasSetting(smallmoviewall) + [Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(episodes)">Conditional</animation>
 		<animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
 		<posy>193</posy>
 		<control type="group">
@@ -903,7 +903,7 @@
 	</include>
 	<include name="Furniture_MultiWallMediaFlags">
 		<control type="group">
-				<visible>Window.IsActive(25) + Control.IsVisible(556) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
+				<visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
 			<include>Animation_CommonFade</include>
 			<include>Animation_WindowFade200</include>
 			<animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
@@ -1300,7 +1300,7 @@
 		</control>
 	</include>		
 	<include name="Furniture_OldMultiplexMediaFlags">
-			<visible>Window.IsActive(25) + Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)</visible>
+			<visible>Window.IsActive(videolibrary) + Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)</visible>
 			<include>Animation_CommonFade</include>
 			
 			<control type="group">
@@ -1388,7 +1388,7 @@
 			</control>
     </include>
       <include name="Furniture_OldMultiplexMediaFlagsTv">
-		<visible>Window.IsActive(25) + Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)</visible>
+		<visible>Window.IsActive(videolibrary) + Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)</visible>
 		<include>Animation_CommonFade</include>
 		<control type="group">
 			<visible>Container.Content(episodes)</visible>

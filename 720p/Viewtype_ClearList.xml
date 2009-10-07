@@ -193,7 +193,7 @@
 		<control type="group" id="2502">
 			<posx>620</posx>
 			<posy>50</posy>
-			<visible>Window.IsActive(25) + Control.IsVisible(54) + Skin.HasSetting(cListmovieshowinfo)</visible>
+			<visible>Window.IsActive(videolibrary) + Control.IsVisible(54) + Skin.HasSetting(cListmovieshowinfo)</visible>
 			<include>Animation_cListCommonFade</include>
 			<include>Animation_cListInfoPanelZoom</include>
 			<include>Animation_cListHorizontalMenuInfoPanelSlide</include>
@@ -224,7 +224,7 @@
 				<fadetime>400</fadetime>
 				<texture diffuse="list/list_movieicon_mask.png">defaultvideobig.png</texture>
 				<info>ListItem.Icon</info>
-				<visible>Window.IsActive(25) + [[Container.Content(tvshows) | Container.Content(seasons)] | Container.Content(movies)]</visible>
+				<visible>Window.IsActive(videolibrary) + [[Container.Content(tvshows) | Container.Content(seasons)] | Container.Content(movies)]</visible>
 			</control>
 			<control type="image">
 				<posx>270</posx>
@@ -233,7 +233,7 @@
 				<height>222</height>
 				<fadetime>400</fadetime>
 				<texture diffuse="list/list_movieicon_mask.png">list/list_movieicon_glass.png</texture>
-				<visible>Window.IsActive(25) + [[Container.Content(tvshows) | Container.Content(seasons)] | Container.Content(movies)]</visible>
+				<visible>Window.IsActive(videolibrary) + [[Container.Content(tvshows) | Container.Content(seasons)] | Container.Content(movies)]</visible>
 			</control>
 			<!-- Episode Thumb -->
 			<control type="image">
@@ -244,13 +244,13 @@
 				<fadetime>400</fadetime>
 				<texture diffuse="multiplex/multiplex_tvmask.png">defaultvideobig.png</texture>
 				<info>ListItem.Icon</info>
-				<visible>Window.IsActive(25) + Container.Content(episodes)</visible>
+				<visible>Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
 			</control>
 			<!-- Movie Infos -->
 			<control type="group">
 				<posx>10</posx>
 				<posy>10</posy>
-				<visible>Window.IsActive(25) + Container.Content(movies)</visible>
+				<visible>Window.IsActive(videolibrary) + Container.Content(movies)</visible>
 				<control type="group">
 					<posy>0</posy>
 					<control type="label">
@@ -449,7 +449,7 @@
 			</control>
 			<!-- Movie Media Flags -->
 			<control type="group">
-				<visible>Window.IsActive(25) + Container.Content(movies)</visible>
+				<visible>Window.IsActive(videolibrary) + Container.Content(movies)</visible>
 				<include>Animation_CommonFade</include>
 				<posy>450</posy>
 				<control type="group">
@@ -502,7 +502,7 @@
 			</control>
 			<!-- Episode Media Flags -->
 			<control type="group">
-				<visible>Window.IsActive(25) + Container.Content(episodes)</visible>
+				<visible>Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
 				<include>Animation_CommonFade</include>
 				<posy>450</posy>
 				<control type="group">
@@ -570,7 +570,7 @@
 		<control type="group">
 			<posx>620</posx>
 			<posy>50</posy>
-			<visible>Window.IsActive(502) + [Container.Content(artists) | Container.Content(albums)] + Control.IsVisible(54) + Skin.HasSetting(cListmusicinfo)</visible>
+			<visible>Window.IsActive(musiclibrary) + [Container.Content(artists) | Container.Content(albums)] + Control.IsVisible(54) + Skin.HasSetting(cListmusicinfo)</visible>
 			<include>Animation_cListCommonFade</include>
 			<include>Animation_cListInfoPanelZoom</include>
 			<include>Animation_cListInfoPanelSlide</include>
@@ -875,7 +875,7 @@
 				<width>1280</width>
 				<height>720</height>
 				<texture>clearlist/pictures_background.png</texture>
-				<visible>Window.IsActive(2)</visible>
+				<visible>Window.IsActive(pictures)</visible>
 			</control>
 			<!-- Pictures -->
 			<control type="image">
@@ -885,7 +885,7 @@
 				<fadetime>400</fadetime>
 				<aspectratio scalediffuse="false">keep</aspectratio>
 				<texture>$INFO[ListItem.Icon]</texture>
-				<visible>Window.IsActive(2)</visible>
+				<visible>Window.IsActive(pictures)</visible>
 			</control>
 			<!-- Background for Solid List -->
 			<control type="image">
@@ -895,7 +895,7 @@
 				<height>720</height>
 				<include condition="Skin.HasSetting(darkclearlist)">cList_NightBackgroundTextureSolid</include>
 				<include condition="!Skin.HasSetting(darkclearlist)">cList_LightBackgroundTextureSolid</include>
-				<visible>Window.IsActive(2) | Window.IsActive(24) | Window.IsActive(28) | Window.IsActive(500) | Window.IsActive(501) | [Window.IsActive(502) + [Container.Content(albums) | Container.Content(songs)]]</visible>
+				<visible>Window.IsActive(pictures) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(songs)]]</visible>
 				<visible>Control.IsVisible(54) + !Skin.HasSetting(clearlistthin)</visible>
 				<include>Animation_cListHorizontalMenuBackgroundSlide</include>
 			</control>
@@ -906,7 +906,7 @@
 				<height>720</height>
 				<include condition="Skin.HasSetting(darkclearlist)">cList_NightBackgroundTextureSolid</include>
 				<include condition="!Skin.HasSetting(darkclearlist)">cList_LightBackgroundTextureSolid</include>
-				<visible>Window.IsActive(25) | [Window.IsActive(502) + !Container.Content(albums) + !Container.Content(songs)]</visible>
+				<visible>Window.IsActive(videolibrary) | [Window.IsActive(musiclibrary) + !Container.Content(albums) + !Container.Content(songs)]</visible>
 				<visible>Control.IsVisible(54) + !Skin.HasSetting(clearlistthin)</visible>
 				<include>Animation_cListHorizontalMenuBackgroundSlide</include>
 			</control>
@@ -918,7 +918,7 @@
 				<height>720</height>
 				<include condition="Skin.HasSetting(darkclearlist)">cList_NightBackgroundTexture</include>
 				<include condition="!Skin.HasSetting(darkclearlist)">cList_LightBackgroundTexture</include>
-				<visible>Window.IsActive(2) | Window.IsActive(24) | Window.IsActive(28) | Window.IsActive(500) | Window.IsActive(501) | [Window.IsActive(502) + [Container.Content(albums) | Container.Content(songs)]]</visible>
+				<visible>Window.IsActive(pictures) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(songs)]]</visible>
 				<visible>Control.IsVisible(54)</visible>
 				<include>Animation_cListHorizontalMenuBackgroundSlide</include>
 			</control>
@@ -929,7 +929,7 @@
 				<height>720</height>
 				<include condition="Skin.HasSetting(darkclearlist)">cList_NightBackgroundTexture</include>
 				<include condition="!Skin.HasSetting(darkclearlist)">cList_LightBackgroundTexture</include>
-				<visible>Window.IsActive(25) | [Window.IsActive(502) + !Container.Content(albums) + !Container.Content(songs)]</visible>
+				<visible>Window.IsActive(videolibrary) | [Window.IsActive(musiclibrary) + !Container.Content(albums) + !Container.Content(songs)]</visible>
 				<visible>Control.IsVisible(54)</visible>
 				<include>Animation_cListHorizontalMenuBackgroundSlide</include>
 			</control>
@@ -944,15 +944,15 @@
 				<onup>54</onup>
 				<ondown>54</ondown>
 				<onleft>2505</onleft>
-				<include condition="Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(2)">cList_OnRightPlaylist</include>
-				<include condition="Window.IsActive(25)">cList_OnRightLibraryMovies</include>
-				<include condition="Window.IsActive(502)">cList_OnRightLibraryMusic</include>
+				<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(pictures)">cList_OnRightPlaylist</include>
+				<include condition="Window.IsActive(videolibrary)">cList_OnRightLibraryMovies</include>
+				<include condition="Window.IsActive(musiclibrary)">cList_OnRightLibraryMusic</include>
 				<orientation>vertical</orientation>
 				<pagecontrol>2505</pagecontrol>
-				<visible>Window.IsActive(502) | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(25) | Window.IsActive(24) | Window.IsActive(28) | Window.IsActive(2)</visible>
+				<visible>Window.IsActive(musiclibrary) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist) | Window.IsActive(pictures)</visible>
 				<include>Animation_cListCommonFade</include>
 				<!-- Librarys without Songs and Albums -->
-				<itemlayout width="350" height="40" condition="Window.IsActive(25) | [Window.IsActive(502) + !Container.Content(songs) + !Container.Content(albums)]">
+				<itemlayout width="350" height="40" condition="Window.IsActive(videolibrary) | [Window.IsActive(musiclibrary) + !Container.Content(songs) + !Container.Content(albums)]">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -986,7 +986,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>[Window.IsActive(502) + !Container.Content(artists)] | [Window.IsActive(25) + Skin.HasSetting(nooverlays)]</visible>
+						<visible>[Window.IsActive(musiclibrary) + !Container.Content(artists)] | [Window.IsActive(videolibrary) + Skin.HasSetting(nooverlays)]</visible>
 					</control>
 					<!-- Movies and TvShows -->
 					<control type="label">
@@ -1000,7 +1000,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>Window.IsActive(25) + !Skin.HasSetting(nooverlays)</visible>
+						<visible>Window.IsActive(videolibrary) + !Skin.HasSetting(nooverlays)</visible>
 					</control>
 					<control type="image">
 						<posx>302</posx>
@@ -1009,7 +1009,7 @@
 						<height>23</height>
 						<texture>clearlist/$INFO[ListItem.Overlay]</texture>
 						<!--<info>ListItem.Overlay</info>-->
-						<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 					<control type="image">
 						<posx>302</posx>
@@ -1018,10 +1018,10 @@
 						<height>23</height>
 						<texture>clearlist/$INFO[ListItem.Overlay]</texture>
 						<!--<info>ListItem.Overlay</info>-->
-						<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout width="350" height="40" condition="Window.IsActive(25) | [Window.IsActive(502) + !Container.Content(songs) + !Container.Content(albums)]">
+				<focusedlayout width="350" height="40" condition="Window.IsActive(videolibrary) | [Window.IsActive(musiclibrary) + !Container.Content(songs) + !Container.Content(albums)]">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -1056,7 +1056,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>[Window.IsActive(502) + !Container.Content(artists)] | [Window.IsActive(25) + Skin.HasSetting(nooverlays)]</visible>
+						<visible>[Window.IsActive(musiclibrary) + !Container.Content(artists)] | [Window.IsActive(videolibrary) + Skin.HasSetting(nooverlays)]</visible>
 					</control>
 					<control type="label">
 						<posx>10</posx>
@@ -1069,7 +1069,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>Window.IsActive(25) + !Skin.HasSetting(nooverlays)</visible>
+						<visible>Window.IsActive(videolibrary) + !Skin.HasSetting(nooverlays)</visible>
 					</control>
 					<control type="image">
 						<posx>302</posx>
@@ -1078,7 +1078,7 @@
 						<height>23</height>
 						<texture>clearlist/$INFO[ListItem.Overlay]</texture>
 						<!--<info>ListItem.Overlay</info>-->
-						<visible>Window.IsActive(25) + Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 					<control type="image">
 						<posx>302</posx>
@@ -1087,11 +1087,11 @@
 						<height>23</height>
 						<texture>clearlist/$INFO[ListItem.Overlay]</texture>
 						<!--<info>ListItem.Overlay</info>-->
-						<visible>Window.IsActive(25) + Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 				</focusedlayout>
 				<!-- Music-Albums -->
-				<itemlayout width="430" height="80" condition="Window.IsActive(502) + Container.Content(albums)">
+				<itemlayout width="430" height="80" condition="Window.IsActive(musiclibrary) + Container.Content(albums)">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -1137,7 +1137,7 @@
 						<visible>Container.Content(albums)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout width="430" height="80" condition="Window.IsActive(502) + Container.Content(albums)">
+				<focusedlayout width="430" height="80" condition="Window.IsActive(musiclibrary) + Container.Content(albums)">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -1184,7 +1184,7 @@
 					</control>
 				</focusedlayout>
 				<!-- Songs, Files, Pictures or Playlists -->
-				<itemlayout width="430" height="40" condition="[Window.IsActive(502) + Container.Content(songs)] | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(24) | Window.IsActive(28) | Window.IsActive(2) | Window.IsActive(1)">
+				<itemlayout width="430" height="40" condition="[Window.IsActive(musiclibrary) + Container.Content(songs)] | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist) | Window.IsActive(pictures) | Window.IsActive(programs)">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -1204,7 +1204,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<label>$INFO[ListItem.TrackNumber]</label>
-						<visible>[Window.IsActive(502) + Container.Content(songs)] | Window.IsActive(500) | Window.IsActive(501)</visible>
+						<visible>[Window.IsActive(musiclibrary) + Container.Content(songs)] | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)</visible>
 					</control>
 					<control type="label">
 						<posx>40</posx>
@@ -1217,7 +1217,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Title]</label>
-						<visible>Window.IsActive(502)</visible>
+						<visible>Window.IsActive(musiclibrary)</visible>
 					</control>
 					<control type="label">
 						<posx>40</posx>
@@ -1230,7 +1230,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Artist] - $INFO[ListItem.Title]</label>
-						<visible>[Window.IsActive(500) | Window.IsActive(501)] + !IsEmpty(ListItem.Artist)</visible>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)] + !IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="label">
 						<posx>40</posx>
@@ -1243,7 +1243,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<!--<label>$INFO[ListItem.Label]</label>--><info>ListItem.Label</info>
-						<visible>[Window.IsActive(500) | Window.IsActive(501)] + IsEmpty(ListItem.Artist)</visible>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)] + IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="label">
 						<posx>10</posx>
@@ -1256,7 +1256,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<info>ListItem.Label</info>
-						<visible>Window.IsActive(2)</visible>
+						<visible>Window.IsActive(pictures)</visible>
 					</control>
 					<control type="label">
 						<posx>10</posx>
@@ -1269,7 +1269,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<info>ListItem.Label</info>
-						<visible>[Window.IsActive(24) | Window.IsActive(28)] + IsEmpty(ListItem.Artist)</visible>
+						<visible>[Window.IsActive(videofiles) | Window.IsActive(videoplaylist)] + IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="label">
 						<posx>360</posx>
@@ -1282,7 +1282,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColors</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Duration]</label>
-						<visible>[Window.IsActive(502) + Container.Content(songs)] | Window.IsActive(500) | Window.IsActive(501)</visible>
+						<visible>[Window.IsActive(musiclibrary) + Container.Content(songs)] | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)</visible>
 					</control>
 					<control type="label">
 						<posx>350</posx>
@@ -1296,10 +1296,10 @@
 						<align>left</align>
 						<scroll>false</scroll>
 						<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
-						<visible>Window.IsActive(2)</visible>
+						<visible>Window.IsActive(pictures)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout width="430" height="40" condition="[Window.IsActive(502) + Container.Content(songs)] | Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(24) | Window.IsActive(28) | Window.IsActive(2)">
+				<focusedlayout width="430" height="40" condition="[Window.IsActive(musiclibrary) + Container.Content(songs)] | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist) | Window.IsActive(pictures)">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -1319,7 +1319,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<label>$INFO[ListItem.TrackNumber]</label>
-						<visible>[Window.IsActive(502) + Container.Content(songs)] | Window.IsActive(500) | Window.IsActive(501)</visible>
+						<visible>[Window.IsActive(musiclibrary) + Container.Content(songs)] | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)</visible>
 					</control>
 					<control type="label">
 						<posx>40</posx>
@@ -1332,7 +1332,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Title]</label>
-						<visible>Window.IsActive(502)</visible>
+						<visible>Window.IsActive(musiclibrary)</visible>
 					</control>
 					<control type="label">
 						<posx>40</posx>
@@ -1345,7 +1345,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Artist] - $INFO[ListItem.Title]</label>
-						<visible>[Window.IsActive(500) | Window.IsActive(501)] + !IsEmpty(ListItem.Artist)</visible>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)] + !IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="label">
 						<posx>40</posx>
@@ -1358,7 +1358,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<!--<label>$INFO[ListItem.Label]</label>--><info>ListItem.Label</info>
-						<visible>[Window.IsActive(500) | Window.IsActive(501)] + IsEmpty(ListItem.Artist)</visible>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)] + IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="label">
 						<posx>10</posx>
@@ -1371,7 +1371,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<info>ListItem.Label</info>
-						<visible>Window.IsActive(2)</visible>
+						<visible>Window.IsActive(pictures)</visible>
 					</control>
 					<control type="label">
 						<posx>10</posx>
@@ -1384,7 +1384,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<!--<label>$INFO[ListItem.Label]</label>--><info>ListItem.Label</info>
-						<visible>[Window.IsActive(24) | Window.IsActive(28)] + IsEmpty(ListItem.Artist)</visible>
+						<visible>[Window.IsActive(videofiles) | Window.IsActive(videoplaylist)] + IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="label">
 						<posx>360</posx>
@@ -1397,7 +1397,7 @@
 						<include condition="!Skin.HasSetting(darkclearlist)">cList_LightLabelColorsFocus</include>
 						<align>left</align>
 						<label>$INFO[ListItem.Duration]</label>
-						<visible>[Window.IsActive(502) + Container.Content(songs)] | Window.IsActive(500) | Window.IsActive(501)</visible>
+						<visible>[Window.IsActive(musiclibrary) + Container.Content(songs)] | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles)</visible>
 					</control>
 					<control type="label">
 						<posx>350</posx>
@@ -1411,7 +1411,7 @@
 						<align>left</align>
 						<scroll>false</scroll>
 						<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
-						<visible>Window.IsActive(2)</visible>
+						<visible>Window.IsActive(pictures)</visible>
 					</control>
 				</focusedlayout>
 			</control>
@@ -1441,25 +1441,25 @@
 					<label>31934</label>
 					<include>cList_Title</include>
 					<width>330</width>
-					<visible>Container.Content(movies) + Window.IsActive(25)</visible>
+					<visible>Container.Content(movies) + Window.IsActive(videolibrary)</visible>
 				</control>
 				<control type="label">
 					<label>31933</label>
 					<include>cList_Title</include>
 					<width>330</width>
-					<visible>Container.Content(tvshows) + Window.IsActive(25)</visible>
+					<visible>Container.Content(tvshows) + Window.IsActive(videolibrary)</visible>
 				</control>
 				<control type="label">
 					<label>[UPPERCASE]$INFO[ListItem.TVShowTitle][/UPPERCASE]</label>
 					<include>cList_Title</include>
 					<width>330</width>
-					<visible>Container.Content(seasons) + Window.IsActive(25)</visible>
+					<visible>Container.Content(seasons) + Window.IsActive(videolibrary)</visible>
 				</control>
 				<control type="label">
 					<label>[UPPERCASE]$INFO[ListItem.TVShowTitle][/UPPERCASE]</label>
 					<include>cList_Title</include>
 					<width>330</width>
-					<visible>Container.Content(episodes) + Window.IsActive(25)</visible>
+					<visible>Container.Content(episodes) + Window.IsActive(videolibrary)</visible>
 				</control>
 				<control type="label">
 					<label>31929</label>
@@ -1503,13 +1503,13 @@
 					<label>31932</label>
 					<include>cList_Title</include>
 					<width>410</width>
-					<visible>Window.IsActive(501) | Window.IsActive(24)</visible>
+					<visible>Window.IsActive(musicfiles) | Window.IsActive(videofiles)</visible>
 				</control>
 				<control type="label">
 					<label>31012</label>
 					<include>cList_Title</include>
 					<width>410</width>
-					<visible>Window.IsActive(2)</visible>
+					<visible>Window.IsActive(pictures)</visible>
 				</control>
 				<control type="label">
 					<label>[UPPERCASE]$INFO[Container(54).ListItem.Artist][/UPPERCASE]</label>
@@ -1522,7 +1522,7 @@
 					<label>31038</label>
 					<include>cList_Title</include>
 					<width>410</width>
-					<visible>Window.IsActive(500) | Window.IsActive(28)</visible>
+					<visible>Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)</visible>
 				</control>
 				<control type="label">
 					<label>[UPPERCASE]$INFO[Container(54).ListItem.Album][/UPPERCASE]</label>
@@ -1604,13 +1604,13 @@
 				<include>cList_NumItems</include>
 				<width>410</width>
 				<label>$INFO[Container(54).NumItems] $LOCALIZE[31936]</label>
-				<visible>Window.IsActive(500) | [Window.IsActive(502) + Container.Content(songs)]</visible>
+				<visible>Window.IsActive(musicplaylist) | [Window.IsActive(musiclibrary) + Container.Content(songs)]</visible>
 			</control>
 			<control type="label" id="161">
 				<include>cList_NumItems</include>
 				<width>410</width>
 				<label>$INFO[Container(54).NumItems] $LOCALIZE[31935]</label>
-				<visible>Window.IsActive(2)</visible>
+				<visible>Window.IsActive(pictures)</visible>
 			</control>
 			<control type="label">
 				<include>cList_NumItems</include>

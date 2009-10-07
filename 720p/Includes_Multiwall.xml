@@ -294,11 +294,11 @@
 		</include>
 		<!-- Song Show/Hide Animation -->
 		<include name="MultiWallShowHideAnimationSongList">
-			<animation type="Conditional" reversible="false" condition="Window.IsActive(500) | [Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]]">
+			<animation type="Conditional" reversible="false" condition="Window.IsActive(musicplaylist) | [Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]]">
 				<effect type="fade" start="0" end="100" time="400" delay="85" />
 				<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
 			</animation>
-			<animation type="Conditional" reversible="false" condition="!Window.IsActive(500) + !Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]">
+			<animation type="Conditional" reversible="false" condition="!Window.IsActive(musicplaylist) + !Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]">
 				<effect type="fade" start="100" end="0" time="400"/>
 			</animation>
 		</include>
@@ -1122,7 +1122,7 @@
 				<include>MultiWallMusicInfoPane</include>
 			</control>
 			<include>MultiWallInfoPaneMusicInfo</include>
-			<visible>[Window.IsActive(501) | Window.IsActive(502)] + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)] + Control.IsVisible(556) + Control.IsVisible(208) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwallmusicinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwallmusicinfotrigger) + !Container.Content(songs)]]</visible>
+			<visible>[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)] + Control.IsVisible(556) + Control.IsVisible(208) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwallmusicinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwallmusicinfotrigger) + !Container.Content(songs)]]</visible>
 		</control>
 	</include>
 
