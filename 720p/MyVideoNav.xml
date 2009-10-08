@@ -1,7 +1,7 @@
 <window id="25">
-	<defaultcontrol always="true">550</defaultcontrol>
+	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>550,50,551,52,54,556,552,553,53,57,555</views>
+	<views>50,551,52,54,56,556,552,553,53,57,555</views>
 	<controls>
 		<control type="image" id="109">
 			<posx>0</posx>
@@ -31,8 +31,14 @@
 			<include>FullscreenDimensions</include>
 			<fadetime>400</fadetime>
 			<texture>genrefanart/$INFO[ListItem.Label].jpg</texture>
-			<visible>[Skin.HasSetting(genre_fanart_onoff) + Container.Content(genres)]</visible>
+			<visible>Skin.HasSetting(genre_fanart_onoff) + Container.Content(genres)</visible>
 		</control>
+	<!--	<control type="image">
+			<include>FullscreenDimensions</include>
+			<fadetime>400</fadetime>
+			<texture background="true">YearBackdrops/$INFO[ListItem.Label]/backdrop.png</texture>
+			<visible>!Skin.HasSetting(yearbackdropsoff) + Container.Content(years)</visible>
+		</control>-->
 		<control type="largeimage" id="102">
 			<include>FullscreenDimensions</include>
 			<visible>[Control.IsVisible(553) | Control.IsVisible(555) | Control.IsVisible(556) | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(54)] + [[Container.Content(movies) + !Skin.HasSetting(nomoviefanart)] | [Container.Content(tvshows) + !Skin.HasSetting(notvfanart)]] + !IsEmpty(listitem.property(fanart_image))</visible>
@@ -44,7 +50,7 @@
 		<include>MediaBackdropsMultiplex</include>
 		<include>Furniture_WallBackground</include>
 		<control type="group">
-			<visible>![Window.IsActive(2001) | Window.IsActive(2003)]</visible>
+			<visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
 			<include>FullscreenDimensions</include>
 			<include>Animation_OpenCloseZoom</include>
 			<include>Furniture_Time</include>
@@ -53,9 +59,12 @@
 			<include>ListFade</include>
 			<include>ListFade2</include>
 			<include>ListFade_Low</include>
-			<include>Viewtype_List_Slim</include>
+			<include>Viewtype_ListRevamp</include>
+			<include>Furniture_NowPlayingWidget</include>
+		<!--	<include>Viewtype_UlixMultiplex</include>
+			<include>Viewtype_LowList</include>-->
 			<include condition="!Skin.HasSetting(WallOff)">Viewtype_Wall</include>
-			<include condition="!Skin.HasSetting(WallOff)">Furniture_WallRSS</include>
+			<include condition="system.getbool(lookandfeel.enablerssfeeds)">Furniture_RSS</include>
 			<include condition="!Skin.HasSetting(FullListOff)">Viewtype_List</include>
 			<include condition="!Skin.HasSetting(ListLowOff)">Viewtype_List_Low</include>
 			<include condition="!Skin.HasSetting(ClearListOff)">Viewtype_ClearList</include>
