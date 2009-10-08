@@ -16,7 +16,7 @@
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture>multiwall/multiwall_background_music.png</texture>
-			<visible>Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)</visible>
+			<visible>[Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]+Control.IsVisible(556)</visible>
 			<include>Animation_WindowFade200</include>
 		</control>
 	</include>	
@@ -246,8 +246,7 @@
 		<include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
 	</include>	
 	<include name="MusicMultiwall">
-		<control type="group">
-			<visible>!Container.Content(songs)</visible>		
+		<control type="group">		
 			<include>MultiwallButtons</include>
 			<control type="wraplist" id="556">
 				<viewtype label="multiwall">wrap</viewtype>
@@ -276,7 +275,7 @@
 			<control type="group">
 				
 				<include>MusicMultiWallVars</include>
-				<visible>Window.IsActive(musicplaylist) | [Container.Content(songs) + Window.IsActive(musiclibrary)]</visible>
+				<visible>Window.IsActive(musicplaylist)</visible>
 				<include>Animation_HideMultiplex</include>
 				
 				<control type="group">
@@ -368,7 +367,7 @@
 				</animation>
 			</control>
 			
-			<control type="group">
+	<!--		<control type="group">
 				
 				<posx>424</posx>
 				<posy>112</posy>
@@ -518,7 +517,7 @@
 						</control>
 					</focusedlayout>	
 				</control>
-			</control>
+			</control>-->
 		</control>
 	</include>
 	<include name="Viewtype_Multiwall">
@@ -561,7 +560,6 @@
 			<animation effect="slide" start="5,-7" end="5,-7" time="0" condition="Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>				
 		</control>
 		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicMultiwall</include>
-		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicMultiwall2</include>
 		<include condition="!Skin.HasSetting(videotv) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">MovieMultiwall</include>
 		<include condition="Skin.HasSetting(videotv) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">TVMultiwall</include>
 		<include>Furniture_MultiWallMediaFlags</include>
