@@ -91,6 +91,14 @@
 			<include>MediaMenuButton</include>
 		</control>
 	</include>
+	<include name="MediaMenuButton_StackButton">
+		<control type="togglebutton" id="7">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31055]: $LOCALIZE[31077]</label>
+			<altlabel>$LOCALIZE[31055]: $LOCALIZE[31078]</altlabel>
+			<visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>
+		</control>
+	</include>
 	<include name="MediaMenuButton_MultiplexInfo"><!-- 700003 700010 -->
 		<control type="button" id="700003">
 			<include>MediaMenuButton</include>
@@ -258,6 +266,15 @@
 			<onclick>Skin.SetBool(listpanelthin)</onclick>
 			<altclick>Skin.Reset(listpanelthin)</altclick>
 			<visible>Control.IsVisible(50) | Control.IsVisible(550) | Control.IsVisible(551)</visible>
+		</control>
+		<control type="togglebutton" id="7000211">
+			<include>MediaMenuButton</include>
+			<label>LIST: BIG</label>
+			<altlabel>LIST: SLIM</altlabel>
+			<usealttexture>Skin.HasSetting(slimlist)</usealttexture>
+			<onclick>Skin.SetBool(slimlist)</onclick>
+			<altclick>Skin.Reset(slimlist)</altclick>
+			<visible>Control.IsVisible(50)</visible>
 		</control>
 		<control type="togglebutton" id="700022">
 			<include>MediaMenuButton</include>
@@ -564,18 +581,19 @@
 		<control type="button" id="6">
 			<label>21385</label>
 			<include>MediaMenuButton</include>
+			<visible>Window.IsActive(musicplaylisteditor)</visible>
 		</control>
 		<control type="button" id="7">
 			<label>190</label>
 			<include>MediaMenuButton</include>
+			<visible>Window.IsActive(musicplaylisteditor)</visible>
 		</control>
 		<control type="button" id="8">
 			<label>192</label>
 			<include>MediaMenuButton</include>
+			<visible>Window.IsActive(musicplaylisteditor)</visible>
 		</control>
 	</include>	
-	
-	
 	<include name="MediaMenuButton_Random">
 		<control type="togglebutton" id="9">
 			<label>$LOCALIZE[31051]: $LOCALIZE[31078]</label>
@@ -636,8 +654,8 @@
 			<visible>Skin.HasSetting(debug)</visible>
 		</control>
 	</include>
-	<include name="LowList_HighLowMediaMenuButton">
-		<control type="togglebutton" id="5517002">
+	<include name="MediaMenuButton_LowList_HighLow">
+		<control type="togglebutton" id="700131">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[535]: $LOCALIZE[391]</label>
 			<altlabel>$LOCALIZE[535]: $LOCALIZE[393]</altlabel>
@@ -647,8 +665,8 @@
 			<visible>Control.IsVisible(551)</visible>
 		</control>
 	</include>
-	<include name="LowList_ToggleSlideshowMediaMenuButton">
-		<control type="togglebutton" id="5517003">
+	<include name="MediaMenuButton_LowList_ToggleSlideshow">
+		<control type="togglebutton" id="700132">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[539]: $LOCALIZE[31044]</label>
 			<altlabel>$LOCALIZE[539]: $LOCALIZE[31045]</altlabel>
@@ -657,26 +675,26 @@
 			<selected>Skin.HasSetting(widepanelthumbon)</selected>
 			<visible>Control.IsVisible(551) + Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
 		</control>
-		<control type="togglebutton" id="5517004">
+		<control type="togglebutton" id="700133">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[539]: $LOCALIZE[31044]</label>
-			<altlabel>$LOCALIZE[539]: $LOCALIZE[31045]</altlabel>
+			<altlabel>$LOCALIZE[539]: Alt. Fanart</altlabel>
 			<onclick>Skin.SetBool(widetvpanelthumbon)</onclick>
 			<altclick>Skin.Reset(widetvpanelthumbon)</altclick>
 			<selected>Skin.HasSetting(widetvpanelthumbon)</selected>
 			<visible>Control.IsVisible(551) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 		</control>
 	</include>
-	<include name="LowList_BrowsingLayoutMediaMenuButton">
-		<control type="button" id="5517020">
+	<include name="MediaMenuButton_LowList_BrowsingLayout">
+		<control type="button" id="700134">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31245]</label>
 			<onclick>SetFocus(55103)</onclick>
 			<visible>Control.IsVisible(551) + [Container.Content(movies) | Window.IsActive(musiclibrary)]</visible>
 		</control>
 	</include>
-	<include name="LowList_AutoTriggerMediaMenuButton">
-		<control type="togglebutton" id="5517005">
+	<include name="MediaMenuButton_LowList_AutoTrigger">
+		<control type="togglebutton" id="700135">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
 			<altlabel>$LOCALIZE[31070]: $LOCALIZE[31049]</altlabel>
@@ -688,8 +706,8 @@
 			<visible>Control.IsVisible(551)</visible>
 		</control>
 	</include>
-	<include name="LowList_SlimFullMediaMenuButton">
-		<control type="togglebutton" id="5517006">
+	<include name="MediaMenuButton_LowList_SlimFull">
+		<control type="togglebutton" id="700136">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
@@ -698,7 +716,7 @@
 			<altclick>Skin.Reset(movieslistfull)</altclick>
 			<visible>[Control.IsVisible(551) | Control.IsVisible(56)] + Container.Content(movies)</visible>
 		</control>
-		<control type="togglebutton" id="5517007">
+		<control type="togglebutton" id="700137">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
@@ -707,7 +725,7 @@
 			<altclick>Skin.Reset(artistlistfull)</altclick>
 			<visible>[Control.IsVisible(551) | Control.IsVisible(56)] + Container.Content(artists)</visible>
 		</control>
-		<control type="togglebutton" id="5517008">
+		<control type="togglebutton" id="700138">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
@@ -716,7 +734,7 @@
 			<altclick>Skin.Reset(albumlistfull)</altclick>
 			<visible>[Control.IsVisible(551) | Control.IsVisible(56)] + Container.Content(albums)</visible>
 		</control>
-		<control type="togglebutton" id="5517009">
+		<control type="togglebutton" id="700139">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
@@ -727,7 +745,7 @@
 		</control>
 	</include>
 	<include name="LowList_ToggleRollerMediaMenuButton">
-		<control type="togglebutton" id="5517010">
+		<control type="togglebutton" id="700140">
 			<include>MediaMenuButton</include>
 			<label>ROLLER: ON</label>
 			<altlabel>ROLLER: OFF</altlabel>
@@ -736,7 +754,7 @@
 			<selected>Skin.HasSetting(artistrolleroff)</selected>
 			<visible>Control.IsVisible(551) + Container.Content(artists)</visible>
 		</control>
-		<control type="togglebutton" id="5517011">
+		<control type="togglebutton" id="700141">
 			<include>MediaMenuButton</include>
 			<label>ROLLER: ON</label>
 			<altlabel>ROLLER: OFF</altlabel>
@@ -745,7 +763,7 @@
 			<selected>Skin.HasSetting(albumrolleroff)</selected>
 			<visible>Control.IsVisible(551) + Container.Content(albums)</visible>
 		</control>
-		<control type="togglebutton" id="5517012">
+		<control type="togglebutton" id="700142">
 			<include>MediaMenuButton</include>
 			<label>ROLLER: ON</label>
 			<altlabel>ROLLER: OFF</altlabel>
@@ -1085,14 +1103,6 @@
 			<visible>Container.Content(episodes) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(553)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_StackButton">
-		<control type="togglebutton" id="7">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31055]: $LOCALIZE[31077]</label>
-			<altlabel>$LOCALIZE[31055]: $LOCALIZE[31078]</altlabel>
-			<visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>
-		</control>
-	</include>
 	<!--############################################ Media Menu #################################################-->
 	<!--#########################################################################################################-->
 	<include name="NewMediaMenu">
@@ -1168,17 +1178,19 @@
 				<include>MediaMenuButton_Viewmode</include>
 				<include>MediaMenuButton_Sort</include>
 				<include>MediaMenuButton_Random</include>
-				<include>MediaMenuButton_PlaylistEditor</include>
-				<include condition="Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)">MediaMenuButton_Playlist</include>
 				<include>MediaMenuButton_FlattenFlow</include>
 				<include>MediaMenuButton_MultiplexInfo</include>
 				<include>MediaMenuButton_OldMultiplexInfo</include>
-				<include condition="!Skin.HasSetting(MultiwallOff)">MediaMenuButton_multiwallInfo</include>
+				<include>MediaMenuButton_LowList_SlimFull</include>
+				<include>MediaMenuButton_LowList_HighLow</include>
+				<include>MediaMenuButton_LowList_ToggleSlideshow</include>
+				<include>MediaMenuButton_LowList_BrowsingLayout</include>
+				<include>MediaMenuButton_LowList_AutoTrigger</include>
+				<include>MediaMenuButton_multiwallInfo</include>
 				<include>MediaMenuButton_ShowcaseInfo</include>
 				<include>MediaMenuButton_WallInfo</include>
 				<include>MediaMenuButton_GamesPoster</include>
 				<include>MediaMenuButton_MultiplexStyle</include>
-		<!--	<include>MediaMenuButton_MultiplexFlow</include>-->
 				<include>MediaMenuButton_OldMultiplexStyle</include>
 				<include>MediaMenuButton_ShowcaseStyle</include>
 				<include>MediaMenuButton_PanelDensity</include>
@@ -1186,7 +1198,7 @@
 				<include>MediaMenuButton_VerticalWall</include>
 				<include>MediaMenuButton_Stripshow</include>
 				<include>MediaMenuButton_Background</include>
-				<include condition="!Skin.HasSetting(ClearListOff) | !Skin.HasSetting(MusicClearListOff)">MediaMenuButton_ClearList</include>
+				<include>MediaMenuButton_ClearList</include>
 				<include>MediaMenuButton_WallGrid</include>
 				<include>MediaMenuButton_WallBackdrop</include>
 				<include>MediaMenuButton_Overlay</include>
@@ -1194,15 +1206,12 @@
 				<include>MediaMenuButton_Watched</include>		
 				<include>MediaMenuButton_Filter</include>
 				<include>MediaMenuButton_Search</include>
+				<include>MediaMenuButton_Playlist</include>
+				<include>MediaMenuButton_PlaylistEditor</include>
+				<include>MediaMenuButton_MediaDebug</include>
 				<include>MediaMenuButton_StackButton</include>
 				<include>MediaMenuButton_Files</include>
 				<include>MediaMenuButton_Setup</include>
-				<include>MediaMenuButton_MediaDebug</include>
-				<include>LowList_SlimFullMediaMenuButton</include>
-				<include>LowList_HighLowMediaMenuButton</include>
-				<include>LowList_ToggleSlideshowMediaMenuButton</include>
-				<include>LowList_BrowsingLayoutMediaMenuButton</include>
-				<include>LowList_AutoTriggerMediaMenuButton</include>
 			</control>
 		</control>
 	</include>

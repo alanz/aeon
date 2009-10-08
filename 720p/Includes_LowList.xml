@@ -713,34 +713,6 @@
 	<include>LowList_WideInfoLabelVars</include>
 	<posy>125</posy>
 	<!--<animation effect="slide" start="0,0" end="0,55" time="200" condition="!Skin.HasSetting(highlist)">Conditional</animation>--></include>
-<include name="LowList_MpaaLabels">
-	<control type="label">
-		<include>LowList_MpaaLabelVars</include>
-		<label>Rated [COLOR d0ffffff]R[/COLOR]</label>
-		<visible>substring(listitem.mpaa,Rated R)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_MpaaLabelVars</include>
-		<label>Rated [COLOR d0ffffff]PG-13[/COLOR]</label>
-		<visible>substring(listitem.mpaa,Rated PG-13)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_MpaaLabelVars</include>
-		<label>Rated [COLOR d0ffffff]PG[/COLOR]</label>
-		<visible>substring(listitem.mpaa,Rated PG f)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_MpaaLabelVars</include>
-		<label>Rated [COLOR d0ffffff]NC-17[/COLOR]</label>
-		<visible>substring(listitem.mpaa,Rated NC)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_MpaaLabelVars</include>
-		<label>Rated [COLOR d0ffffff]G[/COLOR]</label>
-		<visible>substring(listitem.mpaa,Rated G)</visible>
-	</control>
-</include>
-<!-- Large title label 	<include name="LowList_LargeTitle"><control type="label"><posx>350</posx><posy>660</posy><width>520</width><height>59</height><aligny>center</aligny><align>left</align><font>Font_MultiplexMainLabelOld</font><label fallback="...">$INFO[Container(551).ListItem.Label]</label><visible>[Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible><include>Animation_HideMultiplex</include>			</control>					</include>--><!-- Text box vars -->
 <include name="LowList_ShortTextBox">
 	<posy>8</posy>
 	<posx>10</posx>
@@ -1882,7 +1854,32 @@
 				<include>LowList_VideoAspectLabels</include>
 			</control>
 		</control>
-		<include>LowList_MpaaLabels</include>
+	<!-- MPAA Labels -->
+		<control type="label">
+			<include>LowList_MpaaLabelVars</include>
+			<label>Rated [COLOR d0ffffff]R[/COLOR]</label>
+			<visible>substring(listitem.mpaa,Rated R)</visible>
+		</control>
+		<control type="label">
+			<include>LowList_MpaaLabelVars</include>
+			<label>Rated [COLOR d0ffffff]PG-13[/COLOR]</label>
+			<visible>substring(listitem.mpaa,Rated PG-13)</visible>
+		</control>
+		<control type="label">
+			<include>LowList_MpaaLabelVars</include>
+			<label>Rated [COLOR d0ffffff]PG[/COLOR]</label>
+			<visible>substring(listitem.mpaa,Rated PG f)</visible>
+		</control>
+		<control type="label">
+			<include>LowList_MpaaLabelVars</include>
+			<label>Rated [COLOR d0ffffff]NC-17[/COLOR]</label>
+			<visible>substring(listitem.mpaa,Rated NC)</visible>
+		</control>
+		<control type="label">
+			<include>LowList_MpaaLabelVars</include>
+			<label>Rated [COLOR d0ffffff]G[/COLOR]</label>
+			<visible>substring(listitem.mpaa,Rated G)</visible>
+		</control>
 		<!-- Wide Info Panel Fanart/Slideshow -->
 		<control type="largeimage">
 			<include>LowList_WideImageVars</include>
@@ -2274,9 +2271,8 @@
 			<include>LowList_WideImageVarsBig</include>
 			<include>Animation_BackgroundFade</include>
 		</control>
-		<control type="multiimage">
-			<timeperimage>6000</timeperimage>
-			<imagepath fallback="common/black.png" background="true" diffuse="list/list_episodeicon_mask.png">$INFO[ListItem.Icon]</imagepath>
+		<control type="largeimage">
+			<texture fallback="common/black.png" background="true" diffuse="list/list_episodeicon_mask.png">$INFO[listitem.path]folder.jpg</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>Container.Content(episodes) | Skin.HasSetting(widetvpanelthumbon)</visible>
 			<visible>!Player.HasVideo</visible>
