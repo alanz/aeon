@@ -296,7 +296,7 @@
 					<height>165</height>
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
-					<texture>$INFO[Container(553).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
+					<texture fallback="defaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
 				</control>
 				<control type="image">
 					<posx>0</posx>
@@ -313,7 +313,7 @@
 					<height>165</height>
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
-					<texture>$INFO[Container(553).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+					<texture fallback="defaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -475,7 +475,7 @@
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
 					<timeperimage>4000</timeperimage>
-					<imagepath background="true">$INFO[Container(553).ListItem.Path,,extrathumbs]</imagepath>
+					<imagepath background="true" fallback="defaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs]</imagepath>
 					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs) + Skin.HasSetting(multiplexbigtrailer)</visible>
 				</control>
 				<control type="image">
@@ -713,6 +713,7 @@
 				</control>
 			</control>
 			<control type="group">
+				<include>Furniture_OldMultiplexMediaFlagsTv</include>
 				<control type="label">
 					<width>300</width>
 					<include>OldMultiplexTVLabel</include>
@@ -872,6 +873,7 @@
 				<include>Animation_HideMultiplex</include>
 				<visible>Control.IsVisible(553)</visible>
 			</control>
+			<include>Furniture_OldMultiplexMediaFlags</include>
 		</control>
 	</include>
 	<include name="Viewtype_MultiplexOld">
@@ -891,7 +893,6 @@
 		<include condition="Skin.HasSetting(videomovies)">OldMultiplexInfoPaneMovies</include>
 		<include condition="Skin.HasSetting(videotv)">OldMultiplexBaseTV</include>
 		<include condition="Skin.HasSetting(videomovies)">OldMultiplexBaseMovies</include>
-		<include condition="Skin.HasSetting(videomovies)">Furniture_MultiplexMediaFlags</include>
 		<control type="wraplist" id="553">
 			<viewtype label="31582">wrap</viewtype>
 			<include condition="Skin.HasSetting(videomovies)">OldMultiplexMovieVarsWrap</include>
@@ -907,7 +908,7 @@
 			<include condition="Skin.HasSetting(videomovies)">OldMultiplexFocusMovies</include>
 			<include condition="Skin.HasSetting(videotv)">OldMultiplexFocusTV</include>
 			<scrolltime>200</scrolltime>
-			<visible>Window.IsActive(25)</visible>
+			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HideMultiplex</include>
 			<animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60) | Control.HasFocus(197)">Conditional</animation>
 			<itemlayout width="89" height="129" condition="Container.Content(movies)">
@@ -1067,7 +1068,8 @@
 					<aligny>center</aligny>
 					<font>Font_MultiplexSeasonLabelOld</font>
 					<label>$INFO[ListItem.Label]</label>
-					<animation effect="zoom" center="115,100" start="80" end="100" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+					<animation effect="zoom" center="115,100" start="80" end="100" time="205" reversible="false">Focus</animation>
+					<animation effect="zoom" center="115,100" start="100" end="80" reversible="false">UnFocus</animation>
 					<visible>Container.Content(seasons)</visible>
 				</control>
 				<control type="label">
@@ -1080,6 +1082,7 @@
 					<font>Font_MultiplexSeasonLabelOld</font>
 					<label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
 					<animation effect="zoom" center="115,100" start="80" end="100" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+					<animation effect="zoom" center="115,100" start="100" end="80" time="400" easing="in" tween="cubic" reversible="false">UnFocus</animation>
 					<visible>Container.Content(episodes)</visible>
 				</control>
 				<control type="image">

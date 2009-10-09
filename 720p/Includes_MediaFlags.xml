@@ -461,32 +461,6 @@
 				<control type="image" id="82">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[ListItem.VideoCodec,flags/VideoCodec/,.png]</texture>
-					<visible>!substring(listitem.filename,hdtv) + !substring(listitem.filename,dvd) + !substring(listitem.filename,bluray) + !substring(listitem.filename,blu-ray) + !substring(listitem.filename,bdrip) + !substring(listitem.filename,.iso,Right) + !substring(listitem.filename,.ifo,Right)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>flags/Source/hdtv.png</texture>
-					<visible>substring(listitem.filename,hdtv)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>flags/Source/hddvd.png</texture>
-					<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>flags/Source/bluray.png</texture>
-					<visible>substring(listitem.filename,bluray) | substring(listitem.filename,blu-ray) | substring(listitem.filename,bdrip)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>flags/Source/dvd.png</texture>
-					<visible>[substring(listitem.filename,dvd) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,hd-dvd) + !substring(listitem.filename,bluray)] | [substring(listitem.filename,.iso,Right) + !substring(listitem.filename,bluray)] | substring(listitem.filename,.ifo,Right)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_ShowcaseMediaFlagsVars</include>
-					<texture>flags/Source/dvb.png</texture>
-					<visible>substring(listitem.filename,dvb)</visible>
 				</control>
 			</control>
 		</control>
@@ -1313,7 +1287,7 @@
 				<posx>150</posx>
 				<control type="image">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/default.png</texture>
+					<texture>$INFO[VideoPlayer.VideoCodec,flags/VideoCodec/,.png]</texture>
 					<visible>!Control.IsVisible(85)</visible>
 				</control>
 				<control type="image" id="85">
@@ -1352,12 +1326,12 @@
 				<posx>1015</posx>
 				<control type="image" id="83">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/,.png]</texture>
+					<texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 					<visible>!substring(listitem.filename,.iso,Right)]</visible>
 				</control>
 				<control type="image" id="83">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/480.png</texture>
+					<texture>flags/Resolution/480.png</texture>
 					<visible>substring(listitem.filename,.iso,Right)]</visible>
 				</control>
 			</control>
@@ -1366,21 +1340,21 @@
 				<posx>1140</posx>
 				<control type="image">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>$INFO[ListItem.AudioChannels,flags/,ch.png]</texture>
+					<texture>$INFO[ListItem.AudioChannels,flags/Audio/,ch.png]</texture>
 				</control>
 				<control type="image">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/6ch.png</texture>
+					<texture>flags/Audio/6ch.png</texture>
 					<visible>substring(listitem.filename,.iso,Right)]</visible>
 				</control>
 				<control type="image">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture fallback="flags/defaultsound.png">$INFO[ListItem.AudioCodec,flags/,.png]</texture>
+					<texture fallback="flags/defaultsound.png">$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
 					<visible>!substring(listitem.filename,.iso,Right)]</visible>
 				</control>
 				<control type="image">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/dolbydigital.png</texture>
+					<texture>flags/Audio/dolbydigital.png</texture>
 					<visible>substring(listitem.filename,.iso,Right)]</visible>
 				</control>
 			</control>
@@ -1492,4 +1466,19 @@
 			</control>
 	</include>
     
-</includes>
+	<include name="Furniture_OldMultiplexMediaFlagsVars">
+		<posy>454</posy>
+		<width>90</width>
+		<height>59</height>
+		<include>Animation_CommonFade</include>
+		<visible>Control.IsVisible(553)</visible>
+	</include>
+	
+	<include name="Furniture_OldMultiplexMediaFlagsVarsTv">
+		<posy>10</posy>
+		<width>110</width>
+		<height>72</height>
+		<include>Animation_CommonFade</include>
+		<visible>Control.IsVisible(553)</visible>
+	</include>
+    </includes>
