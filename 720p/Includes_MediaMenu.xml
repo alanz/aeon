@@ -357,14 +357,14 @@
 			<onclick>Skin.SetBool(notvfanart)</onclick>
 			<onclick>Skin.SetBool(notvcurtains)</onclick>
 			<onclick>SetFocus(7000)</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Skin.HasSetting(notvfanart) + !Skin.HasSetting(notvcurtains)</visible>
+			<visible>Window.IsActive(videolibrary) + Container.Content(tvshows) + Skin.HasSetting(notvfanart) + !Skin.HasSetting(notvcurtains)</visible>
 		</control>
 		<control type="button" id="700129">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[314121]: $LOCALIZE[31078]</label>
 			<onclick>Skin.Reset(notvfanart)</onclick>
 			<onclick>Skin.SetBool(notvcurtains)</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Skin.HasSetting(notvfanart) + Skin.HasSetting(notvcurtains)</visible>
+			<visible>Window.IsActive(videolibrary) + Container.Content(tvshows) + Skin.HasSetting(notvfanart) + Skin.HasSetting(notvcurtains)</visible>
 			<onclick>SetFocus(7000)</onclick>
 		</control>
 		<control type="button" id="700130">
@@ -372,7 +372,55 @@
 			<label>$LOCALIZE[314121]: $LOCALIZE[31412]</label>
 			<onclick>Skin.SetBool(notvfanart)</onclick>
 			<onclick>Skin.Reset(notvcurtains)</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + [[!Skin.HasSetting(notvfanart) + Skin.HasSetting(notvcurtains)] | [!Skin.HasSetting(notvfanart) + !Skin.HasSetting(notvcurtains)]]</visible>
+			<visible>Window.IsActive(videolibrary) + Container.Content(tvshows) + [[!Skin.HasSetting(notvfanart) + Skin.HasSetting(notvcurtains)] | [!Skin.HasSetting(notvfanart) + !Skin.HasSetting(notvcurtains)]]</visible>
+			<onclick>SetFocus(7000)</onclick>
+		</control>
+				<control type="button" id="700143">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[314121]: $LOCALIZE[31067]</label>
+			<onclick>Skin.SetBool(notvseasonsfanart)</onclick>
+			<onclick>Skin.SetBool(notvseasonscurtains)</onclick>
+			<onclick>SetFocus(7000)</onclick>
+			<visible>Window.IsActive(videolibrary) + Container.Content(seasons) + Skin.HasSetting(notvseasonsfanart) + !Skin.HasSetting(notvseasonscurtains)</visible>
+		</control>
+		<control type="button" id="700144">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[314121]: $LOCALIZE[31078]</label>
+			<onclick>Skin.Reset(notvseasonsfanart)</onclick>
+			<onclick>Skin.SetBool(notvseasonscurtains)</onclick>
+			<visible>Window.IsActive(videolibrary) + Container.Content(seasons) + Skin.HasSetting(notvseasonsfanart) + Skin.HasSetting(notvseasonscurtains)</visible>
+			<onclick>SetFocus(7000)</onclick>
+		</control>
+		<control type="button" id="700145">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[314121]: $LOCALIZE[31412]</label>
+			<onclick>Skin.SetBool(notvseasonsfanart)</onclick>
+			<onclick>Skin.Reset(notvseasonscurtains)</onclick>
+			<visible>Window.IsActive(videolibrary) + Container.Content(seasons) + [[!Skin.HasSetting(notvseasonsfanart) + Skin.HasSetting(notvseasonscurtains)] | [!Skin.HasSetting(notvseasonsfanart) + !Skin.HasSetting(notvseasonscurtains)]]</visible>
+			<onclick>SetFocus(7000)</onclick>
+		</control>
+				<control type="button" id="700146">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[314121]: $LOCALIZE[31067]</label>
+			<onclick>Skin.SetBool(notvepisodesfanart)</onclick>
+			<onclick>Skin.SetBool(notvepisodescurtains)</onclick>
+			<onclick>SetFocus(7000)</onclick>
+			<visible>Window.IsActive(videolibrary) + Container.Content(episodes) + Skin.HasSetting(notvepisodesfanart) + !Skin.HasSetting(notvepisodescurtains)</visible>
+		</control>
+		<control type="button" id="700147">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[314121]: $LOCALIZE[31078]</label>
+			<onclick>Skin.Reset(notvepisodesfanart)</onclick>
+			<onclick>Skin.SetBool(notvepisodescurtains)</onclick>
+			<visible>Window.IsActive(videolibrary) + Container.Content(episodes) + Skin.HasSetting(notvepisodesfanart) + Skin.HasSetting(notvepisodescurtains)</visible>
+			<onclick>SetFocus(7000)</onclick>
+		</control>
+		<control type="button" id="700148">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[314121]: $LOCALIZE[31412]</label>
+			<onclick>Skin.SetBool(notvepisodesfanart)</onclick>
+			<onclick>Skin.Reset(notvepisodescurtains)</onclick>
+			<visible>Window.IsActive(videolibrary) + Container.Content(episodes) + [[!Skin.HasSetting(notvepisodesfanart) + Skin.HasSetting(notvepisodescurtains)] | [!Skin.HasSetting(notvepisodesfanart) + !Skin.HasSetting(notvepisodescurtains)]]</visible>
 			<onclick>SetFocus(7000)</onclick>
 		</control>
 		<control type="button" id="700125">
@@ -641,13 +689,13 @@
 		</control>
 	</include>
 	<include name="MediaMenuButton_MediaDebug">
-		<control type="button" id="700047">
+		<control type="button" id="700147">
 			<label>31607</label>
 			<include>MediaMenuButton</include>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<visible>Skin.HasSetting(debug)</visible>
 		</control>
-		<control type="button" id="700048">
+		<control type="button" id="700148">
 			<label>31608</label>
 			<onclick>Skin.ToggleSetting(debuginfo)</onclick>
 			<include>MediaMenuButton</include>
