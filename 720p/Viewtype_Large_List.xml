@@ -70,13 +70,31 @@
 	</include>
 	<include name="Viewtype_Large_List">
 		<control type="group">
+		
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1280</width>
+				<height>720</height>
+				<texture>mod/black.png</texture>
+				<visible>Control.IsVisible(560)  + !Skin.HasSetting(transparentlist)</visible>
+			</control>
 			<control type="image">
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>1280</width>
 				<height>720</height>
 				<texture>list/largelist.png</texture>
-				<visible>Control.IsVisible(560)</visible>
+				<visible>Control.IsVisible(560) + Skin.HasSetting(largelistlight)</visible>
+			</control>
+			
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1280</width>
+				<height>720</height>
+				<texture>list/largelistdark.png</texture>
+				<visible>Control.IsVisible(560)  + !Skin.HasSetting(largelistlight)</visible>
 			</control>
 
 			<control type="image">
@@ -136,6 +154,15 @@
 				<ondown>560</ondown>
 				<visible>Window.IsActive(25) + Skin.HasSetting(videomovies)</visible>
 				<itemlayout height="36">
+			<!--		<control type="image">
+						<posx>560</posx>
+						<posy>8</posy>
+						<height>27</height>
+						<width>27</width>
+						<include>Animation_ButtonFocusFade2</include>
+						<visible>!IsEmpty(ListItem.Trailer)</visible>
+						<texture>list/trailerarrow.png</texture>
+					</control>-->
 					<control type="image">
 						<posx>35</posx>
 						<posy>39</posy>
@@ -171,6 +198,7 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="35">
+
 					<control type="image">
 						<posx>35</posx>
 						<posy>39</posy>
@@ -181,21 +209,32 @@
 					<control type="image">
 						<posx>8</posx>
 						<posy>2</posy>
-						<width>743</width>
+						<width>723</width>
 						<height>41</height>
 						<texture>list/listpanel_selectbar.png</texture>
-						<include>Animation_ButtonFocusFade</include>
+				<!--		<include>Animation_ButtonFocusFade</include>-->
 						<visible>!Control.HasFocus(61)</visible>
 						<visible>Control.IsVisible(560) | Window.IsActive(106) | Window.IsActive(129) | Window.IsActive(126) | Window.IsActive(601) | Window.IsActive(602) | Window.IsActive(111) | Window.IsActive(2003)</visible>
 					</control>
 					<control type="image">
-						<posx>595</posx>
+						<posx>588</posx>
+						<posy>8</posy>
+						<height>28</height>
+						<width>40</width>
+				<!--		<include>Animation_ButtonFocusFade3</include>-->
+						<texture>list/hdflag.png</texture>
+						<visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+						<colordiffuse>FF000000</colordiffuse>
+					</control>
+					<control type="image">
+						<posx>555</posx>
 						<posy>8</posy>
 						<height>27</height>
 						<width>27</width>
-						<include>Animation_ButtonFocusFade2</include>
+				<!--		<include>Animation_ButtonFocusFade2</include>-->
 						<visible>!IsEmpty(ListItem.Trailer)</visible>
 						<texture>list/trailerarrow.png</texture>
+						<colordiffuse>FF000000</colordiffuse>
 					</control>
 					<control type="label">
 						<include>ListLabel_MainSmall_Slim</include>
@@ -207,7 +246,7 @@
 					<control type="label">
 						<include>ListLabel_DetailSmall_Slim2</include>
 						<include>detailcolornofocus</include>
-						<include>Animation_ButtonFocusFade_fix</include>
+					<!--	<include>Animation_ButtonFocusFade_fix</include>-->
 						<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
 						<visible>[!Control.IsVisible(76) + Container.Content(movies)]</visible>
 					</control>
@@ -245,7 +284,7 @@
 		<posx>722</posx>
 		<posy>0</posy>
 		<visible>Control.IsVisible(560)</visible>
-			<control type="image">
+			<control type="image" background="true">
 				<width>558</width>
 				<height>720</height>
 				<fadetime>400</fadetime>
@@ -511,11 +550,11 @@
 			<posy>75</posy>
 			<width>65</width>
 			<height>545</height>
-			<visible allowhiddenfocus="true">Control.IsVisible(560) + Control.HasFocus(61)</visible>
+			<visible allowhiddenfocus="true">Control.IsVisible(560)</visible>
 			<texturesliderbackground>windows/scrollbarbacklist.png</texturesliderbackground>
 			<texturesliderbar>-</texturesliderbar>
 			<texturesliderbarfocus>-</texturesliderbarfocus>
-			<textureslidernib>windows/scrollbarnub-focus.png</textureslidernib>
+			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
 			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
 			<pulseonselect/>
 			<orientation>vertical</orientation>
