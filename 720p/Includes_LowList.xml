@@ -111,6 +111,7 @@
 <include name="LowList_PosterIconGlass">
 	<texture>thumbs/poster_glass_noedge.png</texture>
 	<include>LowList_PosterIconVars</include>
+	<visible>!Container.Content(years)</visible>
 </include>
 <include name="LowList_DVDCaseGlass">
 	<texture>thumbs/boxes/poster_glass.png</texture>
@@ -161,7 +162,7 @@
 			<description>DVD Case Frame</description>
 			<include>LowList_DVDCaseVars</include>
 			<texture>thumbs/boxes/poster_shadow.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcase)+!Container.Content(years)+!Container.Content(studios)</visible>
 		</control>
 		<control type="largeimage">
 			<description>Poster Icon Mask</description>
@@ -169,7 +170,7 @@
 			<texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
 			<bordertexture border="-18">thumbs/movieposter_frame.png</bordertexture>
 			<fadetime>400</fadetime>
-			<visible>!Skin.HasSetting(dvdcase)</visible>
+			<visible>>![Skin.HasSetting(dvdcase)+!Container.Content(years)+!Container.Content(studios)]</visible>
 		</control>
 		<control type="largeimage">
 			<description>POSTER.JPG icon</description>

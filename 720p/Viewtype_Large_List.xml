@@ -473,41 +473,6 @@
 			<visible>!Player.HasVideo</visible>
 		</control>
 		</control>
-		<control type="group">
-				<posx>851</posx>
-				
-				<control type="image" id="82">
-					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture>flags/avi.png</texture>
-					<visible>substring(listitem.filename,.avi,Right)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture>flags/mpg4.png</texture>
-					<visible>substring(listitem.filename,.mkv,Right) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,bluray) | substring(listitem.filename,.mp4,Right) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,bluray)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture>flags/hddvd.png</texture>
-					<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture>flags/bluray.png</texture>
-					<visible>substring(listitem.filename,bluray) | substring(listitem.filename,blu-ray)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture>flags/dvd.png</texture>
-					<visible>[substring(listitem.filename,sddvd) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,hd-dvd)] | substring(listitem.filename,.iso,Right) | substring(listitem.filename,.ifo,Right)</visible>
-				</control>
-				<control type="image" id="82">
-					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture>flags/dvb.png</texture>
-					<visible>substring(listitem.filename,dvb)</visible>
-				</control>
-			</control>
-			
 			<control type="group">
 			<posx>1072</posx>
 				<control type="image" id="187">
@@ -526,7 +491,7 @@
 			<posx>1165</posx>
 				<control type="image" id="188">
 					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture fallback="flags/defaultsound.png">$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
+					<texture>$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
 					<visible>!substring(listitem.filename,.iso,Right)</visible>
 				</control>
 				<control type="image" id="188">
@@ -544,7 +509,6 @@
 				<control type="image">
 					<include>Furniture_LargeListMediaFlagsVars</include>
 					<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-					<visible>!substring(listitem.filename,.iso,Right)</visible>
 				</control>
 			</control>
 			<control type="group">
