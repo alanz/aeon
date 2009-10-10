@@ -955,7 +955,7 @@
 				<posx>415</posx>
 				<control type="image">
 					<include>Furniture_PanelMediaFlagsVars</include>
-					<texture>$INFO[ListItem.AudioChannels,flags/,ch.png]</texture>
+					<texture>$INFO[ListItem.AudioChannels,flags/Audio/,ch.png]</texture>
 				</control>
 				<control type="image">
 					<include>Furniture_PanelMediaFlagsVars</include>
@@ -964,7 +964,7 @@
 				</control>
 				<control type="image">
 					<include>Furniture_PanelMediaFlagsVars</include>
-					<texture>$INFO[ListItem.AudioCodec,flags/,.png]</texture>
+					<texture>$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
 					<visible>!substring(listitem.filename,.iso,Right)]</visible>
 				</control>
 				<control type="image">
@@ -1287,38 +1287,7 @@
 				<posx>150</posx>
 				<control type="image">
 					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>$INFO[VideoPlayer.VideoCodec,flags/VideoCodec/,.png]</texture>
-					<visible>!Control.IsVisible(85)</visible>
-				</control>
-				<control type="image" id="85">
-					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/avi.png</texture>
-					<visible>substring(listitem.filename,.avi,Right)</visible>
-				</control>
-				<control type="image" id="85">
-					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/mpg4.png</texture>
-					<visible>substring(listitem.filename,.mkv,Right) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,bluray) | substring(listitem.filename,.mp4,Right) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,bluray)</visible>
-				</control>
-				<control type="image" id="85">
-					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/hddvd.png</texture>
-					<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
-				</control>
-				<control type="image" id="85">
-					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/bluray.png</texture>
-					<visible>substring(listitem.filename,bluray) | substring(listitem.filename,blu-ray)</visible>
-				</control>
-				<control type="image" id="85">
-					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/dvd.png</texture>
-					<visible>[substring(listitem.filename,sddvd) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,hd-dvd)] | substring(listitem.filename,.iso,Right) | substring(listitem.filename,.ifo,Right)</visible>
-				</control>
-				<control type="image" id="85">
-					<include>Furniture_OldMultiplexMediaFlagsVars</include>
-					<texture>flags/dvb.png</texture>
-					<visible>substring(listitem.filename,dvb)</visible>
+					<texture>$INFO[listitem.VideoCodec,flags/VideoCodec/,.png]</texture>
 				</control>
 			</control>
 			
@@ -1367,7 +1336,7 @@
 			<posx>875</posx>
 			<control type="image" id="93">
 				<include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-				<texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/,.png]</texture>
+				<texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 				<visible>!substring(listitem.filename,sddvd)</visible>
 			</control>
 			<control type="image" id="93">
@@ -1465,20 +1434,20 @@
 				</control>
 			</control>
 	</include>
-    
-	<include name="Furniture_OldMultiplexMediaFlagsVars">
+ 	<include name="Furniture_OldMultiplexMediaFlagsVars">
 		<posy>454</posy>
 		<width>90</width>
 		<height>59</height>
 		<include>Animation_CommonFade</include>
 		<visible>Control.IsVisible(553)</visible>
+		<fadetime>300</fadetime>
 	</include>
-	
 	<include name="Furniture_OldMultiplexMediaFlagsVarsTv">
 		<posy>10</posy>
 		<width>110</width>
 		<height>72</height>
 		<include>Animation_CommonFade</include>
 		<visible>Control.IsVisible(553)</visible>
+		<fadetime>300</fadetime>
 	</include>
     </includes>

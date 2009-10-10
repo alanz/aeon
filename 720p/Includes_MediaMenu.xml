@@ -2,18 +2,13 @@
 	<!--############################################ Animations #################################################-->
 	<!--#########################################################################################################-->
 	<include name="Animation_MediaMenuSlide">
-		<animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus()">
+		<animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus()">
 			<effect type="slide" end="-215,0" time="400" easing="in" tween="cubic" />
 			<effect type="fade" start="100" end="0" time="400" />
 		</animation>
 	</include>
 	<!--################################### Button Look and Dimensions ##########################################-->
-	<!--#########################################################################################################-->
-	<include name="ViewChangeImage">
-			<width>150</width>
-			<height>90</height>
-	</include>
-	
+	<!--#########################################################################################################-->	
 	<include name="ViewImage">
 			<posx>10</posx>
 			<posy>0</posy>
@@ -118,6 +113,7 @@
 			<onclick>Skin.SetBool(multiplexinfoauto)</onclick>
 			<onclick>Skin.Reset(multiplexinfooff)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(52) + Skin.HasSetting(multiplexinfooff)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -127,6 +123,7 @@
 			<onclick>Skin.SetBool(multiplexinfotrigger)</onclick>
 			<onclick>Skin.Reset(multiplexinfoauto)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(52) + ![Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfoon)]</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -136,6 +133,7 @@
 			<onclick>Skin.SetBool(multiplexinfoon)</onclick>
 			<onclick>Skin.Reset(multiplexinfotrigger)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(52) + Skin.HasSetting(multiplexinfotrigger)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -145,6 +143,7 @@
 			<onclick>Skin.SetBool(multiplexinfooff)</onclick>
 			<onclick>Skin.Reset(multiplexinfoon)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(52) + Skin.HasSetting(multiplexinfoon)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -154,6 +153,7 @@
 			<onclick>Skin.SetBool(multiplextvinfoauto)</onclick>
 			<onclick>Skin.Reset(multiplextvinfooff)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(multiplextvinfooff)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -163,6 +163,7 @@
 			<onclick>Skin.SetBool(multiplextvinfotrigger)</onclick>
 			<onclick>Skin.Reset(multiplextvinfoauto)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + ![Skin.HasSetting(multiplextvinfotrigger) | Skin.HasSetting(multiplextvinfooff) | Skin.HasSetting(multiplextvinfoon)]</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -172,6 +173,7 @@
 			<onclick>Skin.SetBool(multiplextvinfoon)</onclick>
 			<onclick>Skin.Reset(multiplextvinfotrigger)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(multiplextvinfotrigger)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -181,6 +183,7 @@
 			<onclick>Skin.SetBool(multiplextvinfooff)</onclick>
 			<onclick>Skin.Reset(multiplextvinfoon)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
+			<onright>setfocus(7020)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(multiplextvinfoon)</visible>
 			<visible>!Skin.HasSetting(nomultiplexinfobuttons)</visible>
 		</control>
@@ -218,7 +221,7 @@
 			<onclick>Skin.SetBool(bigthumb)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(552)] + ![Skin.HasSetting(bigthumb) | Skin.HasSetting(fanart) | Skin.HasSetting(trailer) | Skin.HasSetting(bigtrailer) | Skin.HasSetting(multiplexposter)]</visible>
+			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + ![Skin.HasSetting(bigthumb) | Skin.HasSetting(fanart) | Skin.HasSetting(trailer) | Skin.HasSetting(bigtrailer) | Skin.HasSetting(multiplexposter)]</visible>
 		</control>
 		<control type="button" id="700015">
 			<include>MediaMenuButton</include>
@@ -227,7 +230,7 @@
 			<onclick>Skin.Reset(bigthumb)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(552)] + Skin.HasSetting(bigthumb)</visible>
+			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(bigthumb)</visible>
 		</control>
 		<control type="button" id="700016">
 			<include>MediaMenuButton</include>
@@ -236,7 +239,7 @@
 			<onclick>Skin.Reset(fanart)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(552)] + Skin.HasSetting(fanart)</visible>
+			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(fanart)</visible>
 		</control>
 		<control type="button" id="700017">
 			<include>MediaMenuButton</include>
@@ -245,7 +248,7 @@
 			<onclick>Skin.Reset(trailer)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(552)] + Skin.HasSetting(trailer)</visible>
+			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(trailer)</visible>
 		</control>
 		<control type="button" id="700018">
 			<include>MediaMenuButton</include>
@@ -254,7 +257,7 @@
 			<onclick>Skin.Reset(bigtrailer)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(552)] + Skin.HasSetting(bigtrailer)</visible>
+			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(bigtrailer)</visible>
 		</control>
 		<control type="button" id="700019">
 			<include>MediaMenuButton</include>
@@ -262,7 +265,7 @@
 			<onclick>Skin.Reset(multiplexposter)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(552)] + Skin.HasSetting(multiplexposter)</visible>
+			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(multiplexposter)</visible>
 		</control>
 		<control type="togglebutton" id="700020">
 			<include>MediaMenuButton</include>
@@ -854,6 +857,7 @@
 			<onclick>Skin.Reset(showcaseinfooff)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcaseinfooff)</visible>
+			<onright>SetFocus(7020)</onright>
 		</control>
 		<control type="button" id="700061">
 			<include>MediaMenuButton</include>
@@ -861,6 +865,7 @@
 			<onclick>Skin.SetBool(showcaseinfotrigger)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + ![Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfoon)]</visible>
+			<onright>SetFocus(7020)</onright>
 		</control>
 		<control type="button" id="700062">
 			<include>MediaMenuButton</include>
@@ -869,6 +874,7 @@
 			<onclick>Skin.Reset(showcaseinfotrigger)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcaseinfotrigger)</visible>
+			<onright>SetFocus(7020)</onright>
 		</control>
 		<control type="button" id="700063">
 			<include>MediaMenuButton</include>
@@ -877,6 +883,7 @@
 			<onclick>Skin.Reset(showcaseinfoon)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(57) + Skin.HasSetting(showcaseinfoon)</visible>
+			<onright>SetFocus(7020)</onright>
 		</control>
 		<control type="button" id="700064">
 			<include>MediaMenuButton</include>
@@ -1060,52 +1067,6 @@
 		</control>
 	</include>
 	<include name="MediaMenuButton_OldMultiplexStyle">
-		<control type="button" id="700110">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: $LOCALIZE[31046]</label>
-			<onclick>Skin.SetBool(oldmultiplexbigthumb)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(553) + ![Skin.HasSetting(oldmultiplexbigthumb) | Skin.HasSetting(oldmultiplexfanart) | Skin.HasSetting(oldmultiplextrailer) | Skin.HasSetting(oldmultiplexbigtrailer) | Skin.HasSetting(oldmultiplexposter)]</visible>
-		</control>
-		<control type="button" id="700111">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: $LOCALIZE[31045]</label>
-			<onclick>Skin.SetBool(oldmultiplexfanart)</onclick>
-			<onclick>Skin.Reset(oldmultiplexbigthumb)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(553) + Skin.HasSetting(oldmultiplexbigthumb)</visible>
-		</control>
-		<control type="button" id="700112">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: $LOCALIZE[31044]</label>
-			<onclick>Skin.SetBool(oldmultiplextrailer)</onclick>
-			<onclick>Skin.Reset(oldmultiplexfanart)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(553) + Skin.HasSetting(oldmultiplexfanart)</visible>
-		</control>
-		<control type="button" id="700113">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: $LOCALIZE[32000]</label>
-			<onclick>Skin.SetBool(oldmultiplexbigtrailer)</onclick>
-			<onclick>Skin.Reset(oldmultiplextrailer)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(553) + Skin.HasSetting(oldmultiplextrailer)</visible>
-		</control>
-		<control type="button" id="700114">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: $LOCALIZE[32001]</label>
-			<onclick>Skin.SetBool(oldmultiplexposter)</onclick>
-			<onclick>Skin.Reset(oldmultiplexbigtrailer)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(553) + Skin.HasSetting(oldmultiplexbigtrailer)</visible>
-		</control>
-		<control type="button" id="700115">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: POSTER</label>
-			<onclick>Skin.Reset(oldmultiplexposter)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(553) + Skin.HasSetting(oldmultiplexposter)</visible>
-		</control>
 		<control type="togglebutton" id="700116">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31045]: $LOCALIZE[31063]</label>
@@ -1137,6 +1098,14 @@
 	
 	<include name="ViewSelect">
 		<control type="group" id="14">
+			<animation type="Visible" revertible="false">
+				<effect type="fade" start="0" end="100" time="300" />
+				<effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Hidden" revertible="false">
+				<effect type="fade" start="100" end="0" time="500" />
+				<effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in" />
+			</animation>
 			<visible>!Skin.HasSetting(videotv)</visible>
 			<visible>[ControlGroup(7000).HasFocus(700014) | ControlGroup(7000).HasFocus(700015) | ControlGroup(7000).HasFocus(700015) | ControlGroup(7000).HasFocus(700016) | ControlGroup(7000).HasFocus(700017) | ControlGroup(7000).HasFocus(700018) | ControlGroup(7000).HasFocus(700019)]</visible>
 			<include>Animation_MediaMenuSlide</include>
@@ -1153,7 +1122,7 @@
 				<height>5800</height>
 				<width>215</width>
 				<onleft>7000</onleft>
-				<onright>7011</onright>
+				<onright>50</onright>
 				<onup>7011</onup>
 				<ondown>7011</ondown>
 				<orientation>Vertical</orientation>
@@ -1231,10 +1200,11 @@
 				<posy>0</posy>
 				<width>215</width>
 				<height>720</height>
-				<texture>showcase/showcase_menupanel.png</texture>
+				<texture>viewselect/menupanel.png</texture>
 				<include>Animation_MediaMenuSlide</include>
 			</control>
 			<include>ViewSelect</include>
+			<include>TriggerSelect</include>
 			<control type="image">
 				<include>MediaMenuLogo</include>
 				<texture>windows/logo_movies.png</texture>
@@ -1333,6 +1303,133 @@
 				<include condition="Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)">MediaMenuButton_Playlist</include>
 				<include condition="Window.IsActive(musicplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
 				<include>MediaMenuButton_MediaDebug</include>
+			</control>
+		</control>
+	</include>
+	<include name="TriggerSelect">
+		<control type="group">
+			<animation type="Visible" revertible="false">
+				<effect type="fade" start="0" end="100" time="300" />
+				<effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Hidden" revertible="false">
+				<effect type="fade" start="100" end="0" time="500" />
+				<effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in" />
+			</animation>
+			<posx>215</posx>
+			<visible>!Skin.HasSetting(videotv)</visible>
+			<visible>ControlGroup(7000).HasFocus(700003) | ControlGroup(7000).HasFocus(700004) | ControlGroup(7000).HasFocus(700005) | ControlGroup(7000).HasFocus(700006) | ControlGroup(7000).HasFocus(700007) | ControlGroup(7000).HasFocus(700008) | ControlGroup(7000).HasFocus(700009)  | ControlGroup(7000).HasFocus(700060) | ControlGroup(7000).HasFocus(700061) | ControlGroup(7000).HasFocus(700062) | ControlGroup(7000).HasFocus(700063)</visible>
+			<include>Animation_MediaMenuSlide</include>
+			<control type="image">
+				<posx>0</posx>
+				<posy>80</posy>
+				<width>130</width>
+				<height>120</height>
+				<texture>viewselect/menupanel.png</texture>
+			</control>
+			<control type="grouplist" id="7020">
+				<posx>0</posx>
+				<posy>80</posy>
+				<width>130</width>
+				<height>120</height>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+				<scroll>false</scroll>
+				<onleft>7000</onleft>
+				<onright>50</onright>
+				<onup>7020</onup>
+				<ondown>7020</ondown>
+				<include>Animation_CommonFade</include>
+				<control type="button" id="702003">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31078]</label>
+					<onclick>Skin.Reset(multiplexinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexinfotrigger)</onclick>
+					<onclick>Skin.SetBool(multiplexinfooff)</onclick>
+					<onclick>Skin.Reset(multiplexinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(552)</visible>
+				</control>
+				<control type="button" id="702004">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31048]</label>
+					<onclick>Skin.Reset(multiplexinfoauto)</onclick>
+					<onclick>Skin.SetBool(multiplexinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexinfooff)</onclick>
+					<onclick>Skin.Reset(multiplexinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(552)</visible>
+				</control>
+				<control type="button" id="702005">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31049]</label>
+					<onclick>Skin.SetBool(multiplexinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexinfooff)</onclick>
+					<onclick>Skin.Reset(multiplexinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(552)</visible>
+
+				</control>
+				<control type="button" id="702006">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31077]</label>
+					<onclick>Skin.Reset(multiplexinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexinfooff)</onclick>
+					<onclick>Skin.SetBool(multiplexinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(552)</visible>
+				</control>
+				<control type="button" id="702007">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31078]</label>
+					<onclick>Skin.Reset(showcaseinfoauto)</onclick>
+					<onclick>Skin.Reset(showcaseinfotrigger)</onclick>
+					<onclick>Skin.SetBool(showcaseinfooff)</onclick>
+					<onclick>Skin.Reset(showcaseinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57)</visible>
+				</control>
+				<control type="button" id="702008">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31048]</label>
+					<onclick>Skin.Reset(showcaseinfoauto)</onclick>
+					<onclick>Skin.SetBool(showcaseinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcaseinfooff)</onclick>
+					<onclick>Skin.Reset(showcaseinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57)</visible>
+				</control>
+				<control type="button" id="702009">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31049]</label>
+					<onclick>Skin.SetBool(showcaseinfoauto)</onclick>
+					<onclick>Skin.Reset(showcaseinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcaseinfooff)</onclick>
+					<onclick>Skin.Reset(showcaseinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57)</visible>
+
+				</control>
+				<control type="button" id="702010">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31077]</label>
+					<onclick>Skin.Reset(showcaseinfoauto)</onclick>
+					<onclick>Skin.Reset(showcaseinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcaseinfooff)</onclick>
+					<onclick>Skin.SetBool(showcaseinfoon)</onclick>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57)</visible>
+				</control>
 			</control>
 		</control>
 	</include>
