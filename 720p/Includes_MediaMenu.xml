@@ -221,7 +221,7 @@
 			<onclick>Skin.SetBool(bigthumb)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + ![Skin.HasSetting(bigthumb) | Skin.HasSetting(fanart) | Skin.HasSetting(trailer) | Skin.HasSetting(bigtrailer) | Skin.HasSetting(multiplexposter)]</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + ![Skin.HasSetting(bigthumb) | Skin.HasSetting(fanart) | Skin.HasSetting(trailer) | Skin.HasSetting(bigtrailer) | Skin.HasSetting(multiplexposter)] + !ControlGroup(7011).HasFocus()]] | Control.HasFocus(3001)</visible>
 		</control>
 		<control type="button" id="700015">
 			<include>MediaMenuButton</include>
@@ -230,7 +230,7 @@
 			<onclick>Skin.Reset(bigthumb)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(bigthumb)</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(bigthumb)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3002)</visible>
 		</control>
 		<control type="button" id="700016">
 			<include>MediaMenuButton</include>
@@ -239,7 +239,7 @@
 			<onclick>Skin.Reset(fanart)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(fanart)</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(fanart)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3003)</visible>
 		</control>
 		<control type="button" id="700017">
 			<include>MediaMenuButton</include>
@@ -248,7 +248,7 @@
 			<onclick>Skin.Reset(trailer)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(trailer)</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(trailer)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3004)</visible>
 		</control>
 		<control type="button" id="700018">
 			<include>MediaMenuButton</include>
@@ -257,7 +257,7 @@
 			<onclick>Skin.Reset(bigtrailer)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(bigtrailer)</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(bigtrailer)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3006)</visible>
 		</control>
 		<control type="button" id="700019">
 			<include>MediaMenuButton</include>
@@ -265,7 +265,7 @@
 			<onclick>Skin.Reset(multiplexposter)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(multiplexposter)</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(multiplexposter)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3005)</visible>
 		</control>
 		<control type="togglebutton" id="700020">
 			<include>MediaMenuButton</include>
@@ -273,7 +273,7 @@
 			<altlabel>$LOCALIZE[31045]: $LOCALIZE[31064]</altlabel>
 			<usealttexture>!Skin.HasSetting(multiplextvbigthumb)</usealttexture>
 			<onclick>Skin.ToggleSetting(multiplextvbigthumb)</onclick>
-			<visible>Container.Content(episodes) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(552)</visible>
+			<visible>[Container.Content(episodes) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(552)]</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_ShowcaseStyle">
