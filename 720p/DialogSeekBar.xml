@@ -1,13 +1,11 @@
 <window id="115">
 	<defaultcontrol>23</defaultcontrol>
-	<visible>Window.IsActive(fullscreenvideo) + !Window.IsActive(videoosd) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]+ !Window.IsActive(fullscreeninfo)</visible>
+	<visible>Window.IsActive(2005) + !Window.IsActive(2901) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]+ !Window.IsActive(142)</visible>
 	<controls>
 		<control type="group">
 
 			<posx>0</posx>
-			<posy>600</posy>
-			<width>1280</width>
-			<height>159</height>
+			<posy>620</posy>
 			<animation type="Visible">
 				<effect type="fade" time="400" start="0" end="100" />
 				<effect type="slide" time="400" start="0,151" end="0,0" easing="out" tween="cubic" />
@@ -34,11 +32,10 @@
 				<colordiffuse>cdffffff</colordiffuse>
 				<texture>osd/osd_back.png</texture>
 			</control>
-
 			<control type="progress" id="23">
 				<description>Progressbar</description>
 				<posx>112</posx>
-				<posy>60</posy>
+				<posy>40</posy>
 				<width>1057</width>
 				<height>15</height>
 				<info>Player.Progress</info>
@@ -49,333 +46,139 @@
 				<overlaytexture>-</overlaytexture>
 				<visible>true</visible>
 			</control>
+			<control type="group">
 
-<!-- Remove Paused Tab from Info bar
-
-			<control type="image">
-				<posx>499</posx>
+				<posx>-500</posx>
 				<posy>-20</posy>
-				<width>281</width>
+				<width>499</width>
 				<height>28</height>
-				<texture>osd/osd_button_paused.png</texture>
-				<include>Animation_CommonFade</include>
-				<visible>Player.Paused</visible>
-			</control>  -->
-
-<!-- Original Paused Text
-
-				<posx>-350</posx>
-				<posy>-20</posy>
-				<width>281</width>
-				<height>28</height>
-				<aligny>center</aligny>
-				<align>center</align>
-				<font>Font_OSDSeek</font>
-				<textcolor>FF363636</textcolor>
-				<include>Animation_CommonFade</include>
-				<label>PAUSED</label>
-				<visible>Player.Paused</visible>
-
-End original text  and PAUSED edits -->
-
-
-		<control type="group">
+				<animation effect="slide" end="200,0" time="200" condition="Player.Forwarding2x">Conditional</animation>
+				<animation effect="slide" end="275,0" time="200" condition="Player.Forwarding4x">Conditional</animation>
+				<animation effect="slide" end="350,0" time="200" condition="Player.Forwarding8x">Conditional</animation>
+				<animation effect="slide" end="425,0" time="200" condition="Player.Forwarding16x">Conditional</animation>
+				<animation effect="slide" end="499,0" time="200" condition="Player.Forwarding32x">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>499</width>
+					<height>28</height>
+					<texture>osd/osd_button_reverse.png</texture>
+				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
+					<include>Objects_OSDSeekForward</include>
 					<label>$LOCALIZE[31706] 2X</label>
-					<textcolor>33FFFFFF</textcolor>
 					<visible>Player.Forwarding2x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>.
-					<font>Sml_Text</font>
+					<include>Objects_OSDSeekForward</include>
 					<label>$LOCALIZE[31706] 4X</label>
-					<textcolor>33FFFFFF</textcolor>
 					<visible>Player.Forwarding4x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
+					<include>Objects_OSDSeekForward</include>
 					<label>$LOCALIZE[31706] 8X</label>
-					<textcolor>33FFFFFF</textcolor>
 					<visible>Player.Forwarding8x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
+					<include>Objects_OSDSeekForward</include>
 					<label>$LOCALIZE[31706] 16X</label>
-					<textcolor>33FFFFFF</textcolor>
 					<visible>Player.Forwarding16x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
-					<textcolor>33FFFFFF</textcolor>
+					<include>Objects_OSDSeekForward</include>
 					<label>$LOCALIZE[31706] 32X</label>
-					<textcolor>22FFFFFF</textcolor>
 					<visible>Player.Forwarding32x</visible>
 				</control>
 
+			</control>
+			<control type="group">
+
+				<posx>1280</posx>
+				<posy>-20</posy>
+				<width>499</width>
+				<height>28</height>
+				<animation effect="slide" end="-200,0" time="200" condition="Player.Rewinding2x">Conditional</animation>
+				<animation effect="slide" end="-275,0" time="200" condition="Player.Rewinding4x">Conditional</animation>
+				<animation effect="slide" end="-350,0" time="200" condition="Player.Rewinding8x">Conditional</animation>
+				<animation effect="slide" end="-425,0" time="200" condition="Player.Rewinding16x">Conditional</animation>
+				<animation effect="slide" end="-499,0" time="200" condition="Player.Rewinding32x">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>499</width>
+					<height>28</height>
+					<texture>osd/osd_button_advance.png</texture>
+				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
-					<textcolor>33FFFFFF</textcolor>
+					<include>Objects_OSDSeekReverse</include>
 					<label>$LOCALIZE[31705] 2X</label>
 					<visible>Player.Rewinding2x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
-					<textcolor>33FFFFFF</textcolor>
 					<include>Objects_OSDSeekReverse</include>
 					<label>$LOCALIZE[31705] 4X</label>
 					<visible>Player.Rewinding4x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
-					<textcolor>33FFFFFF</textcolor>
 					<include>Objects_OSDSeekReverse</include>
 					<label>$LOCALIZE[31705] 8X</label>
 					<visible>Player.Rewinding8x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
-					<textcolor>33FFFFFF</textcolor>
 					<include>Objects_OSDSeekReverse</include>
 					<label>$LOCALIZE[31705] 16X</label>
 					<visible>Player.Rewinding16x</visible>
 				</control>
 
 				<control type="label">
-					<posx>1260</posx>
-					<posy>-40</posy>
-					<width>1280</width>
-					<height>15</height>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>Sml_Text</font>
-					<textcolor>33FFFFFF</textcolor>
 					<include>Objects_OSDSeekReverse</include>
 					<label>$LOCALIZE[31705] 32X</label>
 					<visible>Player.Rewinding32x</visible>
 				</control>
+
 			</control>
 			<control type="label">
 				<posx>30</posx>
-				<posy>56</posy>
+				<posy>36</posy>
 				<width>300</width>
 				<height>25</height>
 				<font>Font_OSDTime</font>
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$INFO[VideoPlayer.Time]</label>
 			</control>
-
 			<control type="label">
 				<posx>30</posx>
-				<posy>85</posy>
+				<posy>65</posy>
 				<width>300</width>
 				<height>25</height>
 				<font>Font_OSDTime</font>
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$LOCALIZE[31720]: $INFO[System.Time]</label>
+				<visible>!Skin.HasSetting(currenttimeoff)</visible>
 			</control>
 			<control type="label">
 				<posx>0</posx>
-				<posy>78</posy>
-				<width>1280</width>
-				<height>15</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font_OSDGenre</font>
-				<label>$INFO[VideoPlayer.Genre]</label>
-				<visible>VideoPlayer.Content(movies)</visible>
-			</control>
-
-		  <control type="image">
-		     <description>IMDB Rating</description>
-		     <posx>575</posx>
-		     <posy>95</posy>
-		     <width>130</width>
-		     <height>25</height>
-		 		 <align>center</align>
-				 <aligny>center</aligny>
-		     <info>Player.StarRating</info>
-				<visible>VideoPlayer.Content(movies)</visible>
-		   </control>
-
-
-			<control type="label">
-				<posx>0</posx>
-				<posy>22</posy>
+				<posy>64</posy>
 				<width>1280</width>
 				<height>25</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<font>Font_OSDMusicTitle</font>
-				<label>$INFO[VideoPlayer.Title] ($INFO[VideoPlayer.Year])</label>
-				<visible>VideoPlayer.Content(movies)</visible>
-			</control>
-
-			<control type="label">
-				<posx>0</posx>
-				<posy>22</posy>
-				<width>1280</width>
-				<height>25</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font_OSDMusicTitle</font>
-				<label>$INFO[VideoPlayer.TVShowTitle]</label>
-				<visible>VideoPlayer.Content(episodes)</visible>
-			</control>
-
-			<control type="label">
-				<posx>0</posx>
-				<posy>78</posy>
-				<width>1280</width>
-				<height>15</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font_OSDGenre</font>
-				<label>Season $INFO[VideoPlayer.Season], Episode $INFO[VideoPlayer.Episode]</label>
-				<visible>VideoPlayer.Content(episodes)</visible>
-			</control>
-
-			<control type="label">
-				<posx>0</posx>
-				<posy>95</posy>
-				<width>1280</width>
-				<height>15</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font_OSDGenre</font>
 				<label>$INFO[VideoPlayer.Title]</label>
-				<visible>VideoPlayer.Content(episodes)</visible>
+				<animation effect="slide" start="0,0" end="0,-12" time="200" condition="Control.IsVisible(212)">Conditional</animation>
 			</control>
-
-
-			<control type ="image">
-				<description>Clearart</description>
-				<posx>1049</posx>
-				<posy>-105</posy>
-				<width>230</width>
-				<height>115</height>
-				<texture>clearart/$INFO[VideoPlayer.TVShowTitle].png</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>VideoPlayer.Content(episodes)</visible>
-				<!-- stoli - animation added -->
-					<animation type="WindowOpen">
-					<effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out" />
-					<effect type="fade" start="0" end="100" time="600" />
-					</animation>
-				<animation type="WindowClose">
-					<effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out" />
-					<effect type="fade" start="100" end="0" time="600" />
-				</animation>
-				<!-- stoli - animation end -->
-
-			</control>
-			<control type="image">
-				<description>Cover Image</description>
-				<posx>50</posx>
-				<posy>320r</posy>
-				<width>125</width>
-				<height>188</height>
-				<texture diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.Cover]</texture>
-				<aspectratio aligny="bottom">Keep</aspectratio>
-				<visible>VideoPlayer.Content(movies)</visible>
-				<!-- stoli - animation added -->
-				<animation type="WindowOpen">
-					<effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out" />
-					<effect type="fade" start="0" end="100" time="600" />
-					</animation>
-				<animation type="WindowClose">
-					<effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out" />
-					<effect type="fade" start="100" end="0" time="600" />
-				</animation>
-				<!-- stoli - animation end -->
-			</control>
-
-			<control type="image">
-				<description>Cover Image</description>
-				<posx>50</posx>
-				<posy>495r</posy>
-				<width>250</width>
-				<height>375</height>
-				<texture diffuse="multiplex/multiplex_tvmask.png">$INFO[VideoPlayer.Cover]</texture>
-				<aspectratio aligny="bottom">Keep</aspectratio>
-				<visible>VideoPlayer.Content(episodes)</visible>
-				<!-- stoli - animation added -->
-				<animation type="WindowOpen">
-					<effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out" />
-					<effect type="fade" start="0" end="100" time="600" />
-					</animation>
-				<animation type="WindowClose">
-					<effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out" />
-					<effect type="fade" start="100" end="0" time="600" />
-				</animation>
-				<!-- stoli - animation end -->
-			</control>
-
 			<control type="label">
 				<posx>1250</posx>
-				<posy>56</posy>
+				<posy>36</posy>
 				<width>300</width>
 				<height>25</height>
 				<align>right</align>
@@ -383,24 +186,77 @@ End original text  and PAUSED edits -->
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$INFO[VideoPlayer.Duration]</label>
 			</control>
-
 			<control type="label">
 				<posx>1250</posx>
-				<posy>85</posy>
+				<posy>65</posy>
 				<width>300</width>
 				<height>25</height>
 				<align>right</align>
 				<font>Font_OSDTime</font>
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$LOCALIZE[31710]: $INFO[Player.FinishTime]</label>
+				<visible>!Skin.HasSetting(finishtimeoff)</visible>
+			</control>
+		
+<!--  Size and implementation of covers -->
+			<control type="group">
+				<control type="image">
+					<description>cover image movie</description> 
+					<posx>1130</posx> 
+					<posy>-217</posy> 
+					<width>150</width> 
+					<height>225</height>
+					<texture diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.cover]</texture>
+					<visible>VideoPlayer.Content(movies)</visible>
+				</control>
+				<control type="image">
+				<posx>1130</posx> 
+				<posy>-217</posy> 
+				<width>150</width> 
+				<height>225</height>
+				<texture>thumbs/poster_glass.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<visible>VideoPlayer.Content(movies)</visible>
+			</control>
+			</control>
+			<control type="group">
+				<control type ="image"> 
+					<description>ClearArt</description>
+					<posx>1049</posx>     
+					<posy>-108</posy>    
+					<width>230</width>     
+					<height>115</height> 
+					<texture>clearart/$INFO[VideoPlayer.TVShowTitle].png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>VideoPlayer.Content(episodes) + !Skin.HasSetting(yesclearart)</visible>
+				</control>
+				<control type ="image"> 
+					<description>tv show image</description>
+					<posx>1000</posx>     
+					<posy>-78</posy>    
+					<width>230</width>     
+					<height>115</height> 
+					<texture diffuse="thumbs/movieposter_mask.png">showart/$INFO[VideoPlayer.TVShowTitle].jpg</texture>
+					<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
+				</control>
+				<control type ="image">
+					<posx>1049</posx>     
+					<posy>-108</posy>    
+					<width>230</width>     
+					<height>115</height> 
+					<texture>thumbs/fanart_glass.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
+				</control>
 			</control>
 
-<!-- stoli - Add Big paused text to screen - font is from Alaska skin - Alaska_Menu.ttf  -->
+		</control>
+		<!-- stoli - Add Big paused text to screen - font is from Alaska skin - Alaska_Menu.ttf  -->
 <!-- stoli - added this far down to ensure it stays on top of other text/images          -->
 
 			<control type="label">
 				<posx>-320</posx>
-				<posy>-200</posy>
+				<posy>320</posy>
 				<width>1920</width>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -425,30 +281,11 @@ End original text  and PAUSED edits -->
 					<effect type="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="out" />
 					<effect type="fade" start="100" end="0" time="600" />
 				</animation>
+
 				<!-- stoli - animation end -->
 
 			</control>
-
-			<control type="image">
-				<posx>1208</posx>
-				<posy>8</posy>
-				<width>50</width>
-				<height>50</height>
-				<texture>osd/osd_button_focus.png</texture>
-				<include>Animation_CommonFade</include>
-				<visible>Player.Paused</visible>
-			</control>
-			<control type="image">
-				<posx>1208</posx>
-				<posy>8</posy>
-				<width>50</width>
-				<height>50</height>
-				<texture>osd/osd_button_pause.png</texture>
-				<include>Animation_CommonFade</include>
-				<visible>Player.Paused</visible>
-			</control>
-
-		</control>
+		
 
 	</controls>
 </window>
