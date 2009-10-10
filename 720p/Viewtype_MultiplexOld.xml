@@ -908,7 +908,7 @@
 			<include condition="Skin.HasSetting(videomovies)">OldMultiplexFocusMovies</include>
 			<include condition="Skin.HasSetting(videotv)">OldMultiplexFocusTV</include>
 			<scrolltime>200</scrolltime>
-			<visible>Window.IsActive(videolibrary)</visible>
+			<visible>Window.IsActive(videolibrary)+!Container.Content(studios)+!Container.Content(genres)</visible>
 			<include>Animation_HideMultiplex</include>
 			<animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60) | Control.HasFocus(197)">Conditional</animation>
 			<itemlayout width="89" height="129" condition="Container.Content(movies)">
