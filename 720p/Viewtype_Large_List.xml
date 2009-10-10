@@ -289,11 +289,29 @@
 				<height>720</height>
 				<fadetime>400</fadetime>
 				<info>ListItem.Icon</info>
+				<visible>!Container.Content(years) + !Container.Content(genres)</visible>
+			</control>
+			<control type="image" background="true">
+				<posx>100</posx>
+				<posy>100</posy>
+				<width>358</width>
+				<height>520</height>
+				<fadetime>400</fadetime>
+				<texture>yearicons/$INFO[ListItem(0).Label]/folder.png</texture>	
+				<visible>Container.Content(years)</visible>
+			</control>
+			<control type="image" background="true">
+				<width>558</width>
+				<height>720</height>
+				<fadetime>400</fadetime>
+				<texture fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
+				<visible>Container.Content(genres)</visible>
 			</control>
 			<control type="image">
 				<width>558</width>
 				<height>720</height>
 				<texture>list/list_movieicon_glasslarge.png</texture>
+				<visible>!Container.Content(years)</visible>
 			</control>
 			<control type="image">
 				<posy>500</posy>
