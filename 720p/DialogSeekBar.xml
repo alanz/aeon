@@ -147,13 +147,14 @@
 
 			</control>
 			<control type="label">
-				<posx>30</posx>
-				<posy>36</posy>
-				<width>300</width>
+				<posx>0</posx>
+				<posy>16</posy>
+				<width>1280</width>
 				<height>25</height>
 				<font>Font_OSDTime</font>
 				<colordiffuse>d0FFFFFF</colordiffuse>
-				<label>$INFO[VideoPlayer.Time]</label>
+				<label>$INFO[VideoPlayer.Time] / $INFO[VideoPlayer.Duration]</label>
+				<align>center</align>
 			</control>
 			<control type="label">
 				<posx>30</posx>
@@ -163,7 +164,6 @@
 				<font>Font_OSDTime</font>
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$LOCALIZE[31720]: $INFO[System.Time]</label>
-				<visible>!Skin.HasSetting(currenttimeoff)</visible>
 			</control>
 			<control type="label">
 				<posx>0</posx>
@@ -174,18 +174,8 @@
 				<aligny>center</aligny>
 				<font>Font_OSDMusicTitle</font>
 				<label>$INFO[VideoPlayer.Title]</label>
-				<animation effect="slide" start="0,0" end="0,-12" time="200" condition="Control.IsVisible(212)">Conditional</animation>
 			</control>
-			<control type="label">
-				<posx>1250</posx>
-				<posy>36</posy>
-				<width>300</width>
-				<height>25</height>
-				<align>right</align>
-				<font>Font_OSDTime</font>
-				<colordiffuse>d0FFFFFF</colordiffuse>
-				<label>$INFO[VideoPlayer.Duration]</label>
-			</control>
+
 			<control type="label">
 				<posx>1250</posx>
 				<posy>65</posy>
@@ -195,23 +185,23 @@
 				<font>Font_OSDTime</font>
 				<colordiffuse>d0FFFFFF</colordiffuse>
 				<label>$LOCALIZE[31710]: $INFO[Player.FinishTime]</label>
-				<visible>!Skin.HasSetting(finishtimeoff)</visible>
 			</control>
 		
 <!--  Size and implementation of covers -->
 			<control type="group">
 				<control type="image">
 					<description>cover image movie</description> 
-					<posx>1130</posx> 
-					<posy>-217</posy> 
+					<posx>30</posx> 
+					<posy>-207</posy> 
 					<width>150</width> 
 					<height>225</height>
 					<texture diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.cover]</texture>
 					<visible>VideoPlayer.Content(movies)</visible>
+					<animation effect="zoom" center="51,51" start="165" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="Window.Next(fullscreeninfo)">Conditional</animation>
 				</control>
 				<control type="image">
-				<posx>1130</posx> 
-				<posy>-217</posy> 
+				<posx>30</posx> 
+				<posy>-207</posy> 
 				<width>150</width> 
 				<height>225</height>
 				<texture>thumbs/poster_glass.png</texture>
@@ -226,9 +216,9 @@
 					<posy>-108</posy>    
 					<width>230</width>     
 					<height>115</height> 
-					<texture>clearart/$INFO[VideoPlayer.TVShowTitle].png</texture>
+					<texture>cleararts/$INFO[VideoPlayer.TVShowTitle].png</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>VideoPlayer.Content(episodes) + !Skin.HasSetting(yesclearart)</visible>
+					<visible>VideoPlayer.Content(episodes)</visible>
 				</control>
 				<control type ="image"> 
 					<description>tv show image</description>
@@ -237,7 +227,7 @@
 					<width>230</width>     
 					<height>115</height> 
 					<texture diffuse="thumbs/movieposter_mask.png">showart/$INFO[VideoPlayer.TVShowTitle].jpg</texture>
-					<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
+					<visible>VideoPlayer.Content(episodes)</visible>
 				</control>
 				<control type ="image">
 					<posx>1049</posx>     
@@ -246,7 +236,7 @@
 					<height>115</height> 
 					<texture>thumbs/fanart_glass.png</texture>
 					<aspectratio>stretch</aspectratio>
-					<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(yesclearart)</visible>
+					<visible>VideoPlayer.Content(episodes)</visible>
 				</control>
 			</control>
 
