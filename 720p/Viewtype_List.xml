@@ -164,10 +164,11 @@
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]]">Conditional</animation>
 	</include>
 	<include name="Animation_ListPanelSlide">
+		<animation effect="slide" time="700" start="-800,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
 		<animation effect="slide" time="700" start="-800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
 		<animation effect="fade" time="200" start="100" end="0">Hidden</animation>
 	</include>
-	<include name="WatchedOverlay_Slim">
+	<include name="ListWatchedOverlay_Slim">
 		<posx>688</posx>
 		<posy>1</posy>
 		<width>80</width>
@@ -228,10 +229,6 @@
 		<scroll>false</scroll>
 		<font>Font_ListPlaying</font>
 	</include>
-	<include name="Animation_ListPanelSlide_Slim">
-		<animation effect="slide" time="700" start="-800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
-		<animation effect="fade" time="200" start="100" end="0">Hidden</animation>
-	</include>
 	<include name="Viewtype_List">
 		<control type="image" id="232">
 			<width>587</width>
@@ -244,6 +241,7 @@
 			<visible>Control.IsVisible(50)</visible>
 		</control>
 		<control type="group">
+			<include>Animation_ListPanelSlide</include>
 			<control type="image">
 				<posx>60</posx>
 				<posy>73</posy>
@@ -1130,12 +1128,12 @@
 						<visible>[Container.Content(tvshows) | Container.Content(seasons)] + Container.Content(episodes)</visible>
 					</control>
 					<control type="image">
-						<include>WatchedOverlay_Slim</include>
+						<include>ListWatchedOverlay_Slim</include>
 						<visible>Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 						<info>ListItem.Overlay</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlay_Slim</include>
+						<include>ListWatchedOverlay_Slim</include>
 						<visible>Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 						<info>ListItem.Overlay</info>
 					</control>
@@ -1298,12 +1296,12 @@
 						<visible>[Container.Content(tvshows) | Container.Content(seasons)] + Container.Content(episodes)</visible>
 					</control>
 					<control type="image">
-						<include>WatchedOverlay_Slim</include>
+						<include>ListWatchedOverlay_Slim</include>
 						<visible>Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 						<info>ListItem.Overlay</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlay_Slim</include>
+						<include>ListWatchedOverlay_Slim</include>
 						<visible>Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 						<info>ListItem.Overlay</info>
 					</control>
