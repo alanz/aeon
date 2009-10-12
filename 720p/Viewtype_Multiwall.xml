@@ -1,25 +1,5 @@
 <includes>
 
-	<include name="Furniture_MultiWallBackground">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>multiwall/multiwall_background.png</texture>
-			<visible>Control.IsVisible(556) + Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
-			<include>Animation_WindowFade200</include>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>multiwall/multiwall_background_tvshows.png</texture>
-			<visible>Control.IsVisible(556) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
-			<include>Animation_WindowFade200</include>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>multiwall/multiwall_background_music.png</texture>
-			<visible>[Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]+Control.IsVisible(556)</visible>
-			<include>Animation_WindowFade200</include>
-		</control>
-	</include>	
 	<include name="MultiWallLabelVars">
 		<posx>0</posx>
 		<posy>0</posy>
@@ -497,6 +477,24 @@
 		</control>
 	</include>
 	<include name="Viewtype_Multiwall">
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>multiwall/multiwall_background.png</texture>
+			<visible>Control.IsVisible(556) + Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
+			<include>Animation_WindowFade200</include>
+		</control>
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>multiwall/multiwall_background_tvshows.png</texture>
+			<visible>Control.IsVisible(556) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+			<include>Animation_WindowFade200</include>
+		</control>
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>multiwall/multiwall_background_music.png</texture>
+			<visible>[Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]+[Control.IsVisible(556) | Control.IsVisible(557)]</visible>
+			<include>Animation_WindowFade200</include>
+		</control>
 		<control type="image">
 			<posx>57</posx>
 			<posy>505</posy>
