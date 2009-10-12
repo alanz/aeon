@@ -221,7 +221,7 @@
 			<onclick>Skin.SetBool(bigthumb)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + ![Skin.HasSetting(bigthumb) | Skin.HasSetting(fanart) | Skin.HasSetting(trailer) | Skin.HasSetting(bigtrailer) | Skin.HasSetting(multiplexposter)] + !ControlGroup(7011).HasFocus()]] | Control.HasFocus(3001)</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + ![Skin.HasSetting(bigthumb) | Skin.HasSetting(fanart) | Skin.HasSetting(trailer) | Skin.HasSetting(poster)] + !ControlGroup(7011).HasFocus()]] | Control.HasFocus(3001)</visible>
 		</control>
 		<control type="button" id="700015">
 			<include>MediaMenuButton</include>
@@ -241,31 +241,22 @@
 			<onright>SetFocus(7011)</onright>
 			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(fanart)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3003)</visible>
 		</control>
-		<control type="button" id="700017">
+		<control type="button" id="700018">
 			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: $LOCALIZE[32000]</label>
-			<onclick>Skin.SetBool(bigtrailer)</onclick>
+			<label>$LOCALIZE[31047]: $LOCALIZE[32001]</label>
+			<onclick>Skin.SetBool(poster)</onclick>
 			<onclick>Skin.Reset(trailer)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
 			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(trailer)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3004)</visible>
 		</control>
-		<control type="button" id="700018">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31047]: $LOCALIZE[32001]</label>
-			<onclick>Skin.SetBool(multiplexposter)</onclick>
-			<onclick>Skin.Reset(bigtrailer)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<onright>SetFocus(7011)</onright>
-			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(bigtrailer)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3006)</visible>
-		</control>
 		<control type="button" id="700019">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31047]: POSTER</label>
-			<onclick>Skin.Reset(multiplexposter)</onclick>
+			<onclick>Skin.Reset(poster)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(multiplexposter)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3005)</visible>
+			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(poster)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3005)</visible>
 		</control>
 		<control type="togglebutton" id="700020">
 			<include>MediaMenuButton</include>
@@ -1135,7 +1126,7 @@
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<onclick>Skin.Reset(bigthumb)</onclick>
 					<onclick>Skin.Reset(fanart)</onclick>
-					<onclick>Skin.Reset(bigtrailer)</onclick>
+					<onclick>Skin.Reset(trailer)</onclick>
 					<onclick>Skin.Reset(poster)</onclick>
 					<onclick>XBMC.ReloadSkin</onclick>
 					<onright>SetFocus(50)</onright>
@@ -1147,7 +1138,7 @@
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<onclick>Skin.SetBool(bigthumb)</onclick>
 					<onclick>Skin.Reset(fanart)</onclick>
-					<onclick>Skin.Reset(bigtrailer)</onclick>
+					<onclick>Skin.Reset(trailer)</onclick>
 					<onclick>Skin.Reset(poster)</onclick>
 					<onclick>XBMC.ReloadSkin</onclick>
 					<onright>SetFocus(50)</onright>
@@ -1159,7 +1150,7 @@
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<onclick>Skin.SetBool(fanart)</onclick>
 						<onclick>Skin.Reset(bigthumb)</onclick>
-						<onclick>Skin.Reset(bigtrailer)</onclick>
+						<onclick>Skin.Reset(trailer)</onclick>
 						<onclick>Skin.Reset(poster)</onclick>
 						<onclick>XBMC.ReloadSkin</onclick>
 						<onright>SetFocus(50)</onright>
@@ -1169,7 +1160,7 @@
 	  					<texturenofocus>viewselect/trailer.png</texturenofocus>
 	  					<include>ViewImage</include>
 						<aspectratio scalediffuse="false">scale</aspectratio>
-						<onclick>Skin.SetBool(bigtrailer)</onclick>
+						<onclick>Skin.SetBool(trailer)</onclick>
 						<onclick>Skin.Reset(bigthumb)</onclick>
 						<onclick>Skin.Reset(fanart)</onclick>
 						<onclick>Skin.Reset(poster)</onclick>
@@ -1184,7 +1175,7 @@
 						<onclick>Skin.SetBool(poster)</onclick>
 						<onclick>Skin.Reset(bigthumb)</onclick>
 						<onclick>Skin.Reset(fanart)</onclick>
-						<onclick>Skin.Reset(bigtrailer)</onclick>
+						<onclick>Skin.Reset(trailer)</onclick>
 						<onclick>XBMC.ReloadSkin</onclick>
 						<onright>SetFocus(50)</onright>
 					</control>

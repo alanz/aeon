@@ -621,93 +621,7 @@
 	</control>
 </include>
 <!-- Video aspect label -->
-<include name="LowList_VideoAspectLabels">
-	<control type="label">
-		<include>LowList_WideInfoValueVars</include>
-		<label>ASPECT: CUSTOM</label>
-		<visible>!substring(listitem.VideoAspect,.) + !substring(listitem.Icon,defaultfolder)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_WideInfoValueVars</include>
-		<label>Fullscreen 4:3</label>
-		<visible>substring(listitem.VideoAspect,1.33)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_WideInfoValueVars</include>
-		<label>Fullscreen 5:3</label>
-		<visible>substring(listitem.VideoAspect,1.66)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_WideInfoValueVars</include>
-		<label>Widescreen 16:9</label>
-		<visible>substring(listitem.VideoAspect,1.78)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_WideInfoValueVars</include>
-		<label>Letterbox 13:7</label>
-		<visible>substring(listitem.VideoAspect,1.85)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_WideInfoValueVars</include>
-		<label>Letterbox 11:5</label>
-		<visible>substring(listitem.VideoAspect,2.20)</visible>
-	</control>
-	<control type="label">
-		<include>LowList_WideInfoValueVars</include>
-		<label>Letterbox 21:9</label>
-		<visible>substring(listitem.VideoAspect,2.35)</visible>
-	</control>
-</include>
-<include name="LowList_VideoAspectLabel4R">
-	<control type="group">
-		<posy>0</posy>
-		<posx>0</posx>
-		<width>360</width>
-		<visible>Container.Content(episodes) | Container.Content(movies)</visible>
-		<control type="label">
-			<font>Font_ListSmall</font>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>ASPECT: [COLOR d0ffffff]CUSTOM[/COLOR]</label>
-			<visible>!substring(listitem.VideoAspect,.) + !substring(listitem.Icon,defaultfolder)</visible>
-		</control>
-		<control type="label">
-			<font>Font_ListSmall</font>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>Fullscreen [COLOR d0ffffff]4:3[/COLOR]</label>
-			<visible>substring(listitem.VideoAspect,1.33)</visible>
-		</control>
-		<control type="label">
-			<font>Font_ListSmall</font>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>Fullscreen [COLOR d0ffffff]5:3[/COLOR]</label>
-			<visible>substring(listitem.VideoAspect,1.66)</visible>
-		</control>
-		<control type="label">
-			<font>Font_ListSmall</font>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>Widescreen [COLOR d0ffffff]16:9[/COLOR]</label>
-			<visible>substring(listitem.VideoAspect,1.78)</visible>
-		</control>
-		<control type="label">
-			<font>Font_ListSmall</font>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>Letterbox [COLOR d0ffffff]13:7[/COLOR]</label>
-			<visible>substring(listitem.VideoAspect,1.85)</visible>
-		</control>
-		<control type="label">
-			<font>Font_ListSmall</font>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>Letterbox [COLOR d0ffffff]11:5[/COLOR]</label>
-			<visible>substring(listitem.VideoAspect,2.20)</visible>
-		</control>
-		<control type="label">
-			<font>Font_ListSmall</font>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>Letterbox [COLOR d0ffffff]21:9[/COLOR]</label>
-			<visible>substring(listitem.VideoAspect,2.35)</visible>
-		</control>
-	</control>
-</include>
+
 <!-- MPAA Labels -->
 <include name="LowList_MpaaLabelVars">
 	<width>100</width>
@@ -1838,24 +1752,6 @@
 				<label fallback="-">$INFO[ListItem.duration]</label>
 			</control>
 		</control>
-		<control type="group">
-			<description>VIDEO ASPECT:</description>
-			<posx>0</posx>
-			<width>940</width>
-			<height>217</height>
-			<control type="label">
-				<include>LowList_WideInfoLabelVars</include>
-				<posy>65</posy>
-				<label>$LOCALIZE[21374]:</label>
-			</control>
-			<control type="group">
-				<posx>0</posx>
-				<posy>28</posy>
-				<width>940</width>
-				<height>16</height>
-				<include>LowList_VideoAspectLabels</include>
-			</control>
-		</control>
 	<!-- MPAA Labels -->
 		<control type="label">
 			<include>LowList_MpaaLabelVars</include>
@@ -2003,16 +1899,6 @@
 			<label fallback="31414">$INFO[ListItem.Plot]</label>
 			<visible>Skin.HasSetting(highlist)</visible>
 		</control>
-		<control type="label">
-			<description>GENRE info label</description>
-			<label fallback="-">$INFO[ListItem.genre]</label>
-			<include>LowList_DetailInfoLabelPos4L</include>
-		</control>
-		<control type="label">
-			<description>RUNTIME info label</description>
-			<label fallback="-">[COLOR d0ffffff]$INFO[ListItem.duration][/COLOR]</label>
-			<include>LowList_DetailInfoLabelPos4R</include>
-		</control>
 	</control>
 	<!-- Movie info panel -->
 	<control type="group" id="7812">
@@ -2027,32 +1913,25 @@
 			<include>Animation_HighListSlide</include>
 		</control>
 		<control type="label">
-			<description>GENRE: info label</description>
+			<description>DIRECTOR: info label</description>
 			<include>LowList_DetailInfoLabelPos2</include>
-			<label>$LOCALIZE[515]: [COLOR d0ffffff]$INFO[ListItem.genre][/COLOR]</label>
+			<label>$LOCALIZE[31401]: [COLOR d0ffffff]$INFO[ListItem.Writer][/COLOR]</label>
 			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HighListSlide</include>
 		</control>
-		<control type="label">
+	<!--	<control type="label">
 			<description>MPAA: info label</description>
 			<include>LowList_DetailInfoLabelPos3</include>
 			<label>$LOCALIZE[20074]: [COLOR d0ffffff]$INFO[ListItem.mpaa][/COLOR]</label>
 			<visible>Window.IsActive(videolibrary)</visible>
 			<include>Animation_HighListSlide</include>
-		</control>
+		</control>-->
 		<control type="textbox">
 			<description>PLOT OUTLINE: (Short)</description>
 			<include>LowList_ShortTextBox</include>
 			<label fallback="-">$INFO[ListItem.PlotOutline,[COLOR abffffff][UPPERCASE]$LOCALIZE[203][/UPPERCASE]:[/COLOR] ]</label>
 			<visible>Skin.HasSetting(highlist)</visible>
 		</control>
-		<control type="label">
-			<description>RUNTIME: info label</description>
-			<include>LowList_DetailInfoLabelPos4L</include>
-			<label>$LOCALIZE[2050]: [COLOR d0ffffff]$INFO[ListItem.duration][/COLOR]</label>
-			<visible>Window.IsActive(videolibrary)</visible>
-		</control>
-		<include>LowList_VideoAspectLabel4R</include>
 	</control>
 	<!-- Movie Gallery/Slideshow detail panel -->
 	<control type="group" id="7814">
@@ -2437,7 +2316,6 @@
 			<visible>IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
 			<visible>Container.Content(seasons)</visible>
 		</control>
-		<include>LowList_VideoAspectLabel4R</include>
 	</control>
 </include>
 <!-- COMMON DETAIL PANELS -->
