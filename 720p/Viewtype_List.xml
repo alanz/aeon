@@ -1,4 +1,157 @@
 <includes>
+	<!-- Other -->
+	<include name="Furniture_ListMediaFlagsXPos">
+		<posx>33</posx>
+	</include>
+	<include name="ListSpotXPosNormal">
+		<posx>693</posx>
+	</include>
+	<include name="ListSpotXPosDVD">
+		<posx>710</posx>
+	</include>
+	<!-- Movie Normal -->
+	<include name="MovieIconDimensionsNormal">
+		<width>346</width>
+		<height>511</height>
+	</include>
+	<include name="MovieIconDimensionsNormalReflect">
+		<posy>510</posy>
+		<width>346</width>
+		<height>511</height>
+	</include>
+	<include name="MovieIconMaskNormal">
+		<texture diffuse="list/list_movieicon_mask.png">defaultVideo.png</texture>
+		<bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
+	</include>
+	<include name="MovieIconGlassNormal">
+		<texture>list/list_movieicon_glass.png</texture>
+	</include>
+	<include name="MovieIconMaskFolderNormal">
+		<texture diffuse="list/list_movieicon_mask.png">$INFO[listitem.path,,folder.jpg]</texture>
+	</include>
+	<include name="MovieIconMaskPosterNormal">
+		<texture diffuse="list/list_movieicon_mask.png">$INFO[listitem.path,,poster.jpg]</texture>
+	</include>
+	<include name="MovieIconMaskMovieNormal">
+		<texture diffuse="list/list_movieicon_mask.png">$INFO[listitem.path,,movie.tbb]</texture>
+	</include>
+	<!-- Movie DVD -->
+	<include name="MovieIconDimensionsDVDCase">
+		<posx>-15</posx>
+		<posy>10</posy>
+		<width>398</width>
+		<height>520</height>
+	</include>
+	<include name="MovieIconDimensionsDVDCover">
+		<posx>39</posx>
+		<posy>23</posy>
+		<width>323</width>
+		<height>484</height>
+	</include>
+	<include name="MovieIconDimensionsDVDCoverReflect">
+		<posx>39</posx>
+		<posy>527</posy>
+		<width>323</width>
+		<height>484</height>
+	</include>
+	<include name="MovieIconMaskDVD">
+		<texture diffuse="list/boxes/list_movieicon_mask.png">defaultVideo.png</texture>
+	</include>
+	<include name="MovieIconGlassDVD">
+		<texture>list/boxes/list_movieicon_glass.png</texture>
+	</include>
+	<include name="MovieIconGlassReflect">
+		<control type="image">
+			<posx>-15</posx>
+			<posy>504</posy>
+			<width>398</width>
+			<height>233</height>
+			<colordiffuse>75FFFFFF</colordiffuse>
+			<fadetime>400</fadetime>
+			<texture>list/boxes/list_movieicon_glass_reflect.png</texture>
+			<visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(dvdcase)</visible>
+		</control>
+
+	</include>
+	<include name="MusicIconDimensionsCDCase">
+		<posx>-15</posx>
+		<posy>165</posy>
+		<width>398</width>
+		<height>364</height>
+	</include>
+	<include name="MusicIconDimensionsCDCaseReflect">
+		<posx>-15</posx>
+		<posy>504</posy>
+		<width>398</width>
+		<height>364</height>
+	</include>
+	<include name="MusicIconDimensionsCDCover">
+		<posx>39</posx>
+		<posy>184</posy>
+		<width>322</width>
+		<height>321</height>
+	</include>
+	<include name="MusicIconDimensionsCDCoverReflect">
+		<posx>39</posx>
+		<posy>527</posy>
+		<width>323</width>
+		<height>323</height>
+	</include>
+	<include name="MusicIconMaskCD">
+		<texture diffuse="list/boxes/list_musicicon_mask.png">common/black.png</texture>
+	</include>
+	<include name="MusicIconMaskCDIcon">
+		<texture diffuse="list/boxes/list_musicicon_mask.png">$INFO[ListItem.Icon]</texture>
+	</include>
+	<include name="MusicIconGlassCD">
+		<texture>list/boxes/list_musicicon_glass.png</texture>
+	</include>
+	<include name="MusicIconMaskIconCD">
+		<texture diffuse="list/boxes/list_musicicon_mask.png">$INFO[ListItem.Icon]</texture>
+	</include>
+	<include name="MusicIconGlassReflect">
+		<control type="image">
+			<include>MusicIconDimensionsCDCaseReflect</include>
+			<colordiffuse>75FFFFFF</colordiffuse>
+			<fadetime>400</fadetime>
+			<texture>list/boxes/list_musicicon_glass_reflect.png</texture>
+			<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(dvdcase)</visible>
+		</control>
+
+	</include>
+	<include name="MusicIconMaskNormal">
+		<texture diffuse="list/list_musicicon_mask.png">common/black.png</texture>
+		<bordertexture border="-32">list/list_musicicon_frame.png</bordertexture>
+	</include>
+	<include name="MusicIconMaskNormalIcon">
+		<texture diffuse="list/list_musicicon_mask.png">$INFO[ListItem.Icon]</texture>
+		<bordertexture border="-32">list/list_musicicon_frame.png</bordertexture>
+	</include>
+	<include name="MusicIconGlassNormal">
+		<texture>list/list_musicicon_glass.png</texture>
+	</include>
+	<include name="MusicIconMaskIconNormal">
+		<texture diffuse="list/list_musicicon_mask.png">$INFO[ListItem.Icon]</texture>
+	</include>
+	<include name="MovieIconMaskFolderDVD">
+		<texture diffuse="list/boxes/list_movieicon_mask.png">$INFO[listitem.path,,folder.jpg]</texture>
+	</include>
+	<include name="MovieIconMaskPosterDVD">
+		<texture diffuse="list/boxes/list_movieicon_mask.png">$INFO[listitem.path,,poster.jpg]</texture>
+	</include>
+	<include name="MovieIconMaskMovieDVD">
+		<texture diffuse="list/boxes/list_movieicon_mask.png">$INFO[listitem.path,,movie.tbn]</texture>
+	</include>
+	<include name="MusicIconDimensionsNormal">
+		<posy>165</posy>
+		<width>346</width>
+		<height>346</height>
+	</include>
+	<include name="MusicIconDimensionsNormalReflect">
+		<posy>513</posy>
+		<width>346</width>
+		<height>346</height>
+	</include>
 	<include name="ListSpotNight">
 		<texture>list/list_spot.png</texture>
 	</include>
@@ -220,14 +373,6 @@
 		<align>center</align>
 		<aligny>center</aligny>
 		<animation effect="slide" start="0,-11" end="0,-11" time="0" condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]">Conditional</animation>
-	</include>
-	<include name="List_NowPlaying_Slim">
-		<include condition="Skin.HasSetting(dvdcase)">NowPlaylingWidgetXPosList</include>
-		<posx>960</posx>
-		<width>200</width>
-		<height>18</height>
-		<scroll>false</scroll>
-		<font>Font_ListPlaying</font>
 	</include>
 	<include name="Viewtype_List">
 		<control type="image" id="232">
@@ -1362,9 +1507,23 @@
 			<animation effect="fade" time="400" start="0" end="100">Visible</animation>
 			<animation effect="fade" time="400" start="100" end="0">Hidden</animation>
 			<!-- DVD back -->
-			<include>MovieIconFrame</include>
+			<control type="image">
+				<include>MovieIconDimensionsDVDCase</include>
+				<fadetime>400</fadetime>
+				<texture>list/boxes/list_movieicon_frame.png</texture>
+				<visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(dvdcase)</visible>
+			</control>
 			<!-- DVD back reflection -->
-			<include>MovieIconFrameReflect</include>
+			<control type="image">
+				<posx>-15</posx>
+				<posy>504</posy>
+				<width>398</width>
+				<height>233</height>
+				<colordiffuse>75FFFFFF</colordiffuse>
+				<fadetime>400</fadetime>
+				<texture>list/boxes/list_movieicon_frame_reflect.png</texture>
+				<visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(dvdcase)</visible>
+			</control>
 			<control type="image">
 				<posy>-482</posy>
 				<width>366</width>
@@ -1461,16 +1620,27 @@
 			<!-- DVD front reflection -->
 			<include>MovieIconGlassReflect</include>
 			<!-- CD back -->
-			<include>MusicIconFrame</include>
+			<control type="image">
+				<include>MusicIconDimensionsCDCase</include>
+				<fadetime>400</fadetime>
+				<texture>list/boxes/list_musicicon_frame.png</texture>
+				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(dvdcase)</visible>
+			</control>
 			<!-- CD back reflection -->
-			<include>MusicIconFrameReflect</include>
+			<control type="image">
+				<include>MusicIconDimensionsCDCaseReflect</include>
+				<colordiffuse>75FFFFFF</colordiffuse>
+				<fadetime>400</fadetime>
+				<texture>list/boxes/list_musicicon_frame_reflect.png</texture>
+				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(dvdcase)</visible>
+			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCover</include>
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconMaskNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconMaskCD</include>
-				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures) | Container.Content(episodes)</visible>
+				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
@@ -1479,15 +1649,40 @@
 				<aspectratio scalediffuse="false">keep</aspectratio>
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconMaskIconNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconMaskIconCD</include>
-				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures) | Container.Content(episodes)</visible>
+				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCover</include>
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<texture flipy="true" diffuse="list/list_musicicon_flipmask.png">common/black.png</texture>
-				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures) | Container.Content(episodes)</visible>
+				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
 			</control>
+			
+			
+			
+			<control type="image">
+				<include>MusicIconDimensionsNormal</include>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<include>MusicIconMaskNormal</include>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+			<control type="image">
+				<include>MusicIconDimensionsNormal</include>
+				<fadetime>400</fadetime>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<include>MusicIconMaskIconNormal</include>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+			<control type="image">
+				<include>MusicIconDimensionsNormal</include>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture flipy="true" diffuse="list/list_musicicon_flipmask.png">common/black.png</texture>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+			
+			
+			
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCover</include>
