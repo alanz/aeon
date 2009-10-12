@@ -1,4 +1,8 @@
 <includes>
+	<include name="ListIcon_EpisodeIconGroup2">
+		<posx>8</posx>
+		<posy>240</posy>
+	</include>
 	<!-- Other -->
 	<include name="Furniture_ListMediaFlagsXPos">
 		<posx>33</posx>
@@ -146,6 +150,11 @@
 		<posy>165</posy>
 		<width>346</width>
 		<height>346</height>
+	</include>
+	<include name="EpisodeIconDimensionsNormal">
+		<posy>165</posy>
+		<width>396</width>
+		<height>250</height>
 	</include>
 	<include name="MusicIconDimensionsNormalReflect">
 		<posy>513</posy>
@@ -1635,53 +1644,58 @@
 				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(dvdcase)</visible>
 			</control>
 			<control type="image">
-				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCover</include>
-				<aspectratio scalediffuse="false">stretch</aspectratio>
-				<include condition="!Skin.HasSetting(dvdcase)">MusicIconMaskNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MusicIconMaskCD</include>
-				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
-			</control>
-			<control type="image">
-				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCover</include>
-				<fadetime>400</fadetime>
-				<aspectratio scalediffuse="false">keep</aspectratio>
-				<include condition="!Skin.HasSetting(dvdcase)">MusicIconMaskIconNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MusicIconMaskIconCD</include>
-				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
-			</control>
-			<control type="image">
-				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MusicIconDimensionsCDCover</include>
-				<aspectratio scalediffuse="false">stretch</aspectratio>
-				<texture flipy="true" diffuse="list/list_musicicon_flipmask.png">common/black.png</texture>
-				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
-			</control>
-			
-			
-			
-			<control type="image">
 				<include>MusicIconDimensionsNormal</include>
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<include>MusicIconMaskNormal</include>
-				<visible>Container.Content(episodes)</visible>
+				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
 			</control>
 			<control type="image">
 				<include>MusicIconDimensionsNormal</include>
 				<fadetime>400</fadetime>
 				<aspectratio scalediffuse="false">keep</aspectratio>
 				<include>MusicIconMaskIconNormal</include>
-				<visible>Container.Content(episodes)</visible>
+				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
 			</control>
+			
 			<control type="image">
 				<include>MusicIconDimensionsNormal</include>
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<texture flipy="true" diffuse="list/list_musicicon_flipmask.png">common/black.png</texture>
+				<visible>[Window.IsActive(programs) + Skin.HasSetting(listgamessquare)] | Window.IsActive(pictures)</visible>
+			</control>		
+			<control type="group">
 				<visible>Container.Content(episodes)</visible>
+				<include>ListIcon_EpisodeIconGroup2</include>
+				<control type="largeimage">
+					<width>379</width>
+					<height>263</height>
+					<texture diffuse="thumbs/cdcover_mask.png">defaultvideo.png</texture>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<info>ListItem.Icon</info>
+					<fadetime>400</fadetime>
+				</control>
+				<control type="image">
+					<width>379</width>
+					<height>263</height>
+					<bordertexture border="-112,-40,-112,-40">thumbs/cd_shadow_light.png</bordertexture>
+					<texture>common/blank.png</texture>
+				</control>
+				<control type="image">
+					<width>379</width>
+					<height>263</height>
+					<description>Episode Icon Glass</description>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture>thumbs/cd_glass_noedge.png</texture>
+				</control>
+				<control type="image">
+					<posy>270</posy>
+					<width>379</width>
+					<height>263</height>
+					<fadetime>400</fadetime>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture flipy="true" diffuse="list/list_episodeicon_flipmask.png">$INFO[ListItem.Icon]</texture>
+				</control>
 			</control>
-			
-			
 			
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconDimensionsNormal</include>
