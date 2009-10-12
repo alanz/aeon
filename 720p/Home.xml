@@ -10,9 +10,9 @@
 			<height>1</height>
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
-			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
 			<onfocus>Skin.SetBool(Startup)</onfocus>
-			<onfocus>SetFocus(500)</onfocus>
+			<onfocus>XBMC.RunScript(special://skin/extras/RecentlyAdded.py,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
+			<onfocus>SetFocus(300,7)</onfocus>
 			<visible>!Skin.HasSetting(Startup)</visible>
 		</control>
 		<control type="button" id="5043">
@@ -23,9 +23,9 @@
 			<height>1</height>
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
-			<onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py)</onfocus>
 			<onfocus>Skin.Reset(LibraryUpdated)</onfocus>
-			<onfocus>SetFocus(500)</onfocus>
+			<onfocus>XBMC.RunScript(special://skin/extras/RecentlyAdded.py,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
+			<onfocus>SetFocus(300,7)</onfocus>
 			<visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
 		</control>
 		<control type="button" id="5043">
@@ -36,18 +36,9 @@
 			<height>1</height>
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>-</texturefocus>
-			<onfocus>SetFocus(500)</onfocus>
-			<visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
-		</control>
-		<control type="button" id="500">
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onclick>-</onclick>
-			<label>-</label>
-			<posy>-100</posy>
-			<posx>0</posx>
 			<onfocus>XBMC.RunScript(special://skin/extras/RecentlyAdded.py,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
-			<onfocus>SetFocus(300)</onfocus>
+			<onfocus>SetFocus(300,7)</onfocus>
+			<visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
 		</control>
 		<control type="label">
 			<description>Force Weather update on load</description>
