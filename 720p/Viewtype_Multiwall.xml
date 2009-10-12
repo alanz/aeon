@@ -144,7 +144,7 @@
 			</focusedlayout>		
 		</control>	
 	</include>
-	
+
 	<include name="TVMultiwall">
 		
 		<include>MultiwallButtons</include>
@@ -271,6 +271,7 @@
 	</include>	
 	<include name="MusicMultiwall">
 		<control type="group">		
+			<visible>Control.IsVisible(556) | Control.IsVisible(557)</visible>
 			<include>MultiwallButtons</include>
 			<control type="wraplist" id="556">
 				<viewtype label="multiwall">wrap</viewtype>
@@ -299,58 +300,9 @@
 			<control type="group">
 				
 				<include>MusicMultiWallVars</include>
-				<visible>Window.IsActive(musicplaylist)</visible>
+				<visible>Window.IsActive(musicplaylist)| Container.Content(songs)</visible>
 				<include>Animation_HideMultiplex</include>
-				
-				<control type="group">
-					<include>MultiWallSongCover</include>
-				</control>
-				
-				<control type="group">
-					<posx>102</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>204</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>306</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>408</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>612</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>714</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>816</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>918</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
-				<control type="group">
-					<posx>1020</posx>
-					<include>MultiWallSongCover</include>	
-				</control>
-				
+									
 				<control type="group">
 					<posx>510</posx>
 					<include>MultiWallSongCover</include>
@@ -391,7 +343,7 @@
 				</animation>
 			</control>
 			
-	<!--		<control type="group">
+			<control type="group">
 				
 				<posx>424</posx>
 				<posy>112</posy>
@@ -425,7 +377,7 @@
 					<texture>list/listpanel_detailwide.png</texture>
 				</control>
 				
-				<control type="list" id="556">
+				<control type="list" id="557">
 					<viewtype label="multiwall">list</viewtype>
 					<posy>28</posy>
 					<width>432</width>
@@ -541,7 +493,7 @@
 						</control>
 					</focusedlayout>	
 				</control>
-			</control>-->
+			</control>
 		</control>
 	</include>
 	<include name="Viewtype_Multiwall">

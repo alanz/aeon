@@ -1062,6 +1062,42 @@
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(556) + Skin.HasSetting(multiwalltvinfoon)</visible>
 			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
 		</control>
+		<control type="button" id="704108">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31078]</label>
+			<onclick>Skin.SetBool(multiwallmusicinfoauto)</onclick>
+			<onclick>Skin.Reset(multiwallmusicinfooff)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(musiclibrary) + Control.IsVisible(556) + Skin.HasSetting(multiwallmusicinfooff)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704109">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31049]</label>
+			<onclick>Skin.SetBool(multiwallmusicinfotrigger)</onclick>
+			<onclick>Skin.Reset(multiwallmusicinfoauto)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(musiclibrary) + Control.IsVisible(556) + ![Skin.HasSetting(multiwallmusicinfotrigger) | Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfoon)]</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704110">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
+			<onclick>Skin.SetBool(multiwallmusicinfoon)</onclick>
+			<onclick>Skin.Reset(multiwallmusicinfotrigger)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(musiclibrary) + Control.IsVisible(556) + Skin.HasSetting(multiwallmusicinfotrigger)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
+		<control type="button" id="704111">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31070]: $LOCALIZE[31077]</label>
+			<onclick>Skin.SetBool(multiwallmusicinfooff)</onclick>
+			<onclick>Skin.Reset(multiwallmusicinfoon)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<visible>Window.IsActive(musiclibrary) + Control.IsVisible(556) + Skin.HasSetting(multiwallmusicinfoon)</visible>
+			<visible>!Skin.HasSetting(nomultiwallinfobuttons)</visible>
+		</control>
 	</include>
 	<include name="MediaMenuButton_OldMultiplexStyle">
 		<control type="togglebutton" id="700116">
