@@ -42,14 +42,13 @@
 			<include>Animation_OpenCloseZoom</include>
 			<include>Furniture_Time</include>
 			<include>Furniture_MediaPanel</include>
-			<include>Viewtype_Music_Multiplex</include>
-			<include>Viewtype_Wall</include>
-			<include condition="system.getbool(lookandfeel.enablerssfeeds)">Furniture_RSS</include>
 			<include>Viewtype_List</include>
-			<include>Viewtype_Multiwall</include>
-			<include>Viewtype_List_Low</include>
-			<include>Viewtype_ClearList</include>
-			<include>Viewtype_Showcase</include>
+			<include condition="!Skin.HasSetting(MusicMultiplexOff)">Viewtype_Music_Multiplex</include>
+			<include condition="!Skin.HasSetting(MusicWallOff)">Viewtype_Wall</include>
+			<include condition="system.getbool(lookandfeel.enablerssfeeds)">Furniture_RSS</include>
+			<include condition="!Skin.HasSetting(MusicMultiWallOff)">Viewtype_Multiwall</include>
+			<include condition="!Skin.HasSetting(MusicClearListOff)">Viewtype_ClearList</include>
+			<include condition="!Skin.HasSetting(MusicShowcaseOff)">Viewtype_Showcase</include>
 			<include>NewMediaMenu</include>
 			<include>MusicMediaFlags</include>
 		</control>
