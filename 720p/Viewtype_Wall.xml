@@ -1502,7 +1502,7 @@
 			<scrolltime>200</scrolltime>
 			<include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
 			<include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
-			<visible>Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)</visible>
+			<visible>Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]</visible>
 			<itemlayout width="133" height="133" condition="!Skin.HasSetting(smallmusicwall)">
 				<control type="image">
 					<include>WallIconDimensions</include>
