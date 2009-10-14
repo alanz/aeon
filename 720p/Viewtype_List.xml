@@ -1561,14 +1561,14 @@
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconMaskNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconMaskDVD</include>
 				<info>ListItem.Icon</info>
-				<visible>[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
+				<visible>[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + [!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)]</visible>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormalReflect</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconDimensionsDVDCoverReflect</include>
 				<fadetime>400</fadetime>
 				<texture flipy="true" diffuse="list/list_movieicon_flipmask.png">$INFO[ListItem.Icon]</texture>
-				<visible>[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
+				<visible>[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + [!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)]</visible>
 			</control>
 			<include>mod_moviegenre_list2</include>
 			<!-- <<<<<< Add this -->
@@ -1578,7 +1578,7 @@
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconMaskMovieNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconMaskMovieDVD</include>
 				<animation effect="fade" start="0" end="100" time="000">VisibleChange</animation>
-				<visible>[Control.IsVisible(102) + Container.Content(movies)] + !Window.IsActive(videofiles) + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
+				<visible>[Control.IsVisible(102) + Container.Content(movies)] + !Window.IsActive(videofiles) + [!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)]</visible>
 			</control>
 			<control type="largeimage">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
@@ -1586,7 +1586,7 @@
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconMaskFolderNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconMaskFolderDVD</include>
 				<animation effect="fade" start="0" end="100" time="000">VisibleChange</animation>
-				<visible>Control.IsVisible(102) + Container.Content(tvshows) + !Window.IsActive(videofiles) + [!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)]</visible>
+				<visible>Control.IsVisible(102) + Container.Content(tvshows) + !Window.IsActive(videofiles) + [!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)]</visible>
 			</control>
 			<include>mod_moviegenre_list1</include>
 			<!--<<<<<< Add this -->
@@ -1704,7 +1704,7 @@
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<include condition="!Skin.HasSetting(dvdcase)">MusicIconMaskNormalIcon</include>
 				<include condition="Skin.HasSetting(dvdcase)">MusicIconMaskCDIcon</include>
-				<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) + [!Container.Content(genres) | Skin.HasSetting(musicgenre_onoff)]</visible>
+				<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) + [!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)]</visible>
 			</control>
 			<include>mod_musicgenre_list1</include>
 			<!--<<<<<< Add this -->
@@ -1714,7 +1714,7 @@
 				<fadetime>400</fadetime>
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<texture flipy="true" diffuse="list/list_musicicon_flipmask.png">$INFO[ListItem.Icon]</texture>
-				<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) + [!Container.Content(genres) | Skin.HasSetting(musicgenre_onoff)]</visible>
+				<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) + [!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)]</visible>
 			</control>
 			<include>mod_musicgenre_list2</include>
 			<!--<<<<<< Add this -->

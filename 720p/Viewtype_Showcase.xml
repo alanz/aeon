@@ -472,7 +472,7 @@
 		<include condition="!Skin.HasSetting(dvdcase)">MoviePosterMaskNormal</include>
 		<include condition="Skin.HasSetting(dvdcase)">MoviePosterMaskDVD</include>
 		<aspectratio scalediffuse="false">stretch</aspectratio>
-		<visible>!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MovieShowcaseThumbMain">
@@ -482,7 +482,7 @@
 		<include condition="!Skin.HasSetting(dvdcase)">MoviePosterMaskNormal</include>
 		<include condition="Skin.HasSetting(dvdcase)">MoviePosterMaskDVD</include>
 		<aspectratio scalediffuse="false">stretch</aspectratio>
-		<visible>!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MovieShowcaseThumbReflectionMain">
@@ -492,7 +492,7 @@
 		<include condition="!Skin.HasSetting(dvdcase)">MoviePosterMaskReflectionNormal</include>
 		<include condition="Skin.HasSetting(dvdcase)">MoviePosterMaskReflectionDVD</include>
 		<aspectratio scalediffuse="false">stretch</aspectratio>
-		<visible>!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MovieShowcaseThumbReflection">
@@ -503,7 +503,7 @@
 		<include condition="Skin.HasSetting(dvdcase)">MoviePosterMaskReflectionDVD</include>
 		<aspectratio scalediffuse="false">stretch</aspectratio>
 		<animation effect="fade" start="70" end="70" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
-		<visible>!Container.Content(genres) | Skin.HasSetting(moviegenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MovieShowcaseThumbReflectionDVD">
@@ -549,7 +549,7 @@
 		<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskCD</include>
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
-		<visible>!Container.Content(genres) | Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MusicShowcaseBlack">
@@ -577,7 +577,7 @@
 		<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskCD</include>
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
-		<visible>!Container.Content(genres) | Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MusicShowcaseThumbReflection">
@@ -589,7 +589,7 @@
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
 		<animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
-		<visible>!Container.Content(genres) | Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MusicShowcaseThumbReflectionMain">
@@ -601,7 +601,7 @@
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
 		<animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
-		<visible>!Container.Content(genres) | Skin.HasSetting(musicgenre_onoff)</visible>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MusicShowcaseThumbReflectionCD">
@@ -727,7 +727,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
 					</control>
-					<include>genre_Showcase_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_1</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -742,7 +742,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_1</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -755,7 +755,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
-					<include>genre_Showcase_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -770,7 +770,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_2</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -783,7 +783,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
-					<include>genre_Showcase_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -798,7 +798,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -811,7 +811,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
-					<include>genre_Showcase_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -826,7 +826,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -839,7 +839,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
-					<include>genre_Showcase_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -854,7 +854,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -869,7 +869,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
-					<include>genre_Showcase_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_12</include>
 					<control type="image">
 						<description>Glass overlay</description>
 						<include>MusicShowcaseGlassOverlayAngled</include>
@@ -883,7 +883,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_12</include>
 				</control>
 			</control>
 			<control type="group">
@@ -895,7 +895,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
-					<include>genre_Showcase_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -910,7 +910,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -923,7 +923,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
-					<include>genre_Showcase_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -938,7 +938,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -951,7 +951,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
-					<include>genre_Showcase_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -966,7 +966,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -979,7 +979,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(1).Thumb</info>
 					</control>
-					<include>genre_Showcase_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_8</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -994,7 +994,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_8</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1012,7 +1012,7 @@
 							<include>MusicShowcaseThumb</include>
 							<info>Container(57).ListItem(0).Thumb</info>
 						</control>
-						<include>genre_Showcase_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_7</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -1027,7 +1027,7 @@
 							<description>Glass overlay reflection</description>
 							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
-						<include>genre_Showcase_ref_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_7</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -1041,7 +1041,7 @@
 							<include>MusicShowcaseThumb</include>
 							<info>Container(57).ListItem(-1).Thumb</info>
 						</control>
-						<include>genre_Showcase_6</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_6</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -1056,7 +1056,7 @@
 							<description>Glass overlay reflection</description>
 							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
-						<include>genre_Showcase_ref_6</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_6</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -1078,7 +1078,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(6).Thumb</info>
 					</control>
-					<include>genre_Showcase_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_13</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1093,7 +1093,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_13</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1106,7 +1106,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
-					<include>genre_Showcase_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1121,7 +1121,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_12</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1134,7 +1134,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
-					<include>genre_Showcase_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1149,7 +1149,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1162,7 +1162,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
-					<include>genre_Showcase_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1177,7 +1177,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1190,7 +1190,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
-					<include>genre_Showcase_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1205,7 +1205,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1220,7 +1220,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
-					<include>genre_Showcase_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1231,7 +1231,7 @@
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
-					<include>genre_Showcase_ref_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_2</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1244,7 +1244,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
-					<include>genre_Showcase_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1255,7 +1255,7 @@
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
-					<include>genre_Showcase_ref_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1268,7 +1268,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
-					<include>genre_Showcase_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1283,7 +1283,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1296,7 +1296,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
-					<include>genre_Showcase_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1311,7 +1311,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1324,7 +1324,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
 					</control>
-					<include>genre_Showcase_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_6</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1339,7 +1339,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_6</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1357,7 +1357,7 @@
 							<include>MusicShowcaseThumb</include>
 							<info>Container(57).ListItem(0).Thumb</info>
 						</control>
-						<include>genre_Showcase_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_7</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -1372,7 +1372,7 @@
 							<description>Glass overlay reflection</description>
 							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
-						<include>genre_Showcase_ref_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_7</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -1386,7 +1386,7 @@
 							<include>MusicShowcaseThumb</include>
 							<info>Container(57).ListItem(1).Thumb</info>
 						</control>
-						<include>genre_Showcase_8</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_8</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -1401,7 +1401,7 @@
 							<description>Glass overlay reflection</description>
 							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
-						<include>genre_Showcase_ref_8</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_8</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -1431,7 +1431,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
-					<include>genre_Showcase_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_2</include>
 					
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1446,7 +1446,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_2</include>
 					
 				</control>
 			</control>-->
@@ -1463,7 +1463,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
-					<include>genre_Showcase_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1478,7 +1478,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1495,7 +1495,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
-					<include>genre_Showcase_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1510,7 +1510,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1527,7 +1527,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
-					<include>genre_Showcase_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1542,7 +1542,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1559,7 +1559,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
 					</control>
-					<include>genre_Showcase_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_6</include>
 					
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1574,7 +1574,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_6</include>
 					
 				</control>
 			</control>
@@ -1591,7 +1591,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
-					<include>genre_Showcase_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1606,7 +1606,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_12</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1623,7 +1623,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
-					<include>genre_Showcase_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1638,7 +1638,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1655,7 +1655,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
-					<include>genre_Showcase_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1670,7 +1670,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1687,7 +1687,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
-					<include>genre_Showcase_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1702,7 +1702,7 @@
 						<description>Glass overlay reflection</description>
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
-					<include>genre_Showcase_ref_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1719,7 +1719,7 @@
 						<include>MusicShowcaseThumb</include>
 						<info>Container(57).ListItem(1).Thumb</info>
 					</control>
-					<include>genre_Showcase_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_8</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1734,7 +1734,7 @@
 						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
-					<include>genre_Showcase_ref_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_8</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1746,7 +1746,7 @@
 						<include>MusicShowcaseThumbMain</include>
 						<info>Container(57).ListItem(0).Thumb</info>
 					</control>
-					<include>genre_Showcase_7</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_7</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1761,7 +1761,7 @@
 						<include>MusicShowcaseThumbReflectionCDMain</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
-					<include>genre_Showcase_ref_7</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_7</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1789,7 +1789,7 @@
 						<info>Container(57).ListItem(-7).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]]</visible>
 					</control>
-					<include>genre_Showcase_15</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_15</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1816,7 +1816,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-7).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-7).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_15</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_15</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1834,7 +1834,7 @@
 						<info>Container(57).ListItem(-6).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_1</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1861,7 +1861,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-6).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_1</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1879,7 +1879,7 @@
 						<info>Container(57).ListItem(-5).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1906,7 +1906,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-5).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_2</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1924,7 +1924,7 @@
 						<info>Container(57).ListItem(-4).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1951,7 +1951,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-4).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -1969,7 +1969,7 @@
 						<info>Container(57).ListItem(-3).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -1996,7 +1996,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-3).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2014,7 +2014,7 @@
 						<info>Container(57).ListItem(-2).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2041,7 +2041,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-2).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2142,7 +2142,7 @@
 						<info>Container(57).ListItem(6).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_13</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2169,7 +2169,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(6).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_13</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2187,7 +2187,7 @@
 						<info>Container(57).ListItem(5).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2214,7 +2214,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(5).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_12</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2232,7 +2232,7 @@
 						<info>Container(57).ListItem(4).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2259,7 +2259,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(4).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2277,7 +2277,7 @@
 						<info>Container(57).ListItem(3).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2304,7 +2304,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(3).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2322,7 +2322,7 @@
 						<info>Container(57).ListItem(2).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2349,7 +2349,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(2).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2367,7 +2367,7 @@
 						<info>Container(57).ListItem(1).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_8</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2394,7 +2394,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(1).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_8</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2417,7 +2417,7 @@
 							<info>Container(57).ListItem(0).Thumb</info>
 							<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 						</control>
-						<include>genre_Showcase_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_7</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -2460,7 +2460,7 @@
 						<texture>showcase/$INFO[ListItem.Overlay]</texture>
 						<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>-->
-						<include>genre_Showcase_ref_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_7</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -2479,7 +2479,7 @@
 							<info>Container(57).ListItem(-1).Thumb</info>
 							<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 						</control>
-						<include>genre_Showcase_6</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_6</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -2506,7 +2506,7 @@
 							<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-1).Overlay)</visible>
 							<texture>showcase/$INFO[ListItem(-1).Overlay]</texture>
 						</control>
-						<include>genre_Showcase_ref_6</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_6</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -2533,7 +2533,7 @@
 						<info>Container(57).ListItem(7).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_14</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_14</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2560,7 +2560,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(7).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(7).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_14</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_14</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2578,7 +2578,7 @@
 						<info>Container(57).ListItem(6).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_13</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2605,7 +2605,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(6).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_13</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2623,7 +2623,7 @@
 						<info>Container(57).ListItem(5).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2650,7 +2650,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(5).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_12</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2668,7 +2668,7 @@
 						<info>Container(57).ListItem(4).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2695,7 +2695,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(4).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2713,7 +2713,7 @@
 						<info>Container(57).ListItem(3).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2740,7 +2740,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(3).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2758,7 +2758,7 @@
 						<info>Container(57).ListItem(2).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2785,7 +2785,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(2).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2886,7 +2886,7 @@
 						<info>Container(57).ListItem(-6).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_1</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2913,7 +2913,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-6).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_1</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2931,7 +2931,7 @@
 						<info>Container(57).ListItem(-5).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -2958,7 +2958,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-5).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_2</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -2976,7 +2976,7 @@
 						<info>Container(57).ListItem(-4).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3003,7 +3003,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-4).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3021,7 +3021,7 @@
 						<info>Container(57).ListItem(-3).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3048,7 +3048,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-3).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3066,7 +3066,7 @@
 						<info>Container(57).ListItem(-2).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3093,7 +3093,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-2).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3111,7 +3111,7 @@
 						<info>Container(57).ListItem(-1).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_6</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3138,7 +3138,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-1).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_6</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3161,7 +3161,7 @@
 							<info>Container(57).ListItem(0).Thumb</info>
 							<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 						</control>
-						<include>genre_Showcase_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_7</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -3188,7 +3188,7 @@
 							<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay)</visible>
 							<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
 						</control>
-						<include>genre_Showcase_ref_7</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_7</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -3207,7 +3207,7 @@
 							<info>Container(57).ListItem(1).Thumb</info>
 							<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 						</control>
-						<include>genre_Showcase_8</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_8</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
@@ -3234,7 +3234,7 @@
 							<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(1).Overlay)</visible>
 							<texture>showcase/$INFO[ListItem(1).Overlay]</texture>
 						</control>
-						<include>genre_Showcase_ref_8</include>
+						<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_8</include>
 						<!-- <<<<<< Add this -->
 					</control>
 				</control>
@@ -3269,7 +3269,7 @@
 						<info>Container(57).ListItem(-6).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_1</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3285,7 +3285,7 @@
 						<info>Container(57).ListItem(-6).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_ref_1</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_1</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3307,7 +3307,7 @@
 						<info>Container(57).ListItem(-5).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3334,7 +3334,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-5).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_2</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_2</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3356,7 +3356,7 @@
 						<info>Container(57).ListItem(-4).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3383,7 +3383,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-4).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_3</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3405,7 +3405,7 @@
 						<info>Container(57).ListItem(-3).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3432,7 +3432,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-3).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_4</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3454,7 +3454,7 @@
 						<info>Container(57).ListItem(-2).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3481,7 +3481,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-2).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_5</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3503,7 +3503,7 @@
 						<info>Container(57).ListItem(-1).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_6</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3530,7 +3530,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-1).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_6</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_6</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3552,7 +3552,7 @@
 						<info>Container(57).ListItem(6).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_13</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3579,7 +3579,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(6).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_13</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_13</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3601,7 +3601,7 @@
 						<info>Container(57).ListItem(5).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3628,7 +3628,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(5).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_12</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_12</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3650,7 +3650,7 @@
 						<info>Container(57).ListItem(4).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3677,7 +3677,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(4).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_11</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3699,7 +3699,7 @@
 						<info>Container(57).ListItem(3).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3726,7 +3726,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(3).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_10</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3748,7 +3748,7 @@
 						<info>Container(57).ListItem(2).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3775,7 +3775,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(2).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_9</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3797,7 +3797,7 @@
 						<info>Container(57).ListItem(1).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_8</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3824,7 +3824,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(1).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_8</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_8</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3841,7 +3841,7 @@
 						<info>Container(57).ListItem(0).Thumb</info>
 						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_7</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_7</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3868,7 +3868,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_7</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_7</include>
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
@@ -3933,7 +3933,7 @@
 						<texture>yearicons/$INFO[ListItem.label]/folder.png</texture>
 						<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(years)</visible>
 					</control>
-					<include>genre_Showcase_21</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_21</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -3962,7 +3962,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
 						<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
 					</control>
-					<include>genre_Showcase_ref_21</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_21</include>
 					<!-- <<<<<< Add this -->
 				</itemlayout>
 				<focusedlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)">
@@ -3985,7 +3985,7 @@
 						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
-					<include>genre_Showcase_20</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_20</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -4024,7 +4024,7 @@
 						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
-					<include>genre_Showcase_ref_20</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_ref_20</include>
 					<!-- <<<<<< Add this -->
 				</focusedlayout>
 				<preloaditems>2</preloaditems>
@@ -4034,7 +4034,7 @@
 						<info>ListItem.Icon</info>
 						<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 					</control>
-					<include>genre_Showcase_23</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_23</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
@@ -4065,7 +4065,7 @@
 						<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 						<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
 					</control>
-					<include>genre_Showcase_22</include>
+					<include condition="!Skin.HasSetting(moviegenreOff)">genre_Showcase_22</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
