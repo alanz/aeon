@@ -81,9 +81,14 @@
 			<label>$LOCALIZE[31050] $INFO[Container.ViewMode]</label>
 			<include>MediaMenuButton</include>
 		</control>
+		<control type="button" id="699999">
+			<label>VIEW BACK</label>
+			<include>MediaMenuButton</include>
+			<onclick>Container.PreviousViewMode</onclick>	
+		</control>	
 	</include>
 	<include name="MediaMenuButton_FlattenFlow"><!-- 700001 700002 -->
-		<control type="togglebutton" id="700001"> 
+	<control type="togglebutton" id="700001"> 
 			<label>31061</label>
 			<altlabel>31060</altlabel>
 			<usealttexture>Skin.HasSetting(flattenshowcase)</usealttexture>
@@ -97,6 +102,10 @@
 			<label>103</label>
 			<include>MediaMenuButton</include>
 		</control>
+	<!--	<control type="togglebutton" id="4">
+	
+			<include>MediaMenuButton</include>
+		</control>-->
 	</include>
 	<include name="MediaMenuButton_StackButton">
 		<control type="togglebutton" id="7">
@@ -1302,7 +1311,7 @@
 				<visible>Skin.HasSetting(videomovies)</visible>
 				<visible>Window.IsActive(videolibrary) | Window.IsActive(videofiles)</visible>
 			</control>
-			<control type="grouplist" id="7000">
+			<control type="grouplist" id="7000">			
 				<include>MediaMenuGroup</include>
 				<include>MediaMenuButton_Viewmode</include>
 				<include>MediaMenuButton_Sort</include>
