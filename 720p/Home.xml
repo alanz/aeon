@@ -54,25 +54,14 @@
 			<visible>Container(300).OnNext | Container(300).OnPrevious</visible>
 			<animation effect="fade" time="200">Hidden</animation>
 		</control>
-		<control type="image" id="88">
-			<texture>-</texture>
-			<visible>Control.IsVisible(300)</visible>
-			<animation effect="fade" time="300">Hidden</animation>
-		</control>
-		<control type="image" id="89">
-			<texture>-</texture>
-			<visible>Window.Previous(4)</visible>
-			<animation effect="fade" time="300">Hidden</animation>
-		</control>
 		<control type="multiimage">
 			<include>BackgroundVarsGlobal</include>
 			<imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath>
-			<visible>![control.HasFocus(510)+[Container(300).HasFocus(6)|Container(300).HasFocus(7)]]</visible>
 		</control>
-		<control type="multiimage">
+		<control type="largeimage">
 			<include>BackgroundVarsGlobal</include>
-			<imagepath background="true">$INFO[Container(510).ListItem.ActualIcon]</imagepath>
-			<visible>control.HasFocus(510)+[Container(300).HasFocus(6)|Container(300).HasFocus(7)]</visible>
+			<texture background="true">$INFO[Container(510).ListItem.ActualIcon]</texture>
+			<visible>control.HasFocus(510) + Container(300).HasFocus(6)</visible>
 		</control>
 		<include condition="!StringCompare(Weather.Plugin,weather.com plus)">Objects_WeatherPopup</include>
 		<include condition="StringCompare(Weather.Plugin,weather.com plus)">Widget_Weather</include>
