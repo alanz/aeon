@@ -1361,7 +1361,7 @@
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusMovies</include>
 			<scrolltime>200</scrolltime>
-			<visible>[Window.IsActive(videolibrary) + Container.Content(movies)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + Skin.HasSetting(tvposter) + !Container.Content(studios)]</visible>
+			<visible>[Window.IsActive(videolibrary) + Container.Content(movies)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + Skin.HasSetting(tvposter)  + !Container.Content(studios) + !Container.Content(years) + !Container.Content(directors) + !Container.Content(actors)]</visible>
 			<include>Animation_HideMultiplex</include>
 			<preloaditems>4</preloaditems>
 			<animation effect="slide" start="0" end="480" condition="Container.Content(seasons) + Skin.HasSetting(tvposter) + stringcompare(Container(52).NumItems,1)">Conditional</animation>
@@ -1396,7 +1396,7 @@
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusMovies</include>
 			<scrolltime>200</scrolltime>
-			<visible>[Window.IsActive(videolibrary) + Container.Content(movies)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + Skin.HasSetting(tvposter)+!Container.Content(studios)]</visible>
+			<visible>[Window.IsActive(videolibrary) + Container.Content(movies)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + Skin.HasSetting(tvposter) + !Container.Content(studios) + !Container.Content(years) + !Container.Content(directors) + !Container.Content(actors)]</visible>
 			<include>Animation_HideMultiplex</include>
 			<preloaditems>4</preloaditems>
 			<itemlayout width="120" height="300">
@@ -1580,7 +1580,7 @@
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusTV</include>
 			<scrolltime>200</scrolltime>
-			<visible>[Window.IsActive(videolibrary) + !Container.Content(movies) + !Skin.HasSetting(tvposter)] | [Window.IsActive(videolibrary) + Skin.HasSetting(tvposter) + Container.Content(episodes)]</visible>
+			<visible>[Window.IsActive(videolibrary) + !Skin.HasSetting(tvposter) + [Container.Content(tvshows) | Container.Content(seasons)]] | [Window.IsActive(videolibrary) + Skin.HasSetting(tvposter) + Container.Content(episodes)]</visible>
 			<include>Animation_HideMultiplex</include>
 			<preloaditems>4</preloaditems>
 			<animation effect="slide" start="0" end="438" condition="Container.Content(seasons) + !Skin.HasSetting(tvposter) + stringcompare(Container(552).NumItems,1)">Conditional</animation>
@@ -1612,7 +1612,7 @@
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusTV</include>
 			<scrolltime>200</scrolltime>
-			<visible>[Window.IsActive(videolibrary) + !Container.Content(movies) + !Skin.HasSetting(tvposter)] | [Window.IsActive(videolibrary) + Skin.HasSetting(tvposter) + Container.Content(episodes)]</visible>
+			<visible>[Window.IsActive(videolibrary) + !Skin.HasSetting(tvposter) +[Container.Content(tvshows) | Container.Content(seasons)]] | [Window.IsActive(videolibrary) + Skin.HasSetting(tvposter) + Container.Content(episodes)]</visible>
 			<include>Animation_HideMultiplex</include>
 			<preloaditems>4</preloaditems>
 			<itemlayout width="219" height="300" condition="Skin.HasSetting(videotv)">
