@@ -216,7 +216,13 @@
 				<posy>0</posy>
 				<width>55</width>
 				<height>54</height>
-				<include>MusicShowcaseOverlay</include>
+				<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+				<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
+				<colordiffuse>4e000000</colordiffuse>
+				<texture>-</texture>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<visible>![Control.HasFocus(57) | Control.HasFocus(71) | Control.HasFocus(85)]</visible>
+				<include>Animation_CommonFade</include>
 			</control>
 		</control>
 	</include>
