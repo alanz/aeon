@@ -274,6 +274,29 @@
 				<info>ListItem.Icon</info>
 				<visible>!Container.Content(years) + !Container.Content(genres)</visible>
 			</control>
+			<control type="largeimage">
+				<description>Cover image</description>
+				<width>558</width>
+				<height>720</height>
+				<texture>$INFO[listitem.path]poster.jpg</texture>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>500</fadetime>
+			</control>
+			<control type="largeimage">
+				<description>Cover image</description>
+				<width>558</width>
+				<height>720</height>
+				<texture>$INFO[listitem.path]movie.tbn</texture>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>500</fadetime>
+			</control>
+			<control type="image">
+				<posx>438</posx>
+				<posy>0</posy>
+				<width>120</width>
+				<height>120</height>
+				<texture>showcase/$INFO[ListItem.Overlay]</texture>
+            </control>
 			<control type="image" background="true">
 				<posx>100</posx>
 				<posy>100</posy>
@@ -289,12 +312,6 @@
 				<fadetime>400</fadetime>
 				<texture fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
 				<visible>Container.Content(genres)</visible>
-			</control>
-			<control type="image">
-				<width>558</width>
-				<height>720</height>
-				<texture>list/list_movieicon_glasslarge.png</texture>
-				<visible>!Container.Content(years)</visible>
 			</control>
 			<control type="image">
 				<posy>500</posy>
@@ -515,7 +532,7 @@
 			<posy>75</posy>
 			<width>65</width>
 			<height>545</height>
-			<visible allowhiddenfocus="true">Control.IsVisible(560)</visible>
+			<visible allowhiddenfocus="true">Control.IsVisible(560) + Control.HasFocus(61)</visible>
 			<texturesliderbackground>windows/scrollbarbacklist.png</texturesliderbackground>
 			<texturesliderbar>-</texturesliderbar>
 			<texturesliderbarfocus>-</texturesliderbarfocus>
