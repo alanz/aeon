@@ -193,7 +193,7 @@
 	<include name="ListLabel_DetailAlbumCover_Low">
 		<control type="group">
 			<posx>508</posx>
-			<posy>0</posy>
+			<posy>5</posy>
 			<visible>Container.Content(artists) | Container.Content(albums)</visible>
 			<control type="image">
 				<posx>0</posx>
@@ -584,7 +584,7 @@
 				<height>13</height>
 				<info>ListItem.StarRating</info>
 				<colordiffuse>dcbdbdbd</colordiffuse>
-				<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres))]</visible>
+				<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
 			</control>
 			<include>ListLabel_DetailAlbumCover_Low</include>
 			<control type="image">
@@ -620,6 +620,12 @@
 				<include>Animation_MusicContentSlide</include>
 			</control>
 			<control type="button">
+				<textoffsetx>0</textoffsetx>
+				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
+				<include>ListLabel_Main_Low</include>
+				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
+			</control>
+			<control type="label">
 				<textoffsetx>0</textoffsetx>
 				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
 				<include>ListLabel_Main_Low</include>
@@ -712,7 +718,7 @@
 				<height>13</height>
 				<info>ListItem.StarRating</info>
 				<colordiffuse>dcbdbdbd</colordiffuse>
-				<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | substring(listitem.label,..)]</visible>
+				<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
 			</control>
 			<include>ListLabel_DetailAlbumCover_Low</include>
 			<control type="image">
