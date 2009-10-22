@@ -571,17 +571,6 @@
 		<animation effect="fade" start="70" end="70" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
 		<visible>Skin.HasSetting(dvdcase)</visible>
 	</include>
-	<include name="MovieShowcaseThumbReflectionDVDMain">
-		<posx>49</posx>
-		<posy>250</posy>
-		<width>184</width>
-		<height>120</height>
-		<colordiffuse>52FFFFFF</colordiffuse>
-		<bordertexture>thumbs/boxes/poster_shadow_reflect.png</bordertexture>
-		<texture>thumbs/boxes/poster_glass_reflect.png</texture>
-		<aspectratio scalediffuse="false">stretch</aspectratio>
-		<visible>Skin.HasSetting(dvdcase)</visible>
-	</include>
 	<!-- Movie Showcase Variables: Thumb glass overlays -->
 	<include name="MovieShowcaseGlassOverlay">
 		<posx>49</posx>
@@ -605,7 +594,7 @@
 		<width>173</width>
 		<height>254</height>
 		<bordertexture border="-17">thumbs/poster_shadow.png</bordertexture>
-		<texture>thumbs/poster_glass_noedge.png</texture>
+		<texture>thumbs/poster_glass.png</texture>
 	</include>
 	<include name="MovieShowcaseGlassOverlayAngledDVD">
 		<posx>49</posx>
@@ -1848,30 +1837,22 @@
 				<animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-7).Thumb</info>
-						<visible>![Container.Content(seasons) | Container.Content(episodes)]</visible>
-					</control>
-					<control type="image">
-						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
-						<info>Container(57).ListItem(-7).Thumb</info>
-						<visible>[Container.Content(seasons) | Container.Content(episodes)]]</visible>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_15</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-7).Thumb</info>
 						<visible>![Container.Content(seasons) | Container.Content(episodes)]</visible>
-					</control>
-					<control type="image">
-						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
-						<info>Container(57).ListItem(-7).Thumb</info>
-						<visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
 					<control type="image">
 						<description>Glass overlay reflection</description>
@@ -3937,7 +3918,15 @@
 					</control>
 					<control type="image">
 						<description>Glass overlay reflection</description>
-						<include>MovieShowcaseThumbReflectionDVDMain</include>
+						<posx>49</posx>
+						<posy>250</posy>
+						<width>184</width>
+						<height>120</height>
+						<colordiffuse>52FFFFFF</colordiffuse>
+						<bordertexture>thumbs/boxes/poster_shadow_reflect.png</bordertexture>
+						<texture>thumbs/boxes/poster_glass_reflect.png</texture>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<visible>Skin.HasSetting(dvdcase)</visible>
 					</control>
 					<control type="image">
 						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
