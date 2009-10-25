@@ -8,12 +8,12 @@
 			<imagepath>backdrops/default_settings</imagepath>
 			<info>Skin.String(CustomSettings)</info>
 			<include>BackgroundTimings</include>
-			<animation effect="fade" start="0" end="100" time="200" condition="Window.Previous(Home) | Skin.HasSetting(bmtransit)">WindowOpen</animation>
+			<animation effect="fade" start="0" end="100" time="200" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.Next(Home) | Window.Next(25) | Window.Next(24) | Window.Next(1) | Window.Next(2) | Window.Next(500) | Window.Next(501) | Window.Next(502)">WindowClose</animation>
 		</control>
 		<control type="group">
 			<include>FullscreenDimensions</include>
-			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Home) | Skin.HasSetting(bmtransit)">
+			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Home)">
 				<effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
 				<effect type="fade" start="0" end="100" time="300" />
 			</animation>
@@ -35,7 +35,6 @@
 					<onright>300</onright>
 					<onup>12</onup>
 					<ondown>7</ondown>
-					<onfocus>Skin.Reset(bmtransit)</onfocus>
 					<visible allowhiddenfocus="true">![Control.HasFocus(6) | Control.HasFocus(300) | Control.HasFocus(92)]</visible>
 				</control>
 				<control type="button" id="6">
