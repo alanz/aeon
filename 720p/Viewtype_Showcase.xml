@@ -64,6 +64,7 @@
 		<control type="group">
 			<posx>0</posx>
 			<posy>26</posy>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<width>1280</width>
 			<height>381</height>
 			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
@@ -727,14 +728,15 @@
 	</include>
 	<include name="ShowcaseMainLabel">
 		<include>ShowcaseLabelVars</include>
-		<posx>340</posx>
+		<posx>315</posx>
 		<posy>693</posy>
-		<width>600</width>
+		<width>650</width>
+		<shadowcolor>ff000000</shadowcolor>
 		<font>Font_ShowcaseMainLabel</font>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 		<visible>!ControlGroup(6500).HasFocus()</visible>
-		<animation effect="slide" end="0,-11" time="200" condition="[!Control.IsVisible(72) | IsEmpty(Control.GetLabel(72))] | Window.IsActive(videofiles)">Conditional</animation>
+	
 	</include>
 	<include name="ShowcaseMainLabelWide">
 		<include>ShowcaseLabelVars</include>
@@ -745,7 +747,7 @@
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 		<visible>!ControlGroup(6500).HasFocus()</visible>
-		<animation effect="slide" end="0,-11" time="200" condition="!Container.Content(seasons) + [!Control.IsVisible(72) | IsEmpty(Control.GetLabel(72))] | Window.IsActive(videofiles)">Conditional</animation>
+		
 	</include>
 	<include name="ShowcaseItemsLabel">
 		<include>ShowcaseLabelVars</include>
@@ -763,7 +765,17 @@
 		<posy>673</posy>
 		<width>600</width>
 		<font>Font_ShowcaseDetailLabel</font>
-		<visible>!ControlGroup(6500).HasFocus()</visible>
+		<visible>!ControlGroup(6500).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
+		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
+		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
+	</include>
+	<include name="ShowcaseDetailLabel2">
+		<include>ShowcaseLabelVars</include>
+		<posx>340</posx>
+		<posy>657</posy>
+		<width>600</width>
+		<font>Font_ShowcaseDetailLabel</font>
+		<visible>!ControlGroup(6500).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 	</include>
@@ -773,6 +785,7 @@
 			<camera x="640" y="540" />
 			<visible>Control.IsVisible(57) + Container.OnNext + ![Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]</visible>
 			<animation effect="slide" end="-100,0" time="250" reversible="false">Hidden</animation>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<control type="group">
 				<posx>50</posx>
 				<visible>Container.OnNext</visible>
@@ -1124,6 +1137,7 @@
 			<camera x="640" y="540" />
 			<visible>Control.IsVisible(57) + Container.OnPrevious + ![Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]</visible>
 			<animation effect="slide" end="100,0" time="250" reversible="false">Hidden</animation>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<control type="group">
 				<posx>960</posx>
 				<visible>Container.OnPrevious</visible>
@@ -1471,6 +1485,7 @@
 		</control>
 		<control type="group" id="6500">
 			<posy>387</posy>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<camera x="640" y="540" />
 			<animation effect="fade" time="500">WindowOpen</animation>
 			<animation effect="fade" time="200">WindowClose</animation>
@@ -1827,6 +1842,7 @@
 	<include name="ShowcaseMovies">
 		<control type="group" id="6001">
 			<posy>380</posy>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<camera x="640" y="540" />
 			<visible>Control.IsVisible(57) + Container.OnNext + !Skin.HasSetting(flattenshowcase)</visible>
 			<animation effect="slide" end="-90,0" time="250" reversible="false">Hidden</animation>
@@ -2397,6 +2413,7 @@
 		</control>
 		<control type="group" id="6002">
 			<posy>380</posy>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<camera x="640" y="540" />
 			<visible>Control.IsVisible(57) + Container.OnPrevious + !Skin.HasSetting(flattenshowcase)</visible>
 			<animation effect="slide" end="90,0" time="250" reversible="false">Hidden</animation>
@@ -2970,6 +2987,7 @@
 		</control>
 		<control type="group" id="6000">
 			<posy>380</posy>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<animation effect="fade" time="500">WindowOpen</animation>
 			<animation effect="fade" time="200">WindowClose</animation>
 			<visible>Control.IsVisible(57) + !Control.IsVisible(6001) + !Control.IsVisible(6002) + Control.IsVisible(960)</visible>
@@ -3513,6 +3531,7 @@
 			<ondown>57</ondown>
 		</control>
 		<control type="group">
+			
 			<visible>Control.IsVisible(57)</visible>
 			<control type="wraplist" id="57">
 				<viewtype label="Showcase">list</viewtype>
@@ -3530,7 +3549,7 @@
 				<include>Animation_HideShowcase</include>
 				<focusposition>3</focusposition>
 				<preloaditems>2</preloaditems>
-				<visible>!Container.Content(studios) + !Container.Content(songs) +!Container.Content(episodes)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(years) | Container.Content(directors) | Container.Content(genres) | Container.Content(albums)</visible>
 				<itemlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)">
 					<control type="image">
 						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
@@ -3593,8 +3612,8 @@
 						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
 						<info>ListItem.Icon</info>
 						<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+ !Container.Content(years)</visible>
-						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+						<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
 					<control type="image">
 						<posx>49</posx>
@@ -3605,8 +3624,8 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture>yearicons/$INFO[ListItem.label]/folder.png</texture>
 						<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(years)</visible>
-						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+						<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_20</include>
 					<!-- <<<<<< Add this -->
@@ -3615,8 +3634,8 @@
 						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
 						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
 						<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+!Container.Content(years)</visible>
-						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+						<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
 					<control type="image">
 						<description>Black overlay</description>
@@ -3628,23 +3647,23 @@
 						<animation effect="fade" end="100" time="200" condition="ControlGroup(6500).HasFocus">Conditional</animation>
 						<animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
 						<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
-						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+						<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
 					<control type="image">
 						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMain</include>
 						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMainDVD</include>
 						<info>ListItem.Icon</info>
 						<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+!Container.Content(years)</visible>
-						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+						<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
 					<control type="image">
 						<description>Glass overlay reflection</description>
 						<include>MovieShowcaseThumbReflectionDVD</include>
 						<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
-						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+						<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
 					<control type="image">
 						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
@@ -3652,8 +3671,8 @@
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
 						<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
-						<animation effect="zoom" start="100" end="120" center="135,165" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-						<animation effect="zoom" start="120" end="100" center="135,165" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+						<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_20</include>
 					<!-- <<<<<< Add this -->
@@ -3815,6 +3834,11 @@
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label" id="72">
+					<label>[UPPERCASE]$INFO[ListItem.duration][/UPPERCASE]</label>
+					<include>ShowcaseDetailLabel2</include>
+					<visible>Container.Content(movies) + !IsEmpty(ListItem.duration)</visible>
+				</control>
+				<control type="label" id="72">
 					<label>$INFO[ListItem.Album,, -] $INFO[ListItem.Artist]</label>
 					<include>ShowcaseDetailLabel</include>
 					<visible>Container.Content(songs)</visible>
@@ -3823,6 +3847,11 @@
 					<info>ListItem.Label2</info>
 					<include>ShowcaseDetailLabel</include>
 					<visible>Window.IsActive(programs) | Container.Content(albums) | Window.IsActive(musicfiles)</visible>
+				</control>
+				<control type="label" id="73">
+					<info>ListItem.year</info>
+					<include>ShowcaseDetailLabel2</include>
+					<visible>Container.Content(albums) | Window.IsActive(musicfiles)</visible>
 				</control>
 				<control type="label" id="72">
 					<label>[UPPERCASE]$INFO[ListItem.Episode] $LOCALIZE[31406][/UPPERCASE]</label>
