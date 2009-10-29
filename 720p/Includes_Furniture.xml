@@ -1,6 +1,13 @@
 <includes>	
 	<!-- Library Totals -->
-	<include name="Library_Totals">	
+	<include name="Library_Vars">
+		<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+		<animation effect="slide" start="-600,0" end="0,0" delay="200" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
+		<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
+		<include>Animation_CommonFade</include>
+		<posx>0</posx>
+		<width>451</width>
+		<height>27</height>
 		<control type="label" id="71">
 			<posx>10</posx>
 			<posy>3</posy>
@@ -71,83 +78,45 @@
 			<visible>Container(300).HasFocus(1)</visible>
 		</control>
 	</include>
-	<include name="Furniture_LibraryGroupVars">
-		<posx>0</posx>
-		<posy>316</posy>
-		<width>451</width>
-		<height>27</height>
-	</include>
-	<include name="Furniture_LibraryGroupHighVars">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>451</width>
-		<height>27</height>
-	</include>
-	<include name="Furniture_LibraryPanel">
-		<control type="image">
-			<posx>-10</posx>
-			<posy>0</posy>
-			<width>451</width>
-			<height>27</height>
-			<texture>common/librarypanel_mid.png</texture>
-			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-				<effect type="slide" start="-20,-7" end="-20,-7" time="0" />
-				<effect type="zoom" start="125" end="125" time="0" />
-			</animation>
-		</control>
-		<include>Library_Totals</include>
-	</include>
-	<include name="Furniture_LibraryPanelHigh">
-		<control type="image">
-			<posx>-10</posx>
-			<posy>0</posy>
-			<width>451</width>
-			<height>27</height>
-			<texture flipy="true">common/librarypanel_mid.png</texture>
-			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-				<effect type="slide" start="-20,0" end="-20,0" time="0" />
-				<effect type="zoom" start="125" end="125" time="0" />
-			</animation>
-		</control>
-		<include>Library_Totals</include>
-	</include>
-	<include name="Furniture_Library">
+	<include name="Furniture_LibraryLow">
 		<control type="group">
-			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
-			<animation effect="slide" start="-600,0" end="0,0" delay="200" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
-			<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
-			<include>Animation_CommonFade</include>
-			<include>Furniture_LibraryGroupVars</include>
-			<visible>!Skin.HasSetting(highertime) + Window.IsActive(Home)</visible>
+			<posy>316</posy>
 			<animation effect="slide" start="0,0" end="0,225" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Furniture_LibraryPanel</include>
+			<control type="image">
+				<posx>-10</posx>
+				<posy>0</posy>
+				<width>451</width>
+				<height>27</height>
+				<texture>common/librarypanel_mid.png</texture>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" start="-20,-7" end="-20,-7" time="0" />
+					<effect type="zoom" start="125" end="125" time="0" />
+				</animation>
+			</control>
+			<include>Library_Vars</include>
 		</control>
+	</include>
+	<include name="Furniture_LibraryHigh">
 		<control type="group">
-			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
-			<animation effect="slide" start="-600,0" end="0,0" delay="200" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
-			<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
-			<include>Animation_CommonFade</include>
-			<include>Furniture_LibraryGroupHighVars</include>
-			<visible>Skin.HasSetting(highertime) + Window.IsActive(Home)</visible>
-			<include>Furniture_LibraryPanelHigh</include>
+			<posy>0</posy>
+			<control type="image">
+				<posx>-10</posx>
+				<posy>0</posy>
+				<width>451</width>
+				<height>27</height>
+				<texture flipy="true">common/librarypanel_mid.png</texture>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" start="-20,0" end="-20,0" time="0" />
+					<effect type="zoom" start="125" end="125" time="0" />
+				</animation>
+			</control>
+			<include>Library_Vars</include>
 		</control>
 	</include>
 	<!-- Time -->
-	<include name="Furniture_TimeGroupVars">
-		<posx>900</posx>
-		<posy>316</posy>
-		<width>451</width>
-		<height>27</height>
-	</include>
 	<include name="Furniture_TimeGroupHighVars">
 		<posx>900</posx>
 		<posy>0</posy>
-		<width>451</width>
-		<height>27</height>
-	</include>
-	<include name="Furniture_TimeGroupWindowVars">
-		<posx>900</posx>
-		<posy>45</posy>
 		<width>451</width>
 		<height>27</height>
 	</include>
@@ -219,7 +188,10 @@
 	</include>
 	<include name="Furniture_Time">
 		<control type="group">
-			<include>Furniture_TimeGroupVars</include>
+			<posx>900</posx>
+			<posy>316</posy>
+			<width>451</width>
+			<height>27</height>
 			<visible>!Skin.HasSetting(highertime) + Window.IsActive(Home) + !Control.IsVisible(553) + !Control.IsVisible(51) + !Control.IsVisible(52) + !Control.IsVisible(552) + !Control.IsVisible(57) + !Control.IsVisible(50) + !Control.IsVisible(53) + !Control.IsVisible(550) + !Control.IsVisible(551) + !Control.IsVisible(560)</visible>
 			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
 			<include>Animation_OpenCloseZoom</include>
@@ -233,13 +205,15 @@
 			<include>Furniture_TimePanelHigh</include>
 		</control>
 		<control type="group">
-			<include>Furniture_TimeGroupWindowVars</include>
+			<posx>900</posx>
+			<posy>45</posy>
+			<width>451</width>
+			<height>27</height>
 			<visible>!Window.IsActive(Home) + !Control.IsVisible(553) + !Control.IsVisible(51) + !Control.IsVisible(52) + !Control.IsVisible(552) + !Control.IsVisible(57) + !Control.IsVisible(50) + !Control.IsVisible(550) + !Control.IsVisible(551) + !Control.IsVisible(53) + !Control.IsVisible(555) + !Control.IsVisible(556) + !Control.isVisible(560)</visible>
 			<include>Animation_CommonFade</include>
 			<include>Furniture_TimePanel</include>
 		</control>
 	</include>
-
 	<!-- RSS Feeds-->
 	<include name="Furniture_RSS">
 		<control type="group">
@@ -308,7 +282,6 @@
 			</control>-->
 		</control>
 	</include>
-
 	<!-- Media windows -->
 	<include name="ShowcaseFloorNight">
 		<texture>showcase/showcase_floor.png</texture>
@@ -553,13 +526,6 @@
 			<texture>settings/settings_panelfront.png</texture>
 		</control>
 	</include>
-	<include name="Furniture_SettingsInternalBackPanel">
-		<posx>234</posx>
-		<posy>40</posy>
-		<width>1035</width>
-		<height>638</height>
-		<texture>settings/settings_intframe_bottom.png</texture>
-	</include>
 	<include name="Furniture_SettingsTutorialSlide">
 		<animation effect="fade" time="500">Visible</animation>
 		<animation effect="fade" time="200">Hidden</animation>
@@ -581,6 +547,7 @@
 			<visible>Skin.HasSetting(debug) + !Skin.HasSetting(debuginfo)</visible>
 		</control>
 	</include>
+	<!-- TitleMod -->
 	<include name="TitleModVars">
 		<width>1070</width>
 		<posy>8</posy>
