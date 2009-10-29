@@ -46,17 +46,6 @@
 		<height>29</height>
 		<font>Font_FSInfoData</font>
 	</include>
-	<include name="Objects_FSInfoButtonWide">
-		<include>Colour_Grey</include>
-		<texturenofocus>-</texturenofocus>
-		<texturefocus>-</texturefocus>
-		<textoffsetx>0</textoffsetx>
-		<align>left</align>
-		<aligny>center</aligny>
-		<width>140</width>
-		<height>29</height>
-		<font>Font_FSInfoData</font>
-	</include>
 	<include name="Objects_FSInfoCertificate">
 		<posx>7</posx>
 		<posy>68</posy>
@@ -318,16 +307,6 @@
 		<textoffsety>21</textoffsety>
 		<font>Font_KeyboardShapes</font>
 	</include>
-	<include name="Objects_KeyOnSymbolVars">
-		<textcolor>FFFFFFFF</textcolor>
-		<focusedcolor>FFFFFFFF</focusedcolor>
-		<selectedcolor>FFFFFFFF</selectedcolor>
-		<align>center</align>
-		<aligny>top</aligny>
-		<textoffsety>21</textoffsety>
-		<include>Animation_KeyboardFade</include>
-		<font>Font_KeyboardShapes</font>
-	</include>
 	<include name="Objects_DoubleKeyOff">
 		<posy>0</posy>
 		<width>110</width>
@@ -352,22 +331,6 @@
 		<texturenofocus>keyboard/keyboard_singlenf.png</texturenofocus>
 		<include>Objects_KeyOffVars</include>
 	</include>
-	<include name="Objects_TripleKeyOff">
-		<posy>0</posy>
-		<width>152</width>
-		<height>68</height>
-		<texturefocus>keyboard/keyboard_triplenf.png</texturefocus>
-		<texturenofocus>keyboard/keyboard_triplenf.png</texturenofocus>
-		<include>Objects_KeyOffVars</include>
-	</include>
-	<include name="Objects_SpaceBarOff">
-		<posy>0</posy>
-		<width>278</width>
-		<height>68</height>
-		<texturefocus>keyboard/keyboard_spacef.png</texturefocus>
-		<texturenofocus>keyboard/keyboard_spacenf.png</texturenofocus>
-		<include>Objects_KeyOffVars</include>
-	</include>
 	<include name="Objects_DoubleKeyOn">
 		<posy>0</posy>
 		<width>110</width>
@@ -382,7 +345,14 @@
 		<height>68</height>
 		<texturefocus>keyboard/keyboard_doublef.png</texturefocus>
 		<texturenofocus>keyboard/keyboard_doublef.png</texturenofocus>
-		<include>Objects_KeyOnSymbolVars</include>
+		<textcolor>FFFFFFFF</textcolor>
+		<focusedcolor>FFFFFFFF</focusedcolor>
+		<selectedcolor>FFFFFFFF</selectedcolor>
+		<align>center</align>
+		<aligny>top</aligny>
+		<textoffsety>21</textoffsety>
+		<include>Animation_KeyboardFade</include>
+		<font>Font_KeyboardShapes</font>
 	</include>
 	<include name="Objects_SingleKeyOn">
 		<posy>0</posy>
@@ -400,14 +370,6 @@
 		<texturenofocus>keyboard/keyboard_triplef.png</texturenofocus>
 		<include>Objects_KeyOnVars</include>
 	</include>
-	<include name="Objects_SpaceBarOn">
-		<posy>0</posy>
-		<width>278</width>
-		<height>68</height>
-		<texturefocus>keyboard/keyboard_spacef.png</texturefocus>
-		<texturenofocus>keyboard/keyboard_spacef.png</texturenofocus>
-		<include>Objects_KeyOnVars</include>
-	</include>
 	<!-- Button menu -->
 	<include name="Objects_ButtonMenu10Group">
 		<height>390</height>
@@ -419,37 +381,28 @@
 		<height>460</height>
 	</include>
 	<!-- Login Screen -->
-	<include name="LoginThumbDimensions">
+
+	<include name="LoginThumb">
 		<posx>18</posx>
 		<posy>18</posy>
 		<width>234</width>
 		<height>234</height>
-	</include>
-	<include name="LoginThumbReflectionDimensions">
-		<posx>18</posx>
-		<posy>254</posy>
-		<width>234</width>
-		<height>234</height>
-	</include>
-	<include name="LoginThumb">
-		<include>LoginThumbDimensions</include>
 		<texture diffuse="thumbs/cdcover_mask.png">defaultAudio.png</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 	</include>
-	<include name="LoginGlassOverlayDimensions">
+	<include name="LoginGlassOverlay">
 		<posx>-14</posx>
 		<posy>-14</posy>
 		<width>298</width>
 		<height>298</height>
-	</include>
-	<include name="LoginGlassOverlay">
-		<include>LoginThumbDimensions</include>
 		<bordertexture border="-18">thumbs/cd_shadow.png</bordertexture>
 		<texture>thumbs/cd_glass_noedge.png</texture>
-		<texture>cdcover_frame.png</texture>
 	</include>
 	<include name="LoginThumbReflection">
-		<include>LoginThumbReflectionDimensions</include>
+		<posx>18</posx>
+		<posy>254</posy>
+		<width>234</width>
+		<height>234</height>
 		<colordiffuse>d0FFFFFF</colordiffuse>
 		<texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">defaultmusic.png</texture>
 		<aspectratio scalediffuse="false">scale</aspectratio>
