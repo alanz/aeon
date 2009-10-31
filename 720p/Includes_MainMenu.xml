@@ -112,11 +112,33 @@
 				</control>
 			</focusedlayout>
 			<content>
+				<item id="9">
+					<label>31016</label>
+					<include>BackgroundVarsSettings</include>
+					<onclick>XBMC.ActivateWindow(4)</onclick>
+				</item>
 				<item id="1">
 					<label>31010</label>
 					<include>BackgroundVarsMusic</include>
 					<onclick>XBMC.ActivateWindow(MyMusic,return)</onclick>
 					<visible>!Skin.HasSetting(nomusic)</visible>
+				</item>
+				<item id="6">
+					<label>31013</label>
+					<include>BackgroundVarsMovies</include>
+					<onclick>Skin.SetBool(videomovies)</onclick>
+					<onclick>Skin.Reset(videotv)</onclick>
+					<onclick>XBMC.ActivateWindow(MyVideoLibrary,movietitles,return)</onclick>
+					<visible>!Skin.HasSetting(nomovies)</visible>
+				</item>
+				<item id="7">
+					<description>My Videos</description>
+					<label>31014</label>
+					<include>BackgroundVarsTV</include>
+					<onclick>Skin.SetBool(videotv)</onclick>
+					<onclick>Skin.Reset(videomovies)</onclick>
+					<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowtitles,return)</onclick>
+					<visible>!Skin.HasSetting(notvshows)</visible>
 				</item>
 				<item id="2">
 					<label>31011</label>
@@ -137,23 +159,6 @@
 					<include>BackgroundVarsPictures</include>
 					<onclick>XBMC.ActivateWindow(MyPictures)</onclick>
 					<visible>!Skin.HasSetting(nopictures)</visible>
-				</item>
-				<item id="6">
-					<label>31013</label>
-					<include>BackgroundVarsMovies</include>
-					<onclick>Skin.SetBool(videomovies)</onclick>
-					<onclick>Skin.Reset(videotv)</onclick>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,movietitles,return)</onclick>
-					<visible>!Skin.HasSetting(nomovies)</visible>
-				</item>
-				<item id="7">
-					<description>My Videos</description>
-					<label>31014</label>
-					<include>BackgroundVarsTV</include>
-					<onclick>Skin.SetBool(videotv)</onclick>
-					<onclick>Skin.Reset(videomovies)</onclick>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowtitles,return)</onclick>
-					<visible>!Skin.HasSetting(notvshows)</visible>
 				</item>
 				<item id="8">
 					<label>31015</label>
@@ -281,11 +286,7 @@
 					<visible>Skin.HasSetting(mainmenu_10)</visible>
 				</item>
 			<!-- Add Item End -->
-				<item id="9">
-					<label>31016</label>
-					<include>BackgroundVarsSettings</include>
-					<onclick>XBMC.ActivateWindow(4)</onclick>
-				</item>
+
 				<item id="24">
 					<description>Scripts</description>
 					<include>BackgroundVarsScripts</include>
