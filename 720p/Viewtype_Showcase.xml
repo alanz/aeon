@@ -224,37 +224,63 @@
 					</control>
 				</control>
 			</control>
-			<control type="textbox">
-				<posx>416</posx>
-				<posy>44</posy>
-				<width>455</width>
-				<height>312</height>
-				<font>Font_MultiplexPlot</font>
-				<info>Container(57).ListItem.Plot</info>
-				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
-				<visible>!Skin.HasSetting(fanartlayout)</visible>
-			</control>
-			<control type="textbox">
-				<posx>105</posx>
-				<posy>198</posy>
-				<width>435</width>
-				<height>149</height>
-				<font>Font_MultiplexPlotSmall</font>
-				<info>Container(57).ListItem.Plot</info>
-				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
-				<visible>Skin.HasSetting(fanartlayout)</visible>
-			</control>
-
-			<control type="videowindow">
-				<posx>404</posx>
-				<posy>24</posy>
-				<width>480</width>
-				<height>345</height>
-				<visible>[Control.IsVisible(57) + !Skin.HasSetting(fanartlayout) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
-			</control>
 			<control type="group">
+				<visible>!Skin.HasSetting(fanartlayout)</visible>
+				<control type="textbox">
+					<posx>416</posx>
+					<posy>44</posy>
+					<width>455</width>
+					<height>312</height>
+					<font>Font_MultiplexPlot</font>
+					<info>Container(57).ListItem.Plot</info>
+					<textcolor>d0FFFFFF</textcolor>
+					<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+					<visible>!Player.HasVideo</visible>
+				</control>
+				<control type="videowindow">
+					<posx>404</posx>
+					<posy>24</posy>
+					<width>480</width>
+					<height>345</height>
+					<visible>[!Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
+				</control>
+				<control type="image">
+					<posx>538</posx>
+					<posy>340</posy>
+					<align>center</align>
+					<width>240</width>
+					<height>32</height>
+					<texture>multiplex/multiplex_trailer_label.png</texture>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+				</control>
+				<control type="label">
+					<posx>538</posx>
+					<posy>344</posy>
+					<align>center</align>
+					<width>240</width>
+					<height>32</height>
+					<font>Font_MultiplexPlot</font>
+					<label>312573</label>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+				</control>
+				<control type="label">
+					<posx>538</posx>
+					<posy>344</posy>
+					<align>center</align>
+					<width>240</width>
+					<height>32</height>
+					<font>Font_MultiplexPlot</font>
+					<label>312574</label>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+				</control>
+			</control>
+			<control type="group"> <!--plot-->
 				<posx>920</posx>
 				<posy>45</posy>
 				<visible>![Skin.HasSetting(fanartlayout) | Skin.HasSetting(poster)]</visible>
@@ -295,7 +321,7 @@
 					<texture fallback="defaultVideo.png">$INFO[Container(57).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"> <!--poster-->
 				<posx>934</posx>
 				<posy>50</posy>
 				<visible>Skin.HasSetting(poster)</visible>
@@ -327,10 +353,20 @@
 					<colordiffuse>66FFFFFF</colordiffuse>
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"> <!--fanartlayout-->
 				<posx>610</posx>
 				<posy>50</posy>
 				<visible>Skin.HasSetting(fanartlayout)</visible>
+				<control type="textbox">
+					<posx>-505</posx>
+					<posy>148</posy>
+					<width>435</width>
+					<height>149</height>
+					<font>Font_MultiplexPlotSmall</font>
+					<info>Container(57).ListItem.Plot</info>
+					<textcolor>d0FFFFFF</textcolor>
+					<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				</control>
 				<control type="image">
 					<posx>0</posx>
 					<posy>0</posy>
@@ -398,7 +434,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>312574</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
