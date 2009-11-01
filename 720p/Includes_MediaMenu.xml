@@ -246,7 +246,7 @@
 			<onclick>Skin.SetBool(fanartlayout)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + ![Skin.HasSetting(fanartlayout) | Skin.HasSetting(poster)] + !ControlGroup(7011).HasFocus()]] | Control.HasFocus(3001)</visible>
+			<visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + ![Skin.HasSetting(fanartlayout) | Skin.HasSetting(poster)]]</visible>
 		</control>
 		<control type="button" id="700018">
 			<include>MediaMenuButton</include>
@@ -255,7 +255,7 @@
 			<onclick>Skin.Reset(fanartlayout)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(fanartlayout)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3004)</visible>
+			<visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(fanartlayout)]</visible>
 		</control>
 		<control type="button" id="700019">
 			<include>MediaMenuButton</include>
@@ -263,7 +263,7 @@
 			<onclick>Skin.Reset(poster)</onclick>
 			<onclick>XBMC.ReloadSkin</onclick>
 			<onright>SetFocus(7011)</onright>
-			<visible>[[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(poster)] + !ControlGroup(7011).HasFocus()] | Control.HasFocus(3005)</visible>
+			<visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(poster)]</visible>
 		</control>
 		<control type="togglebutton" id="700020">
 			<include>MediaMenuButton</include>
@@ -1150,7 +1150,7 @@
 				<posx>235</posx>
 				<posy>45</posy>
 				<width>210</width>
-				<height>625</height>
+				<height>425</height>
 				<texture>showcase/menupanel.png</texture>
 			</control>
 			<control type="grouplist" id="7011">
@@ -1194,6 +1194,21 @@
 					<onclick>Skin.Reset(fanartlayout)</onclick>
 					<onclick>XBMC.ReloadSkin</onclick>
 					<onright>SetFocus(50)</onright>
+				</control>
+				<control type="label">
+					<include>MediaMenuLabel</include>
+					<label>Fanart / Thumbs</label>
+					<visible>Control.HasFocus(3004)</visible>
+				</control>
+				<control type="label">
+					<include>MediaMenuLabel</include>
+					<label>Poster</label>
+					<visible>Control.HasFocus(3005)</visible>
+				</control>
+				<control type="label">
+					<include>MediaMenuLabel</include>
+					<label>Plot</label>
+					<visible>Control.HasFocus(3001)</visible>
 				</control>
 			</control>	
 		</control>
