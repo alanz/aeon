@@ -599,45 +599,39 @@
 			<visible>Control.HasFocus(113) | ControlGroup(15).HasFocus</visible>
 			<control type="radiobutton" id="300">
 				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>USE NORMAL MUSIC BACKGROUND</label>
-				<onclick>Skin.SetBool(Visbackground1)</onclick>
-				<onclick>Skin.Reset(Visbackground2)</onclick>
-				<onclick>Skin.Reset(Visbackground3)</onclick>
-				<onclick>Skin.Reset(Visbackground4)</onclick>
-				<selected>Skin.HasSetting(Visbackground1)</selected>
-			</control>
-			<control type="radiobutton" id="301">
-				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>USE ALBUM LEVEL FANART</label>
-				<onclick>Skin.SetBool(Visbackground2)</onclick>
-				<onclick>Skin.Reset(Visbackground3)</onclick>
-				<onclick>Skin.Reset(Visbackground1)</onclick>
-				<onclick>Skin.Reset(Visbackground4)</onclick>
+				<label>USE ALBUM LEVEL FANART (MUSICPATH/ARTIST/ALBUM/FANART.JPG</label>
+				<onclick>Skin.ToggleSetting(Visbackground2)</onclick>
 				<selected>Skin.HasSetting(Visbackground2)</selected>
 			</control>
 			<control type="radiobutton" id="302">
 				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>USE ARTIST LEVEL FANART</label>
-				<onclick>Skin.SetBool(Visbackground3)</onclick>
-				<onclick>Skin.Reset(Visbackground2)</onclick>
-				<onclick>Skin.Reset(Visbackground4)</onclick>
-				<onclick>Skin.Reset(Visbackground1)</onclick>
+				<label>USE ARTIST SLIDESHOW (MEDIA/BACKDROPS/ARTIST_FANART/...)</label>
+				<onclick>Skin.ToggleSetting(Visbackground4)</onclick>
+				<selected>Skin.HasSetting(Visbackground4)</selected>
+			</control>
+			<control type="radiobutton" id="301">
+				<include>Objects_SettingsDefaultRadioButton</include>
+				<label>USE ARTIST LEVEL FANART (MUSICPATH/ARTIST/FANART.JPG)</label>
+				<onclick>Skin.ToggleSetting(Visbackground3)</onclick>
 				<selected>Skin.HasSetting(Visbackground3)</selected>
 			</control>
 			<control type="radiobutton" id="303">
 				<include>Objects_SettingsDefaultRadioButton</include>
-				<label>USE ARTIST SLIDESHOW (MEDIA/BACKGROUNDS/...)</label>
-				<onclick>Skin.SetBool(Visbackground4)</onclick>
-				<onclick>Skin.Reset(Visbackground2)</onclick>
-				<onclick>Skin.Reset(Visbackground3)</onclick>
-				<onclick>Skin.Reset(Visbackground1)</onclick>
-				<selected>Skin.HasSetting(Visbackground4)</selected>
+				<label>USE NORMAL MUSIC BACKGROUND</label>
+				<onclick>Skin.SetBool(Visbackground1)</onclick>
+				<selected>Skin.HasSetting(Visbackground1)</selected>
 			</control>
 			<control type="button" id="304">
 				<include>Objects_SettingsDefaultRadioButton</include>
 				<label>SET MUSIC FOLDER</label>
 				<onclick>Skin.SetPath(cdartpath)</onclick>
 				<visible>Skin.HasSetting(Visbackground2) | Skin.HasSetting(VisBackground3)</visible>
+			</control>
+			<control type="radiobutton" id="305">
+				<include>Objects_SettingsDefaultRadioButton</include>
+				<label>BLACK BACKGROUND WHEN VIS ACTIVE</label>
+				<onclick>Skin.ToggleSetting(blackvisbackground)</onclick>
+				<selected>Skin.HasSetting(blackvisbackground)</selected>
 			</control>
 		</control>
 		<control type="list" id="17">
