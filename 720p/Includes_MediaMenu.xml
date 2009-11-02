@@ -218,19 +218,6 @@
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(50)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_VerticalWall"><!-- 700024 -->
-		<control type="togglebutton" id="700024">
-			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[310791]</label>
-			<altlabel>$LOCALIZE[310792]</altlabel>
-			<usealttexture>Skin.HasSetting(VerticalWall)</usealttexture>
-			<onclick>Skin.SetBool(VerticalWall)</onclick>
-			<onclick>XBMC.ReloadSkin</onclick>
-			<altclick>Skin.Reset(VerticalWall)</altclick>
-			<altclick>XBMC.ReloadSkin</altclick>
-			<visible>Control.IsVisible(53)</visible>
-		</control>
-	</include>
 	<include name="MediaMenuButton_Background">
 		<control type="button" id="700025">
 			<include>MediaMenuButton</include>
@@ -381,7 +368,18 @@
 			<visible>Control.IsVisible(51)</visible>
 		</control>
 	</include>
-	<include name="MediaMenuButton_WallGrid">
+	<include name="MediaMenuButton_Wall">
+		<control type="togglebutton" id="700024">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[310791]</label>
+			<altlabel>$LOCALIZE[310792]</altlabel>
+			<usealttexture>Skin.HasSetting(VerticalWall)</usealttexture>
+			<onclick>Skin.SetBool(VerticalWall)</onclick>
+			<onclick>XBMC.ReloadSkin</onclick>
+			<altclick>Skin.Reset(VerticalWall)</altclick>
+			<altclick>XBMC.ReloadSkin</altclick>
+			<visible>Control.IsVisible(53)</visible>
+		</control>
 		<control type="togglebutton" id="700035">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31076]: $LOCALIZE[31074]</label>
@@ -402,8 +400,6 @@
 			<visible>Control.IsVisible(53)</visible>
 			<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Container.Content(episodes)]]</visible>
 		</control>
-	</include>
-	<include name="MediaMenuButton_WallBackdrop">
 		<control type="togglebutton" id="700037">
 			<label>$LOCALIZE[31067]: $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31067]: $LOCALIZE[31077]</altlabel>
@@ -930,15 +926,13 @@
 				<include>MediaMenuButton_ShowcaseStyle</include>
 				<include>MediaMenuButton_PanelDensity</include>
 				<include>MediaMenuButton_ListLayout</include>
-				<include>MediaMenuButton_VerticalWall</include>
 				<include>MediaMenuButton_Stripshow</include>
 				<include>MediaMenuButton_Background</include>
-				<include>MediaMenuButton_WallGrid</include>
 				<include>MediaMenuButton_Overlay</include>
 				<include>MediaMenuButton_LightNight</include>
 				<include>MediaMenuButton_StackButton</include>
 				<include>MediaMenuButton_Filter</include>
-				<include>MediaMenuButton_WallBackdrop</include>		
+				<include>MediaMenuButton_Wall</include>		
 				<include>MediaMenuButton_Search</include>
 				<include>MediaMenuButton_LargeList</include>
 				<include>MediaMenuButton_Files</include>
