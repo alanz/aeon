@@ -1583,14 +1583,7 @@
 		<width>432</width>
 		<height>360</height>
 	</include>
-	<include name="MultiwallInfoAutoUp">
-		<onup>7000</onup>
-	</include>
-	<include name="MultiwallInfoTriggerUp">
-		<onup>208</onup>
-	</include>
 	<include name="MultiwallButtons">
-				
 		<control type="button" id="207">
             <posx>0</posx>
             <posy>0</posy>
@@ -1614,7 +1607,19 @@
             <onright>556</onright>
             <onup>7000</onup>
             <ondown>556</ondown>
-			<visible>Window.IsActive(videolibrary) | [!Container.Content(songs) + [Container.Content(albums) | Container.Content(artists)]]</visible>
+			<visible>[Skin.HasSetting(multiwallinfotrigger)+Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)] | [Skin.HasSetting(multiwalltvinfotrigger) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)] | [Skin.HasSetting(multiwallmusicinfotrigger)+Window.IsActive(musiclibrary)]</visible>
+			<animation effect="fade" reversible="false" type="fade" start="100" end="0" delay="900">Hidden</animation>
+			<animation effect="fade" reversible="false" type="fade" start="0" end="100">Visible</animation>
+        </control>
+		 <control type="button" id="208">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>0</width>
+            <height>0</height>
+            <texturefocus>-</texturefocus>
+            <texturenofocus>-</texturenofocus>
+            <onfocus>7000</onfocus>
+			<visible>[!Skin.HasSetting(multiwallinfotrigger)+Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)] | [!Skin.HasSetting(multiwalltvinfotrigger) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)] | [!Skin.HasSetting(multiwallmusicinfotrigger)+Window.IsActive(musiclibrary)]</visible>
 			<animation effect="fade" reversible="false" type="fade" start="100" end="0" delay="900">Hidden</animation>
 			<animation effect="fade" reversible="false" type="fade" start="0" end="100">Visible</animation>
         </control>
@@ -1634,8 +1639,37 @@
 		</control>
 	</include>
 	<include name="MovieMultiwall">
-		
-		<include>MultiwallButtons</include>		
+		<include>MultiwallButtons</include>	
+		<control type="scrollbar" id="71">
+			<description>MultiWall scroll bar control</description>
+			<posx>-53</posx>
+			<posy>140</posy>
+			<width>32</width>
+			<height>360</height>
+			<visible allowhiddenfocus="false">Control.IsVisible(556)</visible>
+			<texturesliderbackground>multiwall/multiwall_scrollbar.png</texturesliderbackground>
+			<texturesliderbar>-</texturesliderbar>
+			<texturesliderbarfocus>-</texturesliderbarfocus>
+			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+			<pulseonselect></pulseonselect>
+			<orientation>vertical</orientation>
+			<showonepage>false</showonepage>
+			<onup>71</onup>
+			<ondown>71</ondown>
+			<onleft>7000</onleft>
+			<onright>556</onright>
+			<visible>Container.Content(songs)</visible>
+			<animation type="Focus" reversible="false">
+				<effect type="slide" start="0,0" end="500,0" />
+				<effect type="fade" start="0" end="100" time="300" />
+				<effect type="slide" start="0,0" end="-50,0" time="300" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Unfocus" reversible="false">
+				<effect type="fade" start="100" end="0" time="300" />
+				<effect type="slide" start="450,0" end="500,0" time="300" tween="cubic" easing="in" />
+			</animation>
+		</control>		
 		<control type="wraplist" id="556">
 			<viewtype label="multiwall">wrap</viewtype>
 			<posx>83</posx>
@@ -1646,8 +1680,7 @@
 			<scrolltime>250</scrolltime>
 			<onleft>556</onleft>
 			<onright>556</onright>
-			<include condition="!Skin.HasSetting(multiwallinfotrigger)">MultiwallInfoAutoUp</include>
-			<include condition="Skin.HasSetting(multiwallinfotrigger)">MultiwallInfoTriggerUp</include>
+			<onup>208</onup>
 			<ondown>PlayMedia($INFO[ListItem.Trailer],1)</ondown>
 			<focusposition>5</focusposition>
 			<orientation>horizontal</orientation>
@@ -1684,7 +1717,36 @@
 		</control>	
 	</include>
 	<include name="TVMultiwall">
-		
+		<control type="scrollbar" id="71">
+			<description>MultiWall scroll bar control</description>
+			<posx>-53</posx>
+			<posy>140</posy>
+			<width>32</width>
+			<height>360</height>
+			<visible allowhiddenfocus="false">Control.IsVisible(556)</visible>
+			<texturesliderbackground>multiwall/multiwall_scrollbar.png</texturesliderbackground>
+			<texturesliderbar>-</texturesliderbar>
+			<texturesliderbarfocus>-</texturesliderbarfocus>
+			<textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+			<pulseonselect></pulseonselect>
+			<orientation>vertical</orientation>
+			<showonepage>false</showonepage>
+			<onup>71</onup>
+			<ondown>71</ondown>
+			<onleft>7000</onleft>
+			<onright>556</onright>
+			<visible>Container.Content(songs)</visible>
+			<animation type="Focus" reversible="false">
+				<effect type="slide" start="0,0" end="500,0" />
+				<effect type="fade" start="0" end="100" time="300" />
+				<effect type="slide" start="0,0" end="-50,0" time="300" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Unfocus" reversible="false">
+				<effect type="fade" start="100" end="0" time="300" />
+				<effect type="slide" start="450,0" end="500,0" time="300" tween="cubic" easing="in" />
+			</animation>
+		</control>
 		<include>MultiwallButtons</include>
 		<control type="wraplist" id="556">
 			<animation effect="slide" start="0,0" end="20,10" condition="Skin.HasSetting(tvposter) + [Container.Content(seasons) | Container.Content(tvshows)]">Conditional</animation>
@@ -1699,8 +1761,7 @@
 			<scrolltime>250</scrolltime>
 			<onleft>556</onleft>
 			<onright>556</onright>
-			<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiwallInfoAutoUp</include>
-			<include condition="Skin.HasSetting(multiwalltvinfotrigger)">MultiwallInfoTriggerUp</include>
+			<onup>208</onup>
 			<ondown>-</ondown>
 			<orientation>horizontal</orientation>
 			<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
@@ -1817,8 +1878,7 @@
 				<scrolltime>250</scrolltime>
 				<onleft>556</onleft>
 				<onright>556</onright>
-				<include condition="!Skin.HasSetting(multiwallmusicinfotrigger)">MultiwallInfoAutoUp</include>
-				<include condition="Skin.HasSetting(multiwallmusicinfotrigger)">MultiwallInfoTriggerUp</include>
+				<onup>208</onup>
 				<ondown>-</ondown>
 				<focusposition>5</focusposition>
 				<orientation>horizontal</orientation>

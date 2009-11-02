@@ -890,12 +890,6 @@
 	<include name="MultiplexFocusTV">
 		<focusposition>2</focusposition>
 	</include>
-	<include name="MultiplexInfoAutoUp">
-		<onup>7000</onup>
-	</include>
-	<include name="MultiplexInfoTriggerUp">
-		<onup>110</onup>
-	</include>
 	<!-- DVD Includes see Includes_CDDVDMod.xml for extra includes -->
 	<include name="MultiplexNormalCoversNoFocus">
 		<control type="image">
@@ -1304,8 +1298,7 @@
 			<pagecontrol>60</pagecontrol>
 			<onleft>52</onleft>
 			<onright>52</onright>
-			<include condition="[Skin.HasSetting(videomovies) + !Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoAutoUp</include>
-			<include condition="[Skin.HasSetting(videomovies) + Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoTriggerUp</include>
+			<onup>110</onup>
 			<ondown>723</ondown>
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusMovies</include>
@@ -1338,8 +1331,7 @@
 			<pagecontrol>60</pagecontrol>
 			<onleft>52</onleft>
 			<onright>52</onright>
-			<include condition="[Skin.HasSetting(videomovies) + !Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoAutoUp</include>
-			<include condition="[Skin.HasSetting(videomovies) + Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoTriggerUp</include>
+			<onup>110</onup>
 			<ondown>722</ondown>
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusMovies</include>
@@ -1522,8 +1514,7 @@
 			<pagecontrol>60</pagecontrol>
 			<onleft>552</onleft>
 			<onright>552</onright>
-			<include condition="[Skin.HasSetting(videomovies) + !Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoAutoUp</include>
-			<include condition="[Skin.HasSetting(videomovies) + Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoTriggerUp</include>
+			<onup>110</onup>
 			<ondown>60</ondown>
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusTV</include>
@@ -1554,8 +1545,7 @@
 			<pagecontrol>60</pagecontrol>
 			<onleft>552</onleft>
 			<onright>552</onright>
-			<include condition="[Skin.HasSetting(videomovies) + !Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoAutoUp</include>
-			<include condition="[Skin.HasSetting(videomovies) + Skin.HasSetting(multiplexinfotrigger)] | [Skin.HasSetting(videotv) + Skin.HasSetting(multiplextvinfotrigger)]">MultiplexInfoTriggerUp</include>
+			<onup>110</onup>
 			<ondown>60</ondown>
 			<orientation>horizontal</orientation>
 			<include>MultiplexFocusTV</include>
@@ -1583,6 +1573,17 @@
 			<onright>52</onright>
 			<onup>7000</onup>
 			<ondown>52</ondown>
+			<visible>[Skin.HasSetting(multiplexinfotrigger)+Skin.HasSetting(videomovies)] | [Skin.HasSetting(multiplextvinfotrigger)+Skin.HasSetting(videotv)]</visible>
+		</control>
+		<control type="button" id="110">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>7000</onfocus>
+			<visible>[!Skin.HasSetting(multiplexinfotrigger)+Skin.HasSetting(videomovies)] | [!Skin.HasSetting(multiplextvinfotrigger)+Skin.HasSetting(videotv)]</visible>
 		</control>
 		<control type="image">
 			<posx>40</posx>

@@ -11,12 +11,6 @@
 		<width>60</width>
 		<height>60</height>
 	</include>
-	<include name="ShowcaseInfoAutoUp">
-		<onup>7000</onup>
-	</include>
-	<include name="ShowcaseInfoTriggerUp">
-		<onup>70110</onup>
-	</include>
 	<include name="ShowcasePlotWidth">
 		<width>285</width>
 	</include>
@@ -442,7 +436,7 @@
 			</control>
 		</control>
 	</include>
-		<include name="ShowcaseInfoPaneTV">
+	<include name="ShowcaseInfoPaneTV">
 		<control type="group">
 			<posx>0</posx>
 			<posy>26</posy>
@@ -3154,7 +3148,7 @@
 			<animation effect="fade" time="200">WindowClose</animation>
 			<visible>Control.IsVisible(57) + !Control.IsVisible(6001) + !Control.IsVisible(6002) + Control.IsVisible(960)</visible>
 			<camera x="640" y="540" />
-			<control type="group">
+			<control type="group"> <!-- -6 -->
 				<posx>10</posx>
 				<animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
@@ -3343,7 +3337,7 @@
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"> <!-- -1-->
 				<posx>460</posx>
 				<animation effect="rotatey" center="360" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
@@ -3383,7 +3377,7 @@
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"> <!-- 6 -->
 				<posx>1000</posx>
 				<animation effect="rotatey" center="1380" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
@@ -3583,7 +3577,7 @@
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"><!-- 1 -->
 				<posx>550</posx>
 				<animation effect="rotatey" center="930" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
@@ -3623,7 +3617,7 @@
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"> <!-- 0 -->
 				<posx>505</posx>
 				<control type="group">
 					<control type="image">
@@ -3692,6 +3686,17 @@
 			<onright>57</onright>
 			<onup>7000</onup>
 			<ondown>57</ondown>
+			<visible>[Skin.HasSetting(showcaseinfotrigger)+Skin.HasSetting(videomovies)] | [Skin.HasSetting(showcasetvinfotrigger)+Skin.HasSetting(videotv)]</visible>
+		</control>
+		<control type="button" id="70110">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SetFocus(7000)</onfocus>
+			<visible>[!Skin.HasSetting(showcaseinfotrigger)+Skin.HasSetting(videomovies)] | [!Skin.HasSetting(showcasetvinfotrigger)+Skin.HasSetting(videotv)]</visible>
 		</control>
 			<control type="button" id="722">		
 				<description>INVISIBLE GO TO SCROLLBAR button</description>
@@ -3727,8 +3732,7 @@
 				<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | Window.IsActive(scripts)">MusicShowcaseGroupVars</include>
 				<onleft>57</onleft>
 				<onright>57</onright>
-				<include condition="[Skin.HasSetting(videomovies) + !Skin.HasSetting(showcaseinfotrigger)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(showcasetvinfotrigger)]">ShowcaseInfoAutoUp</include>
-				<include condition="[Skin.HasSetting(videomovies) + Skin.HasSetting(showcaseinfotrigger)] | [Skin.HasSetting(videotv) + Skin.HasSetting(showcasetvinfotrigger)]">ShowcaseInfoTriggerUp</include>
+			    <onup>70110</onup>
 				<ondown>722</ondown>
 				<pagecontrol>60</pagecontrol>
 				<orientation>horizontal</orientation>

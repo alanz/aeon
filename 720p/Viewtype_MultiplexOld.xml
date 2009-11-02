@@ -60,12 +60,6 @@
 		<font>Font_MultiplexInfoValueOld</font>
 		<textcolor>FFFFFFFF</textcolor>
 	</include>
-	<include name="OldMultiplexInfoAutoUp">
-		<onup>7000</onup>
-	</include>
-	<include name="OldMultiplexInfoTriggerUp">
-		<onup>110</onup>
-	</include>
 	<include name="OldMultiplexFocusMovies">
 		<focusposition>6</focusposition>
 	</include>
@@ -277,7 +271,7 @@
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
 					<texture fallback="defaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
-				</control>
+				</control>				
 			</control>
 			<control type="group">
 				<posx>921</posx>
@@ -752,6 +746,17 @@
 			<onright>553</onright>
 			<onup>7000</onup>
 			<ondown>553</ondown>
+			<visible>[Skin.HasSetting(oldmultiplexinfotrigger)+Skin.HasSetting(videomovies)] | [Skin.HasSetting(oldmultiplextvinfotrigger)+Skin.HasSetting(videotv)]</visible>
+		</control>
+		<control type="button" id="110">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>7000</onfocus>
+			<visible>[!Skin.HasSetting(oldmultiplexinfotrigger)+Skin.HasSetting(videomovies)] | [!Skin.HasSetting(oldmultiplextvinfotrigger)+Skin.HasSetting(videotv)]</visible>
 		</control>
 		<include condition="Skin.HasSetting(videotv)">OldMultiplexInfoPaneTV</include>
 		<include condition="Skin.HasSetting(videomovies)">OldMultiplexInfoPaneMovies</include>
@@ -764,8 +769,7 @@
 			<pagecontrol>60</pagecontrol>
 			<onleft>553</onleft>
 			<onright>553</onright>
-			<include condition="[Skin.HasSetting(videomovies) + !Skin.HasSetting(oldmultiplexinfotrigger)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(oldmultiplextvinfotrigger)]">OldMultiplexInfoAutoUp</include>
-			<include condition="[Skin.HasSetting(videomovies) + Skin.HasSetting(oldmultiplexinfotrigger)] | [Skin.HasSetting(videotv) + Skin.HasSetting(oldmultiplextvinfotrigger)]">OldMultiplexInfoTriggerUp</include>
+			<onup>110</onup>
 			<ondown>724</ondown>
 			<orientation>horizontal</orientation>
 			<include condition="Skin.HasSetting(videomovies)">OldMultiplexFocusMovies</include>
