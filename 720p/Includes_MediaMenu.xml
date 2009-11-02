@@ -203,15 +203,6 @@
 			<altclick>Skin.Reset(listpanelthin)</altclick>
 			<visible>Control.IsVisible(50)| Control.IsVisible(551)</visible>
 		</control>
-		<control type="togglebutton" id="7000211">
-			<include>MediaMenuButton</include>
-			<label>LIST: BIG</label>
-			<altlabel>LIST: SLIM</altlabel>
-			<usealttexture>Skin.HasSetting(slimlist)</usealttexture>
-			<onclick>Skin.SetBool(slimlist)</onclick>
-			<altclick>Skin.Reset(slimlist)</altclick>
-			<visible>Control.IsVisible(50)</visible>
-		</control>
 		<control type="togglebutton" id="700022">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
@@ -232,12 +223,21 @@
 	<include name="MediaMenuButton_ListLayout"><!-- 700023 -->
 		<control type="togglebutton" id="700023">
 			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
-			<altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
-			<usealttexture>Skin.HasSetting(tvlistmax)</usealttexture>
-			<onclick>Skin.SetBool(tvlistmax)</onclick>
-			<altclick>Skin.Reset(tvlistmax)</altclick>
+			<label>LIST: BIG</label>
+			<altlabel>LIST: SLIM</altlabel>
+			<usealttexture>Skin.HasSetting(slimlisttv)</usealttexture>
+			<onclick>Skin.SetBool(slimlisttv)</onclick>
+			<altclick>Skin.Reset(slimlisttv)</altclick>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(50)</visible>
+		</control>
+		<control type="togglebutton" id="7000211">
+			<include>MediaMenuButton</include>
+			<label>LIST: BIG</label>
+			<altlabel>LIST: SLIM</altlabel>
+			<usealttexture>Skin.HasSetting(slimlist)</usealttexture>
+			<onclick>Skin.SetBool(slimlist)</onclick>
+			<altclick>Skin.Reset(slimlist)</altclick>
+			<visible>Control.IsVisible(50) + Window.IsActive(videolibrary) + Container.Content(movies)</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_Background">

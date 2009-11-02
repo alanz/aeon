@@ -217,8 +217,9 @@
 		<font>Font_List</font>
 		<aligny>center</aligny>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]]">Conditional</animation>
-		<animation effect="slide" start="0,10" end="0,10" time="0" condition="Window.IsActive(programs) | Window.IsActive(scripts) | Window.IsActive(videofiles) | [[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Container.Content(movies)] | [Window.IsActive(pictures) + IsEmpty(ListItem.PictureDateTime)] | [Container.Content(seasons) + !IsEmpty(ListItem.Episode) + !Skin.HasSetting(tvlistmax)] | [Container.Content(episodes) + !Skin.HasSetting(tvlistmax) + [[IsEmpty(ListItem.Writer) + !IsEmpty(ListItem.Plot)] | [!IsEmpty(ListItem.Writer) + IsEmpty(ListItem.Plot)]]]">Conditional</animation>
-		<animation effect="slide" start="0,20" end="0,20" time="0" condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + ![Container.Content(seasons) | Container.Content(episodes) | Container.Content(tvshows)]] | [Container.Content(seasons) + IsEmpty(ListItem.Episode)] | [Container.Content(episodes) + IsEmpty(ListItem.Writer) + IsEmpty(ListItem.Plot) + !Skin.HasSetting(tvlistmax)]">Conditional</animation>
+		<animation effect="slide" start="0,10" end="0,10" time="0" condition="Window.IsActive(programs) | Window.IsActive(scripts) | Window.IsActive(videofiles) | [[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] |
+																			[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Container.Content(movies)] | [Window.IsActive(pictures) + IsEmpty(ListItem.PictureDateTime)]">Conditional</animation>
+		<animation effect="slide" start="0,20" end="0,20" time="0" condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + ![Container.Content(seasons) | Container.Content(episodes) | Container.Content(tvshows)]] | [Container.Content(seasons) + IsEmpty(ListItem.Episode)]">Conditional</animation>
 	</include>
 	<include name="ListLabel_MainMusic">
 		<posx>105</posx>
@@ -257,8 +258,6 @@
 		<font>Font_ListSub</font>
 		<align>left</align>
 		<aligny>center</aligny>
-		<animation effect="slide" start="0,10" end="0,10" time="0" condition="Container.Content(seasons) + !Skin.HasSetting(tvlistmax)">Conditional</animation>
-		<animation effect="slide" start="0,-10" end="0,-10" time="0" condition="Container.Content(episodes) + !Skin.HasSetting(tvlistmax) + [[IsEmpty(ListItem.Writer) + !IsEmpty(ListItem.Plot)] | [!IsEmpty(ListItem.Writer) + IsEmpty(ListItem.Plot)]]">Conditional</animation>
 	</include>
 	<include name="ListLabel_Main_Playlist">
 		<posx>70</posx>
@@ -303,7 +302,6 @@
 		<font>Font_ListTrack</font>
 		<align>center</align>
 		<aligny>center</aligny>
-		<animation effect="slide" start="0,10" end="0,10" time="0" condition="Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + !Skin.HasSetting(tvlistmax)">Conditional</animation>
 	</include>
 	<include name="ListLabel_TrackSmall">
 		<posx>62</posx>
@@ -313,7 +311,6 @@
 		<font>Font_ListDetail</font>
 		<align>center</align>
 		<aligny>center</aligny>
-		<animation effect="slide" start="0,10" end="0,10" time="0" condition="Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + !Skin.HasSetting(tvlistmax)">Conditional</animation>
 	</include>
 	<include name="List_Objects">
 		<posx>105</posx>
@@ -432,7 +429,7 @@
 				<height>567</height>
 				<texture>list/listpanel_detailwide.png</texture>
 				<visible>Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + !Container.Content(artists) + !Container.Content(years) + !Container.Content(genres)]]</visible>
-				<visible>Control.IsVisible(50) + !Skin.HasSetting(slimlist)</visible>
+				<visible>Control.IsVisible(50) + [[Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)] | [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] + !Skin.HasSetting(slimlist)] | [[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + !Skin.HasSetting(slimlisttv)]</visible>
 			</control>
 			<control type="image">
 				<posx>722</posx>
@@ -441,7 +438,7 @@
 				<height>579</height>
 				<texture>list/listpanel_detailwide.png</texture>
 				<visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [Window.IsActive(videolibrary) + Container.Content(episodes)] | [Window.IsActive(musiclibrary) + Container.Content(songs)] | [Window.IsActive(musiclibrary) + Container.Content(albums)]</visible>
-				<visible>Control.IsVisible(50) + Skin.HasSetting(slimlist)</visible>
+				<visible>Control.IsVisible(50) + [[Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)] | [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] + Skin.HasSetting(slimlist)] | [[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + Skin.HasSetting(slimlisttv)]</visible>
 			</control>
 			<control type="list" id="50">
 				<viewtype label="31752">list</viewtype>
@@ -757,7 +754,7 @@
 						<info>ListItem.Overlay</info>
 					</control>
 				</focusedlayout>
-				<itemlayout condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + !Skin.HasSetting(slimlist)" height="65">
+				<itemlayout condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + !Skin.HasSetting(slimlisttv)" height="65">
 					<control type="image">
 						<posx>12</posx>
 						<posy>64</posy>
@@ -816,7 +813,7 @@
 						<info>ListItem.Overlay</info>
 					</control>
 				</itemlayout>
-				<focusedlayout condition="[[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]] + !Skin.HasSetting(slimlist)" height="65">
+				<focusedlayout condition="[[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]] + !Skin.HasSetting(slimlisttv)" height="65">
 					<control type="image">
 						<posx>12</posx>
 						<posy>64</posy>
@@ -943,7 +940,7 @@
 						<info>ListItem.Overlay</info>
 					</control>
 				</focusedlayout>
-				<itemlayout condition="Skin.HasSetting(slimlist)" height="40">
+				<itemlayout condition="[[Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)] | [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] + Skin.HasSetting(slimlist)] | [[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + Skin.HasSetting(slimlisttv)]" height="40">
 					<control type="image">
 						<posx>12</posx>
 						<posy>39</posy>
@@ -1022,7 +1019,7 @@
 						<info>ListItem.Overlay</info>
 					</control>
 				</itemlayout>
-				<focusedlayout condition="Skin.HasSetting(slimlist)" height="40">
+				<focusedlayout condition="[[Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)] | [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] + Skin.HasSetting(slimlist)] | [[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + Skin.HasSetting(slimlisttv)]" height="40">
 					<control type="image">
 						<posx>12</posx>
 						<posy>39</posy>
@@ -1037,7 +1034,7 @@
 						<height>48</height>
 						<texture>list/listpanel_selectbar.png</texture>
 						<include>Animation_ButtonFocusFade</include>
-						<visible>[Control.IsVisible(50) + Skin.HasSetting(slimlist)] | Window.IsActive(contextmenu) | Window.IsActive(mediasource) | Window.IsActive(126) |   Window.IsActive(shutdownmenu) | Window.IsActive(movieinformation)</visible>
+						<visible>[Control.IsVisible(50) + [[Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)] | [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] + Skin.HasSetting(slimlist)] | [[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] + Skin.HasSetting(slimlisttv)]] | Window.IsActive(contextmenu) | Window.IsActive(mediasource) | Window.IsActive(126) |   Window.IsActive(shutdownmenu) | Window.IsActive(movieinformation)</visible>
 					</control>
 					<control type="label">
 						<include>ListLabel_MainSmall_Slim</include>
