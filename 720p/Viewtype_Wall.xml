@@ -1688,7 +1688,7 @@
 			<scrolltime>200</scrolltime>
 			<include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
 			<include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
-			<visible>Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>
+			<visible>Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)]</visible>
 			<itemlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall)">
 				<include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
