@@ -717,7 +717,7 @@
 			<include>MediaMenuButton</include>
 			<label>SHOW INFO PANEL</label>
 			<onclick>SetFocus(7020)</onclick>
-			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(556)]</visible>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
 			<onright>SetFocus(7020)</onright>
 			<visible>!Skin.HasSetting(noinfotriggerbuttons)</visible>
 		</control>
@@ -1343,9 +1343,9 @@
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31077]</label>
 					<onclick>Skin.SetBool(wallinfoon)</onclick>
-					<onclick>Skin.Reset(walleinfoauto)</onclick>
+					<onclick>Skin.Reset(wallinfoauto)</onclick>
 					<onclick>Skin.Reset(wallinfooff)</onclick>
-					<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(53)</visible>
+					<visible>Window.IsActive(videolibrary) + Control.IsVisible(53)</visible>
 				</control>
 				<control type="button" id="702040">
 					<include>MediaMenuButton</include>
@@ -1353,7 +1353,7 @@
 					<onclick>Skin.SetBool(wallinfooff)</onclick>
 					<onclick>Skin.Reset(wallinfoon)</onclick>
 					<onclick>Skin.Reset(wallinfoauto)</onclick>
-					<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(53)</visible>
+					<visible>Window.IsActive(videolibrary) + Control.IsVisible(53)</visible>
 				</control>
 				<control type="button" id="702041">
 					<include>MediaMenuButton</include>
@@ -1361,7 +1361,7 @@
 					<onclick>Skin.SetBool(wallinfoauto)</onclick>
 					<onclick>Skin.Reset(wallinfooff)</onclick>
 					<onclick>Skin.Reset(wallinfooon)</onclick>
-					<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Control.IsVisible(53)</visible>
+					<visible>Window.IsActive(videolibrary) + Control.IsVisible(53)</visible>
 				</control>
 			</control>
 		</control>
