@@ -56,13 +56,6 @@
 					<effect type="fade" start="100" end="0" time="300" />
 				</animation>
 			</include>
-		<!-- Trigger TV -->
-		<include name="MultiWallInfoHideAnimationTriggerTV">
-				<animation type="Hidden" reversible="false">
-					<effect type="slide" start="0,23" end="0,23" time="0" />
-					<effect type="fade" start="100" end="0" time="300" />
-				</animation>
-			</include>
 		<!-- Trigger Music -->
 		<include name="MultiWallInfoHideAnimationTriggerMusic">
 				<animation type="Hidden" reversible="false">
@@ -94,11 +87,15 @@
 				</animation>
 			</include>
 		<!-- Trigger TV -->
-		<include name="MultiWallInfoShowAnimationTriggerTV">
+		<include name="MultiWallInfoAnimationTriggerTV">
 				<animation type="Visible" reversible="false">
 					<effect type="slide" start="0,23" end="0,23" time="0" />
 					<effect type="fade" start="0" end="100" time="400" delay="85" />
 					<effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="slide" start="0,23" end="0,23" time="0" />
+					<effect type="fade" start="100" end="0" time="300" />
 				</animation>
 			</include>
 		<!-- Trigger Music -->
@@ -465,9 +462,8 @@
 				<include condition="![Skin.HasSetting(multiwalltvinfotrigger) | Skin.HasSetting(multiwalltvinfooff) | Skin.HasSetting(multiwalltvinfoon)]">MultiWallInfoOpenAnimation</include>
 				<include condition="Skin.HasSetting(multiwalltvinfoon)">MultiWallInfoOpenAnimationOn</include>
 				<include condition="![Skin.HasSetting(multiwalltvinfotrigger) | Skin.HasSetting(multiwalltvinfooff) | Skin.HasSetting(multiwalltvinfoon)]">MultiWallInfoShowAnimation</include>
-				<include condition="Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoShowAnimationTriggerTV</include>
+				<include condition="Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoAnimationTriggerTV</include>
 				<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoHideAnimation</include>
-				<include condition="Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoHideAnimationTriggerTV</include>
 				<animation effect="fade" end="0" time="200">WindowClose</animation>
 				<posx>304</posx>
 				<posy>193</posy>
