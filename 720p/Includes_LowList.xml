@@ -1678,7 +1678,20 @@
 			<font>Font_SettingsMainLabelSmall</font>
 			<shadowcolor>ff000000</shadowcolor>
 			<label>312575</label>
-			<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</visible>
+			<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Skin.HasSetting(lowlistinfoauto)</visible>
+			<colordiffuse>d0FFFFFF</colordiffuse>
+			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+		</control>
+		<control type="label">
+			<posx>257</posx>
+			<posy>90</posy>
+			<width>414</width>
+			<height>32</height>
+			<align>center</align>
+			<font>Font_SettingsMainLabelSmall</font>
+			<shadowcolor>ff000000</shadowcolor>
+			<label>312576</label>
+			<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Skin.HasSetting(lowlistinfoauto)</visible>
 			<colordiffuse>d0FFFFFF</colordiffuse>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 		</control>
@@ -1824,7 +1837,45 @@
 		</control>
 		<include>LowList_TaglineLabel</include>
 	</control>
-	<!-- Movie trailer detail panel 	<control type="group" id="7820"><description>TRAILER detail panel</description><include>LowList_DetailPanelVars</include><visible>Control.IsVisible(551) + Player.HasVideo</visible><control type="label"><posx>5</posx><posy>10</posy><width>360</width><height>196</height><fadetime>400</fadetime><textcolor>d0ffffff</textcolor><font>Font_OSDMusicTitle</font>	<align>center</align><aligny>center</aligny><label>Press 'A' (click) to[CR]start trailer</label><visible>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</visible><animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation></control><control type="label"><posx>5</posx><posy>10</posy><width>360</width><height>196</height><fadetime>400</fadetime><textcolor>abffffff</textcolor><font>Font_OSDMusicTitle</font>	<align>center</align><aligny>center</aligny><label>No trailer[CR]for this video</label><visible>!Player.HasVideo + IsEmpty(ListItem.Trailer)</visible><animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation></control><control type="videowindow" id="2"><posx>5</posx><posy>10</posy><width>360</width><height>196</height><visible>Player.HasVideo</visible><animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation></control><include>LowList_TaglineLabel</include></control>--></include>
+	<!-- Movie trailer detail panel
+	<control type="group" id="7820">
+	<description>TRAILER detail panel</description>
+	<include>LowList_DetailPanelVars</include>
+	<visible>Control.IsVisible(551) + Player.HasVideo</visible>
+	<control type="label">
+	<posx>5</posx>
+	<posy>10</posy>
+	<width>360</width>
+	<height>196</height>
+	<fadetime>400</fadetime>
+	<textcolor>d0ffffff</textcolor>
+	<font>Font_OSDMusicTitle</font>
+	<align>center</align>
+	<aligny>center</aligny>
+	<label>Press 'A' (click) to[CR]start trailer</label>
+	<visible>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</visible>
+	<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
+	</control>
+	<control type="label">
+	<posx>5</posx>
+	<posy>10</posy>
+	<width>360</width>
+	<height>196</height>
+	<fadetime>400</fadetime>
+	<textcolor>abffffff</textcolor>
+	<font>Font_OSDMusicTitle</font>
+	<align>center</align>
+	<aligny>center</aligny>
+	<label>No trailer[CR]for this video</label>
+	<visible>!Player.HasVideo + IsEmpty(ListItem.Trailer)</visible>
+	<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
+	</control><control type="videowindow" id="2">
+	<posx>5</posx><posy>10</posy>
+	<width>360</width>
+	<height>196</height>
+	<visible>Player.HasVideo</visible><animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
+	</control><include>LowList_TaglineLabel</include>
+	</control>--></include>
 <!-- TV Detail Panels -->
 <include name="LowList_TvDetailPanels">
 	<!-- TV wide detail panel -->
