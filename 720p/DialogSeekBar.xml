@@ -22,6 +22,28 @@
 				<effect type="fade" time="400" start="100" end="0" />
 				<effect type="slide" time="400" start="0,0" end="0,151" easing="in" tween="cubic" />
 			</animation>
+			<control type="image">
+				<posx>499</posx>
+				<posy>-20</posy>
+				<width>281</width>
+				<height>28</height>
+				<texture>osd/osd_button_paused.png</texture>
+				<include>Animation_CommonFade</include>
+				<visible>Player.Paused + !Skin.HasSetting(Alaskapausedlabel)</visible>
+			</control>	
+			<control type="label">
+				<posx>499</posx>
+				<posy>-20</posy>
+				<width>281</width>
+				<height>28</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<font>Font_OSDSeek</font>
+				<textcolor>FF363636</textcolor>
+				<include>Animation_CommonFade</include>	
+				<label>PAUSED</label>
+				<visible>Player.Paused + !Skin.HasSetting(Alaskapausedlabel)</visible>
+			</control>	
 			<include>Animation_CommonFade</include>
 			<control type="image">
 				<description>Panel</description>
@@ -252,7 +274,7 @@
 				<font>Big_Text</font>
 				<label>PAUSED</label>
 				<textcolor>33ffffff</textcolor>
-				<visible>Player.Paused</visible>
+				<visible>Player.Paused + Skin.HasSetting(AlaskaPausedLabel)</visible>
 				<!-- stoli - animation added -->
 				<animation type="Visible">
 					<effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out" />
