@@ -11,29 +11,14 @@
 		<control type="multiimage"> <!-- normal Music BG -->
 			<include>BackgroundVarsGlobal</include>
 			<include>BackgroundVarsMusic</include>
-			<visible>Skin.HasSetting(visbackground1) + ![Skin.HasSetting(blackvisbackground)+Visualisation.Enabled]</visible>
+			<visible>![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled]</visible>
 		</control>
-		<control type="largeimage"><!-- musicpath/Artist/fanart.jpg -->
+		<control type="largeimage"><!-- Artist Fanart-->
 			<include>FullscreenDimensions</include>
-			<texture>$INFO[Skin.String(cdartpath)]/$INFO[MusicPlayer.Artist]/fanart.jpg</texture>
+			<texture>$INFO[MusicPlayer.property(fanart_image)]</texture>
 			<fadetime>400</fadetime>
 			<include>Animation_FanartFade</include>
-			<visible>Skin.HasSetting(visbackground3) + ![Skin.HasSetting(blackvisbackground)+Visualisation.Enabled]+ !IsEmpty(Skin.String(cdartpath))</visible>
-		</control>
-		<control type="multiimage"> <!-- artist slideshow (media/backdrops/...) -->
-			<description>artist slideshow</description>
-			<posx>0</posx>
-			<posy>-</posy>
-			<width>1280</width>
-			<height>720</height>
-			<imagepath>backdrops/artist_fanart/$INFO[MusicPlayer.Artist]</imagepath>
-			<timeperimage>4000</timeperimage>
-			<fadetime>2000</fadetime>
-			<pauseatend>4000</pauseatend>
-			<randomize>true</randomize>
-			<loop>yes</loop>
-			<aspectratio>keep</aspectratio>
-			<visible>Skin.HasSetting(visbackground4) + ![Skin.HasSetting(blackvisbackground)+Visualisation.Enabled]</visible>
+			<visible>![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled]</visible>
 		</control>
 		<control type="largeimage"><!-- musicpath/Artist/Album/fanart.jpg -->
 			<include>FullscreenDimensions</include>
