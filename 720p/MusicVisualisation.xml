@@ -121,13 +121,13 @@
 		<control type="group">
 			<posx>-330</posx>
 			<animation effect="slide" start="-280" end="350" time="700" tween="cubic" easing="out" delay="400">WindowOpen</animation>
-			<animation effect="slide" start="350" end="-280" time="600" tween="cubic" easing="in" delay="800">WindowClose</animation>
+			<animation effect="slide" start="350" end="-280" time="500" tween="cubic" easing="in" delay="500">WindowClose</animation>
 			<control type="image">
-				<visible>Skin.HasSetting(CDArtinVis)</visible>
+				<visible>Skin.HasSetting(cdartinvis)</visible>
 				<description>Cd overlay</description>
 				<animation effect="slide" start="-104" end="-20" time="700" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
 				<animation type="WindowClose">
-					<effect type="slide" start="-20" end="-124" time="700" tween="cubic" easing="in" delay="0"/>
+					<effect type="slide" start="-20" end="-124" time="500" tween="cubic" easing="in" delay="0"/>
 					<effect type="fade" start="100" end="0" time="500" delay="500"/>
 					<condition type="!Player.Playing"/>
 				</animation>
@@ -183,25 +183,9 @@
 			<control type="group">
 				<posx>20</posx><!-- 300 -->
 	<!--			<animation effect="slide" start="-280" end="300" time="700" tween="cubic" easing="out" delay="400">WindowOpen</animation>-->
-	<!--			<animation effect="slide" start="300" end="-1050" time="600" tween="cubic" easing="in" delay="1000">WindowClose</animation>-->
-
-				<control type="label">
-					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="200">WindowClose</animation>
-					<animation effect="slide" start="0" end="-76" time="200" condition="!Skin.HasSetting(CDartInVis)">Conditional</animation>		
-					<posx>400</posx>
-					<posy>-182</posy><!-- -143 -->
-					<width>880</width>
-					<height>25</height>
-					<align>left</align>
-					<aligny>-</aligny>
-					<scroll>true</scroll>
-					<font>Font_bigtime</font>
-					<label>[COLOR B5FFFFFF]$INFO[MusicPlayer.Artist][/COLOR]</label>
-				</control>
+				<animation effect="slide" start="0" end="1350" time="600" tween="cubic" easing="in" delay="0">WindowClose</animation>
 				<control type="image">
 					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1100">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="400">WindowClose</animation>
 					<description>Divider</description>
 					<posx>315</posx>
 					<posy>-99</posy>
@@ -209,35 +193,85 @@
 					<height>3</height>
 					<texture>windows/list_divider.png</texture>
 				</control>
-				<control type="label">
-					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1200">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="450">WindowClose</animation>
-					<animation effect="slide" start="0" end="-90" time="200" condition="!Skin.HasSetting(CDartInVis)">Conditional</animation>
-					<posx>415</posx>
-					<posy>-95</posy> <!-- -103 -->
-					<width>1280</width>
-					<height>24</height>
-					<align>left</align>
-					<aligny>-</aligny>
-					<font>Font_OSDMusicArtist</font>
-					<label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Album] [$INFO[MusicPlayer.Year]][/COLOR]</label>
+				<control type="group">
+					<visible>Skin.HasSetting(cdartinvis)</visible>
+					<control type="label">
+						<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
+						<animation effect="slide" start="0" end="-76" time="200" condition="!Skin.HasSetting(cdartinvis)">Conditional</animation>		
+						<posx>400</posx>
+						<posy>-182</posy><!-- -143 -->
+						<width>880</width>
+						<height>25</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<scroll>true</scroll>
+						<font>Font_bigtime</font>
+						<label>[COLOR B5FFFFFF]$INFO[MusicPlayer.Artist][/COLOR]</label>
+					</control>
+					<control type="label">
+						<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1200">WindowOpen</animation>
+						<animation effect="slide" start="0" end="-90" time="200" condition="!Skin.HasSetting(cdartinvis)">Conditional</animation>
+						<posx>415</posx>
+						<posy>-95</posy> <!-- -103 -->
+						<width>1280</width>
+						<height>24</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>Font_OSDMusicArtist</font>
+						<label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Album] [$INFO[MusicPlayer.Year]][/COLOR]</label>
+					</control>
+					<control type="label">
+						<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1300">WindowOpen</animation>
+						<animation effect="slide" end="-105" time="200" condition="!Skin.HasSetting(cdartinvis)">Conditional</animation>
+						<posx>430</posx>
+						<posy>-70</posy>
+						<width>550</width><!-- 1280 -->
+						<height>30</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>Font_OSDMusicTitle</font>
+						<label>[COLOR 80c2c4c3]$INFO[MusicPlayer.TrackNumber]: [/COLOR][COLOR A0FFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
+					</control>
 				</control>
-				<control type="label">
-					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1300">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="600">WindowClose</animation>
-					<animation effect="slide" start="0" end="-105" time="200" condition="!Skin.HasSetting(CDartInVis)">Conditional</animation>
-					<posx>430</posx>
-					<posy>-70</posy>
-					<width>550</width><!-- 1280 -->
-					<height>30</height>
-					<align>left</align>
-					<aligny>-</aligny>
-					<font>Font_OSDMusicTitle</font>
-					<label>[COLOR 80c2c4c3]$INFO[MusicPlayer.TrackNumber]: [/COLOR][COLOR A0FFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
+				<control type="group">
+					<visible>!Skin.HasSetting(cdartinvis)</visible>
+					<control type="label">
+						<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1000">WindowOpen</animation>	
+						<posx>325</posx>
+						<posy>-182</posy><!-- -143 -->
+						<width>880</width>
+						<height>25</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<scroll>true</scroll>
+						<font>Font_bigtime</font>
+						<label>[COLOR B5FFFFFF]$INFO[MusicPlayer.Artist][/COLOR]</label>
+					</control>
+					<control type="label">
+						<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1200">WindowOpen</animation>
+						<posx>325</posx>
+						<posy>-95</posy> <!-- -103 -->
+						<width>1280</width>
+						<height>24</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>Font_OSDMusicArtist</font>
+						<label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Album] [$INFO[MusicPlayer.Year]][/COLOR]</label>
+					</control>
+					<control type="label">
+						<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1300">WindowOpen</animation>
+						<posx>325</posx>
+						<posy>-70</posy>
+						<width>550</width><!-- 1280 -->
+						<height>30</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>Font_OSDMusicTitle</font>
+						<label>[COLOR 80c2c4c3]$INFO[MusicPlayer.TrackNumber]: [/COLOR][COLOR A0FFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
+					</control>
 				</control>
 				<control type="image">
 					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1300">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="650">WindowClose</animation>
 					<description>Codec</description>
 					<posx>615</posx>
 					<posy>30</posy>
@@ -248,7 +282,6 @@
 				
 				<control type="image">
 					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1200">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="650">WindowClose</animation>
 					<colordiffuse>FFe1e1e1</colordiffuse>
 					<posx>398</posx>
 					<posy>40</posy>
@@ -260,7 +293,6 @@
 				
 				<control type="label">
 					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1200">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="650">WindowClose</animation>
 					<posx>398</posx>
 					<posy>59</posy> <!-- -103 -->
 					<width>165</width>
@@ -269,12 +301,10 @@
 					<aligny>-</aligny>
 					<font>Font_OSDSeek</font>
 					<label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Genre][/COLOR]</label>
-					<animation effect="slide" start="0,0" end="0,-12" time="200" condition="Control.IsVisible(212)">Conditional</animation>		
 				</control>
 
 				<control type="label">
 					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1600">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="650">WindowClose</animation>
 					<posx>725</posx>
 					<posy>68</posy> <!-- -103 -->
 					<width>1280</width>
@@ -286,7 +316,6 @@
 				</control>
 				<control type="label">
 					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1600">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="650">WindowClose</animation>
 					<posx>725</posx>
 					<posy>48</posy> <!-- -103 -->
 					<width>1280</width>
@@ -298,7 +327,6 @@
 				</control>
 				<control type="label">
 					<animation effect="slide" start="1300" end="0" time="700" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="800">WindowClose</animation>
 					<description>Current time</description>
 					<posx>1250</posx>
 					<posy>20</posy>
@@ -310,7 +338,6 @@
 				</control>
 			
 				<control type="fadelabel">
-					<animation effect="slide" start="0" end="1300" time="600" tween="cubic" easing="in" delay="500">WindowClose</animation>
 					<description>My First fadelabel</description>
 					<posx>750</posx>
 					<posy>105</posy>
