@@ -256,7 +256,19 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>312573</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+				</control>
+				<control type="label">
+					<posx>538</posx>
+					<posy>344</posy>
+					<align>center</align>
+					<width>240</width>
+					<height>32</height>
+					<font>Font_MultiplexPlot</font>
+					<label>312575</label>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -416,7 +428,19 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>312573</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+				</control>
+				<control type="label">
+					<posx>140</posx>
+					<posy>282</posy>
+					<align>center</align>
+					<width>240</width>
+					<height>32</height>
+					<font>Font_MultiplexPlot</font>
+					<label>312575</label>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -3741,7 +3765,7 @@
 				<include>Animation_HideShowcase</include>
 				<focusposition>3</focusposition>
 				<preloaditems>2</preloaditems>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(years) | Container.Content(directors) | Container.Content(genres) | Container.Content(albums)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(years) | Container.Content(directors) | Container.Content(genres) | Container.Content(albums) | Window.IsActive(musicfiles) | Window.IsActive(videofiles)</visible>
 				<itemlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)">
 					<control type="image">
 						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
@@ -4026,9 +4050,9 @@
 					<visible>Container.Content(movies) + !IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label" id="72">
-					<label>[UPPERCASE]$INFO[ListItem.duration][/UPPERCASE]</label>
+					<label>[UPPERCASE]$INFO[ListItem.duration] | $INFO[ListItem.year][/UPPERCASE]</label>
 					<include>ShowcaseDetailLabel2</include>
-					<visible>Container.Content(movies) + !IsEmpty(ListItem.duration)</visible>
+					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="label" id="72">
 					<label>$INFO[ListItem.Album,, -] $INFO[ListItem.Artist]</label>
