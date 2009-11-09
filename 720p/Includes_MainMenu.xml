@@ -8,10 +8,6 @@
 		<onclick>Skin.SetBool(videomovies)</onclick>
 		<onclick>Skin.Reset(videotv)</onclick>
 	</include>
-	<include name="video_Link">
-		<onclick>Skin.SetBool(videomovies)</onclick>
-		<onclick>Skin.Reset(videotv)</onclick>
-	</include>
 <!-- Add Item End -->
 	<include name="MainMenu_Label">
 		<posy>1</posy>
@@ -39,12 +35,8 @@
 		<align>center</align>
 		<aligny>center</aligny>
 	</include>
-	<include name="DownForSub">
-		<ondown>351</ondown>
-	</include>
 	<include name="LatestAdditions">
 		<onup>SetFocus(510)</onup>
-		<ondown>351</ondown>
 	</include>
 	<!-- Weather Backdrop by Current Weather Conditions -->
 	<include name="BackgroundVarsWeather2">
@@ -52,29 +44,27 @@
 	</include>
 	<!-- End -->
 	<include name="MainMenu">
-		<control type="button" id="351">
-			<onfocus>SetFocus(940)</onfocus>
-			<visible>Container(300).HasFocus(6)</visible>
-		</control>
-		<control type="button" id="351">
-			<onfocus>SetFocus(942)</onfocus>
-			<visible>Container(300).HasFocus(7)</visible>
-		</control>
-		<control type="button" id="351">
-			<onfocus>SetFocus(941)</onfocus>
-			<visible>Container(300).HasFocus(1)</visible>
-		</control>
-		<control type="button" id="351">
-			<onfocus>SetFocus(943)</onfocus>
-			<visible>Container(300).HasFocus(9)</visible>
-		</control>
-		<control type="button" id="351">
-			<onfocus>SetFocus(944)</onfocus>
-			<visible>Container(300).HasFocus(22)</visible>
-		</control>
-		<control type="button" id="351">
+		<control type="button" id="330">
+			<description>INVISIBLE button: Go To Submenu</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(945)</onfocus>
-			<visible>Container(300).HasFocus(10)</visible>
+			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1) | Container(300).HasFocus(22) | Container(300).HasFocus(9) | [Container(300).HasFocus(10) + StringCompare(Weather.Plugin,weather.com plus)] | Container(300).HasFocus(2)</visible>
+		</control>
+		<control type="button" id="330">
+			<description>INVISIBLE button: No Submenu</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SetFocus(300)</onfocus>
+			<visible>![Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1) | Container(300).HasFocus(22) | Container(300).HasFocus(9) | [Container(300).HasFocus(10) + StringCompare(Weather.Plugin,weather.com plus)] | Container(300).HasFocus(2)]</visible>
 		</control>
 		<control type="wraplist" id="300">
 			<posx>0</posx>
@@ -87,7 +77,7 @@
 			<orientation>horizontal</orientation>
 			<focusposition>2</focusposition>
 			<scrolltime>300</scrolltime>
-			<include condition="!Skin.HasSetting(homelatest)">DownForSub</include>
+			<ondown>SetFocus(330)</ondown>
 			<include condition="Skin.HasSetting(homelatest)">LatestAdditions</include>
 			<animation type="WindowOpen" reversible="false">
 				<effect type="slide" start="-1280" end="0" time="400" tween="quadratic" easing="out" />
@@ -127,8 +117,7 @@
 				<item id="6">
 					<label>31013</label>
 					<include>BackgroundVarsMovies</include>
-					<onclick>Skin.SetBool(videomovies)</onclick>
-					<onclick>Skin.Reset(videotv)</onclick>
+					<include>Movie_Link</include>
 					<onclick>XBMC.ActivateWindow(MyVideoLibrary,movietitles,return)</onclick>
 					<visible>!Skin.HasSetting(nomovies)</visible>
 				</item>
@@ -136,8 +125,7 @@
 					<description>My Videos</description>
 					<label>31014</label>
 					<include>BackgroundVarsTV</include>
-					<onclick>Skin.SetBool(videotv)</onclick>
-					<onclick>Skin.Reset(videomovies)</onclick>
+					<include>TV_Link</include>
 					<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowtitles,return)</onclick>
 					<visible>!Skin.HasSetting(notvshows)</visible>
 				</item>
@@ -182,7 +170,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_1)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_1path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_1path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_1path),videodb://2)+!substring(Skin.String(mainmenu_1path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_1path),videodb://2)+!substring(Skin.String(mainmenu_1path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_1path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_1)</visible>
 					<visible>Skin.HasSetting(mainmenu_1)</visible>
@@ -193,7 +181,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_2)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_2path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_2path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_2path),videodb://2)+!substring(Skin.String(mainmenu_2path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_2path),videodb://2)+!substring(Skin.String(mainmenu_2path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_2path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_2)</visible>
 					<visible>Skin.HasSetting(mainmenu_2)</visible>
@@ -204,7 +192,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_3)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_3path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_3path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_3path),videodb://2)+!substring(Skin.String(mainmenu_3path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_3path),videodb://2)+!substring(Skin.String(mainmenu_3path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_3path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_3)</visible>
 					<visible>Skin.HasSetting(mainmenu_3)</visible>
@@ -215,7 +203,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_4)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_4path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_4path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_4path),videodb://2)+!substring(Skin.String(mainmenu_4path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_4path),videodb://2)+!substring(Skin.String(mainmenu_4path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_4path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_4)</visible>
 					<visible>Skin.HasSetting(mainmenu_4)</visible>
@@ -226,7 +214,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_5)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_5path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_5path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_5path),videodb://2)+!substring(Skin.String(mainmenu_5path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_5path),videodb://2)+!substring(Skin.String(mainmenu_5path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_5path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_5)</visible>
 					<visible>Skin.HasSetting(mainmenu_5)</visible>
@@ -237,7 +225,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_6)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_6path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_6path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_6path),videodb://2)+!substring(Skin.String(mainmenu_6path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_6path),videodb://2)+!substring(Skin.String(mainmenu_6path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_6path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_6)</visible>
 					<visible>Skin.HasSetting(mainmenu_96)</visible>
@@ -248,7 +236,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_7)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_7path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_7path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_7path),videodb://2)+!substring(Skin.String(mainmenu_7path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_7path),videodb://2)+!substring(Skin.String(mainmenu_7path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_7path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_7)</visible>
 					<visible>Skin.HasSetting(mainmenu_7)</visible>
@@ -259,7 +247,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_8)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_8path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_8path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_8path),videodb://2)+!substring(Skin.String(mainmenu_8path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_8path),videodb://2)+!substring(Skin.String(mainmenu_8path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_8path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_8)</visible>
 					<visible>Skin.HasSetting(mainmenu_8)</visible>
@@ -270,7 +258,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_9)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_9path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_9path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_9path),videodb://2)+!substring(Skin.String(mainmenu_9path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_9path),videodb://2)+!substring(Skin.String(mainmenu_9path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_9path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_9)</visible>
 					<visible>Skin.HasSetting(mainmenu_9)</visible>
@@ -281,7 +269,7 @@
 					<thumb>$INFO[Skin.String(Custom_mainmenu_10)]</thumb>
 					<include condition="substring(Skin.String(mainmenu_10path),videodb://2)">TV_Link</include>
 					<include condition="substring(Skin.String(mainmenu_10path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_10path),videodb://2)+!substring(Skin.String(mainmenu_10path),videodb://1)">video_Link</include>
+					<include condition="!substring(Skin.String(mainmenu_10path),videodb://2)+!substring(Skin.String(mainmenu_10path),videodb://1)">Movie_Link</include>
 					<onclick>$INFO[Skin.String(mainmenu_10path)]</onclick>
 					<visible>!Skin.HasSetting(no_mainmenu_10)</visible>
 					<visible>Skin.HasSetting(mainmenu_10)</visible>
@@ -916,7 +904,7 @@
 			<posy>406</posy>
 			<width>1280</width>
 			<height>57</height>
-			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus() | ControlGroup(943).HasFocus() | ControlGroup(944).HasFocus() | ControlGroup(945).HasFocus()]</visible>
+			<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + !Control.HasFocus(945)</visible>
 			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
 			<include>Animation_OpenCloseZoom</include>
 			<include>Animation_VisibleChange200</include>
@@ -973,7 +961,7 @@
 			<posy>664</posy>
 			<width>1280</width>
 			<height>57</height>
-			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus() | ControlGroup(943).HasFocus() | ControlGroup(944).HasFocus() | ControlGroup(945).HasFocus()]</visible>
+			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + !Control.HasFocus(945)</visible>
 			<include>Animation_CommonFade</include>
 			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
 				<effect type="slide" start="0,-181" end="0,-181" time="0" />

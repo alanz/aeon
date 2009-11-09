@@ -1,406 +1,12 @@
 <includes>
-	<include name="Submenu_Button">
-		<width>131</width>
-		<height>30</height>
-		<align>center</align>
-		<aligny>center</aligny>
-		<font>Font_Submenu</font>
-		<textcolor>5fFFFFFF</textcolor>
-		<focusedcolor>FFFFFFFF</focusedcolor>
-	</include>
-	<include name="MovieShortcutBools">
-		<onclick>Skin.SetBool(videomovies)</onclick>
-		<onclick>Skin.Reset(videotv)</onclick>
-	</include>
-	<include name="TVShortcutBools">
-		<onclick>Skin.SetBool(videotv)</onclick>
-		<onclick>Skin.Reset(videomovies)</onclick>
-	</include>
 	<include name="Submenu">
-		<control type="group">
-			<posx>79</posx>
-			<posy>406</posy>
-			<visible>ControlGroup(940).HasFocus()</visible>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<width>1123</width>
-				<height>33</height>
-				<texture>home/submenubar_music.png</texture>
-			</control>
-			<control type="grouplist" id="940">
-				<posx>39</posx>
-				<width>1048</width>
-				<height>33</height>
-				<itemgap>0</itemgap>
-				<onup>300</onup>
-				<ondown>510</ondown>
-				<orientation>horizontal</orientation>
-				<control type="button" id="40">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31920</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,recentlyaddedmovies,return)</onclick>
-				</control>
-				<control type="button" id="41">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31921</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,movietitles,return)</onclick>
-				</control>
-				<control type="button" id="42">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31922</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviegenres,return)</onclick>
-				</control>
-				<control type="button" id="43">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31923</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,movieyears,return)</onclick>
-				</control>
-				<control type="button" id="44">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31924</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,movieactors,return)</onclick>
-				</control>
-				<control type="button" id="45">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31925</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviedirectors,return)</onclick>
-				</control>
-				<control type="button" id="46">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31926</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviestudios,return)</onclick>
-				</control>
-				<control type="button" id="47">
-					<include>Submenu_Button</include>
-					<include>MovieShortcutBools</include>
-					<label>31932</label>
-					<onclick>XBMC.ActivateWindow(MyVideoFiles)</onclick>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<posx>79</posx>
-			<posy>406</posy>
-			<visible>ControlGroup(941).HasFocus()</visible>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<width>1123</width>
-				<height>33</height>
-				<texture>home/submenubar_music.png</texture>
-			</control>
-			<control type="grouplist" id="941">
-				<posx>39</posx>
-				<width>1048</width>
-				<height>33</height>
-				<itemgap>0</itemgap>
-				<onup>300</onup>
-				<ondown>510</ondown>
-				<scroll>false</scroll>
-				<orientation>horizontal</orientation>
-				<control type="button" id="40">
-					<include>Submenu_Button</include>
-					<label>31920</label>
-					<onclick>XBMC.ActivateWindow(MyMusicLibrary,recentlyaddedalbums,return)</onclick>
-				</control>
-				<control type="button" id="41">
-					<include>Submenu_Button</include>
-					<label>31927</label>
-					<onclick>XBMC.ActivateWindow(MyMusicLibrary,artists,return)</onclick>
-				</control>
-				<control type="button" id="42">
-					<include>Submenu_Button</include>
-					<label>31928</label>
-					<onclick>XBMC.ActivateWindow(MyMusicLibrary,albums,return)</onclick>
-				</control>
-				<control type="button" id="43">
-					<include>Submenu_Button</include>
-					<label>31922</label>
-					<onclick>XBMC.ActivateWindow(MyMusicLibrary,genres,return)</onclick>
-				</control>
-				<control type="button" id="44">
-					<include>Submenu_Button</include>
-					<label>31929</label>
-					<onclick>XBMC.ActivateWindow(MyMusicLibrary,playlists,return)</onclick>
-				</control>
-				<control type="button" id="45">
-					<include>Submenu_Button</include>
-					<label>31930</label>
-					<onclick>XBMC.ActivateWindow(MyMusicLibrary,top100,return)</onclick>
-				</control>
-				<control type="button" id="46">
-					<include>Submenu_Button</include>
-					<label>31931</label>
-					<onclick>XBMC.ActivateWindow(MyMusicLibrary,musicvideos,return)</onclick>
-				</control>
-				<control type="button" id="47">
-					<include>Submenu_Button</include>
-					<label>31932</label>
-					<onclick>XBMC.ActivateWindow(MyMusicFiles)</onclick>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<posx>143</posx>
-			<posy>406</posy>
-			<visible>ControlGroup(942).HasFocus()</visible>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<width>994</width>
-				<height>33</height>
-				<texture>home/submenubar_movies.png</texture>
-			</control>
-			<control type="grouplist" id="942">
-				<posx>39</posx>
-				<width>917</width>
-				<height>33</height>
-				<itemgap>0</itemgap>
-				<onup>300</onup>
-				<ondown>510</ondown>
-				<orientation>horizontal</orientation>
-				<control type="button" id="40">
-					<include>Submenu_Button</include>
-					<include>TVShortcutBools</include>
-					<label>31920</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,recentlyaddedepisodes,return)</onclick>
-				</control>
-				<control type="button" id="41">
-					<include>Submenu_Button</include>
-					<include>TVShortcutBools</include>
-					<label>31933</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowtitles,return)</onclick>
-				</control>
-				<control type="button" id="42">
-					<include>Submenu_Button</include>
-					<include>TVShortcutBools</include>
-					<label>31922</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowgenres,return)</onclick>
-				</control>
-				<control type="button" id="43">
-					<include>Submenu_Button</include>
-					<include>TVShortcutBools</include>
-					<label>31924</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowactors,return)</onclick>
-				</control>
-				<control type="button" id="44">
-					<include>Submenu_Button</include>
-					<include>TVShortcutBools</include>
-					<label>31923</label>
-					<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowyears,return)</onclick>
-				</control>
-				<control type="button" id="45">
-					<include>Submenu_Button</include>
-					<include>TVShortcutBools</include>
-					<label>31850</label>
-					<onclick>XBMC.ActivateWindow(MyVideoFiles,plugin://video)</onclick>
-					<!--<label>IPLAYER</label><onclick>XBMC.ActivateWindow(MyVideoFiles,plugin://video/IPLAYER)</onclick>--></control>
-				<control type="button" id="46">
-					<include>Submenu_Button</include>
-					<include>TVShortcutBools</include>
-					<label>31932</label>
-					<onclick>XBMC.ActivateWindow(MyVideoFiles)</onclick>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<posx>79</posx>
-			<posy>406</posy>
-			<visible>ControlGroup(943).HasFocus()</visible>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<width>1123</width>
-				<height>33</height>
-				<texture>home/submenubar_music.png</texture>
-			</control>
-			<control type="grouplist" id="943">
-				<posx>39</posx>
-				<width>1048</width>
-				<height>33</height>
-				<itemgap>0</itemgap>
-				<onup>300</onup>
-				<ondown>510</ondown>
-				<scroll>false</scroll>
-				<orientation>horizontal</orientation>
-				<control type="button" id="40">
-					<include>Submenu_Button</include>
-					<label>31140</label>
-					<onclick>XBMC.ActivateWindow(VideosSettings)</onclick>
-				</control>
-				<control type="button" id="41">
-					<include>Submenu_Button</include>
-					<label>31142</label>
-					<onclick>XBMC.ActivateWindow(MusicSettings)</onclick>
-				</control>
-				<control type="button" id="42">
-					<include>Submenu_Button</include>
-					<label>31144</label>
-					<onclick>XBMC.ActivateWindow(ProgramsSettings)</onclick>
-				</control>
-				<control type="button" id="43">
-					<include>Submenu_Button</include>
-					<label>31146</label>
-					<onclick>XBMC.ActivateWindow(PicturesSettings)</onclick>
-				</control>
-				<control type="button" id="44">
-					<include>Submenu_Button</include>
-					<label>31150</label>
-					<onclick>XBMC.ActivateWindow(NetworkSettings)</onclick>
-				</control>
-				<control type="button" id="45">
-					<include>Submenu_Button</include>
-					<label>31152</label>
-					<onclick>XBMC.ActivateWindow(SystemSettings)</onclick>
-				</control>
-				<control type="button" id="46">
-					<include>Submenu_Button</include>
-					<label>31154</label>
-					<onclick>XBMC.ActivateWindow(AppearanceSettings)</onclick>
-				</control>
-				<control type="button" id="47">
-					<include>Submenu_Button</include>
-					<label>31160</label>
-					<onclick>XBMC.ActivateWindow(Profiles)</onclick>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<posx>79</posx>
-			<posy>406</posy>
-			<visible>ControlGroup(944).HasFocus()</visible>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Animation_CommonFade</include>
-			<control type="image">
-				<width>1123</width>
-				<height>33</height>
-				<texture>home/submenubar_music.png</texture>
-			</control>
-			<control type="grouplist" id="944">
-				<posx>39</posx>
-				<width>1048</width>
-				<height>33</height>
-				<itemgap>0</itemgap>
-				<align>center</align>
-				<onup>300</onup>
-				<ondown>510</ondown>
-				<scroll>false</scroll>
-				<orientation>horizontal</orientation>
-				<control type="button" id="40">
-					<include>Submenu_Button</include>
-					<description>Shutdown</description>
-					<label>31208</label>
-					<onclick>Shutdown</onclick>
-				</control>
-				<control type="button" id="41">
-					<include>Submenu_Button</include>
-					<description>Eject Tray</description>
-					<label>31210</label>
-					<onclick>EjectTray()</onclick>
-				</control>
-				<control type="button" id="42">
-					<include>Submenu_Button</include>
-					<description>Restart XBMC</description>
-					<label>31207</label>
-					<onclick>RestartApp</onclick>
-				</control>
-				<control type="button" id="43">
-					<include>Submenu_Button</include>
-					<label>31211</label>
-					<onclick>Reboot</onclick>
-				</control>
-				<control type="button" id="44">
-					<include>Submenu_Button</include>
-					<label>31212</label>
-					<onclick>Suspend</onclick>
-				</control>
-				<control type="button" id="45">
-					<include>Submenu_Button</include>
-					<label>31213</label>
-					<onclick>Hibernate</onclick>
-				</control>
-				<control type="button" id="46">
-					<include>Submenu_Button</include>
-					<description>Log Out</description>
-					<label>31209</label>
-					<onclick>System.LogOff</onclick>
-				</control>
-				<control type="button" id="47">
-					<include>Submenu_Button</include>
-					<description>Shutdown Timer</description>
-					<label>31214</label>
-					<onclick>AlarmClock(,Shutdown,)</onclick>
-				</control>
-			</control>
-		</control>
 		<control type="group">
 			<posx>207</posx>
 			<posy>406</posy>
-			<visible>ControlGroup(945).HasFocus()</visible>
+			<visible>Control.HasFocus(945)</visible>
 			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
 			<include>Animation_CommonFade</include>
-			<control type="image">
-				<width>865</width>
-				<height>33</height>
-				<texture>home/submenubar_weather.png</texture>
-			</control>
-			<control type="grouplist" id="945">
-				<posx>20</posx>
-				<width>822</width>
-				<height>33</height>
-				<itemgap>0</itemgap>
-				<align>center</align>
-				<onup>300</onup>
-				<ondown>352</ondown>
-				<scroll>false</scroll>
-				<orientation>horizontal</orientation>
-				<control type="button" id="40">
-					<description>4Day</description>
-					<include>Submenu_Button</include>
-					<label>31254</label>
-                    <onfocus>SetProperty(WeatherOverride,4day)</onfocus>
-                    <onclick>Skin.Reset(WeatherWidget36Hour)</onclick>
-                    <onclick>Skin.Reset(WeatherWidgetWeekend)</onclick>
-                    <onclick>Skin.Reset(WeatherWidget7Day)</onclick>
-				</control>
-				<control type="button" id="41">
-					<description>7Day</description>
-					<include>Submenu_Button</include>
-					<label>312571</label>
-                    <onfocus>SetProperty(WeatherOverride,7day)</onfocus>
-                    <onclick>Skin.Reset(WeatherWidget36Hour)</onclick>
-                    <onclick>Skin.Reset(WeatherWidgetWeekend)</onclick>
-                    <onclick>Skin.SetBool(WeatherWidget7Day)</onclick>
-					<enable>StringCompare(Weather.Plugin,weather.com plus)</enable>
-				</control>
-				<control type="button" id="42">
-					<description>36Hour</description>
-					<include>Submenu_Button</include>
-					<label>31255</label>
-                    <onfocus>SetProperty(WeatherOverride,36hour)</onfocus>
-                    <onclick>Skin.SetBool(WeatherWidget36Hour)</onclick>
-                    <onclick>Skin.Reset(WeatherWidgetWeekend)</onclick>
-                    <onclick>Skin.Reset(WeatherWidget7Day)</onclick>
-					<enable>StringCompare(Weather.Plugin,weather.com plus)</enable>
-				</control>
-				<control type="button" id="43">
-					<description>Weekend</description>
-					<include>Submenu_Button</include>
-					<label>31256</label>
-                    <onfocus>SetProperty(WeatherOverride,weekend)</onfocus>
-                    <onclick>Skin.Reset(WeatherWidget36Hour)</onclick>
-                    <onclick>Skin.SetBool(WeatherWidgetWeekend)</onclick>
-                    <onclick>Skin.Reset(WeatherWidget7Day)</onclick>
-					<enable>StringCompare(Weather.Plugin,weather.com plus)</enable>
-				</control>
+	<!--
 				<control type="button" id="44">
 					<disabledcolor>FF6a6a6a</disabledcolor>
 					<include>Submenu_Button</include>
@@ -417,7 +23,615 @@
                     <onfocus>SetProperty(WeatherOverride,alerts)</onfocus>
 					<enable>StringCompare(Weather.Plugin,weather.com plus) + !IsEmpty(Window(Weather).Property(Alerts))</enable>
 				</control>
+			</control>-->
+			<control type="image">
+				<posx>80</posx>
+				<width>700</width>
+				<height>33</height>
+				<texture>home/submenubar.png</texture>
+				<include>Animation_CommonFade</include>
+				<!-- <include>homesubmenu_animation</include> -->
 			</control>
-		</control>
+			<control type="wraplist" id="945">
+				<posx>100</posx>
+				<height>33</height>
+				<width>660</width>
+				<onleft>945</onleft>
+				<onright>945</onright>
+				<viewtype>list</viewtype>
+				<orientation>horizontal</orientation>
+				<focusposition>2</focusposition>
+				<scrolltime>200</scrolltime>
+				<onup>300</onup>
+				<ondown>SetFocus(510)</ondown>
+				<!-- <include>homesubmenu_animation</include> --> 
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<itemlayout width="129" height="33">
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>129</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>5fFFFFFF</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="129" height="33">
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>129</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>FFFFFFFF</textcolor>
+						<animation effect="fade" start="0" end="50" time="200">Focus</animation>
+						<animation effect="fade" start="0" end="0" time="200">Unfocus</animation>
+					</control>
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>129</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>5FFFFFFF</textcolor>
+						<animation effect="fade" start="100" end="0" time="200">Focus</animation>
+						<animation effect="fade" start="0" end="100" time="100">Unfocus</animation>
+					</control>
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>129</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>FFFFFFFF</textcolor>
+						<animation effect="fade" start="50" end="50" time="200">Focus</animation>
+						<animation effect="fade" start="50" end="0" time="100">Unfocus</animation>
+					</control>
+				</focusedlayout>
+				<content>
+				<!-- weather (10) -->
+					<item id="1">
+						<label fallback="4 Days">31254</label>
+						<onclick>SetProperty(WeatherOverride,4day)</onclick>
+						<onclick>Skin.Reset(WeatherWidget36Hour)</onclick>
+						<onclick>Skin.Reset(WeatherWidgetWeekend)</onclick>
+						<onclick>Skin.Reset(WeatherWidget7Day)</onclick>
+						<visible>!Skin.HasSetting(sub_4day_weather)</visible>
+						<visible>Container(300).HasFocus(10)</visible>
+					</item>					
+					<item id="2">
+						<label fallback="36 HOURS">31255</label>
+						<onclick>SetProperty(WeatherOverride,36hour)</onclick>
+						<onclick>Skin.SetBool(WeatherWidget36Hour)</onclick>
+						<onclick>Skin.Reset(WeatherWidgetWeekend)</onclick>
+						<onclick>Skin.Reset(WeatherWidget7Day)</onclick>
+						<visible>!Skin.HasSetting(sub_36hours_weather)</visible>
+						<visible>Container(300).HasFocus(10)</visible>
+					</item>
+					<item id="3">
+						<label fallback="WEEKEND">31256</label>
+						<onclick>SetProperty(WeatherOverride,weekend)</onclick>
+						<onclick>Skin.Reset(WeatherWidget36Hour)</onclick>
+						<onclick>Skin.SetBool(WeatherWidgetWeekend)</onclick>
+						<onclick>Skin.Reset(WeatherWidget7Day)</onclick>
+						<visible>!Skin.HasSetting(sub_weekend_weather)</visible>
+						<visible>Container(300).HasFocus(10)</visible>
+					</item>
+					<item id="4">
+						<label fallback="7 DAYS">312571</label>
+						<onclick>SetProperty(WeatherOverride,7day)</onclick>
+						<onclick>Skin.Reset(WeatherWidget36Hour)</onclick>
+						<onclick>Skin.Reset(WeatherWidgetWeekend)</onclick>
+						<onclick>Skin.SetBool(WeatherWidget7Day)</onclick>
+						<visible>!Skin.HasSetting(sub_7day_weather)</visible>
+						<visible>Container(300).HasFocus(10)</visible>
+					</item>
+					<item id="5">
+						<label fallback="Alert">312572</label>
+						<textcolor>$INFO[Window(Weather).Property(Alerts.Color)]</textcolor>
+						<onclick>SetProperty(WeatherOverride,alerts)</onclick>
+						<visible>!Skin.HasSetting(sub_7day_weather) + !IsEmpty(Window(Weather).Property(Alerts)</visible>
+						<visible>Container(300).HasFocus(10)</visible>
+					</item>
+				<!-- weather (10) end -->
+				<!-- TV (7) -->
+					<item id="10">
+						<description>By Genre</description>
+						<label>135</label>
+						<include>TV_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowgenres,return)</onclick>
+						<visible>!Skin.HasSetting(sub_tv_Genre)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="11">
+						<description>Video Files</description>
+						<label>744</label>
+						<include>TV_Link</include>
+						<onclick>XBMC.ActivateWindow(24)</onclick>
+						<visible>!Skin.HasSetting(sub_tv_file)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="12">
+						<description>Recently Added</description>
+						<label>31920</label>
+						<include>TV_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,recentlyaddedepisodes,return)</onclick>
+						<visible>!Skin.HasSetting(sub_tv_Recently)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="13">
+						<description>By Year</description>
+						<label>345</label>
+						<include>TV_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowyears,return)</onclick>
+						<visible>!Skin.HasSetting(sub_tv_year)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="14">
+						<description>By Actor</description>
+						<label>344</label>
+						<include>TV_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowactors,return)</onclick>
+						<visible>!Skin.HasSetting(sub_tv_Actor)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="15">
+						<description>Video Plugins 1037</description>
+						<label fallback="PLUGINS">31850</label>
+						<include>TV_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,plugins,return)</onclick>
+						<visible>!Skin.HasSetting(sub_tv_Plugins)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="233">
+						<description>TVShows_Sub 1</description>
+						<label>$INFO[Skin.String(TVShows_Sub_1name)]</label>
+						<include>TV_Link</include>
+						<onclick>$INFO[Skin.String(TVShows_Sub_1path)]</onclick>
+						<visible>Skin.HasSetting(TVShows_Sub_1)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="234">
+						<description>TVShows_Sub 2</description>
+						<label>$INFO[Skin.String(TVShows_Sub_2name)]</label>
+						<include>TV_Link</include>
+						<onclick>$INFO[Skin.String(TVShows_Sub_2path)]</onclick>
+						<visible>Skin.HasSetting(TVShows_Sub_2)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<item id="235">
+						<description>TVShows_Sub 3</description>
+						<label>$INFO[Skin.String(TVShows_Sub_3name)]</label>
+						<include>TV_Link</include>
+						<onclick>$INFO[Skin.String(TVShows_Sub_3path)]</onclick>
+						<visible>Skin.HasSetting(TVShows_Sub_3)</visible>
+						<visible>Container(300).HasFocus(7)</visible>
+					</item>
+					<!-- TV (7) end -->
+					<!-- Movies (6) -->
+					<item id="20">
+						<description>By Genre</description>
+						<label>135</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviegenres,return)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_Genre)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="21">
+						<description>Video Files</description>
+						<label>744</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(24)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_files)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="22">
+						<description>Recently Added</description>
+						<label>31920</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,recentlyaddedmovies,return)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_recently)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="23">
+						<description>By Year</description>
+						<label>345</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,movieyears,return)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_Year)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="24">
+						<description>By Actor</description>
+						<label>344</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,movieactors,return)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_Actor)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="25">
+						<description>By Director</description>
+						<label>20339</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviedirectors,return)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_Director)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="26">
+						<description>By Studio</description>
+						<label>20388</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviestudios,return)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_Studio)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="27">
+						<description>Video Plugins 1037</description>
+						<label fallback="PLUGINS">31850</label>
+						<include>Movie_Link</include>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,plugins,return)</onclick>
+						<visible>!Skin.HasSetting(sub_movies_Plugins)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="237">
+						<description>Movies_Sub 1</description>
+						<label>$INFO[Skin.String(Movies_Sub_1name)]</label>
+						<include>Movie_Link</include>
+						<onclick>$INFO[Skin.String(Movies_Sub_1path)]</onclick>
+						<visible>Skin.HasSetting(Movies_Sub_1)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="238">
+						<description>Movies_Sub 2</description>
+						<label>$INFO[Skin.String(Movies_Sub_2name)]</label>
+						<include>Movie_Link</include>
+						<onclick>$INFO[Skin.String(Movies_Sub_2path)]</onclick>
+						<visible>Skin.HasSetting(Movies_Sub_2)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="239">
+						<description>Movies_Sub 3</description>
+						<label>$INFO[Skin.String(Movies_Sub_3name)]</label>
+						<include>Movie_Link</include>
+						<onclick>$INFO[Skin.String(Movies_Sub_3path)]</onclick>
+						<visible>Skin.HasSetting(Movies_Sub_3)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<item id="240">
+						<description>Movies_Sub 4</description>
+						<label>$INFO[Skin.String(Movies_Sub_4name)]</label>
+						<include>Movie_Link</include>
+						<onclick>$INFO[Skin.String(Movies_Sub_4path)]</onclick>
+						<visible>Skin.HasSetting(Movies_Sub_4)</visible>
+						<visible>Container(300).HasFocus(6)</visible>
+					</item>
+					<!-- Movies (6) End -->
+					<!-- Music (1)  -->
+					<item id="41">
+						<description>Partymode</description>
+						<label fallback="PARTY">31854</label>
+						<onclick>PlayerControl(Partymode(music))</onclick>
+						<visible>!Skin.HasSetting(sub_music_Party)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="42">
+						<description>Last.FM</description>
+						<label>15200</label>
+						<onclick>XBMC.ActivateWindow(MusicFiles,Last.FM)</onclick>
+						<visible>!Skin.HasSetting(sub_music_fm)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="31">
+						<description>Browse Button</description>
+						<label>744</label>
+						<onclick>XBMC.ActivateWindow(501,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_files)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="32">
+						<description>Playlists</description>
+						<label>136</label>
+						<onclick>xbmc.activatewindow(musiclibrary,playlists,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_Playlists)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="33">
+						<description>Music Videos</description>
+						<label>20389</label>
+						<onclick>XBMC.ActivateWindow(MyVideoLibrary,musicvideos,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_Videos)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="34">
+						<description>Genres</description>
+						<label>135</label>
+						<onclick>xbmc.activatewindow(musiclibrary,genres,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_genres)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="35">
+						<description>Artists</description>
+						<label>133</label>
+						<onclick>xbmc.activatewindow(musiclibrary,artists,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_artists)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="36">
+						<description>albums</description>
+						<label>132</label>
+						<onclick>xbmc.activatewindow(musiclibrary,albums,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_albums)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="37">
+						<description>compilations</description>
+						<label>521</label>
+						<onclick>xbmc.activatewindow(musiclibrary,compilations,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_compilations)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="38">
+						<description>top100</description>
+						<label>271</label>
+						<onclick>xbmc.activatewindow(musiclibrary,top100,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_top)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="39">
+						<description>Recently Added</description>
+						<label>31920</label>
+						<onclick>xbmc.activatewindow(musiclibrary,recentlyaddedalbums,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_recently)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="40">
+						<description>Music Plugins 1038</description>
+						<label fallback="PLUGINS">31850</label>
+						<onclick>XBMC.ActivateWindow(musiclibrary,plugins,return)</onclick>
+						<visible>!Skin.HasSetting(sub_music_Plugins)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+ 
+					<item id="241">
+						<description>Music_Sub 1</description>
+						<label>$INFO[Skin.String(Music_Sub_1name)]</label>
+						<onclick>$INFO[Skin.String(Music_Sub_1path)]</onclick>
+						<visible>Skin.HasSetting(Music_Sub_1)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="242">
+						<description>Music_Sub 2</description>
+						<label>$INFO[Skin.String(Music_Sub_2name)]</label>
+						<onclick>$INFO[Skin.String(Music_Sub_2path)]</onclick>
+						<visible>Skin.HasSetting(Music_Sub_2)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="243">
+						<description>Music_Sub 3</description>
+						<label>$INFO[Skin.String(Music_Sub_3name)]</label>
+						<onclick>$INFO[Skin.String(Music_Sub_3path)]</onclick>
+						<visible>Skin.HasSetting(Music_Sub_3)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<item id="244">
+						<description>Music_Sub 4</description>
+						<label>$INFO[Skin.String(Music_Sub_4name)]</label>
+						<onclick>$INFO[Skin.String(Music_Sub_4path)]</onclick>
+						<visible>Skin.HasSetting(Music_Sub_4)</visible>
+						<visible>Container(300).HasFocus(1)</visible>
+					</item>
+					<!-- Music (1) end -->
+					<!-- extras (2) -->
+					<item id="51">
+						<description>Programs</description>
+						<label>0</label>		
+						<onclick>xbmc.activatewindow(Programs)</onclick>
+						<visible>Skin.HasSetting(no_programs)</visible>
+						<visible>!Skin.HasSetting(sub_extras_Programs)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>	
+					<item id="52">
+						<description>scripts</description>
+						<label>247</label>
+						<onclick>xbmc.activatewindow(20)</onclick>
+						<visible>Skin.HasSetting(scripts)</visible>
+						<visible>!Skin.HasSetting(sub_extras_scripts)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>
+					<item id="53">
+						<description>Settings</description>
+						<label>31016</label>
+						<onclick>XBMC.ActivateWindow(4)</onclick>
+						<visible>Skin.HasSetting(nosettings)</visible>
+						<visible>!Skin.HasSetting(kiosk)</visible>
+						<visible>!Skin.HasSetting(sub_extras_settings)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>
+					<item id="56">
+						<description>Shutdown</description>				
+						<label>31019</label>
+						<onclick>XBMC.Shutdown()</onclick>
+						<visible>Skin.HasSetting(shutdown)</visible>
+						<visible>!Skin.HasSetting(sub_extras_shutdown)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>
+					<item id="57">
+						<description>Logout Button</description>
+						<label>20126</label>
+						<onclick>System.LogOff</onclick>
+						<visible>System.HasLoginScreen</visible>
+						<visible>!Skin.HasSetting(signout)</visible>
+						<visible>!Skin.HasSetting(shutdown)</visible>
+						<visible>!Skin.HasSetting(sub_Shutdown_Logout)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>
+					<item id="54">
+						<description>favourites</description>
+						<label>1036</label>
+						<onclick>xbmc.activatewindow(134)</onclick>
+						<visible>!Skin.HasSetting(sub_extras_favourites)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>
+ 
+					<item id="55">
+						<description>AlarmClock setup</description>
+						<label fallback="ALARM">31855</label>
+						<onclick>Skin.SetString(AlarmString)</onclick>
+						<onclick>AlarmClock(Alarm,Notification(Alarm,$INFO[Skin.String(AlarmString)]),)</onclick>
+						<visible>!Skin.HasSetting(sub_extras_AlarmClock)</visible>
+						<visible>!System.HasAlarm(Alarm)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>
+					<item id="55">
+						<description>AlarmClock off</description>
+						<label fallback="ALARM OFF">31862</label>
+						<onclick>CancelAlarm(Alarm)</onclick>
+						<visible>!Skin.HasSetting(sub_extras_AlarmClock)</visible>
+						<visible>System.HasAlarm(Alarm)</visible>
+						<visible>Container(300).HasFocus(2)</visible>
+					</item>
+					<!-- extras (2) End -->
+					<!-- Shutdown (22) -->
+					<item id="62">
+						<description>Shutdown Timer</description>
+						<label fallback="TIMER">31856</label>
+						<onclick>AlarmClock($LOCALIZE[20144],XBMC.Shutdown(),)</onclick>
+						<visible>!Skin.HasSetting(sub_Shutdown_Timer)</visible>
+						<visible>Container(300).HasFocus(22)</visible>
+					</item>
+					<item id="63">
+						<description>Restart Button</description>
+						<label>13313</label>
+						<onclick>XBMC.Reset()</onclick>
+						<visible>!Skin.HasSetting(sub_Shutdown_Restart)</visible>
+						<visible>Container(300).HasFocus(22)</visible>
+					</item>
+					<item id="64">
+						<description>Refresh Button</description>
+						<label>31607</label>
+						<onclick>XBMC.ReloadSkin()</onclick>
+						<visible>!Skin.HasSetting(sub_Shutdown_Refresh)</visible>
+						<visible>Container(300).HasFocus(22)</visible>
+					</item>
+					<item id="65">
+						<description>Dashboard Button</description>
+						<label>13006</label>
+						<onclick>XBMC.Dashboard()</onclick>
+						<visible>System.Platform.Xbox</visible>
+						<visible>!Skin.HasSetting(sub_Shutdown_Dashboard)</visible>
+						<visible>Container(300).HasFocus(22)</visible>
+					</item>
+					<item id="66">
+						<description>Suspend</description>
+						<label>13011</label>
+						<onclick>XBMC.Suspend()</onclick>
+						<visible>!System.Platform.Xbox</visible>
+						<visible>!Skin.HasSetting(sub_Shutdown_Suspend)</visible>
+						<visible>Container(300).HasFocus(22)</visible>
+					</item>
+					<item id="67">
+						<description>Hibernate</description>
+						<label>13010</label>
+						<onclick>XBMC.Hibernate()</onclick>
+						<visible>!System.Platform.Xbox</visible>
+						<visible>!Skin.HasSetting(sub_Shutdown_Hibernate)</visible>
+						<visible>Container(300).HasFocus(22)</visible>
+					</item>
+					<item id="68">
+						<description>Logout Button</description>
+						<label>20126</label>
+						<onclick>System.LogOff</onclick>
+						<visible>System.HasLoginScreen</visible>
+						<visible>!Skin.HasSetting(sub_Shutdown_Logout)</visible>
+						<visible>Container(300).HasFocus(22)</visible>
+					</item>
+					<!-- Shutdown (22) End -->
+					<!-- Settings (9) -->
+					<item id="69">
+						<description>Video Settings Button</description>
+						<label>31140</label>
+						<onclick>XBMC.ActivateWindow(VideosSettings)</onclick>
+						<visible>!Skin.HasSetting(sub_Video_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="70">
+						<description>Music Settings Button</description>
+						<label>31142</label>
+						<onclick>XBMC.ActivateWindow(MusicSettings)</onclick>
+						<visible>!Skin.HasSetting(sub_Music_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="71">
+						<description>Programs Settings Button</description>
+						<label>31144</label>
+						<onclick>XBMC.ActivateWindow(ProgramsSettings)</onclick>
+						<visible>!Skin.HasSetting(sub_Programs_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="72">
+						<description>Pictures Settings Button</description>
+						<label>31146</label>
+						<onclick>XBMC.ActivateWindow(PicturesSettings)</onclick>
+						<visible>!Skin.HasSetting(sub_Pictures_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="73">
+						<description>Network Settings Button</description>
+						<label>31150</label>
+						<onclick>XBMC.ActivateWindow(NetworkSettings)</onclick>
+						<visible>!Skin.HasSetting(sub_Network_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="74">
+						<description>System Settings Button</description>
+						<label>31152</label>
+						<onclick>XBMC.ActivateWindow(SystemSettings)</onclick>
+						<visible>!Skin.HasSetting(sub_System_settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="75">
+						<description>Customise Settings Button</description>
+						<label>31156</label>
+						<onclick>XBMC.ActivateWindow(604)</onclick>
+						<visible>!Skin.HasSetting(sub_customise_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="76">
+						<description>Customise Menu's Settings Button</description>
+						<label>VIEWTYPES</label>
+						<onclick>XBMC.ActivateWindow(676)</onclick>
+						<visible>!Skin.HasSetting(sub_customise_menus_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="77">
+						<description>Advanced Settings Button</description>
+						<label>31158</label>
+						<onclick>XBMC.ActivateWindow(56)</onclick>
+						<visible>!Skin.HasSetting(sub_advanced_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<item id="78">
+						<description>Aeon Settings Button</description>
+						<label>31154</label>
+						<onclick>XBMC.ActivateWindow(AppearanceSettings)</onclick>
+						<visible>!Skin.HasSetting(sub_Appearance_Settings)</visible>
+						<visible>Container(300).HasFocus(9)</visible>
+					</item>
+					<!-- Settings (9) End -->
+				</content> 
+			</control> 
+	</control>
 	</include>
 </includes>
