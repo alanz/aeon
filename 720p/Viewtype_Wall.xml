@@ -939,13 +939,22 @@
 	<include name="WallInfoOpenAnimationOn">
 		<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 	</include>
+	<include name="WallInfoOpenAnimationAuto">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="400" delay="3085" />
+			<effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2" />
+		</animation>
+		<animation type="Visible" reversible="false">
+			<effect type="fade" start="0" end="100" time="400" delay="3085" />
+			<effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2" />
+		</animation>
+	</include>
 	<include name="WallInfoPaneMoviesVars">
 		<width>442</width>
 		<height>432</height>
-		<include condition="![Skin.HasSetting(wallinfoon) | Skin.HasSetting(wallinfoon) ]">WallInfoOpenAnimationAuto</include>
+		<include condition="Skin.HasSetting(wallinfoauto)">WallInfoOpenAnimationAuto</include>
 		<include condition="Skin.HasSetting(wallinfoon)">WallInfoOpenAnimationOn</include>
 		<animation effect="fade" end="0" time="200">WindowClose</animation>
-		<include condition="![Skin.HasSetting(wallinfoon) | Skin.HasSetting(wallinfoon) ]">WallInfoAnimation</include>
 		<visible>Container.Content(movies) + Control.IsVisible(53) + Control.HasFocus(53) + [Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)]</visible>
 	</include>
 	<include name="WallInfoValue">
@@ -1094,18 +1103,6 @@
 				</control>
 			</control>
 		</control>
-	</include>
-	<include name="WallInfoAnimation">
-		<animation type="Visible" reversible="false">
-			<effect type="fade" start="0" end="100" time="400" delay="3085" />
-			<effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2" />
-		</animation>
-	</include>
-	<include name="WallInfoOpenAnimationAuto">
-		<animation type="WindowOpen" reversible="false">
-			<effect type="fade" start="0" end="100" time="400" delay="3085" />
-			<effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2" />
-		</animation>
 	</include>
 	<include name="VerticalWall">
 		<onleft>2</onleft>
