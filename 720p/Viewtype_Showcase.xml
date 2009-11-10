@@ -3679,8 +3679,8 @@
 		</control>
 	</include>
 	<include name="Viewtype_Showcase">
-		<include condition="Skin.HasSetting(videomovies)">ShowcaseInfoPaneMovies</include>
-		<include condition="Skin.HasSetting(videotv)">ShowcaseInfoPaneTV</include>
+		<include condition="Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)">ShowcaseInfoPaneMovies</include>
+		<include condition="Skin.HasSetting(videotv) + Window.IsActive(videolibrary)">ShowcaseInfoPaneTV</include>
 		<control type="group">
 			<visible>Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)</visible>
 			<include condition="Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)">ShowcaseMovies</include>
