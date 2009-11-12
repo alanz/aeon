@@ -217,7 +217,7 @@
 			<altlabel>$LOCALIZE[31065]: $LOCALIZE[31053]</altlabel>
 			<usealttexture>Skin.HasSetting(showcasethin)</usealttexture>
 			<onclick>Skin.ToggleSetting(showcasethin)</onclick>
-			<visible>Control.IsVisible(57) + Window.IsActive(videolibrary)</visible>
+			<visible>Control.IsVisible(57) + [Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)]</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_ListLayout"><!-- 700023 -->
@@ -702,7 +702,7 @@
 			<include>MediaMenuButton</include>
 			<label>313004</label>
 			<onclick>SetFocus(7020)</onclick>
-			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
+			<visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + [Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
 			<onright>SetFocus(7020)</onright>
 			<visible>!Skin.HasSetting(noinfotriggerbuttons)</visible>
 		</control>
@@ -1046,7 +1046,7 @@
 					<onclick>Skin.SetBool(multiplextvinfooff)</onclick>
 					<onclick>Skin.Reset(multiplextvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 				</control>
 				<control type="button" id="702012">
 					<include>MediaMenuButton</include>
@@ -1056,7 +1056,7 @@
 					<onclick>Skin.Reset(multiplextvinfooff)</onclick>
 					<onclick>Skin.Reset(multiplextvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 				</control>
 				<control type="button" id="702013">
 					<include>MediaMenuButton</include>
@@ -1066,7 +1066,7 @@
 					<onclick>Skin.Reset(multiplextvinfooff)</onclick>
 					<onclick>Skin.Reset(multiplextvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 				</control>
 				<control type="button" id="702014">
 					<include>MediaMenuButton</include>
@@ -1076,7 +1076,7 @@
 					<onclick>Skin.Reset(multiplextvinfooff)</onclick>
 					<onclick>Skin.SetBool(multiplextvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 				</control>
 				<control type="button" id="702015"><!--oldmultiplex-->
 					<include>MediaMenuButton</include>
@@ -1166,7 +1166,7 @@
 					<onclick>Skin.SetBool(showcasetvinfooff)</onclick>
 					<onclick>Skin.Reset(showcasetvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 				</control>
 				<control type="button" id="702024">
 					<include>MediaMenuButton</include>
@@ -1176,7 +1176,7 @@
 					<onclick>Skin.Reset(showcasetvinfooff)</onclick>
 					<onclick>Skin.Reset(showcasetvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 				</control>
 				<control type="button" id="702025">
 					<include>MediaMenuButton</include>
@@ -1186,7 +1186,7 @@
 					<onclick>Skin.Reset(showcasetvinfooff)</onclick>
 					<onclick>Skin.Reset(showcasetvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 
 				</control>
 				<control type="button" id="702026">
@@ -1197,7 +1197,7 @@
 					<onclick>Skin.Reset(showcasetvinfooff)</onclick>
 					<onclick>Skin.SetBool(showcasetvinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
 				</control>
 				<control type="button" id="702027"> <!-- multiwall-->
 					<include>MediaMenuButton</include>
@@ -1346,6 +1346,46 @@
 					<onclick>Skin.Reset(wallinfoon)</onclick>
 					<onclick>ReloadSkin</onclick>
 					<visible>Window.IsActive(videolibrary) + Control.IsVisible(53)</visible>
+				</control>
+					<control type="button" id="702042"><!--ShowcaseMusic-->
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31078]</label>
+					<onclick>Skin.Reset(showcasemusicinfoauto)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfotrigger)</onclick>
+					<onclick>Skin.SetBool(showcasemusicinfooff)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(musiclibrary)</visible>
+				</control>
+				<control type="button" id="702043">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31048]</label>
+					<onclick>Skin.Reset(showcasemusicinfoauto)</onclick>
+					<onclick>Skin.SetBool(showcasemusicinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfooff)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(musiclibrary)</visible>
+				</control>
+				<control type="button" id="702044">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31049]</label>
+					<onclick>Skin.SetBool(showcasemusicinfoauto)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfooff)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(musiclibrary)</visible>
+				</control>
+				<control type="button" id="702045">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31077]</label>
+					<onclick>Skin.Reset(showcasemusicinfoauto)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcasemusicinfooff)</onclick>
+					<onclick>Skin.SetBool(showcasemusicinfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(musiclibrary)</visible>
 				</control>
 			</control>
 		</control>

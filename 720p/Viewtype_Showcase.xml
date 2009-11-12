@@ -622,6 +622,168 @@
 			</control>
 		</control>
 	</include>
+	<include name="ShowcaseInfoPaneMusic">
+		<control type="group">
+			<posx>0</posx>
+			<posy>26</posy>
+			<width>1280</width>
+			<height>381</height>
+			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
+			<visible>Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcasemusicinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcasemusicinfotrigger) | Skin.HasSetting(showcasemusicinfoauto)]]]</visible>
+			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcasemusicinfoon)">WindowOpen</animation>
+			<animation effect="fade" end="0" time="200">WindowClose</animation>
+			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+			<control type="image">
+				<posx>75</posx>
+				<width>1130</width>
+				<height>590</height>
+				<texture border="0,0,0,204">multiplex/multiplex_back.png</texture>
+				<visible>!Skin.HasSetting(showcasethin)</visible>
+				<include>Animation_CommonFade</include>
+			</control>
+			<control type="image">
+				<posx>75</posx>
+				<width>1130</width>
+				<height>590</height>
+				<texture border="0,0,0,204">multiplex/multiplex_tvposter_tablet.png</texture>
+			</control>
+			<control type="group"> <!--artists-->
+				<posx>105</posx>
+				<posy>30</posy>
+				<visible>Container.Content(artists)</visible>
+				<control type="group">
+					<posy>8</posy>
+					<control type="label">
+						<include>MultiplexInfoLabel</include>
+						<label>Years Active:</label>
+					</control>
+					<control type="label">
+						<include>MultiplexInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).ListItem.Property(YearsActive)]</label>
+					</control>
+				</control>
+				<control type="group">
+					<posy>58</posy>
+					<control type="label">
+						<include>MultiplexInfoLabel</include>
+						<label>Formed:</label>
+					</control>
+					<control type="label">
+						<include>MultiplexInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).ListItem.Property(Formed)]</label>
+					</control>
+				</control>
+				<control type="group">
+					<posy>100</posy>
+					<control type="label">
+						<include>MultiplexInfoLabel</include>
+						<label>$LOCALIZE[176]:</label>
+					</control>
+					<control type="label">
+						<include>MultiplexInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).listitem.Property(style)]</label>
+					</control>
+				</control>
+			</control>
+			<control type="group"> <!--albums-->
+				<posx>105</posx>
+				<posy>30</posy>
+				<visible>Container.Content(albums)</visible>
+				<control type="group">
+					<posy>8</posy>
+					<control type="label">
+						<include>MultiplexInfoLabel</include>
+						<label>GENRE:</label>
+					</control>
+					<control type="label">
+						<include>MultiplexInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).ListItem.Genre]</label>
+					</control>
+				</control>
+				<control type="group">
+					<posy>58</posy>
+					<control type="label">
+						<include>MultiplexInfoLabel</include>
+						<label>STIL:</label>
+					</control>
+					<control type="label">
+						<include>MultiplexInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).listitem.Property(style)]</label>
+					</control>
+				</control>
+				<control type="group">
+					<posy>100</posy>
+					<control type="label">
+						<include>MultiplexInfoLabel</include>
+						<label>$LOCALIZE[31440]:</label>
+					</control>
+					<control type="label">
+						<include>MultiplexInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).ListItem.Property(UnwatchedEpisodes)]</label>
+					</control>
+				</control>
+			</control>
+			<control type="textbox">
+				<posx>105</posx>
+				<posy>174</posy>
+				<width>375</width>
+				<height>187</height>
+				<font>Font_MultiplexPlotSmall</font>
+				<label>$INFO[Container(57).ListItem.Property(description)]</label>
+				<textcolor>d0FFFFFF</textcolor>
+				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<visible>Container.Content(artists)</visible>
+			</control>
+			<control type="textbox">
+				<posx>105</posx>
+				<posy>174</posy>
+				<width>375</width>
+				<height>187</height>
+				<font>Font_MultiplexPlotSmall</font>
+				<label>$INFO[Container(57).ListItem.Property(description)]</label>
+				<textcolor>d0FFFFFF</textcolor>
+				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<visible>Container.Content(albums)</visible>
+			</control>
+			<control type="group">
+				<posx>508</posx>
+				<posy>40</posy>
+				<control type="largeimage">
+					<posx>15</posx>
+					<posy>-7</posy>
+					<width>638</width>
+					<height>328</height>
+					<fadetime>400</fadetime>
+					<aspectratio>stretch</aspectratio>
+					<texture>$INFO[Container(57).listitem.property(fanart_image)]</texture>
+					<visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+				<control type="largeimage">
+					<posx>15</posx>
+					<posy>-7</posy>
+					<width>638</width>
+					<height>328</height>
+					<fadetime>400</fadetime>
+					<aspectratio>scale</aspectratio>
+					<texture>$INFO[Fanart.Image]</texture>
+					<visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+				<control type="image">
+					<posx>1</posx>
+					<posy>1</posy>
+					<width>668</width>
+					<height>316</height>
+					<fadetime>400</fadetime>
+					<aspectratio>scale</aspectratio>
+					<texture>$INFO[Container(57).listitem.thumb]</texture>
+					<visible>Skin.HasSetting(showcasemusicbigthumb) + Container.Content(episodes)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+			</control>
+		</control>
+	</include>
 	<include name="ShowcaseSpotNight">
 		<texture>showcase/showcase_spot.png</texture>
 	</include>
@@ -3681,6 +3843,7 @@
 	<include name="Viewtype_Showcase">
 		<include condition="Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)">ShowcaseInfoPaneMovies</include>
 		<include condition="Skin.HasSetting(videotv) + Window.IsActive(videolibrary)">ShowcaseInfoPaneTV</include>
+		<include condition="Window.IsActive(musiclibrary)">ShowcaseInfoPaneMusic</include>
 		<control type="group">
 			<visible>Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)</visible>
 			<include condition="Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)">ShowcaseMovies</include>
@@ -3690,6 +3853,15 @@
 			<visible>Window.IsActive(scripts) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(musicplaylist) | Window.IsActive(pictures)</visible>
 			<include condition="Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">ShowcaseSquare</include>
 			<include>Animation_HideShowcase</include>
+		</control>
+		<control type="image" id="70109">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texture>-</texture>
+			<visible>[[Container.Content(movies) + !Skin.HasSetting(showcaseinfooff) + !Skin.HasSetting(showcaseinfotrigger)] | [[Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(showcasetvinfooff) + !Skin.HasSetting(showcasetvinfotrigger)]] + [Control.HasFocus(57) | ControlGroup(7000).HasFocus()] + [!Container(57).OnNext + !Container(57).OnPrevious]]</visible>
+			<animation effect="fade" start="0" end="100" time="150" delay="3000">Visible</animation>
 		</control>
 		<control type="button" id="70110">
 			<posx>0</posx>
@@ -3703,7 +3875,7 @@
 			<onup>7000</onup>
 			<ondown>57</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[Skin.HasSetting(showcaseinfotrigger)+Skin.HasSetting(videomovies)] | [Skin.HasSetting(showcasetvinfotrigger)+Skin.HasSetting(videotv)]</visible>
+			<visible>[Skin.HasSetting(showcaseinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(showcasetvinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
 		</control>
 		<control type="button" id="70110">
 			<posx>0</posx>
@@ -3713,7 +3885,7 @@
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[!Skin.HasSetting(showcaseinfotrigger)+Skin.HasSetting(videomovies)] | [!Skin.HasSetting(showcasetvinfotrigger)+Skin.HasSetting(videotv)]</visible>
+			<visible>[!Skin.HasSetting(showcaseinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(showcasetvinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
 		</control>
 			<control type="button" id="722">		
 				<description>INVISIBLE GO TO SCROLLBAR button</description>
@@ -3757,7 +3929,7 @@
 				<include>Animation_HideShowcase</include>
 				<focusposition>3</focusposition>
 				<preloaditems>2</preloaditems>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(years) | Container.Content(directors) | Container.Content(genres) | Container.Content(albums) | Window.IsActive(musicfiles) | Window.IsActive(videofiles)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(years) | Container.Content(directors) | Container.Content(genres) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(musicfiles) | Window.IsActive(videofiles)</visible>
 				<itemlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)">
 					<control type="image">
 						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
