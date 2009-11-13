@@ -402,15 +402,32 @@
 			<altclick>ReloadSkin</altclick>
 			<visible>Control.IsVisible(53)</visible>
 		</control>
-		<control type="togglebutton" id="700035">
+		<control type="button" id="3006"><!--Wall-->
 			<include>MediaMenuButton</include>
-			<label>$LOCALIZE[31076]: $LOCALIZE[31074]</label>
-			<altlabel>$LOCALIZE[31076]: $LOCALIZE[31073]</altlabel>
-			<usealttexture>!Skin.HasSetting(smallmoviewall)</usealttexture>
-			<onclick>Skin.ToggleSetting(smallmoviewall)</onclick>
+			<label>SIZE: SMALL</label>
+			<onclick>Skin.Reset(smallmoviewall)</onclick>
+			<onclick>Skin.Reset(maxmoviewall)</onclick>
 			<onclick>ReloadSkin</onclick>
-			<visible>Control.IsVisible(53)</visible>
-			<visible>[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(episodes)</visible>
+			<onright>50</onright>
+			<visible>Control.IsVisible(53) + Container.Content(movies) + Skin.HasSetting(maxmoviewall)</visible>
+		</control>
+		<control type="button" id="3007">
+			<include>MediaMenuButton</include>
+			<label>SIZE: BIG</label>
+			<onclick>Skin.Reset(smallmoviewall)</onclick>
+			<onclick>Skin.SetBool(maxmoviewall)</onclick>
+			<onclick>ReloadSkin</onclick>
+			<onright>50</onright>
+			<visible>Control.IsVisible(53) + Container.Content(movies) + Skin.HasSetting(smallmoviewall)</visible>
+		</control>
+		<control type="button" id="3008">
+			<include>MediaMenuButton</include>
+			<label>SIZE: NORMAL</label>
+			<onclick>Skin.SetBool(smallmoviewall)</onclick>
+			<onclick>Skin.Reset(maxmoviewall)</onclick>
+			<onclick>ReloadSkin</onclick>
+			<onright>50</onright>
+			<visible>Control.IsVisible(53) + Container.Content(movies) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)</visible>
 		</control>
 		<control type="togglebutton" id="700036">
 			<include>MediaMenuButton</include>
@@ -783,6 +800,7 @@
 					<onclick>Skin.Reset(fanartlayout)</onclick>
 					<onclick>Skin.Reset(poster)</onclick>
 					<onright>SetFocus(50)</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
 				</control>
 				<control type="button" id="3004">
 					<texturefocus>viewselect/trailer_focus.png</texturefocus>
@@ -792,6 +810,7 @@
 					<onclick>Skin.SetBool(fanartlayout)</onclick>
 					<onclick>Skin.Reset(poster)</onclick>
 					<onright>SetFocus(50)</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
 				</control>
 				<control type="button" id="3005">
 					<texturefocus>viewselect/poster_focus.png</texturefocus>
@@ -801,7 +820,9 @@
 					<onclick>Skin.SetBool(poster)</onclick>
 					<onclick>Skin.Reset(fanartlayout)</onclick>
 					<onright>SetFocus(50)</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
 				</control>
+
 				<control type="label">
 					<include>MediaMenuLabel</include>
 					<label>Fanart / Thumbs</label>
