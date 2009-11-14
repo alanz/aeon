@@ -1,4 +1,5 @@
 <includes>
+
 	<include name="WatchedOverlayShowCaseDVD">
 		<posx>163</posx>
 		<posy>28</posy>
@@ -55,7 +56,7 @@
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<width>1280</width>
 			<height>381</height>
-			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
@@ -3907,7 +3908,7 @@
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
-				<visible>Skin.HasSetting(showcasetrailer) + Container.Content(movies) + Control.IsVisible(57)</visible>
+				<visible>Skin.HasSetting(showcasetrailer) + Container.Content(movies) + Control.IsVisible(57) + !IsEmpty(ListItem.Trailer)</visible>
 				<onleft>57</onleft>
 				<onright>57</onright>
 				<onup>57</onup>
@@ -4139,6 +4140,7 @@
 					</control>
 				</focusedlayout>
 			</control>
+
 			<control type="scrollbar" id="60">
 				<description>My first scroll bar control</description>
 				<posx>305</posx>
