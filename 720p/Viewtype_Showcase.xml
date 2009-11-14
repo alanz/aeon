@@ -240,18 +240,19 @@
 					<visible>[!Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
 				</control>
 				<control type="image">
-					<posx>538</posx>
-					<posy>340</posy>
+					<posx>527</posx>
+					<posy>329</posy>
 					<align>center</align>
 					<width>240</width>
 					<height>32</height>
 					<texture>multiplex/multiplex_trailer_label.png</texture>
 					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
 				<control type="label">
-					<posx>538</posx>
-					<posy>344</posy>
+					<posx>527</posx>
+					<posy>333</posy>
 					<align>center</align>
 					<width>240</width>
 					<height>32</height>
@@ -261,9 +262,9 @@
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
-				<control type="label">
-					<posx>538</posx>
-					<posy>344</posy>
+				<control type="label"> <!--press ok to play trailer -->
+					<posx>527</posx>
+					<posy>333</posy>
 					<align>center</align>
 					<width>240</width>
 					<height>32</height>
@@ -273,9 +274,9 @@
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
-				<control type="label">
-					<posx>538</posx>
-					<posy>344</posy>
+				<control type="label"><!-- press x to stop-->
+					<posx>527</posx>
+					<posy>333</posy>
 					<align>center</align>
 					<width>240</width>
 					<height>32</height>
@@ -3897,7 +3898,7 @@
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<onfocus>SetFocus(60)</onfocus>
-				<visible>![Skin.HasSetting(showcasetrailer) + Container.Content(movies)] + Control.IsVisible(57)</visible>
+				<visible>[![Skin.HasSetting(showcasetrailer) + Container.Content(movies)] | IsEmpty(ListItem.Trailer)] + Control.IsVisible(57)</visible>
 			</control>
 			<control type="button" id="722">
 				<description>INVISIBLE START TRAILER button</description>
@@ -3912,7 +3913,7 @@
 				<onleft>57</onleft>
 				<onright>57</onright>
 				<onup>57</onup>
-				<ondown>57</ondown>
+				<ondown>60</ondown>
 			</control>
 		<control type="group">			
 			<visible>Control.IsVisible(57)</visible>
