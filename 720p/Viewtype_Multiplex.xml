@@ -74,7 +74,7 @@
 			<posy>65</posy>
 			<width>1280</width>
 			<height>381</height>
-			<visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
+			<visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | Control.HasFocus(723) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(multiplexinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
@@ -337,7 +337,7 @@
 					<posy>1</posy>
 					<width>593</width>
 					<height>333</height>
-					<visible>[Control.IsVisible(52) + Skin.HasSetting(fanartlayout) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
+					<visible>[Control.IsVisible(52) + Skin.HasSetting(fanartlayout) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | Control.HasFocus(723) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
 				</control>
 				<control type="largeimage">
 					<posx>1</posx>
@@ -1305,7 +1305,7 @@
 			<scrolltime>200</scrolltime>
 			<visible>[Window.IsActive(videolibrary) + Container.Content(movies)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + Skin.HasSetting(tvposter)  + !Container.Content(studios) + !Container.Content(years) + !Container.Content(directors) + !Container.Content(actors)]</visible>
 			<include>Animation_HideMultiplex</include>
-			<preloaditems>4</preloaditems>
+			<preloaditems>2</preloaditems>
 			<animation effect="slide" start="0" end="480" condition="Container.Content(seasons) + Skin.HasSetting(tvposter) + stringcompare(Container(52).NumItems,1)">Conditional</animation>
 			<animation effect="slide" start="0" end="420" condition="Container.Content(seasons) + Skin.HasSetting(tvposter) + stringcompare(Container(52).NumItems,2)">Conditional</animation>
 			<animation effect="slide" start="0" end="360" condition="Container.Content(seasons) + Skin.HasSetting(tvposter) + stringcompare(Container(52).NumItems,3)">Conditional</animation>
@@ -1338,7 +1338,7 @@
 			<scrolltime>200</scrolltime>
 			<visible>[Window.IsActive(videolibrary) + Container.Content(movies)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + Skin.HasSetting(tvposter) + !Container.Content(studios) + !Container.Content(years) + !Container.Content(directors) + !Container.Content(actors)]</visible>
 			<include>Animation_HideMultiplex</include>
-			<preloaditems>4</preloaditems>
+			<preloaditems>2</preloaditems>
 			<itemlayout width="120" height="300">
 				<include condition="!Skin.HasSetting(dvdcase)">MultiplexNormalCoversNoFocus</include>
 				<include condition="Skin.HasSetting(dvdcase)">MultiplexDVDCoversNoFocus</include>
@@ -1521,7 +1521,7 @@
 			<scrolltime>200</scrolltime>
 			<visible>[Window.IsActive(videolibrary) + !Skin.HasSetting(tvposter) + [Container.Content(tvshows) | Container.Content(seasons)  | Container.Content(episodes)]] | [Window.IsActive(videolibrary) + Skin.HasSetting(tvposter) + Container.Content(episodes)]</visible>
 			<include>Animation_HideMultiplex</include>
-			<preloaditems>4</preloaditems>
+			<preloaditems>2</preloaditems>
 			<animation effect="slide" start="0" end="438" condition="Container.Content(seasons) + !Skin.HasSetting(tvposter) + stringcompare(Container(552).NumItems,1)">Conditional</animation>
 			<animation effect="slide" start="0" end="330" condition="Container.Content(seasons) + !Skin.HasSetting(tvposter) + stringcompare(Container(552).NumItems,2)">Conditional</animation>
 			<animation effect="slide" start="0" end="219" condition="Container.Content(seasons) + !Skin.HasSetting(tvposter) + stringcompare(Container(552).NumItems,3)">Conditional</animation>
@@ -1552,7 +1552,7 @@
 			<scrolltime>200</scrolltime>
 			<visible>[Window.IsActive(videolibrary) + !Skin.HasSetting(tvposter) +[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]] | [Window.IsActive(videolibrary) + Skin.HasSetting(tvposter) + Container.Content(episodes)]</visible>
 			<include>Animation_HideMultiplex</include>
-			<preloaditems>4</preloaditems>
+			<preloaditems>2</preloaditems>
 			<itemlayout width="219" height="300" condition="Skin.HasSetting(videotv)">
 				<include>Multiplex_TV_Layout</include>
 			</itemlayout>
@@ -1562,7 +1562,7 @@
 		</control>
 	</include>
 	<include name="Viewtype_Multiplex">
-		<control type="button" id="111">
+		<control type="button" id="111"> <!-- trigger button-->
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>0</width>
@@ -1576,7 +1576,7 @@
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
 			<visible>[Skin.HasSetting(multiplexinfotrigger)+Skin.HasSetting(videomovies)] | [Skin.HasSetting(multiplextvinfotrigger)+Skin.HasSetting(videotv)]</visible>
 		</control>
-		<control type="button" id="111">
+		<control type="button" id="111"> <!-- trigger button SetFocus(7000)-->
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>0</width>
@@ -1673,7 +1673,7 @@
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<onfocus>SetFocus(60)</onfocus>
-				<visible>!Skin.HasSetting(multiplextrailer) | !Container.Content(movies) + Control.IsVisible(52)</visible>
+				<visible>[IsEmpty(ListItem.Trailer) | !Skin.HasSetting(multiplextrailer) | !Container.Content(movies)] + Control.IsVisible(52)</visible>
 			</control>
 			<control type="button" id="723">
 				<description>INVISIBLE START TRAILER button</description>
@@ -1684,11 +1684,11 @@
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
-				<visible>Skin.HasSetting(multiplextrailer) + Container.Content(movies) + Control.IsVisible(52)</visible>
+				<visible>Skin.HasSetting(multiplextrailer) + Container.Content(movies) + Control.IsVisible(52)+ !IsEmpty(ListItem.Trailer)</visible>
 				<onleft>52</onleft>
 				<onright>52</onright>
 				<onup>52</onup>
-				<ondown>52</ondown>
+				<ondown>60</ondown>
 			</control>
 		<control type="group">
 			<visible>Control.IsVisible(52) | Control.IsVisible(552)</visible>
