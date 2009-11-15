@@ -1,18 +1,25 @@
 <window>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<controls>
-		<control type="button" id="10">
+	<control type="button" id="10">
         <onfocus>Skin.SetBool(Startup)</onfocus>
 		<onfocus>Skin.SetBool(Startup2)</onfocus>
+		<onfocus>Skin.SetBool(fanartlayout)</onfocus>
         <onfocus>SetFocus(1)</onfocus>
         <texturenofocus>-</texturenofocus>
         <texturefocus>-</texturefocus>
+		<visible>!Skin.HasSetting(veryfirststart)</visible>
     </control>
+	<control type="button" id="10">
+        <onfocus>SetFocus(1)</onfocus>
+        <texturenofocus>-</texturenofocus>
+        <texturefocus>-</texturefocus>
+		<visible>Skin.HasSetting(veryfirststart)</visible>
+    </control>
+	
 	<control type="button" id="1">
 		<description>ReplaceWindow Trigger</description>
-		<posx>35</posx>
-		<posy>235</posy>
-		<font>special15</font>
+		<onfocus>Skin.SetBool(veryfirststart)</onfocus>
 		<onfocus>ReplaceWindow(Home)</onfocus>
 		<texturefocus>-</texturefocus>
 		<texturenofocus>-</texturenofocus>
@@ -20,9 +27,7 @@
 	</control>
 	<control type="button" id="1">
 		<description>ReplaceWindow Trigger</description>
-		<posx>35</posx>
-		<posy>235</posy>
-		<font>special15</font>
+		<onfocus>Skin.SetBool(veryfirststart)</onfocus>
 		<onfocus>PlayMedia($INFO[Skin.String(startuplocation)])</onfocus>
 		<onfocus>ReplaceWindow(Home)</onfocus>
 		<texturefocus>-</texturefocus>

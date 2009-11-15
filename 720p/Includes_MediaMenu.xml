@@ -402,7 +402,7 @@
 			<altclick>ReloadSkin</altclick>
 			<visible>Control.IsVisible(53)</visible>
 		</control>
-		<control type="button" id="3006"><!--Wall-->
+		<control type="button" id="30006"><!--Wall-->
 			<include>MediaMenuButton</include>
 			<label>SIZE: SMALL</label>
 			<onclick>Skin.Reset(smallmoviewall)</onclick>
@@ -411,7 +411,7 @@
 			<onright>50</onright>
 			<visible>Control.IsVisible(53) + Container.Content(movies) + Skin.HasSetting(maxmoviewall)</visible>
 		</control>
-		<control type="button" id="3007">
+		<control type="button" id="30007">
 			<include>MediaMenuButton</include>
 			<label>SIZE: BIG</label>
 			<onclick>Skin.Reset(smallmoviewall)</onclick>
@@ -420,7 +420,7 @@
 			<onright>50</onright>
 			<visible>Control.IsVisible(53) + Container.Content(movies) + Skin.HasSetting(smallmoviewall)</visible>
 		</control>
-		<control type="button" id="3008">
+		<control type="button" id="30008">
 			<include>MediaMenuButton</include>
 			<label>SIZE: NORMAL</label>
 			<onclick>Skin.SetBool(smallmoviewall)</onclick>
@@ -777,7 +777,7 @@
 				<posx>235</posx>
 				<posy>45</posy>
 				<width>210</width>
-				<height>425</height>
+				<height>545</height>
 				<texture>showcase/menupanel.png</texture>
 			</control>
 			<control type="grouplist" id="7011">
@@ -792,40 +792,58 @@
 				<orientation>Vertical</orientation>
 				<focusposition>1</focusposition>
 				<scrolltime>200</scrolltime>
-				<control type="button" id="3001">
+				<control type="button" id="3001"> <!--plot-->
 					<texturefocus>viewselect/plot_focus.png</texturefocus>
 	  				<texturenofocus>viewselect/plot.png</texturenofocus>
 	  				<include>ViewImage</include>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<onclick>Skin.Reset(fanartlayout)</onclick>
-					<onclick>Skin.Reset(poster)</onclick>
+					<onclick>Skin.Reset(posterlayout)</onclick>
+					<onclick>Skin.SetBool(plotlayout)</onclick>
+					<onclick>Skin.Reset(extrathumbslayout)</onclick>
 					<onright>SetFocus(50)</onright>
 					<visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
 				</control>
-				<control type="button" id="3004">
+				<control type="button" id="3004"> <!--fanart-->
 					<texturefocus>viewselect/trailer_focus.png</texturefocus>
 	  				<texturenofocus>viewselect/trailer.png</texturenofocus>
 	  				<include>ViewImage</include>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<onclick>Skin.SetBool(fanartlayout)</onclick>
-					<onclick>Skin.Reset(poster)</onclick>
+					<onclick>Skin.Reset(posterlayout)</onclick>
+					<onclick>Skin.Reset(plotlayout)</onclick>
+					<onclick>Skin.Reset(extrathumbslayout)</onclick>
 					<onright>SetFocus(50)</onright>
 					<visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
 				</control>
-				<control type="button" id="3005">
+				<control type="button" id="3005"> <!--poster-->
 					<texturefocus>viewselect/poster_focus.png</texturefocus>
 	  				<texturenofocus>viewselect/poster.png</texturenofocus>
 	  				<include>ViewImage</include>
 					<aspectratio scalediffuse="false">scale</aspectratio>
-					<onclick>Skin.SetBool(poster)</onclick>
+					<onclick>Skin.SetBool(posterlayout)</onclick>
 					<onclick>Skin.Reset(fanartlayout)</onclick>
+					<onclick>Skin.Reset(plotlayout)</onclick>
+					<onclick>Skin.Reset(extrathumbslayout)</onclick>
+					<onright>SetFocus(50)</onright>
+					<visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
+				</control>
+				<control type="button" id="3006"> <!--extrathumbs-->
+					<texturefocus>viewselect/extrathumbs_focus.png</texturefocus>
+	  				<texturenofocus>viewselect/extrathumbs.png</texturenofocus>
+	  				<include>ViewImage</include>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<onclick>Skin.Reset(posterlayout)</onclick>
+					<onclick>Skin.Reset(fanartlayout)</onclick>
+					<onclick>Skin.Reset(plotlayout)</onclick>
+					<onclick>Skin.SetBool(extrathumbslayout)</onclick>
 					<onright>SetFocus(50)</onright>
 					<visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
 				</control>
 
 				<control type="label">
 					<include>MediaMenuLabel</include>
-					<label>Fanart / Thumbs</label>
+					<label>Fanart / Thumb</label>
 					<visible>Control.HasFocus(3004)</visible>
 				</control>
 				<control type="label">
@@ -837,6 +855,11 @@
 					<include>MediaMenuLabel</include>
 					<label>Plot</label>
 					<visible>Control.HasFocus(3001)</visible>
+				</control>
+				<control type="label">
+					<include>MediaMenuLabel</include>
+					<label>Extrathumbs</label>
+					<visible>Control.HasFocus(3006)</visible>
 				</control>
 			</control>	
 		</control>

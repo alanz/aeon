@@ -45,8 +45,8 @@
 	<include name="OldMultiplexInfoLabel">
 		<posx>0</posx>
 		<posy>0</posy>
-		<include condition="!Skin.HasSetting(poster) + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth</include>
-		<include condition="Skin.HasSetting(poster) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
+		<include condition="!Skin.HasSetting(posterlayout) + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth</include>
+		<include condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
 		<height>13</height>
 		<font>Font_MultiplexInfoLabelOld</font>
 		<textcolor>abFFFFFF</textcolor>
@@ -54,8 +54,8 @@
 	<include name="OldMultiplexInfoValue">
 		<posx>0</posx>
 		<posy>17</posy>
-		<include condition="!Skin.HasSetting(poster) + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth</include>
-		<include condition="Skin.HasSetting(poster) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
+		<include condition="!Skin.HasSetting(posterlayout) + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth</include>
+		<include condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
 		<height>13</height>
 		<font>Font_MultiplexInfoValueOld</font>
 		<textcolor>FFFFFFFF</textcolor>
@@ -80,7 +80,7 @@
 				<width>1280</width>
 				<height>381</height>
 				<texture>multiplex/old/multiplex_full_infoplot.png</texture>
-				<visible>!Skin.HasSetting(fanartlayout)</visible>
+				<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
 			</control>
 			<control type="image">
 				<width>1280</width>
@@ -88,7 +88,8 @@
 				<texture>multiplex/old/multiplex_full_infobigthumb.png</texture>
 				<visible>Skin.HasSetting(fanartlayout)</visible>
 			</control>
-			<control type="group">
+			<control type="group"><!--plot/poster/fanart-->
+				<visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(plotlayout)</visible>
 				<posx>60</posx>
 				<posy>0</posy>
 				<control type="group">
@@ -126,7 +127,7 @@
 				</control>
 				<control type="group">
 					<posy>172</posy>
-					<visible>!Skin.HasSetting(fanartlayout)</visible>
+					<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
 					<control type="label">
 						<include>OldMultiplexInfoLabel</include>
 						<label>$LOCALIZE[31709]:</label>
@@ -138,7 +139,7 @@
 				</control>
 				<control type="group">
 					<posy>222</posy>
-					<visible>!Skin.HasSetting(fanartlayout)</visible>
+					<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
 					<control type="label">
 						<include>OldMultiplexInfoLabel</include>
 						<label>$LOCALIZE[31438]:</label>
@@ -150,7 +151,7 @@
 				</control>
 				<control type="group">
 					<posy>272</posy>
-					<visible>!Skin.HasSetting(fanartlayout)</visible>
+					<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
 					<control type="label">
 						<include>OldMultiplexInfoLabel</include>
 						<label>$LOCALIZE[31417]:</label>
@@ -162,7 +163,7 @@
 				</control>
 				<control type="group">
 					<posy>322</posy>
-					<visible>!Skin.HasSetting(fanartlayout)</visible>
+					<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
 					<control type="label">
 						<include>OldMultiplexInfoLabel</include>
 						<label>$LOCALIZE[31408]:</label>
@@ -212,7 +213,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="textbox">
+			<control type="textbox"><!--plot / poster-->
 				<posx>396</posx>
 				<posy>22</posy>
 				<width>491</width>
@@ -221,23 +222,12 @@
 				<info>Container(553).ListItem.Plot</info>
 				<textcolor>d0FFFFFF</textcolor>
 				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
-				<visible>!Skin.HasSetting(fanartlayout)</visible>
+				<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
 			</control>
-			<control type="textbox">
-				<posx>60</posx>
-				<posy>188</posy>
-				<width>470</width>
-				<height>174</height>
-				<font>Font_MultiplexPlotOld</font>
-				<info>Container(553).ListItem.Plot</info>
-				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
-				<visible>Skin.HasSetting(fanartlayout)</visible>
-			</control>
-			<control type="group">
+			<control type="group"><!--plotlayout-->
 				<posx>921</posx>
 				<posy>18</posy>
-				<visible>![Skin.HasSetting(poster) | Skin.HasSetting(fanartlayout)]</visible>
+				<visible>Skin.HasSetting(plotlayout)</visible>
 				<control type="image">
 					<posx>0</posx>
 					<posy>0</posy>
@@ -273,10 +263,10 @@
 					<texture fallback="defaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
 				</control>				
 			</control>
-			<control type="group">
+			<control type="group"><!--posterlayout-->
 				<posx>921</posx>
 				<posy>18</posy>
-				<visible>Skin.HasSetting(poster)</visible>
+				<visible>Skin.HasSetting(posterlayout)</visible>
 				<control type="image">
 					<posx>50</posx>
 					<posy>0</posy>
@@ -296,10 +286,20 @@
 					<aspectratio>stretch</aspectratio>
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"><!--fanartlayout-->
 				<posx>612</posx>
 				<posy>18</posy>
 				<visible>Skin.HasSetting(fanartlayout)</visible>
+				<control type="textbox">
+					<posx>-580</posx>
+					<posy>152</posy>
+					<width>540</width>
+					<height>174</height>
+					<font>Font_MultiplexPlotOld</font>
+					<info>Container(553).ListItem.Plot</info>
+					<textcolor>d0FFFFFF</textcolor>
+					<autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				</control>
 				<control type="image">
 					<posx>0</posx>
 					<posy>0</posy>
