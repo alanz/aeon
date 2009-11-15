@@ -1,6 +1,7 @@
 <includes>
 	<include name="Showcase_List_Content">
 		<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
+		<animation effect="slide" end="0,-8" time="700" delay="1000" condition="Skin.HasSetting(flattenshowcase)">Conditional</animation>
 		<viewtype label="Showcase">list</viewtype>
 		<include condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)">MovieShowcaseGroupVars</include>
 		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | Window.IsActive(scripts)">MusicShowcaseGroupVars</include>
@@ -4297,7 +4298,7 @@
 			<onup>7000</onup>
 			<ondown>57</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[Skin.HasSetting(showcaseinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(showcasetvinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
+			<visible>[[Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
 		</control>
 		<control type="button" id="70110">
 			<posx>0</posx>
@@ -4307,7 +4308,7 @@
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[!Skin.HasSetting(showcaseinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(showcasetvinfotrigger) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
+			<visible>[![Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
 		</control>
 		<control type="button" id="722">		
 			<description>INVISIBLE GO TO SCROLLBAR button</description>
@@ -4335,7 +4336,7 @@
 			<onup>57</onup>
 			<ondown>60</ondown>
 		</control>
-		<control type="group">			
+		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
 			<include condition="Skin.HasSetting(showcasefixedlist)">ShowcaseFixedList</include>
 			<include condition="!Skin.HasSetting(showcasefixedlist)">ShowcaseWrapList</include>
