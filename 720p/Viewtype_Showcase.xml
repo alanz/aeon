@@ -293,14 +293,7 @@
 			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
-			<animation type="Visible">
-				<effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out" />
-				<effect type="fade" start="0" end="100" time="600" />
-			</animation>
-			<animation type="Hidden">
-				<effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="out" />
-				<effect type="fade" start="100" end="0" time="600" />
-			</animation>
+			<include>Animation_InfoPanelSlide</include>
 			<control type="image">
 				<posx>75</posx>
 				<width>1130</width>
@@ -491,6 +484,7 @@
 					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
 				</control>
 				<control type="label">
 					<posx>527</posx>
@@ -503,6 +497,7 @@
 					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
 				</control>
 				<control type="label"> <!--press ok to play trailer -->
 					<posx>527</posx>
@@ -515,6 +510,7 @@
 					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
 				</control>
 				<control type="label"><!-- press x to stop-->
 					<posx>527</posx>
@@ -528,6 +524,7 @@
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
 				</control>
 			</control>
 			<control type="group"> <!--plot-->
@@ -661,7 +658,7 @@
 					<width>240</width>
 					<height>32</height>
 					<texture>multiplex/multiplex_trailer_label.png</texture>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + [Skin.HasSetting(showcasetrailer) | Control.HasFocus(70110)] + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 				</control>
 				<control type="label">
@@ -684,7 +681,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlot</font>
 					<label>312575</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -896,7 +893,7 @@
 			<visible>Skin.HasSetting(videotv) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcasetvinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcasetvinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
-			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+			<include>Animation_InfoPanelSlide</include>
 			<control type="image">
 				<posx>75</posx>
 				<width>1130</width>
@@ -1058,7 +1055,7 @@
 			<visible>Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcasemusicinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcasemusicinfotrigger) | Skin.HasSetting(showcasemusicinfoauto)]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcasemusicinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
-			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+			<include>Animation_InfoPanelSlide</include>
 			<control type="image">
 				<posx>75</posx>
 				<width>1130</width>

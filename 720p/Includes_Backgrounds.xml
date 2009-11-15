@@ -18,7 +18,7 @@
 		<include>Animation_BackgroundFade</include>
 		<animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
 		<animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-		<visible>![Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] | [[Skin.HasSetting(nomoviecurtains) + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(notvcurtains) + Window.IsActive(videolibrary) + Container.Content(tvshows)] | [Skin.HasSetting(notvseasonscurtains) + Window.IsActive(videolibrary) + Container.Content(seasons)] | [Skin.HasSetting(notvepisodescurtains) + Window.IsActive(videolibrary) + Container.Content(episodes)] | [Skin.HasSetting(nomusiccurtains) + Window.IsActive(musiclibrary)]]</visible>
+		<visible>![Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] | [[!Skin.HasSetting(moviecurtains) + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(tvcurtains) + Window.IsActive(videolibrary) + Container.Content(tvshows)] | [!Skin.HasSetting(tvseasonscurtains) + Window.IsActive(videolibrary) + Container.Content(seasons)] | [!Skin.HasSetting(tvepisodescurtains) + Window.IsActive(videolibrary) + Container.Content(episodes)] | [!Skin.HasSetting(musiccurtains) + Window.IsActive(musiclibrary)]]</visible>
 	</include>
 	<include name="BackgroundVarsVirtual">
 		<posx>0</posx>
@@ -155,7 +155,7 @@
 		<control type="largeimage">
 			<include>FullscreenDimensions</include>
 			<info>Fanart.Image</info>
-			<visible>[[!Skin.HasSetting(notvseasonsfanart) + Container.Content(seasons)] | [Container.Content(episodes)+!Skin.HasSetting(notvepisodesfanart)]]</visible>
+			<visible>[[Skin.HasSetting(tvseasonsfanart) + Container.Content(seasons)] | [Container.Content(episodes) + Skin.HasSetting(tvepisodesfanart)]]</visible>
 		</control>
 	</include>
 	<include name="CurtainsBackdrop">
@@ -164,7 +164,7 @@
 			<timeperimage>20000</timeperimage>
 			<randomize>true</randomize>
 			<fadetime>1000</fadetime>
-			<visible>[!Skin.HasSetting(nomoviecurtains) + Container.Content(movies)] | [!Skin.HasSetting(notvcurtains) + Window.IsActive(videolibrary) + Container.Content(tvshows)] | [!Skin.HasSetting(notvseasonscurtains) + Window.IsActive(videolibrary) + Container.Content(seasons)] | [!Skin.HasSetting(notvepisodescurtains) + Window.IsActive(videolibrary) + Container.Content(episodes)] | [!Skin.HasSetting(nomusiccurtains) + Window.IsActive(musiclibrary)]</visible>
+			<visible>[Skin.HasSetting(moviecurtains) + Container.Content(movies)] | [Skin.HasSetting(tvcurtains) + Window.IsActive(videolibrary) + Container.Content(tvshows)] | [Skin.HasSetting(tvseasonscurtains) + Window.IsActive(videolibrary) + Container.Content(seasons)] | [Skin.HasSetting(tvepisodescurtains) + Window.IsActive(videolibrary) + Container.Content(episodes)] | [Skin.HasSetting(musiccurtains) + Window.IsActive(musiclibrary)]</visible>
 			<include>Animation_BackgroundFade</include>
 			<include>BackgroundVarsCurtains</include>
 		</control>
