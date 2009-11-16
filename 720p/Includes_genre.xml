@@ -173,32 +173,32 @@
 	<control type="image">
 		<include>movie_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/movieposter_mask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
+		<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
 		<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-		<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+		<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 	</control>
 </include>
 <include name="genre_Showcase_21">
 	<control type="image">
 		<include>movie_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/movieposter_mask.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
+		<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
 	</control>
 </include>
 <include name="genre_Showcase_22">
 	<control type="image">
 		<include>music_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/cdcover_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] + Container.Content(genres) + !Skin.HasSetting(MusicGenreOff)</visible>
+		<visible>[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] + Container.Content(genres) + !Skin.HasSetting(MusicGenreOff)</visible>
 		<animation effect="zoom" start="100" end="110" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-		<animation effect="zoom" start="110" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
+		<animation effect="zoom" start="110" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
 	</control>
 </include>
 <include name="genre_Showcase_23">
 	<control type="image">
 		<include>music_genre_Showcase_image_mod</include>
 		<texture diffuse="thumbs/cdcover_mask.png" fallback="musicgenre/default.bmp">musicgenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] + Container.Content(genres) + !Skin.HasSetting(MusicGenreOff)</visible>
+		<visible>[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] + Container.Content(genres) + !Skin.HasSetting(MusicGenreOff)</visible>
 	</control>
 </include>
 <!-- Showcase End -->
@@ -381,9 +381,9 @@
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<texture flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
+		<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
 		<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-		<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+		<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 	</control>
 </include>
 <include name="genre_Showcase_ref_21">
@@ -392,7 +392,7 @@
 		<align>center</align>
 		<aspectratio scalediffuse="false">scale</aspectratio>
 		<texture flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="moviegenre/default.bmp">moviegenre/$INFO[ListItem.Label].bmp</texture>
-		<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
+		<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + Container.Content(genres) + !Skin.HasSetting(MovieGenreOff)</visible>
 	</control>
 </include>
 <!-- Showcase reflection End -->

@@ -1,7 +1,7 @@
 <includes>
 	<include name="Showcase_List_Content">
 		<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
-		<animation effect="slide" end="0,-8" time="700" delay="1000" condition="Skin.HasSetting(flattenshowcase)">Conditional</animation>
+		<animation effect="slide" end="0,-8" time="700" delay="1000" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Conditional</animation>
 		<viewtype label="Showcase">list</viewtype>
 		<include condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)">MovieShowcaseGroupVars</include>
 		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | Window.IsActive(scripts)">MusicShowcaseGroupVars</include>
@@ -21,7 +21,7 @@
 				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
 				<info>ListItem.Icon</info>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+!Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 			</control>
 			<control type="image">
 				<posx>49</posx>
@@ -31,7 +31,7 @@
 				<align>center</align>
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<texture>yearicons/$INFO[ListItem.label]/folder.png</texture>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + Container.Content(years)</visible>
 			</control>
 			<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_21</include>
 			<!-- <<<<<< Add this -->
@@ -39,7 +39,7 @@
 				<description>Glass overlay</description>
 				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+!Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
@@ -50,23 +50,23 @@
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<animation effect="fade" end="100" time="200" condition="ControlGroup(6500).HasFocus">Conditional</animation>
 				<animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 				<info>ListItem.Icon</info>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+!Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 			</control>
 			<control type="image">
 				<description>Glass overlay reflection</description>
 				<include>MovieShowcaseThumbReflectionDVD</include>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 				<include>detailcolornofocus</include>
-				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
+				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 				<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
 			</control>
 			<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_21</include>
@@ -77,9 +77,9 @@
 				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
 				<info>ListItem.Icon</info>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+ !Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+ !Container.Content(years)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<posx>49</posx>
@@ -89,9 +89,9 @@
 				<align>center</align>
 				<aspectratio scalediffuse="false">stretch</aspectratio>
 				<texture>yearicons/$INFO[ListItem.label]/folder.png</texture>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000) + Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + Container.Content(years)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_20</include>
 			<!-- <<<<<< Add this -->
@@ -99,9 +99,9 @@
 				<description>Glass overlay</description>
 				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+!Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
@@ -112,33 +112,33 @@
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<animation effect="fade" end="100" time="200" condition="ControlGroup(6500).HasFocus">Conditional</animation>
 				<animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMain</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMainDVD</include>
 				<info>ListItem.Icon</info>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)+!Container.Content(years)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<description>Glass overlay reflection</description>
 				<include>MovieShowcaseThumbReflectionDVD</include>
-				<visible>Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 				<include>detailcolornofocus</include>
-				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + Skin.HasSetting(flattenshowcase) + !Control.IsVisible(6000)</visible>
+				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 				<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + Skin.HasSetting(flattenshowcase)">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_20</include>
 			<!-- <<<<<< Add this -->
@@ -148,14 +148,14 @@
 			<control type="image">
 				<include>MusicShowcaseThumbMain</include>
 				<info>ListItem.Icon</info>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 			</control>
 			<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_23</include>
 			<!-- <<<<<< Add this -->
 			<control type="image">
 				<description>Glass overlay</description>
 				<include>MusicShowcaseGlassOverlay</include>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
@@ -166,35 +166,35 @@
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<visible>![Control.HasFocus(57) | Control.HasFocus(71) | Control.HasFocus(85)]</visible>
 				<include>Animation_CommonFade</include>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 			</control>
 			<control type="image">
 				<include>MusicShowcaseThumbReflection</include>
 				<info>ListItem.Icon</info>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 			</control>
 			<control type="image">
 				<description>Glass overlay reflection</description>
 				<include>MusicShowcaseThumbReflectionCD</include>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout height="350" width="250" condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | Window.IsActive(scripts)">
 			<control type="image">
 				<include>MusicShowcaseThumbMain</include>
 				<info>ListItem.Icon</info>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 				<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
 			</control>
 			<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_22</include>
 			<!-- <<<<<< Add this -->
 			<control type="image">
 				<description>Glass overlay</description>
 				<include>MusicShowcaseGlassOverlay</include>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 				<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
@@ -205,23 +205,23 @@
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<visible>![Control.HasFocus(57) | Control.HasFocus(71) | Control.HasFocus(85)]</visible>
 				<include>Animation_CommonFade</include>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 				<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<include>MusicShowcaseThumbReflection</include>
 				<info>ListItem.Icon</info>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 				<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<description>Glass overlay reflection</description>
 				<include>MusicShowcaseThumbReflectionCD</include>
-				<visible>[[Skin.HasSetting(flattenshowcase) + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)] | Container.Content(episodes)]</visible>
 				<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]">Unfocus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
 			</control>
 		</focusedlayout>
 	</include>
@@ -485,7 +485,7 @@
 					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
 				</control>
 				<control type="label">
 					<posx>527</posx>
@@ -498,7 +498,7 @@
 					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
 				</control>
 				<control type="label"> <!--press ok to play trailer -->
 					<posx>527</posx>
@@ -511,7 +511,7 @@
 					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
 				</control>
 				<control type="label"><!-- press x to stop-->
 					<posx>527</posx>
@@ -525,7 +525,7 @@
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcase) + Control.HasFocus(57)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
 				</control>
 			</control>
 			<control type="group"> <!--plot-->
@@ -1540,7 +1540,7 @@
 		<control type="group" id="7001">
 			<posy>387</posy>
 			<camera x="640" y="540" />
-			<visible>Control.IsVisible(57) + Container.OnNext + ![Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]</visible>
+			<visible>Control.IsVisible(57) + Container.OnNext + ![[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]</visible>
 			<animation effect="slide" end="-100,0" time="250" reversible="false">Hidden</animation>
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<control type="group">
@@ -1892,7 +1892,7 @@
 		<control type="group" id="7002">
 			<posy>387</posy>
 			<camera x="640" y="540" />
-			<visible>Control.IsVisible(57) + Container.OnPrevious + ![Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]</visible>
+			<visible>Control.IsVisible(57) + Container.OnPrevious + ![[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]</visible>
 			<animation effect="slide" end="100,0" time="250" reversible="false">Hidden</animation>
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<control type="group">
@@ -2237,7 +2237,7 @@
 		</control>
 		<control type="button" id="970">
 			<texture>-</texture>
-			<visible>![Skin.HasSetting(flattenshowcase) | Container.Content(episodes)]</visible>
+			<visible>![[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]</visible>
 			<animation effect="fade" start="100" end="0" time="800">Hidden</animation>
 		</control>
 		<control type="group" id="6500">
@@ -2250,7 +2250,7 @@
 			<control type="group">
 				<posx>50</posx>
 				<animation effect="rotatey" center="-50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="-50" start="0" end="65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-795" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2282,7 +2282,7 @@
 			<control type="group">
 				<posx>150</posx>
 				<animation effect="rotatey" center="50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="50" start="0" end="65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-645" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2314,7 +2314,7 @@
 			<control type="group">
 				<posx>250</posx>
 				<animation effect="rotatey" center="150" start="-65" end="-65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="150" start="0" end="65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-495" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2346,7 +2346,7 @@
 			<control type="group">
 				<posx>350</posx>
 				<animation effect="rotatey" center="250" start="-65" end="-65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="250" start="0" end="65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-345" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2378,7 +2378,7 @@
 			<control type="group">
 				<posx>450</posx>
 				<animation effect="rotatey" center="350" start="-65" end="-65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="350" start="0" end="65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-195" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2410,7 +2410,7 @@
 			<control type="group">
 				<posx>960</posx>
 				<animation effect="rotatey" center="1330" start="65" end="65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1330" start="0" end="-65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="795" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2442,7 +2442,7 @@
 			<control type="group">
 				<posx>860</posx>
 				<animation effect="rotatey" center="1230" start="65" end="65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1230" start="0" end="-65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="645" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2474,7 +2474,7 @@
 			<control type="group">
 				<posx>760</posx>
 				<animation effect="rotatey" center="1130" start="65" end="65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1130" start="0" end="-65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="495" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2506,7 +2506,7 @@
 			<control type="group">
 				<posx>660</posx>
 				<animation effect="rotatey" center="1030" start="65" end="65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1030" start="0" end="-65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="345" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2538,7 +2538,7 @@
 			<control type="group">
 				<posx>560</posx>
 				<animation effect="rotatey" center="930" start="65" end="65" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="930" start="0" end="-65" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="195" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -2601,7 +2601,7 @@
 			<posy>380</posy>
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<camera x="640" y="540" />
-			<visible>Control.IsVisible(57) + Container.OnNext + !Skin.HasSetting(flattenshowcase)</visible>
+			<visible>Control.IsVisible(57) + Container.OnNext + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]</visible>
 			<animation effect="slide" end="-90,0" time="250" reversible="false">Hidden</animation>
 			<control type="group">
 				<posx>10</posx>
@@ -3172,7 +3172,7 @@
 			<posy>380</posy>
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<camera x="640" y="540" />
-			<visible>Control.IsVisible(57) + Container.OnPrevious + !Skin.HasSetting(flattenshowcase)</visible>
+			<visible>Control.IsVisible(57) + Container.OnPrevious + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]</visible>
 			<animation effect="slide" end="90,0" time="250" reversible="false">Hidden</animation>
 			<control type="group">
 				<posx>1000</posx>
@@ -3739,7 +3739,7 @@
 		</control>
 		<control type="button" id="960">
 			<texture>-</texture>
-			<visible>!Skin.HasSetting(flattenshowcase)</visible>
+			<visible>![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]</visible>
 			<animation effect="fade" start="100" end="0" time="800">Hidden</animation>
 		</control>
 		<control type="group" id="6000">
@@ -3752,7 +3752,7 @@
 			<control type="group"> <!-- -6 -->
 				<posx>10</posx>
 				<animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="-90" start="0" end="55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-685" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -3781,7 +3781,7 @@
 			<control type="group">
 				<posx>100</posx>
 				<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="0" start="0" end="55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-577" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -3821,7 +3821,7 @@
 			<control type="group">
 				<posx>190</posx>
 				<animation effect="rotatey" center="90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="90" start="0" end="55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-469" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -3861,7 +3861,7 @@
 			<control type="group">
 				<posx>280</posx>
 				<animation effect="rotatey" center="180" start="-55" end="-55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="180" start="0" end="55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-362" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -3901,7 +3901,7 @@
 			<control type="group">
 				<posx>370</posx>
 				<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="270" start="0" end="55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-256" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -3941,7 +3941,7 @@
 			<control type="group"> <!-- -1-->
 				<posx>460</posx>
 				<animation effect="rotatey" center="360" start="-55" end="-55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="360" start="0" end="55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="-151" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -3981,7 +3981,7 @@
 			<control type="group"> <!-- 6 -->
 				<posx>1000</posx>
 				<animation effect="rotatey" center="1380" start="55" end="55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1380" start="0" end="-55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="685" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -4021,7 +4021,7 @@
 			<control type="group">
 				<posx>910</posx>
 				<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1290" start="0" end="-55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="577" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -4061,7 +4061,7 @@
 			<control type="group">
 				<posx>820</posx>
 				<animation effect="rotatey" center="1200" start="55" end="55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1200" start="0" end="-55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="469" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -4101,7 +4101,7 @@
 			<control type="group">
 				<posx>730</posx>
 				<animation effect="rotatey" center="1110" start="55" end="55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1110" start="0" end="-55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="362" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -4141,7 +4141,7 @@
 			<control type="group">
 				<posx>640</posx>
 				<animation effect="rotatey" center="1020" start="55" end="55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="1020" start="0" end="-55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="256" time="800" tween="cubic" easing="inout" />
 				</animation>
@@ -4181,7 +4181,7 @@
 			<control type="group"><!-- 1 -->
 				<posx>550</posx>
 				<animation effect="rotatey" center="930" start="55" end="55" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
+				<animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
 					<effect type="rotatey" center="930" start="0" end="-55" time="800" tween="cubic" easing="inout" />
 					<effect type="slide" start="0" end="151" time="800" tween="cubic" easing="inout" />
 				</animation>

@@ -108,10 +108,26 @@
 		<control type="togglebutton" id="700001"> 
 			<label>31061</label>
 			<altlabel>31060</altlabel>
-			<usealttexture>Skin.HasSetting(flattenshowcase)</usealttexture>
+			<usealttexture>Skin.HasSetting(flattenshowcasemovies)</usealttexture>
 			<include>MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(flattenshowcase)</onclick>
-			<visible>Control.IsVisible(57) + !Container.Content(episodes)</visible>
+			<onclick>Skin.ToggleSetting(flattenshowcasemovies)</onclick>
+			<visible>Control.IsVisible(57) + Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
+		</control>
+		<control type="togglebutton" id="700004"> 
+			<label>31061</label>
+			<altlabel>31060</altlabel>
+			<usealttexture>Skin.HasSetting(flattenshowcasetv)</usealttexture>
+			<include>MediaMenuButton</include>
+			<onclick>Skin.ToggleSetting(flattenshowcasetv)</onclick>
+			<visible>Control.IsVisible(57) + Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
+		</control>
+		<control type="togglebutton" id="700003"> 
+			<label>31061</label>
+			<altlabel>31060</altlabel>
+			<usealttexture>Skin.HasSetting(flattenshowcasemusic)</usealttexture>
+			<include>MediaMenuButton</include>
+			<onclick>Skin.ToggleSetting(flattenshowcasemusic)</onclick>
+			<visible>Control.IsVisible(57) + ![Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
 		</control>
 		<control type="togglebutton" id="700002"> 
 			<label>Ext. Info Off</label>
