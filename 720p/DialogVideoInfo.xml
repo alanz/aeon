@@ -1,5 +1,5 @@
 <window type="dialog" id="2003">
-	<defaultcontrol>8</defaultcontrol>
+	<defaultcontrol always="true">945</defaultcontrol>
 	<zorder>2</zorder>
 	<coordinates>
 		<system>1</system>
@@ -122,13 +122,13 @@
 			<fadetime>500</fadetime>
 			<visible>Skin.HasSetting(videotv)</visible>
 		</control>
-			<control type="image">
+		<control type="image">
 			<posx>366</posx>
 			<posy>0</posy>
 			<width>120</width>
 			<height>120</height>
 			<texture>showcase/$INFO[ListItem.Overlay]</texture>
-            </control>
+		</control>
 		<control type="image">
 			<description>background image</description>
 			<posx>486</posx>
@@ -138,6 +138,134 @@
 			<texture>info/info_rightpaneltop.png</texture>
 			<colordiffuse>EEFFFFFF</colordiffuse>
 		</control>
+			<control type="wraplist" id="945">
+				<animation effect="slide" start="0,0" end="0,-20" time="0" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">Conditional</animation>
+				<posx>530</posx>
+				<posy>365</posy>
+				<height>33</height>
+				<width>600</width>
+				<onleft>945</onleft>
+				<onright>945</onright>
+				<ondown>50</ondown>
+				<viewtype>list</viewtype>
+				<orientation>horizontal</orientation>
+				<focusposition>2</focusposition>
+				<scrolltime>200</scrolltime>
+				<!-- <include>homesubmenu_animation</include> --> 
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<itemlayout width="120" height="33">
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>120</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>5fFFFFFF</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="120" height="33">
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>120</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>FFFFFFFF</textcolor>
+						<animation effect="fade" start="0" end="50" time="200">Focus</animation>
+						<animation effect="fade" start="0" end="0" time="200">Unfocus</animation>
+					</control>
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>120</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>5FFFFFFF</textcolor>
+						<animation effect="fade" start="100" end="0" time="200">Focus</animation>
+						<animation effect="fade" start="0" end="100" time="100">Unfocus</animation>
+					</control>
+					<control type="label">
+						<posx>74</posx>
+						<posy>0</posy>
+						<height>30</height>
+						<width>120</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Font_Submenu</font>
+						<info>ListItem.Label</info>
+						<textcolor>FFFFFFFF</textcolor>
+						<animation effect="fade" start="50" end="50" time="200">Focus</animation>
+						<animation effect="fade" start="50" end="0" time="100">Unfocus</animation>
+					</control>
+				</focusedlayout>
+				<content>
+				<!-- weather (10) -->
+					<item id="1">
+						<label>207</label>
+						<onclick>SendClick(2003,5)</onclick>
+						<visible>!Control.IsVisible(50)</visible>
+						<description>Plot</description>
+					</item>		
+					<item id="1">
+						<label>206</label>
+						<onclick>SendClick(2003,5)</onclick>
+						<visible>Control.IsVisible(50)</visible>
+						<description>Cast</description>
+					</item>	
+					<item id="2">
+						<label>208</label>
+						<onclick>SendClick(2003,8)</onclick>
+						<description>Start</description>
+					</item>
+					<item id="3">
+						<label>13404</label>
+						<onclick>SendClick(2003,9)</onclick>
+						<visible>Control.isVisible(9) + Container.Content(movies)</visible>
+						<enable>Control.isVisible(9)</enable>
+						<description>Resume</description>
+					</item>
+					<item id="4">
+						<label>31409</label>
+						<onclick>SendClick(2003,11)</onclick>
+						<visible>!IsEmpty(ListItem.Trailer) + Container.Content(movies)</visible>
+					</item>
+					<item id="5">
+						<label>314122</label>
+						<visible>Skin.HasSetting(EnableCinema) + Container.Content(movies)</visible>
+						<onclick>Playlist.Clear</onclick>
+						<onclick>Dialog.Close(MovieInformation)</onclick>
+						<onclick>Action(Queue,25)</onclick>
+						<onclick>RunScript($INFO[Skin.String(CinemaPath)])</onclick>
+					</item>
+					<item id="6">
+						<label>31410</label>
+						<onclick>SendClick(2003,6)</onclick>
+						<visible>!Skin.HasSetting(kiosk)</visible>
+						<description>Refresh</description>
+					</item>
+					<item id="7">
+						<label>13405</label>
+						<onclick>SendClick(2003,10)</onclick>
+						<visible>!Skin.HasSetting(kiosk)</visible>
+						<description>Get Thumb</description>
+					</item>
+					<item id="8">
+						<label>20413</label>
+						<onclick>SendClick(2003,12)</onclick>
+						<visible>!Skin.HasSetting(kiosk)</visible>
+						<description>Get Fanart</description>
+					</item>
+				</content>
+			</control>
 		<!-- Movie info -->
 		<control type="group">
 			<posx>550</posx>
@@ -362,156 +490,6 @@
 				<label fallback="31435">$INFO[ListItem.CastAndRole]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-			<!-- castmod new buttons added-->
-			<control type="group" id="9000">
-				<posx>0</posx>
-				<animation effect="slide" end="-45,0" time="0" condition="substring(System.Language,German)">conditional</animation>
-				<posy>325</posy>
-				<control type="button" id ="5">
-					<description>Plot/Cast</description>
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>31405</label>
-					<align>left</align>
-					<include>Objects_FSInfoButton</include>
-					<onleft>12</onleft>
-					<onright>8</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-				</control>
-				<control type="togglebutton" id ="8">
-					<description>Play/Browse to Show</description>
-					<posx>65</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>31411</label>
-					<align>left</align>
-					<aligny>center</aligny>
-					<include>Objects_FSInfoButton</include>
-					<altlabel>1024</altlabel>
-					<usealttexture>Container.Content(TVShows)</usealttexture>
-					<onleft>5</onleft>
-					<onright>9</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<animation effect="slide" end="65,0" time="0" condition="substring(System.Language,German)">conditional</animation>
-				</control>
-				<control type="button" id ="9">
-					<description>Resume</description>
-					<posx>147</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>13404</label>
-					<align>left</align>
-					<include>Objects_FSInfoButton</include>
-					<onleft>8</onleft>
-					<onright>11</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<visible>!Container.Content(TVShows)</visible>
-					<animation effect="slide" end="60,0" time="0" condition="substring(System.Language,German)">conditional</animation>
-
-				</control>
-				<control type="button" id ="11">
-					<description>Trailer</description>
-					<posx>245</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>31409</label>
-					<align>left</align>
-					<include>Objects_FSInfoButton</include>
-					<onleft>9</onleft>
-					<onright>13</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<visible>!IsEmpty(ListItem.Trailer)</visible>
-					<animation effect="slide" end="100,0" time="0" condition="substring(System.Language,German)">conditional</animation>
-				</control>
-				<control type="button" id="13">
-					<animation effect="slide" start="0,0" end="-85,0" time="0" condition="IsEmpty(ListItem.Trailer)">conditional</animation>
-					<posx>340</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>314122</label>
-					<align>left</align>
-					<include>Objects_FSInfoButton</include>
-					<onleft>11</onleft>
-					<onright>6</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<visible>Skin.HasSetting(EnableCinema)</visible>
-					<onclick>Playlist.Clear</onclick>
-					<onclick>Dialog.Close(MovieInformation)</onclick>
-					<onclick>Action(Queue,25)</onclick>
-					<onclick>RunScript($INFO[Skin.String(CinemaPath)])</onclick>
-					<animation effect="slide" end="100,0" time="0" condition="substring(System.Language,German)">conditional</animation>
-
-				</control>		
-				<control type="button" id ="6">
-					<description>Refresh</description>
-					<posx>430</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>31410</label>
-					<!-- <label>184</label> --><align>left</align>
-					<include>Objects_FSInfoButton</include>
-					<onleft>13</onleft>
-					<onright>10</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<animation effect="slide" start="0,0" end="0,-30" time="0" condition="Container.Content(TVShows)">conditional</animation>
-					<animation effect="slide" end="105,0" time="0" condition="substring(System.Language,German)">conditional</animation>
-					<animation effect="slide" end="-90,0" time="0" condition="!Skin.HasSetting(EnableCinema)">conditional</animation>
-					<animation effect="slide" start="0,0" end="-85,0" time="0" condition="IsEmpty(ListItem.Trailer)">conditional</animation>
-					<visible allowhiddenfocus="true">!substring(System.Language,German) | ![Control.HasFocus(12) | Control.HasFocus(10)]</visible>
-				</control>		
-				<control type="button" id ="10">
-					<description>Get Thumb</description>
-					<posx>490</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>31418</label>
-					<align>center</align>
-					<include>Objects_FSInfoButton</include>
-					<onleft>6</onleft>
-					<onright>12</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<animation effect="slide" start="0,0" end="0,-30" time="0" condition="Container.Content(TVShows)">conditional</animation>
-					<visible allowhiddenfocus="true">!substring(System.Language,German) | Control.HasFocus(10)</visible>
-					<animation effect="slide" end="5,0" time="0" condition="substring(System.Language,German)">conditional</animation>
-					<animation effect="slide" end="-90,0" time="0" condition="!Skin.HasSetting(EnableCinema)">conditional</animation>
-					<animation effect="slide" start="0,0" end="-85,0" time="0" condition="IsEmpty(ListItem.Trailer)">conditional</animation>
-				</control>
-				<control type="button" id ="12">
-					<description>Get Fanart</description>
-					<posx>580</posx>
-					<posy>0</posy>
-					<width>135</width>
-					<height>29</height>
-					<label>31412</label>
-					<!-- <label>20413</label> --><align>center</align>
-					<include>Objects_FSInfoButton</include>
-					<onleft>10</onleft>
-					<onright>5</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<visible allowhiddenfocus="true">!substring(System.Language,German) | Control.HasFocus(12)</visible>
-					<animation effect="slide" end="-90,0" time="0" condition="!Skin.HasSetting(EnableCinema)+!substring(System.Language,German)">conditional</animation>
-					<animation effect="slide" end="-75,0" time="0" condition="substring(System.Language,German)+!Skin.HasSetting(EnableCinema)">conditional</animation>
-					<animation effect="slide" start="0,0" end="-85,0" time="0" condition="IsEmpty(ListItem.Trailer)">conditional</animation>
-				</control>
-				
-			</control>
-			<!-- end castmod new buttons added-->
 			<control type="textbox">
 				<description>Plot</description>
 				<posx>3</posx>
@@ -631,7 +609,7 @@
 				<label fallback="31435">$INFO[ListItem.CastAndRole]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-			<control type="grouplist" id="9000">
+	<!--		<control type="grouplist" id="9000">
 				<include>Objects_FSInfoMenu</include>
 				<control type="button" id="8">
 					<label>31411</label>
@@ -652,9 +630,7 @@
 					<include>Objects_FSInfoButton</include>
 					<visible>!Skin.HasSetting(kiosk)</visible>
 				</control>
-
-
-			</control>
+			</control>-->
 			<control type="textbox">
 				<description>Plot</description>
 				<posx>3</posx>
@@ -666,6 +642,7 @@
 				<autoscroll delay="15000" time="1000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
 				<label fallback="31414">$INFO[ListItem.Plot]</label>
 				<include>Colour_OffWhite</include>
+				<visible>!Control.IsVisible(50)</visible>
 			</control>
 			<control type="label">
 				<description>IMDB:</description>
@@ -784,7 +761,7 @@
 				<label fallback="31435">$INFO[ListItem.CastAndRole]</label>
 				<include>Colour_OffWhite</include>
 			</control>
-			<control type="grouplist" id="9000">
+		<!--	<control type="grouplist" id="9000">
 				<include>Objects_FSInfoMenu</include>
 				<control type="button" id="8">
 					<label>31411</label>
@@ -799,7 +776,7 @@
 					<label>31418</label>
 					<include>Objects_FSInfoButton</include>
 				</control>
-			</control>
+			</control>-->
 			<control type="textbox">
 				<description>Plot</description>
 				<posx>3</posx>
@@ -845,8 +822,27 @@
 				<visible>!Skin.HasSetting(movieratingtext)</visible>
 			</control>
 		</control>
-		<!-- castmod removed this for search dialog -->
-		<!-- <include>Background_ContextBlack</include> --><!-- end castmod removed this for search dialog -->
+		<control type="button" id ="5">
+			<description>Plot/Cast</description>
+		</control>
+		<control type="togglebutton" id ="8">
+			<description>Play/Browse to Show</description>
+		</control>
+		<control type="button" id ="9">
+			<description>Resume</description>
+		</control>
+		<control type="button" id ="11">
+			<description>Trailer</description>
+		</control>
+		<control type="button" id ="6">
+			<description>Refresh</description>
+		</control>		
+		<control type="button" id ="10">
+			<description>Get Thumb</description>
+		</control>
+		<control type="button" id ="12">
+			<description>Get Fanart</description>
+		</control>
 		<!-- castmod displays selectable cast -->
 		<control type="list" id="50">
 			<description>Cast List Container</description>
@@ -855,9 +851,9 @@
 			<width>370</width>
 			<height>206</height>
 			<font>Font_FSInfoPlot</font>
-			<onleft>9000</onleft>
-			<onright>9000</onright>
-			<onup>9000</onup>
+			<onleft>945</onleft>
+			<onright>945</onright>
+			<onup>945</onup>
 			<ondown>50</ondown>
 			<orientation>vertical</orientation>
 			<itemlayout width="250" height="29">
