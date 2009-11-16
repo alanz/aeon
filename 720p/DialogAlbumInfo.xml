@@ -1,5 +1,5 @@
 <window type="dialog" id="2001">
-	<defaultcontrol>6</defaultcontrol>
+	<defaultcontrol>945</defaultcontrol>
 	<zorder>2</zorder>
 	<coordinates>
 		<system>1</system>
@@ -57,6 +57,94 @@
 			<width>772</width>
 			<height>720</height>
 			<texture>info/info_rightpaneltop.png</texture>
+		</control>
+		<control type="wraplist" id="945">
+			<posx>610</posx>
+			<posy>225</posy>
+			<height>33</height>
+			<width>450</width>
+			<onleft>945</onleft>
+			<onright>945</onright>
+			<ondown>50</ondown>
+			<viewtype>list</viewtype>
+			<orientation>horizontal</orientation>
+			<focusposition>1</focusposition>
+			<scrolltime>200</scrolltime>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<itemlayout width="150" height="33">
+				<control type="label">
+					<posx>74</posx>
+					<posy>0</posy>
+					<height>30</height>
+					<width>150</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Submenu</font>
+					<info>ListItem.Label</info>
+					<textcolor>5fFFFFFF</textcolor>
+				</control>
+			</itemlayout>
+			<focusedlayout width="150" height="33">
+				<control type="label">
+					<posx>74</posx>
+					<posy>0</posy>
+					<height>30</height>
+					<width>150</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Submenu</font>
+					<info>ListItem.Label</info>
+					<textcolor>FFFFFFFF</textcolor>
+					<animation effect="fade" start="0" end="50" time="200">Focus</animation>
+					<animation effect="fade" start="0" end="0" time="200">Unfocus</animation>
+				</control>
+				<control type="label">
+					<posx>74</posx>
+					<posy>0</posy>
+					<height>30</height>
+					<width>150</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Submenu</font>
+					<info>ListItem.Label</info>
+					<textcolor>5FFFFFFF</textcolor>
+					<animation effect="fade" start="100" end="0" time="200">Focus</animation>
+					<animation effect="fade" start="0" end="100" time="100">Unfocus</animation>
+				</control>
+				<control type="label">
+					<posx>74</posx>
+					<posy>0</posy>
+					<height>30</height>
+					<width>150</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Submenu</font>
+					<info>ListItem.Label</info>
+					<textcolor>FFFFFFFF</textcolor>
+					<animation effect="fade" start="50" end="50" time="200">Focus</animation>
+					<animation effect="fade" start="50" end="0" time="100">Unfocus</animation>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="6">
+					<label>31410</label>
+					<onclick>SendClick(2003,6)</onclick>
+					<visible>!Skin.HasSetting(kiosk)</visible>
+					<description>Refresh</description>
+				</item>
+				<item id="7">
+					<label>13405</label>
+					<onclick>SendClick(2003,10)</onclick>
+					<visible>!Skin.HasSetting(kiosk)</visible>
+					<description>Get Thumb</description>
+				</item>
+				<item id="8">
+					<label>20413</label>
+					<onclick>SendClick(2003,12)</onclick>
+					<visible>!Skin.HasSetting(kiosk) + !Container.Content(episodes) + !Container.Content(seasons)</visible>
+					<description>Get Fanart</description>
+				</item>
+			</content>
 		</control>
 		<control type="group">
 			<posx>550</posx>
@@ -128,24 +216,6 @@
 				<posy>183</posy>
 				<label fallback="31425">$INFO[ListItem.Property(AlbumType)]</label>
 				<include>Objects_FSInfoValue</include>
-			</control>
-			<control type="grouplist" id="9000">
-				<include>Objects_FSInfoMenuMusic</include>
-				<control type="button" id="6">
-					<label>31410</label>
-					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kiosk)</visible>
-				</control>
-				<control type="button" id="10">
-					<label>31418</label>
-					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kiosk)</visible>
-				</control>
-				<control type="button" id="12">
-					<label>31412</label>
-					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kiosk)</visible>
-				</control>
 			</control>
 			<control type="textbox">
 				<description>Plot</description>
@@ -260,24 +330,6 @@
 				<label fallback="31425">$INFO[ListItem.Property(Moods)]</label>
 				<include>Objects_FSInfoValue</include>
 			</control>
-			<control type="grouplist" id="9000">
-				<include>Objects_FSInfoMenu</include>
-				<control type="button" id="6">
-					<label>31419</label>
-					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kiosk)</visible>
-				</control>
-				<control type="button" id="10">
-					<label>31418</label>
-					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kiosk)</visible>
-				</control>
-				<control type="button" id="12">
-					<label>31412</label>
-					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kiosk)</visible>
-				</control>
-			</control>
 			<control type="textbox" id="4">
 				<description>Bio</description>
 				<posx>3</posx>
@@ -290,6 +342,15 @@
 				<label fallback="31415">$INFO[ListItem.Biography]</label>
 				<include>Colour_OffWhite</include>
 			</control>
+		</control>
+		<control type="button" id ="6">
+			<description>Refresh</description>
+		</control>		
+		<control type="button" id ="10">
+			<description>Get Thumb</description>
+		</control>
+		<control type="button" id ="12">
+			<description>Get Fanart</description>
 		</control>
 		<include>Background_ContextBlack</include></controls>
 </window>
