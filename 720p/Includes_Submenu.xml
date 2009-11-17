@@ -43,7 +43,7 @@
 				<focusposition>2</focusposition>
 				<scrolltime>200</scrolltime>
 				<onup>300</onup>
-				<ondown>SetFocus(510)</ondown>
+				<ondown>SetFocus(505)</ondown>
 				<!-- <include>homesubmenu_animation</include> --> 
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				<itemlayout width="129" height="33">
@@ -640,6 +640,28 @@
 					<!-- Settings (9) End -->
 				</content> 
 			</control> 
-	</control>
+		</control>
+		<control type="button" id="505">
+			<description>INVISIBLE button: Go To Submenu</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SetFocus(510)</onfocus>
+			<visible>Skin.HasSetting(homelatest) + [Container(300).HasFocus(1) | Container(300).HasFocus(6) | Container(300).HasFocus(7)]</visible>
+		</control>
+		<control type="button" id="505">
+			<description>INVISIBLE button: No Submenu</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SetFocus(300)</onfocus>
+			<visible>![Skin.HasSetting(homelatest) + [Container(300).HasFocus(1) | Container(300).HasFocus(6) | Container(300).HasFocus(7)]]</visible>
+		</control>
 	</include>
 </includes>
