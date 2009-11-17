@@ -485,6 +485,20 @@
 	<width>145</width>
 	<include>LowList_DetailInfoLabelVars</include>
 </include>
+<include name="LowList_DetailInfoLabelPos5L">
+	<posy>165</posy>
+	<posx>10</posx>
+	<align>left</align>
+	<width>300</width>
+	<include>LowList_DetailInfoLabelVars</include>
+</include>
+<include name="LowList_DetailInfoLabelPos5R">
+	<posy>165</posy>
+	<posx>10r</posx>
+	<align>right</align>
+	<width>300</width>
+	<include>LowList_DetailInfoLabelVars</include>
+</include>
 <include name="LowList_DetailInfoLabelPosXX">
 	<posy>226</posy>
 	<posx>0r</posx>
@@ -2177,14 +2191,16 @@
 		<!-- Left aligned labels -->
 		<control type="label">
 			<description>GENRE:</description>
-			<include>LowList_DetailInfoLabelPos4L</include>
-			<label>$LOCALIZE[515]: [COLOR d0ffffff]$INFO[ListItem.genre][/COLOR]</label>
+			<posy>125</posy>
+			<width>370</width>
+			<include>LowList_DetailInfoLabelVars</include>
+			<label>[COLOR 66ffffff]$LOCALIZE[515]:[/COLOR] [COLOR d0ffffff]$INFO[ListItem.genre][/COLOR]</label>
 			<visible>!IsEmpty(ListItem.genre)</visible>
 			<visible>!Container.Content(episodes)</visible>
 		</control>
 		<control type="label">
 			<include>LowList_DetailInfoLabelPos4L</include>
-			<label>$LOCALIZE[515]: [COLOR d0ffffff]-[/COLOR]</label>
+			<label>[COLOR 66ffffff]$LOCALIZE[515]:[/COLOR] [COLOR d0ffffff]-[/COLOR]</label>
 			<visible>IsEmpty(ListItem.genre)</visible>
 			<visible>!Container.Content(episodes)</visible>
 		</control>
@@ -2197,34 +2213,27 @@
 		</control>
 		<control type="label">
 			<include>LowList_DetailInfoLabelPos4L</include>
-			<label>$LOCALIZE[20416]: [COLOR d0ffffff]-[/COLOR]</label>
+			<label>[COLOR 66ffffff]$LOCALIZE[20416]:[/COLOR] [COLOR d0ffffff]-[/COLOR]</label>
 			<visible>IsEmpty(ListItem.premiered)</visible>
 			<visible>Container.Content(episodes)</visible>
 		</control>
-		<!-- Right aligned labels -->
 		<control type="label">
-			<description>EPISODES:</description>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>$LOCALIZE[20360]: [COLOR d0ffffff]$INFO[ListItem.episode][/COLOR]</label>
-			<visible>!IsEmpty(ListItem.episode)</visible>
-			<visible>Container.Content(tvshows)</visible>
-		</control>
-		<control type="label">
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>$LOCALIZE[20360]: [COLOR d0ffffff]-[/COLOR]</label>
+			<include>LowList_DetailInfoLabelPos5L</include>
+			<label>[COLOR 66ffffff]$LOCALIZE[20360]:[/COLOR] [COLOR d0ffffff]-[/COLOR]</label>
 			<visible>IsEmpty(ListItem.episode)</visible>
 			<visible>Container.Content(tvshows)</visible>
 		</control>
 		<control type="label">
 			<description>WATCHED:</description>
-			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>$LOCALIZE[16102]: [COLOR d0ffffff]$INFO[ListItem.Property(WatchedEpisodes)]/$INFO[ListItem.Property(UnwatchedEpisodes)][/COLOR]</label>
+			<include>LowList_DetailInfoLabelPos5L</include>
+			<label>[COLOR 66ffffff]$LOCALIZE[16102]:[/COLOR] [COLOR d0ffffff]$INFO[ListItem.Property(WatchedEpisodes)] / $INFO[ListItem.Property(UnwatchedEpisodes)] $LOCALIZE[20360][/COLOR]</label>
 			<visible>!IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
-			<visible>Container.Content(seasons)</visible>
+			<visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
 		</control>
+
 		<control type="label">
 			<include>LowList_DetailInfoLabelPos4R</include>
-			<label>$LOCALIZE[16102]: [COLOR d0ffffff]-[/COLOR]</label>
+			<label>[COLOR 66ffffff]$LOCALIZE[16102]:[/COLOR] [COLOR d0ffffff]-[/COLOR]</label>
 			<visible>IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
 			<visible>Container.Content(seasons)</visible>
 		</control>
