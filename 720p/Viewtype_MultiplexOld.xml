@@ -334,7 +334,7 @@
 					<fadetime>400</fadetime>
 					<timeperimage>4000</timeperimage>
 					<imagepath background="true" fallback="defaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs]</imagepath>
-					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs) + Skin.HasSetting(fanartlayout)</visible>
+					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs)</visible>
 				</control>
 				<control type="image">
 					<posx>180</posx>
@@ -771,7 +771,7 @@
 			<onleft>553</onleft>
 			<onright>553</onright>
 			<onup>110</onup>
-			<ondown>724</ondown>
+			<ondown>60</ondown>
 			<orientation>horizontal</orientation>
 			<include condition="Skin.HasSetting(videomovies)">OldMultiplexFocusMovies</include>
 			<include condition="Skin.HasSetting(videotv)">OldMultiplexFocusTV</include>
@@ -1008,32 +1008,6 @@
 			<height>0</height>
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
-			<onleft>553</onleft>
-			<onright>553</onright>
-			<onup>553</onup>
-			<ondown>553</ondown>
-		</control>
-		<control type="button" id="724">
-			<description>INVISIBLE GO TO SCROLLBAR button</description>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onfocus>SetFocus(60)</onfocus>
-			<visible>!Skin.HasSetting(oldmultiplextrailer) | !Container.Content(movies) + Control.IsVisible(553)</visible>
-		</control>
-		<control type="button" id="724">
-			<description>INVISIBLE START TRAILER button</description>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
-			<visible>Skin.HasSetting(oldmultiplextrailer) + Container.Content(movies) + Control.IsVisible(553)</visible>
 			<onleft>553</onleft>
 			<onright>553</onright>
 			<onup>553</onup>

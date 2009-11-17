@@ -8,7 +8,7 @@
 		<onleft>57</onleft>
 		<onright>57</onright>
 		<onup>70110</onup>
-		<ondown>722</ondown>
+		<ondown>60</ondown>
 		<pagecontrol>60</pagecontrol>
 		<orientation>horizontal</orientation>
 		<scrolltime>250</scrolltime>
@@ -48,7 +48,7 @@
 				<colordiffuse>4e000000</colordiffuse>
 				<texture>-</texture>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<animation effect="fade" end="100" time="200" condition="ControlGroup(6500).HasFocus">Conditional</animation>
+				<animation effect="fade" end="100" time="200" condition="ControlGroup(7000).HasFocus">Conditional</animation>
 				<animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 			</control>
@@ -110,7 +110,7 @@
 				<colordiffuse>4e000000</colordiffuse>
 				<texture>-</texture>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<animation effect="fade" end="100" time="200" condition="ControlGroup(6500).HasFocus">Conditional</animation>
+				<animation effect="fade" end="100" time="200" condition="ControlGroup(7000).HasFocus">Conditional</animation>
 				<animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
@@ -291,7 +291,7 @@
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<width>1280</width>
 			<height>381</height>
-			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<include>Animation_InfoPanelSlide</include>
@@ -473,59 +473,7 @@
 					<posy>27</posy>
 					<width>460</width>
 					<height>335</height>
-					<visible>[!Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
-				</control>
-				<control type="image">
-					<posx>527</posx>
-					<posy>329</posy>
-					<align>center</align>
-					<width>240</width>
-					<height>32</height>
-					<texture>multiplex/multiplex_trailer_label.png</texture>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
-					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
-				</control>
-				<control type="label">
-					<posx>527</posx>
-					<posy>333</posy>
-					<align>center</align>
-					<width>240</width>
-					<height>32</height>
-					<font>Font_MultiplexPlot</font>
-					<label>312573</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
-					<colordiffuse>d0FFFFFF</colordiffuse>
-					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
-				</control>
-				<control type="label"> <!--press ok to play trailer -->
-					<posx>527</posx>
-					<posy>333</posy>
-					<align>center</align>
-					<width>240</width>
-					<height>32</height>
-					<font>Font_MultiplexPlot</font>
-					<label>312575</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
-					<colordiffuse>d0FFFFFF</colordiffuse>
-					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
-				</control>
-				<control type="label"><!-- press x to stop-->
-					<posx>527</posx>
-					<posy>333</posy>
-					<align>center</align>
-					<width>240</width>
-					<height>32</height>
-					<font>Font_MultiplexPlot</font>
-					<label>312574</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
-					<colordiffuse>d0FFFFFF</colordiffuse>
-					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-					<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57)">Conditional</animation>
+					<visible>[!Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
 				</control>
 			</control>
 			<control type="group"> <!--plot-->
@@ -629,7 +577,7 @@
 					<posy>1</posy>
 					<width>522</width>
 					<height>293</height>
-					<visible>[Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
+					<visible>[Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]] | VideoPlayer.Content(movies)</visible>
 				</control>
 				<control type="largeimage">
 					<posx>1</posx>
@@ -650,8 +598,14 @@
 					<fadetime>400</fadetime>
 					<timeperimage>4000</timeperimage>
 					<imagepath background="true">$INFO[Container(57).ListItem.Path,,extrathumbs]</imagepath>
-					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs) + Skin.HasSetting(showcasetrailer)</visible>
+					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs)</visible>
 				</control>
+			</control>
+			<control type="group"> <!--trailer label-->
+				<posx>610</posx>
+				<posy>50</posy>
+				<animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetv) + Skin.HasSetting(videotv)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57) + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)]">Conditional</animation>
 				<control type="image">
 					<posx>140</posx>
 					<posy>278</posy>
@@ -659,7 +613,7 @@
 					<width>240</width>
 					<height>32</height>
 					<texture>multiplex/multiplex_trailer_label.png</texture>
-					<visible>!IsEmpty(ListItem.Trailer) + [Skin.HasSetting(showcasetrailer) | Control.HasFocus(70110)] + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 				</control>
 				<control type="label">
@@ -668,9 +622,9 @@
 					<align>center</align>
 					<width>240</width>
 					<height>32</height>
-					<font>Font_MultiplexPlot</font>
-					<label>312573</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<font>Font_MultiplexPlotSmall</font>
+					<label>Rauf für Trailer</label>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + !Control.HasFocus(70110) + [Control.IsVisible(70109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -680,7 +634,7 @@
 					<align>center</align>
 					<width>240</width>
 					<height>32</height>
-					<font>Font_MultiplexPlot</font>
+					<font>Font_MultiplexPlotSmall</font>
 					<label>312575</label>
 					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + Control.HasFocus(70110)</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
@@ -692,20 +646,21 @@
 					<align>center</align>
 					<width>240</width>
 					<height>32</height>
-					<font>Font_MultiplexPlot</font>
+					<font>Font_MultiplexPlotSmall</font>
 					<label>312574</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(6500).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 				</control>
+				
 			</control>
 		</control>
 		<control type="group">
 			<posy>260</posy>
 			<visible>Skin.HasSetting(extrathumbslayout)</visible>
 			<control type="group"><!--thumbs right-->
-				<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+				<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
 				<animation effect="slide" time="1000" start="300,0" end="0,0" delay="1000" tween="cubic" easing="inout">WindowOpen</animation>			
 				<animation effect="slide" time="1000" start="0,0" end="300,0" delay="0" tween="cubic" easing="inout">WindowClose</animation>			
 				<animation effect="slide" start="350,0" end="0,0" time="700" tween="cubic" easing="inout">VisibleChange</animation>
@@ -794,7 +749,7 @@
 				</control>
 			</control>
 			<control type="group"><!--thumbs left-->
-				<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+				<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
 				<animation effect="slide" time="1000" start="-300,0" end="0,0" delay="1000" tween="cubic" easing="inout">WindowOpen</animation>			
 				<animation effect="slide" time="1000" start="0,0" end="-300,0" delay="0" tween="cubic" easing="inout">WindowClose</animation>			
 				<animation effect="slide" start="-350,0" end="0,0" time="700" tween="cubic" easing="inout">VisibleChange</animation>
@@ -883,7 +838,7 @@
 				</control>
 			</control>
 	<!--	<control type="group">
-				<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | Control.HasFocus(722) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+				<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(70109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
 				<animation effect="slide" time="1000" start="-,-600" end="0,0" delay="1000" tween="cubic" easing="inout">WindowOpen</animation>			
 				<animation effect="slide" time="1000" start="0,0" end="0,-600" delay="0" tween="cubic" easing="inout">WindowClose</animation>			
 				<animation effect="slide" start="0,-600" end="0,0" time="700" tween="cubic" easing="inout">VisibleChange</animation>
@@ -969,7 +924,7 @@
 					<posy>8</posy>
 					<control type="label">
 						<include>ShowcaseInfoLabel</include>
-						<label>$LOCALIZE[31403]:</label>
+						<label>$LOCALIZE[31403]</label>
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
@@ -1506,7 +1461,7 @@
 		<font>Font_ShowcaseMainLabel</font>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
-		<visible>!ControlGroup(6500).HasFocus()</visible>
+		<visible>!ControlGroup(7000).HasFocus()</visible>
 	
 	</include>
 	<include name="ShowcaseMainLabelWide">
@@ -1517,7 +1472,7 @@
 		<font>Font_ShowcaseMainLabel</font>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
-		<visible>!ControlGroup(6500).HasFocus()</visible>
+		<visible>!ControlGroup(7000).HasFocus()</visible>
 		
 	</include>
 	<include name="ShowcaseItemsLabel">
@@ -1528,7 +1483,7 @@
 		<font>Font_ShowcaseMainLabel</font>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
-		<visible>ControlGroup(6500).HasFocus()</visible>
+		<visible>ControlGroup(7000).HasFocus()</visible>
 	</include>
 	<include name="ShowcaseDetailLabel">
 		<include>ShowcaseLabelVars</include>
@@ -1536,7 +1491,7 @@
 		<posy>673</posy>
 		<width>600</width>
 		<font>Font_ShowcaseDetailLabel</font>
-		<visible>!ControlGroup(6500).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
+		<visible>!ControlGroup(7000).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 	</include>
@@ -1546,7 +1501,7 @@
 		<posy>657</posy>
 		<width>600</width>
 		<font>Font_ShowcaseDetailLabel</font>
-		<visible>!ControlGroup(6500).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
+		<visible>!ControlGroup(7000).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 	</include>
@@ -4291,11 +4246,7 @@
 			<include condition="Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">ShowcaseSquare</include>
 			<include>Animation_HideShowcase</include>
 		</control>
-		<control type="image" id="70109">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
+		<control type="button" id="70109">
 			<texture>-</texture>
 			<visible>[[Window.IsActive(musiclibrary) + !Skin.HasSetting(showcasemusicinfooff) + !Skin.HasSetting(showcasemusicinfotrigger)] | [Container.Content(movies) + !Skin.HasSetting(showcaseinfooff) + !Skin.HasSetting(showcaseinfotrigger)] | [[Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(showcasetvinfooff) + !Skin.HasSetting(showcasetvinfotrigger)]] + [Control.HasFocus(57) | ControlGroup(7000).HasFocus()] + [!Container(57).OnNext + !Container(57).OnPrevious]]</visible>
 			<animation effect="fade" start="0" end="100" time="150" delay="3000">Visible</animation>
@@ -4312,7 +4263,7 @@
 			<onup>7000</onup>
 			<ondown>57</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[[Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
+			<visible>[[Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto) | Skin.HasSetting(showcaseinfoon)] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
 		</control>
 		<control type="button" id="70110">
 			<posx>0</posx>
@@ -4322,33 +4273,7 @@
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[![Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
-		</control>
-		<control type="button" id="722">		
-			<description>INVISIBLE GO TO SCROLLBAR button</description>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onfocus>SetFocus(60)</onfocus>
-			<visible>[![Skin.HasSetting(showcasetrailer) + Container.Content(movies)] | IsEmpty(ListItem.Trailer)] + Control.IsVisible(57)</visible>
-		</control>
-		<control type="button" id="722">
-			<description>INVISIBLE START TRAILER button</description>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
-			<visible>Skin.HasSetting(showcasetrailer) + Container.Content(movies) + Control.IsVisible(57) + !IsEmpty(ListItem.Trailer)</visible>
-			<onleft>57</onleft>
-			<onright>57</onright>
-			<onup>57</onup>
-			<ondown>60</ondown>
+			<visible>[![Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto) | Skin.HasSetting(showcaseinfoon)] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
