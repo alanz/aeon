@@ -451,38 +451,60 @@
 			<onleft>8</onleft>
 			<onright>8</onright>
 			<visible>Control.HasFocus(8) | ControlGroup(12).HasFocus</visible>
-			<control type="radiobutton" id="604">
+			<control type="radiobutton" id="600">
 				<include>Objects_SettingsDefaultRadioButton</include>
 				<label>31285</label>
 				<onclick>Skin.ToggleSetting(movieratingtext)</onclick>
 				<selected>Skin.HasSetting(movieratingtext)</selected>
 			</control>
-			<control type="radiobutton" id="605">
+			<control type="radiobutton" id="601">
 				<include>Objects_SettingsDefaultRadioButton</include>
 				<label>31286</label>
 				<onclick>Skin.ToggleSetting(albumratingtext)</onclick>
 				<selected>Skin.HasSetting(albumratingtext)</selected>
 			</control>
-			<control type="radiobutton" id="606">
+			<control type="radiobutton" id="602">
 				<include>Objects_SettingsDefaultRadioButton</include>
 				<label>Show Source Flag instead of Codec Flag</label>
 				<onclick>Skin.ToggleSetting(nostudioflag)</onclick>
 				<selected>Skin.HasSetting(nostudioflag)</selected>
 			</control>
-			<control type="radiobutton" id="614">
+			<control type="radiobutton" id="603">
 				<include>Objects_SettingsDefaultRadioButton</include>
 				<label>312694</label>
 				<onclick>Skin.ToggleSetting(enablecinema)</onclick>
 				<selected>Skin.HasSetting(enablecinema)</selected>
 			</control>
-			<control type="button" id="615">
+			<control type="button" id="604">
 				<include>Objects_SettingsDefaultRadioButton</include>
 				<label>312695</label>
 				<label2>$INFO[Skin.String(cinemapath)]</label2>
 				<onclick>Skin.SetFile(cinemapath,.py)</onclick>
 				<enable>Skin.HasSetting(enablecinema)</enable>
 				<visible>Skin.HasSetting(enablecinema)</visible>
-			</control>			
+			</control>
+			<control type="radiobutton" id="605">
+				<include>Objects_SettingsDefaultRadioButton</include>
+				<label>ACTIVATE FALLBACK FANART IMAGE</label>
+				<onclick>Skin.ToggleSetting(fallbackimage)</onclick>
+				<selected>Skin.HasSetting(fallbackimage)</selected>
+			</control>
+			<control type="button" id="604">
+				<include>Objects_SettingsDefaultRadioButton</include>
+				<label>SET FALLBACK IMAGE FOR VIDEOS</label>
+				<label2>$INFO[Skin.String(fallbackimagepath)]</label2>
+				<onclick>Skin.SetFile(fallbackimagepath,.jpg)</onclick>
+				<enable>Skin.HasSetting(fallbackimage)</enable>
+				<visible>Skin.HasSetting(fallbackimage)</visible>
+			</control>		
+			<control type="button" id="604">
+				<include>Objects_SettingsDefaultRadioButton</include>
+				<label>SET FALLBACK IMAGE FOR MUSIC</label>
+				<label2>$INFO[Skin.String(fallbackimagepathmusic)]</label2>
+				<onclick>Skin.SetFile(fallbackimagepathmusic,.jpg)</onclick>
+				<enable>Skin.HasSetting(fallbackimage)</enable>
+				<visible>Skin.HasSetting(fallbackimage)</visible>
+			</control>				
 		</control>
 		<control type="grouplist" id="13">
 			<include>Objects_SettingsControlAreaVars</include>
