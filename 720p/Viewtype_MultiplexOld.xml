@@ -336,6 +336,11 @@
 					<imagepath background="true" fallback="defaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs]</imagepath>
 					<visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs)</visible>
 				</control>
+			</control>
+			<control type="group"><!--trailer label-->
+				<posx>612</posx>
+				<posy>18</posy>
+				<animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)">Conditional</animation>
 				<control type="image">
 					<posx>180</posx>
 					<posy>316</posy>
@@ -343,7 +348,7 @@
 					<width>240</width>
 					<height>32</height>
 					<texture>multiplex/multiplex_trailer_label.png</texture>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(oldmultiplexinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
 				</control>
 				<control type="label">
@@ -354,7 +359,19 @@
 					<height>32</height>
 					<font>Font_MultiplexPlotOld</font>
 					<label>312573</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(oldmultiplexinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+				</control>
+				<control type="label"> <!--press ok to play trailer -->
+					<posx>180</posx>
+					<posy>320</posy>
+					<align>center</align>
+					<width>240</width>
+					<height>32</height>
+					<font>Font_MultiplexPlotOld</font>
+					<label>312575</label>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + Control.HasFocus(110)</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -366,7 +383,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlotOld</font>
 					<label>312574</label>
-					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(oldmultiplexinfotrigger)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
@@ -380,7 +397,7 @@
 			<posy>65</posy>
 			<width>1280</width>
 			<height>453</height>
-			<visible>Skin.HasSetting(videotv) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplextvinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(oldmultiplextvinfotrigger)]]</visible>
+			<visible>Skin.HasSetting(videotv) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplextvinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplextvinfooff)]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(oldmultiplextvinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
