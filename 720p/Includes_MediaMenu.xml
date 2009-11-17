@@ -2,7 +2,7 @@
 	<!--############################################ Animations #################################################-->
 	<!--#########################################################################################################-->
 	<include name="Animation_MediaMenuSlide">
-		<animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus()">
+		<animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus()">
 			<effect type="slide" end="-215,0" time="400" easing="in" tween="cubic" />
 			<effect type="fade" start="100" end="0" time="400" />
 		</animation>
@@ -163,6 +163,13 @@
 			<onclick>SetFocus(7011)</onclick>
 			<onright>SetFocus(7011)</onright>
 			<visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
+		</control>
+		<control type="button" id="700017">
+			<include>MediaMenuButton</include>
+			<label>AUTO TIMER</label>
+			<onclick>SetFocus(7021)</onclick>
+			<onright>SetFocus(7021)</onright>
+			<visible>[Control.IsVisible(552) + Skin.HasSetting(multiplextvinfoauto)] | [Control.IsVisible(52) + Skin.HasSetting(multiplexinfoauto)] | [Control.IsVisible(57) + Skin.HasSetting(videotv) + Skin.HasSetting(showcasetvinfoauto)] | [Control.IsVisible(57) + Skin.HasSetting(videomovies) + Skin.HasSetting(showcaseinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videotv) + Skin.HasSetting(oldmultiplextvinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videomovies) + Skin.HasSetting(oldmultiplexinfoauto)]</visible>
 		</control>
 		<control type="togglebutton" id="700020">
 			<include>MediaMenuButton</include>
@@ -876,6 +883,7 @@
 			</control>
 			<include>ViewSelect</include>
 			<include>TriggerSelect</include>
+			<include>DelaySelect</include>
 			<control type="image">
 				<include>MediaMenuLogo</include>
 				<texture>windows/logo_movies.png</texture>
@@ -1427,6 +1435,92 @@
 					<onclick>Skin.SetBool(showcasemusicinfoon)</onclick>
 					<onright>50</onright>
 					<visible>Control.IsVisible(57) + Window.IsActive(musiclibrary)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="DelaySelect">
+		<control type="group">
+			<animation type="Visible" revertible="false">
+				<effect type="fade" start="0" end="100" time="300" />
+				<effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Hidden" revertible="false">
+				<effect type="fade" start="100" end="0" time="500" />
+				<effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in" />
+			</animation>
+			<posx>235</posx>
+			<visible>ControlGroup(7000).HasFocus(700017)</visible>
+			<include>Animation_MediaMenuSlide</include>
+			<control type="image">
+				<posx>0</posx>
+				<posy>100</posy>
+				<width>130</width>
+				<height>150</height>
+				<texture>showcase/menupanel.png</texture>
+			</control>
+			<control type="grouplist" id="7021">
+				<posx>0</posx>
+				<posy>100</posy>
+				<width>130</width>
+				<height>150</height>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+				<scroll>false</scroll>
+				<onleft>7000</onleft>
+				<onright>50</onright>
+				<onup>7021</onup>
+				<ondown>7021</ondown>
+				<include>Animation_CommonFade</include>
+				<control type="button" id="702103"><!--delay settings-->
+					<include>MediaMenuButton</include>
+					<label>1 Sekunde</label>
+					<onclick>Skin.Reset(twoseconds)</onclick>
+					<onclick>Skin.Reset(fourseconds)</onclick>
+					<onclick>Skin.SetBool(onesecond)</onclick>
+					<onclick>Skin.Reset(fiveseconds)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
+				</control>
+				<control type="button" id="702104">
+					<include>MediaMenuButton</include>
+					<label>2 Sekunden</label>
+					<onclick>Skin.Reset(onesecond)</onclick>
+					<onclick>Skin.Reset(fourseconds)</onclick>
+					<onclick>Skin.SetBool(twoseconds)</onclick>
+					<onclick>Skin.Reset(fiveseconds)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
+				</control>
+				<control type="button" id="702105">
+					<include>MediaMenuButton</include>
+					<label>3 Sekunden</label>
+					<onclick>Skin.Reset(twoseconds)</onclick>
+					<onclick>Skin.Reset(fourseconds)</onclick>
+					<onclick>Skin.Reset(onesecond)</onclick>
+					<onclick>Skin.Reset(fiveseconds)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
+				</control>
+				<control type="button" id="702106">
+					<include>MediaMenuButton</include>
+					<label>4 Sekunden</label>
+					<onclick>Skin.Reset(twoseconds)</onclick>
+					<onclick>Skin.Reset(onesecond)</onclick>
+					<onclick>Skin.SetBool(fourseconds)</onclick>
+					<onclick>Skin.Reset(fiveseconds)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
+				</control>
+				<control type="button" id="702107">
+					<include>MediaMenuButton</include>
+					<label>5 Sekunden</label>
+					<onclick>Skin.Reset(twoseconds)</onclick>
+					<onclick>Skin.SetBool(fiveseconds)</onclick>
+					<onclick>Skin.Reset(onesecond)</onclick>
+					<onclick>Skin.Reset(fourseconds)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
 				</control>
 			</control>
 		</control>
