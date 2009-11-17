@@ -12,7 +12,7 @@
 		<include>Animation_CommonFade</include>
 		<include>Animation_HideShowcase</include>
 		<include>Animation_HideMultiplex</include>
-		<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
+		<visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552)</visible>
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
 		<fadetime>400</fadetime>
@@ -24,7 +24,7 @@
 		<include>Animation_CommonFade</include>
 		<include>Animation_HideShowcase</include>
 		<include>Animation_HideMultiplex</include>
-		<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
+		<visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552)</visible>
 		<include>ShowcaseMediaFlagNightShade</include>
 		<fadetime>400</fadetime>
 	</include>	
@@ -254,7 +254,7 @@
 				<include>Animation_CommonFade</include>
 				<include>Animation_HideShowcase</include>
 				<include>Animation_HideMultiplex</include>
-				<visible>Control.IsVisible(57) | Control.IsVisible(52) | [Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(552)</visible>
+				<visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552)</visible>
 		
 						<!-- UK Certification -->
 				<control type="image">
@@ -577,62 +577,6 @@
 			</control>
 		</control>
 	</include>
-	<include name="Furniture_WallMediaFlagsVars">
-		<visible>Window.IsActive(videolibrary) + Control.IsVisible(53) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes)]</visible>
-		<include>Animation_CommonFade</include>
-		<include>Animation_WindowFade200</include>
-		<animation effect="slide" start="0,12" end="0,12" time="0" condition="Skin.HasSetting(smallmoviewall) + [Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(episodes)">Conditional</animation>
-		<animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
-		<posy>193</posy>
-		<control type="group">
-			<posx>85</posx>
-			<control type="image">
-				<include>Furniture_PanelMediaFlagsVars</include>
-				<texture>$INFO[Container(53).ListItem.studio,flags/studios/,.png]</texture>
-			</control>
-		</control>
-		<control type="group">
-			<posx>305</posx>
-			<control type="image">
-				<include>Furniture_PanelMediaFlagsVars</include>
-				<texture>flags/Resolution/SD.png</texture>
-				<visible>!Control.IsVisible(93)</visible>
-			</control>
-			<control type="image" id="93">
-				<include>Furniture_PanelMediaFlagsVars</include>
-				<texture>$INFO[Container(53).ListItem.VideoResolution,flags/Resolution/,.png]</texture>
-			</control>
-		</control>
-		<control type="group">
-			<posx>415</posx>
-			<control type="image">
-				<include>Furniture_PanelMediaFlagsVars</include>
-				<texture>$INFO[Container(53).ListItem.AudioChannels,flags/Audio/,ch.png]</texture>
-			</control>
-			<control type="image">
-				<include>Furniture_PanelMediaFlagsVars</include>
-				<texture>$INFO[Container(53).ListItem.AudioCodec,flags/Audio/,.png]</texture>
-			</control>
-		</control>
-		<control type="group">
-			<posx>195</posx>
-			<control type="image">
-				<include>Furniture_PanelMediaFlagsVars</include>
-				<texture>$INFO[Container(53).ListItem.VideoCodec,flags/VideoCodec,.png]</texture>
-			</control>
-		</control>
-	</include>
-	<include name="Furniture_WallMediaFlags">
-		<control type="group">
-			<include>Furniture_WallMediaFlagsVars</include>
-			<visible>[!Skin.HasSetting(smallmoviewall) + [Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)]] | [Skin.HasSetting(smallmoviewall) + [Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)]]</visible>
-		</control>
-		<control type="group">
-			<posx>688</posx>
-			<include>Furniture_WallMediaFlagsVars</include>
-			<visible>[!Skin.HasSetting(smallmoviewall) + [Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)]] | [Skin.HasSetting(smallmoviewall) + [Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)]] </visible>
-		</control>
-	</include>
 	<include name="Furniture_MultiWallMediaFlags">
 		<control type="group">
 				<visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
@@ -753,7 +697,7 @@
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
 		<visible>Container.Content(Albums) | Container.Content(Songs)</visible>
-		<visible>[Control.IsVisible(53)+Skin.HasSetting(newwall)] | Control.IsVisible(57)|  Control.IsVisible(552)</visible>
+		<visible>Control.IsVisible(53) | Control.IsVisible(57)|  Control.IsVisible(552)</visible>
 		<animation effect="slide" start="0,0" end="820,-20" time="0" condition="Control.IsVisible(50)">Conditional</animation>
 	</include>
 	<include name="MusicGenreFlagsVars">
@@ -764,7 +708,7 @@
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
 		<visible>[Container.Content(Albums) | Container.Content(Songs)]</visible>
-		<visible>[Control.IsVisible(53)+Skin.HasSetting(newwall)] | Control.IsVisible(57) | Control.IsVisible(50) |  Control.IsVisible(552)</visible>
+		<visible>Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50) |  Control.IsVisible(552)</visible>
 		<animation effect="slide" start="0,0" end="950,-20" time="0" condition="Control.IsVisible(50)">Conditional</animation>
 	</include>
 	<include name="MusicGenreTextVars">
@@ -779,7 +723,7 @@
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
 		<visible>[Container.Content(Albums) | Container.Content(Songs)]</visible>
-		<visible>[Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
+		<visible>Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
 		<animation effect="slide" start="0,0" end="950,-20" time="0" condition="Control.IsVisible(50)">Conditional</animation>
 	</include>
 	<include name="MusicYearFlagsVars">
@@ -790,7 +734,7 @@
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
 		<visible>Container.Content(Albums) | Container.Content(Songs)</visible>
-		<visible>[Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
+		<visible>Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
 		<animation effect="slide" start="0,0" end="-80,-18" time="0" condition="Control.IsVisible(50)">Conditional</animation>
 	</include>
 	<include name="MusicYearTextVars">
@@ -805,7 +749,7 @@
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
 		<visible>Container.Content(Albums) | Container.Content(Songs)</visible>
-		<visible>[Control.IsVisible(53) + Skin.HasSetting(newwall)] | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
+		<visible>Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
 		<animation effect="slide" start="0,0" end="-80,-18" time="0" condition="Control.IsVisible(50)">Conditional</animation>
 	</include>
 	<include name="MusicLabelFlagsVars">
@@ -815,7 +759,7 @@
 		<height>59</height>
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
-		<visible>Container.Content(Albums) + [[Control.IsVisible(53)+Skin.HasSetting(newwall)] | Control.IsVisible(57) |  Control.IsVisible(50) | Control.IsVisible(552)]</visible>
+		<visible>Container.Content(Albums) + [Control.IsVisible(53) | Control.IsVisible(57) |  Control.IsVisible(50) | Control.IsVisible(552)]</visible>
 		<animation effect="slide" start="0,0" end="-300,-10" time="0" condition="Control.IsVisible(50)">Conditional</animation>
 	</include>
 	<include name="MusicCodecFlagsVars">
@@ -826,7 +770,7 @@
 		<height>59</height>
 		<include condition="!Skin.HasSetting(darkfloor)">ShowcaseMediaFlagLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">ShowcaseMediaFlagNightShade</include>
-		<visible>Container.Content(Songs) + [[Control.IsVisible(53)+Skin.HasSetting(newwall)] | Control.IsVisible(57) | Control.IsVisible(50) | Control.IsVisible(552)]</visible>
+		<visible>Container.Content(Songs) + [Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50) | Control.IsVisible(552)]</visible>
 		<animation effect="slide" start="0,0" end="-155,-10" time="0" condition="Control.IsVisible(50)">Conditional</animation>
 	</include>
 	<include name="MusicMediaFlags">

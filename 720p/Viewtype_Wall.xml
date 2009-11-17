@@ -765,27 +765,11 @@
 		<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)]</visible>
 	</include>
 	<include name="Furniture_WallBackground">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>common/black.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + !Skin.HasSetting(newwall) + !Skin.HasSetting(transparentwall)</visible>
-			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-		</control>
 		<control type="group">
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture>wall/wall_background.png</texture>
 				<visible>[Control.IsVisible(53) + !Skin.HasSetting(smallmoviewall)] + !Skin.HasSetting(transparentwall)</visible>
-				<include>Animation_WindowFade200</include>
-			</control>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>wall/wall_background.png</texture>
-				<colordiffuse>cc999999</colordiffuse>
-				<!--TWEAK-->
-				<visible>[Control.IsVisible(53) + !Skin.HasSetting(smallmoviewall)] + Skin.HasSetting(transparentwall) + !Skin.HasSetting(newwall)</visible>
 				<include>Animation_WindowFade200</include>
 			</control>
 		</control>
@@ -794,14 +778,6 @@
 				<include>FullscreenDimensions</include>
 				<texture>wall/wall_background_small.png</texture>
 				<visible>Control.IsVisible(53) + Skin.HasSetting(smallmoviewall) + Window.IsActive(videolibrary) + !Skin.HasSetting(transparentwall)</visible>
-				<include>Animation_WindowFade200</include>
-			</control>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>wall/wall_background_small.png</texture>
-				<colordiffuse>cc999999</colordiffuse>
-				<!--TWEAK-->
-				<visible>Control.IsVisible(53) + Skin.HasSetting(smallmoviewall) + Window.IsActive(videolibrary) + Skin.HasSetting(transparentwall) + !Skin.HasSetting(newwall)</visible>
 				<include>Animation_WindowFade200</include>
 			</control>
 		</control>
@@ -1318,7 +1294,7 @@
 		</control>
 		<!--FLOOR TITLE/DURATION-->
 		<control type="group">
-			<visible>Control.IsVisible(53) + Skin.HasSetting(newwall)</visible>
+			<visible>Control.IsVisible(53)</visible>
 			<include>Animation_HideShowcase</include>
 			<control type="fadelabel">
 				<label>31609</label>
@@ -1398,86 +1374,6 @@
 			<include condition="Window.IsActive(musiclibrary)">EmptyLibraryLabelMusic</include>
 			<include>Animation_CommonFade</include>
 			<visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + Control.IsVisible(53) + stringcompare(container(53).numitems,0)</visible>
-		</control>
-		<control type="group">
-			<posx>115</posx>
-			<posy>655</posy>
-			<visible>Control.IsVisible(53) + !Skin.HasSetting(newwall)</visible>
-			<include condition="[[Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] | [[Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + !Skin.HasSetting(smallmusicwall)]">Conditions_WallLeftBig</include>
-			<include condition="[[Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + Skin.HasSetting(smallmoviewall)] | [[Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(smallmusicwall)]">Conditions_WallLeftSmall</include>
-			<include condition="[[Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + Skin.HasSetting(maxmoviewall)]">Conditions_WallLeftMax</include>		
-			<animation effect="slide" start="-25,0" end="-25,0" time="0" condition="[Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(episodes)">Conditional</animation>
-			<animation effect="slide" start="0,12" end="0,12" time="0" condition="Skin.HasSetting(smallmoviewall) + [Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(episodes)">Conditional</animation>
-			<control type="label">
-				<posy>7</posy>
-				<label>$INFO[ListItem.Label]</label>
-				<include>Colour_Grey</include>
-				<include>WallLabelVars</include>
-				<animation effect="slide" start="0,0" end="0,-7" time="200" easing="out" tween="cubic" condition="!IsEmpty(Control.GetLabel(72))">Conditional</animation>
-			</control>
-			<control type="label" id="72">
-				<posy>19</posy>
-				<label>$INFO[ListItem.Label2]</label>
-				<include>Colour_DarkGrey</include>
-				<include>WallLabelVars</include>
-				<visible>![Window.IsActive(pictures) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]</visible>
-			</control>
-			<control type="label" id="72">
-				<posy>19</posy>
-				<label>$INFO[ListItem.PictureResolution]</label>
-				<include>Colour_DarkGrey</include>
-				<include>WallLabelVars</include>
-				<visible>Window.IsActive(pictures)</visible>
-			</control>
-			<control type="label" id="72">
-				<posy>19</posy>
-				<label>$INFO[ListItem.Year]</label>
-				<include>Colour_DarkGrey</include>
-				<include>WallLabelVars</include>
-				<visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>
-			</control>
-		</control>
-		<control type="group">
-			<posx>1165</posx>
-			<posy>655</posy>
-			<visible>Control.IsVisible(53) + !Skin.HasSetting(newwall)</visible>
-			<include condition="[[Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] | [[Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + !Skin.HasSetting(smallmusicwall)]">Conditions_WallRightBig</include>
-			<include condition="[[Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + Skin.HasSetting(smallmoviewall)] | [[Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(smallmusicwall)]">Conditions_WallRightSmall</include>
-			<include condition="[[Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + Skin.HasSetting(maxmoviewall)]">Conditions_WallRightMax</include>
-			<animation effect="slide" start="25,0" end="25,0" time="0" condition="[Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(episodes)">Conditional</animation>
-			<animation effect="slide" start="0,12" end="0,12" time="0" condition="Skin.HasSetting(smallmoviewall) + [Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + !Container.Content(episodes)">Conditional</animation>
-			<control type="label">
-				<posy>7</posy>
-				<align>right</align>
-				<label>$INFO[ListItem.Label]</label>
-				<include>Colour_Grey</include>
-				<include>WallLabelVars</include>
-				<animation effect="slide" start="0,0" end="0,-7" time="200" easing="out" tween="cubic" condition="!IsEmpty(Control.GetLabel(72))">Conditional</animation>
-			</control>
-			<control type="label" id="72">
-				<posy>19</posy>
-				<align>right</align>
-				<label>$INFO[ListItem.Label2]</label>
-				<include>Colour_DarkGrey</include>
-				<include>WallLabelVars</include>
-				<visible>![Window.IsActive(pictures) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]</visible>
-			</control>
-			<control type="label" id="72">
-				<posy>19</posy>
-				<align>right</align>
-				<label>$INFO[ListItem.PictureResolution]</label>
-				<include>Colour_DarkGrey</include>
-				<include>WallLabelVars</include>
-				<visible>Window.IsActive(pictures)</visible>
-			</control>
-			<control type="label" id="72">
-				<posy>19</posy>
-				<align>right</align>
-				<label>$INFO[ListItem.Year]</label>
-				<include>Colour_DarkGrey</include>
-				<include>WallLabelVars</include>
-				<visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>
-			</control>
 		</control>
 		<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesBig</include>
 		<include condition="Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesSmall</include>
