@@ -1,21 +1,4 @@
 <includes>
-	<include name="ListFade_Low">
-		<control type="image" id="102">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
-			<texture>-</texture>
-			<visible>Control.HasFocus(551) + [!Container(551).OnNext + !Container(551).OnPrevious]</visible>
-			<animation effect="fade" start="0" end="100" time="150" >Visible</animation>
-		</control>
-	</include>
-	<include name="ListLabel_Width_Low">
-		<width>354</width>
-	</include>
-	<include name="ListLabel_Width_LowMusic_Low">
-		<width>354</width>
-	</include>
 	<include name="ListLabel_Main_Low">
 		<posx>45</posx>
 		<posy>0</posy>
@@ -36,14 +19,6 @@
 		<aligny>center</aligny>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
 	</include>
-	<include name="ListLabel_Main2_LowSmall_Low">
-		<posx>45</posx>
-		<posy>48</posy>
-		<width>420</width>
-		<font>Font_ListSmall2</font>
-		<aligny>center</aligny>
-		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
-	</include>
 	<include name="ListLabel_Main_LowTV_Low">
 		<posx>45</posx>
 		<posy>0</posy>
@@ -52,52 +27,24 @@
 		<font>Font_ListSmall</font>
 		<aligny>center</aligny>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
-		<include>Animation_LandscapeIconSlide</include>
+		<animation effect="slide" start="0,0" end="80,0" time="0" condition="Container.Content(episodes)">Conditional</animation>
 	</include>
 	<include name="ListLabel_Main_LowMusic_Low">
 		<posx>105</posx>
 		<posy>0</posy>
-		<include>ListLabel_Width_LowMusic_Low</include>
+		<width>354</width>
 		<height>41</height>
 		<font>Font_ListDetailTV</font>
 		<aligny>center</aligny>
 		<animation effect="slide" start="0,10" end="0,10" time="0" condition="IsEmpty(ListItem.Artist) | Container.Content(artists)">Conditional</animation>
 	</include>
-	<include name="ListLabel_Sub_Low">
-		<posx>45</posx>
-		<posy>22</posy>
-		<include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)">ListLabel_Width_LowMusic_Low</include>
-		<include condition="![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)]">ListLabel_Width_Low</include>
-		<height>41</height>
-		<font>Font_ListDetailTV</font>
-		<align>left</align>
-		<aligny>center</aligny>
-		<animation effect="slide" start="45,0" end="45,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)]">Conditional</animation>
-	</include>
 	<include name="ListLabel_Sub_LowMusic_Low">
 		<posx>105</posx>
 		<posy>20</posy>
-		<include>ListLabel_Width_LowMusic_Low</include>
+		<width>354</width>
 		<height>41</height>
 		<font>Font_ListDetailTV</font>
 		<align>left</align>
-		<aligny>center</aligny>
-	</include>
-	<include name="ListLabel_Sub_LowTV_Low">
-		<posx>105</posx>
-		<posy>30</posy>
-		<width>400</width>
-		<height>41</height>
-		<font>Font_ListDetailTV</font>
-		<align>left</align>
-		<aligny>center</aligny>
-	</include>
-	<include name="ListLabel_Main_Low_Playlist_Low">
-		<posx>70</posx>
-		<posy>0</posy>
-		<include>ListLabel_Width_LowMusic_Low</include>
-		<height>41</height>
-		<font>Font_ListDetailTV</font>
 		<aligny>center</aligny>
 	</include>
 	<include name="ListLabel_Detail_Low">
@@ -129,7 +76,7 @@
 		<animation effect="slide" start="-25,0" end="-25,0" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
 	</include>
 	<include name="WatchedOverlaySlim_Low">
-		<posx>564</posx>
+		<posx>482</posx>
 		<posy>1</posy>
 		<width>80</width>
 		<height>37</height>
@@ -140,17 +87,8 @@
 		<width>80</width>
 		<height>37</height>
 	</include>
-	<include name="ListLabel_Detail_LowTV_Low">
-		<posx>536</posx>
-		<posy>10</posy>
-		<width>75</width>
-		<height>41</height>
-		<font>Font_FileBrowserDetail</font>
-		<align>center</align>
-		<aligny>center</aligny>
-	</include>
 	<include name="ListLabel_Track_Low">
-		<posx>68</posx>
+		<posx>77</posx>
 		<posy>0</posy>
 		<width>45</width>
 		<height>61</height>
@@ -161,7 +99,7 @@
 		<animation effect="slide" start="0,10" end="0,10" time="0" condition="Window.IsActive(videolibrary) + Skin.HasSetting(videotv)">Conditional</animation>
 	</include>
 	<include name="ListLabel_Track_LowSmall_Low">
-		<posx>68</posx>
+		<posx>77</posx>
 		<posy>0</posy>
 		<width>45</width>
 		<height>61</height>
@@ -170,25 +108,7 @@
 		<aligny>center</aligny>
 		<animation effect="slide" start="0,-11" end="0,-11" time="0" condition="![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]">Conditional</animation>
 		<animation effect="slide" start="0,10" end="0,10" time="0" condition="Window.IsActive(videolibrary) + Skin.HasSetting(videotv)">Conditional</animation>
-		<include>Animation_LandscapeIconSlide</include>
-	</include>
-	<include name="ListLabel_ArtistSubLabel_Low">
-		<control type="label" id="623">
-			<description>ARTIST FORMED music sub label</description>
-			<include>ListLabel_Sub_LowMusic_Low</include>
-			<include>subcolornofocus</include>
-			<label>$LOCALIZE[21894] in $INFO[ListItem.Property(Formed)]</label>
-			<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + !IsEmpty(ListItem.Property(Formed))</visible>
-			<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-		</control>
-		<control type="label" id="623">
-			<description>ARTIST BORN music sub label</description>
-			<include>ListLabel_Sub_LowMusic_Low</include>
-			<include>subcolornofocus</include>
-			<label>$LOCALIZE[21893] $INFO[ListItem.Property(Born)]</label>
-			<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed))+ !IsEmpty(ListItem.Property(Born))</visible>
-			<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-		</control>
+		<animation effect="slide" start="0,0" end="80,0" time="0" condition="Container.Content(episodes)">Conditional</animation>
 	</include>
 	<include name="ListLabel_DetailAlbumCover_Low">
 		<control type="group">
@@ -226,22 +146,6 @@
 			</control>
 		</control>
 	</include>
-	<include name="ListIcon_LandscapeVars_Low">
-		<posx>18</posx>
-		<posy>113</posy>
-		<width>319</width>
-		<height>177</height>
-		<!--<visible>[Container.Content(tvshows) + !Skin.HasSetting(tvshowposterthumbs)] | [Container.Content(seasons) + !Skin.HasSetting(seasonposterthumbs)]</visible>--><include>Animation_HighListSlideSmall</include>
-		<include>Animation_HideList</include>
-	</include>
-	<include name="ListIcon_FreeformVars_Low">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>285</width>
-		<height>346</height>
-		<!--<visible>[Container.Content(artists) + Skin.HasSetting(artistrolleroff)]</visible>--><include>Animation_HighListSlideSmall</include>
-		<animation effect="slide" start="0,0" end="-10,0" time="300" condition="Control.HasFocus(61)">Conditional</animation>
-	</include>
 	<include name="ListDetail_Stars">
 		<control type="image">
 			<posx>5</posx>
@@ -255,31 +159,25 @@
 	</include>
 	<include name="LowList_Separator">
 		<control type="image">
-			<posx>69</posx>
+			<posx>96</posx>
 			<posy>39</posy>
 			<height>1</height>
-			<width>536</width>
+			<width>493</width>
 			<texture>lowlist/lowlistpanel_line.png</texture>
 			<animation effect="slide" start="0,0" end="0,26" time="0" condition="[Window.IsActive(videolibrary) + Container.Content(movies) + Skin.HasSetting(movieslistfull)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]">Conditional</animation>
-			<animation effect="slide" start="10,0" end="10,0" time="0" condition="Container.Content(tvshows) | Container.Content(series)">Conditional</animation>
+		<!--	<animation effect="slide" start="10,0" end="10,0" time="0" condition="Container.Content(tvshows) | Container.Content(series)">Conditional</animation>-->
 			<animation effect="zoom" end="110,0,500,1" time="0" condition="Container.Content(episodes)">Conditional</animation>
 		</control>
 	</include>
 	<include name="LowList_SelectbarVars">
-		<posx>85</posx>
+		<posx>99</posx>
 		<posy>0</posy>
 		<height>39</height>
-		<width>506</width>
+		<width>487</width>
 		<texture>dialogs/setcontent_button_focus.png</texture>
 		<animation effect="slide" start="0,0" end="0,26" time="0" condition="[Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]">Conditional</animation>
-		<animation effect="slide" start="10,0" end="10,0" time="0" condition="Container.Content(tvshows) | Container.Content(series)">Conditional</animation>
+	<!--	<animation effect="slide" start="10,0" end="10,0" time="0" condition="Container.Content(tvshows) | Container.Content(series)">Conditional</animation>-->
 		<animation effect="zoom" end="129,0,458,39" time="0" condition="Container.Content(episodes)">Conditional</animation>
-	</include>
-	<include name="WideArtToggleNoTV">
-		<onclick>Skin.ToggleSetting(widepanelthumbon)</onclick>
-	</include>
-	<include name="WideArtToggleTV">
-		<onclick>Skin.ToggleSetting(widetvpanelthumbon)</onclick>
 	</include>
 	<include name="LowList_ItemCountVars">
 		<posx>105</posx>
@@ -292,545 +190,6 @@
 		<textcolor>ff969696</textcolor>
 		<visible>Control.IsVisible(551)</visible>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]]">Conditional</animation>
-	</include>
-	<include name="LowList_Layouts">
-		<!-- Slim item layout -->
-		<itemlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
-			<include>LowList_Separator</include>
-			<control type="label">
-				<include>ListLabel_Track_LowSmall_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$INFO[ListItem.TrackNumber]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)]</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<description>TITLE label</description>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$INFO[ListItem.Title]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)] + !IsEmpty(ListItem.Artist)</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<description>LABEL label</description>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
-			</control>
-			<control type="label">
-				<description>ALBUM TITLE label</description>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>Container.Content(albums) + !IsEmpty(ListItem.Label2)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistdetailcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
-				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistdetailcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
-				<visible>![Container.Content(movies) | Container.Content(albums)]</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistdetailcolornofocus</include>
-				<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
-				<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
-			</control>
-			<control type="image">
-				<include>WatchedOverlaySlim_Low</include>
-				<include>detailcolornofocus</include>
-				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-				<info>ListItem.Overlay</info>
-			</control>
-		</itemlayout>
-		<!-- Slim focused layout -->
-		<focusedlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
-			<include>LowList_Separator</include>
-			<control type="image">
-				<height>39</height>
-				<include>LowList_SelectbarVars</include>
-			</control>
-			<control type="label">
-				<description>TRACK TITLE label</description>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Title]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)] + !IsEmpty(ListItem.Artist)</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<include>ListLabel_Track_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.TrackNumber]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)]</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<textoffsetx>-2</textoffsetx>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
-			</control>
-			<control type="button">
-				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
-			</control>
-			<control type="label">
-				<description>ALBUM TITLE label</description>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>Container.Content(albums) + !IsEmpty(ListItem.Label2)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
-				<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label fallback="-">[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
-				<visible>!Control.IsVisible(76) + ![Container.Content(movies) | Container.Content(albums)]</visible>
-			</control>
-			<control type="image">
-				<include>WatchedOverlaySlim_Low</include>
-				<include>detailcolorfocus</include>
-				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-				<info>ListItem.Overlay</info>
-			</control>
-		</focusedlayout>
-		<!-- Slim focused layout Movies -->
-		<focusedlayout condition="[Window.IsActive(videolibrary) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)]" height="62">
-			<include>LowList_Separator</include>
-			<control type="image">
-				<height>60</height>
-				<include>LowList_SelectbarVars</include>
-			</control>
-			<control type="label">
-				<description>TRACK TITLE label</description>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Title]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)] + !IsEmpty(ListItem.Artist)</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<include>ListLabel_Track_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.TrackNumber]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)]</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<textoffsetx>-2</textoffsetx>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
-			</control>
-			<control type="label">
-				<textoffsetx>-2</textoffsetx>
-				<include>ListLabel_Main2_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.duration]  -  $INFO[ListItem.Genre]</label>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
-			</control>
-			<control type="button">
-				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
-			</control>
-			<control type="label">
-				<description>ALBUM TITLE label</description>
-				<include>ListLabel_Main_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>Container.Content(albums) + !IsEmpty(ListItem.Label2)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
-				<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label fallback="-">[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
-				<visible>!Control.IsVisible(76) + ![Container.Content(movies) | Container.Content(albums)]</visible>
-			</control>
-			<control type="image">
-				<include>WatchedOverlaySlim_Low</include>
-				<include>detailcolorfocus</include>
-				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-				<info>ListItem.Overlay</info>
-			</control>
-		</focusedlayout>
-		<!-- Full item layout -->
-		<itemlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="65">
-			<include>LowList_Separator</include>
-			<control type="label">
-				<include>ListLabel_Track_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$INFO[ListItem.TrackNumber]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + Container.Content(songs)]]</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<include>ListLabel_Main_LowMusic_Low</include>
-				<include>lowlistcolornofocus</include>
-				<info>ListItem.Title</info>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<include>ListLabel_Main_Low</include>
-				<include>lowlistcolornofocus</include>
-				<info>ListItem.Label</info>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label" id="623">
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>DIRECTOR: $INFO[ListItem.Director] - $INFO[ListItem.Duration]</label>
-				<visible>!IsEmpty(ListItem.Director) + Container.Content(movies)</visible>
-			</control>
-			<control type="label" id="623">
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$INFO[ListItem.PictureDateTime]</label>
-				<visible>!IsEmpty(ListItem.PictureDateTime) + Window.IsActive(pictures)</visible>
-			</control>
-			<control type="label" id="623">
-				<description>!ARTIST music sub label</description>
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$INFO[ListItem.Artist]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + !Container.Content(artists)</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label" id="623">
-				<description>ARTIST FORMED music sub label</description>
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$LOCALIZE[21894] in $INFO[ListItem.Property(Formed)]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + !IsEmpty(ListItem.Property(Formed))</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label" id="623">
-				<description>ARTIST BORN music sub label</description>
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$LOCALIZE[21893] $INFO[ListItem.Property(Born)]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed)) + !IsEmpty(ListItem.Property(Born))</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label" id="623">
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>$LOCALIZE[21900] $LOCALIZE[161]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed)) + IsEmpty(ListItem.Property(Born))</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
-				<visible>Container.Content(movies) | Container.Content(albums)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Premiered][/UPPERCASE]</label>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
-				<visible>Window.IsActive(pictures)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.PictureResolution][/UPPERCASE]</label>
-				<visible>Window.IsActive(pictures)</visible>
-				<animation type="Conditional" condition="true">
-					<effect type="slide" start="0,22" end="0,22" time="0" />
-					<effect type="fade" start="70" end="70" time="0" />
-				</animation>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Duration][/UPPERCASE]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
-			</control>
-			<control type="image">
-				<description>IMDB rating</description>
-				<posx>503</posx>
-				<posy>37</posy>
-				<width>65</width>
-				<height>13</height>
-				<info>ListItem.StarRating</info>
-				<colordiffuse>dcbdbdbd</colordiffuse>
-				<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
-			</control>
-			<include>ListLabel_DetailAlbumCover_Low</include>
-			<control type="image">
-				<include>WatchedOverlayFull_Low</include>
-				<include>detailcolornofocus</include>
-				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-				<info>ListItem.Overlay</info>
-			</control>
-		</itemlayout>
-		<!-- Full focused layout -->
-		<focusedlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [Window.IsActive(musiclibrary) + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="65">
-			<include>LowList_Separator</include>
-			<control type="image">
-				<posx>89</posx>
-				<posy>1</posy>
-				<width>498</width>
-				<height>66</height>
-				<texture>dialogs/setcontent_button_focus.png</texture>
-				<visible>Control.IsVisible(551) | Window.IsActive(contextmenu) | Window.IsActive(mediasource) | Window.IsActive(126) |   Window.IsActive(shutdownmenu) | Window.IsActive(movieinformation)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Track_Low</include>
-				<textcolor>ddFFFFFF</textcolor>
-				<label>$INFO[ListItem.TrackNumber]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + Container.Content(songs)]]</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="label">
-				<include>ListLabel_Main_LowMusic_Low</include>
-				<include>lowlistcolorfocus</include>
-				<info>ListItem.Title</info>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
-				<include>Animation_MusicContentSlide</include>
-			</control>
-			<control type="button">
-				<textoffsetx>0</textoffsetx>
-				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-				<include>ListLabel_Main_Low</include>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<textoffsetx>0</textoffsetx>
-				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-				<include>ListLabel_Main_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label" id="623">
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>DIRECTOR: $INFO[ListItem.Director] - $INFO[ListItem.Duration]</label>
-				<visible>!IsEmpty(ListItem.Director) + Container.Content(movies)</visible>
-			</control>
-			<control type="label" id="623">
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.PictureDateTime]</label>
-				<visible>!IsEmpty(ListItem.PictureDateTime) + Window.IsActive(pictures)</visible>
-			</control>
-			<control type="label" id="623">
-				<description>!ARTIST music sub label</description>
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$INFO[ListItem.Artist]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + !Container.Content(artists)</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label" id="623">
-				<description>ARTIST FORMED music sub label</description>
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$LOCALIZE[21894] in $INFO[ListItem.Property(Formed)]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + !IsEmpty(ListItem.Property(Formed))</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label" id="623">
-				<description>ARTIST BORN music sub label</description>
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$LOCALIZE[21893] $INFO[ListItem.Property(Born)]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed))+ !IsEmpty(ListItem.Property(Born))</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label" id="623">
-				<include>ListLabel_Sub_LowMusic_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>$LOCALIZE[21900] $LOCALIZE[161]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed)) + IsEmpty(ListItem.Property(Born))</visible>
-				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
-				<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label fallback="-">[UPPERCASE]$INFO[ListItem.Premiered][/UPPERCASE]</label>
-				<visible>!Control.IsVisible(76) + Container.Content(episodes)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Duration][/UPPERCASE]</label>
-				<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
-				<visible>Window.IsActive(pictures)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistcolorfocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.PictureResolution][/UPPERCASE]</label>
-				<visible>Window.IsActive(pictures)</visible>
-				<animation type="Conditional" condition="true">
-					<effect type="slide" start="0,22" end="0,22" time="0" />
-					<effect type="fade" start="70" end="70" time="0" />
-				</animation>
-			</control>
-			<control type="image">
-				<description>IMDB rating</description>
-				<posx>503</posx>
-				<posy>37</posy>
-				<width>65</width>
-				<height>13</height>
-				<info>ListItem.StarRating</info>
-				<colordiffuse>dcbdbdbd</colordiffuse>
-				<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
-			</control>
-			<include>ListLabel_DetailAlbumCover_Low</include>
-			<control type="image">
-				<include>WatchedOverlayFull_Low</include>
-				<include>detailcolorfocus</include>
-				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-				<info>ListItem.Overlay</info>
-			</control>
-		</focusedlayout>
-		<!-- TV list layout -->
-		<itemlayout condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]" height="40">
-			<include>LowList_Separator</include>
-			<control type="label">
-				<posy>-10</posy>
-				<include>ListLabel_Track_LowSmall_Low</include>
-				<include>listcolornofocus</include>
-				<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Main_LowTV_Low</include>
-				<include>listcolornofocus</include>
-				<info>ListItem.Title</info>
-				<visible>!IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Main_LowTV_Low</include>
-				<include>listcolornofocus</include>
-				<info>ListItem.Label</info>
-				<visible>IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<font>Font_FileBrowserDetail</font>
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistdetailcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.year][/UPPERCASE]</label>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-			<control type="label">
-				<font>Font_FileBrowserDetail</font>
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>lowlistdetailcolornofocus</include>
-				<label>$INFO[ListItem.episode] $LOCALIZE[20360]</label>
-				<visible>Container.Content(seasons)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>lowlistdetailcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="image">
-				<include>WatchedOverlaySlim_Low</include>
-				<include>detailcolornofocus</include>
-				<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-				<info>ListItem.Overlay</info>
-			</control>
-		</itemlayout>
-		<focusedlayout condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]" height="40">
-			<include>LowList_Separator</include>
-			<control type="image">
-				<height>39</height>
-				<include>LowList_SelectbarVars</include>
-			</control>
-			<control type="label">
-				<posy>-10</posy>
-				<include>ListLabel_Track_LowSmall_Low</include>
-				<include>listcolornofocus</include>
-				<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Main_LowTV_Low</include>
-				<include>listcolornofocus</include>
-				<info>ListItem.Title</info>
-				<visible>!IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="button">
-				<textoffsetx>-2</textoffsetx>
-				<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-				<include>ListLabel_Main_LowTV_Low</include>
-				<include>listcolornofocus</include>
-				<label>$INFO[ListItem.Label]</label>
-				<visible>IsEmpty(ListItem.Title)</visible>
-			</control>
-			<control type="label">
-				<font>Font_FileBrowserDetail</font>
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>listcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
-				<visible>Container.Content(tvshows)</visible>
-			</control>
-			<control type="label">
-				<font>Font_FileBrowserDetail</font>
-				<include>ListLabel_Detail_LowFull_Low</include>
-				<include>listcolornofocus</include>
-				<label>$INFO[ListItem.episode] $LOCALIZE[20360]</label>
-				<visible>Container.Content(seasons)</visible>
-			</control>
-			<control type="label">
-				<include>ListLabel_Detail_LowSmall_Low</include>
-				<include>listcolornofocus</include>
-				<label>[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
-				<visible>Container.Content(episodes)</visible>
-			</control>
-			<control type="image">
-				<include>WatchedOverlaySlim_Low</include>
-				<include>detailcolorfocus</include>
-				<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-				<info>ListItem.Overlay</info>
-			</control>
-		</focusedlayout>
 	</include>
 	<!-- Beginning of main Viewtype controls -->
 	<include name="Viewtype_List_Low">
@@ -870,7 +229,7 @@
 			</control>
 			<control type="image">
 				<description>Left Background Bar</description>
-				<posx>310</posx>
+				<posx>270</posx>
 				<posy>503</posy>
 				<width>35</width>
 				<height>327</height>
@@ -879,12 +238,12 @@
 				<visible>Control.IsVisible(551)</visible>
 				<include>Animation_HighListSlide</include>
 				<include>Animation_MusicContentSlide</include>
-				<include>Animation_LandscapeIconSlide</include>
 				<include>Animation_HideList</include>
+				<animation effect="slide" start="0,0" end="80,0" time="0" condition="Container.Content(episodes)">Conditional</animation>
 			</control>
 			<control type="image">
 				<description>Right Slim Background Bar</description>
-				<posx>802</posx>
+				<posx>752</posx>
 				<posy>503</posy>
 				<width>44</width>
 				<height>327</height>
@@ -896,7 +255,7 @@
 			</control>
 			<control type="image">
 				<description>Right Full Background Bar</description>
-				<posx>749</posx>
+				<posx>699</posx>
 				<posy>503</posy>
 				<width>97</width>
 				<height>327</height>
@@ -909,7 +268,7 @@
 			<!-- THE MAIN LIST CONTROL -->
 			<control type="fixedlist" id="551">
 				<viewtype label="31580">list</viewtype>
-				<posx>260</posx>
+				<posx>210</posx>
 				<posy>503</posy>
 				<width>651</width>
 				<height>327</height>
@@ -922,8 +281,549 @@
 				<preloaditems>2</preloaditems>
 				<include>Animation_HighListSlide</include>
 				<visible>![Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]</visible>
-				<include>LowList_Layouts</include>
 				<include>Animation_HideList</include>
+					<!-- Slim item layout -->
+				<itemlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
+					<include>LowList_Separator</include>
+					<control type="label">
+						<include>ListLabel_Track_LowSmall_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$INFO[ListItem.TrackNumber]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)]</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<description>TITLE label</description>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)] + !IsEmpty(ListItem.Artist)</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<description>LABEL label</description>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+					</control>
+					<control type="label">
+						<description>ALBUM TITLE label</description>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Container.Content(albums) + !IsEmpty(ListItem.Label2)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistdetailcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+						<visible>Container.Content(movies)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistdetailcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
+						<visible>![Container.Content(movies) | Container.Content(albums)]</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistdetailcolornofocus</include>
+						<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+						<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
+					</control>
+					<control type="image">
+						<include>WatchedOverlaySlim_Low</include>
+						<include>detailcolornofocus</include>
+						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<info>ListItem.Overlay</info>
+					</control>
+				</itemlayout>
+				<!-- Slim focused layout -->
+				<focusedlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
+					<include>LowList_Separator</include>
+					<control type="image">
+						<height>39</height>
+						<include>LowList_SelectbarVars</include>
+					</control>
+					<control type="label">
+						<description>TRACK TITLE label</description>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)] + !IsEmpty(ListItem.Artist)</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<include>ListLabel_Track_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.TrackNumber]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)]</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<textoffsetx>-2</textoffsetx>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+					</control>
+					<control type="button">
+						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+					</control>
+					<control type="label">
+						<description>ALBUM TITLE label</description>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Container.Content(albums) + !IsEmpty(ListItem.Label2)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+						<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label fallback="-">[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
+						<visible>!Control.IsVisible(76) + ![Container.Content(movies) | Container.Content(albums)]</visible>
+					</control>
+					<control type="image">
+						<include>WatchedOverlaySlim_Low</include>
+						<include>detailcolorfocus</include>
+						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<info>ListItem.Overlay</info>
+					</control>
+				</focusedlayout>
+				<!-- Slim focused layout Movies -->
+				<focusedlayout condition="[Window.IsActive(videolibrary) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)]" height="62">
+					<include>LowList_Separator</include>
+					<control type="image">
+						<height>60</height>
+						<include>LowList_SelectbarVars</include>
+					</control>
+					<control type="label">
+						<description>TRACK TITLE label</description>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)] + !IsEmpty(ListItem.Artist)</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<include>ListLabel_Track_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.TrackNumber]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Container.Content(songs)]</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<textoffsetx>-2</textoffsetx>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+					</control>
+					<control type="label">
+						<textoffsetx>-2</textoffsetx>
+						<posx>45</posx>
+						<posy>48</posy>
+						<width>420</width>
+						<font>Font_ListSmall2</font>
+						<aligny>center</aligny>
+						<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.duration]  -  $INFO[ListItem.Genre]</label>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+					</control>
+					<control type="button">
+						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
+					</control>
+					<control type="label">
+						<description>ALBUM TITLE label</description>
+						<include>ListLabel_Main_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Container.Content(albums) + !IsEmpty(ListItem.Label2)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+						<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label fallback="-">[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
+						<visible>!Control.IsVisible(76) + ![Container.Content(movies) | Container.Content(albums)]</visible>
+					</control>
+					<control type="image">
+						<include>WatchedOverlaySlim_Low</include>
+						<include>detailcolorfocus</include>
+						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<info>ListItem.Overlay</info>
+					</control>
+				</focusedlayout>
+				<!-- Full item layout -->
+				<itemlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="65">
+					<include>LowList_Separator</include>
+					<control type="label">
+						<include>ListLabel_Track_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$INFO[ListItem.TrackNumber]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + Container.Content(songs)]]</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<include>ListLabel_Main_LowMusic_Low</include>
+						<include>lowlistcolornofocus</include>
+						<info>ListItem.Title</info>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<include>ListLabel_Main_Low</include>
+						<include>lowlistcolornofocus</include>
+						<info>ListItem.Label</info>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label" id="623">
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>DIRECTOR: $INFO[ListItem.Director] - $INFO[ListItem.Duration]</label>
+						<visible>!IsEmpty(ListItem.Director) + Container.Content(movies)</visible>
+					</control>
+					<control type="label" id="623">
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$INFO[ListItem.PictureDateTime]</label>
+						<visible>!IsEmpty(ListItem.PictureDateTime) + Window.IsActive(pictures)</visible>
+					</control>
+					<control type="label" id="623">
+						<description>!ARTIST music sub label</description>
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$INFO[ListItem.Artist]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + !Container.Content(artists)</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label" id="623">
+						<description>ARTIST FORMED music sub label</description>
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$LOCALIZE[21894] in $INFO[ListItem.Property(Formed)]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + !IsEmpty(ListItem.Property(Formed))</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label" id="623">
+						<description>ARTIST BORN music sub label</description>
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$LOCALIZE[21893] $INFO[ListItem.Property(Born)]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed)) + !IsEmpty(ListItem.Property(Born))</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label" id="623">
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>$LOCALIZE[21900] $LOCALIZE[161]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed)) + IsEmpty(ListItem.Property(Born))</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+						<visible>Container.Content(movies) | Container.Content(albums)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Premiered][/UPPERCASE]</label>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
+						<visible>Window.IsActive(pictures)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.PictureResolution][/UPPERCASE]</label>
+						<visible>Window.IsActive(pictures)</visible>
+						<animation type="Conditional" condition="true">
+							<effect type="slide" start="0,22" end="0,22" time="0" />
+							<effect type="fade" start="70" end="70" time="0" />
+						</animation>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Duration][/UPPERCASE]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
+					</control>
+					<control type="image">
+						<description>IMDB rating</description>
+						<posx>503</posx>
+						<posy>37</posy>
+						<width>65</width>
+						<height>13</height>
+						<info>ListItem.StarRating</info>
+						<colordiffuse>dcbdbdbd</colordiffuse>
+						<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
+					</control>
+					<include>ListLabel_DetailAlbumCover_Low</include>
+					<control type="image">
+						<include>WatchedOverlayFull_Low</include>
+						<include>detailcolornofocus</include>
+						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<info>ListItem.Overlay</info>
+					</control>
+				</itemlayout>
+				<!-- Full focused layout -->
+				<focusedlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [Window.IsActive(musiclibrary) + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="65">
+					<include>LowList_Separator</include>
+					<control type="image">
+						<posx>89</posx>
+						<posy>1</posy>
+						<width>498</width>
+						<height>66</height>
+						<texture>dialogs/setcontent_button_focus.png</texture>
+						<visible>Control.IsVisible(551) | Window.IsActive(contextmenu) | Window.IsActive(mediasource) | Window.IsActive(126) |   Window.IsActive(shutdownmenu) | Window.IsActive(movieinformation)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Track_Low</include>
+						<textcolor>ddFFFFFF</textcolor>
+						<label>$INFO[ListItem.TrackNumber]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + Container.Content(songs)]]</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="label">
+						<include>ListLabel_Main_LowMusic_Low</include>
+						<include>lowlistcolorfocus</include>
+						<info>ListItem.Title</info>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
+						<include>Animation_MusicContentSlide</include>
+					</control>
+					<control type="button">
+						<textoffsetx>0</textoffsetx>
+						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
+						<include>ListLabel_Main_Low</include>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label">
+						<textoffsetx>0</textoffsetx>
+						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
+						<include>ListLabel_Main_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label" id="623">
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>DIRECTOR: $INFO[ListItem.Director] - $INFO[ListItem.Duration]</label>
+						<visible>!IsEmpty(ListItem.Director) + Container.Content(movies)</visible>
+					</control>
+					<control type="label" id="623">
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.PictureDateTime]</label>
+						<visible>!IsEmpty(ListItem.PictureDateTime) + Window.IsActive(pictures)</visible>
+					</control>
+					<control type="label" id="623">
+						<description>!ARTIST music sub label</description>
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$INFO[ListItem.Artist]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + !Container.Content(artists)</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label" id="623">
+						<description>ARTIST FORMED music sub label</description>
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$LOCALIZE[21894] in $INFO[ListItem.Property(Formed)]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + !IsEmpty(ListItem.Property(Formed))</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label" id="623">
+						<description>ARTIST BORN music sub label</description>
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$LOCALIZE[21893] $INFO[ListItem.Property(Born)]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed))+ !IsEmpty(ListItem.Property(Born))</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label" id="623">
+						<include>ListLabel_Sub_LowMusic_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>$LOCALIZE[21900] $LOCALIZE[161]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container.Content(artists) + IsEmpty(ListItem.Property(Formed)) + IsEmpty(ListItem.Property(Born))</visible>
+						<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+						<visible>[!Control.IsVisible(76) + Container.Content(movies)] | Container.Content(albums)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label fallback="-">[UPPERCASE]$INFO[ListItem.Premiered][/UPPERCASE]</label>
+						<visible>!Control.IsVisible(76) + Container.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Duration][/UPPERCASE]</label>
+						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Size][/UPPERCASE]</label>
+						<visible>Window.IsActive(pictures)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistcolorfocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.PictureResolution][/UPPERCASE]</label>
+						<visible>Window.IsActive(pictures)</visible>
+						<animation type="Conditional" condition="true">
+							<effect type="slide" start="0,22" end="0,22" time="0" />
+							<effect type="fade" start="70" end="70" time="0" />
+						</animation>
+					</control>
+					<control type="image">
+						<description>IMDB rating</description>
+						<posx>503</posx>
+						<posy>37</posy>
+						<width>65</width>
+						<height>13</height>
+						<info>ListItem.StarRating</info>
+						<colordiffuse>dcbdbdbd</colordiffuse>
+						<visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
+					</control>
+					<include>ListLabel_DetailAlbumCover_Low</include>
+					<control type="image">
+						<include>WatchedOverlayFull_Low</include>
+						<include>detailcolorfocus</include>
+						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<info>ListItem.Overlay</info>
+					</control>
+				</focusedlayout>
+				<!-- TV list layout -->
+				<itemlayout condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]" height="40">
+					<include>LowList_Separator</include>
+					<control type="label">
+						<posy>-10</posy>
+						<include>ListLabel_Track_LowSmall_Low</include>
+						<include>listcolornofocus</include>
+						<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Main_LowTV_Low</include>
+						<include>listcolornofocus</include>
+						<info>ListItem.Title</info>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Main_LowTV_Low</include>
+						<include>listcolornofocus</include>
+						<info>ListItem.Label</info>
+						<visible>IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label">
+						<font>Font_FileBrowserDetail</font>
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistdetailcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.year][/UPPERCASE]</label>
+						<visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="label">
+						<font>Font_FileBrowserDetail</font>
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>lowlistdetailcolornofocus</include>
+						<label>$INFO[ListItem.episode] $LOCALIZE[20360]</label>
+						<visible>Container.Content(seasons)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>lowlistdetailcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					<control type="image">
+						<include>WatchedOverlaySlim_Low</include>
+						<include>detailcolornofocus</include>
+						<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<info>ListItem.Overlay</info>
+					</control>
+				</itemlayout>
+				<focusedlayout condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]" height="40">
+					<include>LowList_Separator</include>
+					<control type="image">
+						<height>39</height>
+						<include>LowList_SelectbarVars</include>
+					</control>
+					<control type="label">
+						<posy>-10</posy>
+						<include>ListLabel_Track_LowSmall_Low</include>
+						<include>listcolornofocus</include>
+						<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Main_LowTV_Low</include>
+						<include>listcolornofocus</include>
+						<info>ListItem.Title</info>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="button">
+						<textoffsetx>-2</textoffsetx>
+						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
+						<include>ListLabel_Main_LowTV_Low</include>
+						<include>listcolornofocus</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label">
+						<font>Font_FileBrowserDetail</font>
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>listcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+						<visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="label">
+						<font>Font_FileBrowserDetail</font>
+						<include>ListLabel_Detail_LowFull_Low</include>
+						<include>listcolornofocus</include>
+						<label>$INFO[ListItem.episode] $LOCALIZE[20360]</label>
+						<visible>Container.Content(seasons)</visible>
+					</control>
+					<control type="label">
+						<include>ListLabel_Detail_LowSmall_Low</include>
+						<include>listcolornofocus</include>
+						<label>[UPPERCASE]$INFO[ListItem.Label2][/UPPERCASE]</label>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					<control type="image">
+						<include>WatchedOverlaySlim_Low</include>
+						<include>detailcolorfocus</include>
+						<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+						<info>ListItem.Overlay</info>
+					</control>
+				</focusedlayout>
 			</control>
 			<!-- OnLeft Invisible Buttons -->
 			<control type="button" id="55104">
@@ -1010,9 +910,25 @@
 				<onleft>551</onleft>
 				<onright>551</onright>
 				<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-				<include condition="!Skin.HasSetting(videotv)">WideArtToggleNoTV</include>
-				<include condition="Skin.HasSetting(videotv)">WideArtToggleTV</include>
-				<visible>Control.IsVisible(551)</visible>
+				<onclick>Skin.ToggleSetting(widepanelthumbon)</onclick>
+				<visible>Control.IsVisible(551) + Skin.HasSetting(videomovies)</visible>
+			</control>
+			<control type="button" id="55110">
+				<description>INVISIBLE WIDE INFO PANEL TRACKING button</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>0</width>
+				<height>0</height>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onfocus>Skin.SetBool(lowlistinfoshowing)</onfocus>
+				<onup>551</onup>
+				<ondown>551</ondown>
+				<onleft>551</onleft>
+				<onright>551</onright>
+				<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+				<onclick>Skin.ToggleSetting(widetvpanelthumbon)</onclick>
+				<visible>Control.IsVisible(551) + Skin.HasSetting(videotv)</visible>
 			</control>
 			<control type="image" id="55111">
 				<description>INVISIBLE AUTO INFO button</description>
@@ -1111,10 +1027,10 @@
 				</control>
 				<!-- Fanart -->
 				<control type="largeimage">
-					<posx>5</posx>
-					<posy>10</posy>
-					<width>360</width>
-					<height>196</height>
+					<posx>25</posx>
+					<posy>0</posy>
+					<width>410</width>
+					<height>220</height>
 					<fadetime>400</fadetime>
 					<aspectratio>scale</aspectratio>
 					<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).listitem.property(fanart_image)]</texture>
@@ -1124,10 +1040,10 @@
 					<include>Animation_BackgroundFade</include>
 				</control>
 				<control type="largeimage">
-					<posx>5</posx>
-					<posy>10</posy>
-					<width>360</width>
-					<height>196</height>
+					<posx>25</posx>
+					<posy>0</posy>
+					<width>410</width>
+					<height>220</height>
 					<fadetime>400</fadetime>
 					<aspectratio>scale</aspectratio>
 					<texture diffuse="list/list_episodeicon_mask.png">$INFO[container.property(fanart_image)]</texture>
@@ -1364,7 +1280,7 @@
 		<!-- Scrollbar -->
 		<control type="scrollbar" id="61">
 			<description>Short scroll bar</description>
-			<posx>295</posx>
+			<posx>275</posx>
 			<posy>504</posy>
 			<width>41</width>
 			<height>210</height>
@@ -1389,7 +1305,7 @@
 		</control>
 		<control type="scrollbar" id="61">
 			<description>Tall scroll bar</description>
-			<posx>295</posx>
+			<posx>275</posx>
 			<posy>504</posy>
 			<width>41</width>
 			<height>320</height>

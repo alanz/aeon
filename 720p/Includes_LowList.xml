@@ -5,9 +5,6 @@
 			<effect type="fade" start="100" end="0" time="200"/>
 		</animation>
 	</include>
-	<include name="Animation_LandscapeIconSlide">
-		<animation effect="slide" start="0,0" end="80,0" time="0" condition="Container.Content(episodes)">Conditional</animation>
-	</include>
 	<include name="Animation_MusicContentSlide">
 		<animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
 	</include>
@@ -16,9 +13,6 @@
 	</include>
 	<include name="Animation_HighListSlideSmall">
 		<animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(highlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
-	</include>
-	<include name="Animation_WideInfoLabelSlide">
-		<animation effect="slide" start="0,0" end="0,-55" time="200" condition="!Skin.HasSetting(highlist)">Conditional</animation>
 	</include>
 	<include name="Animation_FadeInSlideOut">
 		<animation type="Visible">
@@ -59,15 +53,6 @@
 	<posy>414</posy>
 	<colordiffuse>aaFFFFFF</colordiffuse>
 	<include>LowList_PosterIconInCase</include>
-</include>
-<include name="LowList_PosterIconGlass">
-	<texture>thumbs/poster_glass_noedge.png</texture>
-	<include>LowList_PosterIconVars</include>
-	<visible>!Container.Content(years)</visible>
-</include>
-<include name="LowList_DVDCaseGlass">
-	<texture>thumbs/boxes/poster_glass.png</texture>
-	<include>LowList_DVDCaseVars</include>
 </include>
 <include name="LowList_PosterIconNormal">
 	<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
@@ -157,8 +142,15 @@
 		</control>
 		<control type="image">
 			<description>Poster Icon Glass</description>
-			<include condition="!Skin.HasSetting(dvdcase)">LowList_PosterIconGlass</include>
-			<include condition="Skin.HasSetting(dvdcase)">LowList_DVDCaseGlass</include>
+			<texture>thumbs/poster_glass_noedge.png</texture>
+			<include>LowList_PosterIconVars</include>
+			<visible>!Container.Content(years) + !Skin.HasSetting(dvdcase)</visible>
+		</control>
+		<control type="image">
+			<description>Poster Icon Glass</description>
+			<texture>thumbs/boxes/poster_glass.png</texture>
+			<include>LowList_DVDCaseVars</include>
+			<visible>Skin.HasSetting(dvdcase)</visible>
 		</control>
 		<control type="image">
 			<description>DVD Case Double Thick Glass</description>
@@ -418,16 +410,9 @@
 <include name="LowList_DetailInfoLabelVars">
 	<posx>10</posx>
 	<height>16</height>
-	<width>350</width>
+	<width>450</width>
 	<font>Font_ContextMenuButton</font>
 	<textcolor>abffffff</textcolor>
-</include>
-<include name="LowList_DetailInfoValueVars">
-	<posx>10</posx>
-	<height>16</height>
-	<width>350</width>
-	<font>Font_MultiplexInfoLabel</font>
-	<textcolor>ffffffff</textcolor>
 </include>
 <include name="LowList_WideInfoLabelSmallVars">
 	<width>180</width>
@@ -439,22 +424,14 @@
 	<include>LowList_WideInfoLabelSmallVars</include>
 </include>
 <include name="LowList_WideInfoLabelVars">
-	<width>210</width>
+	<width>280</width>
 	<aspectratio>scale</aspectratio>
 	<include>LowList_DetailInfoLabelVars</include>
-</include>
-<include name="LowList_WideInfoValueVars">
-	<textcolor>d0ffffff</textcolor>
-	<include>LowList_WideInfoLabelVars</include>
 </include>
 <include name="LowList_WideInfoLabelEpisodeVars">
 	<width>400</width>
 	<aspectratio>scale</aspectratio>
 	<include>LowList_DetailInfoLabelVars</include>
-</include>
-<include name="LowList_WideInfoValueEpisodeVars">
-	<textcolor>d0ffffff</textcolor>
-	<include>LowList_WideInfoLabelEpisodeVars</include>
 </include>
 <!-- Label position vars -->
 <include name="LowList_DetailInfoLabelPos1">
@@ -475,7 +452,7 @@
 </include>
 <include name="LowList_DetailInfoLabelPos4L">
 	<posy>125</posy>
-	<width>200</width>
+	<width>400</width>
 	<include>LowList_DetailInfoLabelVars</include>
 </include>
 <include name="LowList_DetailInfoLabelPos4R">
@@ -515,12 +492,11 @@
 <!-- Item Count Label -->
 <include name="LowList_ItemCountLabel">
 	<control type="group">
-		<posx>0</posx>
-		<posy>0</posy>
+		<posx>70</posx>
+		<posy>-55</posy>
 		<width>360</width>
 		<height>200</height>
 		<visible>![!Skin.HasSetting(highlist) + [Control.IsVisible(7850) | Control.IsVisible(7814)]]</visible>
-		<animation effect="slide" start="0,0" end="0,-55" time="0" condition="true">Conditional</animation>
 		<control type="label">
 			<description>NUM ARTISTS info label</description>
 			<include>LowList_DetailInfoLabelPosXX</include>
@@ -536,7 +512,7 @@
 		<control type="label">
 			<description>NUM TRACKS info label</description>
 			<include>LowList_DetailInfoLabelPosXX</include>
-			<label>[COLOR ffffffff]$INFO[Container.NumItems][/COLOR] $LOCALIZE[182]</label>
+			<label>[COLOR ffffffff]$INFO[Container.NumItems][/COLOR] $LOCALIZE[31936]</label>
 			<visible>Container.Content(songs)</visible>
 		</control>
 	</control>
@@ -551,43 +527,18 @@
 		<visible>Skin.HasSetting(highlist)</visible>
 		<animation effect="slide" start="0,0" end="0,-52" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
 		<control type="label">
-			<description>RUNTIME label</description>
-			<posx>0r</posx>
-			<posy>17</posy>
-			<align>right</align>
-			<height>16</height>
-			<width>70</width>
-			<font>Font_MultiplexInfoLabel</font>
-			<textcolor>d0ffffff</textcolor>
-			<include>LowList_DetailInfoLabelPos1</include>
-			<label>$INFO[ListItem.Duration]</label>
-			<visible>Container.Content(movies)</visible>
-		</control>
-		<control type="label">
 			<description>TAGLINE label</description>
-			<posx>5</posx>
+			<posx>0</posx>
 			<posy>10</posy>
-			<width>270</width>
-			<align>left</align>
+			<width>470</width>
+			<align>center</align>
 			<height>16</height>
 			<font>Font_OSDMusicArtist</font>
 			<label>[COLOR ffffffff][B]$INFO[ListItem.tagline,","][/B][/COLOR]</label>
 			<visible>Container.Content(movies) + !IsEmpty(ListItem.tagline)</visible>
 		</control>
-		<control type="label">
-			<posx>5</posx>
-			<posy>10</posy>
-			<width>270</width>
-			<align>left</align>
-			<height>16</height>
-			<font>Font_OSDMusicArtist</font>
-			<label>[COLOR ffffffff][B]...[/B][/COLOR]</label>
-			<visible>Container.Content(movies) + IsEmpty(ListItem.tagline)</visible>
-		</control>
 	</control>
 </include>
-<!-- Video aspect label -->
-
 <!-- MPAA Labels -->
 <include name="LowList_MpaaLabelVars">
 	<width>100</width>
@@ -598,7 +549,7 @@
 	<posy>8</posy>
 	<posx>10</posx>
 	<height>99</height>
-	<width>350</width>
+	<width>450</width>
 	<font>Font_MultiplexPlotSmall</font>
 	<textcolor>d0ffffff</textcolor>
 	<autoscroll delay="10000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -608,7 +559,7 @@
 	<posy>16</posy>
 	<posx>10</posx>
 	<height>186</height>
-	<width>350</width>
+	<width>450</width>
 	<font>Font_MultiplexPlot</font>
 	<textcolor>d0ffffff</textcolor>
 	<animation effect="fade" start="0" end="100" time="200">Visible</animation>
@@ -618,9 +569,9 @@
 </include>
 <!-- LOW LIST DETAIL SEPARATORS -->
 <include name="LowList_Detail_Separator">
-	<posx>15</posx>
+	<posx>-60</posx>
 	<height>1</height>
-	<width>324</width>
+	<width>404</width>
 	<texture>lowlist/lowlistpanel_line.png</texture>
 	<include>common-fade-quick</include>
 </include>
@@ -628,111 +579,108 @@
 <include name="LowList_MovieFlagVars">
 	<posx>0</posx>
 	<posy>0</posy>
-	<width>90</width>
-	<height>59</height>
+	<width>81</width>
+	<height>53</height>
 	<aspectratio>keep</aspectratio>
 	<fadetime>300</fadetime>
 	<visible>Control.IsVisible(551) + Window.IsActive(videolibrary)</visible>
 </include>
+<include name="LowList_MovieFlagVarsCertification">
+	<posx>0</posx>
+	<posy>0</posy>
+	<width>81</width>
+	<height>53</height>
+	<aspectratio>keep</aspectratio>
+	<visible>Control.IsVisible(551) + Window.IsActive(videolibrary)</visible>
+	<animation effect="slide" start="0,0" end="85,0" easing="inout" tween="cubic" time="200">Visible</animation>
+	<animation effect="slide" start="85,0" end="0,0" easing="inout" tween="cubic" time="200">Hidden</animation>
+</include>
 <include name="LowList_MediaFlags">
 	<control type="group">
-		<posx>0</posx>
-		<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
-		<animation effect="fade" start="100" end="0" time="100">Hidden</animation>
+		<posx>-6</posx>
+		<posy>663</posy>
 		<animation effect="fade" time="300" start="100" end="0" condition="Player.HasMedia">Conditional</animation>
 		<control type="group">
-			<posx>0</posx>
-			<control type="image" id="81">
-				<include>LowList_MovieFlagVars</include>
-				<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>				
-				<animation effect="slide" start="0,0" end="85,0" easing="inout" tween="cubic" time="200" condition="Control.IsVisible(1171)">Conditional</animation>
-			</control>
-		</control>
-		<control type="group">
-			<animation effect="slide" start="0,0" end="85,0" easing="inout" tween="cubic" time="200" condition="Control.IsVisible(1171)">Conditional</animation>
 			<posx>-85</posx>
 			<control type="image" id="1171">
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/FSK-0.png</texture>
 				<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
 			</control>
 			<control type="image" id="1171">
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/FSK-6.png</texture>
 				<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
 			</control>
 			<control type="image" id="1171">
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/FSK-12.png</texture>
 				<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
 			</control>
 			<control type="image" id="1171">
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/FSK-16.png</texture>
 				<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
 			</control>
 			<control type="image" id="1171">
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/FSK-18.png</texture>
 				<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
-			</control>
-			
-			
-			
+			</control>			
 					<!-- UK Certification -->
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
 				<visible>substring(listitem.mpaa,UK:U)</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
 				<visible>substring(listitem.mpaa,UK:PG)</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
 				<visible>substring(listitem.mpaa,UK:12) + !substring(listitem.mpaa,UK:12A)</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
 				<visible>substring(listitem.mpaa,UK:12A)</visible>
 			</control>
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
 				<visible>substring(listitem.mpaa,UK:15)</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
 				<visible>substring(listitem.mpaa,UK:18)</visible>
 			</control>				
 				<!-- US Certification -->
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/MPAA_G_Certificate_US.png</texture>
 				<visible>[substring(listitem.mpaa,US:G) | substring(listitem.mpaa,USA:G) | substring(listitem.mpaa,Rated G)]</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
 				<visible>[substring(listitem.mpaa,US:PG) | substring(listitem.mpaa,USA:PG) | [substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)]]</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
 				<visible>[substring(listitem.mpaa,US:PG-13) | substring(listitem.mpaa,USA:PG-13) | substring(listitem.mpaa,Rated PG-13)]</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/MPAA_R_Certificate_US.png</texture>
 				<visible>[substring(listitem.mpaa,US:R) | substring(listitem.mpaa,USA:R) | substring(listitem.mpaa,Rated R)]</visible>
 			</control>				
 			<control type="image" id="1171">>
-				<include>LowList_MovieFlagVars</include>
+				<include>LowList_MovieFlagVarsCertification</include>
 				<texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
 				<visible>[substring(listitem.mpaa,US:NC-17) | substring(listitem.mpaa,USA:NC-17) | substring(listitem.mpaa,Rated NC-17)]</visible>
 			</control>					
@@ -747,9 +695,17 @@
 		<visible>![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
 		<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
 		<animation effect="fade" start="100" end="0" time="100">Hidden</animation>
+		<control type="group">
+			<posx>-80</posx>
+			<control type="image" id="81">
+				<include>LowList_MovieFlagVars</include>
+				<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>
+				<animation effect="slide" start="0,0" end="330,-5" time="0" condition="Container.Content(tvshows)">Conditional</animation>				
+			</control>
+		</control>
 		<!--<animation effect="slide" start="0,0" end="0,-5" time="200" condition="![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(highlist) + [Control.IsVisible(7814) | Control.IsVisible(7850)]">Conditional</animation><include>Animation_HideMultiplex</include>--><!-- Studio flag -->
 		<control type="group">
-			<posx>-7</posx>
+			<posx>15</posx>
 			<control type="image">
 				<include>LowList_MovieFlagVars</include>
 				<texture>$INFO[listitem.VideoAspect,flags/aspectratio/,.png]</texture>
@@ -757,7 +713,7 @@
 		</control>
 		<!-- Source flag -->
 		<control type="group">
-			<posx>90</posx>
+			<posx>112</posx>
 			<control type="image" id="82">
 				<include>LowList_MovieFlagVars</include>
 				<texture>$INFO[ListItem.VideoCodec,flags/VideoCodec/,.png]</texture>
@@ -791,7 +747,7 @@
 		</control>
 		<!-- Video Resolution flag -->
 		<control type="group">
-			<posx>180</posx>
+			<posx>198</posx>
 			<control type="image">
 				<include>LowList_MovieFlagVars</include>
 				<texture>flags/Resolution/SD.png</texture>
@@ -804,7 +760,7 @@
 		</control>
 			<!-- Audio Codec flag -->
 		<control type="group">
-			<posx>270</posx>
+			<posx>280</posx>
 			<control type="image">
 				<include>LowList_MovieFlagVars</include>
 				<texture>$INFO[ListItem.AudioChannels,flags/Audio/,ch.png]</texture>
@@ -896,7 +852,7 @@
 </include>
 <!-- LOW LIST DETAIL PANELS -->
 <include name="LowList_DetailPanelVars">
-	<posx>890</posx>
+	<posx>800</posx>
 	<posy>503</posy>
 	<width>360</width>
 	<height>217</height>
@@ -1015,13 +971,15 @@
 					<label>$LOCALIZE[21900]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-80</posy>
 					<label fallback="-">$INFO[ListItem.Property(Formed)]</label>
 					<visible>!IsEmpty(ListItem.Property(Formed))</visible>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-80</posy>
 					<label fallback="-">$INFO[ListItem.Property(Born)]</label>
 					<visible>IsEmpty(ListItem.Property(Formed))</visible>
@@ -1039,7 +997,8 @@
 					<label>$LOCALIZE[176]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-25</posy>
 					<label fallback="-">$INFO[ListItem.Property(style)]</label>
 				</control>
@@ -1057,7 +1016,8 @@
 					<label>$LOCALIZE[31423]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-80</posy>
 					<label fallback="-">$INFO[ListItem.Property(label)]</label>
 				</control>
@@ -1074,7 +1034,8 @@
 					<label>$LOCALIZE[31438]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-25</posy>
 					<label fallback="-">$INFO[ListItem.Genre]</label>
 				</control>
@@ -1092,7 +1053,8 @@
 					<label>$LOCALIZE[31070]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-80</posy>
 					<label fallback="-">$INFO[listitem.artist] / $INFO[listitem.album] $INFO[listitem.year,(,)]</label>
 				</control>
@@ -1109,7 +1071,8 @@
 					<label>$LOCALIZE[31438]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-25</posy>
 					<label fallback="-">$INFO[ListItem.Genre]</label>
 				</control>
@@ -1265,6 +1228,15 @@
 			<visible>!IsEmpty(ListItem.genre)</visible>
 			<visible>!Container.Content(artists)</visible>
 		</control>
+		<control type="image">
+			<posx>205</posx>
+			<posy>161</posy>
+			<width>73</width>
+			<height>48</height>
+			<include>ShowcaseMediaFlagNightShade</include>
+			<visible>Control.IsVisible(551)</visible>
+			<texture>$INFO[ListItem.Property(Label),flags/music/recordlabel/,.png]</texture>
+		</control>
 		<control type="label">
 			<include>LowList_DetailInfoLabelPos4</include>
 			<label>$LOCALIZE[515]: [COLOR d0ffffff]$LOCALIZE[161][/COLOR]</label>
@@ -1360,6 +1332,15 @@
 				<label>$LOCALIZE[21899]: [COLOR d0ffffff]$INFO[ListItem.Property(label)][/COLOR]</label>
 				<visible>!IsEmpty(ListItem.Property(label))</visible>
 				<include>Animation_HighListSlide</include>
+			</control>
+			<control type="image">
+				<posx>205</posx>
+				<posy>161</posy>
+				<width>73</width>
+				<height>48</height>
+				<include>ShowcaseMediaFlagNightShade</include>
+				<visible>Control.IsVisible(551)</visible>
+				<texture>$INFO[ListItem.Property(Label),flags/music/recordlabel/,.png]</texture>
 			</control>
 			<control type="label">
 				<include>LowList_DetailInfoLabelPos2</include>
@@ -1571,23 +1552,24 @@
 		<!-- Right arrow 	<control type="image"><posx>910</posx><posy>-141</posy><width>19</width><height>21</height><texture flipx="true">lowlist/lowlist_arrow.png</texture><colordiffuse>e3FFFFFF</colordiffuse><animation effect="fade" start="70" end="70" condition="true">Conditional</animation></control>--><!-- Info Labels -->
 		<control type="group">
 			<description>DIRECTED BY:</description>
-			<posx>0</posx>
+			<posx>-35</posx>
 			<width>940</width>
 			<height>217</height>
 			<control type="label">
 				<include>LowList_WideInfoLabelVars</include>
 				<posy>-100</posy>
-				<label>$LOCALIZE[31402]:</label>
+				<label>$LOCALIZE[31402]: $INFO[ListItem.Director]</label>
 			</control>
 			<control type="label">
-				<include>LowList_WideInfoValueVars</include>
+				<textcolor>d0ffffff</textcolor>
+				<include>LowList_WideInfoLabelVars</include>
 				<posy>-80</posy>
-				<label fallback="-">$INFO[ListItem.director]</label>
+				<label>$LOCALIZE[31401]: $INFO[ListItem.Writer]</label>
 			</control>
 		</control>
 		<control type="group">
 			<description>GENRE:</description>
-			<posx>0</posx>
+			<posx>-35</posx>
 			<width>940</width>
 			<height>217</height>
 			<control type="label">
@@ -1596,14 +1578,15 @@
 				<label>$LOCALIZE[515]:</label>
 			</control>
 			<control type="label">
-				<include>LowList_WideInfoValueVars</include>
+				<textcolor>d0ffffff</textcolor>
+				<include>LowList_WideInfoLabelVars</include>
 				<posy>-25</posy>
 				<label fallback="-">$INFO[ListItem.genre]</label>
 			</control>
 		</control>
 		<control type="group">
 			<description>RUNTIME:</description>
-			<posx>0</posx>
+			<posx>-35</posx>
 			<width>940</width>
 			<height>217</height>
 			<control type="label">
@@ -1612,7 +1595,8 @@
 				<label>$LOCALIZE[2050]:</label>
 			</control>
 			<control type="label">
-				<include>LowList_WideInfoValueVars</include>
+				<textcolor>d0ffffff</textcolor>
+				<include>LowList_WideInfoLabelVars</include>
 				<posy>30</posy>
 				<label fallback="-">$INFO[ListItem.duration]</label>
 			</control>
@@ -1662,7 +1646,7 @@
 		</control>
 		<control type="multiimage">
 			<include>LowList_WideImageVars</include>
-			<timeperimage>6000</timeperimage>
+			<timeperimage>4500</timeperimage>
 			<imagepath fallback="common/black.png" diffuse="list/list_episodeicon_mask.png" background="true">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
 			<include>Animation_BackgroundFade</include>
 			<visible>Skin.HasSetting(widepanelthumbon)</visible>
@@ -1736,9 +1720,9 @@
 		</control>
 		<!-- Large title label -->
 		<control type="label">
-			<posx>10</posx>
+			<posx>-30</posx>
 			<posy>157</posy>
-			<width>520</width>
+			<width>580</width>
 			<height>59</height>
 			<aligny>center</aligny>
 			<align>left</align>
@@ -1747,15 +1731,15 @@
 		</control>
 		<!-- Separators -->
 		<control type="image">
-			<posx>0</posx>
+			<posx>-50</posx>
 			<posy>-108</posy>
-			<width>904</width>
+			<width>954</width>
 			<include>LowList_Detail_Separator</include>
 		</control>
 		<control type="image">
-			<posx>0</posx>
+			<posx>-50</posx>
 			<posy>155</posy>
-			<width>904</width>
+			<width>954</width>
 			<include>LowList_Detail_Separator</include>
 		</control>
 	</control>
@@ -1817,7 +1801,7 @@
 		<control type="textbox">
 			<description>PLOT OUTLINE: (Short)</description>
 			<include>LowList_ShortTextBox</include>
-			<label fallback="-">$INFO[ListItem.PlotOutline,[COLOR abffffff][UPPERCASE]$LOCALIZE[203][/UPPERCASE]:[/COLOR] ]</label>
+			<label fallback="-">$INFO[ListItem.Plot,[COLOR abffffff][UPPERCASE]$LOCALIZE[203][/UPPERCASE]:[/COLOR] ]</label>
 			<visible>Skin.HasSetting(highlist)</visible>
 		</control>
 	</control>
@@ -1827,13 +1811,13 @@
 		<include>LowList_DetailPanelVars</include>
 		<visible>Control.IsVisible(551) + Container.Content(movies) + [[Control.HasFocus(7714) | [![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(moviegallerypanelon) + !ControlGroup(55103).HasFocus()]]]</visible>
 		<control type="multiimage">
-			<posx>5</posx>
-			<posy>10</posy>
-			<width>360</width>
-			<height>196</height>
+			<posx>25</posx>
+			<posy>0</posy>
+			<width>410</width>
+			<height>220</height>
 			<fadetime>400</fadetime>
 			<aspectratio>scale</aspectratio>
-			<timeperimage>6000</timeperimage>
+			<timeperimage>4500</timeperimage>
 			<imagepath fallback="common/black.png" background="true" diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
@@ -1851,45 +1835,7 @@
 		</control>
 		<include>LowList_TaglineLabel</include>
 	</control>
-	<!-- Movie trailer detail panel
-	<control type="group" id="7820">
-	<description>TRAILER detail panel</description>
-	<include>LowList_DetailPanelVars</include>
-	<visible>Control.IsVisible(551) + Player.HasVideo</visible>
-	<control type="label">
-	<posx>5</posx>
-	<posy>10</posy>
-	<width>360</width>
-	<height>196</height>
-	<fadetime>400</fadetime>
-	<textcolor>d0ffffff</textcolor>
-	<font>Font_OSDMusicTitle</font>
-	<align>center</align>
-	<aligny>center</aligny>
-	<label>Press 'A' (click) to[CR]start trailer</label>
-	<visible>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</visible>
-	<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
-	</control>
-	<control type="label">
-	<posx>5</posx>
-	<posy>10</posy>
-	<width>360</width>
-	<height>196</height>
-	<fadetime>400</fadetime>
-	<textcolor>abffffff</textcolor>
-	<font>Font_OSDMusicTitle</font>
-	<align>center</align>
-	<aligny>center</aligny>
-	<label>No trailer[CR]for this video</label>
-	<visible>!Player.HasVideo + IsEmpty(ListItem.Trailer)</visible>
-	<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
-	</control><control type="videowindow" id="2">
-	<posx>5</posx><posy>10</posy>
-	<width>360</width>
-	<height>196</height>
-	<visible>Player.HasVideo</visible><animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
-	</control><include>LowList_TaglineLabel</include>
-	</control>--></include>
+</include>
 <!-- TV Detail Panels -->
 <include name="LowList_TvDetailPanels">
 	<!-- TV wide detail panel -->
@@ -2035,7 +1981,8 @@
 					<label>$LOCALIZE[20351]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-80</posy>
 					<label fallback="-">$LOCALIZE[31062] $INFO[ListItem.Season], $LOCALIZE[31063] $INFO[ListItem.Episode]</label>
 				</control>
@@ -2052,7 +1999,8 @@
 					<label>$LOCALIZE[31402]:</label>
 				</control>
 				<control type="label">
-					<include>LowList_WideInfoValueEpisodeVars</include>
+					<textcolor>d0ffffff</textcolor>
+					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-25</posy>
 					<label fallback="-">$INFO[ListItem.Director]</label>
 				</control>
@@ -2230,7 +2178,6 @@
 			<visible>!IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
 			<visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
 		</control>
-
 		<control type="label">
 			<include>LowList_DetailInfoLabelPos4R</include>
 			<label>[COLOR 66ffffff]$LOCALIZE[16102]:[/COLOR] [COLOR d0ffffff]-[/COLOR]</label>

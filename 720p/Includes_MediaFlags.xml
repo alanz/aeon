@@ -372,35 +372,6 @@
 				<control type="image">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>	
-					<visible>!Skin.HasSetting(nostudioflag) | !Control.IsVisible(888)</visible>
-				</control>
-				<control type="group">
-				<visible>Skin.HasSetting(nostudioflag)</visible>
-					<control type="image" id="888">
-						<include>Furniture_ShowcaseMediaFlagsVars</include>
-						<texture>flags/Source/hdtv.png</texture>
-						<visible>substring(listitem.filename,hdtv)</visible>
-					</control>
-					<control type="image" id="888">
-						<include>Furniture_ShowcaseMediaFlagsVars</include>
-						<texture>flags/Source/hddvd.png</texture>
-						<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
-					</control>
-					<control type="image" id="888">
-						<include>Furniture_ShowcaseMediaFlagsVars</include>
-						<texture>flags/Source/bluray.png</texture>
-						<visible>substring(listitem.filename,bluray) | substring(listitem.filename,blu-ray) | substring(listitem.filename,bdrip)</visible>
-					</control>
-					<control type="image" id="888">
-						<include>Furniture_ShowcaseMediaFlagsVars</include>
-						<texture>flags/Source/dvd.png</texture>
-						<visible>[substring(listitem.filename,dvd) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,hd-dvd) + !substring(listitem.filename,bluray)] | [substring(listitem.filename,.iso,Right) + !substring(listitem.filename,bluray)] | substring(listitem.filename,.ifo,Right)</visible>
-					</control>
-					<control type="image" id="888">
-						<include>Furniture_ShowcaseMediaFlagsVars</include>
-						<texture>flags/Source/dvb.png</texture>
-						<visible>substring(listitem.filename,dvb)</visible>
-					</control>
 				</control>
 			</control>			
 			<control type="group">
@@ -468,9 +439,38 @@
 			</control>
 			<control type="group">
 				<posx>198</posx>
+				<control type="group">
+					<visible>Skin.HasSetting(sourceflag)</visible>
+					<control type="image" id="888">
+						<include>Furniture_ShowcaseMediaFlagsVars</include>
+						<texture>flags/Source/hdtv.png</texture>
+						<visible>substring(listitem.filename,hdtv)</visible>
+					</control>
+					<control type="image" id="888">
+						<include>Furniture_ShowcaseMediaFlagsVars</include>
+						<texture>flags/Source/hddvd.png</texture>
+						<visible>substring(listitem.filename,hddvd) | substring(listitem.filename,hd-dvd)</visible>
+					</control>
+					<control type="image" id="888">
+						<include>Furniture_ShowcaseMediaFlagsVars</include>
+						<texture>flags/Source/bluray.png</texture>
+						<visible>substring(listitem.filename,bluray) | substring(listitem.filename,blu-ray) | substring(listitem.filename,bdrip)</visible>
+					</control>
+					<control type="image" id="888">
+						<include>Furniture_ShowcaseMediaFlagsVars</include>
+						<texture>flags/Source/dvd.png</texture>
+						<visible>[substring(listitem.filename,dvd) + !substring(listitem.filename,hddvd) + !substring(listitem.filename,hd-dvd) + !substring(listitem.filename,bluray)] | [substring(listitem.filename,.iso,Right) + !substring(listitem.filename,bluray)] | substring(listitem.filename,.ifo,Right)</visible>
+					</control>
+					<control type="image" id="888">
+						<include>Furniture_ShowcaseMediaFlagsVars</include>
+						<texture>flags/Source/dvb.png</texture>
+						<visible>substring(listitem.filename,dvb)</visible>
+					</control>
+				</control>
 				<control type="image" id="82">
 					<include>Furniture_ShowcaseMediaFlagsVars</include>
 					<texture>$INFO[ListItem.VideoCodec,flags/VideoCodec/,.png]</texture>
+					<visible>!Control.IsVisible(888) | !Skin.HasSetting(sourceflag)</visible>
 				</control>
 			</control>
 		</control>
