@@ -1457,7 +1457,6 @@
 		<posx>315</posx>
 		<posy>693</posy>
 		<width>650</width>
-		<shadowcolor>ff000000</shadowcolor>
 		<font>Font_ShowcaseMainLabel</font>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
@@ -1488,17 +1487,17 @@
 	<include name="ShowcaseDetailLabel">
 		<include>ShowcaseLabelVars</include>
 		<posx>340</posx>
-		<posy>673</posy>
+		<posy>670</posy>
 		<width>600</width>
 		<font>Font_ShowcaseDetailLabel</font>
-		<visible>!ControlGroup(7000).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
+		<visible>!ControlGroup(7000).HasFocus()+[Skin.HasSetting(showcaseinfolines) | !Control.IsVisible(57)]</visible>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 	</include>
 	<include name="ShowcaseDetailLabel2">
 		<include>ShowcaseLabelVars</include>
 		<posx>340</posx>
-		<posy>657</posy>
+		<posy>655</posy>
 		<width>600</width>
 		<font>Font_ShowcaseDetailLabel</font>
 		<visible>!ControlGroup(7000).HasFocus()+Skin.HasSetting(showcaseinfolines)</visible>
@@ -4322,7 +4321,7 @@
 					<visible>Window.IsActive(musiclibrary) + Control.IsVisible(57) + stringcompare(container(57).numitems,0)</visible>
 				</control>
 				<control type="label">
-					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+					<label>[UPPERCASE][B]$INFO[ListItem.Label][/B][/UPPERCASE]</label>
 					<include>ShowcaseMainLabel</include>
 					<visible>Container.Content(movies) + !Skin.HasSetting(nomediaflags) + !Window.IsActive(videofiles)</visible>
 				</control>
