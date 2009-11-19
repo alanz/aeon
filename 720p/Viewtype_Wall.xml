@@ -1293,74 +1293,7 @@
 			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
 		</control>
 		<!--FLOOR TITLE/DURATION-->
-		<control type="group">
-			<visible>Control.IsVisible(53)</visible>
-			<include>Animation_HideShowcase</include>
-			<control type="fadelabel">
-				<label>31609</label>
-				<label>31610</label>
-				<scrollout>false</scrollout>
-				<pauseatend>3000</pauseatend>
-				<scroll>false</scroll>
-				<include>ShowcaseMainLabel</include>
-				<visible>Window.IsActive(videolibrary) + Control.IsVisible(53) + stringcompare(container(53).numitems,0)</visible>
-			</control>
-			<control type="fadelabel">
-				<label>31609</label>
-				<label>31611</label>
-				<scrollout>false</scrollout>
-				<pauseatend>3000</pauseatend>
-				<scroll>false</scroll>
-				<include>ShowcaseMainLabel</include>
-				<visible>Window.IsActive(musiclibrary) + Control.IsVisible(53) + stringcompare(container(53).numitems,0)</visible>
-			</control>
-			<control type="label">
-				<label>[B][UPPERCASE]$INFO[ListItem.Label][/UPPERCASE][/B]</label>
-				<include>ShowcaseMainLabel</include>
-				<visible>Container.Content(movies) + !Skin.HasSetting(nomediaflags) + !Window.IsActive(videofiles)</visible>
-			</control>
-			<control type="label">
-				<label>[B][UPPERCASE]$INFO[ListItem.Label][/UPPERCASE][/B]</label>
-				<include>ShowcaseMainLabelWide</include>
-				<visible>[!Container.Content(movies) | Window.IsActive(videofiles)] | [Container.Content(movies) + Skin.HasSetting(nomediaflags)]</visible>
-			</control>
-			<control type="label">
-				<label>[UPPERCASE]$INFO[Container.NumItems] $LOCALIZE[31005][/UPPERCASE]</label>
-				<include>ShowcaseItemsLabel</include>
-			</control>
-			<control type="label" id="72">
-				<label>[UPPERCASE]$INFO[ListItem.Year]  |  $INFO[ListItem.Duration]  |  $INFO[Container(53).ListItem.Rating][/UPPERCASE]</label>
-				<!--CHANGED GENRE TO YEAR/DURATION/RATING-->
-				<include>ShowcaseDetailLabel</include>
-				<visible>Container.Content(movies) + [!IsEmpty(ListItem.Duration) | !IsEmpty(ListItem.Year)]</visible>
-				<!--CHANGED GENRE TO YEAR/DURATION/RATING-->
-			</control>
-			<control type="label" id="72">
-				<label>$INFO[ListItem.Album,, -] $INFO[ListItem.Artist]</label>
-				<include>ShowcaseDetailLabel</include>
-				<visible>Container.Content(songs)</visible>
-			</control>
-			<control type="label" id="72">
-				<info>ListItem.Label2</info>
-				<include>ShowcaseDetailLabel</include>
-				<visible>Window.IsActive(programs) | Container.Content(albums) | Window.IsActive(musicfiles)</visible>
-			</control>
-			<control type="label" id="72">
-				<label>[UPPERCASE]$INFO[ListItem.Episode] $LOCALIZE[31406][/UPPERCASE]</label>
-				<include>ShowcaseDetailLabel</include>
-				<visible>[Container.Content(tvshows)] + !IsEmpty(ListItem.Episode)</visible>
-			</control>
-			<control type="label" id="72">
-				<label>[UPPERCASE]$LOCALIZE[31432] $INFO[ListItem.Season], $LOCALIZE[31433] $INFO[ListItem.Episode][/UPPERCASE]</label>
-				<include>ShowcaseDetailLabel</include>
-				<visible>Container.Content(episodes) + !IsEmpty(ListItem.Episode)</visible>
-			</control>
-			<control type="label" id="72">
-				<info>ListItem.PictureResolution</info>
-				<include>ShowcaseDetailLabel</include>
-				<visible>Window.IsActive(pictures) + !IsEmpty(ListItem.PictureResolution)</visible>
-			</control>
-		</control>
+		<include>Furniture_FloorText</include>
 		<control type="label" id="217">
 			<posx>0</posx>
 			<posy>0</posy>
