@@ -357,11 +357,12 @@
 	</include>
 	<include name="Viewtype_List">
 		<control type="image" id="232">
+			<animation effect="slide" time="1000" start="800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
 			<width>587</width>
 			<height>137</height>
 			<include condition="!Skin.HasSetting(dvdcase)">ListSpotXPosNormal</include>
 			<include condition="Skin.HasSetting(dvdcase)">ListSpotXPosDVD</include>
-			<posy>583</posy>
+			<posy>603</posy>
 			<include condition="!Skin.HasSetting(darkfloor)">ListSpotLight</include>
 			<include condition="Skin.HasSetting(darkfloor)">ListSpotNight</include>
 			<visible>Control.IsVisible(50)</visible>
@@ -372,6 +373,7 @@
 			<animation effect="slide" time="700" start="-800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
 			<animation effect="fade" time="200" start="100" end="0">Hidden</animation>
 			<control type="image">
+				<include>Animation_CommonFade</include>
 				<posx>60</posx>
 				<posy>73</posy>
 				<width>759</width>
@@ -379,9 +381,9 @@
 				<texture>list/listpanel_black.png</texture>
 				<visible>!Skin.HasSetting(listpanelthin)</visible>
 				<visible>Control.IsVisible(50)</visible>
-				<include>Animation_CommonFade</include>
 			</control>
 			<control type="image">
+				<include>Animation_CommonFade</include>
 				<posx>60</posx>
 				<posy>73</posy>
 				<width>759</width>
@@ -428,7 +430,6 @@
 				<onright>7000</onright>
 				<onup>50</onup>
 				<ondown>50</ondown>
-				<visible>![Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]</visible>
 				<itemlayout condition="[Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)] | [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] + !Skin.HasSetting(slimlist)" height="65">
 					<control type="image">
 						<posx>12</posx>
@@ -1244,7 +1245,7 @@
 			<visible>Control.IsVisible(50)</visible>
 			<animation effect="slide" time="1000" start="600,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
 			<animation effect="slide" time="1000" start="0,0" end="600,0" tween="cubic" easing="out">WindowClose</animation>
-			<animation effect="fade" time="400" start="0" end="100">Visible</animation>
+			<animation effect="slide" time="1000" start="800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
 			<animation effect="fade" time="400" start="100" end="0">Hidden</animation>
 			<!-- DVD back -->
 			<control type="image">
@@ -1465,7 +1466,6 @@
 		</control>
 		<control type="group">
 			<animation effect="fade" delay="500" start="0" end="100" time="1000" condition="Control.IsVisible(50)">Conditional</animation>
-			<animation effect="fade" delay="1500" start="100" end="0" time="200" condition="Player.HasAudio">Conditional</animation>
 			<include condition="!Skin.HasSetting(nomediaflags)">Furniture_ListMediaFlags</include>
 		</control>
 		<control type="scrollbar" id="61">

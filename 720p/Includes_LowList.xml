@@ -14,15 +14,6 @@
 	<include name="Animation_HighListSlideSmall">
 		<animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(highlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
 	</include>
-	<include name="Animation_FadeInSlideOut">
-		<animation type="Visible">
-			<!--<effect type="slide" start="0,300" end="0,0" time="300" />--><effect type="fade" start="0" end="100" time="500" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="slide" start="0,0" end="0,300" tween="quadratic" easing="in" time="300" />
-			<effect type="fade" start="100" end="0" time="300" />
-		</animation>
-	</include>
 	<!-- LOW LIST MEDIA ICONS -->
 	<!-- Poster icon variables -->
 <include name="LowList_DVDCaseVars">
@@ -573,7 +564,7 @@
 	<height>1</height>
 	<width>404</width>
 	<texture>lowlist/lowlistpanel_line.png</texture>
-	<include>common-fade-quick</include>
+	<include>Animation_CommonFadeOpenClose</include>
 </include>
 <!-- LOW LIST FLAGS -->
 <include name="LowList_MovieFlagVars">

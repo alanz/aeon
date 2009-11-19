@@ -421,6 +421,7 @@
 			<visible>Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(53)</visible>
 			<include>Animation_HideMultiplex</include>
 			<include>Animation_HideShowcase</include>
+			<include>Animation_OpenCloseZoom</include>
 			<control type="fadelabel">
 				<label>31609</label>
 				<label>31610</label>
@@ -461,7 +462,7 @@
 			</control>
 			<control type="label">
 				<label>[UPPERCASE]$INFO[Container.NumItems] $LOCALIZE[31005][/UPPERCASE]</label>
-					<include>ShowcaseLabelVars</include>
+					<include>FloorTextLabel</include>
 					<posx>340</posx>
 					<posy>685</posy>
 					<width>600</width>
@@ -513,15 +514,15 @@
 			</control>
 		</control>
 	</include>
-	<include name="ShowcaseLabelVars">
+	<include name="FloorTextLabel">
 		<align>center</align>
 		<aligny>center</aligny>
 		<include>Animation_CommonFade</include>
 		<include>Animation_HideShowcase</include>
-		<visible>![Control.HasFocus(60) | Control.HasFocus(70197)]</visible>
+		<visible>![Control.HasFocus(60) | Control.HasFocus(70197) | Control.HasFocus(197)]</visible>
 	</include>
 	<include name="FloorTextMainLabel">
-		<include>ShowcaseLabelVars</include>
+		<include>FloorTextLabel</include>
 		<posx>315</posx>
 		<posy>693</posy>
 		<width>650</width>
@@ -532,7 +533,7 @@
 	
 	</include>
 	<include name="FloorTextMainLabelWide">
-		<include>ShowcaseLabelVars</include>
+		<include>FloorTextLabel</include>
 		<posx>200</posx>
 		<posy>693</posy>
 		<width>880</width>
@@ -542,7 +543,7 @@
 		<visible>!ControlGroup(7000).HasFocus()</visible>
 	</include>
 	<include name="FloorTextDetailLabel">
-		<include>ShowcaseLabelVars</include>
+		<include>FloorTextLabel</include>
 		<posx>340</posx>
 		<posy>670</posy>
 		<width>600</width>
@@ -552,7 +553,7 @@
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 	</include>
 	<include name="FloorTextDetailLabel2">
-		<include>ShowcaseLabelVars</include>
+		<include>FloorTextLabel</include>
 		<posx>340</posx>
 		<posy>655</posy>
 		<width>600</width>
