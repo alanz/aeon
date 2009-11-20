@@ -648,8 +648,8 @@
 			<posy>65</posy>
 			<width>1280</width>
 			<height>381</height>
-			<visible>Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplextvinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplextvinfotrigger) | Skin.HasSetting(multiplextvinfoauto)]]]</visible>
-			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(multiplextvinfoon)">WindowOpen</animation>
+			<visible>Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
+			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="![[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]]">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<include>Animation_InfoPanelSlide</include>
 			<control type="image">
@@ -867,8 +867,8 @@
 			<posy>50</posy>
 			<width>1280</width>
 			<height>381</height>
-			<visible>Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplextvinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplextvinfotrigger) | Skin.HasSetting(multiplextvinfoauto)]]]</visible>
-			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(multiplextvinfoon)">WindowOpen</animation>
+			<visible>Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
+			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="![[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]]">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<include>Animation_InfoPanelSlide</include>
 			<control type="image">
@@ -1764,7 +1764,7 @@
 			<onup>7000</onup>
 			<ondown>52</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[[Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto) | [Skin.HasSetting(multiplexinfoon)+ !IsEmpty(ListItem.Trailer)]] + Skin.HasSetting(videomovies)] | [[Skin.HasSetting(multiplextvinfotrigger) | Skin.HasSetting(multiplextvinfoauto)]+Skin.HasSetting(videotv)]</visible>
+			<visible>[[Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto) | [Skin.HasSetting(multiplexinfoon)+ !IsEmpty(ListItem.Trailer)]] + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]+Skin.HasSetting(videotv)]</visible>
 		</control>
 		<control type="button" id="111"> <!-- trigger button SetFocus(7000)-->
 			<posx>0</posx>
@@ -1774,7 +1774,7 @@
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[![Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto) | [Skin.HasSetting(multiplexinfoon)+ !IsEmpty(ListItem.Trailer)]] + Skin.HasSetting(videomovies)] | [![Skin.HasSetting(multiplextvinfotrigger) | Skin.HasSetting(multiplextvinfoauto)]+Skin.HasSetting(videotv)]</visible>
+			<visible>[![Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto) | [Skin.HasSetting(multiplexinfoon)+ !IsEmpty(ListItem.Trailer)]] + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]+Skin.HasSetting(videotv)]</visible>
 		</control>
 		<control type="image">
 			<posx>40</posx>

@@ -169,7 +169,7 @@
 			<label>AUTO TIMER</label>
 			<onclick>SetFocus(7021)</onclick>
 			<onright>SetFocus(7021)</onright>
-			<visible>[Control.IsVisible(552) + Skin.HasSetting(multiplextvinfoauto)] | [Control.IsVisible(52) + Skin.HasSetting(multiplexinfoauto)] | [Control.IsVisible(57) + Skin.HasSetting(videotv) + Skin.HasSetting(showcasetvinfoauto)] | [Control.IsVisible(57) + Skin.HasSetting(videomovies) + Skin.HasSetting(showcaseinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videotv) + Skin.HasSetting(oldmultiplextvinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videomovies) + Skin.HasSetting(oldmultiplexinfoauto)]</visible>
+			<visible>[Control.IsVisible(552) + [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]] | [Control.IsVisible(52) + Skin.HasSetting(multiplexinfoauto)] | [Control.IsVisible(57) + Skin.HasSetting(videotv) + [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons]]] | [Control.IsVisible(57) + Skin.HasSetting(videomovies) + Skin.HasSetting(showcaseinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videotv) + Skin.HasSetting(oldmultiplextvinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videomovies) + Skin.HasSetting(oldmultiplexinfoauto)]</visible>
 		</control>
 		<control type="togglebutton" id="700020">
 			<include>MediaMenuButton</include>
@@ -975,46 +975,126 @@
 					<onright>50</onright>
 					<visible>Control.IsVisible(57) + Container.Content(movies)</visible>
 				</control>
-				<control type="button" id="702011"><!--multiplextv-->
+				<control type="button" id="702011"><!--multiplextvshow-->
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31078]</label>
-					<onclick>Skin.Reset(multiplextvinfoauto)</onclick>
-					<onclick>Skin.Reset(multiplextvinfotrigger)</onclick>
-					<onclick>Skin.SetBool(multiplextvinfooff)</onclick>
-					<onclick>Skin.Reset(multiplextvinfoon)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfotrigger)</onclick>
+					<onclick>Skin.SetBool(multiplextvshowinfooff)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="702012">
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31048]</label>
-					<onclick>Skin.Reset(multiplextvinfoauto)</onclick>
-					<onclick>Skin.SetBool(multiplextvinfotrigger)</onclick>
-					<onclick>Skin.Reset(multiplextvinfooff)</onclick>
-					<onclick>Skin.Reset(multiplextvinfoon)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfoauto)</onclick>
+					<onclick>Skin.SetBool(multiplextvshowinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfooff)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="702013">
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31049]</label>
-					<onclick>Skin.SetBool(multiplextvinfoauto)</onclick>
-					<onclick>Skin.Reset(multiplextvinfotrigger)</onclick>
-					<onclick>Skin.Reset(multiplextvinfooff)</onclick>
-					<onclick>Skin.Reset(multiplextvinfoon)</onclick>
+					<onclick>Skin.SetBool(multiplextvshowinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfooff)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="702014">
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31077]</label>
-					<onclick>Skin.Reset(multiplextvinfoauto)</onclick>
-					<onclick>Skin.Reset(multiplextvinfotrigger)</onclick>
-					<onclick>Skin.Reset(multiplextvinfooff)</onclick>
-					<onclick>Skin.SetBool(multiplextvinfoon)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplextvshowinfooff)</onclick>
+					<onclick>Skin.SetBool(multiplextvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
 				</control>
+				<control type="button" id="702011"><!--multiplexseason-->
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31078]</label>
+					<onclick>Skin.Reset(multiplexseasoninfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfotrigger)</onclick>
+					<onclick>Skin.SetBool(multiplexseasoninfooff)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
+				</control>
+				<control type="button" id="702012">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31048]</label>
+					<onclick>Skin.Reset(multiplexseasoninfoauto)</onclick>
+					<onclick>Skin.SetBool(multiplexseasoninfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfooff)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
+				</control>
+				<control type="button" id="702013">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31049]</label>
+					<onclick>Skin.SetBool(multiplexseasoninfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfooff)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
+				</control>
+				<control type="button" id="702014">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31077]</label>
+					<onclick>Skin.Reset(multiplexseasoninfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexseasoninfooff)</onclick>
+					<onclick>Skin.SetBool(multiplexseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
+				</control>		
+				<control type="button" id="702011"><!--multiplexepisode-->
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31078]</label>
+					<onclick>Skin.Reset(multiplexepisodeinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfotrigger)</onclick>
+					<onclick>Skin.SetBool(multiplexepisodeinfooff)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
+				</control>
+				<control type="button" id="702012">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31048]</label>
+					<onclick>Skin.Reset(multiplexepisodeinfoauto)</onclick>
+					<onclick>Skin.SetBool(multiplexepisodeinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfooff)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
+				</control>
+				<control type="button" id="702013">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31049]</label>
+					<onclick>Skin.SetBool(multiplexepisodeinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfooff)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
+				</control>
+				<control type="button" id="702014">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31077]</label>
+					<onclick>Skin.Reset(multiplexepisodeinfoauto)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfotrigger)</onclick>
+					<onclick>Skin.Reset(multiplexepisodeinfooff)</onclick>
+					<onclick>Skin.SetBool(multiplexepisodeinfoon)</onclick>
+					<onright>50</onright>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
+				</control>				
 				<control type="button" id="702015"><!--oldmultiplex-->
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31078]</label>
@@ -1095,46 +1175,86 @@
 					<onright>50</onright>
 					<visible>Control.IsVisible(553) + Skin.HasSetting(videotv)</visible>
 				</control>
-				<control type="button" id="702023"><!--showcasetv-->
+				<control type="button" id="702023"><!--showcasetvshow-->
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31078]</label>
-					<onclick>Skin.Reset(showcasetvinfoauto)</onclick>
-					<onclick>Skin.Reset(showcasetvinfotrigger)</onclick>
-					<onclick>Skin.SetBool(showcasetvinfooff)</onclick>
-					<onclick>Skin.Reset(showcasetvinfoon)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfoauto)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfotrigger)</onclick>
+					<onclick>Skin.SetBool(showcasetvshowinfooff)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="702024">
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31048]</label>
-					<onclick>Skin.Reset(showcasetvinfoauto)</onclick>
-					<onclick>Skin.SetBool(showcasetvinfotrigger)</onclick>
-					<onclick>Skin.Reset(showcasetvinfooff)</onclick>
-					<onclick>Skin.Reset(showcasetvinfoon)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfoauto)</onclick>
+					<onclick>Skin.SetBool(showcasetvshowinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfooff)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
 				</control>
 				<control type="button" id="702025">
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31049]</label>
-					<onclick>Skin.SetBool(showcasetvinfoauto)</onclick>
-					<onclick>Skin.Reset(showcasetvinfotrigger)</onclick>
-					<onclick>Skin.Reset(showcasetvinfooff)</onclick>
-					<onclick>Skin.Reset(showcasetvinfoon)</onclick>
+					<onclick>Skin.SetBool(showcasetvshowinfoauto)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfooff)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
 
 				</control>
 				<control type="button" id="702026">
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31077]</label>
-					<onclick>Skin.Reset(showcasetvinfoauto)</onclick>
-					<onclick>Skin.Reset(showcasetvinfotrigger)</onclick>
-					<onclick>Skin.Reset(showcasetvinfooff)</onclick>
-					<onclick>Skin.SetBool(showcasetvinfoon)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfoauto)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfotrigger)</onclick>
+					<onclick>Skin.Reset(showcasetvshowinfooff)</onclick>
+					<onclick>Skin.SetBool(showcasetvshowinfoon)</onclick>
 					<onright>50</onright>
-					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
+				</control>
+				<control type="button" id="702023"><!--showcaseseasons-->
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31078]</label>
+					<onclick>Skin.Reset(showcaseseasoninfoauto)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfotrigger)</onclick>
+					<onclick>Skin.SetBool(showcaseseasoninfooff)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
+				</control>
+				<control type="button" id="702024">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31048]</label>
+					<onclick>Skin.Reset(showcaseseasoninfoauto)</onclick>
+					<onclick>Skin.SetBool(showcaseseasoninfotrigger)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfooff)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
+				</control>
+				<control type="button" id="702025">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31049]</label>
+					<onclick>Skin.SetBool(showcaseseasoninfoauto)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfotrigger)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfooff)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
+				</control>
+				<control type="button" id="702026">
+					<include>MediaMenuButton</include>
+					<label>$LOCALIZE[31077]</label>
+					<onclick>Skin.Reset(showcaseseasoninfoauto)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfotrigger)</onclick>
+					<onclick>Skin.Reset(showcaseseasoninfooff)</onclick>
+					<onclick>Skin.SetBool(showcaseseasoninfoon)</onclick>
+					<onright>50</onright>
+					<visible>Control.IsVisible(57) + Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
 				</control>
 				<control type="button" id="702027"> <!-- multiwall-->
 					<include>MediaMenuButton</include>
@@ -1284,7 +1404,7 @@
 					<onclick>ReloadSkin</onclick>
 					<visible>Window.IsActive(videolibrary) + Control.IsVisible(53)</visible>
 				</control>
-					<control type="button" id="702042"><!--ShowcaseMusic-->
+				<control type="button" id="702042"><!--ShowcaseMusic-->
 					<include>MediaMenuButton</include>
 					<label>$LOCALIZE[31078]</label>
 					<onclick>Skin.Reset(showcasemusicinfoauto)</onclick>
