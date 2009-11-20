@@ -247,21 +247,9 @@
 		<width>60</width>
 		<height>60</height>
 	</include>
-	<include name="ShowcasePlotWidth">
-		<width>285</width>
-	</include>
-	<include name="ShowcaseNoPlotWidth">
-		<width>200</width>
-	</include>
-	<include name="ShowcaseTVWidth">
-		<width>380</width>
-	</include>
 	<include name="ShowcaseInfoLabel">
 		<posx>0</posx>
 		<posy>0</posy>
-		<include condition="[Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)] + !Skin.HasSetting(videotv)">ShowcasePlotWidth</include>
-		<include condition="Skin.HasSetting(fanartlayout) + !Skin.HasSetting(videotv)">ShowcaseNoPlotWidth</include>
-		<include condition="Skin.HasSetting(videotv)">ShowcaseTVWidth</include>
 		<height>13</height>
 		<font>Font_MultiplexInfoLabel</font>
 		<textcolor>abFFFFFF</textcolor>
@@ -269,12 +257,10 @@
 	<include name="ShowcaseInfoValue">
 		<posx>0</posx>
 		<posy>17</posy>
-		<include condition="[Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)] + !Skin.HasSetting(videotv)">ShowcasePlotWidth</include>
-		<include condition="Skin.HasSetting(fanartlayout) + !Skin.HasSetting(videotv)">ShowcaseNoPlotWidth</include>
-		<include condition="Skin.HasSetting(videotv)">ShowcaseTVWidth</include>
 		<height>13</height>
 		<font>Font_MultiplexInfoValue</font>
 		<textcolor>FFFFFFFF</textcolor>
+		<scroll>true</scroll>
 	</include>
 	<include name="ShowcaseInfoValueBigThumb">
 		<posx>235</posx>
@@ -283,6 +269,7 @@
 		<height>13</height>
 		<font>Font_MultiplexInfoValue</font>
 		<textcolor>FFFFFFFF</textcolor>
+		<scroll>true</scroll>
 	</include>
 	<include name="ShowcaseInfoPaneMovies">
 		<control type="group">
@@ -331,6 +318,14 @@
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Director]</label>
+						<width>280</width>
+						<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
+					</control>
+					<control type="label">
+						<include>ShowcaseInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).ListItem.Director]</label>
+						<visible>Skin.HasSetting(fanartlayout)</visible>
+						<width>215</width>
 					</control>
 				</control>
 				<control type="group">
@@ -342,6 +337,14 @@
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
 						<label fallback="31425">$INFO[Container(57).ListItem.Writer]</label>
+						<width>290</width>
+						<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
+					</control>
+					<control type="label">
+						<include>ShowcaseInfoValue</include>
+						<label fallback="31425">$INFO[Container(57).ListItem.Writer]</label>
+						<visible>Skin.HasSetting(fanartlayout)</visible>
+						<width>215</width>
 					</control>
 				</control>
 				<control type="group">
@@ -360,10 +363,12 @@
 					<visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
 					<control type="label">
 						<include>ShowcaseInfoLabel</include>
+						<width>285</width>
 						<label>$LOCALIZE[31709]:</label>
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>285</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Duration]</label>
 					</control>
 				</control>
@@ -376,6 +381,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>290</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Genre]</label>
 					</control>
 				</control>
@@ -388,6 +394,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>290</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.MPAA]</label>
 					</control>
 				</control>
@@ -400,6 +407,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>290</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.RatingAndVotes]</label>
 					</control>
 				</control>
@@ -890,6 +898,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>380</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Genre]</label>
 					</control>
 				</control>
@@ -901,6 +910,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>380</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Episode]</label>
 					</control>
 				</control>
@@ -912,6 +922,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>380</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Date]</label>
 					</control>
 				</control>
@@ -928,6 +939,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>380</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Episode]</label>
 					</control>
 				</control>
@@ -939,6 +951,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>380</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Property(WatchedEpisodes)]</label>
 					</control>
 				</control>
@@ -950,6 +963,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
+						<width>380</width>
 						<label fallback="31425">$INFO[Container(57).ListItem.Property(UnwatchedEpisodes)]</label>
 					</control>
 				</control>
@@ -4199,7 +4213,7 @@
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[![Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer) + Control.IsVisible(109)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
+			<visible>[![Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer) + Control.IsVisible(109)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![Skin.HasSetting(showcasetvinfotrigger) | Skin.HasSetting(showcasetvinfoauto)] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]</visible>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
