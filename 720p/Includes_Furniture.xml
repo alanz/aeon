@@ -418,7 +418,7 @@
 	</include>
 	<include name="Furniture_FloorText">
 		<control type="group">
-			<visible>Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(53)</visible>
+			<visible>[Control.IsVisible(52) + !Window.IsActive(musiclibrary)] | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(53)</visible>
 			<include>Animation_HideMultiplex</include>
 			<include>Animation_HideShowcase</include>
 			<include>Animation_OpenCloseZoom</include>
@@ -461,10 +461,10 @@
 				<visible>Container.Content(episodes) + Skin.HasSetting(nomediaflags) + !Window.IsActive(videofiles)</visible>
 			</control>
 			<control type="label">
-				<label>[UPPERCASE]$INFO[Container.NumItems] $LOCALIZE[31005][/UPPERCASE]</label>
+					<label>[B][UPPERCASE]$INFO[Container.NumItems] $LOCALIZE[31005][/UPPERCASE][/B]</label>
 					<include>FloorTextLabel</include>
 					<posx>340</posx>
-					<posy>685</posy>
+					<posy>693</posy>
 					<width>600</width>
 					<font>Font_FloorTextMainLabel</font>
 					<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
@@ -519,6 +519,7 @@
 		<aligny>center</aligny>
 		<include>Animation_CommonFade</include>
 		<include>Animation_HideShowcase</include>
+		<include>Animation_HideMultiplex</include>
 		<visible>![Control.HasFocus(60) | Control.HasFocus(70197) | Control.HasFocus(197)]</visible>
 	</include>
 	<include name="FloorTextMainLabel">
