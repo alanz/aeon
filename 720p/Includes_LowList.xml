@@ -52,7 +52,7 @@
 			<description>DVD Case Frame</description>
 			<include>LowList_DVDCaseVars</include>
 			<texture>thumbs/boxes/poster_shadow.png</texture>
-			<visible>Skin.HasSetting(dvdcase) + !Container.Content(years) + !Container.Content(studios)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist) + !Container.Content(years) + !Container.Content(studios)</visible>
 		</control>
 		<control type="largeimage">
 			<description>Poster Icon Mask</description>
@@ -60,23 +60,39 @@
 			<texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
 			<bordertexture border="-18">thumbs/movieposter_frame.png</bordertexture>
 			<fadetime>400</fadetime>
-			<visible>>![Skin.HasSetting(dvdcase) + !Container.Content(years) + !Container.Content(studios)]</visible>
+			<visible>>![Skin.HasSetting(dvdcaselowlist) + !Container.Content(years) + !Container.Content(studios)]</visible>
 		</control>
-		<control type="largeimage">
+		<control type="largeimage" id="7200">
 			<description>POSTER.JPG icon</description>
 			<include >LowList_PosterIconVars</include>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
 			<fadetime>400</fadetime>
-			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + !Skin.HasSetting(dvdcase)</visible>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + !Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
-		<control type="largeimage">
+		<control type="largeimage" id="7200">
 			<description>POSTER.JPG icon DVDCase</description>
 			<include>LowList_PosterIconInCase</include>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[listitem.path]poster.jpg</texture>
 			<fadetime>400</fadetime>
-			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + Skin.HasSetting(dvdcase)</visible>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + Skin.HasSetting(dvdcaselowlist)</visible>
+		</control>
+		<control type="largeimage">
+			<description>POSTER.JPG icon</description>
+			<include >LowList_PosterIconVars</include>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[listitem.path]folder.jpg</texture>
+			<fadetime>400</fadetime>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + !Skin.HasSetting(dvdcaselowlist)+ !Control.IsVisible(7200)</visible>
+		</control>
+		<control type="largeimage">
+			<description>POSTER.JPG icon DVDCase</description>
+			<include>LowList_PosterIconInCase</include>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[listitem.path]folder.jpg</texture>
+			<fadetime>400</fadetime>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + Skin.HasSetting(dvdcaselowlist) + !Control.IsVisible(7200)</visible>
 		</control>
 		<control type="largeimage">
 			<description>SEASON THUMB icon</description>
@@ -84,7 +100,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
 			<fadetime>400</fadetime>
-			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(dvdcase)</visible>
+			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="largeimage">
 			<description>SEASON THUMB icon</description>
@@ -92,7 +108,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
 			<fadetime>400</fadetime>
-			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(dvdcase)</visible>
+			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="largeimage">
 			<description>POSTER icon</description>
@@ -100,7 +116,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
 			<fadetime>400</fadetime>
-			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + !Skin.HasSetting(dvdcase)</visible>
+			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + !Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="largeimage">
 			<description>POSTER icon</description>
@@ -108,48 +124,64 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[ListItem.Icon]</texture>
 			<fadetime>400</fadetime>
-			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + Skin.HasSetting(dvdcase)</visible>
+			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Poster Icon Glass</description>
 			<texture>thumbs/poster_glass_noedge.png</texture>
 			<include>LowList_PosterIconVars</include>
-			<visible>!Container.Content(years) + !Skin.HasSetting(dvdcase)</visible>
+			<visible>!Container.Content(years) + !Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Poster Icon Glass</description>
 			<texture>thumbs/boxes/poster_glass.png</texture>
 			<include>LowList_DVDCaseVars</include>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>DVD Case Double Thick Glass</description>
 			<texture>thumbs/boxes/poster_glass.png</texture>
 			<include>LowList_DVDCaseVars</include>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>DVD Case Frame Reflect</description>
 			<posy>380</posy>
 			<include>LowList_DVDCaseVars</include>
 			<texture>thumbs/boxes/poster_shadow_reflect.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
-		<control type="largeimage">
+		<control type="largeimage" id="7201">
 			<description>POSTER.JPG icon</description>
 			<include>LowList_PosterIconReflect</include>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
 			<fadetime>400</fadetime>
-			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + !Skin.HasSetting(dvdcase)</visible>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + !Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
-		<control type="largeimage">
+		<control type="largeimage" id="7201">
 			<description>POSTER.JPG icon</description>
 			<include>LowList_PosterIconInCaseReflect</include>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[listitem.path]poster.jpg</texture>
 			<fadetime>400</fadetime>
-			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + Skin.HasSetting(dvdcase)</visible>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + Skin.HasSetting(dvdcaselowlist)</visible>
+		</control>
+		<control type="largeimage">
+			<description>POSTER.JPG icon</description>
+			<include>LowList_PosterIconReflect</include>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[listitem.path]folder.jpg</texture>
+			<fadetime>400</fadetime>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + !Skin.HasSetting(dvdcaselowlist) + !Control.IsVisible(7201)</visible>
+		</control>
+		<control type="largeimage">
+			<description>POSTER.JPG icon</description>
+			<include>LowList_PosterIconInCaseReflect</include>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[listitem.path]folder.jpg</texture>
+			<fadetime>400</fadetime>
+			<visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + Skin.HasSetting(dvdcaselowlist) + !Control.IsVisible(7201)</visible>
 		</control>
 		<control type="largeimage">
 			<description>SEASON THUMB icon</description>
@@ -157,7 +189,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
 			<fadetime>400</fadetime>
-			<visible>[Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] + !Skin.HasSetting(dvdcase)</visible>
+			<visible>[Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] + !Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="largeimage">
 			<description>SEASON THUMB icon DVDCase</description>
@@ -165,7 +197,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[Container(551).SeasonThumb]</texture>
 			<fadetime>400</fadetime>
-			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(dvdcase)</visible>
+			<visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="largeimage">
 			<description>POSTER icon</description>
@@ -173,7 +205,7 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
 			<fadetime>400</fadetime>
-			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + !Skin.HasSetting(dvdcase)</visible>
+			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + !Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="largeimage">
 			<description>POSTER icon DVDCase</description>
@@ -181,14 +213,14 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture flipy="true" fallback="defaultvideobigposter.png" diffuse="thumbs/boxes/movieposter_mask_reflect.png">$INFO[ListItem.Icon]</texture>
 			<fadetime>400</fadetime>
-			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + Skin.HasSetting(dvdcase)</visible>
+			<visible>[Container.Content(movies) | Container.Content(seasons) | [Container.Content(tvshows) + Skin.HasSetting(tvposter)]] + Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>DVD Case Frame Reflect</description>
 			<posy>380</posy>
 			<include>LowList_DVDCaseVars</include>
 			<texture>thumbs/boxes/poster_glass_reflect.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 	</control>
 </include>
@@ -244,64 +276,79 @@
 			<description>CD Case Frame</description>
 			<include>LowList_CDCaseVars</include>
 			<texture>thumbs/boxes/cd_shadow_light.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Square Icon Mask</description>
 			<include>ListIcon_SquareIconVars</include>
 			<texture diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
 			<bordertexture border="-16">thumbs/cd_shadow.png</bordertexture>
-			<visible>!Skin.HasSetting(dvdcase)</visible>
+			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Square Icon</description>
-			<include condition="!Skin.HasSetting(dvdcase)">LowList_SquareIconVars</include>
-			<include condition="Skin.HasSetting(dvdcase)">LowList_SquareIconInCase</include>
+			<include>LowList_SquareIconVars</include>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<texture diffuse="thumbs/cdcover_mask.png">$INFO[ListItem.Icon]</texture>
+			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
+		</control>
+		<control type="image">
+			<description>Square Icon</description>
+			<include>LowList_SquareIconInCase</include>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="thumbs/cdcover_mask.png">$INFO[ListItem.Icon]</texture>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Square Icon Overlay</description>
 			<include>LowList_SquareIconVars</include>
 			<texture>home/nowplaying_overlay.png</texture>
-			<visible>!Skin.HasSetting(dvdcase)</visible>
+			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Square Icon Glass</description>
-			<include condition="!Skin.HasSetting(dvdcase)">LowList_SquareIconGlass</include>
-			<include condition="Skin.HasSetting(dvdcase)">LowList_CDCaseGlass</include>
+			<include>LowList_SquareIconGlass</include>
+			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
+		</control>
+		<control type="image">
+			<description>Square Icon Glass</description>
+			<include>LowList_CDCaseGlass</include>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>CD Case Double Thick Glass</description>
 			<include>LowList_CDCaseGlass</include>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>CD Case Frame Reflect</description>
 			<include>LowList_CDCaseReflect</include>
 			<texture>thumbs/boxes/cd_shadow_reflect.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Square Icon Reflection</description>
-			<include condition="!Skin.HasSetting(dvdcase)">LowList_SquareIconReflect</include>
-			<include condition="Skin.HasSetting(dvdcase)">LowList_SquareIconInCaseReflect</include>
+			<include>LowList_SquareIconReflect</include>
 			<colordiffuse>66FFFFFF</colordiffuse>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
+		</control>
+		<control type="image">
+			<description>Square Icon Reflection</description>
+			<include>LowList_SquareIconInCaseReflect</include>
+			<colordiffuse>66FFFFFF</colordiffuse>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>CD Case Frame Reflect</description>
 			<include>LowList_CDCaseReflect</include>
 			<texture>thumbs/boxes/cd_glass_reflect.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 	</control>
 </include>
 <!-- Episode icon variables -->
-<include name="ListIcon_EpisodeIconGroup">
-	<posx>14</posx>
-	<posy>37</posy>
-</include>
 <include name="LowList_EpisodeCaseVars">
 	<posx>-13</posx>
 	<posy>-13</posy>
@@ -339,7 +386,8 @@
 <!-- Episode Media Icons -->
 <include name="LowList_EpisodeMediaIcons">
 	<control type="group">
-		<include>ListIcon_EpisodeIconGroup</include>
+		<posx>14</posx>
+		<posy>37</posy>
 		<animation type="Visible">
 			<effect type="fade" time="450" start="0" end="100" />
 			<effect type="slide" start="0,-50" end="0,0" time="200" />
@@ -351,7 +399,7 @@
 			<description>Episode Case Frame</description>
 			<include>LowList_EpisodeCaseVars</include>
 			<texture>multiplex/boxes/multiplex_tvborder.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="largeimage">
 			<include>LowList_EpisodeIconVars</include>
@@ -363,25 +411,31 @@
 			<include>LowList_EpisodeIconVars</include>
 			<bordertexture border="-42,-18,-42,-20">thumbs/cd_shadow_light.png</bordertexture>
 			<texture>common/blank.png</texture>
-			<visible>!Skin.HasSetting(dvdcase)</visible>
+			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Episode Icon Glass</description>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<include condition="!Skin.HasSetting(dvdcase)">LowList_EpisodeIconGlass</include>
-			<include condition="Skin.HasSetting(dvdcase)">LowList_EpisodeCaseGlass</include>
+			<include>LowList_EpisodeIconGlass</include>
+			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
+		</control>
+		<control type="image">
+			<description>Episode Icon Glass</description>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<include>LowList_EpisodeCaseGlass</include>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Episode Case Double Thick Glass</description>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<include>LowList_EpisodeCaseGlass</include>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Episode Case Frame Reflect</description>
 			<include>LowList_EpisodeCaseReflect</include>
 			<texture>multiplex/boxes/multiplex_tvborderreflect.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<include>LowList_EpisodeIconReflect</include>
@@ -391,7 +445,7 @@
 			<description>Episode Case Frame Reflect</description>
 			<include>LowList_EpisodeCaseReflect</include>
 			<texture>multiplex/boxes/multiplex_tvglassreflect.png</texture>
-			<visible>Skin.HasSetting(dvdcase)</visible>
+			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 	</control>
 </include>

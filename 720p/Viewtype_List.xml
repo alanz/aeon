@@ -1,8 +1,4 @@
 <includes>
-	<include name="ListIcon_EpisodeIconGroup2">
-		<posx>8</posx>
-		<posy>240</posy>
-	</include>
 	<!-- Other -->
 	<include name="Furniture_ListMediaFlagsXPos">
 		<posx>33</posx>
@@ -1334,22 +1330,29 @@
 			</control>
 			<!-- end -->
 			<control type="largeimage">
-				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MovieIconDimensionsDVDCover</include>
-				<include condition="!Skin.HasSetting(dvdcase)">MovieIconMaskPosterNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MovieIconMaskPosterDVD</include>
+				<include>MovieIconDimensionsNormal</include>
+				<include>MovieIconMaskPosterNormal</include>
 				<animation effect="fade" start="0" end="100" time="000">VisibleChange</animation>
-				<visible>Control.IsVisible(102) + [Container.Content(movies) | Container.Content(tvshows)] + !Window.IsActive(videofiles)</visible>
+				<visible>Control.IsVisible(102) + [Container.Content(movies) | Container.Content(tvshows)] + !Window.IsActive(videofiles) + !Skin.HasSetting(dvdcase)</visible>
+			</control>
+			<control type="largeimage">
+				<include>MovieIconDimensionsDVDCover</include>
+				<include>MovieIconMaskPosterDVD</include>
+				<animation effect="fade" start="0" end="100" time="000">VisibleChange</animation>
+				<visible>Control.IsVisible(102) + [Container.Content(movies) | Container.Content(tvshows)] + !Window.IsActive(videofiles) + Skin.HasSetting(dvdcase)</visible>
 			</control>
 			<control type="image">
-				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MovieIconDimensionsDVDCase</include>
+				<include>MovieIconDimensionsNormal</include>
 				<fadetime>400</fadetime>
-				<include condition="!Skin.HasSetting(dvdcase)">MovieIconGlassNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">MovieIconGlassDVD</include>
-				<visible>[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]</visible>
+				<include>MovieIconGlassNormal</include>
+				<visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + !Skin.HasSetting(dvdcase)</visible>
 			</control>
-
+			<control type="image">
+				<include>MovieIconDimensionsDVDCase</include>
+				<fadetime>400</fadetime>
+				<include>MovieIconGlassDVD</include>
+				<visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(dvdcase)</visible>
+			</control>
 			<control type="largeimage">
 				<include condition="!Skin.HasSetting(dvdcase)">MovieIconDimensionsNormal</include>
 				<include condition="Skin.HasSetting(dvdcase)">MovieIconDimensionsDVDCover</include>
@@ -1399,7 +1402,8 @@
 			</control>		
 			<control type="group">
 				<visible>Container.Content(episodes)</visible>
-				<include>ListIcon_EpisodeIconGroup2</include>
+				<posx>8</posx>
+				<posy>240</posy>
 				<control type="largeimage">
 					<width>379</width>
 					<height>263</height>
