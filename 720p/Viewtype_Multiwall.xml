@@ -440,137 +440,134 @@
 					<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>		
 				</control>
 				<control type="group">
-				<include>MultiWallInfoFlipAnimationTVShows</include>
-				<width>670</width>
-				<height>374</height>
-				<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
-				<!-- Title -->
-				<control type="group">
-					<control type="label">
-						<posx>15</posx>
-						<include>MultiWallTitleLabelVars</include>
-						<align>center</align>
-						<label>$INFO[Container(556).ListItem.Title]</label>
+					<animation type="Conditional" condition="Skin.HasSetting(multiwallposterlayout)" reversible="false">
+						<effect type="rotatey" center="335" start="0" end="-90" time="450" tween="cubic" easing="in" />
+						<effect type="rotatey" center="335" start="-90" end="90" time="0" delay="450" />
+						<effect type="rotatey" center="335" start="90" end="0" time="450" delay="450" tween="cubic" easing="out" />
+					</animation> 
+					<animation type="Conditional" condition="!Skin.HasSetting(multiwallposterlayout)" reversible="false">
+						<effect type="rotatey" center="335" start="0" end="90" time="450" tween="cubic" easing="in" />
+						<effect type="rotatey" center="335" start="90" end="-90" time="0" delay="450" />
+						<effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out" />
+					</animation>
+					<width>670</width>
+					<height>374</height>
+					<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
+					<!-- Title -->
+					<control type="group">
+						<control type="label">
+							<posx>15</posx>
+							<include>MultiWallTitleLabelVars</include>
+							<align>center</align>
+							<label>$INFO[Container(556).ListItem.Title]</label>
+							<visible>Container.Content(tvshows)</visible>
+						</control>
+						
+						<control type="label">
+							<posx>15</posx>
+							<include>MultiWallTitleLabelVars</include>
+							<align>center</align>
+							<label>$INFO[Container(556).ListItem.TVShowTitle] - $INFO[Container(556).ListItem.Title]</label>
+							<visible>Container.Content(seasons) + !IsEmpty(Listitem.Title)</visible>
+						</control>
+						
+						<control type="label">
+							<posx>15</posx>
+							<include>MultiWallTitleLabelVars</include>
+							<align>center</align>
+							<label>$LOCALIZE[20366]</label>
+							<visible>Container.Content(seasons) + IsEmpty(Listitem.Title)</visible>
+						</control>
+						
+						<control type="label">
+							<posx>15</posx>
+							<include>MultiWallTitleLabelVars</include>
+							<align>left</align>
+							<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title]</label>
+							<visible>Container.Content(episodes)</visible>
+						</control>				
+					</control>	
+					<control type="group">
 						<visible>Container.Content(tvshows)</visible>
+						<control type="group">
+							<control type="label">
+								<include>MultiWallInfoLabel</include>
+								<label>$LOCALIZE[31438]:</label>
+							</control>
+							<control type="label">
+								<include>MultiWallInfoValue</include>				
+								<label fallback="31425">$INFO[Container(556).ListItem.Genre]</label>
+							</control>			
+						</control>
+						<control type="group">
+							<posx>220</posx>
+							<control type="label">
+								<include>MultiWallInfoLabel</include>
+								<label>$LOCALIZE[31406]:</label>
+							</control>
+							<control type="label">
+								<include>MultiWallInfoValue</include>				
+								<label fallback="31425">$INFO[Container(556).ListItem.Episode]</label>
+							</control>			
+						</control>
+					</control>	
+					<control type="group">
+						<visible>Container.Content(seasons)</visible>
+						<control type="group">
+							<control type="label">
+								<include>MultiWallInfoLabel</include>
+								<label>$LOCALIZE[31403]</label>
+							</control>
+							<control type="label">
+								<include>MultiWallInfoValue</include>				
+								<label fallback="31425">$INFO[Container(556).ListItem.Episode]</label>
+							</control>			
+						</control>
+						<control type="group">
+							<posx>220</posx>
+							<control type="label">
+								<include>MultiWallInfoLabel</include>
+								<label>$LOCALIZE[31439]:</label>
+							</control>
+							<control type="label">
+								<include>MultiWallInfoValue</include>				
+								<label fallback="31425">$INFO[Container(556).ListItem.Property(WatchedEpisodes)]</label>
+							</control>			
+						</control>
 					</control>
-					
-					<control type="label">
-						<posx>15</posx>
-						<include>MultiWallTitleLabelVars</include>
-						<align>center</align>
-						<label>$INFO[Container(556).ListItem.TVShowTitle] - $INFO[Container(556).ListItem.Title]</label>
-						<visible>Container.Content(seasons) + !IsEmpty(Listitem.Title)</visible>
-					</control>
-					
-					<control type="label">
-						<posx>15</posx>
-						<include>MultiWallTitleLabelVars</include>
-						<align>center</align>
-						<label>$LOCALIZE[20366]</label>
-						<visible>Container.Content(seasons) + IsEmpty(Listitem.Title)</visible>
-					</control>
-					
-					<control type="label">
-						<posx>15</posx>
-						<include>MultiWallTitleLabelVars</include>
-						<align>left</align>
-						<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title]</label>
+					<control type="group">
 						<visible>Container.Content(episodes)</visible>
-					</control>				
-				</control>	
-				<control type="group">
-					<visible>Container.Content(tvshows)</visible>
-					<control type="group">
-						<control type="label">
-							<include>MultiWallInfoLabel</include>
-							<label>$LOCALIZE[31438]:</label>
+						<control type="group">
+							<control type="label">
+								<include>MultiWallInfoLabel</include>
+								<label>$LOCALIZE[31402]:</label>
+							</control>
+							
+							<control type="label">
+								<include>MultiWallInfoValue</include>				
+								<label fallback="31425">$INFO[Container(556).ListItem.Director]</label>
+							</control>			
 						</control>
 						
-						<control type="label">
-							<include>MultiWallInfoValue</include>				
-							<label fallback="31425">$INFO[Container(556).ListItem.Genre]</label>
-						</control>			
-					</control>
-					
-					<control type="group">
-						<posx>220</posx>
-						<control type="label">
-							<include>MultiWallInfoLabel</include>
-							<label>$LOCALIZE[31406]:</label>
+						<control type="group">
+							<posx>220</posx>
+							<control type="label">
+								<include>MultiWallInfoLabel</include>
+								<label>$LOCALIZE[31401]:</label>
+							</control>
+							
+							<control type="label">
+								<include>MultiWallInfoValue</include>				
+								<label fallback="31425">$INFO[Container(556).ListItem.Writer]</label>
+							</control>			
 						</control>
-						
-						<control type="label">
-							<include>MultiWallInfoValue</include>				
-							<label fallback="31425">$INFO[Container(556).ListItem.Episode]</label>
-						</control>			
 					</control>
-
-				</control>	
-				<control type="group">
-					<visible>Container.Content(seasons)</visible>
-					<control type="group">
-						<control type="label">
-							<include>MultiWallInfoLabel</include>
-							<label>$LOCALIZE[31403]</label>
-						</control>
-						
-						<control type="label">
-							<include>MultiWallInfoValue</include>				
-							<label fallback="31425">$INFO[Container(556).ListItem.Episode]</label>
-						</control>			
-					</control>
-					
-					<control type="group">
-						<posx>220</posx>
-						<control type="label">
-							<include>MultiWallInfoLabel</include>
-							<label>$LOCALIZE[31439]:</label>
-						</control>
-						
-						<control type="label">
-							<include>MultiWallInfoValue</include>				
-							<label fallback="31425">$INFO[Container(556).ListItem.Property(WatchedEpisodes)]</label>
-						</control>			
-					</control>
-
 				</control>
-				<control type="group">
-					<visible>Container.Content(episodes)</visible>
-					<control type="group">
-						<control type="label">
-							<include>MultiWallInfoLabel</include>
-							<label>$LOCALIZE[31402]:</label>
-						</control>
-						
-						<control type="label">
-							<include>MultiWallInfoValue</include>				
-							<label fallback="31425">$INFO[Container(556).ListItem.Director]</label>
-						</control>			
-					</control>
-					
-					<control type="group">
-						<posx>220</posx>
-						<control type="label">
-							<include>MultiWallInfoLabel</include>
-							<label>$LOCALIZE[31401]:</label>
-						</control>
-						
-						<control type="label">
-							<include>MultiWallInfoValue</include>				
-							<label fallback="31425">$INFO[Container(556).ListItem.Writer]</label>
-						</control>			
-					</control>
-
-				</control>
-			</control>
-			<control type="group">
-				
+			<control type="group">			
 				<include>MultiWallInfoFlipAnimationTVShowsFanart</include>
 				<include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
-				
 				<width>670</width>
-				<height>374</height>
-				
+				<height>374</height>	
 				<control type="group">
 					<visible>Container.Content(tvshows)</visible>
 					<control type="group">
@@ -585,8 +582,7 @@
 							<label fallback="31425">$INFO[Container(556).ListItem.Date]</label>
 						</control>			
 					</control>
-				</control>
-				
+				</control>		
 				<control type="group">
 					<visible>Container.Content(seasons)</visible>
 					<control type="group">
@@ -601,8 +597,7 @@
 							<label fallback="31425">$INFO[Container(556).ListItem.Property(UnwatchedEpisodes)]</label>
 						</control>			
 					</control>
-				</control>
-				
+				</control>	
 				<control type="group">
 					<visible>Container.Content(episodes)</visible>
 					<control type="group">
@@ -618,7 +613,6 @@
 						</control>			
 					</control>
 				</control>
-				
 				<control type="textbox">
 					<posx>15</posx>
 					<posy>71</posy>
@@ -630,7 +624,6 @@
 					<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>			
 					<visible>!Container.Content(seasons)</visible>	
 				</control>
-				
 				<control type="textbox">
 					<posx>15</posx>
 					<posy>71</posy>
@@ -642,7 +635,6 @@
 					<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>				
 					<visible>Container.Content(seasons)</visible>	
 				</control>
-				
 				<control type="group">
 					<posx>237</posx>
 					<posy>82</posy>
@@ -677,9 +669,7 @@
 						<visible>Container.Content(episodes)</visible>					
 						<include>Animation_VisibleChange200</include>
 					</control>
-		
 				</control>	
-				
 			</control>
 			<control type="group">
 				<include>MultiWallInfoFlipAnimationTVShowsPoster</include>
