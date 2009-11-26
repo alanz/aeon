@@ -231,35 +231,11 @@
 	<width>305</width>
 	<height>278</height>
 </include>
-<include name="LowList_CDCaseReflect">
-	<posy>269</posy>
-	<include>LowList_CDCaseVars</include>
-</include>
 <include name="LowList_SquareIconVars">
 	<posx>0</posx>
 	<posy>0</posy>
 	<width>285</width>
 	<height>285</height>
-</include>
-<include name="LowList_SquareIconInCase">
-	<posx>26</posx>
-	<posy>12</posy>
-	<width>250</width>
-	<height>248</height>
-</include>
-<include name="LowList_SquareIconReflect">
-	<posy>294</posy>
-	<include>LowList_SquareIconVars</include>
-	<texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
-</include>
-<include name="LowList_SquareIconInCaseReflect">
-	<posy>287</posy>
-	<include>LowList_SquareIconInCase</include>
-	<texture flipy="true" diffuse="thumbs/boxes/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
-</include>
-<include name="LowList_SquareIconGlass">
-	<texture>thumbs/cd_glass_noedge.png</texture>
-	<include>LowList_SquareIconVars</include>
 </include>
 <include name="LowList_CDCaseGlass">
 	<texture>thumbs/boxes/cd_glass.png</texture>
@@ -294,7 +270,10 @@
 		</control>
 		<control type="image">
 			<description>Square Icon</description>
-			<include>LowList_SquareIconInCase</include>
+			<posx>26</posx>
+			<posy>12</posy>
+			<width>250</width>
+			<height>248</height>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<texture diffuse="thumbs/cdcover_mask.png">$INFO[ListItem.Icon]</texture>
 			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
@@ -307,7 +286,8 @@
 		</control>
 		<control type="image">
 			<description>Square Icon Glass</description>
-			<include>LowList_SquareIconGlass</include>
+			<texture>thumbs/cd_glass_noedge.png</texture>
+			<include>LowList_SquareIconVars</include>
 			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
@@ -322,27 +302,37 @@
 		</control>
 		<control type="image">
 			<description>CD Case Frame Reflect</description>
-			<include>LowList_CDCaseReflect</include>
+			<posy>252</posy>
+			<include>LowList_CDCaseVars</include>
 			<texture>thumbs/boxes/cd_shadow_reflect.png</texture>
 			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Square Icon Reflection</description>
-			<include>LowList_SquareIconReflect</include>
+			<posy>294</posy>
+			<include>LowList_SquareIconVars</include>
+			<texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
 			<colordiffuse>66FFFFFF</colordiffuse>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<visible>!Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>Square Icon Reflection</description>
-			<include>LowList_SquareIconInCaseReflect</include>
+			<posy>270</posy>
+			<posx>26</posx>
+			<posy>12</posy>
+			<width>250</width>
+			<height>248</height>
+			<texture flipy="true" diffuse="thumbs/boxes/cdcover_mask_reflect.png">$INFO[ListItem.Icon]</texture>
+			<aspectratio scalediffuse="false">scale</aspectratio>
 			<colordiffuse>66FFFFFF</colordiffuse>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
 		<control type="image">
 			<description>CD Case Frame Reflect</description>
-			<include>LowList_CDCaseReflect</include>
+			<posy>252</posy>
+			<include>LowList_CDCaseVars</include>
 			<texture>thumbs/boxes/cd_glass_reflect.png</texture>
 			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
@@ -354,10 +344,6 @@
 	<posy>-13</posy>
 	<width>343</width>
 	<height>251</height>
-</include>
-<include name="LowList_EpisodeCaseReflect">
-	<posy>220</posy>
-	<include>LowList_EpisodeCaseVars</include>
 </include>
 <include name="LowList_EpisodeIconVars">
 	<posx>0</posx>
@@ -433,7 +419,8 @@
 		</control>
 		<control type="image">
 			<description>Episode Case Frame Reflect</description>
-			<include>LowList_EpisodeCaseReflect</include>
+			<posy>220</posy>
+			<include>LowList_EpisodeCaseVars</include>
 			<texture>multiplex/boxes/multiplex_tvborderreflect.png</texture>
 			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
@@ -443,7 +430,8 @@
 		</control>
 		<control type="image">
 			<description>Episode Case Frame Reflect</description>
-			<include>LowList_EpisodeCaseReflect</include>
+			<posy>220</posy>
+			<include>LowList_EpisodeCaseVars</include>
 			<texture>multiplex/boxes/multiplex_tvglassreflect.png</texture>
 			<visible>Skin.HasSetting(dvdcaselowlist)</visible>
 		</control>
