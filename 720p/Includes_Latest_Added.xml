@@ -1,14 +1,12 @@
 <includes>
 	<!-- Widget Recent Added -->
 	<include name="latest_added">
-		
 		<control type="group">
 			<visible>Skin.HasSetting(homelatest)</visible>
 			<visible>!Control.IsVisible(87)</visible>
 			<animation effect="slide" start="0,0" end="0,28" time="0" condition="Skin.HasSetting(highertime)+![Skin.HasSetting(lowerwidgets)+!Skin.HasSetting(lowermainmenu)]">Conditional</animation>
 			<animation effect="slide" start="0" end="0,-163" time="350" easing="inout" tween="cubic" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="fade" start="0" end="100" delay="300" time="500">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<include>Animation_OpenCloseZoom</include>
 			<animation effect="fade" start="0" end="100" delay="600" time="500" reversible="false">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="400" reversible="false">Hidden</animation>
 			<control type="image">
@@ -821,7 +819,6 @@
 				</control>
 			</control>
 		</control>
-
 		<control type="group">
 		<!--	<visible>[Container(300).HasFocus(6)+!IsEmpty(Window.Property(LatestEpisode.1.ShowTitle))] | [Container(300).HasFocus(7)+!IsEmpty(Window.Property(LatestMovie.1.Title))] | [Container(300).HasFocus(1)+!IsEmpty(Window.Property(LatestSong.1.Album))] + !Control.IsVisible(87)</visible>-->
 			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
@@ -829,8 +826,7 @@
 			<visible>Skin.HasSetting(homelatest)</visible>
 			<posx>1400</posx>
 			<posy>430</posy>
-			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<include>Animation_OpenCloseZoom</include>
 			<animation effect="slide" start="400,0" end="0,0" easing="inout" tween="cubic" time="500" delay="1000">VisibleChange</animation>
 			<animation effect="slide" start="0,-10" end="0,-375" time="0"  condition="!Skin.HasSetting(lowermainmenu)+!Skin.HasSetting(lowerwidgets)">Conditional</animation>				
 			<animation effect="slide" start="0,0" end="-372,0" time="500" easing="inout" tween="cubic" condition="!control.HasFocus(510)">Conditional</animation>
