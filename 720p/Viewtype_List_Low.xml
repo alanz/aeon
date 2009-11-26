@@ -175,7 +175,7 @@
 			<height>1</height>
 			<width>493</width>
 			<texture>lowlist/lowlistpanel_line.png</texture>
-			<animation effect="slide" start="0,0" end="0,26" time="0" condition="[Window.IsActive(videolibrary) + Container.Content(movies) + Skin.HasSetting(movieslistfull)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,26" time="0" condition="[Window.IsActive(videolibrary) + Container.Content(movies) + Skin.HasSetting(movieslistfull)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]">Conditional</animation>
 		<!--	<animation effect="slide" start="10,0" end="10,0" time="0" condition="Container.Content(tvshows) | Container.Content(series)">Conditional</animation>-->
 			<animation effect="zoom" end="110,0,500,1" time="0" condition="Container.Content(episodes)">Conditional</animation>
 		</control>
@@ -247,10 +247,11 @@
 				<width>44</width>
 				<height>327</height>
 				<texture>list/listpanel_detailwide.png</texture>
-				<visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Skin.HasSetting(movieslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + !Container.Content(seasons)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Skin.HasSetting(movieslistfull)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + !Container.Content(artists) + !Container.Content(years)]] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]</visible>
+				<visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Skin.HasSetting(movieslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + !Container.Content(seasons)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Skin.HasSetting(movieslistfull)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + !Container.Content(artists) + !Container.Content(years)]] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]</visible>
 				<visible>Control.IsVisible(551)</visible>
 				<include>Animation_HighListSlide</include>
 				<include>Animation_HideList</include>
+				<animation effect="slide" start="0,0" end="30,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
 			</control>
 			<control type="image">
 				<description>Right Full Background Bar</description>
@@ -259,10 +260,11 @@
 				<width>97</width>
 				<height>327</height>
 				<texture>list/listpanel_detailwide.png</texture>
-				<visible>Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Skin.HasSetting(movieslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Container.Content(seasons)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [!Container.Content(artists) + Skin.HasSetting(hidelistartisticons)] + !Container.Content(years) + !Container.Content(genres)]] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]</visible>
+				<visible>Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + Skin.HasSetting(movieslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Container.Content(seasons)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [!Container.Content(artists) + Skin.HasSetting(hidelistartisticons)] + !Container.Content(years) + !Container.Content(genres)]] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]</visible>
 				<visible>Control.IsVisible(551)</visible>
 				<include>Animation_HighListSlide</include>
 				<include>Animation_HideList</include>
+				<animation effect="slide" start="0,0" end="30,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
 			</control>
 			<!-- THE MAIN LIST CONTROL -->
 			<control type="fixedlist" id="551">
@@ -281,8 +283,9 @@
 				<include>Animation_HighListSlide</include>
 				<visible>![Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]</visible>
 				<include>Animation_HideList</include>
+				<animation effect="slide" start="0,0" end="30,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
 					<!-- Slim item layout -->
-				<itemlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
+				<itemlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]" height="40">
 					<include>LowList_Separator</include>
 					<control type="label">
 						<include>ListLabel_Track_LowSmall_Low</include>
@@ -339,7 +342,7 @@
 					</control>
 				</itemlayout>
 				<!-- Slim focused layout -->
-				<focusedlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="40">
+				<focusedlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]" height="40">
 					<include>LowList_Separator</include>
 					<control type="image">
 						<height>39</height>
@@ -435,7 +438,7 @@
 					</control>
 				</focusedlayout>
 				<!-- Full item layout -->
-				<itemlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="65">
+				<itemlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]" height="65">
 					<include>LowList_Separator</include>
 					<control type="label">
 						<include>ListLabel_Track_Low</include>
@@ -551,7 +554,7 @@
 					</control>
 				</itemlayout>
 				<!-- Full focused layout -->
-				<focusedlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [Window.IsActive(musiclibrary) + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)]]]" height="65">
+				<focusedlayout condition="[Window.IsActive(pictures) + Skin.HasSetting(pictureslistfull)] | [Window.IsActive(videolibrary) + Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]" height="65">
 					<include>LowList_Separator</include>
 					<control type="image">
 						<posx>89</posx>
@@ -563,9 +566,9 @@
 					</control>
 					<control type="label">
 						<include>ListLabel_Track_Low</include>
-						<textcolor>ddFFFFFF</textcolor>
+						<include>lowlistcolorfocus</include>
 						<label>$INFO[ListItem.TrackNumber]</label>
-						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + Container.Content(songs)]]</visible>
+						<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + Container.Content(songs)]</visible>
 						<include>Animation_MusicContentSlide</include>
 					</control>
 					<control type="label">

@@ -578,9 +578,7 @@
 			<label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
 			<altlabel>$LOCALIZE[31070]: $LOCALIZE[31049]</altlabel>
 			<onclick>Skin.SetBool(lowlistinfoauto)</onclick>
-			<onclick>ReloadSkin</onclick>
 			<altclick>Skin.Reset(lowlistinfoauto)</altclick>
-			<altclick>ReloadSkin</altclick>
 			<selected>Skin.HasSetting(lowlistinfoauto)</selected>
 			<visible>Control.IsVisible(551)</visible>
 		</control>
@@ -619,6 +617,15 @@
 			<onclick>Skin.SetBool(songlistfull)</onclick>
 			<altclick>Skin.Reset(songlistfull)</altclick>
 			<visible>Control.IsVisible(551) + Container.Content(songs)</visible>
+		</control>
+		<control type="togglebutton" id="700140">
+			<include>MediaMenuButton</include>
+			<label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
+			<altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
+			<usealttexture>Skin.HasSetting(playlistfull)</usealttexture>
+			<onclick>Skin.SetBool(playlistfull)</onclick>
+			<altclick>Skin.Reset(playlistfull)</altclick>
+			<visible>Control.IsVisible(551) + Window.IsActive(musicplaylist)</visible>
 		</control>
 		<control type="togglebutton" id="700145">
 			<include>MediaMenuButton</include>
