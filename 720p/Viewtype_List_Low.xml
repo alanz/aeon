@@ -367,10 +367,6 @@
 						<label>$INFO[ListItem.Label]</label>
 						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
 					</control>
-					<control type="button">
-						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | Container.Content(artists)</visible>
-					</control>
 					<control type="label">
 						<description>ALBUM TITLE label</description>
 						<include>ListLabel_Main_LowSmall_Low</include>
@@ -424,9 +420,6 @@
 						<aligny>center</aligny>
 						<include>lowlistcolorfocus</include>
 						<label>$INFO[ListItem.duration]  -  $INFO[ListItem.Genre]</label>
-					</control>
-					<control type="button">
-						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
 					</control>
 					<control type="label">
 						<include>ListLabel_Detail_LowSmall_Low</include>
@@ -581,12 +574,6 @@
 						<info>ListItem.Title</info>
 						<visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
 						<include>Animation_MusicContentSlide</include>
-					</control>
-					<control type="button">
-						<textoffsetx>0</textoffsetx>
-						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-						<include>ListLabel_Main_Low</include>
-						<visible>[![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]] | IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<textoffsetx>0</textoffsetx>
@@ -758,14 +745,6 @@
 						<include>listcolornofocus</include>
 						<info>ListItem.Title</info>
 						<visible>!IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="button">
-						<textoffsetx>-2</textoffsetx>
-						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
-						<include>ListLabel_Main_LowTV_Low</include>
-						<include>listcolornofocus</include>
-						<label>$INFO[ListItem.Label]</label>
-						<visible>IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<font>Font_FileBrowserDetail</font>
