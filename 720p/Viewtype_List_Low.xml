@@ -577,7 +577,6 @@
 					</control>
 					<control type="label">
 						<textoffsetx>0</textoffsetx>
-						<onfocus>Skin.Reset(lowlistinfoshowing)</onfocus>
 						<include>ListLabel_Main_Low</include>
 						<include>lowlistcolorfocus</include>
 						<label>$INFO[ListItem.Label]</label>
@@ -798,7 +797,7 @@
 				<visible>Control.IsVisible(551) + Control.IsVisible(55111)</visible>
 			</control>
 			<!-- OnRight Invisible Buttons -->
-			<control type="button" id="55105">
+			<control type="button" id="55105"> <!-- manual trigger -->
 				<description>INVISIBLE TRIGGER INFO button</description>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -809,7 +808,7 @@
 				<onfocus>SetFocus(55110)</onfocus>
 				<visible>Control.IsVisible(551) + !Skin.HasSetting(lowlistinfoauto)</visible>
 			</control>
-			<control type="button" id="55105">
+			<control type="button" id="55105"> <!--SetFocus(7000), auto trigger, !55111-->
 				<description>INVISIBLE GO TO MEDIA MENU button</description>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -820,7 +819,7 @@
 				<onfocus>SetFocus(7000)</onfocus>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + !Control.IsVisible(55111)</visible>
 			</control>
-			<control type="button" id="55105">
+			<control type="button" id="55105"> <!--on right: trailer-->
 				<description>INVISIBLE PLAY TRAILER button</description>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -832,7 +831,7 @@
 				<onfocus>SetFocus(55110)</onfocus>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + !IsEmpty(ListItem.Trailer) + Control.IsVisible(55111)</visible>
 			</control>
-			<control type="button" id="55105">
+			<control type="button" id="55105"> <!--on right: setfocus(7000)-->
 				<description>INVISIBLE GO TO MEDIA MENU WITH INFO PANEL SHOWING button</description>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -840,7 +839,6 @@
 				<height>0</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
-				<onfocus>Skin.SetBool(lowlistinfoshowing)</onfocus>
 				<onfocus>SetFocus(7000)</onfocus>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + IsEmpty(ListItem.Trailer) + Control.IsVisible(55111)</visible>
 			</control>
@@ -853,13 +851,11 @@
 				<height>0</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
-				<onfocus>Skin.SetBool(lowlistinfoshowing)</onfocus>
 				<onup>551</onup>
 				<ondown>551</ondown>
 				<onleft>551</onleft>
 				<onright>551</onright>
 				<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-				<onclick>Skin.ToggleSetting(widepanelthumbon)</onclick>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(videomovies)</visible>
 			</control>
 			<control type="button" id="55110">
@@ -870,26 +866,24 @@
 				<height>0</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
-				<onfocus>Skin.SetBool(lowlistinfoshowing)</onfocus>
 				<onup>551</onup>
 				<ondown>551</ondown>
 				<onleft>551</onleft>
 				<onright>551</onright>
-				<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
 				<onclick>Skin.ToggleSetting(widetvpanelthumbon)</onclick>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(videotv)</visible>
 			</control>
-			<control type="image" id="55111">
+			<control type="image" id="55111"> <!--auto delay button-->
 				<description>INVISIBLE AUTO INFO button</description>
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>0</width>
 				<height>0</height>
 				<texture>-</texture>
-				<visible>[Skin.HasSetting(lowlistinfoauto) + [Control.HasFocus(551) | Control.HasFocus(55105)] + !substring(listitem.label,..) + [!Container(551).OnNext + !Container(551).OnPrevious]]</visible>
+				<visible>Skin.HasSetting(lowlistinfoauto) + [Control.HasFocus(551) | Control.HasFocus(55105)] + !substring(listitem.label,..) + [!Container(551).OnNext + !Container(551).OnPrevious]</visible>
 				<animation effect="fade" start="0" end="100" time="0" delay="3500">Visible</animation>
 			</control>
-			<control type="image" id="55112">
+			<control type="image" id="55112"><!-- auto delay ControlGroup(7000)-->
 				<description>INVISIBLE AUTO INFO FROM MEDIA MENU button</description>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -899,16 +893,7 @@
 				<visible>Skin.HasSetting(lowlistinfoauto) + ControlGroup(7000).HasFocus() + !substring(listitem.label,..)</visible>
 				<animation effect="fade" start="0" end="100" time="0" delay="3500">Visible</animation>
 			</control>
-			<control type="image" id="55112">
-				<description>INVISIBLE INFO SHOWING button</description>
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>0</width>
-				<height>0</height>
-				<texture>-</texture>
-				<visible>Skin.HasSetting(lowlistinfoshowing)</visible>
-				<animation effect="fade" start="0" end="100" time="0">Visible</animation>
-			</control>
+			
 		</control>
 		<!-- Low List Detail Panel Includes -->
 		<control type="group">
