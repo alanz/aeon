@@ -116,10 +116,26 @@
 		<control type="togglebutton" id="700004"> 
 			<label>31061</label>
 			<altlabel>31060</altlabel>
-			<usealttexture>Skin.HasSetting(flattenshowcasetv)</usealttexture>
+			<usealttexture>Skin.HasSetting(flattenshowcasetvshows)</usealttexture>
 			<include>MediaMenuButton</include>
-			<onclick>Skin.ToggleSetting(flattenshowcasetv)</onclick>
-			<visible>Control.IsVisible(57) + Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
+			<onclick>Skin.ToggleSetting(flattenshowcasetvshows)</onclick>
+			<visible>Control.IsVisible(57) + Container.Content(tvshows) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
+		</control>
+		<control type="togglebutton" id="700005"> 
+			<label>31061</label>
+			<altlabel>31060</altlabel>
+			<usealttexture>Skin.HasSetting(flattenshowcaseseasons)</usealttexture>
+			<include>MediaMenuButton</include>
+			<onclick>Skin.ToggleSetting(flattenshowcaseseasons)</onclick>
+			<visible>Control.IsVisible(57) + Container.Content(seasons) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
+		</control>
+		<control type="togglebutton" id="700006"> 
+			<label>31061</label>
+			<altlabel>31060</altlabel>
+			<usealttexture>Skin.HasSetting(flattenshowcaseepisodes)</usealttexture>
+			<include>MediaMenuButton</include>
+			<onclick>Skin.ToggleSetting(flattenshowcaseepisodes)</onclick>
+			<visible>Control.IsVisible(57) + Container.Content(episodes) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
 		</control>
 		<control type="togglebutton" id="700003"> 
 			<label>31061</label>
@@ -205,6 +221,14 @@
 			<onclick>Skin.ToggleSetting(showcasetvbigthumb)</onclick>
 			<visible>Container.Content(episodes) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(57)</visible>
 		</control>
+<!--		<control type="togglebutton" id="700075">
+			<include>MediaMenuButton</include>
+			<label>FANART THUMB: ON</label>
+			<altlabel>FANART THUMB: OFF</altlabel>
+			<usealttexture>!Skin.HasSetting(showcasefanart)</usealttexture>
+			<onclick>Skin.ToggleSetting(showcasefanart)</onclick>
+			<visible>Container.Content(movies) + Control.IsVisible(57)</visible>
+		</control>-->
 		<control type="togglebutton" id="7000221">
 			<include>MediaMenuButton</include>
 			<label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
