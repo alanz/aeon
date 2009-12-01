@@ -1,9 +1,22 @@
 <window id="502">
 	<defaultcontrol>50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>50,551,52,57,53,556,557</views>
+	<views>50,551,57,53,557</views>
 	<controls>
 		<!-- <<<<< ADD this -->
+		<control type="image" id="109">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>0</width>
+			<height>0</height>
+			<texture>-</texture>
+			<visible>![Skin.HasSetting(showcasemusicinfooff) | Skin.HasSetting(showcasemusicinfotrigger)] + [Control.HasFocus(57) | ControlGroup(7000).HasFocus()] + [!Container(57).OnNext + !Container(57).OnPrevious]</visible>
+			<animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
+		</control>
 		<control type="group">
 			<visible>[!Skin.HasSetting(musicGenreFanartOn) + Container.Content(genres)] | !Container.Content(genres)</visible>
 			<!-- ADD End -->
@@ -58,10 +71,8 @@
 			<include>Furniture_Time</include>
 			<include>Furniture_MediaPanel</include>
 			<include>Viewtype_List</include>
-			<include condition="!Skin.HasSetting(MusicMultiplexOff)">Viewtype_Music_Multiplex</include>
 			<include condition="!Skin.HasSetting(MusicWallOff)">Viewtype_Wall</include>
 			<include condition="system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(globalrss)">Furniture_RSS</include>
-			<include condition="!Skin.HasSetting(MusicMultiWallOff)">Viewtype_Multiwall</include>
 			<include condition="!Skin.HasSetting(MusicShowcaseOff)">Viewtype_Showcase</include>
 			<include condition="!Skin.HasSetting(MusicListLowOff)">Viewtype_List_Low</include>
 			<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
