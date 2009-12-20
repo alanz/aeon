@@ -749,15 +749,15 @@
 					<textcolor>d0ffffff</textcolor>
 					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-80</posy>
-					<label fallback="-">$INFO[ListItem.Property(Formed)]</label>
-					<visible>!IsEmpty(ListItem.Property(Formed))</visible>
+					<label fallback="-">$INFO[ListItem.Property(Artist_Formed)]</label>
+					<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 				</control>
 				<control type="label">
 					<textcolor>d0ffffff</textcolor>
 					<include>LowList_WideInfoLabelEpisodeVars</include>
 					<posy>-80</posy>
-					<label fallback="-">$INFO[ListItem.Property(Born)]</label>
-					<visible>IsEmpty(ListItem.Property(Formed))</visible>
+					<label fallback="-">$INFO[ListItem.Property(Artist_Born)]</label>
+					<visible>IsEmpty(ListItem.Property(Artist_Formed))</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -978,21 +978,21 @@
 		<control type="label">
 			<description>FORMED: info label</description>
 			<include>LowList_DetailInfoLabelPos4</include>
-			<label>$LOCALIZE[21894]: [COLOR d0ffffff]$INFO[ListItem.Property(Formed)][/COLOR]</label>
-			<visible>!IsEmpty(ListItem.Property(Formed))</visible>
+			<label>$LOCALIZE[21894]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
+			<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 			<visible>Container.Content(artists)</visible>
 		</control>
 		<control type="label">
 			<description>BORN: info label</description>
 			<include>LowList_DetailInfoLabelPos4</include>
-			<label>$LOCALIZE[21893]: [COLOR d0ffffff]$INFO[ListItem.Property(Born)][/COLOR]</label>
-			<visible>IsEmpty(ListItem.Property(Formed)) + !IsEmpty(ListItem.Property(Born))</visible>
+			<label>$LOCALIZE[21893]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
+			<visible>IsEmpty(ListItem.Property(Artist_Formed)) + !IsEmpty(ListItem.Property(Artist_Born))</visible>
 			<visible>Container.Content(artists)</visible>
 		</control>
 		<control type="label">
 			<include>LowList_DetailInfoLabelPos4</include>
 			<label>$LOCALIZE[21900]: [COLOR d0ffffff]$LOCALIZE[161][/COLOR]</label>
-			<visible>IsEmpty(ListItem.Property(Formed)) + IsEmpty(ListItem.Property(Born))</visible>
+			<visible>IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
 			<visible>Container.Content(artists)</visible>
 		</control>
 		<!-- Album/Song labels -->
@@ -1156,21 +1156,21 @@
 			<control type="label">
 				<description>FORMED: info label</description>
 				<include>LowList_DetailInfoLabelPos1</include>
-				<label>$LOCALIZE[21894]: [COLOR d0ffffff]$INFO[ListItem.Property(Formed)][/COLOR]</label>
-				<visible>!IsEmpty(ListItem.Property(Formed))</visible>
+				<label>$LOCALIZE[21894]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
+				<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 				<include>Animation_HighListSlide</include>
 			</control>
 			<control type="label">
 				<description>BORN: info label</description>
 				<include>LowList_DetailInfoLabelPos1</include>
-				<label>$LOCALIZE[21893]: [COLOR d0ffffff]$INFO[ListItem.Property(Born)][/COLOR]</label>
-				<visible>IsEmpty(ListItem.Property(Formed)) + !IsEmpty(ListItem.Property(Born))</visible>
+				<label>$LOCALIZE[21893]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
+				<visible>IsEmpty(ListItem.Property(Artist_Formed)) + !IsEmpty(ListItem.Property(Artist_Born))</visible>
 				<include>Animation_HighListSlide</include>
 			</control>
 			<control type="label">
 				<include>LowList_DetailInfoLabelPos1</include>
 				<label>$LOCALIZE[21900]: [COLOR d0ffffff]$LOCALIZE[161][/COLOR]</label>
-				<visible>IsEmpty(ListItem.Property(Formed)) + IsEmpty(ListItem.Property(Born))</visible>
+				<visible>IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
 				<include>Animation_HighListSlide</include>
 			</control>
 			<control type="label">
