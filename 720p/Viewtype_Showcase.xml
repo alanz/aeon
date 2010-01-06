@@ -26,6 +26,9 @@
 	<include name="MusicCoverMaskNormal">
 		<texture background="true" diffuse="thumbs/cdcover_mask.png">defaultaudio.png</texture>
 	</include>
+	<include name="MusicCoverMaskBlackNormal">
+		<texture diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
+	</include>
 	<include name="MusicCoverMaskReflectionNormal">
 		<texture background="true" flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">defaultaudio.png</texture>
 	</include>
@@ -38,7 +41,19 @@
 	</include>
 	<!-- Music CD -->
 	<!-- Case Dimensions -->
+	<include name="MusicShowcaseThumbDimensionsCD">
+		<posx>18</posx>
+		<posy>34</posy>
+		<width>250</width>
+		<height>228</height>
+	</include>
 	<!-- Cover Dimensions -->
+	<include name="MusicShowcaseThumbDimensionsCDCover">
+		<posx>55</posx>
+		<posy>46</posy>
+		<width>199</width>
+		<height>199</height>
+	</include>
 	<include name="MusicShowcaseThumbReflectionDimensionsCDCover">
 		<posx>55</posx>
 		<posy>261</posy>
@@ -64,8 +79,8 @@
 		<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(years) | Container.Content(directors) | Container.Content(genres) | Container.Content(albums) | Container.Content(artists) | Window.IsActive(musicfiles) | Window.IsActive(videofiles) | Window.IsActive(programs) | Window.IsActive(scripts)</visible>
 		<itemlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes) + ![Container.Content(movies) + Skin.HasSetting(showcasefanart)]] | Window.IsActive(programs)">
 			<control type="image">
-				<include>MovieShowcaseThumbMain</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
+				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
 				<info>ListItem.Icon</info>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 			</control>
@@ -83,14 +98,14 @@
 			<!-- <<<<<< Add this -->
 			<control type="image">
 				<description>Glass overlay</description>
-				<include>MovieShowcaseGlassOverlay</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
+				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
-				<include>MusicShowcaseThumbDimensions</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+				<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
 				<colordiffuse>4e000000</colordiffuse>
 				<texture>-</texture>
 				<aspectratio scalediffuse="false">scale</aspectratio>
@@ -99,13 +114,18 @@
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 			</control>
 			<control type="image">
-				<include>MovieShowcaseThumbReflection</include>
+				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 				<info>ListItem.Icon</info>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 			</control>
 			<control type="image">
-				<include>WatchedOverlayShowCaseNormal</include>
-				
+				<description>Glass overlay reflection</description>
+				<include>MovieShowcaseThumbReflectionDVD</include>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+			</control>
+			<control type="image">
+				<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+				<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 				<include>detailcolornofocus</include>
 				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 				<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
@@ -115,8 +135,8 @@
 		</itemlayout>
 		<focusedlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes) + ![Container.Content(movies) + Skin.HasSetting(showcasefanart)]] | Window.IsActive(programs)">
 			<control type="image">
-				<include>MovieShowcaseThumbMain</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
+				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
 				<info>ListItem.Icon</info>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+ !Container.Content(years)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
@@ -138,16 +158,16 @@
 			<!-- <<<<<< Add this -->
 			<control type="image">
 				<description>Glass overlay</description>
-				<include>MovieShowcaseGlassOverlay</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
+				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
-				<include>MusicShowcaseThumbDimensions</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+				<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
 				<colordiffuse>4e000000</colordiffuse>
 				<texture>-</texture>
 				<aspectratio scalediffuse="false">scale</aspectratio>
@@ -158,16 +178,23 @@
 				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
-				<include>MovieShowcaseThumbReflectionMain</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMain</include>
+				<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMainDVD</include>
 				<info>ListItem.Icon</info>
 				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)+!Container.Content(years)</visible>
 				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
 			</control>
 			<control type="image">
-				<include>WatchedOverlayShowCaseNormal</include>
-				
+				<description>Glass overlay reflection</description>
+				<include>MovieShowcaseThumbReflectionDVD</include>
+				<visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+				<animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+			</control>
+			<control type="image">
+				<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+				<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 				<include>detailcolornofocus</include>
 				<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
 				<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
@@ -193,8 +220,8 @@
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
-				<include>MusicShowcaseThumbDimensions</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+				<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
 				<colordiffuse>4e000000</colordiffuse>
 				<texture>-</texture>
 				<aspectratio scalediffuse="false">scale</aspectratio>
@@ -205,6 +232,11 @@
 			<control type="image">
 				<include>MusicShowcaseThumbReflection</include>
 				<info>ListItem.Icon</info>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
+			</control>
+			<control type="image">
+				<description>Glass overlay reflection</description>
+				<include>MusicShowcaseThumbReflectionCD</include>
 				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
 			</control>
 		</itemlayout>
@@ -227,8 +259,8 @@
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
-				<include>MusicShowcaseThumbDimensions</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+				<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
 				<colordiffuse>4e000000</colordiffuse>
 				<texture>-</texture>
 				<aspectratio scalediffuse="false">scale</aspectratio>
@@ -241,6 +273,13 @@
 			<control type="image">
 				<include>MusicShowcaseThumbReflection</include>
 				<info>ListItem.Icon</info>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
+				<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+			</control>
+			<control type="image">
+				<description>Glass overlay reflection</description>
+				<include>MusicShowcaseThumbReflectionCD</include>
 				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
 				<animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 				<animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
@@ -268,8 +307,8 @@
 			</control>
 			<control type="image">
 				<description>Black overlay</description>
-				<include>MusicShowcaseThumbDimensions</include>
-				
+				<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+				<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
 				<colordiffuse>4e000000</colordiffuse>
 				<texture>-</texture>
 				<aspectratio scalediffuse="false">scale</aspectratio>
@@ -280,6 +319,11 @@
 			<control type="image">
 				<include>EpisodeShowcaseThumbReflection</include>
 				<info>ListItem.Icon</info>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
+			</control>
+			<control type="image">
+				<description>Glass overlay reflection</description>
+				<include>MusicShowcaseThumbReflectionCD</include>
 				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
 			</control>
 		</itemlayout>
@@ -328,6 +372,13 @@
 				<animation effect="zoom" start="100" end="140" center="-15,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 				<animation effect="zoom" start="140" end="100" center="-15,180" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
 			</control>
+			<control type="image">
+				<description>Glass overlay reflection</description>
+				<include>MusicShowcaseThumbReflectionCD</include>
+				<visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
+				<animation effect="zoom" start="100" end="140" center="auto" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+				<animation effect="zoom" start="140" end="100" center="auto" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+			</control>
 		</focusedlayout>
 	</include>
 	<include name="ShowcaseFixedList">
@@ -340,6 +391,12 @@
 			<include>Showcase_List_Content</include>
 		</control>
 	</include>	
+	<include name="WatchedOverlayShowCaseDVD">
+		<posx>163</posx>
+		<posy>28</posy>
+		<width>60</width>
+		<height>60</height>
+	</include>
 	<include name="WatchedOverlayShowCaseNormal">
 		<posx>162</posx>
 		<posy>8</posy>
@@ -1166,7 +1223,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
-						<label fallback="31425">$INFO[Container(57).ListItem.Property(Artist_YearsActive)]</label>
+						<label fallback="31425">$INFO[Container(57).ListItem.Property(YearsActive)]</label>
 					</control>
 				</control>
 				<control type="group">
@@ -1177,7 +1234,7 @@
 					</control>
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
-						<label fallback="31425">$INFO[Container(57).ListItem.Property(Artist_Formed)]</label>
+						<label fallback="31425">$INFO[Container(57).ListItem.Property(Formed)]</label>
 					</control>
 				</control>
 				<control type="group">
@@ -1322,6 +1379,17 @@
 		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
+	<include name="MovieShowcaseThumbDVD">
+		<posx>76</posx>
+		<posy>29</posy>
+		<width>146</width>
+		<height>220</height>
+		<align>center</align>
+		<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">defaultvideobigposter.png</texture>
+		<aspectratio scalediffuse="false">stretch</aspectratio>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
+		<!-- <<<<<< Add this -->
+	</include>
 	<include name="MovieShowcaseThumbMain">
 		<posx>49</posx>
 		<posy>8</posy>
@@ -1333,6 +1401,17 @@
 		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
+	<include name="MovieShowcaseThumbMainDVD">
+		<posx>76</posx>
+		<posy>29</posy>
+		<width>146</width>
+		<height>220</height>
+		<align>center</align>
+		<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">defaultvideobigposter.png</texture>
+		<aspectratio scalediffuse="false">stretch</aspectratio>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
+		<!-- <<<<<< Add this -->
+	</include>
 	<include name="MovieShowcaseThumbReflectionMain">
 		<posx>49</posx>
 		<posy>260</posy>
@@ -1340,6 +1419,17 @@
 		<height>254</height>
 		<colordiffuse>52FFFFFF</colordiffuse>
 		<texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png">defaultvideobigposter.png</texture>
+		<aspectratio scalediffuse="false">stretch</aspectratio>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
+		<!-- <<<<<< Add this -->
+	</include>
+	<include name="MovieShowcaseThumbReflectionMainDVD">
+		<posx>76</posx>
+		<posy>261</posy>
+		<width>146</width>
+		<height>220</height>
+		<colordiffuse>52FFFFFF</colordiffuse>
+		<texture background="true" flipy="true" diffuse="thumbs/boxes/movieposter_mask_reflect.png">defaultvideobigposter.png</texture>
 		<aspectratio scalediffuse="false">stretch</aspectratio>
 		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
@@ -1356,6 +1446,30 @@
 		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
 		<!-- <<<<<< Add this -->
 	</include>
+	<include name="MovieShowcaseThumbReflectionDVDCover">
+		<posx>76</posx>
+		<posy>261</posy>
+		<width>146</width>
+		<height>220</height>
+		<colordiffuse>d0FFFFFF</colordiffuse>
+		<texture background="true" flipy="true" diffuse="thumbs/boxes/movieposter_mask_reflect.png">defaultvideobigposter.png</texture>
+		<aspectratio scalediffuse="false">stretch</aspectratio>
+		<animation effect="fade" start="70" end="70" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
+		<visible>!Container.Content(genres) | Skin.HasSetting(MovieGenreOff)</visible>
+		<!-- <<<<<< Add this -->
+	</include>
+	<include name="MovieShowcaseThumbReflectionDVD">
+		<posx>49</posx>
+		<posy>250</posy>
+		<width>184</width>
+		<height>120</height>
+		<colordiffuse>d0FFFFFF</colordiffuse>
+		<bordertexture>thumbs/boxes/poster_shadow_reflect.png</bordertexture>
+		<texture>thumbs/boxes/poster_glass_reflect.png</texture>
+		<aspectratio scalediffuse="false">stretch</aspectratio>
+		<animation effect="fade" start="70" end="70" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
+		<visible>Skin.HasSetting(dvdcase)</visible>
+	</include>
 	<!-- Movie Showcase Variables: Thumb glass overlays -->
 	<include name="MovieShowcaseGlassOverlay">
 		<posx>49</posx>
@@ -1365,6 +1479,14 @@
 		<bordertexture border="-17">thumbs/poster_shadow.png</bordertexture>
 		<texture>thumbs/poster_glass.png</texture>
 	</include>
+	<include name="MovieShowcaseGlassOverlayDVD">
+		<posx>49</posx>
+		<posy>22</posy>
+		<width>184</width>
+		<height>240</height>
+		<bordertexture>thumbs/boxes/poster_shadow.png</bordertexture>
+		<texture>thumbs/boxes/poster_glass.png</texture>
+	</include>
 	<include name="MovieShowcaseGlassOverlayAngled">
 		<posx>49</posx>
 		<posy>8</posy>
@@ -1372,6 +1494,14 @@
 		<height>254</height>
 		<bordertexture border="-17">thumbs/poster_shadow.png</bordertexture>
 		<texture>thumbs/poster_glass.png</texture>
+	</include>
+	<include name="MovieShowcaseGlassOverlayAngledDVD">
+		<posx>49</posx>
+		<posy>22</posy>
+		<width>184</width>
+		<height>240</height>
+		<bordertexture>thumbs/boxes/poster_shadow.png</bordertexture>
+		<texture>thumbs/boxes/poster_glass.png</texture>
 	</include>
 	<!-- Music Showcase Variables: Main thumbs -->
 	<!-- For extra includes see Includes_CDDVDMod.xml -->
@@ -1382,10 +1512,10 @@
 		<aspectratio scalediffuse="false">stretch</aspectratio>
 	</include>
 	<include name="MusicShowcaseThumb">
-		<include>MusicShowcaseThumbDimensions</include>
-		
-		<include>MusicCoverMaskNormal</include>
-		
+		<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
+		<include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskNormal</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskCD</include>
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
 		<visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
@@ -1393,23 +1523,27 @@
 	</include>
 	<include name="MusicShowcaseBlack">
 		<control type="image">
-			<include>MusicShowcaseThumbDimensions</include>		
-			<texture diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
+			<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+			<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
+			<include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskBlackNormal</include>
+			<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskBlackCD</include>
 		</control>
 	</include>
 	<include name="MusicShowcaseBlackReflection">
 		<control type="image">
-			<include>MusicShowcaseThumbDimensions</include>
+			<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+			<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
 			<colordiffuse>d0FFFFFF</colordiffuse>
-			<include>MusicCoverMaskReflectionBlackNormal</include>
+			<include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionBlackNormal</include>
+			<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionBlackCD</include>
 			<animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
 		</control>
 	</include>
 	<include name="MusicShowcaseThumbMain">
-		<include>MusicShowcaseThumbDimensions</include>
-		
-		<include>MusicCoverMaskNormal</include>
-		
+		<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
+		<include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskNormal</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskCD</include>
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
 		<visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
@@ -1423,11 +1557,11 @@
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MusicShowcaseThumbReflection">
-		<include>MusicShowcaseThumbReflectionDimensions</include>
-		
+		<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbReflectionDimensions</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbReflectionDimensionsCDCover</include>
 		<colordiffuse>d0FFFFFF</colordiffuse>
-		<include>MusicCoverMaskReflectionNormal</include>
-		
+		<include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionNormal</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionCD</include>
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
 		<animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
@@ -1444,16 +1578,42 @@
 		<!-- <<<<<< Add this -->
 	</include>
 	<include name="MusicShowcaseThumbReflectionMain">
-		<include>MusicShowcaseThumbReflectionDimensions</include>
-		
+		<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbReflectionDimensions</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbReflectionDimensionsCDCover</include>
 		<colordiffuse>52FFFFFF</colordiffuse>
-		<include>MusicCoverMaskReflectionNormal</include>
-		
+		<include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionNormal</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionCD</include>
 		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
 		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
 		<animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
 		<visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
 		<!-- <<<<<< Add this -->
+	</include>
+	<include name="MusicShowcaseThumbReflectionCD">
+		<posx>18</posx>
+		<posy>244</posy>
+		<width>250</width>
+		<height>228</height>
+		<colordiffuse>d0FFFFFF</colordiffuse>
+		<bordertexture>thumbs/boxes/cd_shadow_reflect.png</bordertexture>
+		<texture>thumbs/boxes/cd_glass_reflect.png</texture>
+		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
+		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+		<animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
+		<visible>Skin.HasSetting(dvdcase)+!Container.Content(genres)</visible>
+	</include>
+	<include name="MusicShowcaseThumbReflectionCDMain">
+		<posx>18</posx>
+		<posy>244</posy>
+		<width>250</width>
+		<height>228</height>
+		<colordiffuse>52FFFFFF</colordiffuse>
+		<bordertexture>thumbs/boxes/cd_shadow_reflect.png</bordertexture>
+		<texture>thumbs/boxes/cd_glass_reflect.png</texture>
+		<include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
+		<include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+		<animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
+		<visible>Skin.HasSetting(dvdcase)+!Container.Content(genres)</visible>
 	</include>
 	<!-- Music Showcase Variables: Thumb glass overlays -->
 	<include name="MusicShowcaseGlassOverlayAngled">
@@ -1461,9 +1621,15 @@
 		<bordertexture border="-19">thumbs/cd_shadow_light.png</bordertexture>
 		<texture>thumbs/cd_glass_noedge.png</texture>
 	</include>
+	<include name="MusicShowcaseGlassOverlayAngledCD">
+		<include>MusicShowcaseThumbDimensionsCD</include>
+		<include>MusicCoverCD</include>
+	</include>
 	<include name="MusicShowcaseGlassOverlay">
-		<include>MusicShowcaseThumbDimensions</include>
-		<include>MusicCoverNormal</include>
+		<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCD</include>
+		<include condition="!Skin.HasSetting(dvdcase)">MusicCoverNormal</include>
+		<include condition="Skin.HasSetting(dvdcase)">MusicCoverCD</include>
 	</include>
 	<include name="EpisodeShowcaseGlassOverlay">
 		<include>EpisodeShowcaseThumbDimensions</include>
@@ -1491,12 +1657,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_1</include>
 					<!-- <<<<<< Add this -->
@@ -1515,12 +1685,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_2</include>
 					<!-- <<<<<< Add this -->
@@ -1539,12 +1713,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
@@ -1563,12 +1741,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
@@ -1587,12 +1769,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
@@ -1612,12 +1798,16 @@
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_12</include>
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(5).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_12</include>
 				</control>
@@ -1635,12 +1825,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(4).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
@@ -1659,12 +1853,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(3).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
@@ -1683,12 +1881,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(2).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
@@ -1707,12 +1909,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(1).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_8</include>
 					<!-- <<<<<< Add this -->
@@ -1736,12 +1942,16 @@
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MusicShowcaseGlassOverlayAngled</include>
+							<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 						</control>
 						<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 						<control type="image">
 							<include>MusicShowcaseThumbReflection</include>
 							<info>Container(57).ListItem(0).Thumb</info>
+						</control>
+						<control type="image">
+							<description>Glass overlay reflection</description>
+							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_7</include>
 						<!-- <<<<<< Add this -->
@@ -1761,12 +1971,16 @@
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MusicShowcaseGlassOverlayAngled</include>
+							<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 						</control>
 						<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 						<control type="image">
 							<include>MusicShowcaseThumbReflection</include>
 							<info>Container(57).ListItem(-1).Thumb</info>
+						</control>
+						<control type="image">
+							<description>Glass overlay reflection</description>
+							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_6</include>
 						<!-- <<<<<< Add this -->
@@ -1795,12 +2009,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(6).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_13</include>
 					<!-- <<<<<< Add this -->
@@ -1819,12 +2037,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(5).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_12</include>
 					<!-- <<<<<< Add this -->
@@ -1843,12 +2065,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(4).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
@@ -1867,12 +2093,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(3).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
@@ -1891,12 +2121,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(2).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
@@ -1917,7 +2151,7 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
@@ -1941,7 +2175,7 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
@@ -1965,12 +2199,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
@@ -1989,12 +2227,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
@@ -2013,12 +2255,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_6</include>
 					<!-- <<<<<< Add this -->
@@ -2042,12 +2288,16 @@
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MusicShowcaseGlassOverlayAngled</include>
+							<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 						</control>
 						<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 						<control type="image">
 							<include>MusicShowcaseThumbReflection</include>
 							<info>Container(57).ListItem(0).Thumb</info>
+						</control>
+						<control type="image">
+							<description>Glass overlay reflection</description>
+							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_7</include>
 						<!-- <<<<<< Add this -->
@@ -2067,12 +2317,16 @@
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MusicShowcaseGlassOverlayAngled</include>
+							<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 						</control>
 						<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 						<control type="image">
 							<include>MusicShowcaseThumbReflection</include>
 							<info>Container(57).ListItem(1).Thumb</info>
+						</control>
+						<control type="image">
+							<description>Glass overlay reflection</description>
+							<include>MusicShowcaseThumbReflectionCD</include>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_8</include>
 						<!-- <<<<<< Add this -->
@@ -2109,12 +2363,16 @@
 					
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_2</include>
 					
@@ -2137,12 +2395,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_3</include>
 					<!-- <<<<<< Add this -->
@@ -2165,12 +2427,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_4</include>
 					<!-- <<<<<< Add this -->
@@ -2193,12 +2459,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_5</include>
 					<!-- <<<<<< Add this -->
@@ -2221,12 +2491,16 @@
 					
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_6</include>
 					
@@ -2249,12 +2523,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(5).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_12</include>
 					<!-- <<<<<< Add this -->
@@ -2277,12 +2555,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(4).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_11</include>
 					<!-- <<<<<< Add this -->
@@ -2305,12 +2587,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(3).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_10</include>
 					<!-- <<<<<< Add this -->
@@ -2333,12 +2619,16 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(2).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_9</include>
 					<!-- <<<<<< Add this -->
@@ -2361,11 +2651,15 @@
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MusicShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
 					</control>
 					<control type="image">
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(1).Thumb</info>
+					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCD</include>
 					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_8</include>
@@ -2390,6 +2684,10 @@
 						<include>MusicShowcaseThumbReflection</include>
 						<info>Container(57).ListItem(0).Thumb</info>
 					</control>
+					<control type="image">
+						<description>Glass overlay reflection</description>
+						<include>MusicShowcaseThumbReflectionCDMain</include>
+					</control>
 					<include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_7</include>
 					<!-- <<<<<< Add this -->
@@ -2411,22 +2709,29 @@
 				<animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-7).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_15</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-7).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-7).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-7).Overlay]</texture>
@@ -2440,25 +2745,29 @@
 				<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_1</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-6).Overlay]</texture>
@@ -2472,25 +2781,29 @@
 				<animation effect="rotatey" center="90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-5).Overlay]</texture>
@@ -2504,25 +2817,29 @@
 				<animation effect="rotatey" center="180" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-4).Overlay]</texture>
@@ -2536,25 +2853,29 @@
 				<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-3).Overlay]</texture>
@@ -2568,25 +2889,29 @@
 				<animation effect="rotatey" center="360" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-2).Overlay]</texture>
@@ -2601,13 +2926,13 @@
 				<animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(9).Thumb</info>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(9).Thumb</info>
 					</control>
 				</control>
@@ -2618,13 +2943,13 @@
 				<animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(8).Thumb</info>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(8).Thumb</info>
 					</control>
 				</control>
@@ -2635,13 +2960,13 @@
 				<animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(7).Thumb</info>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(7).Thumb</info>
 					</control>
 				</control>
@@ -2653,25 +2978,29 @@
 				<animation effect="rotatey" center="1470" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(6).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_13</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(6).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(6).Overlay]</texture>
@@ -2685,25 +3014,29 @@
 				<animation effect="rotatey" center="1380" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(5).Overlay]</texture>
@@ -2717,25 +3050,29 @@
 				<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(4).Overlay]</texture>
@@ -2749,25 +3086,29 @@
 				<animation effect="rotatey" center="1200" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(3).Overlay]</texture>
@@ -2781,25 +3122,29 @@
 				<animation effect="rotatey" center="1110" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(2).Overlay]</texture>
@@ -2813,25 +3158,29 @@
 				<animation effect="rotatey" center="1020" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(1).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_8</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(1).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(1).Overlay]</texture>
@@ -2850,25 +3199,29 @@
 					<animation effect="rotatey" center="930" start="55" end="55" time="0" condition="true">Conditional</animation>
 					<control type="group">
 						<control type="image">
-							<include>MovieShowcaseThumb</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 							<info>Container(57).ListItem(0).Thumb</info>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_7</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MovieShowcaseGlassOverlayAngled</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 						</control>
 						<control type="image">
-							<include>MovieShowcaseThumbReflection</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 							<info>Container(57).ListItem(0).Thumb</info>
 						</control>
 						<control type="image">
-							<include>WatchedOverlayShowCaseNormal</include>
-							
+							<description>Glass overlay reflection</description>
+							<include>MovieShowcaseThumbReflectionDVD</include>
+						</control>
+						<control type="image">
+							<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+							<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 							<include>detailcolornofocus</include>
 							<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay)</visible>
 							<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
@@ -2882,24 +3235,28 @@
 					<animation effect="rotatey" center="405" start="0" end="-55" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
 					<control type="group">
 						<control type="image">
-							<include>MovieShowcaseThumb</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 							<info>Container(57).ListItem(-1).Thumb</info>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_6</include>
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MovieShowcaseGlassOverlayAngled</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 						</control>
 						<control type="image">
-							<include>MovieShowcaseThumbReflection</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 							<info>Container(57).ListItem(-1).Thumb</info>
 						</control>
 						<control type="image">
-							<include>WatchedOverlayShowCaseNormal</include>
-							
+							<description>Glass overlay reflection</description>
+							<include>MovieShowcaseThumbReflectionDVD</include>
+						</control>
+						<control type="image">
+							<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+							<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 							<include>detailcolornofocus</include>
 							<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-1).Overlay)</visible>
 							<texture>showcase/$INFO[ListItem(-1).Overlay]</texture>
@@ -2923,25 +3280,29 @@
 				<animation effect="rotatey" center="1380" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(7).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_14</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(7).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(7).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(7).Overlay]</texture>
@@ -2955,25 +3316,29 @@
 				<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(6).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_13</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(6).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(6).Overlay]</texture>
@@ -2986,22 +3351,26 @@
 				<animation effect="rotatey" center="1200" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include><include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(5).Overlay]</texture>
@@ -3015,25 +3384,29 @@
 				<animation effect="rotatey" center="1110" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(4).Overlay]</texture>
@@ -3047,25 +3420,29 @@
 				<animation effect="rotatey" center="1020" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(3).Overlay]</texture>
@@ -3079,25 +3456,29 @@
 				<animation effect="rotatey" center="930" start="55" end="55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(2).Overlay]</texture>
@@ -3112,13 +3493,13 @@
 				<animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-10).Thumb</info>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-10).Thumb</info>
 					</control>
 				</control>
@@ -3129,13 +3510,13 @@
 				<animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-9).Thumb</info>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-9).Thumb</info>
 					</control>
 				</control>
@@ -3146,13 +3527,13 @@
 				<animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-8).Thumb</info>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-8).Thumb</info>
 					</control>
 				</control>
@@ -3164,25 +3545,29 @@
 				<animation effect="rotatey" center="-180" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_1</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-6).Overlay]</texture>
@@ -3196,25 +3581,29 @@
 				<animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-5).Overlay]</texture>
@@ -3228,25 +3617,29 @@
 				<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-4).Overlay]</texture>
@@ -3260,25 +3653,29 @@
 				<animation effect="rotatey" center="90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-3).Overlay]</texture>
@@ -3292,25 +3689,29 @@
 				<animation effect="rotatey" center="180" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-2).Overlay]</texture>
@@ -3324,22 +3725,29 @@
 				<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_6</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>			
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-1).Overlay]</texture>
@@ -3358,23 +3766,29 @@
 					<animation effect="rotatey" center="360" start="-55" end="-55" time="0" condition="true">Conditional</animation>
 					<control type="group">
 						<control type="image">
-							<include>MovieShowcaseThumb</include>
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 							<info>Container(57).ListItem(0).Thumb</info>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_7</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MovieShowcaseGlassOverlay</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
 						</control>
 						<control type="image">
-							<include>MovieShowcaseThumbReflection</include>
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 							<info>Container(57).ListItem(0).Thumb</info>
 						</control>
 						<control type="image">
-							<include>WatchedOverlayShowCaseNormal</include>
-							
+							<description>Glass overlay reflection</description>
+							<include>MovieShowcaseThumbReflectionDVD</include>
+						</control>
+						<control type="image">
+							<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+							<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 							<include>detailcolornofocus</include>
 							<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay)</visible>
 							<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
@@ -3389,25 +3803,29 @@
 					<animation effect="rotatey" center="885" start="0" end="55" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
 					<control type="group">
 						<control type="image">
-							<include>MovieShowcaseThumb</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 							<info>Container(57).ListItem(1).Thumb</info>
 						</control>
 						<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_8</include>
 						<!-- <<<<<< Add this -->
 						<control type="image">
 							<description>Glass overlay</description>
-							<include>MovieShowcaseGlassOverlay</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
 						</control>
 						<control type="image">
-							<include>MovieShowcaseThumbReflection</include>
-							
+							<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+							<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 							<info>Container(57).ListItem(1).Thumb</info>
 						</control>
 						<control type="image">
-							<include>WatchedOverlayShowCaseNormal</include>
-							
+							<description>Glass overlay reflection</description>
+							<include>MovieShowcaseThumbReflectionDVD</include>
+						</control>
+						<control type="image">
+							<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+							<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 							<include>detailcolornofocus</include>
 							<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(1).Overlay)</visible>
 							<texture>showcase/$INFO[ListItem(1).Overlay]</texture>
@@ -3439,20 +3857,20 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_1</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-6).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_1</include>
@@ -3468,25 +3886,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_2</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-5).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-5).Overlay]</texture>
@@ -3504,24 +3926,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_3</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>			
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-4).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-4).Overlay]</texture>
@@ -3539,25 +3966,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_4</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-3).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-3).Overlay]</texture>
@@ -3575,25 +4006,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_5</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-2).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-2).Overlay]</texture>
@@ -3611,25 +4046,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_6</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(-1).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(-1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(-1).Overlay]</texture>
@@ -3647,23 +4086,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(6).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_13</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(6).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(6).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(6).Overlay]</texture>
@@ -3681,25 +4126,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_12</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(5).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(5).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(5).Overlay]</texture>
@@ -3717,25 +4166,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_11</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(4).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(4).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(4).Overlay]</texture>
@@ -3753,25 +4206,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_10</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(3).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(3).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(3).Overlay]</texture>
@@ -3789,25 +4246,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_9</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(2).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(2).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(2).Overlay]</texture>
@@ -3825,25 +4286,29 @@
 				</animation>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumb</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
 						<info>Container(57).ListItem(1).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_8</include>
 					<!-- <<<<<< Add this -->
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlayAngled</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngled</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayAngledDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflection</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflection</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionDVDCover</include>
 						<info>Container(57).ListItem(1).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<include>MovieShowcaseThumbReflectionDVD</include>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(1).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(1).Overlay]</texture>
@@ -3856,25 +4321,37 @@
 				<posx>505</posx>
 				<control type="group">
 					<control type="image">
-						<include>MovieShowcaseThumbMain</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
 						<info>Container(57).ListItem(0).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_7</include>
 					
 					<control type="image">
 						<description>Glass overlay</description>
-						<include>MovieShowcaseGlassOverlay</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
 					</control>
 					<control type="image">
-						<include>MovieShowcaseThumbReflectionMain</include>
-						
+						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMain</include>
+						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMainDVD</include>
 						<info>Container(57).ListItem(0).Thumb</info>
 					</control>
 					<control type="image">
-						<include>WatchedOverlayShowCaseNormal</include>
-						
+						<description>Glass overlay reflection</description>
+						<posx>49</posx>
+						<posy>250</posy>
+						<width>184</width>
+						<height>120</height>
+						<colordiffuse>52FFFFFF</colordiffuse>
+						<bordertexture>thumbs/boxes/poster_shadow_reflect.png</bordertexture>
+						<texture>thumbs/boxes/poster_glass_reflect.png</texture>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<visible>Skin.HasSetting(dvdcase)</visible>
+					</control>
+					<control type="image">
+						<include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+						<include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
 						<include>detailcolornofocus</include>
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
