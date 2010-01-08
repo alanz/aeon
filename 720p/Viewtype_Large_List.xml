@@ -126,9 +126,8 @@
 				<onright>561</onright>
 				<onup>560</onup>
 				<ondown>560</ondown>
-				<visible>Window.IsActive(25) + Skin.HasSetting(videomovies)</visible>
 				<preloaditems>2</preloaditems>
-				<itemlayout height="36">
+				<itemlayout height="35">
 			<!--		<control type="image">
 						<posx>560</posx>
 						<posy>8</posy>
@@ -173,7 +172,6 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="35">
-
 					<control type="image">
 						<posx>35</posx>
 						<posy>39</posy>
@@ -187,11 +185,13 @@
 						<width>714</width>
 						<height>41</height>
 						<texture>list/listpanel_selectbar2.png</texture>
+						<animation effect="slide" start="0,35" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(560).OnPrevious">focus</animation>
+						<animation effect="slide" start="0,-35" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(560).OnNext">focus</animation>
 				<!--		<include>Animation_ButtonFocusFade</include>-->
 						<visible>!Control.HasFocus(61)</visible>
 						<visible>Control.IsVisible(560) | Window.IsActive(106) | Window.IsActive(129) | Window.IsActive(126) | Window.IsActive(601) | Window.IsActive(602) | Window.IsActive(111) | Window.IsActive(2003)</visible>
 					</control>
-					<control type="image">
+					<control type="largeimage" background="true">
 						<posx>588</posx>
 						<posy>8</posy>
 						<height>28</height>
@@ -268,7 +268,7 @@
 		<posx>722</posx>
 		<posy>0</posy>
 		<visible>Control.IsVisible(560)</visible>
-			<control type="image" background="true">
+			<control type="largeimage" background="true">
 				<width>558</width>
 				<height>720</height>
 				<fadetime>400</fadetime>
@@ -280,14 +280,6 @@
 				<width>558</width>
 				<height>720</height>
 				<texture background="true">$INFO[listitem.path]poster.jpg</texture>
-				<aspectratio>stretch</aspectratio>
-				<fadetime>500</fadetime>
-			</control>
-			<control type="largeimage">
-				<description>Cover image</description>
-				<width>558</width>
-				<height>720</height>
-				<texture background="true">$INFO[listitem.path]movie.tbn</texture>
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
 			</control>
