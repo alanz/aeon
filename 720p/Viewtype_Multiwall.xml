@@ -2070,7 +2070,7 @@
 		<include condition="Skin.HasSetting(videotv) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">TVMultiwall</include>
 		<include>Furniture_MultiWallMediaFlags</include>
 		<control type="group">
-			<posx>1190</posx>
+			<posx>1160</posx>
 			<posy>679</posy>
 			<visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + Skin.HasSetting(videomovies)</visible>
 			<control type="label">
@@ -2094,7 +2094,7 @@
 			<control type="label" id="72">
 				<posy>10</posy>
 				<align>right</align>				
-				<label>$INFO[ListItem.Year]</label>
+				<label> $INFO[ListItem.Rating]  |  $INFO[ListItem.Year]  |  $INFO[ListItem.Duration]</label>
 				<include>Colour_DarkGrey</include>
 				<include>MultiWallLabelVars</include>
 				<visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>				
@@ -2147,6 +2147,7 @@
 				<align>right</align>
 				<label>$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title]</label>
 				<include>Colour_Grey</include>
+				<posx>-25</posx>
 				<include>MultiWallLabelVars</include>
 				<visible>Container.Content(episodes)</visible>				
 			</control>
@@ -2156,6 +2157,7 @@
 				<align>right</align>
 				<label>$INFO[ListItem.TVShowTitle]</label>
 				<include>Colour_DarkGrey</include>
+				<posx>-25</posx>
 				<include>MultiWallLabelVars</include>
 				<visible>Container.Content(episodes)</visible>				
 			</control>			

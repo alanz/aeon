@@ -42,7 +42,7 @@ class Main:
 			# no params passed
 			params = {}
 		# set our preferences
-		self.LIMIT = int( params.get( "limit", "5" ) )
+		self.LIMIT = int( params.get( "limit", "10" ) )
 		self.RECENT = not params.get( "partial", "" ) == "True"
 		self.ALBUMS = params.get( "albums", "" ) == "True"
 		self.UNPLAYED = params.get( "unplayed", "" ) == "True"
