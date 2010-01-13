@@ -590,9 +590,9 @@
 <include name="LowList_TallTextBox">
 	<posy>16</posy>
 	<posx>10</posx>
-	<height>186</height>
+	<height>200</height>
 	<width>450</width>
-	<font>Font_MultiplexPlot</font>
+	<font>Font_MultiplexPlotSmall</font>
 	<textcolor>d0ffffff</textcolor>
 	<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 	<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
@@ -1543,24 +1543,24 @@
 		<control type="textbox">
 			<description>PLOT OUTLINE: (Short)</description>
 			<include>LowList_ShortTextBox</include>
-			<label fallback="31425">$INFO[ListItem.Plot,[COLOR abffffff][UPPERCASE]$LOCALIZE[203][/UPPERCASE]:[/COLOR] ]</label>
+			<label fallback="31414">$INFO[ListItem.Plot,[COLOR abffffff][UPPERCASE]$LOCALIZE[203][/UPPERCASE]:[/COLOR] ]</label>
 			<visible>!Skin.HasSetting(highlist)</visible>
 		</control>
 		<control type="textbox">
 			<description>MOVIE PLOT: (Tall)</description>
 			<include>LowList_TallTextBox</include>
-			<label fallback="31414">$INFO[ListItem.Plot]</label>
+			<label fallback="31414">$INFO[ListItem.Plot,[COLOR abffffff][UPPERCASE]$LOCALIZE[203][/UPPERCASE]:[/COLOR] ]</label>
 			<visible>Skin.HasSetting(highlist)</visible>
 		</control>
-			<control type="label">
+		<control type="label">
 			<description>DIRECTOR: info label</description>
-			<posy>237</posy>
+			<posy>127</posy>
 			<posx>10</posx>
 			<align>left</align>
 			<width>370</width>
 			<label>$LOCALIZE[31402]: [COLOR d0ffffff]$INFO[ListItem.director][/COLOR]</label>
 			<visible>Window.IsActive(videolibrary)</visible>
-			<include>Animation_HighListSlide</include>
+		<!--	<include>Animation_HighListSlide</include>-->
 		</control>
 	</control>
 	<!-- Movie info panel -->
