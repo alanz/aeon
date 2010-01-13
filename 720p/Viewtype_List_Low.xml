@@ -4,7 +4,7 @@
 		<posy>0</posy>
 		<width>354</width>
 		<height>41</height>
-		<font>Font_ListDetailTV</font>
+		<font>Font_LowListFullTitle</font>
 		<aligny>center</aligny>
 		<animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
 		<animation effect="slide" start="0,10" end="0,10" time="0" condition="[[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Container.Content(movies)] | [Window.IsActive(pictures) + IsEmpty(ListItem.PictureDateTime)] | [Container.Content(seasons) + !IsEmpty(ListItem.Episode)] | [Container.Content(episodes) + [[IsEmpty(ListItem.Writer) + !IsEmpty(ListItem.Plot)] | [!IsEmpty(ListItem.Writer) + IsEmpty(ListItem.Plot)]]]">Conditional</animation>
@@ -80,6 +80,7 @@
 		<posy>1</posy>
 		<width>80</width>
 		<height>37</height>
+		<animation effect="slide" start="0,0" end="-52,0" time="0" condition="Container.Content(seasons)">Conditional</animation>
 	</include>
 	<include name="WatchedOverlayFull_Low">
 		<posx>428</posx>
