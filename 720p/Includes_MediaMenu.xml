@@ -3,8 +3,7 @@
 	<!--#########################################################################################################-->
 	<include name="Animation_MediaMenuSlide">
 		<animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
-			<effect type="slide" end="-215,0" time="400" easing="in" tween="cubic" />
-			<effect type="fade" start="100" end="0" time="400" />
+			<effect type="slide" end="-235,0" time="400" easing="in" tween="cubic" />
 		</animation>
 	</include>
 	<!--################################### Button Look and Dimensions ##########################################-->
@@ -25,9 +24,7 @@
 		<focusedcolor>d0000000</focusedcolor>
 		<textoffsetx>10</textoffsetx>
 		<texturefocus>verticalmenu/button_focus.png</texturefocus>
-		<texturenofocus>verticalmenu/button.png</texturenofocus>
 		<alttexturefocus>verticalmenu/button_focus.png</alttexturefocus>
-		<alttexturenofocus>verticalmenu/button.png</alttexturenofocus>
 		<radiowidth>72</radiowidth>
 		<radioposx>146</radioposx>
 		<radioheight>50</radioheight>
@@ -85,9 +82,7 @@
 			<focusedcolor>d0000000</focusedcolor>
 			<textoffsetx>10</textoffsetx>
 			<texturefocus>verticalmenu/button_focus.png</texturefocus>
-			<texturenofocus>verticalmenu/button.png</texturenofocus>
 			<alttexturefocus>verticalmenu/button_focus.png</alttexturefocus>
-			<alttexturenofocus>verticalmenu/button.png</alttexturenofocus>
 			<radiowidth>72</radiowidth>
 			<radioposx>146</radioposx>
 			<radioheight>50</radioheight>
@@ -732,7 +727,7 @@
 				<posx>245</posx>
 				<posy>52</posy>
 				<height>5800</height>
-				<width>215</width>
+				<width>235</width>
 				<onleft>7000</onleft>
 				<onright>50</onright>
 				<onup>7011</onup>
@@ -816,12 +811,13 @@
 	<!--#########################################################################################################-->
 	<include name="MediaMenu">
 		<control type="group">
+			<visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
 			<control type="image">
-				<posx>0</posx>
+				<posx>-28</posx>
 				<posy>0</posy>
-				<width>235</width>
+				<width>275</width>
 				<height>720</height>
-				<texture>showcase/menupanel.png</texture>
+				<texture>verticalmenu/panel.png</texture>
 				<include>Animation_MediaMenuSlide</include>
 			</control>
 			<include>ViewSelect</include>

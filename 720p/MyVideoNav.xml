@@ -43,63 +43,72 @@
 		</control>-->
 		<control type="largeimage">
 			<include>FullscreenDimensions</include>
-			<visible>Skin.HasSetting(fallbackimage) + [Control.IsVisible(553) | Control.IsVisible(556) | [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + [[Container.Content(movies) + Skin.HasSetting(moviefanart)] | [Container.Content(tvshows) + Skin.HasSetting(tvfanart)]]</visible>
+			<visible>Skin.HasSetting(fallbackimage) + [Control.IsVisible(553) | Control.IsVisible(55) | Control.IsVisible(556) | [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + [[Container.Content(movies) + Skin.HasSetting(moviefanart)] | [Container.Content(tvshows) + Skin.HasSetting(tvfanart)]]</visible>
 			<fadetime>400</fadetime>
 			<texture>$INFO[Skin.String(fallbackimagepath)]</texture>
 			<include>Animation_FanartFade</include>
 		</control>
 		<control type="largeimage" id="102">
 			<include>FullscreenDimensions</include>
-			<visible>[Control.IsVisible(553) | Control.IsVisible(556) | [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + [[Container.Content(movies) + Skin.HasSetting(moviefanart)] | [Container.Content(tvshows) + Skin.HasSetting(tvfanart)]] + !IsEmpty(listitem.property(fanart_image))</visible>
+			<visible>[Control.IsVisible(553) | Control.IsVisible(556) | Control.IsVisible(55) | [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + [[Container.Content(movies) + Skin.HasSetting(moviefanart)] | [Container.Content(tvshows) + Skin.HasSetting(tvfanart)]] + !IsEmpty(listitem.property(fanart_image))</visible>
 			<fadetime>400</fadetime>
 			<texture>$INFO[listitem.property(fanart_image)]</texture>
 			<include>Animation_FanartFade</include>
 		</control>
 		<include condition="Skin.HasSetting(videotv)">MediaBackdropsTVFanart</include>
 		<include>CurtainsBackdrop</include>
-		<include>Furniture_WallBackground</include>
 		<control type="group">
 			<visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
 			<include>FullscreenDimensions</include>
 			<include>Animation_OpenCloseZoom</include>
 			<include>Animation_VisibleHiddenZoom</include>
-			<include>Furniture_Time</include>
+			<include>Furniture_WallBackground</include>
 			<include>Furniture_MediaPanel</include>
-			<control type="image" id="102">
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>0</width>
-				<height>0</height>
-				<texture>-</texture>
-				<visible>Control.HasFocus(50) + [!Container(50).OnNext + !Container(50).OnPrevious]</visible>
-				<animation effect="fade" start="0" end="100" time="150" >Visible</animation>
+		
+			<control type="group">
+				<animation type="Conditional" condition="ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()">
+					<effect type="slide" end="235,0" time="400" easing="out" tween="cubic" />
+				</animation>
+				<visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
+				<include>FullscreenDimensions</include>
+				<include>Animation_OpenCloseZoom</include>
+				<include>Animation_VisibleHiddenZoom</include>
+				<control type="image" id="102">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>0</width>
+					<height>0</height>
+					<texture>-</texture>
+					<visible>Control.HasFocus(50) + [!Container(50).OnNext + !Container(50).OnPrevious]</visible>
+					<animation effect="fade" start="0" end="100" time="150" >Visible</animation>
+				</control>
+				<control type="image" id="102">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>0</width>
+					<height>0</height>
+					<texture>-</texture>
+					<visible>Control.HasFocus(551) + [!Container(551).OnNext + !Container(551).OnPrevious]</visible>
+					<animation effect="fade" start="0" end="100" time="150" >Visible</animation>
+				</control>
+				<include>Viewtype_List</include>
+				<include condition="[!Skin.HasSetting(WallOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(WallTVOff) + Skin.HasSetting(videotv)]">Viewtype_Wall</include>
+				<include condition="[!Skin.HasSetting(ListLowOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(ListLowTVOff) + Skin.HasSetting(videotv)]">Viewtype_List_Low</include>
+				<include condition="[!Skin.HasSetting(MultiwallOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiwallTVOff) + Skin.HasSetting(videotv)]">Viewtype_Multiwall</include>
+				<include condition="[!Skin.HasSetting(ShowcaseOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(ShowcaseTVOff) + Skin.HasSetting(videotv)]">Viewtype_Showcase</include>
+				<include condition="[!Skin.HasSetting(MultiplexOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiplexTVOff) + Skin.HasSetting(videotv)]">Viewtype_Multiplex</include>
+				<include condition="[!Skin.HasSetting(MultiplexOldOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiplexOldTVOff) + Skin.HasSetting(videotv)]">Viewtype_MultiplexOld</include>
+				<include condition="[!Skin.HasSetting(LargeListOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(LargeListTVOff) + Skin.HasSetting(videotv)]">Viewtype_Large_List</include>
+				
+				<include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_FloorMediaFlags</include>
+				<include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_MultiWallMediaFlags</include>
+				<include condition="Skin.HasSetting(videotv) + !Skin.HasSetting(nomediaflags)">Furniture_FloorTVMediaFlags</include>
 			</control>
-			<control type="image" id="102">
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>0</width>
-				<height>0</height>
-				<texture>-</texture>
-				<visible>Control.HasFocus(551) + [!Container(551).OnNext + !Container(551).OnPrevious]</visible>
-				<animation effect="fade" start="0" end="100" time="150" >Visible</animation>
-			</control>
-			<include>Furniture_NowPlayingWidget</include>
-		<!--	<include>Viewtype_UlixMultiplex</include>
-			<include>Viewtype_LowList</include>-->
-			<include condition="system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(globalrss)">Furniture_RSS</include>
-			<include>Viewtype_List</include>
-			<include condition="[!Skin.HasSetting(WallOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(WallTVOff) + Skin.HasSetting(videotv)]">Viewtype_Wall</include>
-			<include condition="[!Skin.HasSetting(ListLowOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(ListLowTVOff) + Skin.HasSetting(videotv)]">Viewtype_List_Low</include>
-			<include condition="[!Skin.HasSetting(MultiwallOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiwallTVOff) + Skin.HasSetting(videotv)]">Viewtype_Multiwall</include>
-			<include condition="[!Skin.HasSetting(ShowcaseOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(ShowcaseTVOff) + Skin.HasSetting(videotv)]">Viewtype_Showcase</include>
-			<include condition="[!Skin.HasSetting(MultiplexOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiplexTVOff) + Skin.HasSetting(videotv)]">Viewtype_Multiplex</include>
-			<include condition="[!Skin.HasSetting(MultiplexOldOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiplexOldTVOff) + Skin.HasSetting(videotv)]">Viewtype_MultiplexOld</include>
-			<include condition="[!Skin.HasSetting(LargeListOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(LargeListTVOff) + Skin.HasSetting(videotv)]">Viewtype_Large_List</include>
-			<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
+		<include>Furniture_Time</include>
+		<include>Furniture_NowPlayingWidget</include>
+		<include condition="system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(globalrss)">Furniture_RSS</include>
+		<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
 		</control>
-		<include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_FloorMediaFlags</include>
-		<include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_MultiWallMediaFlags</include>
-		<include condition="Skin.HasSetting(videotv) + !Skin.HasSetting(nomediaflags)">Furniture_FloorTVMediaFlags</include>
 		<include>Furniture_DarkGradient</include>
 		<include condition="Skin.HasSetting(scrollletters)">ScrollOffsetLabel</include>
 		<include>Background_ContextBlack</include>
