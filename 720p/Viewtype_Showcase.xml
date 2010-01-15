@@ -4318,16 +4318,18 @@
 					<!-- <<<<<< Add this -->
 				</control>
 			</control>
-			<control type="group"> <!-- 0 -->
+			<control type="group"> 
 				<posx>505</posx>
 				<control type="group">
+					<animation type="Conditional" condition="ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()">
+						<effect type="slide" end="-70,0" time="400" easing="out" tween="cubic" />
+					</animation>
 					<control type="image">
 						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
 						<include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
 						<info>Container(57).ListItem(0).Thumb</info>
 					</control>
 					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_7</include>
-					
 					<control type="image">
 						<description>Glass overlay</description>
 						<include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
@@ -4357,8 +4359,7 @@
 						<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay)</visible>
 						<texture>showcase/$INFO[ListItem(0).Overlay]</texture>
 					</control>
-					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_7</include>
-				
+					<include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_7</include>			
 				</control>
 			</control>
 		</control>

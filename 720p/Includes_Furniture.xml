@@ -310,7 +310,7 @@
 			<height>405</height>
 			<include condition="!Skin.HasSetting(darkfloor)">ShowcaseFloorLight</include>
 			<include condition="Skin.HasSetting(darkfloor)">ShowcaseFloorNight</include>
-			<visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(552) | Control.IsVisible(55)</visible>
+			<visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(552)</visible>
 			<!--ADDED WALL FLOOR-->
 			<include>Animation_CommonFade</include>
 			<include>Animation_HideShowcase</include>
@@ -327,7 +327,7 @@
 			<include>Animation_CommonFade</include>
 			<include>Animation_HideShowcase</include>
 			<include>Animation_HideMultiplex</include>
-			<visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
+			<visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(50)</visible>
 			<!--ADDED WALL-->
 		</control>
 	<!--	<control type="image">
@@ -353,7 +353,7 @@
 			<include>Animation_HideShowcase</include>
 			<include>Animation_HideMultiplex</include>
 		</control>
-		<control type="image">
+		<control type="image"><!-- lowlist-->
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<posx>140</posx>
 			<posy>503</posy>
@@ -363,7 +363,7 @@
 			<include>Animation_CommonFade</include>
 			<include>Animation_HideShowcase</include>
 			<include>Animation_HighListSlide</include>
-			<visible>Control.IsVisible(551)</visible>
+			<visible>Control.IsVisible(551)</visible> 
 			<animation effect="fade" start="100" end="60" time="50" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
 			<animation effect="fade" start="100" end="10" time="50" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
 		</control>
@@ -422,6 +422,9 @@
 			<include>Animation_HideMultiplex</include>
 			<include>Animation_HideShowcase</include>
 			<include>Animation_OpenCloseZoom</include>
+			<animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Control.IsVisible(57) + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+				<effect type="slide" end="-70,0" time="400" easing="out" tween="cubic" />
+			</animation>
 			<control type="fadelabel">
 				<label>31609</label>
 				<label>31610</label>
