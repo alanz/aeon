@@ -420,7 +420,7 @@
 			<label>$LOCALIZE[31058]: $LOCALIZE[31078]</label>
 			<altlabel>$LOCALIZE[31058]: $LOCALIZE[31077]</altlabel>
 			<include>MediaMenuButton</include>
-			<visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviewatched)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvwatched)]] + !Window.IsActive(musicplaylist) + !Window.IsActive(musicplaylisteditor)</visible>
+			<visible>[[Container.Content(movies) | Window.IsActive(videofiles)] + !Skin.HasSetting(nomenumoviewatched)] | [[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(nomenutvwatched)]</visible>
 		</control>
 	</include>
 	<include name="MediaMenuButton_Search">
