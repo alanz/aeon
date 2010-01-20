@@ -269,7 +269,7 @@
 			<usealttexture>Skin.HasSetting(slimlist)</usealttexture>
 			<onclick>Skin.SetBool(slimlist)</onclick>
 			<altclick>Skin.Reset(slimlist)</altclick>
-			<visible>Control.IsVisible(50) + Window.IsActive(videolibrary) + Container.Content(movies)</visible>
+			<visible>Control.IsVisible(50) + [Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)]]</visible>
 		</control>
 		<control type="togglebutton" id="7000214">
 			<include>MediaMenuButton</include>
