@@ -1753,29 +1753,37 @@
 		</control>
 	</include>
 	<include name="Viewtype_Multiplex">
-		<control type="button" id="111"> <!-- trigger button-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
+		<control type="button" id="111">
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
-			<onleft>52</onleft>
-			<onright>52</onright>
-			<onup>7000</onup>
-			<ondown>52</ondown>
+			<onleft>SetFocus(52)</onleft>
+			<onright>SetFocus(52)</onright>
+			<onup>SetFocus(7000)</onup>
+			<ondown>SetFocus(52)</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[[Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto) | [Skin.HasSetting(multiplexinfoon)+ !IsEmpty(ListItem.Trailer)]] + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]+Skin.HasSetting(videotv)]</visible>
+			<visible>[[[Skin.HasSetting(multiplexinfotrigger) | [Skin.HasSetting(multiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(multiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(multiplexmusicinfotrigger) + Window.IsActive(musiclibrary)]] + !Skin.HasSetting(kiosk)</visible>
 		</control>
-		<control type="button" id="111"> <!-- trigger button SetFocus(7000)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
+		<control type="button" id="111">
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SendClick(7000,8)</onup>
+			<onleft>SetFocus(52)</onleft>
+			<onright>SetFocus(52)</onright>
+			<ondown>SetFocus(52)</ondown>
+			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+			<visible>[[[Skin.HasSetting(multiplexinfotrigger) | [Skin.HasSetting(multiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(multiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(multiplexmusicinfotrigger) + Window.IsActive(musiclibrary)]] + Skin.HasSetting(kiosk)</visible>
+		</control>
+		<control type="button" id="111">
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[![Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto) | [Skin.HasSetting(multiplexinfoon)+ !IsEmpty(ListItem.Trailer)]] + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]+Skin.HasSetting(videotv)]</visible>
+			<visible>[[![Skin.HasSetting(multiplexinfotrigger) | [Skin.HasSetting(multiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(multiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(multiplexmusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]] + !Skin.HasSetting(kiosk)</visible>
+		</control>
+		<control type="button" id="111">
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SendClick(7000,8)</onfocus>
+			<visible>[[![Skin.HasSetting(multiplexinfotrigger) | [Skin.HasSetting(multiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(multiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(multiplexmusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]] + Skin.HasSetting(kiosk)</visible>
 		</control>
 		<control type="image">
 			<posx>40</posx>
@@ -1836,7 +1844,7 @@
 			<pulseonselect/>
 			<orientation>horizontal</orientation>
 			<showonepage>false</showonepage>
-			<onup>552</onup>
+			<onup>SetFocus(552)</onup>
 			<ondown>197</ondown>
 			<onleft>60</onleft>
 			<onright>60</onright>
@@ -1858,7 +1866,7 @@
 			<pulseonselect/>
 			<orientation>horizontal</orientation>
 			<showonepage>false</showonepage>
-			<onup>52</onup>
+			<onup>SetFocus(52)</onup>
 			<ondown>197</ondown>
 			<onleft>60</onleft>
 			<onright>60</onright>

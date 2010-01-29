@@ -66,7 +66,7 @@
 	<include name="OldMultiplexFocusTV">
 		<focusposition>2</focusposition>
 	</include>
-	<include name="OldMultiplexInfoPaneMovies">
+	<include name="OldMultiplexMovies">
 		<control type="group">
 			<posx>0</posx>
 			<posy>65</posy>
@@ -360,7 +360,7 @@
 					<height>32</height>
 					<font>Font_MultiplexPlotOld</font>
 					<label>312573</label>
-					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + !Control.HasFocus(110) + [Control.IsVisible(109) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
 					<colordiffuse>d0FFFFFF</colordiffuse>
 					<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				</control>
@@ -391,8 +391,51 @@
 				</control>
 			</control>
 		</control>
+		<control type="group">
+			<posx>0</posx>
+			<posy>446</posy>
+			<width>1280</width>
+			<height>253</height>
+			<visible>Container.Content(movies) + Control.IsVisible(553)</visible>
+			<include>Animation_HideMultiplex</include>
+			<control type="image" id="304">
+				<width>1280</width>
+				<height>274</height>
+				<texture>multiplex/old/multiplex_full_base.png</texture>
+			</control>
+			<control type="image">
+				<posx>56</posx>
+				<posy>105</posy>
+				<width>1166</width>
+				<height>136</height>
+				<texture>multiplex/old/multiplex_frame.png</texture>
+				<animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60)">Conditional</animation>
+			</control>
+			<control type="image">
+				<posx>20</posx>
+				<posy>60</posy>
+				<width>19</width>
+				<height>221</height>
+				<texture flipx="true">multiplex/old/multiplex_arrow.png</texture>
+				<visible>Control.IsVisible(553)</visible>
+				<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+				<visible>!Control.IsVisible(105)</visible>
+				<include>Animation_CommonFade</include>
+			</control>
+			<control type="image">
+				<posx>1241</posx>
+				<posy>60</posy>
+				<width>19</width>
+				<height>221</height>
+				<texture>multiplex/old/multiplex_arrow.png</texture>
+				<visible>Control.IsVisible(553)</visible>
+				<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+				<visible>!Control.IsVisible(105)</visible>
+				<include>Animation_CommonFade</include>
+			</control>
+		</control>
 	</include>
-	<include name="OldMultiplexInfoPaneTV">
+	<include name="OldMultiplexTV">
 		<control type="group">
 			<posx>0</posx>
 			<posy>65</posy>
@@ -621,53 +664,6 @@
 				</control>
 				<!--				<control type="image"><posx>0</posx><posy>1</posy><width>1280</width><height>35</height><texture>multiplex/old/multiplex_gradienttv.png</texture><visible>Control.IsVisible(553)</visible></control>--></control>
 		</control>
-	</include>
-	<include name="OldMultiplexBaseMovies">
-		<control type="group">
-			<posx>0</posx>
-			<posy>446</posy>
-			<width>1280</width>
-			<height>253</height>
-			<visible>Container.Content(movies) + Control.IsVisible(553)</visible>
-			<include>Animation_HideMultiplex</include>
-			<control type="image" id="304">
-				<width>1280</width>
-				<height>274</height>
-				<texture>multiplex/old/multiplex_full_base.png</texture>
-			</control>
-			<control type="image">
-				<posx>56</posx>
-				<posy>105</posy>
-				<width>1166</width>
-				<height>136</height>
-				<texture>multiplex/old/multiplex_frame.png</texture>
-				<animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60)">Conditional</animation>
-			</control>
-			<control type="image">
-				<posx>20</posx>
-				<posy>60</posy>
-				<width>19</width>
-				<height>221</height>
-				<texture flipx="true">multiplex/old/multiplex_arrow.png</texture>
-				<visible>Control.IsVisible(553)</visible>
-				<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-				<visible>!Control.IsVisible(105)</visible>
-				<include>Animation_CommonFade</include>
-			</control>
-			<control type="image">
-				<posx>1241</posx>
-				<posy>60</posy>
-				<width>19</width>
-				<height>221</height>
-				<texture>multiplex/old/multiplex_arrow.png</texture>
-				<visible>Control.IsVisible(553)</visible>
-				<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-				<visible>!Control.IsVisible(105)</visible>
-				<include>Animation_CommonFade</include>
-			</control>
-		</control>
-	</include>
-	<include name="OldMultiplexBaseTV">
 		<control type="group">
 			<posx>0</posx>
 			<posy>518</posy>
@@ -753,34 +749,40 @@
 		</control>
 	</include>
 	<include name="Viewtype_MultiplexOld">
-		<control type="button" id="110">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
+<control type="button" id="110">
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
-			<onleft>553</onleft>
-			<onright>553</onright>
-			<onup>7000</onup>
-			<ondown>553</ondown>
+			<onleft>SetFocus(553)</onleft>
+			<onright>SetFocus(553)</onright>
+			<onup>SetFocus(7000)</onup>
+			<ondown>SetFocus(553)</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[Skin.HasSetting(oldmultiplexinfotrigger)+Skin.HasSetting(videomovies)] | [Skin.HasSetting(oldmultiplextvinfotrigger)+Skin.HasSetting(videotv)]</visible>
+			<visible>[[[Skin.HasSetting(oldmultiplexinfotrigger) | [Skin.HasSetting(oldmultiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(oldmultiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(oldmultiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(oldmultiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(oldmultiplexmusicinfotrigger) + Window.IsActive(musiclibrary)]] + !Skin.HasSetting(kiosk)</visible>
 		</control>
 		<control type="button" id="110">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>0</width>
-			<height>0</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SendClick(7000,8)</onup>
+			<onleft>SetFocus(553)</onleft>
+			<onright>SetFocus(553)</onright>
+			<ondown>SetFocus(553)</ondown>
+			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+			<visible>[[[Skin.HasSetting(oldmultiplexinfotrigger) | [Skin.HasSetting(oldmultiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(oldmultiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(oldmultiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(oldmultiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(oldmultiplexmusicinfotrigger) + Window.IsActive(musiclibrary)]] + Skin.HasSetting(kiosk)</visible>
+		</control>
+		<control type="button" id="110">
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[!Skin.HasSetting(oldmultiplexinfotrigger)+Skin.HasSetting(videomovies)] | [!Skin.HasSetting(oldmultiplextvinfotrigger)+Skin.HasSetting(videotv)]</visible>
+			<visible>[[![Skin.HasSetting(oldmultiplexinfotrigger) | [Skin.HasSetting(oldmultiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(oldmultiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(oldmultiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(oldmultiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(oldmultiplexmusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]] + !Skin.HasSetting(kiosk)</visible>
 		</control>
-		<include condition="Skin.HasSetting(videotv)">OldMultiplexInfoPaneTV</include>
-		<include condition="Skin.HasSetting(videomovies)">OldMultiplexInfoPaneMovies</include>
-		<include condition="Skin.HasSetting(videotv)">OldMultiplexBaseTV</include>
-		<include condition="Skin.HasSetting(videomovies)">OldMultiplexBaseMovies</include>
+		<control type="button" id="110">
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SendClick(7000,8)</onfocus>
+			<visible>[[![Skin.HasSetting(oldmultiplexinfotrigger) | [Skin.HasSetting(oldmultiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(oldmultiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(oldmultiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(oldmultiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(oldmultiplexmusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]] + Skin.HasSetting(kiosk)</visible>
+		</control>
+		<include condition="Skin.HasSetting(videotv)">OldMultiplexTV</include>
+		<include condition="Skin.HasSetting(videomovies)">OldMultiplexMovies</include>
 		<control type="wraplist" id="553">
 			<viewtype label="31582">wrap</viewtype>
 			<include condition="Skin.HasSetting(videomovies)">OldMultiplexMovieVarsWrap</include>
