@@ -649,7 +649,7 @@
 			<posy>65</posy>
 			<width>1280</width>
 			<height>381</height>
-			<visible>Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
+			<visible>!Skin.HasSetting(tvposter) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="![[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]]">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<include>Animation_InfoPanelSlide</include>
@@ -861,14 +861,12 @@
 				</control>
 			</control>
 		</control>
-	</include>
-	<include name="MultiplexInfoPaneTVPoster">
 		<control type="group">
 			<posx>0</posx>
 			<posy>50</posy>
 			<width>1280</width>
 			<height>381</height>
-			<visible>Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
+			<visible>Skin.HasSetting(tvposter) + Skin.HasSetting(videotv) + [Control.IsVisible(52) | Control.IsVisible(552)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="![[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]]">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
 			<include>Animation_InfoPanelSlide</include>
@@ -1634,7 +1632,7 @@
 		<onleft>552</onleft>
 		<onright>552</onright>
 		<onup>111</onup>
-		<ondown>60</ondown>
+		<ondown>61</ondown>
 		<orientation>horizontal</orientation>
 		<include>MultiplexFocusTV</include>
 		<scrolltime>200</scrolltime>
@@ -1735,16 +1733,19 @@
 	<include name="MultiplexNormalFixedList">
 		<control type="fixedlist" id="52">
 			<include>MultiplexPosterListContent</include>
+			<visible>Skin.HasSetting(alt_multiplex)</visible>
 		</control>
 	</include>
 	<include name="MultiplexNormalWrapList">
 		<control type="wraplist" id="52">
 			<include>MultiplexPosterListContent</include>
+			<visible>!Skin.HasSetting(alt_multiplex)</visible>
 		</control>
 	</include>
 	<include name="MultiplexLandscapeFixedList">
 		<control type="fixedlist" id="552">
 			<include>MultiplexLandscapeListContent</include>
+			
 		</control>
 	</include>
 	<include name="MultiplexLandscapeWrapList">
@@ -1822,20 +1823,19 @@
 			<visible>Control.IsVisible(552) + ![stringcompare(Container(552).NumItems,1) | stringcompare(Container(552).NumItems,2) | stringcompare(Container(552).NumItems,3) | stringcompare(Container(552).NumItems,4)]</visible>
 		</control>
 		<include condition="Skin.HasSetting(videomovies)">MultiplexInfoPaneMovies</include>
-		<include condition="Skin.HasSetting(videotv) + !Skin.HasSetting(tvposter)">MultiplexInfoPaneTV</include>
-		<include condition="Skin.HasSetting(videotv) + Skin.HasSetting(tvposter)">MultiplexInfoPaneTVPoster</include>
+		<include condition="Skin.HasSetting(videotv)">MultiplexInfoPaneTV</include>
 		<include condition="Skin.HasSetting(alt_multiplex)">MultiplexNormalFixedList</include>
 		<include condition="!Skin.HasSetting(alt_multiplex)">MultiplexNormalWrapList</include>
 		<include condition="Skin.HasSetting(alt_multiplex2) + Skin.HasSetting(videotv)">MultiplexLandscapeFixedList</include>
 		<include condition="!Skin.HasSetting(alt_multiplex2) + Skin.HasSetting(videotv)">MultiplexLandscapeWrapList</include>
 	<!--	<include>MultiplexMoviesFlow</include>-->
-		<control type="scrollbar" id="60">
+		<control type="scrollbar" id="61">
 			<description>My first scroll bar control</description>
 			<posx>305</posx>
 			<posy>663</posy>
 			<width>670</width>
 			<height>41</height>
-			<visible allowhiddenfocus="true">Control.IsVisible(552) + Control.HasFocus(60)</visible>
+			<visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
 			<texturesliderbackground>windows/scrollbarbackshowcase.png</texturesliderbackground>
 			<texturesliderbar>-</texturesliderbar>
 			<texturesliderbarfocus>-</texturesliderbarfocus>
@@ -1857,7 +1857,7 @@
 			<posy>663</posy>
 			<width>670</width>
 			<height>41</height>
-			<visible allowhiddenfocus="true">Control.IsVisible(52) + Control.HasFocus(60)</visible>
+			<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
 			<texturesliderbackground>windows/scrollbarbackshowcase.png</texturesliderbackground>
 			<texturesliderbar>-</texturesliderbar>
 			<texturesliderbarfocus>-</texturesliderbarfocus>
