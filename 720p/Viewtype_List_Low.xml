@@ -280,7 +280,7 @@
 				<posy>503</posy>
 				<width>651</width>
 				<height>327</height>
-				<pagecontrol>61</pagecontrol>
+				<pagecontrol>65</pagecontrol>
 				<focusposition>2</focusposition>
 				<onleft>55104</onleft>
 				<onright>55105</onright>
@@ -792,7 +792,7 @@
 				<height>0</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
-				<onfocus>SetFocus(61)</onfocus>
+				<onfocus>SetFocus(65)</onfocus>
 				<visible>Control.IsVisible(551) + !Control.IsVisible(55111)</visible>
 			</control>
 			<control type="button" id="55104">
@@ -809,16 +809,12 @@
 			<!-- OnRight Invisible Buttons -->
 			<control type="button" id="55105"> <!-- manual trigger -->
 				<description>INVISIBLE TRIGGER INFO button</description>
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>0</width>
-				<height>0</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<onfocus>SetFocus(55110)</onfocus>
 				<visible>Control.IsVisible(551) + !Skin.HasSetting(lowlistinfoauto)</visible>
 			</control>
-			<control type="button" id="55105"> <!--SetFocus(7000), auto trigger, !55111-->
+			<control type="button" id="55105"> <!--SetFocus(55200), auto trigger, !55111-->
 				<description>INVISIBLE GO TO MEDIA MENU button</description>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -826,7 +822,7 @@
 				<height>0</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
-				<onfocus>SetFocus(7000)</onfocus>
+				<onfocus>SetFocus(55200)</onfocus>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + !Control.IsVisible(55111)</visible>
 			</control>
 			<control type="button" id="55105"> <!--on right: trailer-->
@@ -841,7 +837,7 @@
 				<onfocus>SetFocus(55110)</onfocus>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + !IsEmpty(ListItem.Trailer) + Control.IsVisible(55111)</visible>
 			</control>
-			<control type="button" id="55105"> <!--on right: setfocus(7000)-->
+			<control type="button" id="55105"> <!--on right: setfocus(55200)-->
 				<description>INVISIBLE GO TO MEDIA MENU WITH INFO PANEL SHOWING button</description>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -849,7 +845,7 @@
 				<height>0</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
-				<onfocus>SetFocus(7000)</onfocus>
+				<onfocus>SetFocus(55200)</onfocus>
 				<visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + IsEmpty(ListItem.Trailer) + Control.IsVisible(55111)</visible>
 			</control>
 			<!-- Wide Info Panel Invisible Buttons -->
@@ -902,8 +898,7 @@
 				<texture>-</texture>
 				<visible>Skin.HasSetting(lowlistinfoauto) + ControlGroup(7000).HasFocus() + !substring(listitem.label,..)</visible>
 				<animation effect="fade" start="0" end="100" time="0" delay="3500">Visible</animation>
-			</control>
-			
+			</control>	
 		</control>
 		<!-- Low List Detail Panel Includes -->
 		<control type="group">
@@ -1210,7 +1205,7 @@
 			<posx>10</posx>
 			<posy>400</posy>
 			<visible>Control.IsVisible(551)</visible>
-			<animation effect="slide" start="0,0" end="-22,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(61)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="-22,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(65)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="0,-57" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(20)">Conditional</animation>
 			<animation effect="slide" time="1000" start="-600,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
 			<animation effect="fade" time="400" start="0" end="100">Visible</animation>
@@ -1222,7 +1217,21 @@
 			<!-- Landscape Icons -->
 		</control>
 		<!-- Scrollbar -->
-		<control type="scrollbar" id="61">
+		<control type="button" id="55200"> <!-- manual trigger -->
+			<description>INVISIBLE TRIGGER INFO button</description>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SetFocus(7000)</onfocus>
+			<visible>Control.IsVisible(551) + !Skin.HasSetting(kiosk)</visible>
+		</control>
+		<control type="button" id="55200"> <!-- manual trigger -->
+			<description>INVISIBLE TRIGGER INFO button</description>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus>SendClick(7000,8)</onfocus>
+			<visible>Control.IsVisible(551) + Skin.HasSetting(kiosk)</visible>
+		</control>
+		<control type="scrollbar" id="65">
 			<description>Short scroll bar</description>
 			<posx>275</posx>
 			<posy>504</posy>
@@ -1240,14 +1249,14 @@
 			<pulseonselect/>
 			<orientation>vertical</orientation>
 			<showonepage>true</showonepage>
-			<onup>61</onup>
-			<ondown>61</ondown>
-			<onleft>7000</onleft>
+			<onup>65</onup>
+			<ondown>65</ondown>
+			<onleft>SetFocus(55200)</onleft>
 			<onright>50</onright>
-			<visible allowhiddenfocus="true">Control.IsVisible(551) + Control.HasFocus(61)</visible>
+			<visible allowhiddenfocus="true">Control.IsVisible(551) + Control.HasFocus(65)</visible>
 			<visible>!Skin.HasSetting(highlist)</visible>
 		</control>
-		<control type="scrollbar" id="61">
+		<control type="scrollbar" id="65">
 			<description>Tall scroll bar</description>
 			<posx>275</posx>
 			<posy>504</posy>
@@ -1265,11 +1274,11 @@
 			<pulseonselect/>
 			<orientation>vertical</orientation>
 			<showonepage>true</showonepage>
-			<onup>61</onup>
-			<ondown>61</ondown>
-			<onleft>7000</onleft>
+			<onup>65</onup>
+			<ondown>65</ondown>
+			<onleft>SetFocus(55200)</onleft>
 			<onright>50</onright>
-			<visible allowhiddenfocus="true">Control.IsVisible(551) + Control.HasFocus(61)</visible>
+			<visible allowhiddenfocus="true">Control.IsVisible(551) + Control.HasFocus(65)</visible>
 			<visible>Skin.HasSetting(highlist)</visible>
 		</control>
 		<control type="label" id="217">
