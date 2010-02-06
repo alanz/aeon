@@ -1,4 +1,23 @@
 <includes>
+	<!-- Cover Mask -->
+	<include name="MusicCoverMaskCD">
+		<texture background="true" diffuse="thumbs/boxes/cdcover_mask.png">defaultaudio.png</texture>
+	</include>
+	<include name="MusicCoverMaskBlackCD">
+		<texture diffuse="thumbs/boxes/cdcover_mask.png">common/black.png</texture>
+	</include>
+	<include name="MusicCoverMaskReflectionCD">
+		<texture background="true" flipy="true" diffuse="thumbs/boxes/cdcover_mask_reflect.png">defaultaudio.png</texture>
+	</include>
+	<include name="MusicCoverMaskReflectionBlackCD">
+		<texture flipy="true" diffuse="thumbs/boxes/cdcover_mask_reflect.png">common/black.png</texture>
+	</include>
+	<!-- CD Cover -->
+	<include name="ShowcaseMusicCoverCD">
+		<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+		<texture>thumbs/boxes/cd_glass.png</texture>
+		<visible>!Container.Content(genres)</visible>
+	</include>
 	<include name="MusicShowcaseThumbDimensions">
 		<posx>18</posx>
 		<posy>18</posy>
@@ -1613,13 +1632,13 @@
 	</include>
 	<include name="MusicShowcaseGlassOverlayAngledCD">
 		<include>MusicShowcaseThumbDimensionsCD</include>
-		<include>MusicCoverCD</include>
+		<include>ShowcaseMusicCoverCD</include>
 	</include>
 	<include name="MusicShowcaseGlassOverlay">
 		<include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
 		<include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCD</include>
 		<include condition="!Skin.HasSetting(dvdcase)">MusicCoverNormal</include>
-		<include condition="Skin.HasSetting(dvdcase)">MusicCoverCD</include>
+		<include condition="Skin.HasSetting(dvdcase)">ShowcaseMusicCoverCD</include>
 	</include>
 	<include name="EpisodeShowcaseGlassOverlay">
 		<include>EpisodeShowcaseThumbDimensions</include>
