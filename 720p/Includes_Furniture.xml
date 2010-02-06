@@ -1,138 +1,32 @@
 <includes>	
-	<!-- Library Totals -->
-	<include name="Library_Vars">
-		<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
-		<animation effect="slide" start="-600,0" end="0,0" delay="200" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
-		<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
-		<include>Animation_OpenCloseZoom</include>
-		<posx>0</posx>
-		<width>451</width>
-		<height>27</height>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>3</posy>
-			<width>400</width>
-			<font>Font_Time</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>!Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20342]: $INFO[Window.Property(Movies.Count)]   |   $LOCALIZE[16102]: $INFO[Window.Property(Movies.Watched)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Movies.UnWatched)]</label>
-			<visible>Container(300).HasFocus(6)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>-4</posy>
-			<width>480</width>
-			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
-			<font>Font_BigTime</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20342]: $INFO[Window.Property(Movies.Count)]   |   $LOCALIZE[16102]: $INFO[Window.Property(Movies.Watched)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Movies.UnWatched)]</label>
-			<visible>Container(300).HasFocus(6)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>5</posx>
-			<posy>3</posy>
-			<width>420</width>
-			<font>Font_Time</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>!Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20343]: $INFO[Window.Property(TVShows.Count)]   |   $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Count)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Episodes.UnWatched)]</label>
-			<visible>Container(300).HasFocus(7)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>-4</posy>
-			<width>480</width>
-			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
-			<font>Font_BigTime</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20343]: $INFO[Window.Property(TVShows.Count)]   |   $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Count)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Episodes.UnWatched)]</label>
-			<visible>Container(300).HasFocus(7)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>3</posy>
-			<width>400</width>
-			<font>Font_Time</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>!Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[132]: $INFO[Window.Property(Music.AlbumsCount)]   |   $LOCALIZE[134]: $INFO[Window.Property(Music.SongsCount)]   |   $LOCALIZE[133]: $INFO[Window.Property(Music.ArtistsCount)]</label>
-			<visible>Container(300).HasFocus(1)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>-4</posy>
-			<width>480</width>
-			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
-			<font>Font_BigTime</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[132]: $INFO[Window.Property(Music.AlbumsCount)]   |   $LOCALIZE[134]: $INFO[Window.Property(Music.SongsCount)]   |   $LOCALIZE[133]: $INFO[Window.Property(Music.ArtistsCount)]</label>
-			<visible>Container(300).HasFocus(1)</visible>
-		</control>
-	</include>
-	<include name="Furniture_LibraryLow">
-		<control type="group">
-			<posy>316</posy>
-			<animation effect="slide" start="0,0" end="0,225" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<control type="image">
-				<posx>-10</posx>
-				<posy>0</posy>
-				<width>451</width>
-				<height>27</height>
-				<texture>common/librarypanel_mid.png</texture>
-				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" start="-20,-7" end="-20,-7" time="0" />
-					<effect type="zoom" start="125" end="125" time="0" />
-				</animation>
-			</control>
-			<include>Library_Vars</include>
-		</control>
-	</include>
-	<include name="Furniture_LibraryHigh">
-		<control type="group">
-			<posy>0</posy>
-			<control type="image">
-				<posx>-10</posx>
-				<posy>0</posy>
-				<width>451</width>
-				<height>27</height>
-				<texture flipy="true">common/librarypanel_mid.png</texture>
-				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" start="-20,0" end="-20,0" time="0" />
-					<effect type="zoom" start="125" end="125" time="0" />
-				</animation>
-			</control>
-			<include>Library_Vars</include>
-		</control>
-	</include>
 	<!-- Time -->
-	<include name="Furniture_TimeGroupHighVars">
-		<posx>900</posx>
-		<posy>0</posy>
-		<width>451</width>
-		<height>27</height>
-	</include>
 	<include name="Furniture_TimePanel">
 		<control type="image">
-			<posx>-30</posx>
+			<posx>-60</posx>
 			<posy>0</posy>
 			<width>451</width>
 			<height>27</height>
 			<texture>common/timepanel_mid.png</texture>
 			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-				<effect type="slide" start="-50,-7" end="-50,-7" time="0" />
+				<effect type="slide" end="10,-7" time="0" />
 				<effect type="zoom" start="125" end="125" time="0" />
 			</animation>
 		</control>
-		<control type="label" id="70">
+		<control type="image">
+			<description>Weather image</description>
+			<posx>-45</posx>
+			<posy>1</posy>
+			<width>23</width>
+			<height>23</height>
+			<aspectratio>keep</aspectratio>
+			<aligny>center</aligny>
+			<texture>$INFO[Weather.Conditions]</texture>
+			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+				<effect type="slide" end="10,-7" time="0" />
+				<effect type="zoom" start="125" end="125" time="0" />
+			</animation>
+		</control>
+		<control type="label">
 			<posx>370</posx>
 			<posy>3</posy>
 			<width>400</width>
@@ -140,32 +34,66 @@
 			<align>right</align>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>!Skin.HasSetting(bighome)</visible>
-			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]  |  [COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+			<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
 		</control>
-		<control type="label" id="70">
+		<control type="label">
+			<posx>-20</posx>
+			<posy>3</posy>
+			<width>400</width>
+			<font>Font_Time</font>
+			<align>left</align>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+		</control>
+		<control type="label">
 			<posx>370</posx>
 			<posy>-4</posy>
 			<width>600</width>
-			<font>Font_BigTime</font>
+			<font>Font_BigHome</font>
 			<align>right</align>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>Skin.HasSetting(bighome)</visible>
-			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]  |  [COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+			<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+		</control>
+		<control type="label">
+			<posx>-15</posx>
+			<posy>-4</posy>
+			<width>600</width>
+			<font>Font_BigHome</font>
+			<align>left</align>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
 		</control>
 	</include>
 	<include name="Furniture_TimePanelHigh">
 		<control type="image">
-			<posx>-30</posx>
+			<posx>-60</posx>
 			<posy>0</posy>
 			<width>451</width>
 			<height>27</height>
 			<texture flipy="true">common/timepanel_mid.png</texture>
 			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-				<effect type="slide" start="-50,0" end="-100,0" time="0" />
-				<effect type="zoom" start="116" end="116" time="0" />
+				<effect type="slide" end="-30,0" time="0" />
+				<effect type="zoom" end="120" time="0" />
 			</animation>
 		</control>
-		<control type="label" id="70">
+		<control type="image">
+			<description>Weather image</description>
+			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+				<effect type="slide" end="-30,2" time="0" />
+				<effect type="zoom" end="120" time="0" />
+			</animation>
+			<posx>-45</posx>
+			<posy>1</posy>
+			<width>23</width>
+			<height>23</height>
+			<aspectratio>keep</aspectratio>
+			<aligny>center</aligny>
+			<texture>$INFO[Weather.Conditions]</texture>
+		</control>
+		<control type="label">
 			<posx>370</posx>
 			<posy>3</posy>
 			<width>400</width>
@@ -173,17 +101,37 @@
 			<align>right</align>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>!Skin.HasSetting(bighome)</visible>
-			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]  |  [COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+			<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
 		</control>
-		<control type="label" id="70">
+		<control type="label">
+			<posx>-20</posx>
+			<posy>3</posy>
+			<width>400</width>
+			<font>Font_Time</font>
+			<align>left</align>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+		</control>
+		<control type="label">
 			<posx>370</posx>
 			<posy>3</posy>
 			<width>600</width>
-			<font>Font_BigTime</font>
+			<font>Font_BigHome</font>
 			<align>right</align>
 			<include>Colour_WhiteAlpha80</include>
 			<visible>Skin.HasSetting(bighome)</visible>
-			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]  |  [COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+			<label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+		</control>
+		<control type="label">
+			<posx>-40</posx>
+			<posy>3</posy>
+			<width>400</width>
+			<font>Font_BigHome</font>
+			<align>left</align>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
 		</control>
 	</include>
 	<include name="Furniture_Time">
@@ -198,11 +146,25 @@
 			<include>Furniture_TimePanel</include>
 		</control>
 		<control type="group">
-			<include>Furniture_TimeGroupHighVars</include>
+			<posx>900</posx>
+			<posy>0</posy>
+			<width>451</width>
+			<height>27</height>
 			<animation effect="slide" start="0,0" end="0,-37" time="200" condition="[Control.IsVisible(57) + Control.HasFocus(70197)]">Conditional</animation>
 			<visible>[Skin.HasSetting(highertime) + Window.IsActive(Home)] | [[Control.IsVisible(553) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(556) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(51) | Control.IsVisible(53)] + !Window.IsVisible(112) + !Window.IsVisible(133)]</visible>
-			<include>Animation_CommonFade</include>
 			<include>Furniture_TimePanelHigh</include>
+			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
+				<effect type="zoom" start="180" end="100" center="640,360" time="2500" tween="cubic" easing="out" />
+				<effect type="fade" start="0" end="100" time="2000" />
+			</animation>
+			<animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+				<effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out" />
+				<effect type="fade" start="0" end="100" time="900" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="300" />
+				<effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in" />
+			</animation>
 		</control>
 		<control type="group">
 			<posx>900</posx>
@@ -210,8 +172,8 @@
 			<width>451</width>
 			<height>27</height>
 			<visible>!Window.IsActive(Home) + !Control.IsVisible(553) + !Control.IsVisible(51) + !Control.IsVisible(52) + !Control.IsVisible(55) + !Control.IsVisible(552) + !Control.IsVisible(57) + !Control.IsVisible(50) + !Control.IsVisible(550) + !Control.IsVisible(551) + !Control.IsVisible(53) + !Control.IsVisible(556) + !Control.isVisible(560)</visible>
-			<include>Animation_CommonFade</include>
 			<include>Furniture_TimePanel</include>
+			<include>Animation_OpenCloseZoom</include>
 		</control>
 	</include>
 	<!-- RSS Feeds-->
