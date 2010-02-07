@@ -305,7 +305,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="MultiplexlandscapefixedlistList">
+	<include name="MultiplexlandscapefixedList">
 		<control type="fixedlist" id="552">
 			<viewtype label="31758">list</viewtype>
 			<posx>95</posx>
@@ -320,7 +320,7 @@
 			<orientation>horizontal</orientation>
 			<focusposition>2</focusposition>
 			<scrolltime>200</scrolltime>
-			<visible>Window.IsActive(videolibrary)</visible>
+			<visible>Container.Content(episodes) | [Container.Content(seasons) + !Skin.HasSetting(tvposter)] | [Container.Content(tvshows) + !Skin.HasSetting(tvposter)]</visible>
 		<!--	<include>Animation_HideMultiplex</include>-->
 			<preloaditems>2</preloaditems>
 			<itemlayout width="219" height="300">
@@ -498,7 +498,7 @@
 			<orientation>horizontal</orientation>
 			<focusposition>2</focusposition>
 			<scrolltime>200</scrolltime>
-			<visible>Window.IsActive(videolibrary)</visible>
+			<visible>Container.Content(episodes) | [Container.Content(seasons) + !Skin.HasSetting(tvposter)] | [Container.Content(tvshows) + !Skin.HasSetting(tvposter)]</visible>
 		<!--	<include>Animation_HideMultiplex</include>-->
 			<preloaditems>2</preloaditems>
 			<itemlayout width="219" height="300">
@@ -541,7 +541,7 @@
 			<visible>Control.IsVisible(552) + ![stringcompare(Container(552).NumItems,1) | stringcompare(Container(552).NumItems,2) | stringcompare(Container(552).NumItems,3) | stringcompare(Container(552).NumItems,4)]</visible>
 		</control>
 		<include condition="Skin.HasSetting(videotv)">MultiplexLandscapeInfoPaneTV</include>
-		<include condition="Skin.HasSetting(landscapefixedlist)">MultiplexlandscapefixedlistList</include>
+		<include condition="Skin.HasSetting(landscapefixedlist)">MultiplexlandscapefixedList</include>
 		<include condition="!Skin.HasSetting(landscapefixedlist)">MultiplexLandscapeWrapList</include>
 		<include>MultiplexMoviesFlow</include>
 		<control type="scrollbar" id="66">
