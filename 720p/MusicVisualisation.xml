@@ -28,7 +28,7 @@
 			<texture>$INFO[Skin.String(cdartpath)]/$INFO[MusicPlayer.Artist]/$INFO[MusicPlayer.Album]/fanart.jpg</texture>
 			<fadetime>400</fadetime>
 			<include>Animation_VisibleChange400</include>
-			<visible>Skin.HasSetting(visbackground2) + ![Skin.HasSetting(blackvisbackground)+Visualisation.Enabled]+ !IsEmpty(Skin.String(cdartpath))</visible>
+			<visible>Skin.HasSetting(visbackground2) + ![Skin.HasSetting(blackvisbackground) +Visualisation.Enabled] + !IsEmpty(Skin.String(cdartpath))</visible>
 			<include>Animation_OpenCloseZoom</include>
 		</control>
 		<control type="visualisation" id="2">
@@ -101,7 +101,7 @@
 		<posy>569</posy>
 		<width>1280</width>
 		<height>151</height>
-		<visible>true</visible>
+		<visible>!Skin.HasSetting(novisinfo) | [Skin.HasSetting(novisinfo) + Player.ShowInfo]</visible>
 		<animation type="Visible">
 			<effect type="fade" time="400" start="0" end="100" />
 			<effect type="slide" time="400" start="0,151" end="0,0" easing="out" tween="cubic" />

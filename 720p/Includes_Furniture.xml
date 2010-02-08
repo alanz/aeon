@@ -384,7 +384,7 @@
 			<include>Animation_HideMultiplex</include>
 			<include>Animation_HideShowcase</include>
 			<include>Animation_OpenCloseZoom</include>
-			<animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Control.IsVisible(57) + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+			<animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Control.IsVisible(57) + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Skin.HasSetting(mediamenuslide)">
 				<effect type="slide" end="-70,0" time="400" easing="out" tween="cubic" />
 			</animation>
 			<control type="fadelabel">
@@ -439,7 +439,7 @@
 			<control type="label" id="72">
 				<label>[UPPERCASE]$INFO[ListItem.Genre][/UPPERCASE]</label>
 				<include>FloorTextDetailLabel</include>
-				<visible>[Container.Content(movies) | Container.Content(episodes)]+ !IsEmpty(ListItem.Genre)</visible>
+				<visible>[Container.Content(movies) | Container.Content(episodes)] + !IsEmpty(ListItem.Genre)</visible>
 			</control>
 			<control type="label" id="72">
 				<label>$INFO[ListItem.Album,, -] $INFO[ListItem.Artist]</label>
@@ -514,7 +514,7 @@
 		<posy>670</posy>
 		<width>600</width>
 		<font>Font_FloorTextDetailLabel</font>
-		<visible>!ControlGroup(7000).HasFocus()+[Skin.HasSetting(showcaseinfolines) | !Control.IsVisible(57)]</visible>
+		<visible>!ControlGroup(7000).HasFocus() + [Skin.HasSetting(showcaseinfolines) | !Control.IsVisible(57)]</visible>
 		<include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
 		<include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
 	</include>

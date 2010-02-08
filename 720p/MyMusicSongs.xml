@@ -43,6 +43,9 @@
 		</control>
 		<include condition="!Skin.HasSetting(MusicWallOff)">Furniture_WallBackground</include>
 		<control type="group">
+			<animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Skin.HasSetting(mediamenuslide)">
+				<effect type="slide" end="235,0" time="400" easing="out" tween="cubic" />
+			</animation>
 			<include>FullscreenDimensions</include>
 			<include>Animation_OpenCloseZoom</include>
 			<include>Furniture_Time</include>
@@ -52,8 +55,8 @@
 			<include condition="system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(globalrss)">Furniture_RSS</include>
 			<include>Viewtype_List</include>
 			<include condition="!Skin.HasSetting(MusicShowCaseOff)">Viewtype_Showcase</include>
-			<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
 		</control>
+		<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
 		<include>Furniture_DarkGradient</include>
 		<include>ScrollOffsetLabel</include>
 		<include>Background_ContextBlack</include>

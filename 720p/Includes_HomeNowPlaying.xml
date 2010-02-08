@@ -419,6 +419,7 @@
 			<width>309</width>
 			<aspectratio>stretch</aspectratio>
 			<texture>home/nowplaying_line.png</texture>
+			<animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
 		</control>
 		<control type="image">
 			<posx>200</posx>
@@ -426,15 +427,22 @@
 			<width>309</width>
 			<aspectratio>stretch</aspectratio>
 			<texture>home/nowplaying_line.png</texture>
+			<animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
 		</control>
 		<control type="image">
 			<description>Cd overlay</description>
-			<animation effect="slide" start="-118" end="0" time="700" tween="cubic" easing="out" delay="500">WindowOpen</animation>
+			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
+				<effect type="zoom" start="180" end="100" center="640,-60" time="2500" tween="cubic" easing="out" />
+				<effect type="fade" start="0" end="100" time="2000" />
+			</animation>
+			<animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+				<effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out" />
+				<effect type="fade" start="0" end="100" time="900" />
+			</animation>
 			
-			<animation type="WindowClose">
-			<effect type="slide" start="0" end="-114" time="700" tween="cubic" easing="in" delay="0"/>
-			<effect type="fade" start="100" end="0" time="600"/>
-			<condition type="!Player.Playing"/>
+			<animation type="WindowClose" condition="!Player.Playing">
+				<effect type="slide" start="0" end="-114" time="700" tween="cubic" easing="in" delay="0"/>
+				<effect type="fade" start="100" end="0" time="600"/>
 			</animation>
            <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
 			<width>228</width>
@@ -448,8 +456,12 @@
 		</control>		
 		<!-- Cover and Overlay-->
 		<control type="group">
-			<animation effect="slide" start="-620" end="10" time="700" tween="cubic" easing="out" delay="0">WindowOpen</animation>
-			<animation effect="slide" start="10" end="-120" time="800" tween="cubic" easing="in" delay="0">WindowClose</animation>
+			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
+				<effect type="zoom" start="180" end="100" center="640,-60" time="2500" tween="cubic" easing="out" />
+			</animation>
+			<animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+				<effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out" />
+			</animation>
 			<control type="image">
 				<posx>28</posx>
 				<posy>455</posy>
@@ -469,7 +481,7 @@
 		</control>
 	</include>
 	<include name="Furniture_HomeNowPlayingMetricsCDArt">
-		<animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="700">WindowOpen</animation>
+		<animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
 		<width>533</width>
 		<height>25</height>
 		<aligny>left</aligny>
@@ -544,39 +556,6 @@
 				<include>FullscreenDimensions</include>
 			</control>
 		</control>
-		<control type="image">
-			<posx>0</posx>
-			<posy>240</posy>
-			<width>1280</width>
-			<height>1100</height>
-			<texture>home/nowplaying_shadow.png</texture>
-			<visible>Player.HasAudio+[![Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] | !Skin.HasSetting(homelatest)]</visible>
-			<include>Animation_VisibleChange400</include>
-			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" delay="500" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="200" />
-			</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="600" tween="cubic" easing="inout" end="0,-464" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
-		</control>
-		<control type="image">
-			<posx>0</posx>
-			<posy>-700</posy>
-			<width>1280</width>
-			<height>1100</height>
-			<texture flipy="true">home/nowplaying_shadow.png</texture>
-			<visible>Player.HasAudio+[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]+[[Skin.HasSetting(lowerwidgets)+!Skin.HasSetting(lowermainmenu)] | Skin.HasSetting(lowermainmenu)]</visible>
-			<include>Animation_VisibleChange400</include>
-			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" delay="500" time="2000" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="200" />
-			</animation>
-	<!--		<animation effect="slide" time="6000" tween="cubic" easing="inout" end="0,450" delay="1000" condition="Skin.HasSetting(lowerwidgets)  + !Skin.HasSetting(lowermainmenu)+ [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>-->
-		</control>
 		<control type="group">
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
@@ -599,7 +578,7 @@
 			<animation type="fade" start="0" end="100" delay="0" time="700" condition="Player.HasAudio">Conditional</animation>
 			<animation effect="slide" time="800" tween="cubic" easing="inout" end="1000,0" >Visible</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-140" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" condition="Skin.HasSetting(lowermainmenu)+Skin.HasSetting(highertime)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" condition="Skin.HasSetting(lowermainmenu) + Skin.HasSetting(highertime)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,60" delay="700" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(7) + Control.HasFocus(510) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" delay="700" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(1) + Control.HasFocus(510) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
 		<!--	<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-370" condition="Control.HasFocus(510) + !Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets)">Conditional</animation>-->
@@ -608,7 +587,7 @@
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-280" condition="Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" delay="700" condition="!Skin.HasSetting(lowermainmenu) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + Skin.HasSetting(homelatest) + Skin.HasSetting(lowerwidgets) + Skin.HasSetting(autolatestadded)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest) + Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(autolatestadded)">Conditional</animation>
-			<animation effect="slide" time="400" tween="cubic" easing="inout" start="0,0" end="0,30" condition="!Skin.HasSetting(lowermainmenu)+[[!Skin.HasSetting(lowerrssbar) + system.getbool(lookandfeel.enablerssfeeds)] | !system.getbool(lookandfeel.enablerssfeeds)] + Control.HasFocus(945) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" start="0,0" end="0,30" condition="!Skin.HasSetting(lowermainmenu) + [[!Skin.HasSetting(lowerrssbar) + system.getbool(lookandfeel.enablerssfeeds)] | !system.getbool(lookandfeel.enablerssfeeds)] + Control.HasFocus(945) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" start="0,0" end="0,60" delay="400" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(7) + Skin.HasSetting(autolatestadded)">Conditional</animation>
 			<animation effect="slide" time="400" tween="cubic" easing="inout" start="0,0" end="0,20" delay="400" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(1) + Skin.HasSetting(autolatestadded)">Conditional</animation>
 

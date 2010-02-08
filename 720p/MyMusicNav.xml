@@ -65,6 +65,9 @@
 		<include>CurtainsBackdrop</include>
 		<include>Furniture_WallBackground</include>
 		<control type="group">
+			<animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Skin.HasSetting(mediamenuslide)">
+				<effect type="slide" end="235,0" time="400" easing="out" tween="cubic" />
+			</animation>
 			<include>Furniture_NowPlayingWidget</include>
 			<include>FullscreenDimensions</include>
 			<include>Animation_OpenCloseZoom</include>
@@ -77,9 +80,9 @@
 			<include condition="!Skin.HasSetting(MusicMultiWallOff)">Viewtype_Multiwall</include>
 			<include condition="!Skin.HasSetting(MusicShowcaseOff)">Viewtype_Showcase</include>
 			<include condition="!Skin.HasSetting(MusicListLowOff)">Viewtype_List_Low</include>
-			<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
 			<include>MusicMediaFlags</include>
 		</control>
+		<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
 		<include>Furniture_DarkGradient</include>
 		<include condition="Skin.HasSetting(scrollletters)">ScrollOffsetLabel</include>
 		<include>Background_ContextBlack</include>

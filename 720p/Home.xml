@@ -63,6 +63,81 @@
 			<texture background="true">$INFO[Container(510).ListItem.ActualIcon]</texture>
 			<visible>control.HasFocus(510) + Container(300).HasFocus(6)</visible>
 		</control>
+		<control type="image">
+			<visible>[[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + [Skin.HasSetting(lowermainmenu) | Skin.HasSetting(lowerwidgets)] +Skin.HasSetting(autolatestadded)] | [Control.HasFocus(510) + [Skin.HasSetting(lowermainmenu) | Skin.HasSetting(lowerwidgets)] + !Skin.HasSetting(autolatestadded)]</visible>
+			<posx>0</posx>
+			<posy>260</posy>
+			<width>1280</width>
+			<height>730</height>
+			<texture>home/nowplaying_shadow.png</texture>
+			<animation effect="fade" start="0" end="100" time="300" delay="500">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+		</control>
+		<control type="image">
+			<visible>[[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + [Skin.HasSetting(lowermainmenu) | Skin.HasSetting(lowerwidgets)] +Skin.HasSetting(autolatestadded)] | [Control.HasFocus(510) + [Skin.HasSetting(lowermainmenu) | Skin.HasSetting(lowerwidgets)] + !Skin.HasSetting(autolatestadded)]</visible>
+			<posx>0</posx>
+			<posy>260</posy>
+			<width>1280</width>
+			<height>730</height>
+			<texture>home/nowplaying_shadow.png</texture>
+			<animation effect="fade" start="0" end="50" time="300" delay="500">Visible</animation>
+			<animation effect="fade" start="50" end="0" time="500">Hidden</animation>
+		</control>	
+		<control type="image">
+			<visible>[[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Skin.HasSetting(autolatestadded)] | [Control.HasFocus(510) + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(autolatestadded)]</visible>
+			<posx>0</posx>
+			<posy>260</posy>
+			<width>1280</width>
+			<height>730</height>
+			<texture flipy="true">home/nowplaying_shadow.png</texture>
+			<animation effect="fade" start="0" end="100" time="300" delay="500">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,-500" time="1" condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>240</posy>
+			<width>1280</width>
+			<height>1100</height>
+			<texture>home/nowplaying_shadow.png</texture>
+			<visible>Player.HasAudio+ [![Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] | !Skin.HasSetting(homelatest)]</visible>
+			<include>Animation_VisibleChange400</include>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" delay="500" time="400" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-150" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" time="600" tween="cubic" easing="inout" end="0,-464" condition="Skin.HasSetting(lowerwidgets) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>-700</posy>
+			<width>1280</width>
+			<height>1100</height>
+			<texture flipy="true">home/nowplaying_shadow.png</texture>
+			<visible>Player.HasAudio+ [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + [[Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowermainmenu)] | Skin.HasSetting(lowermainmenu)]</visible>
+			<include>Animation_VisibleChange400</include>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" delay="500" time="2000" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+	<!--		<animation effect="slide" time="6000" tween="cubic" easing="inout" end="0,450" delay="1000" condition="Skin.HasSetting(lowerwidgets)  + !Skin.HasSetting(lowermainmenu) + [Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)]">Conditional</animation>-->
+		</control>
+		<control type="image">
+			<visible>[[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Skin.HasSetting(autolatestadded)] | [Control.HasFocus(510) + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(autolatestadded)]</visible>
+			<posx>0</posx>
+			<posy>260</posy>
+			<width>1280</width>
+			<height>730</height>
+			<texture flipy="true">home/nowplaying_shadow.png</texture>
+			<animation effect="fade" start="0" end="50" time="300">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="1" condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+		</control>
 		<include condition="!StringCompare(Weather.Plugin,weather.com plus)">Objects_WeatherPopup</include>
 		<include condition="StringCompare(Weather.Plugin,weather.com plus)">Widget_Weather</include>
 		<include condition="Skin.HasSetting(homelatest)">latest_added</include>
