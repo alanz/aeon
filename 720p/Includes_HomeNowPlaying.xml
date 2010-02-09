@@ -5,7 +5,7 @@
 		<control type="group">
 			<posx>500</posx>
 			<posy>-15</posy>
-			<visible>Skin.HasSetting(homevideowindow)</visible>
+			<visible>Skin.HasSetting(homevideowindow) + Player.Hasvideo</visible>
 			<include>Animation_CommonFade</include>	
 			<control type="image">
 				<description>gradient</description>
@@ -14,14 +14,12 @@
 				<width>425</width>
 				<height>245</height>
 				<texture border="20">home/nowplaying/OverlayDialogBackground.png</texture>
-				<visible>Player.HasVideo</visible>
 			</control>	
 			<control type="videowindow">
 				<posx>35</posx>
 				<posy>471</posy> 
 				<width>390</width> 
 				<height>215</height> 
-				<visible>Player.HasVideo</visible>
 			</control>
 			<!-- glass -->
 			<control type="image">
@@ -31,20 +29,18 @@
 				<height>215</height>
 				<aspectratio>stretch</aspectratio>
 				<texture>home/nowplaying/tv_glass_noedge_sq.png</texture>
-				<visible>Player.HasVideo</visible>
 			</control>
 			
 			<!-- bottom panel - visible when paused/fast forwarding/rewinding -->
 			<control type="group">
 				<include>Animation_CommonFade</include>	
-				<visible>Player.HasVideo + [Player.Paused | Player.Forwarding | Player.Rewinding]</visible>
+				<visible>Player.Paused | Player.Forwarding | Player.Rewinding</visible>
 				<control type="image">
 					<posx>35</posx>
 					<posy>646</posy>
 					<width>390</width>
 					<height>40</height>
 					<texture>home/nowplaying/osd_back2.png</texture>
-					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="progress">
 					<description>Progressbar</description>
@@ -87,7 +83,7 @@
 			<!-- Pause button -->
 			<control type="group">
 				<include>Animation_CommonFade</include>	
-				<visible>Player.HasVideo + Player.Paused</visible>
+				<visible>Player.Paused</visible>
 				<control type="image">
 					<posx>175</posx>
 					<posy>630</posy>
@@ -110,7 +106,6 @@
 			
 			<!-- seek forward button -->
 			<control type="group">
-				<visible>Player.HasVideo</visible>
 				<posx>35</posx>
 				<posy>630</posy>
 				<control type="image">
@@ -197,7 +192,6 @@
 
 			<!-- seek backward button -->
 			<control type="group">
-				<visible>Player.HasVideo</visible>
 				<posx>300</posx>
 				<posy>630</posy>
 				<control type="image">
@@ -292,7 +286,7 @@
 				<height>30</height>
 				<width>30</width>
 				<texture>home/nowplaying/nowplaying_arrow.png</texture>	
-				<visible>Player.HasVideo + !Player.Paused</visible>
+				<visible>!Player.Paused</visible>
 			</control>
 			<control type="image">
 				<include>Animation_CommonFade</include>
@@ -301,7 +295,7 @@
 				<height>30</height>
 				<width>30</width>
 				<texture>home/nowplaying/nowplaying_pause.png</texture>	
-				<visible>Player.HasVideo + Player.Paused</visible>
+				<visible>Player.Paused</visible>
 			</control>
 			<control type="label">
 				<posx>480</posx>
@@ -310,7 +304,7 @@
 				<label>31006</label>
 				<font>Font_HomeNowPlayingAlbum</font>
 				<include>Animation_CommonFade</include>
-				<visible>Player.HasVideo + !Player.Paused</visible>
+				<visible>!Player.Paused</visible>
 			</control>
 			<control type="label">
 				<posx>480</posx>
@@ -319,7 +313,7 @@
 				<label>31007</label>
 				<font>Font_HomeNowPlayingAlbum</font>
 				<include>Animation_CommonFade</include>
-				<visible>Player.HasVideo + Player.Paused</visible>
+				<visible>Player.Paused</visible>
 			</control>
 			<control type="label">
 				<posx>480</posx>
@@ -330,7 +324,6 @@
 				<width>400</width>
 				<wrapmultiline>true</wrapmultiline>
 				<font>Font_HomeNowPlayingTrack</font>
-				<visible>Player.HasVideo</visible>
 			</control>		
 		</control>
 	</include>
@@ -557,6 +550,7 @@
 			</control>
 		</control>
 		<control type="group">
+			<visible>Player.HasMedia</visible>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
 			<include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
 			<include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
