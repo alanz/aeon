@@ -72,7 +72,7 @@
 			<texture>home/nowplaying_shadow.png</texture>
 			<animation effect="slide" start="0,390" end="0,0" time="300">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_OpenCloseBackgroundShade</include>
 		</control>
 		<control type="image"><!--Audio unten lowermainmenu-->
 			<visible>Player.HasAudio + Skin.HasSetting(lowermainmenu) + !Control.HasFocus(510)</visible>
@@ -82,7 +82,7 @@
 			<height>390</height>
 			<texture>home/nowplaying_shadow.png</texture>
 			<include>Animation_VisibleChange400</include>
-			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_OpenCloseBackgroundShade</include>
 		</control>
 		<control type="image"><!--Audio oben-->
 			<visible>Player.HasAudio + [[!Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)]]] | [Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)]]</visible>
@@ -93,9 +93,9 @@
 			<texture flipy="true">home/nowplaying_shadow.png</texture>
 			<animation effect="slide" start="0,-390" end="0,0" time="300">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,-390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_OpenCloseBackgroundShade</include>
 		</control>
-		<control type="image"><!--Audio oben-->
+		<control type="image"><!--RecentlyAdded oben-->
 			<visible>!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>			
 			<posx>0</posx>
 			<posy>-4</posy>
@@ -104,7 +104,7 @@
 			<texture flipy="true">home/nowplaying_shadow.png</texture>
 			<animation effect="slide" start="0,-390" end="0,0" time="300">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,-390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_OpenCloseBackgroundShade</include>
 		</control>
 		<control type="image"><!--RecentlyAdded unten-->
 			<visible>!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>
@@ -115,7 +115,7 @@
 			<texture>home/nowplaying_shadow.png</texture>
 			<animation effect="slide" start="0,390" end="0,0" time="300">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_OpenCloseBackgroundShade</include>
 		</control>
 		<control type="image"><!--RecentlyAdded unten lowermainmenu-->
 			<visible>Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)</visible>
@@ -125,7 +125,7 @@
 			<height>390</height>
 			<texture>home/nowplaying_shadow.png</texture>
 			<include>Animation_VisibleChange400</include>
-			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_OpenCloseBackgroundShade</include>
 		</control>
 	<!--	<control type="image">
 			<visible>[[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Skin.HasSetting(autolatestadded)] | [Control.HasFocus(510) + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(autolatestadded)]</visible>
