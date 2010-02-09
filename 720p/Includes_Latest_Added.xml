@@ -1020,7 +1020,8 @@
 			<visible>[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + Skin.HasSetting(homelatest)</visible>
 			<posx>1400</posx>
 			<posy>430</posy>
-			<include>Animation_OpenCloseZoom</include>
+			<include condition="![Skin.HasSetting(lowermainmenu) | [!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)]">Animation_OpenCloseZoom</include>
+			<include condition="Skin.HasSetting(lowermainmenu) | [!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)]">Animation_OpenCloseZoom2</include>
 			<animation effect="slide" start="400,0" end="0,0" easing="inout" tween="cubic" time="500" delay="1000">VisibleChange</animation>
 			<animation effect="slide" start="0,-10" end="0,-375" time="0"  condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>				
 			<animation effect="slide" start="0,0" end="-372,0" time="500" easing="inout" tween="cubic" condition="!control.HasFocus(510)">Conditional</animation>
