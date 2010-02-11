@@ -649,7 +649,7 @@
 					<font>Font_MultiplexPlot</font>
 					<info>Container(57).ListItem.Plot</info>
 					<textcolor>d0FFFFFF</textcolor>
-					<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+					<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 					<visible>!Player.HasVideo</visible>
 				</control>
 				<control type="videowindow">
@@ -745,7 +745,7 @@
 					<font>Font_MultiplexPlotSmall</font>
 					<info>Container(57).ListItem.Plot</info>
 					<textcolor>d0FFFFFF</textcolor>
-					<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+					<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				</control>
 				<control type="image">
 					<posx>0</posx>
@@ -1153,7 +1153,7 @@
 				<font>Font_MultiplexPlotSmall</font>
 				<info>Container(57).ListItem.Plot</info>
 				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<visible>Container.Content(tvshows)</visible>
 			</control>
 			<control type="textbox">
@@ -1164,7 +1164,7 @@
 				<font>Font_MultiplexPlotSmall</font>
 				<info>Container(57).ShowPlot</info>
 				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<visible>Container.Content(seasons)</visible>
 			</control>
 			<control type="group">
@@ -1304,7 +1304,7 @@
 				<font>Font_MultiplexPlotSmall</font>
 				<label>$INFO[Container(57).ListItem.Property(description)]</label>
 				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<visible>Container.Content(artists)</visible>
 			</control>
 			<control type="textbox">
@@ -1315,7 +1315,7 @@
 				<font>Font_MultiplexPlotSmall</font>
 				<label>$INFO[Container(57).ListItem.Property(description)]</label>
 				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="9000" time="2000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<visible>Container.Content(albums)</visible>
 			</control>
 			<control type="group">
@@ -2345,7 +2345,7 @@
 		</control>
 		<control type="button" id="970">
 			<texture>-</texture>
-			<visible>![[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]</visible>
+			<visible>![[!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)] | Container.Content(episodes)]</visible>
 			<animation effect="fade" start="100" end="0" time="800">Hidden</animation>
 		</control>
 		<control type="group" id="6500">
@@ -4329,7 +4329,7 @@
 			<control type="group"> 
 				<posx>505</posx>
 				<control type="group">
-					<animation type="Conditional" condition="ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()">
+					<animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Skin.HasSetting(mediamenuslide)">
 						<effect type="slide" end="-70,0" time="400" easing="out" tween="cubic" />
 					</animation>
 					<control type="image">
