@@ -480,7 +480,6 @@
 				<texture border="0,0,0,204">multiplex/multiplex_tablet_bigthumb.png</texture>
 				<visible>Skin.HasSetting(fanartlayout)</visible>
 			</control>
-			<include>TitleModMovies</include>
 			<control type="group"> <!--poster und plot und fanart -->
 				<posx>105</posx>
 				<posy>20</posy>
@@ -1063,7 +1062,7 @@
 				<height>590</height>
 				<texture border="0,0,0,204">multiplex/multiplex_tvposter_tablet.png</texture>
 			</control>
-			<control type="group">
+			<control type="group"><!--tvshows-->
 				<posx>105</posx>
 				<posy>30</posy>
 				<visible>Container.Content(tvshows)</visible>
@@ -1088,7 +1087,7 @@
 					<control type="label">
 						<include>ShowcaseInfoValue</include>
 						<width>380</width>
-						<label fallback="31425">$INFO[Container(57).ListItem.Episode]</label>
+						<label fallback="31425">$INFO[Container(57).ListItem.Episode]  ($LOCALIZE[31440]: $INFO[Container(57).ListItem.Property(UnwatchedEpisodes)])</label>
 					</control>
 				</control>
 				<control type="group">
@@ -1104,7 +1103,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"><!--seasons-->
 				<posx>105</posx>
 				<posy>30</posy>
 				<visible>Container.Content(seasons)</visible>
@@ -1167,17 +1166,28 @@
 				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<visible>Container.Content(seasons)</visible>
 			</control>
-			<control type="group">
+			<control type="group"><!--images-->
 				<posx>508</posx>
 				<posy>40</posy>
 				<control type="largeimage">
 					<posx>1</posx>
 					<posy>1</posy>
-					<width>668</width>
+					<width>600</width>
 					<height>316</height>
 					<fadetime>400</fadetime>
 					<aspectratio>scale</aspectratio>
 					<texture background="true">$INFO[Fanart.Image]</texture>
+					<visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+				<control type="largeimage">
+					<posx>1</posx>
+					<posy>1</posy>
+					<width>600</width>
+					<height>316</height>
+					<fadetime>400</fadetime>
+					<aspectratio>scale</aspectratio>
+					<texture>$INFO[Container(57).listitem.property(fanart_image)]</texture>
 					<visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
 					<include>Animation_VisibleChange200</include>
 				</control>

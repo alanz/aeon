@@ -254,28 +254,35 @@
 				<item id="4">
 					<label>31409</label>
 					<onclick>SendClick(2003,11)</onclick>
-					<visible>!IsEmpty(ListItem.Trailer) + Container.Content(movies)</visible>
+					<visible>!IsEmpty(ListItem.Trailer) + Container.Content(movies) + !Skin.HasSetting(youtrailer)</visible>
 				</item>
 				<item id="5">
+					<label>TRAILER</label>
+					<onclick>RunScript(special://home/scripts/YouTrailer/default.py,1)</onclick>
+					<onclick>Action(FullScreen)</onclick>
+					<visible>!Skin.HasSetting(kioskininfo) + Container.Content(movies) + Skin.HasSetting(youtrailer)</visible>
+					<description>Trailers</description>
+				</item>
+				<item id="6">
 					<label>314122</label>
 					<visible>Container.Content(movies)</visible>
 					<onclick>Playlist.Clear</onclick>
 					<onclick>Dialog.Close(MovieInformation)</onclick>
 					<onclick>RunScript(special://home/scripts/Home Theater Experience/default.py)</onclick>
 				</item>
-				<item id="6">
+				<item id="7">
 					<label>31410</label>
 					<onclick>SendClick(2003,6)</onclick>
 					<visible>!Skin.HasSetting(kioskininfo)</visible>
 					<description>Refresh</description>
 				</item>
-				<item id="7">
+				<item id="8">
 					<label>13405</label>
 					<onclick>SendClick(2003,10)</onclick>
 					<visible>!Skin.HasSetting(kioskininfo)</visible>
 					<description>Get Thumb</description>
 				</item>
-				<item id="8">
+				<item id="9">
 					<label>20413</label>
 					<onclick>SendClick(2003,12)</onclick>
 					<visible>!Skin.HasSetting(kioskininfo) + !Container.Content(episodes) + !Container.Content(seasons)</visible>
@@ -516,7 +523,7 @@
 				<align>left</align>
 				<font>Font_FSInfoPlot</font>
 				<label fallback="31414">$INFO[ListItem.Plot]</label>
-				<autoscroll delay="6000" time="1000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<include>Colour_OffWhite</include>
 				<!-- castmod prevents it from showing when cast container shows -->
 				<visible>!Control.IsVisible(50)</visible>
@@ -656,7 +663,7 @@
 				<height>212</height>
 				<align>left</align>
 				<font>Font_FSInfoPlot</font>
-				<autoscroll delay="7000" time="1000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<label fallback="31414">$INFO[ListItem.Plot]</label>
 				<include>Colour_OffWhite</include>
 				<visible>!Control.IsVisible(50)</visible>
@@ -802,7 +809,7 @@
 				<height>212</height>
 				<align>left</align>
 				<font>Font_FSInfoPlot</font>
-				<autoscroll delay="7000" time="1000" repeat="10000">Skin.HasSetting(allowscroll)</autoscroll>
+				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
 				<label fallback="31414">$INFO[ListItem.Plot]</label>
 				<include>Colour_OffWhite</include>
 				<visible>!Control.IsVisible(50)</visible>

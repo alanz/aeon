@@ -64,7 +64,7 @@
 			<visible>control.HasFocus(510) + Container(300).HasFocus(6)</visible>
 		</control>
 		<control type="image"><!--Audio unten-->
-			<visible>Player.HasAudio + !Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)]]</visible>
+			<visible>Player.HasAudio + !Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Container(300).HasFocus(10)]]]</visible>
 			<posx>0</posx>
 			<posy>360</posy>
 			<width>1280</width>
@@ -85,7 +85,7 @@
 			<include>Animation_OpenCloseBackgroundShade</include>
 		</control>
 		<control type="image"><!--Audio oben-->
-			<visible>Player.HasAudio + [[!Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)]]] | [Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)]]</visible>
+			<visible>Player.HasAudio + !Container(300).HasFocus(10) + [[!Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)]]] | [Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)]]</visible>
 			<posx>0</posx>
 			<posy>-4</posy>
 			<width>1280</width>
