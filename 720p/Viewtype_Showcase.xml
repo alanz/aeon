@@ -4408,9 +4408,12 @@
 			<onup>SetFocus(7000)</onup>
 			<ondown>SetFocus(57)</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[[[Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]] + !Skin.HasSetting(kiosk)</visible>
+			<visible>[[[Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | 
+			[[[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] |
+			[Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]]
+			+ !Skin.HasSetting(kiosk)</visible>
 		</control>
-		<control type="button" id="70110">
+		<control type="button" id="70110"> <!-- kiosk mode on-->
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onup>SendClick(7000,8)</onup>
@@ -4418,19 +4421,29 @@
 			<onright>SetFocus(57)</onright>
 			<ondown>SetFocus(57)</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-			<visible>[[[Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]] + Skin.HasSetting(kiosk)</visible>
+			<visible>[[[Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | 
+					[[[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | 
+					[Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)]]
+					+ Skin.HasSetting(kiosk)</visible>
 		</control>
 		<control type="button" id="70110">
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(7000)</onfocus>
-			<visible>[[![Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]] + !Skin.HasSetting(kiosk)</visible>
+			<visible>[![[Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] |
+					[![[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | 
+					[!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]]
+					+ !Skin.HasSetting(kiosk)</visible>
 		</control>
-		<control type="button" id="70110">
+		<control type="button" id="70110"><!-- kiosk mode on-->
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SendClick(7000,8)</onfocus>
-			<visible>[[![Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]] + Skin.HasSetting(kiosk)</visible>
+			<visible>[![[Skin.HasSetting(showcaseinfotrigger) | [Skin.HasSetting(showcaseinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(showcaseinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | 
+			[![[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | 
+			[!Skin.HasSetting(showcasemusicinfotrigger) + Window.IsActive(musiclibrary)] |
+			[!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]]
+			+ Skin.HasSetting(kiosk)</visible>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
