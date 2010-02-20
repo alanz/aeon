@@ -976,19 +976,13 @@
 				<description>DESCRIPTION: (Tall)</description>
 				<include>LowList_TallTextBox</include>
 				<label>$INFO[ListItem.Property(album_description),[UPPERCASE][COLOR 66ffffff]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][/UPPERCASE][CR]]</label>
-				<visible>Skin.HasSetting(highlist) + !IsEmpty(ListItem.Property(album_description))</visible>
+				<visible>Skin.HasSetting(highlist) + !IsEmpty(ListItem.Property(album_description)) + [Container.Content(albums) | Container.Content(songs)]</visible>
 			</control>
 			<control type="textbox">
 				<description>DESCRIPTION: (Tall)</description>
 				<include>LowList_TallTextBox</include>
 				<label>$INFO[ListItem.Property(artist_description),[UPPERCASE][COLOR 66ffffff]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][/UPPERCASE][CR]]</label>
-				<visible>Skin.HasSetting(highlist) + !IsEmpty(ListItem.Property(artist_description))</visible>
-			</control>
-			<control type="textbox">
-				<description>COMMENT: (Tall)</description>
-				<include>LowList_TallTextBox</include>
-				<label fallback="31425">$INFO[ListItem.Comment,[UPPERCASE][COLOR 66ffffff]$LOCALIZE[21806]:[/COLOR][/UPPERCASE][CR]]</label>
-				<visible>Skin.HasSetting(highlist) + IsEmpty(ListItem.Property(artist_description))</visible>
+				<visible>Skin.HasSetting(highlist) + [[!IsEmpty(ListItem.Property(artist_description)) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
 			</control>
 			<!-- Artist labels -->
 			<control type="label">

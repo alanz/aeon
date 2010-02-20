@@ -453,7 +453,7 @@
 			<posy>26</posy>
 			<animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
 			<width>1280</width>
-			<height>381</height>
+			<height>500</height>
 			<visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
 			<animation effect="fade"  start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
 			<animation effect="fade" end="0" time="200">WindowClose</animation>
@@ -529,7 +529,11 @@
 						<label>$LOCALIZE[31436]:</label>
 					</control>
 					<control type="label">
-						<include>ShowcaseInfoValue</include>
+						<posx>0</posx>
+						<posy>17</posy>
+						<height>13</height>
+						<font>Font_MultiplexInfoValue</font>
+						<textcolor>FFFFFFFF</textcolor>
 						<label fallback="31425">$INFO[Container(57).ListItem.Year]</label>
 					</control>
 				</control>
