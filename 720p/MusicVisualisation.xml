@@ -25,10 +25,10 @@
 		</control>
 		<control type="largeimage"><!-- musicpath/Artist/Album/fanart.jpg -->
 			<include>FullscreenDimensions</include>
-			<texture>$INFO[Skin.String(musicpath)]/$INFO[MusicPlayer.Artist]/$INFO[MusicPlayer.Album]/fanart.jpg</texture>
+			<texture>$INFO[Player.FolderPath]fanart.jpg</texture>
 			<fadetime>400</fadetime>
 			<include>Animation_VisibleChange400</include>
-			<visible>Skin.HasSetting(visbackground2) + ![Skin.HasSetting(blackvisbackground) +Visualisation.Enabled] + !IsEmpty(Skin.String(musicpath))</visible>
+			<visible>Skin.HasSetting(visbackground2) + ![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled] </visible>
 			<include>Animation_OpenCloseZoom</include>
 		</control>
 		<control type="visualisation" id="2">
@@ -146,7 +146,7 @@
 				<height>254</height>
 				<posx>145</posx><!-- 112 -->
 				<posy>-162</posy><!-- -143 -->
-				<texture fallback="backdrops/artist_fanart/default/default.png">backdrops/artist_fanart/cd/$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Album].png</texture>
+				<texture>$INFO[Player.FolderPath]cdart.png</texture>
 				<aspectratio align="bottom">keep</aspectratio>
 			</control>	
 			

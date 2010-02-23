@@ -48,7 +48,7 @@
 			</control>
 			<control type="largeimage"><!-- musicpath/Artist/Album/fanart.jpg -->
 				<include>FullscreenDimensions</include>
-				<texture>$INFO[Skin.String(musicpath)]/$INFO[ListItem.Artist]/$INFO[ListItem.Album]/fanart.jpg</texture>
+				<texture>$INFO[Player.FolderPath]fanart.jpg</texture>				
 				<fadetime>400</fadetime>
 				<include>Animation_FanartFade</include>
 				<visible>Container.Content(songs)</visible>
@@ -71,7 +71,6 @@
 			<include>Furniture_NowPlayingWidget</include>
 			<include>FullscreenDimensions</include>
 			<include>Animation_OpenCloseZoom</include>
-			<include>Furniture_Time</include>
 			<include>Furniture_MediaPanel</include>
 			<include>Viewtype_List</include>
 			<include condition="!Skin.HasSetting(MusicMultiplexOff)">Viewtype_Music_Multiplex</include>
@@ -80,6 +79,7 @@
 			<include condition="!Skin.HasSetting(MusicMultiWallOff)">Viewtype_Multiwall</include>
 			<include condition="!Skin.HasSetting(MusicShowcaseOff)">Viewtype_Showcase</include>
 			<include condition="!Skin.HasSetting(MusicListLowOff)">Viewtype_List_Low</include>
+			<include>Furniture_Time</include>
 			<include>MusicMediaFlags</include>
 		</control>
 		<include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
