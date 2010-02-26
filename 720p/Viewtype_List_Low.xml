@@ -886,7 +886,7 @@
 				<width>0</width>
 				<height>0</height>
 				<texture>-</texture>
-				<visible>Skin.HasSetting(lowlistinfoauto) + [Control.HasFocus(551) | Control.HasFocus(55105)] + !substring(listitem.label,..) + [!Container(551).OnNext + !Container(551).OnPrevious]</visible>
+				<visible>Skin.HasSetting(lowlistinfoauto) + [Control.HasFocus(551) | Control.HasFocus(55105)] + !substring(ListItem.label,..) + [!Container(551).OnNext + !Container(551).OnPrevious]</visible>
 				<animation effect="fade" start="0" end="100" time="0" delay="3500">Visible</animation>
 			</control>
 			<control type="image" id="55112"><!-- auto delay ControlGroup(7000)-->
@@ -896,7 +896,7 @@
 				<width>0</width>
 				<height>0</height>
 				<texture>-</texture>
-				<visible>Skin.HasSetting(lowlistinfoauto) + ControlGroup(7000).HasFocus() + !substring(listitem.label,..)</visible>
+				<visible>Skin.HasSetting(lowlistinfoauto) + ControlGroup(7000).HasFocus() + !substring(ListItem.label,..)</visible>
 				<animation effect="fade" start="0" end="100" time="0" delay="3500">Visible</animation>
 			</control>	
 		</control>
@@ -972,8 +972,8 @@
 					<height>220</height>
 					<fadetime>400</fadetime>
 					<aspectratio>scale</aspectratio>
-					<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).listitem.property(fanart_image)]</texture>
-					<visible>!IsEmpty(Container(551).listitem.property(fanart_image)) + [Container.Content(artists) | Container.Content(movies)]</visible>
+					<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.property(fanart_image)]</texture>
+					<visible>!IsEmpty(Container(551).ListItem.property(fanart_image)) + [Container.Content(artists) | Container.Content(movies)]</visible>
 					<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 					<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
 					<include>Animation_BackgroundFade</include>
@@ -985,8 +985,8 @@
 					<height>220</height>
 					<fadetime>400</fadetime>
 					<aspectratio>scale</aspectratio>
-					<texture diffuse="list/list_episodeicon_mask.png">$INFO[container.property(fanart_image)]</texture>
-					<visible>!IsEmpty(container.property(fanart_image)) + [Container.Content(albums) | Container.Content(songs)]</visible>
+					<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container.Property(fanart_image)]</texture>
+					<visible>!IsEmpty(Container.Property(fanart_image)) + [Container.Content(albums) | Container.Content(songs)]</visible>
 					<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 					<animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
 					<include>Animation_BackgroundFade</include>

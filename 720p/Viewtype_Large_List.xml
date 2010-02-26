@@ -279,7 +279,7 @@
 				<description>Cover image</description>
 				<width>558</width>
 				<height>720</height>
-				<texture background="true">$INFO[listitem.path]poster.jpg</texture>
+				<texture background="true">$INFO[ListItem.path]poster.jpg</texture>
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
 			</control>
@@ -339,7 +339,7 @@
 			<height>281</height>
 			<aspectratio>scale</aspectratio>
 			<fadetime>400</fadetime>
-			<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(560).listitem.property(fanart_image)]</texture>
+			<texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(560).ListItem.property(fanart_image)]</texture>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<visible>!Player.HasVideo</visible>
 		</control>
@@ -369,35 +369,35 @@
 					<height>97</height>
 					<include>Furniture_ListMediaFlagsVars3</include>
 					<texture>flags/rating-r.png</texture>
-					<visible>substring(listitem.mpaa,Rated R)</visible>
+					<visible>substring(ListItem.mpaa,Rated R)</visible>
 				</control>
 				<control type="image" id="189">
 					<width>186</width>
 					<height>97</height>
 					<include>Furniture_ListMediaFlagsVars3</include>
 					<texture>flags/rating-pg.png</texture>
-					<visible>substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)</visible>
+					<visible>substring(ListItem.mpaa,Rated PG) + !substring(ListItem.mpaa,Rated PG-13)</visible>
 				</control>
 				<control type="image" id="189">
 					<width>186</width>
 					<height>97</height>
 					<include>Furniture_ListMediaFlagsVars3</include>
 					<texture>flags/rating-pg13.png</texture>
-					<visible>substring(listitem.mpaa,Rated PG-13)</visible>
+					<visible>substring(ListItem.mpaa,Rated PG-13)</visible>
 				</control>
 				<control type="image" id="189">
 					<width>191</width>
 					<height>97</height>
 					<include>Furniture_ListMediaFlagsVars3</include>
 					<texture>flags/rating-g.png</texture>
-					<visible>substring(listitem.mpaa,Rated G)</visible>
+					<visible>substring(ListItem.mpaa,Rated G)</visible>
 				</control>
 				<control type="image" id="189">
 					<width>186</width>
 					<height>97</height>
 					<include>Furniture_ListMediaFlagsVars3</include>
 					<texture>flags/rating-nc17.png</texture>
-					<visible>substring(listitem.mpaa,17)</visible>
+					<visible>substring(ListItem.mpaa,17)</visible>
 				</control>
 		</control>
 <!--		<control type="image">
@@ -406,7 +406,7 @@
 			<width>130</width>
 			<height>102</height>
 			<include>FloorMediaFlagNightShade</include>
-			<texture fallback="flags/default.png">$INFO[listitem.studio,flags/studios/,.png]</texture>
+			<texture fallback="flags/default.png">$INFO[ListItem.studio,flags/studios/,.png]</texture>
 		</control>
 		<control type="image">
 			<posx>1050</posx>
@@ -473,12 +473,12 @@
 					<include>Furniture_LargeListMediaFlagsVars</include>
 					<texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/Resolution/,.png]</texture>
 					<visible>Container.Content(movies) | Container.Content(episodes)</visible>
-					<visible>!substring(listitem.filename,.iso,Right)</visible>
+					<visible>!substring(ListItem.filename,.iso,Right)</visible>
 				</control>
 				<control type="image" id="187">
 					<include>Furniture_LargeListMediaFlagsVars</include>
 					<texture>flags/480.png</texture>
-					<visible>substring(listitem.filename,.iso,Right)</visible>
+					<visible>substring(ListItem.filename,.iso,Right)</visible>
 				</control>
 		</control>	
 			<control type="group">
@@ -486,7 +486,7 @@
 				<control type="image" id="188">
 					<include>Furniture_LargeListMediaFlagsVars</include>
 					<texture>$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
-					<visible>!substring(listitem.filename,.iso,Right)</visible>
+					<visible>!substring(ListItem.filename,.iso,Right)</visible>
 				</control>
 				<control type="image" id="188">
 					<include>Furniture_LargeListMediaFlagsVars</include>
@@ -495,7 +495,7 @@
 				<control type="image" id="188">
 					<include>Furniture_LargeListMediaFlagsVars</include>
 				    <texture>flags/6ch.png</texture>
-				    <visible>substring(listitem.filename,.iso,Right)</visible>
+				    <visible>substring(ListItem.filename,.iso,Right)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -509,7 +509,7 @@
 				<posx>735</posx>
 				<control type="image">
 					<include>Furniture_LargeListMediaFlagsVars</include>
-					<texture>$INFO[listitem.studio,flags/studios/,.png]</texture>				
+					<texture>$INFO[ListItem.studio,flags/studios/,.png]</texture>				
 				</control>
 			</control>	
 			<control type="group">
