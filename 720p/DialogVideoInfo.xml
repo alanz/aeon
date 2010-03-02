@@ -29,7 +29,7 @@
 			<width>1280</width>
 			<height>720</height>
 			<fadetime>500</fadetime>
-			<texture>$INFO[listitem.property(fanart_image)]</texture>
+			<texture>$INFO[ListItem.property(fanart_image)]</texture>
 			<animation effect="fade" start="0" end="100" time="1000"delay="600">WindowOpen</animation>
 		</control>
 		<control type="image">
@@ -54,7 +54,7 @@
 			<posy>0</posy>
 			<width>486</width>
 			<height>720</height>
-			<texture>$INFO[listitem.path]folder.jpg</texture>
+			<texture>$INFO[ListItem.path]folder.jpg</texture>
 			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<visible>Container.Content(episodes)</visible>
@@ -68,7 +68,7 @@
 				<width>370</width>
 				<height>230</height>
 				<posy>160</posy>
-				<texture>$INFO[listitem.thumb]</texture>
+				<texture>$INFO[ListItem.thumb]</texture>
 				<bordertexture border="-45,-45,-85,-45">info/musicinfoshadow.png</bordertexture>
 				<aspectratio>stretch</aspectratio>
 			</control>
@@ -77,7 +77,7 @@
 				<posy>360</posy>
 				<width>370</width>
 				<height>230</height>
-				<texture flipy="true" diffuse="common/Thumb_Mask6.png">$INFO[listitem.thumb]</texture>
+				<texture flipy="true" diffuse="common/Thumb_Mask6.png">$INFO[ListItem.thumb]</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
@@ -104,7 +104,7 @@
 			<posy>0</posy>
 			<width>486</width>
 			<height>720</height>
-			<texture>$INFO[listitem.thumb]</texture>
+			<texture>$INFO[ListItem.thumb]</texture>
 			<aspectratio>stretch</aspectratio>
 			<visible>!Container.Content(episodes)</visible>
 		</control>
@@ -114,7 +114,7 @@
 			<posy>0</posy>
 			<width>486</width>
 			<height>720</height>
-			<texture>$INFO[listitem.path]movie.tbn</texture>
+			<texture>$INFO[ListItem.path]movie.tbn</texture>
 			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<visible>!Skin.HasSetting(videotv)</visible>
@@ -125,7 +125,7 @@
 			<posy>0</posy>
 			<width>486</width>
 			<height>720</height>
-			<texture>$INFO[listitem.path]folder.jpg</texture>
+			<texture>$INFO[ListItem.path]folder.jpg</texture>
 			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
@@ -136,7 +136,7 @@
 			<posy>0</posy>
 			<width>486</width>
 			<height>720</height>
-			<texture>$INFO[listitem.path]poster.jpg</texture>
+			<texture>$INFO[ListItem.path]poster.jpg</texture>
 			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
@@ -312,9 +312,9 @@
 				<height>54</height>
 				<texture>info/info_flagupright.png</texture>
 				<visible>Control.IsVisible(94)</visible>
-				<animation effect="slide" end="187,0" time="0" condition="![substring(listitem.mpaa,UK) | substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )]">Conditional</animation>			
-				<animation effect="slide" end="180,0" time="0" condition="substring(listitem.mpaa,UK)">Conditional</animation>
-				<animation effect="slide" end="70,0" time="0" condition="substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )">Conditional</animation>				
+				<animation effect="slide" end="187,0" time="0" condition="![substring(ListItem.mpaa,UK) | substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )]">Conditional</animation>			
+				<animation effect="slide" end="180,0" time="0" condition="substring(ListItem.mpaa,UK)">Conditional</animation>
+				<animation effect="slide" end="70,0" time="0" condition="substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )">Conditional</animation>				
 			</control>		
 			<control type="image">
 				<posx>0</posx>
@@ -323,114 +323,114 @@
 				<height>54</height>
 				<texture>info/info_flagupright.png</texture>
 				<visible>Control.IsVisible(94)</visible>
-				<animation effect="slide" end="295,0" time="0" condition="![substring(listitem.mpaa,UK) | substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )]">Conditional</animation>			
-				<animation effect="slide" end="288,0" time="0" condition="substring(listitem.mpaa,UK)">Conditional</animation>
-				<animation effect="slide" end="178,0" time="0" condition="substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )">Conditional</animation>				
+				<animation effect="slide" end="295,0" time="0" condition="![substring(ListItem.mpaa,UK) | substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )]">Conditional</animation>			
+				<animation effect="slide" end="288,0" time="0" condition="substring(ListItem.mpaa,UK)">Conditional</animation>
+				<animation effect="slide" end="178,0" time="0" condition="substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )">Conditional</animation>				
 			</control>		
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/mpaa_restricted.png</texture>
-				<visible>substring(listitem.mpaa,Rated R)</visible>
+				<visible>substring(ListItem.mpaa,Rated R)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/mpaa_pg13.png</texture>
-				<visible>substring(listitem.mpaa,Rated PG-13)</visible>
+				<visible>substring(ListItem.mpaa,Rated PG-13)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/mpaa_pg.png</texture>
-				<visible>substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)</visible>
+				<visible>substring(ListItem.mpaa,Rated PG) + !substring(ListItem.mpaa,Rated PG-13)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/mpaa_nc17.png</texture>
-				<visible>substring(listitem.mpaa,Rated NC)</visible>
+				<visible>substring(ListItem.mpaa,Rated NC)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/mpaa_g.png</texture>
-				<visible>substring(listitem.mpaa,Rated G)</visible>
+				<visible>substring(ListItem.mpaa,Rated G)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSUKInfoCertificate</include>
 				<texture>flags/rating/bbfc_u.png</texture>
-				<visible>substring(listitem.mpaa,UK:U)</visible>
+				<visible>substring(ListItem.mpaa,UK:U)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSUKInfoCertificate</include>
 				<texture>flags/rating/bbfc_pg.png</texture>
-				<visible>substring(listitem.mpaa,UK:PG)</visible>
+				<visible>substring(ListItem.mpaa,UK:PG)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSUKInfoCertificate</include>
 				<texture>flags/rating/bbfc_12.png</texture>
-				<visible>substring(listitem.mpaa,UK:12)</visible>
+				<visible>substring(ListItem.mpaa,UK:12)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSUKInfoCertificate</include>
 				<texture>flags/rating/bbfc_15.png</texture>
-				<visible>substring(listitem.mpaa,UK:15)</visible>
+				<visible>substring(ListItem.mpaa,UK:15)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSUKInfoCertificate</include>
 				<texture>flags/rating/bbfc_18.png</texture>
-				<visible>substring(listitem.mpaa,UK:18)</visible>
+				<visible>substring(ListItem.mpaa,UK:18)</visible>
 			</control>
 			<control type="image">
 				<include>Objects_FSUKInfoCertificate</include>
 				<texture>flags/rating/bbfc_18.png</texture>
-				<visible>substring(listitem.mpaa,UK:X)</visible>
+				<visible>substring(ListItem.mpaa,UK:X)</visible>
 			</control>
 			<control type="image" id="171">
 				<include>Objects_FSDEInfoCertificate</include>
 				<texture>flags/rating/FSK-0_info.png</texture>
-				<visible>substring(listitem.mpaa,Germany:0) | substring(listitem.mpaa,o.A)</visible>
+				<visible>substring(ListItem.mpaa,Germany:0) | substring(ListItem.mpaa,o.A)</visible>
 			</control>
 			<control type="image" id="171">
 				<include>Objects_FSDEInfoCertificate</include>
 				<texture>flags/rating/FSK-6_info.png</texture>
-				<visible>substring(listitem.mpaa,Germany:6) | substring(listitem.mpaa,ab 6)</visible>
+				<visible>substring(ListItem.mpaa,Germany:6) | substring(ListItem.mpaa,ab 6)</visible>
 			</control>
 			<control type="image" id="171">
 				<include>Objects_FSDEInfoCertificate</include>
 				<texture>flags/rating/FSK-12_info.png</texture>
-				<visible>substring(listitem.mpaa,Germany:12) | substring(listitem.mpaa,ab 12)</visible>
+				<visible>substring(ListItem.mpaa,Germany:12) | substring(ListItem.mpaa,ab 12)</visible>
 			</control>
 			<control type="image" id="171">
 				<include>Objects_FSDEInfoCertificate</include>
 				<texture>flags/rating/FSK-16_info.png</texture>
-				<visible>substring(listitem.mpaa,Germany:16) | substring(listitem.mpaa,ab 16)</visible>
+				<visible>substring(ListItem.mpaa,Germany:16) | substring(ListItem.mpaa,ab 16)</visible>
 			</control>
 			<control type="image" id="171">
 				<include>Objects_FSDEInfoCertificate</include>
 				<texture>flags/rating/FSK-18_info.png</texture>
-				<visible>substring(listitem.mpaa,Germany:18) | substring(listitem.mpaa,ab 18)</visible>
+				<visible>substring(ListItem.mpaa,Germany:18) | substring(ListItem.mpaa,ab 18)</visible>
 			</control>
 			<control type="image" id="170">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/australia_r.png</texture>
-				<visible>substring(listitem.mpaa,Australia:R)</visible>
+				<visible>substring(ListItem.mpaa,Australia:R)</visible>
 			</control>
 			<control type="image" id="170">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/australia_m.png</texture>
-				<visible>substring(listitem.mpaa,Australia:M) + ! substring(listitem.mpaa,Australia:MA)</visible>
+				<visible>substring(ListItem.mpaa,Australia:M) + ! substring(ListItem.mpaa,Australia:MA)</visible>
 			</control>
 			<control type="image" id="170">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/australia_ma.png</texture>
-				<visible>substring(listitem.mpaa,Australia:MA)</visible>
+				<visible>substring(ListItem.mpaa,Australia:MA)</visible>
 			</control>
 			<control type="image" id="170">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/australia_pg.png</texture>
-				<visible>substring(listitem.mpaa,Australia:PG)</visible>
+				<visible>substring(ListItem.mpaa,Australia:PG)</visible>
 			</control>
 			<control type="image" id="170">
 				<include>Objects_FSInfoCertificate</include>
 				<texture>flags/rating/australia_g.png</texture>
-				<visible>substring(listitem.mpaa,Australia:G)</visible>
+				<visible>substring(ListItem.mpaa,Australia:G)</visible>
 			</control>
 			<control type="label">
 				<description>Movie title</description>
@@ -447,9 +447,9 @@
 				<posy>58</posy>
 				<align>center</align>
 				<include>Objects_FSInfoYear</include>
-				<animation effect="slide" start="187,0" end="0,0" time="0" condition="![substring(listitem.mpaa,UK) | substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )]">Conditional</animation>			
-				<animation effect="slide" end="0,0" time="0" condition="substring(listitem.mpaa,UK)">Conditional</animation>
-				<animation effect="slide" start="-112,0" end="-112,0" time="0" condition="substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )">Conditional</animation>
+				<animation effect="slide" start="187,0" end="0,0" time="0" condition="![substring(ListItem.mpaa,UK) | substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )]">Conditional</animation>			
+				<animation effect="slide" end="0,0" time="0" condition="substring(ListItem.mpaa,UK)">Conditional</animation>
+				<animation effect="slide" start="-112,0" end="-112,0" time="0" condition="substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )">Conditional</animation>
 			</control>
 			<control type="label">
 				<description>Genre</description>
@@ -457,9 +457,9 @@
 				<posy>58</posy>
 				<width>500</width>
 				<include>Objects_FSInfoGenre</include>
-				<animation effect="slide" end="0,0" time="0" condition="![substring(listitem.mpaa,UK) | substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )]">Conditional</animation>			
-				<animation effect="slide" end="-7,0" time="0" condition="substring(listitem.mpaa,UK)">Conditional</animation>
-				<animation effect="slide" end="-112,0" time="0" condition="substring(listitem.mpaa,Germany) | substring(listitem.mpaa,ab )">Conditional</animation>
+				<animation effect="slide" end="0,0" time="0" condition="![substring(ListItem.mpaa,UK) | substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )]">Conditional</animation>			
+				<animation effect="slide" end="-7,0" time="0" condition="substring(ListItem.mpaa,UK)">Conditional</animation>
+				<animation effect="slide" end="-112,0" time="0" condition="substring(ListItem.mpaa,Germany) | substring(ListItem.mpaa,ab )">Conditional</animation>
 			</control>
 			<control type="label">
 				<description>Directed by:</description>
