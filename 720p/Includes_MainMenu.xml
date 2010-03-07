@@ -13,24 +13,25 @@
 		<posy>1</posy>
 		<height>61</height>
 		<font>Font_MainMenu</font>
-		<posx>80</posx>
-		<width>280</width>
+		<posx>50</posx>
+		<width>300</width>
 		<info>ListItem.Label</info>
 		<align>center</align>
 		<aligny>center</aligny>
 	</include>
 	<include name="VirtualMainMenu_Label">
-		<posy>0</posy>
+		<posy>1</posy>
 		<height>40</height>
 		<font>Font_VirtualMainMenu</font>
-		<posx>53</posx>
-		<width>184</width>
+		<posx>50</posx>
+		<width>204</width>
 		<align>center</align>
 		<aligny>center</aligny>
 	</include>
 	<include name="VirtualMainMenu_Label2">
-		<posx>53</posx>
-		<width>184</width>
+		<posy>1</posy>
+		<posx>50</posx>
+		<width>204</width>
 		<info>ListItem.Label2</info>
 		<align>center</align>
 		<aligny>center</aligny>
@@ -68,9 +69,9 @@
 		</control>
 		<control type="wraplist" id="300">
 			<posx>0</posx>
-			<posy>0</posy>
+			<posy>1</posy>
 			<height>61</height>
-			<width>1280</width>
+			<width>2100</width>
 			<onleft>300</onleft>
 			<onright>300</onright>
 			<viewtype>list</viewtype>
@@ -80,17 +81,17 @@
 			<ondown>SetFocus(330)</ondown>
 			<include condition="Skin.HasSetting(homelatest)">LatestAdditions</include>
 			<animation type="WindowOpen" reversible="false">
-				<effect type="slide" start="-1280" end="0" time="400" tween="quadratic" easing="out" />
+				<effect type="slide" start="-2100" end="0" time="400" tween="quadratic" easing="out" />
 				<effect type="fade" start="0" end="100" time="400" />
 			</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<itemlayout width="280" height="61">
+			<itemlayout width="300" height="61">
 				<control type="label">
 					<include>MainMenu_Label</include>
 					<textcolor>48FFFFFF</textcolor>
 				</control>
 			</itemlayout>
-			<focusedlayout width="280" height="61">
+			<focusedlayout width="300" height="61">
 				<control type="label">
 					<include>MainMenu_Label</include>
 					<textcolor>48FFFFFF</textcolor>
@@ -360,7 +361,7 @@
 			<scrolltime>200</scrolltime>
 			<visible>![Control.HasFocus(301) | Control.HasFocus(7) | Control.HasFocus(10)]</visible>
 			<animation effect="fade" start="0" end="100" time="200" condition="!Window.Previous(56) + !Window.Previous(12) + !Window.Previous(13) + !Window.Previous(14) + !Window.Previous(15) + !Window.Previous(16) + !Window.Previous(17) + !Window.Previous(18) + !Window.Previous(19)">WindowOpen</animation>
-			<itemlayout width="184" height="40">
+			<itemlayout width="204" height="40">
 				<control type="label">
 					<include>VirtualMainMenu_Label</include>
 					<info>ListItem.Label</info>
@@ -368,7 +369,7 @@
 					<animation effect="fade" start="100" end="0" time="200" condition="Window.Next(56) | Window.Next(12) | Window.Next(13) | Window.Next(14) | Window.Next(15) | Window.Next(16) | Window.Next(17) | Window.Next(18) | Window.Next(19) | Window.Next(3) | Window.Next(2) | Window.Next(20) | Window.Next(1) | Window.Next(24) | Window.Next(25) | Window.Next(501) | Window.Next(502) | Window.Next(2600)">Conditional</animation>
 				</control>
 			</itemlayout>
-			<focusedlayout width="184" height="40">
+			<focusedlayout width="204" height="40">
 				<control type="label">
 					<include>VirtualMainMenu_Label</include>
 					<info>ListItem.Label</info>
@@ -598,7 +599,7 @@
 			<scrolltime>200</scrolltime>
 			<visible allowhiddenfocus="true">Control.HasFocus(301) | Control.HasFocus(7)</visible>
 			<animation effect="fade" start="0" end="100" time="200" condition="!Window.Previous(56) + !Window.Previous(12) + !Window.Previous(13) + !Window.Previous(14) + !Window.Previous(15) + !Window.Previous(16) + !Window.Previous(17) + !Window.Previous(18) + !Window.Previous(19)">WindowOpen</animation>
-			<itemlayout width="184" height="40">
+			<itemlayout width="204" height="40">
 				<control type="label">
 					<include>VirtualMainMenu_Label</include>
 					<info>ListItem.Label</info>
@@ -612,7 +613,7 @@
 					<animation effect="fade" start="100" end="0" time="200" condition="Window.Next(56) | Window.Next(12) | Window.Next(13) | Window.Next(14) | Window.Next(15) | Window.Next(16) | Window.Next(17) | Window.Next(18) | Window.Next(19) | Window.Next(3) | Window.Next(2) | Window.Next(20) | Window.Next(1) | Window.Next(24) | Window.Next(25) | Window.Next(501) | Window.Next(502) | Window.Next(2600)">Conditional</animation>
 				</control>
 			</itemlayout>
-			<focusedlayout width="184" height="40">
+			<focusedlayout width="204" height="40">
 				<control type="label">
 					<include>VirtualMainMenu_Label</include>
 					<info>ListItem.Label</info>
@@ -974,7 +975,7 @@
 		<control type="group">
 			<posx>0</posx>
 			<posy>406</posy>
-			<width>1280</width>
+			<width>1300</width>
 			<height>57</height>
 			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] + !Skin.HasSetting(lowerrss) + !Control.HasFocus(945)</visible>
 			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
@@ -1025,7 +1026,7 @@
 		<control type="group">
 			<posx>0</posx>
 			<posy>664</posy>
-			<width>1280</width>
+			<width>1300</width>
 			<height>57</height>
 			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)]</visible>
 			<include>Animation_VisibleHiddenZoom</include>
@@ -1045,7 +1046,7 @@
 			<control type="rss" id="1">
 				<posx>110</posx>
 				<posy>34</posy>
-				<width>1280</width>
+				<width>1300</width>
 				<visible>true</visible>
 				<font>Font_RSS</font>
 				<include>Colour_RSS</include>
