@@ -166,6 +166,7 @@
 					<visible>Skin.HasSetting(weather)</visible>
 					<visible>StringCompare(Weather.Plugin,weather.com plus)</visible>
 				</item>
+				
 				<item id="10"><!--weather-->
 					<description>Weather</description>
 					<label>31017</label>
@@ -294,12 +295,6 @@
 				</item>
 			<!-- Add Item End -->
 
-				<item id="27"><!--addons-->
-					<description>Addons</description>
-					<include>BackgroundVarsAddons</include>
-					<label>24001</label>
-					<onclick>ActivateWindow(AddonBrowser)</onclick>
-				</item>
 				<item id="24"><!--scripts-->
 					<description>Scripts</description>
 					<include>BackgroundVarsScripts</include>
@@ -349,6 +344,13 @@
 					<onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.applemovietrailerlight/default.py,return)</onclick>
 					<visible>!Skin.HasSetting(notrailers)</visible>
 				</item>
+				<item id="27"><!--addons-->
+					<description>Addons</description>
+					<include>BackgroundVarsAddons</include>
+					<label>24001</label>
+					<onclick>ActivateWindow(AddonBrowser)</onclick>
+					<visible>Skin.HasSetting(addons)</visible>
+				</item>				
 			</content>
 		</control>
 	</include>
@@ -495,6 +497,15 @@
 					<onclick>SetFocus(92)</onclick>
 					<visible>!Skin.HasSetting(notrailers)</visible>
 				</item>
+				
+				<item id="27"><!--addons-->
+					<description>Addons</description>
+					<label>24001</label>
+					<include>BackgroundVarsAddons</include>
+					<onclick>Skin.SetString(custom,CustomAddons)</onclick>
+					<onclick>SetFocus(92)</onclick>
+					<visible>Skin.HasSetting(addons)</visible>
+				</item>				
 			<!-- Add Item -->
 				<item id="30">
 					<label>$INFO[Skin.String(mainmenu_1name)]</label>
@@ -814,6 +825,21 @@
 					<onclick>Skin.Reset(notrailers)</onclick>
 					<visible>Skin.HasSetting(notrailers)</visible>
 				</item>
+								
+				<item id="27">
+					<description>Addons</description>
+					<label>24001</label>
+					<include>BackgroundVarsAddons</include>
+					<onclick>Skin.Reset(addons)</onclick>
+					<visible>Skin.HasSetting(addons)</visible>
+				</item>
+				<item id="27">
+					<description>Addons</description>
+					<label2>24001</label2>
+					<include>BackgroundVarsAddons</include>
+					<onclick>Skin.SetBool(addons)</onclick>
+					<visible>!Skin.HasSetting(addons)</visible>
+				</item>				
 		<!-- Add Items -->
 				<item id="30">
 					<label>$INFO[Skin.String(mainmenu_1name)]</label>
