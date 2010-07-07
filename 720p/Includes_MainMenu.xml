@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <includes>
-<!-- Add Item -->
+	<!--addons-->
 	<include name="TV_Link">
 		<onclick>Skin.SetBool(videotv)</onclick>
 		<onclick>Skin.Reset(videomovies)</onclick>
@@ -9,13 +9,23 @@
 		<onclick>Skin.SetBool(videomovies)</onclick>
 		<onclick>Skin.Reset(videotv)</onclick>
 	</include>
-<!-- Add Item End -->
+	<!-- latest addition movies/musics/tv series plugin for the main menu-->
+	<include name="LatestAdditions">
+		<onup>SetFocus(510)</onup>
+	</include>
+	<!-- Weather Backdrop by Current Weather Conditions -->
+	<include name="BackgroundVarsWeather2">
+		<thumb>weather/$INFO[Weather.FanartCode]</thumb>
+	</include>
+	<!-- End addons -->
+	
+	<!--Menu Labels-->
 	<include name="MainMenu_Label">
-		<posy>1</posy>
-		<height>61</height>
-		<font>Font_MainMenu</font>
 		<posx>50</posx>
+		<posy>0</posy>
+		<height>60</height>
 		<width>300</width>
+		<font>Font_MainMenu</font>
 		<info>ListItem.Label</info>
 		<align>center</align>
 		<aligny>center</aligny>
@@ -30,6 +40,10 @@
 		<aligny>center</aligny>
 	</include>
 	<include name="VirtualMainMenu_Label2">
+	<!--End menu labels-->
+	
+	<!--Menus-->
+	<!--Home Menu-->
 		<posy>1</posy>
 		<posx>50</posx>
 		<width>204</width>
@@ -37,15 +51,9 @@
 		<align>center</align>
 		<aligny>center</aligny>
 	</include>
-	<include name="LatestAdditions">
-		<onup>SetFocus(510)</onup>
-	</include>
-	<!-- Weather Backdrop by Current Weather Conditions -->
-	<include name="BackgroundVarsWeather2">
-		<thumb>weather/$INFO[Weather.FanartCode]</thumb>
-	</include>
-	<!-- End -->
+	<!--Main Home Menu-->
 	<include name="MainMenu">
+	<!--Sub menu extension add-on-->
 		<control type="button" id="330">
 			<description>INVISIBLE button: Go To Submenu</description>
 			<posx>0</posx>
@@ -58,6 +66,7 @@
 			<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1) | Container(300).HasFocus(22) | Container(300).HasFocus(9) | [Container(300).HasFocus(10) + StringCompare(Weather.Plugin,weather.com plus)] | Container(300).HasFocus(2)</visible>
 		</control>
 		<control type="button" id="330">
+	<!-- end sub menu extension-->
 			<description>INVISIBLE button: No Submenu</description>
 			<posx>0</posx>
 			<posy>0</posy>
@@ -69,76 +78,54 @@
 			<visible>![Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1) | Container(300).HasFocus(22) | Container(300).HasFocus(9) | [Container(300).HasFocus(10) + StringCompare(Weather.Plugin,weather.com plus)] | Container(300).HasFocus(2)]</visible>
 		</control>
 		<control type="wraplist" id="300">
+			<description>Home Menu</description>
 			<posx>0</posx>
-			<posy>1</posy>
-			<height>61</height>
+			<!-- Align menu to the center-->
+			<posy>4</posy>
 			<width>2100</width>
-			<onleft>300</onleft>
-			<onright>300</onright>
-			<viewtype>list</viewtype>
-			<orientation>horizontal</orientation>
+			<height>60</height>
 			<focusposition>2</focusposition>
 			<scrolltime>300</scrolltime>
+			<orientation>horizontal</orientation>
 			<ondown>SetFocus(330)</ondown>
+			<!--Not sure what this part does-->
 			<include condition="Skin.HasSetting(homelatest)">LatestAdditions</include>
 			<animation type="WindowOpen" reversible="false">
-				<effect type="slide" start="-2100" end="0" time="400" tween="quadratic" easing="out"/>
+				<effect type="slide" start="-1280" end="0" time="400" tween="quadratic" easing="out"/>
 				<effect type="fade" start="0" end="100" time="400"/>
 			</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<itemlayout width="300" height="61">
+			<!--end-->
+			<itemlayout width="300">
 				<control type="label">
 					<include>MainMenu_Label</include>
 					<textcolor>48FFFFFF</textcolor>
 				</control>
 			</itemlayout>
-			<focusedlayout width="300" height="61">
-				<control type="label">
-					<include>MainMenu_Label</include>
-					<textcolor>48FFFFFF</textcolor>
-				</control>
+			<focusedlayout width="300">
 				<control type="label">
 					<include>MainMenu_Label</include>
 					<textcolor>FFFFFFFF</textcolor>
-					<include>Animation_ButtonFocusFade</include>
-				</control>
+				</control>			
 			</focusedlayout>
 			<content>
-				<item id="9"><!--settings-->
-					<label>31016</label>
-					<include>BackgroundVarsSettings</include>
-					<onclick>ActivateWindow(settings)</onclick>
-					<visible>!Skin.HasSetting(nosettings)</visible>
-				</item>
 				<item id="1"><!--music-->
+					<description>Music</description>
 					<label>31010</label>
 					<include>BackgroundVarsMusic</include>
 					<onclick>ActivateWindow(MyMusic,return)</onclick>
 					<visible>!Skin.HasSetting(nomusic)</visible>
 				</item>
-				<item id="6"><!--movies-->
-					<label>31013</label>
-					<include>BackgroundVarsMovies</include>
-					<include>Movie_Link</include>
-					<onclick>ActivateWindow(MyVideoLibrary,movietitles,return)</onclick>
-					<visible>!Skin.HasSetting(nomovies)</visible>
-				</item>
-				<item id="7"><!--tvshows-->
-					<description>My Videos</description>
-					<label>31014</label>
-					<include>BackgroundVarsTV</include>
-					<include>TV_Link</include>
-					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles,return)</onclick>
-					<visible>!Skin.HasSetting(notvshows)</visible>
-				</item>
 				<item id="2"><!--programs-->
+					<description>Games</description>
 					<label>31011</label>
 					<include>BackgroundVarsGames</include>
 					<onclick>ActivateWindow(MyPrograms)</onclick>
 					<visible>!Skin.HasSetting(nogames)</visible>
 					<visible>!Skin.HasSetting(launcherforgames)</visible>
 				</item>
-				<item id="2"><!--programs (launcher)-->
+				<item id="3"><!--programs (launcher)-->
+					<description>Launcher</description>
 					<label>31011</label>
 					<include>BackgroundVarsGames</include>
 					<onclick>ActivateWindow(1,plugin://programs/Launcher/)</onclick>
@@ -146,27 +133,42 @@
 					<visible>Skin.HasSetting(launcherforgames)</visible>
 				</item>
 				<item id="5"><!--pictures-->
+					<description>Pictures</description>
 					<label>31012</label>
 					<include>BackgroundVarsPictures</include>
 					<onclick>ActivateWindow(MyPictures)</onclick>
 					<visible>!Skin.HasSetting(nopictures)</visible>
 				</item>
+				<item id="6"><!--movies-->
+					<description>Movies</description>
+					<label>31013</label>
+					<include>BackgroundVarsMovies</include>
+					<include>Movie_Link</include>
+					<onclick>ActivateWindow(MyVideoLibrary,movietitles,return)</onclick>
+					<visible>!Skin.HasSetting(nomovies)</visible>
+				</item>
+				<item id="7"><!--tvshows-->
+					<description>TV Shows</description>
+					<label>31014</label>
+					<include>BackgroundVarsTV</include>
+					<include>TV_Link</include>
+					<onclick>ActivateWindow(MyVideoLibrary,tvshowtitles,return)</onclick>
+					<visible>!Skin.HasSetting(notvshows)</visible>
+				</item>
 				<item id="8"><!--videos-->
+					<description>Videos</description>
 					<label>31015</label>
 					<include>BackgroundVarsVideo</include>
 					<onclick>ActivateWindow(VideoFiles)</onclick>
 					<visible>!Skin.HasSetting(novideos)</visible>
 				</item>
-				<item id="10"><!--weather-->
-					<description>Weather</description>
-					<label>31017</label>
-					<include condition="Skin.HasSetting(CustomWeather)">BackgroundVarsWeather2</include>
-					<include condition="!Skin.HasSetting(CustomWeather)">BackgroundVarsWeather</include>
-					<onclick>RunScript(special://home/scripts/TWC Supplemental/default.py)</onclick>
-					<visible>Skin.HasSetting(weather)</visible>
-					<visible>StringCompare(Weather.Plugin,weather.com plus)</visible>
+				<item id="9"><!--settings-->
+					<description>Settings</description>
+					<label>31016</label>
+					<include>BackgroundVarsSettings</include>
+					<onclick>ActivateWindow(settings)</onclick>
+					<visible>!Skin.HasSetting(nosettings)</visible>
 				</item>
-				
 				<item id="10"><!--weather-->
 					<description>Weather</description>
 					<label>31017</label>
@@ -177,130 +179,10 @@
 					<visible>!StringCompare(Weather.Plugin,weather.com plus)</visible>
 				</item>
 				<item id="11"><!--Playlist-->
-					<label>PLAYLIST</label>
+					<label>Playlist</label>
 					<include>BackgroundVarsMusic</include>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
 					<visible>Player.HasAudio</visible>
-				</item>
-			<!-- Add Items -->
-				<item id="30">
-					<label>$INFO[Skin.String(mainmenu_1name)]</label>
-					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_1)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_1path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_1path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_1path),videodb://2) + !Substring(Skin.String(mainmenu_1path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_1path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_1)</visible>
-					<visible>Skin.HasSetting(mainmenu_1)</visible>
-				</item>
-				<item id="31">
-					<label>$INFO[Skin.String(mainmenu_2name)]</label>
-					<icon>special://skin/media/backdrops/default_games/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_2)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_2path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_2path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_2path),videodb://2) + !Substring(Skin.String(mainmenu_2path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_2path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_2)</visible>
-					<visible>Skin.HasSetting(mainmenu_2)</visible>
-				</item>
-				<item id="32">
-					<label>$INFO[Skin.String(mainmenu_3name)]</label>
-					<icon>special://skin/media/backdrops/default_movies/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_3)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_3path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_3path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_3path),videodb://2) + !Substring(Skin.String(mainmenu_3path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_3path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_3)</visible>
-					<visible>Skin.HasSetting(mainmenu_3)</visible>
-				</item>
-				<item id="33">
-					<label>$INFO[Skin.String(mainmenu_4name)]</label>
-					<icon>special://skin/media/backdrops/default_music/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_4)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_4path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_4path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_4path),videodb://2) + !Substring(Skin.String(mainmenu_4path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_4path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_4)</visible>
-					<visible>Skin.HasSetting(mainmenu_4)</visible>
-				</item>
-				<item id="34">
-					<label>$INFO[Skin.String(mainmenu_5name)]</label>
-					<icon>special://skin/media/backdrops/default_pictures/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_5)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_5path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_5path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_5path),videodb://2) + !Substring(Skin.String(mainmenu_5path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_5path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_5)</visible>
-					<visible>Skin.HasSetting(mainmenu_5)</visible>
-				</item>
-				<item id="35">
-					<label>$INFO[Skin.String(mainmenu_6name)]</label>
-					<icon>special://skin/media/backdrops/default_scripts/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_6)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_6path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_6path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_6path),videodb://2) + !Substring(Skin.String(mainmenu_6path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_6path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_6)</visible>
-					<visible>Skin.HasSetting(mainmenu_96)</visible>
-				</item>
-				<item id="36">
-					<label>$INFO[Skin.String(mainmenu_7name)]</label>
-					<icon>special://skin/media/backdrops/default_settings/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_7)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_7path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_7path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_7path),videodb://2) + !Substring(Skin.String(mainmenu_7path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_7path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_7)</visible>
-					<visible>Skin.HasSetting(mainmenu_7)</visible>
-				</item>
-				<item id="37">
-					<label>$INFO[Skin.String(mainmenu_8name)]</label>
-					<icon>special://skin/media/backdrops/default_tvshows/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_8)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_8path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_8path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_8path),videodb://2) + !Substring(Skin.String(mainmenu_8path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_8path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_8)</visible>
-					<visible>Skin.HasSetting(mainmenu_8)</visible>
-				</item>
-				<item id="38">
-					<label>$INFO[Skin.String(mainmenu_9name)]</label>
-					<icon>special://skin/media/backdrops/default_assistant/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_9)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_9path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_9path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_9path),videodb://2) + !Substring(Skin.String(mainmenu_9path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_9path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_9)</visible>
-					<visible>Skin.HasSetting(mainmenu_9)</visible>
-				</item>
-				<item id="39">
-					<label>$INFO[Skin.String(mainmenu_10name)]</label>
-					<icon>special://skin/media/backdrops/default_games/default.png</icon>
-					<thumb>$INFO[Skin.String(Custom_mainmenu_10)]</thumb>
-					<include condition="substring(Skin.String(mainmenu_10path),videodb://2)">TV_Link</include>
-					<include condition="substring(Skin.String(mainmenu_10path),videodb://1)">Movie_Link</include>
-					<include condition="!substring(Skin.String(mainmenu_10path),videodb://2) + !Substring(Skin.String(mainmenu_10path),videodb://1)">Movie_Link</include>
-					<onclick>$INFO[Skin.String(mainmenu_10path)]</onclick>
-					<visible>!Skin.HasSetting(no_mainmenu_10)</visible>
-					<visible>Skin.HasSetting(mainmenu_10)</visible>
-				</item>
-			<!-- Add Item End -->
-
-				<item id="24"><!--scripts-->
-					<description>Scripts</description>
-					<include>BackgroundVarsScripts</include>
-					<label>31020</label>
-					<onclick>ActivateWindow(20)</onclick>
-					<visible>Skin.HasSetting(scripts)</visible>
 				</item>
 				<item id="13"><!--DVD-->
 					<description>Play DVD</description>
@@ -310,11 +192,18 @@
 					<visible>System.HasMediadvd</visible>
 				</item>
 				<item id="20"><!--ReloadSkin-->
-					<description>Refresh</description>
+				<description>Refresh</description>
 					<include>BackgroundVarsSettings</include>
 					<label>31607</label>
 					<onclick>ReloadSkin</onclick>
 					<visible>Skin.HasSetting(debug)</visible>
+				</item>
+				<item id="22"><!--shutdown-->
+					<description>Shutdown</description>
+					<include>BackgroundVarsShutdown</include>
+					<label>31019</label>
+					<onclick>Shutdown()</onclick>
+					<visible>Skin.HasSetting(shutdown)</visible>
 				</item>
 				<item id="23"><!--signout-->
 					<description>Sign out</description>
@@ -323,12 +212,12 @@
 					<onclick>System.LogOff</onclick>
 					<visible>Skin.HasSetting(signout)</visible>
 				</item>
-				<item id="22"><!--shutdown-->
-					<description>Shutdown</description>
-					<include>BackgroundVarsShutdown</include>
-					<label>31019</label>
-					<onclick>Shutdown()</onclick>
-					<visible>Skin.HasSetting(shutdown)</visible>
+				<item id="24"><!--scripts-->
+					<description>Scripts</description>
+					<include>BackgroundVarsScripts</include>
+					<label>31020</label>
+					<onclick>ActivateWindow(20)</onclick>
+					<visible>Skin.HasSetting(scripts)</visible>
 				</item>
 				<item id="25"><!--Favourites-->
 					<description>Shutdown</description>
@@ -350,14 +239,16 @@
 					<label>24001</label>
 					<onclick>ActivateWindow(AddonBrowser)</onclick>
 					<visible>Skin.HasSetting(addons)</visible>
-				</item>				
+				</item>
 			</content>
 		</control>
 	</include>
+	<!--Settings-backdrop menu -->
 	<include name="VirtualMainMenu">
+	<!--Settings-shortcut menu -->
 		<control type="wraplist" id="300">
 			<posx>0</posx>
-			<posy>-1</posy>
+			<posy>0</posy>
 			<height>40</height>
 			<width>840</width>
 			<onleft>300</onleft>
@@ -604,7 +495,7 @@
 	<include name="VirtualMainMenuOptions">
 		<control type="wraplist" id="301">
 			<posx>0</posx>
-			<posy>-1</posy>
+			<posy>0</posy>
 			<height>40</height>
 			<width>840</width>
 			<onleft>301</onleft>
@@ -812,14 +703,14 @@
 					<visible>!Skin.HasSetting(favourites)</visible>
 				</item>
 				<item id="26">
-					<description>trailers</description>
+					<description>Trailers</description>
 					<label>TRAILERS</label>
 					<include>BackgroundVarsTrailers</include>
 					<onclick>Skin.SetBool(notrailers)</onclick>
 					<visible>!Skin.HasSetting(notrailers)</visible>
 				</item>
 				<item id="26">
-					<description>trailers</description>
+					<description>Trailers</description>
 					<label2>TRAILERS</label2>
 					<include>BackgroundVarsTrailers</include>
 					<onclick>Skin.Reset(notrailers)</onclick>
@@ -1004,225 +895,10 @@
 			</content>
 		</control>
 	</include>
-	<include name="HomeRSS">
-		<control type="group">
-			<posx>0</posx>
-			<posy>406</posy>
-			<width>1300</width>
-			<height>57</height>
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] + !Skin.HasSetting(lowerrss) + !Control.HasFocus(945)</visible>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Animation_OpenCloseZoom</include>
-			<include>Animation_VisibleChange400</include>
-			<control type="image">
-				<posx>54</posx>
-				<posy>0</posy>
-				<width>1253</width>
-				<height>57</height>
-				<texture>common/rssbar_mid.png</texture>
-				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" start="0,1" end="0,1" time="0"/>
-					<effect type="zoom" start="125" end="125" time="0"/>
-				</animation>
-			</control>
-			<control type="rss" id="1">
-				<posx>110</posx>
-				<posy>5</posy>
-				<width>1170</width>
-				<font>Font_RSS</font>
-				<include>Colour_RSS</include>
-				<urlset>1</urlset>
-				<visible>!Skin.HasSetting(bighome)</visible>
-			</control>
-			<control type="rss" id="1">
-				<posx>110</posx>
-				<posy>3</posy>
-				<width>1170</width>
-				<font>Font_BigRSS</font>
-				<include>Colour_RSS</include>
-				<urlset>1</urlset>
-				<visible>Skin.HasSetting(bighome)</visible>
-			</control>
-			<control type="image">
-				<posx>77</posx>
-				<posy>0</posy>
-				<width>133</width>
-				<height>27</height>
-				<texture>common/rssbar_mid_fade.png</texture>
-				<colordiffuse>e3FFFFFF</colordiffuse>
-				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" start="0,1" end="0,1" time="0"/>
-					<effect type="zoom" start="125" end="125" time="0"/>
-				</animation>
-			</control>
-		</control>
-		<control type="group">
-			<posx>0</posx>
-			<posy>664</posy>
-			<width>1300</width>
-			<height>57</height>
-			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)]</visible>
-			<include>Animation_VisibleHiddenZoom</include>
-			<include>Animation_OpenCloseZoom</include>
-			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-				<effect type="slide" start="0,-181" end="0,-181" time="0"/>
-				<effect type="zoom" start="125" end="125" time="0"/>
-			</animation>
-			<control type="image">
-				<posx>54</posx>
-				<posy>0</posy>
-				<width>1253</width>
-				<height>57</height>
-				<texture flipy="true">common/rssbar_mid.png</texture>
-				<include>Animation_CommonFade</include>
-			</control>
-			<control type="rss" id="1">
-				<posx>110</posx>
-				<posy>34</posy>
-				<width>1300</width>
-				<visible>true</visible>
-				<font>Font_RSS</font>
-				<include>Colour_RSS</include>
-				<urlset>1</urlset>
-				<include>Animation_CommonFade</include>
-			</control>
-			<control type="image">
-				<posx>77</posx>
-				<posy>30</posy>
-				<width>133</width>
-				<height>27</height>
-				<texture flipy="true">common/rssbar_mid_fade.png</texture>
-				<include>Animation_CommonFade</include>
-			</control>
-		</control>
-	</include>
-		<!-- Library Totals -->
-	<include name="Library_Vars">
-		<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
-		<animation effect="slide" start="-600,0" end="0,0" delay="200" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
-		<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
-		<posx>0</posx>
-		<width>451</width>
-		<height>27</height>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>3</posy>
-			<width>440</width>
-			<font>Font_Time</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>!Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20342]: $INFO[Window.Property(Movies.Count)]   |   $LOCALIZE[16102]: $INFO[Window.Property(Movies.Watched)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Movies.UnWatched)]</label>
-			<visible>Container(300).HasFocus(6)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>-4</posy>
-			<width>520</width>
-			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
-			<font>Font_BigHome</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20342]: $INFO[Window.Property(Movies.Count)]   |   $LOCALIZE[16102]: $INFO[Window.Property(Movies.Watched)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Movies.UnWatched)]</label>
-			<visible>Container(300).HasFocus(6)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>5</posx>
-			<posy>3</posy>
-			<width>460</width>
-			<font>Font_Time</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>!Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20343]: $INFO[Window.Property(TVShows.Count)]   |   $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Count)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Episodes.UnWatched)]</label>
-			<visible>Container(300).HasFocus(7)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>-4</posy>
-			<width>520</width>
-			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
-			<font>Font_BigHome</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[20343]: $INFO[Window.Property(TVShows.Count)]   |   $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Count)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Episodes.UnWatched)]</label>
-			<visible>Container(300).HasFocus(7)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>3</posy>
-			<width>400</width>
-			<font>Font_Time</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>!Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[132]: $INFO[Window.Property(Music.AlbumsCount)]   |   $LOCALIZE[134]: $INFO[Window.Property(Music.SongsCount)]   |   $LOCALIZE[133]: $INFO[Window.Property(Music.ArtistsCount)]</label>
-			<visible>Container(300).HasFocus(1)</visible>
-		</control>
-		<control type="label" id="71">
-			<posx>10</posx>
-			<posy>-4</posy>
-			<width>480</width>
-			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
-			<font>Font_BigHome</font>
-			<include>Colour_WhiteAlpha80</include>
-			<visible>Skin.HasSetting(bighome)</visible>
-			<scroll>true</scroll>
-			<label>$LOCALIZE[132]: $INFO[Window.Property(Music.AlbumsCount)]   |   $LOCALIZE[134]: $INFO[Window.Property(Music.SongsCount)]   |   $LOCALIZE[133]: $INFO[Window.Property(Music.ArtistsCount)]</label>
-			<visible>Container(300).HasFocus(1)</visible>
-		</control>
-	</include>
-	<include name="Furniture_LibraryLow">
-		<control type="group">
-			<posy>316</posy>
-			<animation effect="slide" start="0,0" end="0,225" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<control type="image">
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>471</width>
-				<height>27</height>
-				<texture>common/librarypanel_mid.png</texture>
-				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" end="-120,-7" time="0"/>
-					<effect type="zoom" end="125" time="0"/>
-				</animation>
-			</control>
-			<include>Library_Vars</include>
-			<include>Animation_OpenCloseZoom</include>
-		</control>
-	</include>
-	<include name="Furniture_LibraryHigh">
-		<control type="group">
-			<posy>0</posy>
-			<control type="image">
-				<posx>-10</posx>
-				<posy>0</posy>
-				<width>491</width>
-				<height>27</height>
-				<texture flipy="true">common/librarypanel_mid.png</texture>
-				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
-					<effect type="slide" end="-140,0" time="0"/>
-					<effect type="zoom" end="125" time="0"/>
-				</animation>
-			</control>
-			<include>Library_Vars</include>
-			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
-				<effect type="zoom" start="180" end="100" center="640,360" time="2500" tween="cubic" easing="out"/>
-				<effect type="fade" start="0" end="100" time="2000"/>
-			</animation>
-			<animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
-				<effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out"/>
-				<effect type="fade" start="0" end="100" time="900"/>
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="300"/>
-				<effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in"/>
-			</animation>
-		</control>
-	</include>
+	<!--Submenu when pressed down on main menu-->
 	<include name="Submenu">
+	<!--End Menus-->
+	
 		<control type="group">
 			<posx>207</posx>
 			<posy>406</posy>
@@ -1874,6 +1550,225 @@
 			<texturenofocus>-</texturenofocus>
 			<onfocus>SetFocus(300)</onfocus>
 			<visible>![Skin.HasSetting(homelatest) + [Container(300).HasFocus(1) | Container(300).HasFocus(6) | Container(300).HasFocus(7)]]</visible>
+		</control>
+	</include>	
+	<include name="HomeRSS">
+		<control type="group">
+			<posx>0</posx>
+			<posy>406</posy>
+			<width>1300</width>
+			<height>57</height>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] + !Skin.HasSetting(lowerrss) + !Control.HasFocus(945)</visible>
+			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<include>Animation_OpenCloseZoom</include>
+			<include>Animation_VisibleChange400</include>
+			<control type="image">
+				<posx>54</posx>
+				<posy>0</posy>
+				<width>1253</width>
+				<height>57</height>
+				<texture>common/rssbar_mid.png</texture>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" start="0,1" end="0,1" time="0"/>
+					<effect type="zoom" start="125" end="125" time="0"/>
+				</animation>
+			</control>
+			<control type="rss" id="1">
+				<posx>110</posx>
+				<posy>5</posy>
+				<width>1170</width>
+				<font>Font_RSS</font>
+				<include>Colour_RSS</include>
+				<urlset>1</urlset>
+				<visible>!Skin.HasSetting(bighome)</visible>
+			</control>
+			<control type="rss" id="1">
+				<posx>110</posx>
+				<posy>3</posy>
+				<width>1170</width>
+				<font>Font_BigRSS</font>
+				<include>Colour_RSS</include>
+				<urlset>1</urlset>
+				<visible>Skin.HasSetting(bighome)</visible>
+			</control>
+			<control type="image">
+				<posx>77</posx>
+				<posy>0</posy>
+				<width>133</width>
+				<height>27</height>
+				<texture>common/rssbar_mid_fade.png</texture>
+				<colordiffuse>e3FFFFFF</colordiffuse>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" start="0,1" end="0,1" time="0"/>
+					<effect type="zoom" start="125" end="125" time="0"/>
+				</animation>
+			</control>
+		</control>
+		<control type="group">
+			<posx>0</posx>
+			<posy>664</posy>
+			<width>1300</width>
+			<height>57</height>
+			<visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)]</visible>
+			<include>Animation_VisibleHiddenZoom</include>
+			<include>Animation_OpenCloseZoom</include>
+			<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+				<effect type="slide" start="0,-181" end="0,-181" time="0"/>
+				<effect type="zoom" start="125" end="125" time="0"/>
+			</animation>
+			<control type="image">
+				<posx>54</posx>
+				<posy>0</posy>
+				<width>1253</width>
+				<height>57</height>
+				<texture flipy="true">common/rssbar_mid.png</texture>
+				<include>Animation_CommonFade</include>
+			</control>
+			<control type="rss" id="1">
+				<posx>110</posx>
+				<posy>34</posy>
+				<width>1300</width>
+				<visible>true</visible>
+				<font>Font_RSS</font>
+				<include>Colour_RSS</include>
+				<urlset>1</urlset>
+				<include>Animation_CommonFade</include>
+			</control>
+			<control type="image">
+				<posx>77</posx>
+				<posy>30</posy>
+				<width>133</width>
+				<height>27</height>
+				<texture flipy="true">common/rssbar_mid_fade.png</texture>
+				<include>Animation_CommonFade</include>
+			</control>
+		</control>
+	</include>
+	<!-- Library Totals -->
+	<include name="Library_Vars">
+		<visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+		<animation effect="slide" start="-600,0" end="0,0" delay="200" time="400" tween="cubic" easing="inout" condition="true">visible</animation>
+		<animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="inout" condition="true">hidden</animation>
+		<posx>0</posx>
+		<width>451</width>
+		<height>27</height>
+		<control type="label" id="71">
+			<posx>10</posx>
+			<posy>3</posy>
+			<width>440</width>
+			<font>Font_Time</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
+			<label>$LOCALIZE[20342]: $INFO[Window.Property(Movies.Count)]   |   $LOCALIZE[16102]: $INFO[Window.Property(Movies.Watched)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Movies.UnWatched)]</label>
+			<visible>Container(300).HasFocus(6)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>10</posx>
+			<posy>-4</posy>
+			<width>520</width>
+			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
+			<font>Font_BigHome</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
+			<label>$LOCALIZE[20342]: $INFO[Window.Property(Movies.Count)]   |   $LOCALIZE[16102]: $INFO[Window.Property(Movies.Watched)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Movies.UnWatched)]</label>
+			<visible>Container(300).HasFocus(6)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>5</posx>
+			<posy>3</posy>
+			<width>460</width>
+			<font>Font_Time</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
+			<label>$LOCALIZE[20343]: $INFO[Window.Property(TVShows.Count)]   |   $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Count)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Episodes.UnWatched)]</label>
+			<visible>Container(300).HasFocus(7)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>10</posx>
+			<posy>-4</posy>
+			<width>520</width>
+			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
+			<font>Font_BigHome</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
+			<label>$LOCALIZE[20343]: $INFO[Window.Property(TVShows.Count)]   |   $LOCALIZE[20360]: $INFO[Window.Property(Episodes.Count)]   |   $LOCALIZE[16101]: $INFO[Window.Property(Episodes.UnWatched)]</label>
+			<visible>Container(300).HasFocus(7)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>10</posx>
+			<posy>3</posy>
+			<width>400</width>
+			<font>Font_Time</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>!Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
+			<label>$LOCALIZE[132]: $INFO[Window.Property(Music.AlbumsCount)]   |   $LOCALIZE[134]: $INFO[Window.Property(Music.SongsCount)]   |   $LOCALIZE[133]: $INFO[Window.Property(Music.ArtistsCount)]</label>
+			<visible>Container(300).HasFocus(1)</visible>
+		</control>
+		<control type="label" id="71">
+			<posx>10</posx>
+			<posy>-4</posy>
+			<width>480</width>
+			<animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertime)">Conditional</animation>
+			<font>Font_BigHome</font>
+			<include>Colour_WhiteAlpha80</include>
+			<visible>Skin.HasSetting(bighome)</visible>
+			<scroll>true</scroll>
+			<label>$LOCALIZE[132]: $INFO[Window.Property(Music.AlbumsCount)]   |   $LOCALIZE[134]: $INFO[Window.Property(Music.SongsCount)]   |   $LOCALIZE[133]: $INFO[Window.Property(Music.ArtistsCount)]</label>
+			<visible>Container(300).HasFocus(1)</visible>
+		</control>
+	</include>
+	<include name="Furniture_LibraryLow">
+		<control type="group">
+			<posy>316</posy>
+			<animation effect="slide" start="0,0" end="0,225" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>471</width>
+				<height>27</height>
+				<texture>common/librarypanel_mid.png</texture>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" end="-120,-7" time="0"/>
+					<effect type="zoom" end="125" time="0"/>
+				</animation>
+			</control>
+			<include>Library_Vars</include>
+			<include>Animation_OpenCloseZoom</include>
+		</control>
+	</include>
+	<include name="Furniture_LibraryHigh">
+	<!--Submenu when pressed down-->
+		<control type="group">
+			<posy>0</posy>
+			<control type="image">
+				<posx>-10</posx>
+				<posy>0</posy>
+				<width>491</width>
+				<height>27</height>
+				<texture flipy="true">common/librarypanel_mid.png</texture>
+				<animation type="Conditional" condition="Skin.HasSetting(bighome)">
+					<effect type="slide" end="-140,0" time="0"/>
+					<effect type="zoom" end="125" time="0"/>
+				</animation>
+			</control>
+			<include>Library_Vars</include>
+			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
+				<effect type="zoom" start="180" end="100" center="640,360" time="2500" tween="cubic" easing="out"/>
+				<effect type="fade" start="0" end="100" time="2000"/>
+			</animation>
+			<animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+				<effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out"/>
+				<effect type="fade" start="0" end="100" time="900"/>
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="300"/>
+				<effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in"/>
+			</animation>
 		</control>
 	</include>
 </includes>
