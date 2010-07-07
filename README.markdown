@@ -6,7 +6,7 @@ Using git
 
 - Get the repository
 
-    git clone git://github.com/pix/aeon.git
+    git clone -b pix65 git://github.com/pix/aeon.git
 
 - Update the repository
 
