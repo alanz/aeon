@@ -1,133 +1,140 @@
+<?xml version="1.0"?>
 <window id="0">
-	<defaultcontrol always="true">5043</defaultcontrol>
-	<allowoverlay>yes</allowoverlay>
-	<controls>
-		<control type="button" id="5043">
-			<description>visible at startup</description>
-			<posx>-20</posx>
-			<posy>-20</posy>
-			<width>1</width>
-			<height>1</height>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<onfocus>Skin.SetBool(Startup)</onfocus>
-			<onfocus>RunScript(script.recentlyadded,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
-			<onfocus>SetFocus(300,7)</onfocus>
-			<visible>!Skin.HasSetting(Startup)</visible>
-		</control>
-		<control type="button" id="5043">
-			<description>visible after library update has finished</description>
-			<posx>-20</posx>
-			<posy>-20</posy>
-			<width>1</width>
-			<height>1</height>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<onfocus>Skin.Reset(LibraryUpdated)</onfocus>
-			<onfocus>RunScript(script.recentlyadded,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
-			<onfocus>SetFocus(300,7)</onfocus>
-			<visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
-		</control>
-		<control type="button" id="5043">
-			<description>visible in all other cases</description>
-			<posx>-20</posx>
-			<posy>-20</posy>
-			<width>1</width>
-			<height>1</height>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
-			<onfocus>SetFocus(300,7)</onfocus>
-			<visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
-		</control>
-		<control type="label">
-			<description>Force Weather update on load</description>
-			<posx>0</posx>
-			<posy>-100</posy>
-			<label>$INFO[Weather.Conditions]</label>
-			<font>-</font>
-			<onfocus>Skin.SetBool(Startup2)</onfocus>
-			<visible>Skin.HasSetting(Startup2)</visible>
-		</control>
-		<control type="image" id="87">
-			<texture>-</texture>
-			<visible>Container(300).OnNext | Container(300).OnPrevious</visible>
-			<animation effect="fade" time="200">Hidden</animation>
-		</control>
-		<control type="multiimage">
-			<include>BackgroundVarsGlobal</include>
-			<imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath>
-		</control>
-		<control type="largeimage">
-			<include>BackgroundVarsGlobal</include>
-			<texture background="true">$INFO[Container(510).ListItem.ActualIcon]</texture>
-			<visible>control.HasFocus(510) + Container(300).HasFocus(6)</visible>
-		</control>
-		<control type="image"><!--Audio unten-->
-			<visible>Player.HasAudio + !Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Container(300).HasFocus(10)]]]</visible>
-			<posx>0</posx>
-			<posy>360</posy>
-			<width>1280</width>
-			<height>390</height>
-			<texture>home/nowplaying_shadow.png</texture>
-			<animation effect="slide" start="0,390" end="0,0" time="300">Visible</animation>
-			<animation effect="slide" start="0,0" end="0,390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseBackgroundShade</include>
-		</control>
-		<control type="image"><!--Audio unten lowermainmenu-->
-			<visible>Player.HasAudio + Skin.HasSetting(lowermainmenu) + !Control.HasFocus(510)</visible>
-			<posx>0</posx>
-			<posy>180</posy>
-			<width>1280</width>
-			<height>390</height>
-			<texture>home/nowplaying_shadow.png</texture>
-			<include>Animation_VisibleChange400</include>
-			<include>Animation_OpenCloseBackgroundShade</include>
-		</control>
-		<control type="image"><!--Audio oben-->
-			<visible>Player.HasAudio + !Container(300).HasFocus(10) + [[!Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)]]] | [Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)]]</visible>
-			<posx>0</posx>
-			<posy>-4</posy>
-			<width>1280</width>
-			<height>410</height>
-			<texture flipy="true">home/nowplaying_shadow.png</texture>
-			<animation effect="slide" start="0,-390" end="0,0" time="300">Visible</animation>
-			<animation effect="slide" start="0,0" end="0,-390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseBackgroundShade</include>
-		</control>
-		<control type="image"><!--RecentlyAdded oben-->
-			<visible>!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>			
-			<posx>0</posx>
-			<posy>-4</posy>
-			<width>1280</width>
-			<height>410</height>
-			<texture flipy="true">home/nowplaying_shadow.png</texture>
-			<animation effect="slide" start="0,-390" end="0,0" time="300">Visible</animation>
-			<animation effect="slide" start="0,0" end="0,-390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseBackgroundShade</include>
-		</control>
-		<control type="image"><!--RecentlyAdded unten-->
-			<visible>!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>
-			<posx>0</posx>
-			<posy>360</posy>
-			<width>1280</width>
-			<height>390</height>
-			<texture>home/nowplaying_shadow.png</texture>
-			<animation effect="slide" start="0,390" end="0,0" time="300">Visible</animation>
-			<animation effect="slide" start="0,0" end="0,390" time="500">Hidden</animation>
-			<include>Animation_OpenCloseBackgroundShade</include>
-		</control>
-		<control type="image"><!--RecentlyAdded unten lowermainmenu-->
-			<visible>Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)</visible>
-			<posx>0</posx>
-			<posy>180</posy>
-			<width>1280</width>
-			<height>390</height>
-			<texture>home/nowplaying_shadow.png</texture>
-			<include>Animation_VisibleChange400</include>
-			<include>Animation_OpenCloseBackgroundShade</include>
-		</control>
-	<!--	<control type="image">
+  <defaultcontrol always="true">5043</defaultcontrol>
+  <allowoverlay>yes</allowoverlay>
+  <controls>
+    <control type="button" id="5043">
+      <description>visible at startup</description>
+      <posx>-20</posx>
+      <posy>-20</posy>
+      <width>1</width>
+      <height>1</height>
+      <texturenofocus>-</texturenofocus>
+      <texturefocus>-</texturefocus>
+      <onfocus>Skin.SetBool(Startup)</onfocus>
+      <onfocus>RunScript(script.recentlyadded,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
+      <onfocus>SetFocus(300,7)</onfocus>
+      <visible>!Skin.HasSetting(Startup)</visible>
+    </control>
+    <control type="button" id="5043">
+      <description>visible after library update has finished</description>
+      <posx>-20</posx>
+      <posy>-20</posy>
+      <width>1</width>
+      <height>1</height>
+      <texturenofocus>-</texturenofocus>
+      <texturefocus>-</texturefocus>
+      <onfocus>Skin.Reset(LibraryUpdated)</onfocus>
+      <onfocus>RunScript(script.recentlyadded,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
+      <onfocus>SetFocus(300,7)</onfocus>
+      <visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
+    </control>
+    <control type="button" id="5043">
+      <description>visible in all other cases</description>
+      <posx>-20</posx>
+      <posy>-20</posy>
+      <width>1</width>
+      <height>1</height>
+      <texturenofocus>-</texturenofocus>
+      <texturefocus>-</texturefocus>
+      <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
+      <onfocus>SetFocus(300,7)</onfocus>
+      <visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
+    </control>
+    <control type="label">
+      <description>Force Weather update on load</description>
+      <posx>0</posx>
+      <posy>-100</posy>
+      <label>$INFO[Weather.Conditions]</label>
+      <font>-</font>
+      <onfocus>Skin.SetBool(Startup2)</onfocus>
+      <visible>Skin.HasSetting(Startup2)</visible>
+    </control>
+    <control type="image" id="87">
+      <texture>-</texture>
+      <visible>Container(300).OnNext | Container(300).OnPrevious</visible>
+      <animation effect="fade" time="200">Hidden</animation>
+    </control>
+    <control type="multiimage">
+      <include>BackgroundVarsGlobal</include>
+      <imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath>
+    </control>
+    <control type="largeimage">
+      <include>BackgroundVarsGlobal</include>
+      <texture background="true">$INFO[Container(510).ListItem.ActualIcon]</texture>
+      <visible>control.HasFocus(510) + Container(300).HasFocus(6)</visible>
+    </control>
+    <control type="image">
+      <!--Audio unten-->
+      <visible>Player.HasAudio + !Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Container(300).HasFocus(10)]]]</visible>
+      <posx>0</posx>
+      <posy>360</posy>
+      <width>1280</width>
+      <height>390</height>
+      <texture>home/nowplaying_shadow.png</texture>
+      <animation effect="slide" start="0,390" end="0,0" time="300">Visible</animation>
+      <animation effect="slide" start="0,0" end="0,390" time="500">Hidden</animation>
+      <include>Animation_OpenCloseBackgroundShade</include>
+    </control>
+    <control type="image">
+      <!--Audio unten lowermainmenu-->
+      <visible>Player.HasAudio + Skin.HasSetting(lowermainmenu) + !Control.HasFocus(510)</visible>
+      <posx>0</posx>
+      <posy>180</posy>
+      <width>1280</width>
+      <height>390</height>
+      <texture>home/nowplaying_shadow.png</texture>
+      <include>Animation_VisibleChange400</include>
+      <include>Animation_OpenCloseBackgroundShade</include>
+    </control>
+    <control type="image">
+      <!--Audio oben-->
+      <visible>Player.HasAudio + !Container(300).HasFocus(10) + [[!Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)]]] | [Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)]]</visible>
+      <posx>0</posx>
+      <posy>-4</posy>
+      <width>1280</width>
+      <height>410</height>
+      <texture flipy="true">home/nowplaying_shadow.png</texture>
+      <animation effect="slide" start="0,-390" end="0,0" time="300">Visible</animation>
+      <animation effect="slide" start="0,0" end="0,-390" time="500">Hidden</animation>
+      <include>Animation_OpenCloseBackgroundShade</include>
+    </control>
+    <control type="image">
+      <!--RecentlyAdded oben-->
+      <visible>!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>
+      <posx>0</posx>
+      <posy>-4</posy>
+      <width>1280</width>
+      <height>410</height>
+      <texture flipy="true">home/nowplaying_shadow.png</texture>
+      <animation effect="slide" start="0,-390" end="0,0" time="300">Visible</animation>
+      <animation effect="slide" start="0,0" end="0,-390" time="500">Hidden</animation>
+      <include>Animation_OpenCloseBackgroundShade</include>
+    </control>
+    <control type="image">
+      <!--RecentlyAdded unten-->
+      <visible>!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>
+      <posx>0</posx>
+      <posy>360</posy>
+      <width>1280</width>
+      <height>390</height>
+      <texture>home/nowplaying_shadow.png</texture>
+      <animation effect="slide" start="0,390" end="0,0" time="300">Visible</animation>
+      <animation effect="slide" start="0,0" end="0,390" time="500">Hidden</animation>
+      <include>Animation_OpenCloseBackgroundShade</include>
+    </control>
+    <control type="image">
+      <!--RecentlyAdded unten lowermainmenu-->
+      <visible>Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)</visible>
+      <posx>0</posx>
+      <posy>180</posy>
+      <width>1280</width>
+      <height>390</height>
+      <texture>home/nowplaying_shadow.png</texture>
+      <include>Animation_VisibleChange400</include>
+      <include>Animation_OpenCloseBackgroundShade</include>
+    </control>
+    <!--	<control type="image">
 			<visible>[[Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)] + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Skin.HasSetting(autolatestadded)] | [Control.HasFocus(510) + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(autolatestadded)]</visible>
 			<posx>0</posx>
 			<posy>260</posy>
@@ -138,96 +145,95 @@
 			<animation effect="slide" start="0,0" end="0,-400" time="1" condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
 		</control>-->
-		<include condition="!StringCompare(Weather.Plugin,weather.com plus)">Objects_WeatherPopup</include>
-		<include condition="StringCompare(Weather.Plugin,weather.com plus)">Widget_Weather</include>
-		<include>Furniture_HomeNowPlaying</include>
-		<include condition="Skin.HasSetting(homelatest)">latest_added</include>
-		<include>Furniture_Time</include>
-		<include condition="!Skin.HasSetting(TotalsOff) + !Skin.HasSetting(highertime)">Furniture_LibraryLow</include>
-		<include condition="!Skin.HasSetting(TotalsOff) + Skin.HasSetting(highertime)">Furniture_LibraryHigh</include>
-		<include>HomeRSS</include>
-		<include>Submenu</include>
-		<control type="group">
-			<visible>![Player.HasMedia + System.IdleTime(8) + Skin.HasSetting(homeprogress)]</visible>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1280</width>
-			<height>720</height>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>Animation_OpenCloseZoom</include>
-			<include>Animation_CommonFade2</include>
-			<control type="image">
-				<posx>0</posx>
-				<posy>302</posy>
-				<width>1280</width>
-				<height>150</height>
-				<texture>home/homemenu_back.png</texture>
-				<include>Animation_CommonFade2</include>
-			</control>
-			<control type="group">
-				<posx>0</posx>
-				<posy>343</posy>
-				<width>1280</width>
-				<height>61</height>
-				<defaultcontrol>300</defaultcontrol>
-				<include>MainMenu</include>
-				<include>Animation_CommonFade2</include>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>302</posy>
-				<width>1280</width>
-				<height>150</height>
-				<texture>home/homemenu_gradient.png</texture>
-				<include>Animation_CommonFade2</include>
-				<visible>!Skin.HasSetting(nohomegradient)</visible>
-				<colordiffuse>d0FFFFFF</colordiffuse>
-			</control>
-		</control>		
-		<control type="group">
-			<visible>Player.HasMedia + System.IdleTime(8) + Skin.HasSetting(homeprogress)</visible>
-			<include>Animation_OpenCloseZoom</include>
-			<posx>0</posx>
-			<posy>40</posy>
-			<width>1280</width>
-			<height>720</height>
-			<animation effect="fade"  start="0" end="100" time="750" condition="Player.HasAudio + System.IdleTime(8)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<control type="progress">
-				<description>Progressbar</description>
-				<posx>0</posx>
-				<posy>302</posy>
-				<width>1280</width>
-				<height>65</height>
-				<info>Player.Progress</info>
-				<texturebg>osd/osd_progress_clear.png</texturebg>
-				<lefttexture>-</lefttexture>
-				<midtexture>osd/osd_progressmid.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>302</posy>
-				<width>1280</width>
-				<height>65</height>
-				<texture>osd/fullscreen_bottom.png</texture>
-			</control>
-			<control type="label">
-				<posx>0</posx>
-				<posy>304</posy>
-				<width>1280</width>
-				<height>61</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font_MainMenu</font>
-				<textcolor>48FFFFFF</textcolor>
-				<label>$INFO[VideoPlayer.Time]   /   $INFO[VideoPlayer.Duration]</label>
-				<animation effect="fade"  start="0" end="100" time="1050" condition="Player.HasAudio + System.IdleTime(8)">Conditional</animation>
-			</control>
-		</control>
-		
-		<include>Background_ContextBlack</include>
-		<include>Furniture_Debug</include>
-	</controls>
+    <include condition="!StringCompare(Weather.Plugin,weather.com plus)">Objects_WeatherPopup</include>
+    <include condition="StringCompare(Weather.Plugin,weather.com plus)">Widget_Weather</include>
+    <include>Furniture_HomeNowPlaying</include>
+    <include condition="Skin.HasSetting(homelatest)">latest_added</include>
+    <include>Furniture_Time</include>
+    <include condition="!Skin.HasSetting(TotalsOff) + !Skin.HasSetting(highertime)">Furniture_LibraryLow</include>
+    <include condition="!Skin.HasSetting(TotalsOff) + Skin.HasSetting(highertime)">Furniture_LibraryHigh</include>
+    <include>HomeRSS</include>
+    <include>Submenu</include>
+    <control type="group">
+      <visible>![Player.HasMedia + System.IdleTime(8) + Skin.HasSetting(homeprogress)]</visible>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1280</width>
+      <height>720</height>
+      <animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+      <include>Animation_OpenCloseZoom</include>
+      <include>Animation_CommonFade2</include>
+      <control type="image">
+        <posx>0</posx>
+        <posy>302</posy>
+        <width>1280</width>
+        <height>150</height>
+        <texture>home/homemenu_back.png</texture>
+        <include>Animation_CommonFade2</include>
+      </control>
+      <control type="group">
+        <posx>0</posx>
+        <posy>343</posy>
+        <width>1280</width>
+        <height>61</height>
+        <defaultcontrol>300</defaultcontrol>
+        <include>MainMenu</include>
+        <include>Animation_CommonFade2</include>
+      </control>
+      <control type="image">
+        <posx>0</posx>
+        <posy>302</posy>
+        <width>1280</width>
+        <height>150</height>
+        <texture>home/homemenu_gradient.png</texture>
+        <include>Animation_CommonFade2</include>
+        <visible>!Skin.HasSetting(nohomegradient)</visible>
+        <colordiffuse>d0FFFFFF</colordiffuse>
+      </control>
+    </control>
+    <control type="group">
+      <visible>Player.HasMedia + System.IdleTime(8) + Skin.HasSetting(homeprogress)</visible>
+      <include>Animation_OpenCloseZoom</include>
+      <posx>0</posx>
+      <posy>40</posy>
+      <width>1280</width>
+      <height>720</height>
+      <animation effect="fade" start="0" end="100" time="750" condition="Player.HasAudio + System.IdleTime(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+      <control type="progress">
+        <description>Progressbar</description>
+        <posx>0</posx>
+        <posy>302</posy>
+        <width>1280</width>
+        <height>65</height>
+        <info>Player.Progress</info>
+        <texturebg>osd/osd_progress_clear.png</texturebg>
+        <lefttexture>-</lefttexture>
+        <midtexture>osd/osd_progressmid.png</midtexture>
+        <righttexture>-</righttexture>
+        <overlaytexture>-</overlaytexture>
+      </control>
+      <control type="image">
+        <posx>0</posx>
+        <posy>302</posy>
+        <width>1280</width>
+        <height>65</height>
+        <texture>osd/fullscreen_bottom.png</texture>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>304</posy>
+        <width>1280</width>
+        <height>61</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>Font_MainMenu</font>
+        <textcolor>48FFFFFF</textcolor>
+        <label>$INFO[VideoPlayer.Time]   /   $INFO[VideoPlayer.Duration]</label>
+        <animation effect="fade" start="0" end="100" time="1050" condition="Player.HasAudio + System.IdleTime(8)">Conditional</animation>
+      </control>
+    </control>
+    <include>Background_ContextBlack</include>
+    <include>Furniture_Debug</include>
+  </controls>
 </window>

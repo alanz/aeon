@@ -1,1327 +1,1357 @@
+<?xml version="1.0"?>
 <includes>
-	<include name="WallIconMovieDimensionsDVD">
-		<posx>1</posx>
-		<posy>3</posy>
-		<width>122</width>
-		<height>180</height>
-	</include>
-	<include name="WallIconMovieDimensionsDVDSmall">
-		<posx>2</posx>
-		<posy>3</posy>
-		<width>99</width>
-		<height>145</height>
-	</include>
-	<!-- Animations -->
-	<!-- Normal -->
-	<include name="WallIconZoomAnimation">
-		<animation effect="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</include>
-	<include name="WallIconZoomAnimationSmall">
-		<animation effect="zoom" center="51,132" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</include>
-	<include name="WallIconZoomAnimationMax">
-		<animation effect="zoom" center="46,90" start="100" end="172" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</include>
-	<include name="WallIconZoomAnimationBorder1">
-		<animation type="Focus" reversible="false">
-			<!--<effect type="fade" start="100" end="0" time="200" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-			<effect type="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
-		</animation>
-	</include>
-	<include name="WallIconZoomAnimationBorder2">
-		<animation type="Focus" reversible="false">
-			<!--<effect type="fade" start="0" end="100" time="400" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-			<effect type="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
-		</animation>
-	</include>
-	<include name="WallIconZoomAnimationBorder1Small">
-		<animation type="Focus" reversible="false">
-			<!--<effect type="fade" start="100" end="0" time="200" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-			<effect type="zoom" center="51,132" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
-		</animation>
-	</include>
-	<include name="WallIconZoomAnimationBorder2Small">
-		<animation type="Focus" reversible="false">
-			<!--<effect type="fade" start="0" end="100" time="400" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-			<effect type="zoom" center="51,132" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
-		</animation>
-	</include>
-	<include name="WallIconZoomAnimationBorder1Max">
-		<animation type="Focus" reversible="false">
-			<!--<effect type="fade" start="100" end="0" time="200" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-			<effect type="zoom" center="46,90" start="100" end="172" time="400" easing="out" tween="cubic" reversible="false" />
-		</animation>
-	</include>
-	<include name="WallIconZoomAnimationBorder2Max">
-		<animation type="Focus" reversible="false">
-			<!--<effect type="fade" start="0" end="100" time="400" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-			<effect type="zoom" center="46,90" start="100" end="172" time="400" easing="out" tween="cubic" reversible="false" />
-		</animation>
-	</include>
-	<!-- DVD -->
-	<include name="WallIconZoomAnimationDVD">
-		<animation effect="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</include>
-	<include name="WallIconZoomAnimationDVDSmall">
-		<animation effect="zoom" center="51,132" start="100" end="168" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</include>
-	<include name="WallIconZoomAnimationDVDMax">
-		<animation effect="zoom" center="46,90" start="100" end="180" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-	</include>
-		<!-- Border -->
-	<include name="WallIconMovieBorderSmall">
-		<bordertexture border="-4">wall/wall_movie_nfborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorderMax">
-		<bordertexture border="-2">wall/wall_movie_nfborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorder">
-		<bordertexture border="-5">wall/wall_movie_nfborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorderFocus">
-		<bordertexture border="-3">wall/wall_movie_nfborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorderFocusSmall">
-		<bordertexture border="-5">wall/wall_movie_nfborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorderFocusMax">
-		<bordertexture border="-3">wall/wall_movie_nfborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorderFocus2">
-		<bordertexture border="-12">wall/wall_movie_fborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorderFocus2Small">
-		<bordertexture border="-9">wall/wall_movie_fborder.png</bordertexture>
-	</include>
-	<include name="WallIconMovieBorderFocus2Max">
-		<bordertexture border="-7">wall/wall_movie_fborder.png</bordertexture>
-	</include>
-	<!-- Movie Normal -->
-	<include name="WallIconNormal">
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
-			<texture diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
-			<texture background="true" diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<info>ListItem.Icon</info>
-			<fadetime>500</fadetime>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieBorder</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieBorderSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieBorderMax</include>
-			<texture>wall/wall_nfoverlay.png</texture>
-		</control>
-	</include>
-	<include name="WallIconNormalFocus"><!--########################################################-->
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
-			<texture diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimation</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationMax</include>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
-			<texture background="true" diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<info>ListItem.Icon</info>
-			<fadetime>500</fadetime>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimation</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationMax</include>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocus</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieBorderFocusSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocusMax</include>
-			<texture>wall/wall_movie_nfoverlay.png</texture>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder1</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationBorder1Small</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder1Max</include>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocus2</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieBorderFocus2Small</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocus2Max</include>
-			<texture>common/blank.png</texture>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder2</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationBorder2Small</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder2Max</include>
-		</control>
-	</include>
-	<!-- Movie DVD --><!--########################################################-->
-	<include name="WallIconDVD">
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture>wall/boxes/wall_movie_nfborder.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture background="true" diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<info>ListItem.Icon</info>
-			<fadetime>500</fadetime>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture>wall/boxes/wall_nfoverlay.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-		</control>
-	</include>
-	<include name="WallIconDVDFocus"><!--########################################################-->
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture>wall/boxes/wall_movie_nfborder.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture background="true" diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<info>ListItem.Icon</info>
-			<fadetime>500</fadetime>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
-		</control>
-		<control type="image">
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
-			<texture>wall/boxes/wall_nfoverlay.png</texture>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
-		</control>
-	</include>
-	<include name="WallInfoPaneTopLeft">
-		<posy>-10</posy>
-		<width>442</width>
-		<height>442</height>
-		<texture>wall/info_pane_topleft_title.png</texture>
-	</include>
-	<include name="WallInfoPaneMidLeft">
-		<posy>-10</posy>
-		<width>442</width>
-		<height>442</height>
-		<texture>wall/info_pane_midleft_title.png</texture>
-	</include>
-	<include name="WallInfoPaneBottomLeft">
-		<posy>-10</posy>
-		<width>442</width>
-		<height>442</height>
-		<texture>wall/info_pane_bottomleft_title.png</texture>
-	</include>
-	<include name="WallInfoPaneTopRight">
-		<posy>-10</posy>
-		<width>442</width>
-		<height>442</height>
-		<texture>wall/info_pane_topright_title.png</texture>
-	</include>
-	<include name="WallInfoPaneMidRight">
-		<posy>-10</posy>
-		<width>442</width>
-		<height>442</height>
-		<texture>wall/info_pane_midright_title.png</texture>
-	</include>
-	<include name="WallInfoPaneBottomRight">
-		<posy>-10</posy>
-		<width>442</width>
-		<height>442</height>
-		<texture>wall/info_pane_bottomright_title.png</texture>
-	</include>
-	<include name="WallInfoLabel">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>187</width>
-		<height>13</height>
-		<font>Font_WallInfoLabel</font>
-		<textcolor>abFFFFFF</textcolor>
-	</include>
-	<include name="WallInfoPaneMoviesBig">
-		<control type="group"><!-- TopRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>240</posx>
-			<posy>144</posy>
-			<animation effect="slide" start="0,0" end="122,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="367,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)] + Container(53).Row(0)</visible>
-			<control type="image">
-				<posx>-9</posx>
-				<include>WallInfoPaneTopRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- MidRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>240</posx>
-			<posy>144</posy>
-			<animation effect="slide" start="0,0" end="122,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="367,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)] + Container(53).Row(1)</visible>
-			<control type="image">
-				<posx>-9</posx>
-				<include>WallInfoPaneMidRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- BottomRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>240</posx>
-			<posy>144</posy>
-			<animation effect="slide" start="0,0" end="122,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="367,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)] + Container(53).Row(2)</visible>
-			<control type="image">
-				<posx>-9</posx>
-				<include>WallInfoPaneBottomRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- TopLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>113</posx>
-			<posy>144</posy>
-			<animation effect="slide" start="0,0" end="123,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="368,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="491,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)] + Container(53).Row(0)</visible>
-			<control type="image">				
-				<include>WallInfoPaneTopLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- MidLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>113</posx>
-			<posy>144</posy>
-			<animation effect="slide" start="0,0" end="123,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="368,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="491,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)] + Container(53).Row(1)</visible>
-			<control type="image">				
-				<include>WallInfoPaneMidLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- BottomLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>113</posx>
-			<posy>144</posy>
-			<animation effect="slide" start="0,0" end="123,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="368,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="491,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)] + Container(53).Row(2)</visible>
-			<control type="image">				
-				<include>WallInfoPaneBottomLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-	</include>
-	<include name="WallInfoPaneMoviesSmall">
-		<control type="group"><!-- TopRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>211</posx>
-			<posy>104</posy>
-			<animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)] + Container(53).Row(0)</visible>
-			<control type="image">
-				<posx>-9</posx>				
-				<include>WallInfoPaneTopRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- MidRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>211</posx>
-			<posy>71</posy>
-			<animation effect="slide" start="0,0" end="0,145" time="0" condition="Container(53).Row(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)] + [Container(53).Row(1) | Container(53).Row(2)]"</visible>
-			<control type="image">
-				<posx>-9</posx>
-				<include>WallInfoPaneMidRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- BottomRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>211</posx>
-			<posy>185</posy>
-			<animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)] + Container(53).Row(3)</visible>
-			<control type="image">
-				<posx>-9</posx>
-				<include>WallInfoPaneBottomRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- TopLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>130</posx>
-			<posy>104</posy>
-			<animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
-			<visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)] + Container(53).Row(0)</visible>
-			<control type="image">
-				<include>WallInfoPaneTopLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- MidLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>130</posx>
-			<posy>71</posy>
-			<animation effect="slide" start="0,0" end="0,145" time="0" condition="Container(53).Row(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
-			<visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)] + [Container(53).Row(1) | Container(53).Row(2)]</visible>
-			<control type="image">
-				<include>WallInfoPaneMidLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- BottomLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>130</posx>
-			<posy>185</posy>
-			<animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
-			<visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)] + Container(53).Row(3)</visible>
-			<control type="image">
-				<include>WallInfoPaneBottomLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-	</include>
-	<include name="WallInfoPaneMoviesMax">
-		<control type="group"><!-- TopRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>171</posx>
-			<posy>104</posy>
-			<animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)] + Container(53).Row(0)</visible>
-			<control type="image">
-				<posx>-9</posx>				
-				<include>WallInfoPaneTopRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- MidRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>171</posx>
-			<posy>31</posy>
-			<animation effect="slide" start="0,0" end="0,100" time="0" condition="Container(53).Row(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,200" time="0" condition="Container(53).Row(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)] + [Container(53).Row(1) | Container(53).Row(2) | Container(53).Row(3)]"</visible>
-			<control type="image">
-				<posx>-9</posx>
-				<include>WallInfoPaneMidRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- BottomRight -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>171</posx>
-			<posy>185</posy>
-			<animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
-			<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)] + Container(53).Row(4)</visible>
-			<control type="image">
-				<posx>-9</posx>
-				<include>WallInfoPaneBottomRight</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- TopLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>184</posx>
-			<posy>104</posy>
-			<animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(11)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(12)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(13)">Conditional</animation>
-			<visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)] + Container(53).Row(0)</visible>
-			<control type="image">
-				<include>WallInfoPaneTopLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- MidLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>184</posx>
-			<posy>31</posy>
-			<animation effect="slide" start="0,0" end="0,100" time="0" condition="Container(53).Row(2)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,200" time="0" condition="Container(53).Row(3)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(11)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(12)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(13)">Conditional</animation>
-			<visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)] + [Container(53).Row(1) | Container(53).Row(2)| Container(53).Row(3)]</visible>
-			<control type="image">
-				<include>WallInfoPaneMidLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-		<control type="group"><!-- BottomLeft -->
-			<include>WallInfoPaneMoviesVars</include>
-			<posx>184</posx>
-			<posy>185</posy>
-			<animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(11)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(12)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(13)">Conditional</animation>
-			<visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)] + Container(53).Row(4)</visible>
-			<control type="image">
-				<include>WallInfoPaneBottomLeft</include>
-			</control>
-			<include>WallInfoPaneMovieInfo</include>
-		</control>
-	</include>
-	<include name="WallInfoOpenAnimationOn">
-		<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-		<animation type="Visible" reversible="false">
-			<effect type="fade" start="0" end="100" time="400" delay="200"/>
-		</animation>
-	</include>
-	<include name="WallInfoOpenAnimationAuto">
-		<animation type="WindowOpen" reversible="false">
-			<effect type="fade" start="0" end="100" time="400" delay="3085" />
-			<effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2" />
-		</animation>
-		<animation type="Visible" reversible="false">
-			<effect type="fade" start="0" end="100" time="400" delay="3085" />
-			<effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2" />
-		</animation>
-	</include>
-	<include name="WallInfoPaneMoviesVars">
-		<width>442</width>
-		<height>432</height>
-		<include condition="Skin.HasSetting(wallinfoauto)">WallInfoOpenAnimationAuto</include>
-		<include condition="Skin.HasSetting(wallinfoon)">WallInfoOpenAnimationOn</include>
-		<animation effect="fade" end="0" time="200">WindowClose</animation>
-		<visible>Container.Content(movies) + Control.IsVisible(53) + Control.HasFocus(53) + [Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + !Container.OnPrevious + !Container.OnNext</visible>
-	</include>
-	<include name="WallInfoValue">
-		<posx>0</posx>
-		<posy>14</posy>
-		<width>187</width>
-		<height>13</height>
-		<font>Font_WallInfoValue</font>
-		<textcolor>FFFFFFFF</textcolor>
-	</include>
-	<include name="WallInfoPanelMovieInfoTitle">
-		<control type="group">
-			<control type="label">
-				<posx>0</posx>
-				<posy>-25</posy>
-				<width>394</width>
-				<height>17</height>
-				<align>center</align>
-				<font>Font_WallTitleMod</font>
-				<textcolor>cdFFFFFF</textcolor>
-				<label>$INFO[Container(53).ListItem.Title]</label>
-			</control>
-		</control>
-	</include>
-	<include name="WallInfoPaneMovieInfo">
-		<control type="group">
-			<posx>19</posx>
-			<posy>25</posy>
-			<include>WallInfoPanelMovieInfoTitle</include>
-			<control type="group">
-				<control type="label">
-					<include>WallInfoLabel</include>
-					<label>$LOCALIZE[31402]:</label>
-				</control>
-				<control type="label">
-					<include>WallInfoValue</include>
-					<label fallback="31425">$INFO[Container(53).ListItem.Director]</label>
-				</control>
-			</control>
-			<control type="group">
-				<posy>38</posy>
-				<control type="label">
-					<include>WallInfoLabel</include>
-					<label>$LOCALIZE[31401]:</label>
-				</control>
-				<control type="label">
-					<include>WallInfoValue</include>
-					<label fallback="31425">$INFO[Container(53).ListItem.Writer]</label>
-				</control>
-			</control>
-			<control type="group">
-				<posy>76</posy>
-				<control type="label">
-					<include>WallInfoLabel</include>
-					<label>$LOCALIZE[31436]:</label>
-				</control>
-				<control type="label">
-					<include>WallInfoValue</include>
-					<label fallback="31425">$INFO[Container(53).ListItem.Year]</label>
-				</control>
-			</control>
-			<control type="group">
-				<posx>208</posx>
-				<control type="label">
-					<include>WallInfoLabel</include>
-					<label>$LOCALIZE[31709]:</label>
-				</control>
-				<control type="label">
-					<include>WallInfoValue</include>
-					<label fallback="31425">$INFO[Container(53).ListItem.Duration]</label>
-				</control>
-			</control>
-			<control type="group">
-				<posy>38</posy>
-				<posx>208</posx>
-				<control type="label">
-					<include>WallInfoLabel</include>
-					<label>$LOCALIZE[31417]:</label>
-				</control>
-				<control type="label">
-					<include>WallInfoValue</include>
-					<label fallback="31425">$INFO[Container(53).ListItem.MPAA]</label>
-				</control>
-			</control>
-			<control type="group">
-				<posy>76</posy>
-				<posx>208</posx>
-				<control type="label">
-					<include>WallInfoLabel</include>
-					<label>$LOCALIZE[31408]:</label>
-				</control>
-				<control type="label">
-					<include>WallInfoValue</include>
-					<label fallback="31425">$INFO[Container(53).ListItem.RatingAndVotes]</label>
-				</control>
-			</control>
-			<control type="textbox">
-				<posy>113</posy>
-				<posx>0</posx>
-				<width>395</width>
-				<height>128</height>
-				<font>Font_WallPlot</font>
-				<info>Container(53).ListItem.Plot</info>
-				<textcolor>d0FFFFFF</textcolor>
-				<autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-			</control>
-			<control type="group">
-				<posx>4</posx>
-				<posy>259</posy>
-				<control type="image">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>187</width>
-					<height>113</height>
-					<texture>common/black.png</texture>
-					<colordiffuse>94FFFFFF</colordiffuse>
-				</control>
-				<control type="largeimage">
-					<posx>1</posx>
-					<posy>1</posy>
-					<width>185</width>
-					<height>111</height>
-					<aspectratio>scale</aspectratio>			
-					<texture>$INFO[Container(53).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
-				</control>
-				<control type="image">
-					<posx>200</posx>
-					<posy>0</posy>
-					<width>187</width>
-					<height>113</height>
-					<texture>common/black.png</texture>
-					<colordiffuse>94FFFFFF</colordiffuse>
-				</control>
-				<control type="largeimage">
-					<posx>201</posx>
-					<posy>1</posy>
-					<width>185</width>
-					<height>111</height>
-					<aspectratio>scale</aspectratio>
-					<texture>$INFO[Container(53).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
-				</control>
-			</control>
-		</control>
-	</include>
-	<include name="VerticalWall">
-		<onleft>2</onleft>
-		<onright>2</onright>
-		<onup>53</onup>
-		<ondown>53</ondown>
-		<orientation>vertical</orientation>
-	</include>
-	<include name="HorizontalWall">
-		<onleft>53</onleft>
-		<onright>53</onright>
-		<onup>2</onup>
-		<ondown>2</ondown>
-		<orientation>horizontal</orientation>
-	</include>
-	<include name="Conditions_WallLeftSmall">
-		<visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)]</visible>
-	</include>
-	<include name="Conditions_WallLeftMax">
-		<visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)]</visible>
-	</include>
-	<include name="Conditions_WallRightSmall">
-		<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)]</visible>
-	</include>
-	<include name="Conditions_WallRightMax">
-		<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)]</visible>
-	</include>
-	<include name="Conditions_WallLeftBig">
-		<visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)]</visible>
-	</include>
-	<include name="Conditions_WallRightBig">
-		<visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)]</visible>
-	</include>
-	<include name="Furniture_WallBackground">
-		<control type="group">
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>wall/wall_background.png</texture>
-				<visible>[Control.IsVisible(53) + !Skin.HasSetting(smallmoviewall)] + !Skin.HasSetting(transparentwall)</visible>
-				<include>Animation_WindowFade200</include>
-			</control>
-		</control>
-		<control type="group">
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>wall/wall_background_small.png</texture>
-				<visible>Control.IsVisible(53) + Skin.HasSetting(smallmoviewall) + Window.IsActive(videolibrary) + !Skin.HasSetting(transparentwall)</visible>
-				<include>Animation_WindowFade200</include>
-			</control>
-		</control>
-	</include>
-	<include name="WallIconDimensions">
-		<posx>3</posx>
-		<posy>3</posy>
-		<width>128</width>
-		<height>128</height>
-	</include>
-	<include name="WallIconDimensionsSmall">
-		<posx>3</posx>
-		<posy>3</posy>
-		<width>102</width>
-		<height>102</height>
-	</include>
-	<include name="WallIconMovieDimensions">
-		<posx>3</posx>
-		<posy>3</posy>
-		<width>118</width>
-		<height>174</height>
-	</include>
-	<include name="WallIconMovieDimensionsSmall">
-		<posx>3</posx>
-		<posy>3</posy>
-		<width>97</width>
-		<height>142</height>
-	</include>
-	<include name="WallIconMovieDimensionsMax">
-		<posx>2</posx>
-		<posy>2</posy>
-		<width>77</width>
-		<height>113</height>
-	</include>
-	<include name="WallLabelVars">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>440</width>
-		<height>20</height>
-		<font>Font_WallLabelMain</font>
-		<include>Animation_CommonFadeIn</include>
-	</include>
-	<include name="WatchedOverlayWall">
-		<posx>79</posx>
-		<posy>2</posy>
-		<width>40</width>
-		<height>40</height>
-	</include>
-	<include name="WatchedOverlayWallSmall">
-		<posx>65</posx>
-		<posy>2</posy>
-		<width>35</width>
-		<height>35</height>
-	</include>
-	<include name="WatchedOverlayWallMax">
-		<posx>49</posx>
-		<posy>0</posy>
-		<width>30</width>
-		<height>30</height>
-	</include>
-	<include name="WallWidthBig">
-		<posx>108</posx>
-		<width>1067</width>
-	</include>
-	<include name="WallWidthSmall">
-		<posx>108</posx>
-		<width>1060</width>
-	</include>
-	<include name="MovieWallMax">
-		<posx>74</posx>
-		<posy>61</posy>
-		<width>1136</width>
-		<height>585</height>
-	</include>
-	<include name="MovieWallBig">
-		<posx>85</posx>
-		<posy>91</posy>
-		<width>1108</width>
-		<height>539</height>
-	</include>
-	<include name="MovieWallSmall">
-		<posx>83</posx>
-		<posy>66</posy>
-		<width>1113</width>
-		<height>585</height>
-	</include>
-	<include name="MusicWall">
-		<control type="panel" id="53">
-			<viewtype label="31750">icon</viewtype>
-			<include condition="!Skin.HasSetting(smallmusicwall)">WallWidthBig</include>
-			<include condition="Skin.HasSetting(smallmusicwall)">WallWidthSmall</include>
-			<posy>93</posy>
-			<height>532</height>
-			<pagecontrol>61</pagecontrol>
-			<scrolltime>200</scrolltime>
-			<preloaditems>2</preloaditems>
-			<include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
-			<include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
-			<visible>Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]</visible>
-			<itemlayout width="133" height="133" condition="!Skin.HasSetting(smallmusicwall)">
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(pictures)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(pictures)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
-					<texture>wall/wall_nfoverlay.png</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout width="133" height="133" condition="!Skin.HasSetting(smallmusicwall)">
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-					<animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(pictures)</visible>
-					<animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-					<animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(pictures)</visible>
-					<animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
-					<texture>wall/wall_nfoverlay.png</texture>
-					<animation type="Focus" reversible="false">
-						<!--<effect type="fade" start="100" end="0" time="200" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-						<effect type="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false" />
-					</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensions</include>
-					<bordertexture border="-8">wall/wall_fborder.png</bordertexture>
-					<texture>common/blank.png</texture>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" time="400" reversible="false" />
-						<effect type="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false" />
-					</animation>
-				</control>
-			</focusedlayout>
-			<itemlayout width="106" height="106" condition="Skin.HasSetting(smallmusicwall)">
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(pictures)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(pictures)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
-					<texture>wall/wall_nfoverlay.png</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout width="106" height="106" condition="Skin.HasSetting(smallmusicwall)">
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-					<animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>Window.IsActive(pictures)</visible>
-					<animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-					<animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<info>ListItem.Icon</info>
-					<fadetime>500</fadetime>
-					<visible>Window.IsActive(pictures)</visible>
-					<animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
-					<texture>wall/wall_nfoverlay.png</texture>
-					<animation type="Focus" reversible="false">
-						<!--<effect type="fade" start="100" end="0" time="200" reversible="false" />--><!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
-						<effect type="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false" />
-					</animation>
-				</control>
-				<control type="image">
-					<include>WallIconDimensionsSmall</include>
-					<bordertexture border="-5">wall/wall_fborder.png</bordertexture>
-					<texture>common/blank.png</texture>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" time="400" reversible="false" />
-						<effect type="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false" />
-					</animation>
-				</control>
-			</focusedlayout>
-		</control>
-	</include>
-	<include name="MovieWall">
-		<control type="panel" id="53">
-			<viewtype label="Wall">icon</viewtype>
-			<include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)]">MovieWallBig</include>
-			<include condition="Skin.HasSetting(smallmoviewall)">MovieWallSmall</include>
-			<include condition="Skin.HasSetting(maxmoviewall)">MovieWallMax</include>
-			<pagecontrol>61</pagecontrol>
-			<scrolltime>200</scrolltime>
-			<preloaditems>2</preloaditems>
-			<include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
-			<include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
-			<visible>Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)]</visible>
-			<itemlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">
-				<include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
-				<control type="image">
-					<include>WatchedOverlayWall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-				</control>
-				<control type="image">
-					<include>WatchedOverlayWall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">
-				<include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
-				<include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
-				<control type="image">
-					<include>WatchedOverlayWall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-					<include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimation</include>
-					<include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVD</include>
-				</control>
-				<control type="image">
-					<include>WatchedOverlayWall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-					<include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimation</include>
-					<include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVD</include>
-				</control>
-			</focusedlayout>
-			<itemlayout width="101" height="146" condition="Skin.HasSetting(smallmoviewall)">
-				<include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
-				<control type="image">
-					<include>WatchedOverlayWallSmall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-				</control>
-				<control type="image">
-					<include>WatchedOverlayWallSmall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout width="101" height="146" condition="Skin.HasSetting(smallmoviewall)">
-				<include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
-				<include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
-				<control type="image">
-					<include>WatchedOverlayWallSmall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-					<include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationSmall</include>
-					<include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDSmall</include>
-				</control>
-				<control type="image">
-					<include>WatchedOverlayWallSmall</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-					<include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationSmall</include>
-					<include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDSmall</include>
-				</control>
-			</focusedlayout>
-			<itemlayout width="81" height="117" condition="Skin.HasSetting(maxmoviewall)">
-				<include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
-				<include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
-				<control type="image">
-					<include>WatchedOverlayWallMax</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-				</control>
-				<control type="image">
-					<include>WatchedOverlayWallMax</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout width="81" height="117" condition="Skin.HasSetting(maxmoviewall)">
-				<include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
-				<include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
-				<control type="image">
-					<include>WatchedOverlayWallMax</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-					<include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationMax</include>
-					<include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDMax</include>
-				</control>
-				<control type="image">
-					<include>WatchedOverlayWallMax</include>
-					<include>detailcolornofocus</include>
-					<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
-					<texture>showcase/$INFO[ListItem.Overlay]</texture>
-					<include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationMax</include>
-					<include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDMax</include>
-				</control>
-			</focusedlayout>
-		</control>
-	</include>
-	<include name="Viewtype_Wall">
-		<include condition="Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicWall</include>
-		<include condition="Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)">MovieWall</include>
-		<control type="image">
-			<posx>57</posx>
-			<posy>98</posy>
-			<width>20</width>
-			<height>524</height>
-			<texture>wall/wall_arrow.png</texture>
-			<visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
-			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="400" condition="Container(53).Column(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<control type="image">
-			<posx>1203</posx>
-			<posy>98</posy>
-			<width>20</width>
-			<height>524</height>
-			<texture flipx="true">wall/wall_arrow.png</texture>
-			<visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
-			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="400" condition="[[Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container(53).Column(7)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(8) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(10) + Skin.HasSetting(smallmoviewall)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(13) + Skin.HasSetting(maxmoviewall)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="-18" end="-18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<!--Music Wall-->
-		<control type="image">
-			<posx>88</posx>
-			<posy>70</posy>
-			<width>1100</width>
-			<height>20</height>
-			<texture>wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + [Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(VerticalWall)</visible>
-			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<control type="image">
-			<posx>88</posx>
-			<posy>630</posy>
-			<width>1100</width>
-			<height>20</height>
-			<texture flipy="true">wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + [Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(VerticalWall)</visible>
-			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container(53).Row(3) + !Skin.HasSetting(smallmusicwall)] | [Container(53).Row(4) + Skin.HasSetting(smallmusicwall)]]] + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<!--Movie Wall - Grid: Default-->
-		<control type="image">
-			<posx>-10</posx>
-			<posy>70</posy>
-			<width>1300</width>
-			<height>20</height>
-			<texture>wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)</visible>
-			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<control type="image">
-			<posx>-10</posx>
-			<posy>630</posy>
-			<width>1300</width>
-			<height>20</height>
-			<texture flipy="true">wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)</visible>
-			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Row(2)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-			<!--Movie Wall - Grid: Max-->
-		<control type="image">
-			<posx>-10</posx>
-			<posy>46</posy>
-			<width>1300</width>
-			<height>20</height>
-			<texture>wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(maxmoviewall)</visible>
-			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<control type="image">
-			<posx>-10</posx>
-			<posy>641</posy>
-			<width>1300</width>
-			<height>20</height>
-			<texture flipy="true">wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(maxmoviewall)</visible>
-			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Row(4)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<!--Movie Wall - Grid: Small-->
-		<control type="image">
-			<posx>-10</posx>
-			<posy>51</posy>
-			<width>1300</width>
-			<height>20</height>
-			<texture>wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(smallmoviewall)</visible>
-			<animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<control type="image">
-			<posx>-10</posx>
-			<posy>645</posy>
-			<width>1300</width>
-			<height>20</height>
-			<texture flipy="true">wall/wall_arrow_vertical.png</texture>
-			<visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(smallmoviewall)</visible>
-			<animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Row(3)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
-			<animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
-		</control>
-		<!--FLOOR TITLE/DURATION-->
-		<include>Furniture_FloorText</include>
-		<control type="label" id="217">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1280</width>
-			<height>720</height>
-			<font>Font_List</font>
-			<align>center</align>
-			<aligny>center</aligny>
-			<textcolor>98FFFFFF</textcolor>
-			<include condition="Window.IsActive(videolibrary)">EmptyLibraryLabelMovies</include>
-			<include condition="Window.IsActive(musiclibrary)">EmptyLibraryLabelMusic</include>
-			<include>Animation_CommonFade</include>
-			<visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + Control.IsVisible(53) + stringcompare(container(53).numitems,0)</visible>
-		</control>
-		<include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesBig</include>
-		<include condition="Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesSmall</include>
-		<include condition="Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesMax</include>
-	</include>
+  <include name="WallIconMovieDimensionsDVD">
+    <posx>1</posx>
+    <posy>3</posy>
+    <width>122</width>
+    <height>180</height>
+  </include>
+  <include name="WallIconMovieDimensionsDVDSmall">
+    <posx>2</posx>
+    <posy>3</posy>
+    <width>99</width>
+    <height>145</height>
+  </include>
+  <!-- Animations -->
+  <!-- Normal -->
+  <include name="WallIconZoomAnimation">
+    <animation effect="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+  </include>
+  <include name="WallIconZoomAnimationSmall">
+    <animation effect="zoom" center="51,132" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+  </include>
+  <include name="WallIconZoomAnimationMax">
+    <animation effect="zoom" center="46,90" start="100" end="172" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+  </include>
+  <include name="WallIconZoomAnimationBorder1">
+    <animation type="Focus" reversible="false">
+      <!--<effect type="fade" start="100" end="0" time="200" reversible="false" />-->
+      <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+      <effect type="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="WallIconZoomAnimationBorder2">
+    <animation type="Focus" reversible="false">
+      <!--<effect type="fade" start="0" end="100" time="400" reversible="false" />-->
+      <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+      <effect type="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="WallIconZoomAnimationBorder1Small">
+    <animation type="Focus" reversible="false">
+      <!--<effect type="fade" start="100" end="0" time="200" reversible="false" />-->
+      <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+      <effect type="zoom" center="51,132" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="WallIconZoomAnimationBorder2Small">
+    <animation type="Focus" reversible="false">
+      <!--<effect type="fade" start="0" end="100" time="400" reversible="false" />-->
+      <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+      <effect type="zoom" center="51,132" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="WallIconZoomAnimationBorder1Max">
+    <animation type="Focus" reversible="false">
+      <!--<effect type="fade" start="100" end="0" time="200" reversible="false" />-->
+      <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+      <effect type="zoom" center="46,90" start="100" end="172" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="WallIconZoomAnimationBorder2Max">
+    <animation type="Focus" reversible="false">
+      <!--<effect type="fade" start="0" end="100" time="400" reversible="false" />-->
+      <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+      <effect type="zoom" center="46,90" start="100" end="172" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <!-- DVD -->
+  <include name="WallIconZoomAnimationDVD">
+    <animation effect="zoom" center="62,135" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+  </include>
+  <include name="WallIconZoomAnimationDVDSmall">
+    <animation effect="zoom" center="51,132" start="100" end="168" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+  </include>
+  <include name="WallIconZoomAnimationDVDMax">
+    <animation effect="zoom" center="46,90" start="100" end="180" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+  </include>
+  <!-- Border -->
+  <include name="WallIconMovieBorderSmall">
+    <bordertexture border="-4">wall/wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorderMax">
+    <bordertexture border="-2">wall/wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorder">
+    <bordertexture border="-5">wall/wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorderFocus">
+    <bordertexture border="-3">wall/wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorderFocusSmall">
+    <bordertexture border="-5">wall/wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorderFocusMax">
+    <bordertexture border="-3">wall/wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorderFocus2">
+    <bordertexture border="-12">wall/wall_movie_fborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorderFocus2Small">
+    <bordertexture border="-9">wall/wall_movie_fborder.png</bordertexture>
+  </include>
+  <include name="WallIconMovieBorderFocus2Max">
+    <bordertexture border="-7">wall/wall_movie_fborder.png</bordertexture>
+  </include>
+  <!-- Movie Normal -->
+  <include name="WallIconNormal">
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
+      <texture diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
+      <texture background="true" diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <info>ListItem.Icon</info>
+      <fadetime>500</fadetime>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieBorder</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieBorderSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieBorderMax</include>
+      <texture>wall/wall_nfoverlay.png</texture>
+    </control>
+  </include>
+  <include name="WallIconNormalFocus">
+    <!--########################################################-->
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
+      <texture diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimation</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationMax</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
+      <texture background="true" diffuse="wall/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <info>ListItem.Icon</info>
+      <fadetime>500</fadetime>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimation</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationMax</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocus</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieBorderFocusSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocusMax</include>
+      <texture>wall/wall_movie_nfoverlay.png</texture>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder1</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationBorder1Small</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder1Max</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsMax</include>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocus2</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieBorderFocus2Small</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieBorderFocus2Max</include>
+      <texture>common/blank.png</texture>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder2</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationBorder2Small</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationBorder2Max</include>
+    </control>
+  </include>
+  <!-- Movie DVD -->
+  <!--########################################################-->
+  <include name="WallIconDVD">
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture>wall/boxes/wall_movie_nfborder.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture background="true" diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <info>ListItem.Icon</info>
+      <fadetime>500</fadetime>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture>wall/boxes/wall_nfoverlay.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+    </control>
+  </include>
+  <include name="WallIconDVDFocus">
+    <!--########################################################-->
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture>wall/boxes/wall_movie_nfborder.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture background="true" diffuse="wall/boxes/wall_movie_mask.png">defaultvideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <info>ListItem.Icon</info>
+      <fadetime>500</fadetime>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconMovieDimensionsDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconMovieDimensionsDVDMax</include>
+      <texture>wall/boxes/wall_nfoverlay.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVD</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">WallIconZoomAnimationDVDSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">WallIconZoomAnimationDVDMax</include>
+    </control>
+  </include>
+  <include name="WallInfoPaneTopLeft">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>wall/info_pane_topleft_title.png</texture>
+  </include>
+  <include name="WallInfoPaneMidLeft">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>wall/info_pane_midleft_title.png</texture>
+  </include>
+  <include name="WallInfoPaneBottomLeft">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>wall/info_pane_bottomleft_title.png</texture>
+  </include>
+  <include name="WallInfoPaneTopRight">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>wall/info_pane_topright_title.png</texture>
+  </include>
+  <include name="WallInfoPaneMidRight">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>wall/info_pane_midright_title.png</texture>
+  </include>
+  <include name="WallInfoPaneBottomRight">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>wall/info_pane_bottomright_title.png</texture>
+  </include>
+  <include name="WallInfoLabel">
+    <posx>0</posx>
+    <posy>0</posy>
+    <width>187</width>
+    <height>13</height>
+    <font>Font_WallInfoLabel</font>
+    <textcolor>abFFFFFF</textcolor>
+  </include>
+  <include name="WallInfoPaneMoviesBig">
+    <control type="group">
+      <!-- TopRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>240</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="122,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="367,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)] + Container(53).Row(0)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneTopRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>240</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="122,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="367,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)] + Container(53).Row(1)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneMidRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>240</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="122,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="367,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)] + Container(53).Row(2)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneBottomRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- TopLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>113</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="123,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="368,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="491,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)] + Container(53).Row(0)</visible>
+      <control type="image">
+        <include>WallInfoPaneTopLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>113</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="123,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="368,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="491,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)] + Container(53).Row(1)</visible>
+      <control type="image">
+        <include>WallInfoPaneMidLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>113</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="123,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="368,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="491,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)] + Container(53).Row(2)</visible>
+      <control type="image">
+        <include>WallInfoPaneBottomLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+  </include>
+  <include name="WallInfoPaneMoviesSmall">
+    <control type="group">
+      <!-- TopRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>211</posx>
+      <posy>104</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)] + Container(53).Row(0)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneTopRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>211</posx>
+      <posy>71</posy>
+      <animation effect="slide" start="0,0" end="0,145" time="0" condition="Container(53).Row(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)] + [Container(53).Row(1) | Container(53).Row(2)]"</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneMidRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>211</posx>
+      <posy>185</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)] + Container(53).Row(3)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneBottomRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- TopLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>130</posx>
+      <posy>104</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
+      <visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)] + Container(53).Row(0)</visible>
+      <control type="image">
+        <include>WallInfoPaneTopLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>130</posx>
+      <posy>71</posy>
+      <animation effect="slide" start="0,0" end="0,145" time="0" condition="Container(53).Row(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
+      <visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)] + [Container(53).Row(1) | Container(53).Row(2)]</visible>
+      <control type="image">
+        <include>WallInfoPaneMidLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>130</posx>
+      <posy>185</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(53).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
+      <visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)] + Container(53).Row(3)</visible>
+      <control type="image">
+        <include>WallInfoPaneBottomLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+  </include>
+  <include name="WallInfoPaneMoviesMax">
+    <control type="group">
+      <!-- TopRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>171</posx>
+      <posy>104</posy>
+      <animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)] + Container(53).Row(0)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneTopRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>171</posx>
+      <posy>31</posy>
+      <animation effect="slide" start="0,0" end="0,100" time="0" condition="Container(53).Row(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,200" time="0" condition="Container(53).Row(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)] + [Container(53).Row(1) | Container(53).Row(2) | Container(53).Row(3)]"</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneMidRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomRight -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>171</posx>
+      <posy>185</posy>
+      <animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+      <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)] + Container(53).Row(4)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>WallInfoPaneBottomRight</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- TopLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>184</posx>
+      <posy>104</posy>
+      <animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(11)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(12)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(13)">Conditional</animation>
+      <visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)] + Container(53).Row(0)</visible>
+      <control type="image">
+        <include>WallInfoPaneTopLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>184</posx>
+      <posy>31</posy>
+      <animation effect="slide" start="0,0" end="0,100" time="0" condition="Container(53).Row(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,200" time="0" condition="Container(53).Row(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(11)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(12)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(13)">Conditional</animation>
+      <visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)] + [Container(53).Row(1) | Container(53).Row(2)| Container(53).Row(3)]</visible>
+      <control type="image">
+        <include>WallInfoPaneMidLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomLeft -->
+      <include>WallInfoPaneMoviesVars</include>
+      <posx>184</posx>
+      <posy>185</posy>
+      <animation effect="slide" start="0,0" end="81,0" time="0" condition="Container(53).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="162,0" time="0" condition="Container(53).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="243,0" time="0" condition="Container(53).Column(10)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="324,0" time="0" condition="Container(53).Column(11)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(12)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="486,0" time="0" condition="Container(53).Column(13)">Conditional</animation>
+      <visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)] + Container(53).Row(4)</visible>
+      <control type="image">
+        <include>WallInfoPaneBottomLeft</include>
+      </control>
+      <include>WallInfoPaneMovieInfo</include>
+    </control>
+  </include>
+  <include name="WallInfoOpenAnimationOn">
+    <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+    <animation type="Visible" reversible="false">
+      <effect type="fade" start="0" end="100" time="400" delay="200"/>
+    </animation>
+  </include>
+  <include name="WallInfoOpenAnimationAuto">
+    <animation type="WindowOpen" reversible="false">
+      <effect type="fade" start="0" end="100" time="400" delay="3085"/>
+      <effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2"/>
+    </animation>
+    <animation type="Visible" reversible="false">
+      <effect type="fade" start="0" end="100" time="400" delay="3085"/>
+      <effect type="zoom" center="auto" start="0" end="100" time="550" delay="3000" tween="back" acceleration="-2"/>
+    </animation>
+  </include>
+  <include name="WallInfoPaneMoviesVars">
+    <width>442</width>
+    <height>432</height>
+    <include condition="Skin.HasSetting(wallinfoauto)">WallInfoOpenAnimationAuto</include>
+    <include condition="Skin.HasSetting(wallinfoon)">WallInfoOpenAnimationOn</include>
+    <animation effect="fade" end="0" time="200">WindowClose</animation>
+    <visible>Container.Content(movies) + Control.IsVisible(53) + Control.HasFocus(53) + [Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + !Container.OnPrevious + !Container.OnNext</visible>
+  </include>
+  <include name="WallInfoValue">
+    <posx>0</posx>
+    <posy>14</posy>
+    <width>187</width>
+    <height>13</height>
+    <font>Font_WallInfoValue</font>
+    <textcolor>FFFFFFFF</textcolor>
+  </include>
+  <include name="WallInfoPanelMovieInfoTitle">
+    <control type="group">
+      <control type="label">
+        <posx>0</posx>
+        <posy>-25</posy>
+        <width>394</width>
+        <height>17</height>
+        <align>center</align>
+        <font>Font_WallTitleMod</font>
+        <textcolor>cdFFFFFF</textcolor>
+        <label>$INFO[Container(53).ListItem.Title]</label>
+      </control>
+    </control>
+  </include>
+  <include name="WallInfoPaneMovieInfo">
+    <control type="group">
+      <posx>19</posx>
+      <posy>25</posy>
+      <include>WallInfoPanelMovieInfoTitle</include>
+      <control type="group">
+        <control type="label">
+          <include>WallInfoLabel</include>
+          <label>$LOCALIZE[31402]:</label>
+        </control>
+        <control type="label">
+          <include>WallInfoValue</include>
+          <label fallback="31425">$INFO[Container(53).ListItem.Director]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>38</posy>
+        <control type="label">
+          <include>WallInfoLabel</include>
+          <label>$LOCALIZE[31401]:</label>
+        </control>
+        <control type="label">
+          <include>WallInfoValue</include>
+          <label fallback="31425">$INFO[Container(53).ListItem.Writer]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>76</posy>
+        <control type="label">
+          <include>WallInfoLabel</include>
+          <label>$LOCALIZE[31436]:</label>
+        </control>
+        <control type="label">
+          <include>WallInfoValue</include>
+          <label fallback="31425">$INFO[Container(53).ListItem.Year]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posx>208</posx>
+        <control type="label">
+          <include>WallInfoLabel</include>
+          <label>$LOCALIZE[31709]:</label>
+        </control>
+        <control type="label">
+          <include>WallInfoValue</include>
+          <label fallback="31425">$INFO[Container(53).ListItem.Duration]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>38</posy>
+        <posx>208</posx>
+        <control type="label">
+          <include>WallInfoLabel</include>
+          <label>$LOCALIZE[31417]:</label>
+        </control>
+        <control type="label">
+          <include>WallInfoValue</include>
+          <label fallback="31425">$INFO[Container(53).ListItem.MPAA]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>76</posy>
+        <posx>208</posx>
+        <control type="label">
+          <include>WallInfoLabel</include>
+          <label>$LOCALIZE[31408]:</label>
+        </control>
+        <control type="label">
+          <include>WallInfoValue</include>
+          <label fallback="31425">$INFO[Container(53).ListItem.RatingAndVotes]</label>
+        </control>
+      </control>
+      <control type="textbox">
+        <posy>113</posy>
+        <posx>0</posx>
+        <width>395</width>
+        <height>128</height>
+        <font>Font_WallPlot</font>
+        <info>Container(53).ListItem.Plot</info>
+        <textcolor>d0FFFFFF</textcolor>
+        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+      </control>
+      <control type="group">
+        <posx>4</posx>
+        <posy>259</posy>
+        <control type="image">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>187</width>
+          <height>113</height>
+          <texture>common/black.png</texture>
+          <colordiffuse>94FFFFFF</colordiffuse>
+        </control>
+        <control type="largeimage">
+          <posx>1</posx>
+          <posy>1</posy>
+          <width>185</width>
+          <height>111</height>
+          <aspectratio>scale</aspectratio>
+          <texture>$INFO[Container(53).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
+        </control>
+        <control type="image">
+          <posx>200</posx>
+          <posy>0</posy>
+          <width>187</width>
+          <height>113</height>
+          <texture>common/black.png</texture>
+          <colordiffuse>94FFFFFF</colordiffuse>
+        </control>
+        <control type="largeimage">
+          <posx>201</posx>
+          <posy>1</posy>
+          <width>185</width>
+          <height>111</height>
+          <aspectratio>scale</aspectratio>
+          <texture>$INFO[Container(53).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+        </control>
+      </control>
+    </control>
+  </include>
+  <include name="VerticalWall">
+    <onleft>2</onleft>
+    <onright>2</onright>
+    <onup>53</onup>
+    <ondown>53</ondown>
+    <orientation>vertical</orientation>
+  </include>
+  <include name="HorizontalWall">
+    <onleft>53</onleft>
+    <onright>53</onright>
+    <onup>2</onup>
+    <ondown>2</ondown>
+    <orientation>horizontal</orientation>
+  </include>
+  <include name="Conditions_WallLeftSmall">
+    <visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)]</visible>
+  </include>
+  <include name="Conditions_WallLeftMax">
+    <visible>[Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10) | Container(53).Column(11) | Container(53).Column(12) | Container(53).Column(13)]</visible>
+  </include>
+  <include name="Conditions_WallRightSmall">
+    <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4)]</visible>
+  </include>
+  <include name="Conditions_WallRightMax">
+    <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3) | Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6)]</visible>
+  </include>
+  <include name="Conditions_WallLeftBig">
+    <visible>[Container(53).Column(4) | Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8)]</visible>
+  </include>
+  <include name="Conditions_WallRightBig">
+    <visible>[Container(53).Column(0) | Container(53).Column(1) | Container(53).Column(2) | Container(53).Column(3)]</visible>
+  </include>
+  <include name="Furniture_WallBackground">
+    <control type="group">
+      <control type="image">
+        <include>FullscreenDimensions</include>
+        <texture>wall/wall_background.png</texture>
+        <visible>[Control.IsVisible(53) + !Skin.HasSetting(smallmoviewall)] + !Skin.HasSetting(transparentwall)</visible>
+        <include>Animation_WindowFade200</include>
+      </control>
+    </control>
+    <control type="group">
+      <control type="image">
+        <include>FullscreenDimensions</include>
+        <texture>wall/wall_background_small.png</texture>
+        <visible>Control.IsVisible(53) + Skin.HasSetting(smallmoviewall) + Window.IsActive(videolibrary) + !Skin.HasSetting(transparentwall)</visible>
+        <include>Animation_WindowFade200</include>
+      </control>
+    </control>
+  </include>
+  <include name="WallIconDimensions">
+    <posx>3</posx>
+    <posy>3</posy>
+    <width>128</width>
+    <height>128</height>
+  </include>
+  <include name="WallIconDimensionsSmall">
+    <posx>3</posx>
+    <posy>3</posy>
+    <width>102</width>
+    <height>102</height>
+  </include>
+  <include name="WallIconMovieDimensions">
+    <posx>3</posx>
+    <posy>3</posy>
+    <width>118</width>
+    <height>174</height>
+  </include>
+  <include name="WallIconMovieDimensionsSmall">
+    <posx>3</posx>
+    <posy>3</posy>
+    <width>97</width>
+    <height>142</height>
+  </include>
+  <include name="WallIconMovieDimensionsMax">
+    <posx>2</posx>
+    <posy>2</posy>
+    <width>77</width>
+    <height>113</height>
+  </include>
+  <include name="WallLabelVars">
+    <posx>0</posx>
+    <posy>0</posy>
+    <width>440</width>
+    <height>20</height>
+    <font>Font_WallLabelMain</font>
+    <include>Animation_CommonFadeIn</include>
+  </include>
+  <include name="WatchedOverlayWall">
+    <posx>79</posx>
+    <posy>2</posy>
+    <width>40</width>
+    <height>40</height>
+  </include>
+  <include name="WatchedOverlayWallSmall">
+    <posx>65</posx>
+    <posy>2</posy>
+    <width>35</width>
+    <height>35</height>
+  </include>
+  <include name="WatchedOverlayWallMax">
+    <posx>49</posx>
+    <posy>0</posy>
+    <width>30</width>
+    <height>30</height>
+  </include>
+  <include name="WallWidthBig">
+    <posx>108</posx>
+    <width>1067</width>
+  </include>
+  <include name="WallWidthSmall">
+    <posx>108</posx>
+    <width>1060</width>
+  </include>
+  <include name="MovieWallMax">
+    <posx>74</posx>
+    <posy>61</posy>
+    <width>1136</width>
+    <height>585</height>
+  </include>
+  <include name="MovieWallBig">
+    <posx>85</posx>
+    <posy>91</posy>
+    <width>1108</width>
+    <height>539</height>
+  </include>
+  <include name="MovieWallSmall">
+    <posx>83</posx>
+    <posy>66</posy>
+    <width>1113</width>
+    <height>585</height>
+  </include>
+  <include name="MusicWall">
+    <control type="panel" id="53">
+      <viewtype label="31750">icon</viewtype>
+      <include condition="!Skin.HasSetting(smallmusicwall)">WallWidthBig</include>
+      <include condition="Skin.HasSetting(smallmusicwall)">WallWidthSmall</include>
+      <posy>93</posy>
+      <height>532</height>
+      <pagecontrol>61</pagecontrol>
+      <scrolltime>200</scrolltime>
+      <preloaditems>2</preloaditems>
+      <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
+      <include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
+      <visible>Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]</visible>
+      <itemlayout width="133" height="133" condition="!Skin.HasSetting(smallmusicwall)">
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
+          <texture>wall/wall_nfoverlay.png</texture>
+        </control>
+      </itemlayout>
+      <focusedlayout width="133" height="133" condition="!Skin.HasSetting(smallmusicwall)">
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+          <animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+          <animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
+          <texture>wall/wall_nfoverlay.png</texture>
+          <animation type="Focus" reversible="false">
+            <!--<effect type="fade" start="100" end="0" time="200" reversible="false" />-->
+            <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+            <effect type="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
+          </animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensions</include>
+          <bordertexture border="-8">wall/wall_fborder.png</bordertexture>
+          <texture>common/blank.png</texture>
+          <animation type="Focus" reversible="false">
+            <effect type="fade" start="0" end="100" time="400" reversible="false"/>
+            <effect type="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
+          </animation>
+        </control>
+      </focusedlayout>
+      <itemlayout width="106" height="106" condition="Skin.HasSetting(smallmusicwall)">
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
+          <texture>wall/wall_nfoverlay.png</texture>
+        </control>
+      </itemlayout>
+      <focusedlayout width="106" height="106" condition="Skin.HasSetting(smallmusicwall)">
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+          <animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <texture background="true" diffuse="wall/wall_mask.png">defaultpicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+          <animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
+          <texture>wall/wall_nfoverlay.png</texture>
+          <animation type="Focus" reversible="false">
+            <!--<effect type="fade" start="100" end="0" time="200" reversible="false" />-->
+            <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
+            <effect type="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
+          </animation>
+        </control>
+        <control type="image">
+          <include>WallIconDimensionsSmall</include>
+          <bordertexture border="-5">wall/wall_fborder.png</bordertexture>
+          <texture>common/blank.png</texture>
+          <animation type="Focus" reversible="false">
+            <effect type="fade" start="0" end="100" time="400" reversible="false"/>
+            <effect type="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
+          </animation>
+        </control>
+      </focusedlayout>
+    </control>
+  </include>
+  <include name="MovieWall">
+    <control type="panel" id="53">
+      <viewtype label="Wall">icon</viewtype>
+      <include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)]">MovieWallBig</include>
+      <include condition="Skin.HasSetting(smallmoviewall)">MovieWallSmall</include>
+      <include condition="Skin.HasSetting(maxmoviewall)">MovieWallMax</include>
+      <pagecontrol>61</pagecontrol>
+      <scrolltime>200</scrolltime>
+      <preloaditems>2</preloaditems>
+      <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
+      <include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
+      <visible>Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)]</visible>
+      <itemlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">
+        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <include>WatchedOverlayWall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>
+        <control type="image">
+          <include>WatchedOverlayWall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>
+      </itemlayout>
+      <focusedlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">
+        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
+        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <include>WatchedOverlayWall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimation</include>
+          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVD</include>
+        </control>
+        <control type="image">
+          <include>WatchedOverlayWall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimation</include>
+          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVD</include>
+        </control>
+      </focusedlayout>
+      <itemlayout width="101" height="146" condition="Skin.HasSetting(smallmoviewall)">
+        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <include>WatchedOverlayWallSmall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>
+        <control type="image">
+          <include>WatchedOverlayWallSmall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>
+      </itemlayout>
+      <focusedlayout width="101" height="146" condition="Skin.HasSetting(smallmoviewall)">
+        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
+        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <include>WatchedOverlayWallSmall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationSmall</include>
+          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDSmall</include>
+        </control>
+        <control type="image">
+          <include>WatchedOverlayWallSmall</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationSmall</include>
+          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDSmall</include>
+        </control>
+      </focusedlayout>
+      <itemlayout width="81" height="117" condition="Skin.HasSetting(maxmoviewall)">
+        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <include>WatchedOverlayWallMax</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>
+        <control type="image">
+          <include>WatchedOverlayWallMax</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>
+      </itemlayout>
+      <focusedlayout width="81" height="117" condition="Skin.HasSetting(maxmoviewall)">
+        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
+        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <include>WatchedOverlayWallMax</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videomovies)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationMax</include>
+          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDMax</include>
+        </control>
+        <control type="image">
+          <include>WatchedOverlayWallMax</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + Skin.HasSetting(videotv)</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">WallIconZoomAnimationMax</include>
+          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDMax</include>
+        </control>
+      </focusedlayout>
+    </control>
+  </include>
+  <include name="Viewtype_Wall">
+    <include condition="Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicWall</include>
+    <include condition="Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)">MovieWall</include>
+    <control type="image">
+      <posx>57</posx>
+      <posy>98</posy>
+      <width>20</width>
+      <height>524</height>
+      <texture>wall/wall_arrow.png</texture>
+      <visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
+      <animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="400" condition="Container(53).Column(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <control type="image">
+      <posx>1203</posx>
+      <posy>98</posy>
+      <width>20</width>
+      <height>524</height>
+      <texture flipx="true">wall/wall_arrow.png</texture>
+      <visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
+      <animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="400" condition="[[Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container(53).Column(7)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(8) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(10) + Skin.HasSetting(smallmoviewall)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(13) + Skin.HasSetting(maxmoviewall)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="-18" end="-18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <!--Music Wall-->
+    <control type="image">
+      <posx>88</posx>
+      <posy>70</posy>
+      <width>1100</width>
+      <height>20</height>
+      <texture>wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + [Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(VerticalWall)</visible>
+      <animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <control type="image">
+      <posx>88</posx>
+      <posy>630</posy>
+      <width>1100</width>
+      <height>20</height>
+      <texture flipy="true">wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + [Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Skin.HasSetting(VerticalWall)</visible>
+      <animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[Container(53).Row(3) + !Skin.HasSetting(smallmusicwall)] | [Container(53).Row(4) + Skin.HasSetting(smallmusicwall)]]] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <!--Movie Wall - Grid: Default-->
+    <control type="image">
+      <posx>-10</posx>
+      <posy>70</posy>
+      <width>1300</width>
+      <height>20</height>
+      <texture>wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)</visible>
+      <animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <control type="image">
+      <posx>-10</posx>
+      <posy>630</posy>
+      <width>1300</width>
+      <height>20</height>
+      <texture flipy="true">wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)</visible>
+      <animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Row(2)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <!--Movie Wall - Grid: Max-->
+    <control type="image">
+      <posx>-10</posx>
+      <posy>46</posy>
+      <width>1300</width>
+      <height>20</height>
+      <texture>wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(maxmoviewall)</visible>
+      <animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <control type="image">
+      <posx>-10</posx>
+      <posy>641</posy>
+      <width>1300</width>
+      <height>20</height>
+      <texture flipy="true">wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(maxmoviewall)</visible>
+      <animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Row(4)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <!--Movie Wall - Grid: Small-->
+    <control type="image">
+      <posx>-10</posx>
+      <posy>51</posy>
+      <width>1300</width>
+      <height>20</height>
+      <texture>wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(smallmoviewall)</visible>
+      <animation effect="slide" start="-100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="Container(53).Row(0) + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="18" end="18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <control type="image">
+      <posx>-10</posx>
+      <posy>645</posy>
+      <width>1300</width>
+      <height>20</height>
+      <texture flipy="true">wall/wall_arrow_vertical.png</texture>
+      <visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + Skin.HasSetting(VerticalWall) + Skin.HasSetting(smallmoviewall)</visible>
+      <animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="125" condition="[[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Row(3)] + !ControlGroup(7000).HasFocus()">Conditional</animation>
+      <animation effect="slide" start="0" end="0" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
+    </control>
+    <!--FLOOR TITLE/DURATION-->
+    <include>Furniture_FloorText</include>
+    <control type="label" id="217">
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1280</width>
+      <height>720</height>
+      <font>Font_List</font>
+      <align>center</align>
+      <aligny>center</aligny>
+      <textcolor>98FFFFFF</textcolor>
+      <include condition="Window.IsActive(videolibrary)">EmptyLibraryLabelMovies</include>
+      <include condition="Window.IsActive(musiclibrary)">EmptyLibraryLabelMusic</include>
+      <include>Animation_CommonFade</include>
+      <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + Control.IsVisible(53) + stringcompare(container(53).numitems,0)</visible>
+    </control>
+    <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesBig</include>
+    <include condition="Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesSmall</include>
+    <include condition="Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesMax</include>
+  </include>
 </includes>
