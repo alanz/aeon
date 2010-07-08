@@ -778,7 +778,7 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-25</posy>
-            <label fallback="-">$INFO[ListItem.Property(style)]</label>
+            <label fallback="-">$INFO[ListItem.Property(Artist_Style)]</label>
           </control>
         </control>
         <!-- Album Page -->
@@ -1202,14 +1202,14 @@
         <control type="label">
           <description>MOODS: info label</description>
           <include>LowList_DetailInfoLabelPos3</include>
-          <label>$LOCALIZE[175]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_mood)][/COLOR]</label>
-          <visible>!IsEmpty(ListItem.Property(Artist_mood))</visible>
+          <label>$LOCALIZE[175]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_Mood)][/COLOR]</label>
+          <visible>!IsEmpty(ListItem.Property(Artist_Mood))</visible>
           <include>Animation_HighListSlide</include>
         </control>
         <control type="label">
           <include>LowList_DetailInfoLabelPos3</include>
           <label>$LOCALIZE[175]: [COLOR d0ffffff]$LOCALIZE[161][/COLOR]</label>
-          <visible>IsEmpty(ListItem.Property(Artist_mood))</visible>
+          <visible>IsEmpty(ListItem.Property(Artist_Mood))</visible>
           <include>Animation_HighListSlide</include>
         </control>
         <control type="label">
@@ -1227,12 +1227,12 @@
       <control type="textbox">
         <include>LowList_ShortTextBox</include>
         <textcolor>d0ffffff</textcolor>
-        <label fallback="-">$INFO[ListItem.Property(description),[COLOR abffffff][UPPERCASE]$LOCALIZE[21887][/UPPERCASE]:[/COLOR] ]</label>
+        <label fallback="-">$INFO[ListItem.Property(Artist_Description),[COLOR abffffff][UPPERCASE]$LOCALIZE[21887][/UPPERCASE]:[/COLOR] ]</label>
         <visible>Skin.HasSetting(highlist) + Container.Content(artists)</visible>
       </control>
       <control type="textbox">
         <include>LowList_ShortTextBox</include>
-        <label fallback="-">$INFO[ListItem.Property(description),[COLOR abffffff][UPPERCASE]$LOCALIZE[183][/UPPERCASE]:[/COLOR] ]</label>
+        <label fallback="-">$INFO[ListItem.Property(Album_Description),[COLOR abffffff][UPPERCASE]$LOCALIZE[183][/UPPERCASE]:[/COLOR] ]</label>
         <visible>Skin.HasSetting(highlist) + Container.Content(albums)</visible>
       </control>
       <control type="textbox">
