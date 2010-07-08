@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <includes>
   <include name="FloorMediaFlagLightShade">
     <colordiffuse>C4000000</colordiffuse>
@@ -385,18 +385,21 @@
         </control>
       </control>
       <!-- Audio Codec flag -->
-      <control type="group">
-        <posx>280</posx>
-        <control type="image">
-          <include>LowList_MovieFlagVars</include>
-          <texture>$INFO[ListItem.AudioChannels,flags/Audio/,ch.png]</texture>
-        </control>
-        <control type="image">
-          <include>LowList_MovieFlagVars</include>
-          <texture>$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
-        </control>
-      </control>
-    </control>
+<!--
+	  <control type="group">
+		<posx>280</posx>
+		<control type="image">
+		  <include>LowList_MovieFlagVars</include>
+		  <texture>$INFO[ListItem.AudioChannels,flags/Audio/,ch.png]</texture>
+		</control>
+		<control type="image">
+		  <include>LowList_MovieFlagVars</include>
+		  <texture>$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
+		</control>
+	  </control>
+	  -->
+	</control>
+
     <!-- Wide Info Panel Flags -->
     <control type="group">
       <posx>900</posx>
@@ -679,6 +682,12 @@
           <aspectratio>keep</aspectratio>
           <visible>substring(ListItem.AudioChannels,6) + substring(ListItem.AudioCodec,ac3)</visible>
         </control>
+        <control type="image" id="92">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>flags/Audio/mp320.png</texture>
+          <aspectratio>keep</aspectratio>
+          <visible>substring(ListItem.AudioChannels,2) + substring(ListItem.AudioCodec,mp3)</visible>
+        </control>		
         <control type="image">
           <include>Furniture_FloorMediaFlagsVars</include>
           <texture>$INFO[ListItem.AudioCodec,flags/Audio/,.png]</texture>
