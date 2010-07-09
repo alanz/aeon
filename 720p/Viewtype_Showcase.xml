@@ -1227,7 +1227,7 @@
       <width>1280</width>
       <height>381</height>
       <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
-      <visible>Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcasemusicinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcasemusicinfotrigger) | Skin.HasSetting(showcasemusicinfoauto)]]]</visible>
+      <visible>Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcasemusicinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcasemusicinfotrigger) | Skin.HasSetting(showcasemusicinfoauto)]]] + [!Container.Content(genres) + Window.IsActive(musiclibrary) ]</visible>
       <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcasemusicinfoon)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <include>Animation_InfoPanelSlide</include>
@@ -2399,8 +2399,367 @@
       <visible>![[!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)] | Container.Content(episodes)]</visible>
       <animation effect="fade" start="100" end="0" time="800">Hidden</animation>
     </control>
-    <control type="group" id="6500"><posy>387</posy><animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation><camera x="640" y="540"/><animation effect="fade" time="500">WindowOpen</animation><animation effect="fade" time="200">WindowClose</animation><visible>Control.IsVisible(57) + !Control.IsVisible(7001) + !Control.IsVisible(7002) + [Control.IsVisible(970) + !Container.Content(episodes)]</visible><control type="group"><posx>50</posx><animation effect="rotatey" center="-50" start="-65" end="-65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="-50" start="0" end="65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="-795" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(-5).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_2</include><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(-5).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_2</include></control></control>--&gt;
-			<control type="group"><posx>150</posx><animation effect="rotatey" center="50" start="-65" end="-65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="50" start="0" end="65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="-645" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(-4).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_3</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(-4).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_3</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>250</posx><animation effect="rotatey" center="150" start="-65" end="-65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="150" start="0" end="65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="-495" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(-3).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_4</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(-3).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_4</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>350</posx><animation effect="rotatey" center="250" start="-65" end="-65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="250" start="0" end="65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="-345" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(-2).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_5</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(-2).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_5</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>450</posx><animation effect="rotatey" center="350" start="-65" end="-65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="350" start="0" end="65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="-195" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(-1).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_6</include><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(-1).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_6</include></control></control><control type="group"><posx>960</posx><animation effect="rotatey" center="1330" start="65" end="65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="1330" start="0" end="-65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="795" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(5).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_12</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(5).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_12</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>860</posx><animation effect="rotatey" center="1230" start="65" end="65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="1230" start="0" end="-65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="645" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(4).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_11</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(4).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_11</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>760</posx><animation effect="rotatey" center="1130" start="65" end="65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="1130" start="0" end="-65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="495" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(3).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_10</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(3).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_10</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>660</posx><animation effect="rotatey" center="1030" start="65" end="65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="1030" start="0" end="-65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="345" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(2).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_9</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(2).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_9</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>560</posx><animation effect="rotatey" center="930" start="65" end="65" time="0" condition="true">Conditional</animation><animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]"><effect type="rotatey" center="930" start="0" end="-65" time="800" tween="cubic" easing="inout"/><effect type="slide" start="0" end="195" time="800" tween="cubic" easing="inout"/></animation><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumb</include><info>Container(57).ListItem(1).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_8</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include><include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include></control><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(1).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCD</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_8</include><!-- <<<<<< Add this --></control></control><control type="group"><posx>505</posx><control type="group"><include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include><control type="image"><include>MusicShowcaseThumbMain</include><info>Container(57).ListItem(0).Thumb</info></control><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_7</include><!-- <<<<<< Add this --><control type="image"><description>Glass overlay</description><include>MusicShowcaseGlassOverlay</include></control><control type="image"><include>MusicShowcaseThumbReflection</include><info>Container(57).ListItem(0).Thumb</info></control><control type="image"><description>Glass overlay reflection</description><include>MusicShowcaseThumbReflectionCDMain</include></control><include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include><include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_7</include><!-- <<<<<< Add this --></control></control></control>
+    <control type="group" id="6500">
+      <posy>387</posy>
+      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
+      <camera x="640" y="540"/>
+      <animation effect="fade" time="500">WindowOpen</animation>
+      <animation effect="fade" time="200">WindowClose</animation>
+      <visible>Control.IsVisible(57) + !Control.IsVisible(7001) + !Control.IsVisible(7002) + [Control.IsVisible(970) + !Container.Content(episodes)]</visible>
+      <control type="group">
+        <posx>50</posx>
+        <animation effect="rotatey" center="-50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="-50" start="0" end="65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="-795" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(-5).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_2</include>
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(-5).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_2</include>
+        </control>
+      </control>
+      <control type="group">
+        <posx>150</posx>
+        <animation effect="rotatey" center="50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="50" start="0" end="65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="-645" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(-4).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_3</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(-4).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_3</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>250</posx>
+        <animation effect="rotatey" center="150" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="150" start="0" end="65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="-495" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(-3).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_4</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(-3).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_4</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>350</posx>
+        <animation effect="rotatey" center="250" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="250" start="0" end="65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="-345" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(-2).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_5</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(-2).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_5</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>450</posx>
+        <animation effect="rotatey" center="350" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="350" start="0" end="65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="-195" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(-1).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_6</include>
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(-1).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_6</include>
+        </control>
+      </control>
+      <control type="group">
+        <posx>960</posx>
+        <animation effect="rotatey" center="1330" start="65" end="65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="1330" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="795" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(5).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_12</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(5).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_12</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>860</posx>
+        <animation effect="rotatey" center="1230" start="65" end="65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="1230" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="645" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(4).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_11</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(4).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_11</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>760</posx>
+        <animation effect="rotatey" center="1130" start="65" end="65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="1130" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="495" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(3).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_10</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(3).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_10</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>660</posx>
+        <animation effect="rotatey" center="1030" start="65" end="65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="1030" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="345" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(2).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_9</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(2).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_9</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>560</posx>
+        <animation effect="rotatey" center="930" start="65" end="65" time="0" condition="true">Conditional</animation>
+        <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
+          <effect type="rotatey" center="930" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
+          <effect type="slide" start="0" end="195" time="800" tween="cubic" easing="inout"/>
+        </animation>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumb</include>
+            <info>Container(57).ListItem(1).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_8</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngled</include>
+            <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseGlassOverlayAngledCD</include>
+          </control>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(1).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCD</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_8</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+      <control type="group">
+        <posx>505</posx>
+        <control type="group">
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
+          <control type="image">
+            <include>MusicShowcaseThumbMain</include>
+            <info>Container(57).ListItem(0).Thumb</info>
+          </control>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_7</include>
+          <!-- <<<<<< Add this -->
+          <control type="image">
+            <description>Glass overlay</description>
+            <include>MusicShowcaseGlassOverlay</include>
+          </control>
+          <control type="image">
+            <include>MusicShowcaseThumbReflection</include>
+            <info>Container(57).ListItem(0).Thumb</info>
+          </control>
+          <control type="image">
+            <description>Glass overlay reflection</description>
+            <include>MusicShowcaseThumbReflectionCDMain</include>
+          </control>
+          <include condition="Window.IsActive(pictures)">MusicShowcaseBlackReflection</include>
+          <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_7</include>
+          <!-- <<<<<< Add this -->
+        </control>
+      </control>
+    </control>
   </include>
   <include name="ShowcaseMovies">
     <control type="group" id="6001">
@@ -4096,10 +4455,11 @@
       <texturenofocus>-</texturenofocus>
       <onfocus>SetFocus(7000)</onfocus>
       <visible>[[Container.Content(movies) | Window.IsActive(videofiles)] + [[[Skin.HasSetting(showcaseinfoon) | Skin.HasSetting(showcaseinfoauto)] + IsEmpty(ListItem.Trailer)] | Skin.HasSetting(Showcaseinfooff)]] |
-					[Container.Content(tvshows) + [Skin.HasSetting(showcasetvshowinfoauto) | Skin.HasSetting(showcasetvshowinfoon) | Skin.HasSetting(showcasetvshowinfooff)]] |
-					[Container.Content(seasons) + [Skin.HasSetting(showcaseseasoninfoauto) | Skin.HasSetting(showcaseseasoninfoon) | Skin.HasSetting(showcaseseasoninfooff)]] |
-					[Container.Content(episodes) + [Skin.HasSetting(showcaseepisodeinfoauto) | Skin.HasSetting(showcaseepisodeinfoon) | Skin.HasSetting(showcaseepisodeinfooff)]] |
-					[[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + Skin.HasSetting(showcasemusicinfotrigger)]</visible>
+        [Container.Content(tvshows) + [Skin.HasSetting(showcasetvshowinfoauto) | Skin.HasSetting(showcasetvshowinfoon) | Skin.HasSetting(showcasetvshowinfooff)]] |
+        [Container.Content(seasons) + [Skin.HasSetting(showcaseseasoninfoauto) | Skin.HasSetting(showcaseseasoninfoon) | Skin.HasSetting(showcaseseasoninfooff)]] |
+        [Container.Content(episodes) + [Skin.HasSetting(showcaseepisodeinfoauto) | Skin.HasSetting(showcaseepisodeinfoon) | Skin.HasSetting(showcaseepisodeinfooff)]] |
+        [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + Skin.HasSetting(showcasemusicinfotrigger)]
+      </visible>
     </control>
     <!--		<control type="button" id="70110">
 			<texturefocus>-</texturefocus>
@@ -4123,10 +4483,11 @@
       <ondown>SetFocus(57)</ondown>
       <onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
       <visible>![[[Container.Content(movies) | Window.IsActive(videofiles)] + [[[Skin.HasSetting(showcaseinfoon) | Skin.HasSetting(showcaseinfoauto)] + IsEmpty(ListItem.Trailer)] | Skin.HasSetting(Showcaseinfooff)]] |
-					[Container.Content(tvshows) + [Skin.HasSetting(showcasetvshowinfoauto) | Skin.HasSetting(showcasetvshowinfoon) | Skin.HasSetting(showcasetvshowinfooff)]] |
-					[Container.Content(seasons) + [Skin.HasSetting(showcaseseasoninfoauto) | Skin.HasSetting(showcaseseasoninfoon) | Skin.HasSetting(showcaseseasoninfooff)]] |
-					[Container.Content(episodes) + [Skin.HasSetting(showcaseepisodeinfoauto) | Skin.HasSetting(showcaseepisodeinfoon) | Skin.HasSetting(showcaseepisodeinfooff)]] |
-					[[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + Skin.HasSetting(showcasemusicinfotrigger)]]</visible>
+        [Container.Content(tvshows) + [Skin.HasSetting(showcasetvshowinfoauto) | Skin.HasSetting(showcasetvshowinfoon) | Skin.HasSetting(showcasetvshowinfooff)]] |
+        [Container.Content(seasons) + [Skin.HasSetting(showcaseseasoninfoauto) | Skin.HasSetting(showcaseseasoninfoon) | Skin.HasSetting(showcaseseasoninfooff)]] |
+        [Container.Content(episodes) + [Skin.HasSetting(showcaseepisodeinfoauto) | Skin.HasSetting(showcaseepisodeinfoon) | Skin.HasSetting(showcaseepisodeinfooff)]] |
+        [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + Skin.HasSetting(showcasemusicinfotrigger)]]
+      </visible>
     </control>
     <!--	<control type="button" id="70110">
 			<texturefocus>-</texturefocus>
