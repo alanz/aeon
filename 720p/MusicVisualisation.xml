@@ -201,10 +201,11 @@
           <!-- cdartinvis-->
           <visible>Skin.HasSetting(cdartinvis)</visible>
           <include>Animation_OpenCloseZoom</include>
+          
+          <!-- Display Album instead of Artist if Artist is empty -->
           <control type="label">
             <posx>400</posx>
             <posy>-182</posy>
-            <!-- -143 -->
             <width>880</width>
             <height>25</height>
             <align>left</align>
@@ -212,7 +213,22 @@
             <scroll>true</scroll>
             <font>Font_bigtime</font>
             <label>[COLOR B5FFFFFF]$INFO[MusicPlayer.Artist][/COLOR]</label>
+            <visible>!IsEmpty(MusicPlayer.Artist)</visible>
           </control>
+          <control type="label">
+            <posx>400</posx>
+            <posy>-182</posy>
+            <width>880</width>
+            <height>25</height>
+            <align>left</align>
+            <aligny>-</aligny>
+            <scroll>true</scroll>
+            <font>Font_bigtime</font>
+            <label>[COLOR B5FFFFFF]$INFO[MusicPlayer.Album][/COLOR]</label>
+            <visible>IsEmpty(MusicPlayer.Artist)</visible>
+          </control>
+          <!-- end -->
+
           <control type="label">
             <posx>415</posx>
             <posy>-95</posy>
@@ -222,7 +238,8 @@
             <align>left</align>
             <aligny>-</aligny>
             <font>Font_OSDMusicArtist</font>
-            <label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Album] [$INFO[MusicPlayer.Year]][/COLOR]</label>
+            <label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Album] $INFO[MusicPlayer.Year,[,]][/COLOR]</label>
+            <visible>!IsEmpty(MusicPlayer.Artist)</visible><!-- MusicPlayer.Album is already displayed if Artist is empty -->
           </control>
           <control type="label">
             <posx>430</posx>
@@ -233,7 +250,7 @@
             <align>left</align>
             <aligny>-</aligny>
             <font>Font_OSDMusicTitle</font>
-            <label>[COLOR 80c2c4c3]$INFO[MusicPlayer.TrackNumber]: [/COLOR][COLOR A0FFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
+            <label>[COLOR 80c2c4c3]$INFO[MusicPlayer.TrackNumber,,: ][/COLOR][COLOR A0FFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
           </control>
         </control>
         <control type="group">
@@ -332,7 +349,7 @@
           <width>500</width>
           <height>500</height>
           <font>Font_bigtime</font>
-          <label>[COLOR 60FFFFFF]$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration][/COLOR]</label>
+          <label>[COLOR 60FFFFFF]$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ][/COLOR]</label>
           <align>right</align>
         </control>
         <control type="fadelabel">
@@ -345,12 +362,13 @@
           <scrollout>false</scrollout>
           <scrollspeed>100</scrollspeed>
           <pauseatend>5000</pauseatend>
-          <label>Previous: $INFO[MusicPlayer.offset(-1).Artist]: $INFO[MusicPlayer.offset(-1).Title]</label>
-          <label>Next: $INFO[MusicPlayer.offset(1).Artist]: $INFO[MusicPlayer.offset(1).Title]</label>
+          <label>Previous: $INFO[MusicPlayer.offset(-1).Artist]$INFO[MusicPlayer.offset(-1).Title,: ]</label>
+          <label>Next: $INFO[MusicPlayer.offset(1).Artist]$INFO[MusicPlayer.offset(1).Title,: ]</label>
           <font>font14</font>
           <textcolor>50FFFFFF</textcolor>
           <textoffsetx>20</textoffsetx>
           <align>right</align>
+          <visible>![IsEmpty(MusicPlayer.offset(1).Title) + IsEmpty(MusicPlayer.offset(-1).Title) + IsEmpty(MusicPlayer.offset(1).Artist) + IsEmpty(MusicPlayer.offset(-1).Artist)]</visible>
         </control>
       </control>
     </control>
