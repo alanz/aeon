@@ -26,43 +26,27 @@
       <label>-</label>
       <align>center</align>
     </control>
-    <control type="button">
-      <description>Close Window button</description>
-      <posx>908</posx>
-      <posy>25</posy>
-      <width>30</width>
-      <height>30</height>
-      <label>-</label>
-      <font>-</font>
-      <onclick>PreviousMenu</onclick>
-      <texturefocus>settings/button-close-window-focus.png</texturefocus>
-      <texturenofocus>settings/button-close-window-nofocus.png</texturenofocus>
-      <onleft>2</onleft>
-      <onright>2</onright>
-      <onup>2</onup>
-      <ondown>2</ondown>
-      <visible>system.getbool(input.enablemouse)</visible>
-    </control>
     <control type="grouplist" id="2">
       <description>control settings area</description>
       <posx>183</posx>
       <posy>80</posy>
-      <width>730</width>
-      <height>535</height>
-      <itemgap>-1</itemgap>
+      <width>710</width>
+      <height>445</height>
+      <itemgap>0</itemgap>
       <pagecontrol>61</pagecontrol>
       <onup>10</onup>
       <ondown>10</ondown>
       <onleft>9</onleft>
       <onright>61</onright>
+	  <font>Font_OSDOptions</font>
     </control>
     <control type="grouplist" id="9">
       <description>control section area</description>
       <posx>15</posx>
       <posy>80</posy>
       <width>168</width>
-      <height>535</height>
-      <itemgap>-1</itemgap>
+      <height>445</height>
+      <itemgap>0</itemgap>
       <pagecontrol>61</pagecontrol>
       <onup>9</onup>
       <ondown>9</ondown>
@@ -70,21 +54,24 @@
       <onright>2</onright>
     </control>
     <control type="scrollbar" id="61">
-      <posx>1090</posx>
+	  <description>Scrollbar</description>
+      <posx>910</posx>
       <posy>80</posy>
-      <width>20</width>
-      <height>537</height>
-      <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
-      <texturesliderbar border="2,16,2,16">ScrollBarV_bar.png</texturesliderbar>
-      <texturesliderbarfocus border="2,16,2,16">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-      <textureslidernib>ScrollBarNib.png</textureslidernib>
-      <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+      <width>22</width>
+      <height>453</height>
+      <texturesliderbackground>xbmcsubtitles/scrollbarbacklist.png</texturesliderbackground>
+      <texturesliderbar>xbmcsubtitles/ScrollBarV_bar_focus.png</texturesliderbar>
+      <texturesliderbarfocus>xbmcsubtitles/ScrollBarV_bar_focus.png</texturesliderbarfocus>
+      <textureslidernib>windows/ScrollBarNib.png</textureslidernib>
+      <textureslidernibfocus>windows/ScrollBarNib.png</textureslidernibfocus>
       <onleft>2</onleft>
       <onright>10</onright>
       <showonepage>false</showonepage>
       <orientation>vertical</orientation>
     </control>
     <control type="button" id="13">
+	  <textoffsetx>20</textoffsetx>
+	  <font>Font_OSDOptions</font>
       <description>Default Section Button</description>
       <include>Objects_SettingsSectionMenuButton</include>
     </control>
@@ -93,10 +80,14 @@
       <posx>44</posx>
       <posy>116</posy>
       <label>24002</label>
+	  <textoffsetx>20</textoffsetx>
+	  <font>Font_OSDOptions</font>
       <textcolor>FF262728</textcolor>
       <include>Objects_SettingsSectionMenuButtonSubtitle</include>
     </control>
     <control type="button" id="3">
+	  <font>Font_OSDOptions</font>
+	  <textoffsetx>20</textoffsetx>
       <description>Default Settings Button</description>
       <texturefocus>dialogs/setcontent_button_focus.png</texturefocus>
       <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
@@ -105,16 +96,16 @@
       <description>Default RadioButton</description>
       <posx>0</posx>
       <posy>0</posy>
-      <width>300</width>
+      <width>280</width>
       <height>41</height>
-      <font>Font_ContextMenuButton</font>
+      <font>Font_OSDOptions</font>
       <texturefocus>dialogs/setcontent_button_focus.png</texturefocus>
       <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
       <textcolor>FF939597</textcolor>
       <focusedcolor>FFFFFFFF</focusedcolor>
       <pulseonselect>false</pulseonselect>
       <radiowidth>94</radiowidth>
-      <radioposx>645</radioposx>
+      <radioposx>630</radioposx>
       <radioheight>65</radioheight>
       <textoffsetx>20</textoffsetx>
       <aligny>center</aligny>
@@ -130,15 +121,16 @@
       <texturedown>settings/spin-down.png</texturedown>
       <textureupfocus>settings/spin-up-focus.png</textureupfocus>
       <texturedownfocus>settings/spin-down-focus.png</texturedownfocus>
-      <font>Font_ContextMenuButton</font>
+      <font>Font_OSDOptions</font>
       <textcolor>FF939597</textcolor>
       <focusedcolor>FFFFFFFF</focusedcolor>
       <pulseonselect>false</pulseonselect>
-      <spinposx>-4</spinposx>
+      <spinposx>-8</spinposx>
       <spinwidth>42</spinwidth>
       <spinheight>65</spinheight>
       <textoffsetx>20</textoffsetx>
       <aligny>center</aligny>
+	  <alignx>center</alignx>
       <reverse>yes</reverse>
       <subtype>text</subtype>
     </control>
@@ -149,24 +141,22 @@
     </control>
     <control type="label" id="7">
       <description>separator label</description>
+	  <height>32</height>
+	  <textoffsety>16</textoffsety>
+	  <textoffsetx>20</textoffsetx>
       <label/>
     </control>
     <control type="sliderex" id="8">
       <description>Default Slider</description>
-      <width>320</width>
+      <width>380</width>
       <height>80</height>
-      <align>center</align>
+      <align>right</align>
+	  <font>Font_OSDOptions</font>
       <texturesliderbar>osd/osd_sliderback.png</texturesliderbar>
       <textureslidernib>osd/osd_slidernub.png</textureslidernib>
       <textureslidernibfocus>osd/osd_slidernubf.png</textureslidernibfocus>
     </control>
-    <control type="image">
-      <posx>214</posx>
-      <posy>515</posy>
-      <width>700</width>
-      <height>2</height>
-      <texture>windows/scrollbarbackshowcase.png</texture>
-    </control>
+
     <control type="group" id="9001">
       <control type="button" id="10">
         <description>OK Button</description>
