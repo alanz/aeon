@@ -80,6 +80,7 @@
         <height>230</height>
         <texture flipy="true" diffuse="common/Thumb_Mask6.png">$INFO[ListItem.thumb]</texture>
         <aspectratio>stretch</aspectratio>
+		<visible>Container.Content(episodes)</visible>
       </control>
       <control type="image">
         <posx>280</posx>
@@ -107,7 +108,7 @@
       <height>720</height>
       <texture>$INFO[ListItem.thumb]</texture>
       <aspectratio>stretch</aspectratio>
-      <visible>!Container.Content(episodes)</visible>
+      <visible>!Container.Content(episodes) +  !Container.Content(tvshows)</visible>
     </control>
     <control type="largeimage">
       <description>Cover image</description>
@@ -126,7 +127,7 @@
       <posy>0</posy>
       <width>486</width>
       <height>720</height>
-      <texture>$INFO[ListItem.path]folder.jpg</texture>
+      <texture>$INFO[ListItem.FileNameAndPath]folder.jpg</texture>
       <aspectratio>stretch</aspectratio>
       <fadetime>500</fadetime>
       <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
@@ -137,7 +138,7 @@
       <posy>0</posy>
       <width>486</width>
       <height>720</height>
-      <texture>$INFO[ListItem.path]poster.jpg</texture>
+      <texture>$INFO[ListItem.FileNameAndPath]poster.jpg</texture>
       <aspectratio>stretch</aspectratio>
       <fadetime>500</fadetime>
       <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
