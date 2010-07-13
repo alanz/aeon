@@ -51,10 +51,10 @@
     <fadetime>400</fadetime>
   </include>
   <include name="Furniture_MovieInfoFlagSource">
-    <posx>4</posx>
-    <posy>589</posy>
-    <width>93</width>
-    <height>30</height>
+    <posx>0</posx>
+    <posy>579</posy>
+    <width>100</width>
+    <height>50</height>
     <colordiffuse>FFDDDDDD</colordiffuse>
   </include>
   <include name="Furniture_MovieInfoFlagSound">
@@ -89,57 +89,57 @@
     </control>
     <control type="image" id="91">
       <include>Furniture_MovieInfoFlagSource</include>
-      <texture>$INFO[ListItem.VideoCodec,flags/info/,.png]</texture>
+      <texture>$INFO[ListItem.VideoCodec,flags/VideoCodec/,.png]</texture>
       <visible>!substring(ListItem.filename,hdtv) + !substring(ListItem.filename,dvd) + !substring(ListItem.filename,bluray) + !substring(ListItem.filename,blu-ray) + !substring(ListItem.filename,bdrip) + !substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,.ifo,Right)</visible>
     </control>
     <control type="image" id="91">
       <include>Furniture_MovieInfoFlagSource</include>
-      <texture>flags/info/hdtv.png</texture>
+      <texture>flags/Source/hdtv.png</texture>
       <visible>substring(ListItem.filename,hdtv)</visible>
     </control>
     <control type="image" id="91">
       <include>Furniture_MovieInfoFlagSource</include>
-      <texture>flags/info/hddvd.png</texture>
+      <texture>flags/Source/hddvd.png</texture>
       <visible>substring(ListItem.filename,hddvd) | substring(ListItem.filename,hd-dvd)</visible>
     </control>
     <control type="image" id="91">
       <include>Furniture_MovieInfoFlagSource</include>
-      <texture>flags/info/bluray.png</texture>
+      <texture>flags/Source/bluray.png</texture>
       <visible>substring(ListItem.filename,bluray) | substring(ListItem.filename,blu-ray) | substring(ListItem.filename,bdrip)</visible>
     </control>
     <control type="image" id="91">
       <include>Furniture_MovieInfoFlagSource</include>
-      <texture>flags/info/dvd.png</texture>
+      <texture>flags/Source/dvd.png</texture>
       <visible>[substring(ListItem.filename,dvd) + !substring(ListItem.filename,hddvd) + !substring(ListItem.filename,hd-dvd) + !substring(ListItem.filename,bluray)] | [substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,bluray)] | substring(ListItem.filename,.ifo,Right)</visible>
     </control>
     <control type="image" id="92">
       <include>Furniture_MovieInfoFlagSound</include>
-      <texture>flags/info/dd51.png</texture>
+      <texture>flags/Audio/dd51.png</texture>
       <visible>substring(ListItem.AudioChannels,6) + substring(ListItem.AudioCodec,ac3)</visible>
     </control>
     <control type="image" id="92">
       <include>Furniture_MovieInfoFlagSound</include>
-      <texture>flags/info/dd71.png</texture>
+      <texture>flags/Audio/dd71.png</texture>
       <visible>substring(ListItem.AudioChannels,8) + substring(ListItem.AudioCodec,ac3)</visible>
     </control>
     <control type="image" id="92">
       <include>Furniture_MovieInfoFlagSound</include>
-      <texture>flags/info/dts51.png</texture>
+      <texture>flags/Audio/dts51.png</texture>
       <visible>substring(ListItem.AudioChannels,6) + substring(ListItem.AudioCodec,dca)</visible>
     </control>
     <control type="image" id="92">
       <include>Furniture_MovieInfoFlagSound</include>
-      <texture>flags/info/dts71.png</texture>
+      <texture>flags/Audio/dts71.png</texture>
       <visible>substring(ListItem.AudioChannels,8) + substring(ListItem.AudioCodec,dca)</visible>
     </control>
     <control type="image" id="92">
       <include>Furniture_MovieInfoFlagSound</include>
-      <texture>flags/info/dolby20.png</texture>
+      <texture>flags/Audio/dolby20.png</texture>
       <visible>substring(ListItem.AudioChannels,2)</visible>
     </control>
     <control type="image" id="92">
       <include>Furniture_MovieInfoFlagSound</include>
-      <texture>flags/info/mono.png</texture>
+      <texture>flags/Audio/mono.png</texture>
       <visible>substring(ListItem.AudioChannels,1)</visible>
     </control>
     <control type="image" id="93">
@@ -148,7 +148,7 @@
       <width>39</width>
       <height>30</height>
       <colordiffuse>FFDDDDDD</colordiffuse>
-      <texture>flags/info/cc.png</texture>
+      <texture>flags/misc/cc.png</texture>
       <visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
     </control>
     <control type="image" id="94">
