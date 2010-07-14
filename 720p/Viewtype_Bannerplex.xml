@@ -1,0 +1,148 @@
+<includes>
+	<include name="Banner_VerticalWall">
+		<onleft>SetFocus(7000)</onleft>
+		<onright>SetFocus(7000)</onright>
+		<onup>554</onup>
+		<ondown>554</ondown>
+		<orientation>vertical</orientation>
+	</include>
+	
+	<include name="Banner_HorizontalWall">
+		<onleft>554</onleft>
+		<onright>554</onright>
+		<onup>SetFocus(7000)</onup>
+		<ondown>SetFocus(7000)</ondown>
+		<orientation>horizontal</orientation>
+	</include>
+	<include name="BannerWall">
+		<posx>89</posx>
+		<posy>465</posy>
+		<width>1107</width>
+		<height>170</height>
+	</include>
+	
+	<include name="BannerWall2">
+		<posx>89</posx>
+		<posy>185</posy>
+		<width>1107</width>
+		<height>450</height>
+	</include>
+	
+	<include name="BannerTVDimensions">
+		<posx>7</posx>
+		<posy>20</posy>
+		<width>355</width>
+		<height>66</height>	
+	</include>
+	
+	<include name="Viewtype_Bannerplex">
+				
+		<control type="panel" id="554">
+			<viewtype label="BANNERPLEX">icon</viewtype>
+			<include condition="!Skin.HasSetting(bannerplexmax)">BannerWall</include>	
+			<include condition="Skin.HasSetting(bannerplexmax)">BannerWall2</include>	
+			<pagecontrol>61</pagecontrol>
+			<include condition="Skin.HasSetting(Banner_VerticalWall)">Banner_VerticalWall</include>
+			<include condition="!Skin.HasSetting(Banner_VerticalWall)">Banner_HorizontalWall</include>
+			<orientation>horizontal</orientation>
+			<scrolltime>200</scrolltime>
+			<visible>Container.Content(tvshows)</visible>
+			<itemlayout width="369" height="70">
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Path,,banner.jpg</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<visible>Skin.HasSetting(bannerjpg)</visible>
+				</control>
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Icon</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<visible>!Skin.HasSetting(bannerjpg)</visible>
+				</control>
+				<control type="image">
+					<posx>-3</posx>
+					<posy>9</posy>
+					<width>375</width>
+					<height>87</height>
+					<texture>thumbs/banner_shadow.png</texture>
+				</control>		
+			</itemlayout>
+			<focusedlayout width="369" height="70">
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Path,,banner.jpg</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<include>Animation_MultiplexTVFocusZoomBanner</include>
+					<visible>Skin.HasSetting(bannerjpg)</visible>					
+				</control>
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Icon</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<include>Animation_MultiplexTVFocusZoomBanner</include>
+					<visible>!Skin.HasSetting(bannerjpg)</visible>				
+				</control>
+				<control type="image">
+					<posx>-3</posx>
+					<posy>9</posy>
+					<width>375</width>
+					<height>87</height>
+					<texture>thumbs/banner_shadow.png</texture>
+					<include>Animation_MultiplexTVFocusZoomBanner</include>
+				</control>		
+			</focusedlayout>						
+
+		</control>		
+
+		<control type="scrollbar" id="60">
+			<posx>305</posx>
+			<posy>663</posy>
+			<width>670</width>
+			<height>41</height>
+			<visible allowhiddenfocus="true">Control.IsVisible(554) + Control.HasFocus(60)</visible>
+			<texturesliderbackground>windows/scrollbarbackshowcase.png</texturesliderbackground>
+			<texturesliderbar>-</texturesliderbar>
+			<texturesliderbarfocus>-</texturesliderbarfocus>
+			<textureslidernib>windows/scrollbarnub-focus.png</textureslidernib>
+			<textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+			<pulseonselect/>
+			<orientation>horizontal</orientation>
+			<showonepage>false</showonepage>
+			<onup>57</onup>
+			<ondown>197</ondown>
+			<onleft>60</onleft>
+			<onright>60</onright>
+			<include>Animation_CommonFade</include>
+		</control>
+		
+		<control type="group">
+			<visible>Control.IsVisible(554)</visible>
+			<control type="fadelabel">
+				<label>31609</label>
+				<label>31610</label>					
+				<scrollout>false</scrollout>
+				<pauseatend>3000</pauseatend>
+				<scroll>false</scroll>
+				<include>ShowcaseMainLabel</include>
+				<visible>Window.IsActive(25) + Control.IsVisible(554) + stringcompare(container(554).numitems,0)</visible>
+			</control>
+			<control type="fadelabel">
+				<label>31609</label>
+				<label>31611</label>					
+				<scrollout>false</scrollout>
+				<pauseatend>3000</pauseatend>
+				<scroll>false</scroll>
+				<include>ShowcaseMainLabel</include>
+				<visible>Window.IsActive(502) + Control.IsVisible(554) + stringcompare(container(554).numitems,0)</visible>
+			</control>		
+			<include>Furniture_FloorText</include>
+		</control>
+
+	</include>
+
+</includes>
