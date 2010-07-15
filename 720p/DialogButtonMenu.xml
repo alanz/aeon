@@ -47,8 +47,8 @@
         <posy>429</posy>
         <width>308</width>
         <height>27</height>
-        <animation effect="slide" start="0,-39" end="0,-39" time="0" condition="![system.hasloginscreen | System.HasMediaDVD]">Conditional</animation>
-        <animation effect="slide" start="0,39" end="0,39" time="0" condition="system.hasloginscreen + System.HasMediaDVD">Conditional</animation>
+        <animation effect="slide" start="0,-69" end="0,-79" time="0" condition="![system.hasloginscreen | System.HasMediaDVD]">Conditional</animation>
+        <animation effect="slide" start="0,39" end="0,79" time="0" condition="system.hasloginscreen + System.HasMediaDVD">Conditional</animation>
         <texture>dialogs/context_bottom.png</texture>
       </control>
 	  <!-- ShutdownMenu -->
@@ -92,10 +92,10 @@
           <onclick>ActivateWindow(500)</onclick>
         </control>
         <control type="button" id="806">
-          <description>Shutdown Timer</description>
+          <description>Exit Timer</description>
           <label>31206</label>
           <include>Objects_ContextMenuButton</include>
-          <onclick>AlarmClock(,Shutdown,)</onclick>
+          <onclick>AlarmClock(,XBMC.Quit(),)</onclick>
         </control>
         <control type="button" id="807">
           <description>Log Out</description>
@@ -104,7 +104,7 @@
           <onclick>System.LogOff</onclick>
           <visible>system.hasloginscreen</visible>
         </control>
-		<!-- Only works on XBOX
+		<!--
         <control type="button" id="808">
           <description>Restart</description>
           <label>31207</label>
@@ -112,10 +112,10 @@
           <onclick>RestartApp</onclick>
         </control>-->
         <control type="button" id="809">
-          <description>Shutdown</description>
-          <label>31208</label>
+          <description>Exit XBMC</description>
+          <label fallback="EXIT XBMC">41003</label>
           <include>Objects_ContextMenuButton</include>
-          <onclick>Shutdown</onclick>
+          <onclick>XBMC.Quit()</onclick>
         </control>
         <control type="button" id="810">
           <description>Eject Tray</description>
