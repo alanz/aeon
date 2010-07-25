@@ -307,7 +307,7 @@
           <width>170</width>
           <height>59</height>
           <texture>flags/music/year/year.png</texture>
-          <visible>!IsEmpty(MusicPlayer.Genre)</visible>
+          <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
         </control>
         <control type="label">
           <posx>413</posx>
@@ -320,6 +320,7 @@
           <scroll>true</scroll>
           <font>Font_OSDSeek</font>
           <label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Genre][/COLOR]</label>
+          <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
         </control>
         <control type="label">
           <posx>725</posx>
