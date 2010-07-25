@@ -1,5 +1,15 @@
 <?xml version="1.0"?>
 <window id="2006">
+
+  <include name="Background_Animation_400">
+      <include>FullscreenDimensions</include>
+      <fadetime>400</fadetime>
+      <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+      <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+      <include>Animation_VisibleChange400</include>
+      <include>Animation_OpenCloseZoom</include>
+  </include>
+
   <allowoverlay>no</allowoverlay>
   <controls>
     <control type="multiimage">
@@ -17,28 +27,20 @@
       <visible>![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled] + IsEmpty(MusicPlayer.property(fanart_image))</visible>
       <include>Animation_OpenCloseZoom</include>
     </control>
+    
     <control type="largeimage">
       <!-- Artist Fanart-->
-      <include>FullscreenDimensions</include>
+      <include>Background_Animation_400</include>
       <texture>$INFO[MusicPlayer.property(fanart_image)]</texture>
-      <fadetime>400</fadetime>
-      <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <include>Animation_VisibleChange400</include>
       <visible>![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled]</visible>
-      <include>Animation_OpenCloseZoom</include>
     </control>
     <control type="largeimage">
       <!-- musicpath/Artist/Album/fanart.jpg -->
-      <include>FullscreenDimensions</include>
+      <include>Background_Animation_400</include>
       <texture>$INFO[Player.FolderPath]fanart.jpg</texture>
-      <fadetime>400</fadetime>
-      <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <include>Animation_VisibleChange400</include>
       <visible>Skin.HasSetting(visbackground2) + ![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled] </visible>
-      <include>Animation_OpenCloseZoom</include>
     </control>
+    
     <control type="visualisation" id="2">
       <description>visualisation</description>
       <posx>0</posx>
@@ -239,7 +241,7 @@
           <control type="label">
             <posx>430</posx>
             <posy>-70</posy>
-            <width>550</width>
+            <width>820</width>
             <height>30</height>
             <align>left</align>
             <aligny>-</aligny>
@@ -344,9 +346,9 @@
         </control>
         <control type="fadelabel">
           <description>Previous / Next Fadelabel</description>
-          <posx>750</posx>
+          <posx>345</posx>
           <posy>105</posy>
-          <width>500</width>
+          <width>900</width>
           <visible>true</visible>
           <scroll>false</scroll>
           <scrollout>false</scrollout>
