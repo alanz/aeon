@@ -4,7 +4,6 @@
   <allowoverlay>yes</allowoverlay>
   <views>50,551,52,57,53,556,557</views>
   <controls>
-    <!-- <<<<< ADD this -->
     <control type="image" id="109">
       <posx>0</posx>
       <posy>0</posy>
@@ -18,21 +17,24 @@
       <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
     </control>
+
     <control type="group">
       <visible>[!Skin.HasSetting(musicGenreFanartOn) + Container.Content(genres)] | !Container.Content(genres)</visible>
-      <!-- ADD End -->
-      <control type="multiimage">
+
+      <control type="multiimage"> <!-- Default music backdrops -->
         <include>BackgroundVarsGlobal</include>
         <include>BackgroundVarsMusic</include>
-        <visible>!Skin.HasSetting(fallbackimage)</visible>
+        <visible>!Skin.HasSetting(fallbackimage) + IsEmpty(Container.Property(fanart_image)) + IsEmpty(ListItem.property(fanart_image))</visible>
       </control>
-      <control type="largeimage">
+
+      <control type="largeimage"> <!-- Backdrops if falback active -->
         <include>FullscreenDimensions</include>
-        <visible>Skin.HasSetting(fallbackimage) + Skin.HasSetting(musicfanart)</visible>
+        <visible>Skin.HasSetting(fallbackimage) + Skin.HasSetting(musicfanart) + IsEmpty(Container.Property(fanart_image)) + IsEmpty(ListItem.property(fanart_image))</visible>
         <fadetime>400</fadetime>
         <texture>$INFO[Skin.String(fallbackimagepathmusic)]</texture>
         <include>Animation_FanartFade</include>
       </control>
+
       <control type="largeimage" id="102">
         <include>FullscreenDimensions</include>
         <visible>!Control.IsVisible(103) + [Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(551)] + !IsEmpty(ListItem.property(fanart_image)) + Skin.HasSetting(musicfanart)</visible>
@@ -47,6 +49,7 @@
         <texture>$INFO[Container.Property(fanart_image)]</texture>
         <include>Animation_FanartFade</include>
       </control>
+
       <control type="largeimage">
         <!-- musicpath/Artist/Album/fanart.jpg -->
         <include>FullscreenDimensions</include>
@@ -55,15 +58,15 @@
         <include>Animation_FanartFade</include>
         <visible>Container.Content(songs)</visible>
       </control>
-      <!-- <<<<< ADD this -->
     </control>
+
     <control type="image">
       <include>FullscreenDimensions</include>
       <fadetime>400</fadetime>
       <texture>musicextras/movie/genrefanart/$INFO[ListItem.Label].jpg</texture>
       <visible>[Skin.HasSetting(musicGenreFanartOn) + Container.Content(genres)]</visible>
     </control>
-    <!-- ADD End -->
+
     <include>CurtainsBackdrop</include>
     <include>Furniture_WallBackground</include>
     <control type="group">
@@ -84,10 +87,12 @@
       <include>Furniture_Time</include>
       <include>MusicMediaFlags</include>
     </control>
+
     <include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
     <include>Furniture_DarkGradient</include>
     <include condition="Skin.HasSetting(scrollletters)">ScrollOffsetLabel</include>
     <include>Background_ContextBlack</include>
     <include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
+
   </controls>
 </window>
