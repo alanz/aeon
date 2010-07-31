@@ -747,7 +747,7 @@
         <posy>50</posy>
         <visible>Skin.HasSetting(fanartlayout)</visible>
 
-        <!-- Begin Plot / Tagline fallback -->
+        <!-- Begin Plot / PlotOutline fallback -->
         <control type="textbox">
           <posx>-505</posx>
           <posy>148</posy>
@@ -765,12 +765,23 @@
           <width>435</width>
           <height>149</height>
           <font>Font_MultiplexPlotSmall</font>
-          <info>Container(57).ListItem.Tagline</info>
-          <visible>IsEmpty(Container(57).ListItem.Plot)</visible>
+          <info>Container(57).ListItem.PlotOutline</info>
+          <visible>IsEmpty(Container(57).ListItem.Plot) + !IsEmpty(Container(57).ListItem.PlotOutline)</visible>
           <textcolor>d0FFFFFF</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
-        <!-- End of tagline fallback -->
+        <control type="textbox">
+          <posx>-505</posx>
+          <posy>148</posy>
+          <width>435</width>
+          <height>149</height>
+          <font>Font_MultiplexPlotSmall</font>
+          <info>Container(57).ListItem.Tagline</info>
+          <visible>IsEmpty(Container(57).ListItem.Plot) + IsEmpty(Container(57).ListItem.PlotOutline)</visible>
+          <textcolor>d0FFFFFF</textcolor>
+          <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+        </control>
+        <!-- End of PlotOutline fallback -->
 
         <control type="image">
           <posx>0</posx>
