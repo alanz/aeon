@@ -169,6 +169,7 @@
       <onleft>20030</onleft>
       <onright>20030</onright>
       <ondown>50</ondown>
+      <onup>50</onup>
       <viewtype>list</viewtype>
       <orientation>horizontal</orientation>
       <focusposition>2</focusposition>
@@ -881,7 +882,7 @@
       <font>Font_FSInfoPlot</font>
       <onleft>20030</onleft>
       <onright>20030</onright>
-      <onup>20030</onup>
+      <onup>50</onup>
       <ondown>50</ondown>
       <orientation>vertical</orientation>
       <itemlayout width="250" height="29">
@@ -914,18 +915,41 @@
           <height>22</height>
           <texture>DefaultActorBig.png</texture>
           <info>ListItem.Icon</info>
-        </control>
-        <control type="label">
+	</control>
+	<!-- OMG This is a fugly hack, just because it's imposible to 
+	     have a list without a focused item we have to lie and 
+	     create two label with a visible property depending on the
+	     Focused item.
+
+	     If someone got a better idea, or wants to refactor this mess,
+	     feel free to send a patch ;-)
+        -->
+	<control type="label">
+	  <visible>Control.HasFocus(50)</visible>
           <posx>30</posx>
           <posy>3</posy>
           <width>370</width>
           <height>22</height>
-          <font>Font_FSInfoPlot</font>
+	  <font>Font_FSInfoPlot</font>
           <aligny>center</aligny>
           <selectedcolor>green</selectedcolor>
           <align>left</align>
           <info>ListItem.Label</info>
         </control>
+	<control type="label">
+	  <visible>!Control.HasFocus(50)</visible>
+          <posx>30</posx>
+          <posy>3</posy>
+          <width>370</width>
+          <height>22</height>
+	  <font>Font_FSInfoPlot</font>
+          <include>Colour_Grey</include>
+          <aligny>center</aligny>
+          <selectedcolor>green</selectedcolor>
+          <align>left</align>
+          <info>ListItem.Label</info>
+	</control>
+	<!-- end of fake out of focus item -->
       </focusedlayout>
     </control>
     <control type="group">
