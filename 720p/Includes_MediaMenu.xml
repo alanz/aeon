@@ -38,6 +38,28 @@
     <font>Font_MediaWindowMenu</font>
     <include>Animation_CommonFade</include>
   </include>
+  <include name="MediaMenuRadioButton">
+    <posx>0</posx>
+    <posy>0</posy>
+    <height>30</height>
+    <width>235</width>
+    <font>Font_SettingsOptions</font>
+    <texturefocus>verticalmenu/button_focus.png</texturefocus>
+    <alttexturefocus>verticalmenu/button_focus.png</alttexturefocus>
+    <textcolor>60FFFFFF</textcolor>
+    <focusedcolor>d0000000</focusedcolor>
+    <textoffsetx>10</textoffsetx>
+    <pulseonselect>true</pulseonselect>
+    <radiowidth>84</radiowidth>
+    <radioposx>170</radioposx>
+    <radioheight>65</radioheight>
+    <textoffsetx>50</textoffsetx>
+    <align>left</align>
+    <aligny>center</aligny>
+    <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
+    <textureradionofocus>settings/settings_radiobuttonon.png</textureradionofocus>
+  </include>
+  
   <include name="MediaMenuLogo">
     <posx>10</posx>
     <posy>15</posy>
@@ -144,12 +166,11 @@
       <onclick>Skin.ToggleSetting(flattenshowcasemusic)</onclick>
       <visible>Control.IsVisible(57) + ![Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
     </control>
-    <control type="togglebutton" id="700002">
-      <label>Ext. Info Off</label>
-      <altlabel>Ext. Info On</altlabel>
-      <usealttexture>Skin.HasSetting(showcaseinfolines)</usealttexture>
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700002">
+      <label>310799</label>
+      <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(showcaseinfolines)</onclick>
+      <selected>Skin.HasSetting(showcaseinfolines)</selected>
       <visible>Control.IsVisible(57)</visible>
     </control>
   </include>
@@ -165,10 +186,9 @@
 		</control>-->
   </include>
   <include name="MediaMenuButton_StackButton">
-    <control type="togglebutton" id="7">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31055]: $LOCALIZE[31077]</label>
-      <altlabel>$LOCALIZE[31055]: $LOCALIZE[31078]</altlabel>
+    <control type="radiobutton" id="7">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31055]</label>
       <visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>
     </control>
   </include>
@@ -230,13 +250,12 @@
 			<onclick>Skin.ToggleSetting(showcasefanart)</onclick>
 			<visible>Container.Content(movies) + Control.IsVisible(57)</visible>
 		</control>-->
-    <control type="togglebutton" id="7000221">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
-      <altlabel>$LOCALIZE[31065]: $LOCALIZE[31053]</altlabel>
-      <usealttexture>Skin.HasSetting(showcasethin)</usealttexture>
+    <control type="radiobutton" id="7000221">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31052]</label>
       <onclick>Skin.ToggleSetting(showcasethin)</onclick>
       <visible>Control.IsVisible(57) + [Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)]</visible>
+      <selected>Skin.HasSetting(showcasethin)</selected>
     </control>
   </include>
   <include name="MediaMenuButton_Multiplex">
@@ -306,14 +325,12 @@
       <onright>SetFocus(7022)</onright>
       <visible>Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)</visible>
     </control>
-    <control type="togglebutton" id="700324">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31064]: $LOCALIZE[31077]</label>
-      <altlabel>$LOCALIZE[31064]: $LOCALIZE[31078]</altlabel>
-      <usealttexture>Skin.HasSetting(nopicturefanart)</usealttexture>
-      <onclick>Skin.SetBool(nopicturefanart)</onclick>
-      <altclick>Skin.Reset(nopicturefanart)</altclick>
+    <control type="radiobutton" id="700324">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31064]</label>
+      <onclick>Skin.ToggleSetting(nopicturefanart)</onclick>
       <visible>Window.IsActive(pictures) + Control.IsVisible(57)</visible>
+      <selected>!Skin.HasSetting(nopicturefanart)</selected>
     </control>
   </include>
   <include name="MediaMenuButton_Stripshow">
@@ -326,12 +343,11 @@
       <onclick>ReloadSkin</onclick>
       <visible>Control.IsVisible(51)</visible>
     </control>
-    <control type="togglebutton" id="700032">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31079]: $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31079]: $LOCALIZE[31077]</altlabel>
-      <usealttexture>!Skin.HasSetting(nostripshowhide)</usealttexture>
+    <control type="radiobutton" id="700032">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31079]</label>
       <onclick>Skin.ToggleSetting(nostripshowhide)</onclick>
+      <selected>!Skin.HasSetting(nostripshowhide)</selected>
       <visible>Control.IsVisible(51)</visible>
     </control>
   </include>
@@ -385,31 +401,28 @@
       <visible>Control.IsVisible(53)</visible>
       <visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Container.Content(episodes)]]</visible>
     </control>
-    <control type="togglebutton" id="700037">
-      <label>$LOCALIZE[31067]: $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31067]: $LOCALIZE[31077]</altlabel>
-      <usealttexture>Skin.HasSetting(transparentwall)</usealttexture>
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700037">
+      <label>$LOCALIZEf[31067]</label>
+      <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(transparentwall)</onclick>
+      <selected>Skin.HasSetting(transparentwall)</selected>
       <visible>Control.IsVisible(53)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Overlay">
-    <control type="togglebutton" id="700038">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31066]: $LOCALIZE[31077]</label>
-      <altlabel>$LOCALIZE[31066]: $LOCALIZE[31078]</altlabel>
-      <usealttexture>Skin.HasSetting(nomovieoverlays)</usealttexture>
+    <control type="radiobutton" id="700038">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31066]</label>
       <onclick>Skin.ToggleSetting(nomovieoverlays)</onclick>
       <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)</visible>
+      <selected>!Skin.HasSetting(nomovieoverlays)</selected>
     </control>
-    <control type="togglebutton" id="700039">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31066]: $LOCALIZE[31077]</label>
-      <altlabel>$LOCALIZE[31066]: $LOCALIZE[31078]</altlabel>
-      <usealttexture>Skin.HasSetting(notvoverlays)</usealttexture>
+    <control type="radiobutton" id="700039">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31066]</label>
       <onclick>Skin.ToggleSetting(notvoverlays)</onclick>
       <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+      <selected>!Skin.HasSetting(notvoverlays)</selected>
     </control>
   </include>
   <include name="MediaMenuButton_LightNight">
@@ -424,11 +437,10 @@
     </control>
   </include>
   <include name="MediaMenuButton_Watched">
-    <control type="togglebutton" id="14">
+    <control type="radiobutton" id="14">
       <description>Watched Toggle Button</description>
-      <label>$LOCALIZE[31058]: $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31058]: $LOCALIZE[31077]</altlabel>
-      <include>MediaMenuButton</include>
+      <label>$LOCALIZE[31058]</label>
+      <include>MediaMenuRadioButton</include>
       <visible>[[Container.Content(movies) | Window.IsActive(videofiles)] + !Skin.HasSetting(nomenumoviewatched)] | [[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(nomenutvwatched)]</visible>
     </control>
   </include>
@@ -517,10 +529,10 @@
     </control>
   </include>
   <include name="MediaMenuButton_Random">
-    <control type="togglebutton" id="9">
-      <label>$LOCALIZE[31051]: $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31051]: $LOCALIZE[31077]</altlabel>
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="9">
+      <label>$LOCALIZE[31051]</label>
+      <altlabel>$LOCALIZE[31051]</altlabel>
+      <include>MediaMenuRadioButton</include>
       <visible>Window.IsActive(pictures)</visible>
     </control>
   </include>
@@ -619,58 +631,46 @@
       <selected>Skin.HasSetting(lowlistinfoauto)</selected>
       <visible>Control.IsVisible(551)</visible>
     </control>
-    <control type="togglebutton" id="700136">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
-      <usealttexture>Skin.HasSetting(movieslistfull)</usealttexture>
-      <onclick>Skin.SetBool(movieslistfull)</onclick>
-      <altclick>Skin.Reset(movieslistfull)</altclick>
+    <control type="radiobutton" id="700136">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31074] $LOCALIZE[31050]</label>
+      <onclick>Skin.ToggleSetting(movieslistfull)</onclick>
+      <selected>Skin.HasSetting(movieslistfull)</selected>
       <visible>Control.IsVisible(551) + Container.Content(movies)</visible>
     </control>
-    <control type="togglebutton" id="700137">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
-      <usealttexture>Skin.HasSetting(artistlistfull)</usealttexture>
-      <onclick>Skin.SetBool(artistlistfull)</onclick>
-      <altclick>Skin.Reset(artistlistfull)</altclick>
+    <control type="radiobutton" id="700137">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31074] $LOCALIZE[31050]</label>
+      <onclick>Skin.ToggleSetting(artistlistfull)</onclick>
       <visible>Control.IsVisible(551) + Container.Content(artists)</visible>
+      <selected>Skin.HasSetting(artistlistfull)</selected>
     </control>
-    <control type="togglebutton" id="700138">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700138">
+      <include>MediaMenuRadioButton</include>
       <label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
-      <usealttexture>Skin.HasSetting(albumlistfull)</usealttexture>
-      <onclick>Skin.SetBool(albumlistfull)</onclick>
-      <altclick>Skin.Reset(albumlistfull)</altclick>
+      <onclick>Skin.ToggleSetting(albumlistfull)</onclick>
       <visible>Control.IsVisible(551) + Container.Content(albums)</visible>
+      <selected>Skin.HasSetting(albumlistfull)</selected>
     </control>
-    <control type="togglebutton" id="700139">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
-      <usealttexture>Skin.HasSetting(songlistfull)</usealttexture>
-      <onclick>Skin.SetBool(songlistfull)</onclick>
-      <altclick>Skin.Reset(songlistfull)</altclick>
+    <control type="radiobutton" id="700139">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31074] $LOCALIZE[31050]</label>
+      <onclick>Skin.ToggleSetting(songlistfull)</onclick>
       <visible>Control.IsVisible(551) + Container.Content(songs) + !Window.IsActive(musicplaylist)</visible> <!-- music playlist contains songs !! -->
+      <selected>Skin.HasSetting(songlistfull)</selected>
     </control>
-    <control type="togglebutton" id="700140">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31078]</label>
-      <altlabel>$LOCALIZE[31074] $LOCALIZE[31050] $LOCALIZE[31077]</altlabel>
-      <usealttexture>Skin.HasSetting(playlistfull)</usealttexture>
-      <onclick>Skin.SetBool(playlistfull)</onclick>
-      <altclick>Skin.Reset(playlistfull)</altclick>
+    <control type="radiobutton" id="700140">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31074] $LOCALIZE[31050]</label>
+      <onclick>Skin.ToggleSetting(playlistfull)</onclick>
       <visible>Control.IsVisible(551) + Window.IsActive(musicplaylist)</visible>
+      <selected>Skin.HasSetting(playlistfull)</selected>
     </control>
-    <control type="togglebutton" id="700145">
-      <include>MediaMenuButton</include>
-      <label>DVDCase: Off</label>
-      <altlabel>DVDCase: On</altlabel>
-      <usealttexture>Skin.HasSetting(dvdcaselowlist)</usealttexture>
-      <onclick>Skin.SetBool(dvdcaselowlist)</onclick>
-      <altclick>Skin.Reset(dvdcaselowlist)</altclick>
+    <control type="radiobutton" id="700145">
+      <include>MediaMenuRadioButton</include>
+      <label>DVD Case</label>
+      <selected>Skin.HasSetting(dvdcaselowlist)</selected>
+      <onclick>Skin.ToggleSetting(dvdcaselowlist)</onclick>
       <visible>Control.IsVisible(551)</visible>
     </control>
   </include>
