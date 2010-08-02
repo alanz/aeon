@@ -260,24 +260,21 @@
   </include>
   <include name="MediaMenuButton_Multiplex">
     <!-- 700021 700022 -->
-    <control type="togglebutton" id="700022">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
-      <altlabel>$LOCALIZE[31065]: $LOCALIZE[31053]</altlabel>
-      <usealttexture>Skin.HasSetting(multiplexthin)</usealttexture>
+    <control type="radiobutton" id="700022">
+      <include>MediaMenuRadioButton</include>
+      <label>31052</label>
+      <selected>Skin.HasSetting(multiplexthin)</selected>
       <onclick>Skin.ToggleSetting(multiplexthin)</onclick>
       <visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_List">
     <!-- 700023 -->
-    <control type="togglebutton" id="700021">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31065]: $LOCALIZE[31052]</label>
-      <altlabel>$LOCALIZE[31065]: $LOCALIZE[31053]</altlabel>
-      <usealttexture>Skin.HasSetting(listpanelthin)</usealttexture>
-      <onclick>Skin.SetBool(listpanelthin)</onclick>
-      <altclick>Skin.Reset(listpanelthin)</altclick>
+    <control type="radiobutton" id="700021">
+      <include>MediaMenuRadioButton</include>
+      <label>31052</label>
+      <selected>Skin.HasSetting(listpanelthin)</selected>
+      <onclick>Skin.ToggleSetting(listpanelthin)</onclick>
       <visible>Control.IsVisible(50)| Control.IsVisible(551)</visible>
     </control>
     <control type="togglebutton" id="700023">
@@ -455,42 +452,43 @@
     </control>
   </include>
   <include name="MediaMenuButton_Files">
-    <control type="button" id="11">
-      <label>31057</label>
-      <include>MediaMenuButton</include>
-      <onclick>ReplaceWindow(videofiles)</onclick>
+    <control type="radiobutton" id="11">
+      <label>29800</label>
+      <onclick>ReplaceWindow(VideoFiles)</onclick>
+      <selected>Window.IsVisible(VideoLibrary)</selected>
+      <include>MediaMenuRadioButton</include>
       <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(videolibrary)</visible>
     </control>
-    <control type="button" id="700051">
-      <label>31068</label>
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700051">
+      <label>29800</label>
+      <include>MediaMenuRadioButton</include>
       <onclick>ReplaceWindow(videolibrary)</onclick>
       <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(videofiles)</visible>
     </control>
-    <control type="button" id="700049">
-      <label>31057</label>
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700049">
+      <label>29800</label>
+      <include>MediaMenuRadioButton</include>
       <onclick>ReplaceWindow(MusicFiles)</onclick>
+      <selected>Window.IsVisible(MusicLibrary)</selected>
       <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(musiclibrary)</visible>
     </control>
-    <control type="button" id="700050">
-      <label>31068</label>
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700050">
+      <label>29800</label>
+      <include>MediaMenuRadioButton</include>
       <onclick>ReplaceWindow(MusicLibrary)</onclick>
       <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(musicfiles)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Playlist">
-    <control type="button" id="915">
+    <control type="radiobutton" id="915">
       <label>589</label>
-      <include>MediaMenuButton</include>
+      <include>MediaMenuRadioButton</include>
       <onclick>PlayerControl(Partymode(music))</onclick>
       <visible>Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible>
     </control>
-    <control type="togglebutton" id="20">
+    <control type="radiobutton" id="20">
       <label>313002</label>
-      <altlabel>313003</altlabel>
-      <include>MediaMenuButton</include>
+      <include>MediaMenuRadioButton</include>
       <visible>Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible>
     </control>
     <control type="button" id="26">
@@ -700,11 +698,10 @@
       <onclick>Skin.ToggleSetting(largelistlight)</onclick>
       <visible>Control.IsVisible(560)</visible>
     </control>
-    <control type="togglebutton" id="700118">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31223]: $LOCALIZE[31053]</label>
-      <altlabel>$LOCALIZE[31223]: $LOCALIZE[31052]</altlabel>
-      <usealttexture>!Skin.HasSetting(transparentlist)</usealttexture>
+    <control type="radiobutton" id="700118">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31052]</label>
+      <selected>Skin.HasSetting(transparentlist)</selected>
       <onclick>Skin.ToggleSetting(transparentlist)</onclick>
       <visible>Control.IsVisible(560)</visible>
     </control>
