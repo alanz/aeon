@@ -9,11 +9,11 @@ Using git
 ---------
 - Get the repository
 
-    git clone -b pix65 git://github.com/pix/aeon.git
+    git clone -b master git://github.com/pix/aeon.git
 
 - Update the repository
 
-    git pull --rebase origin pix65
+    git pull --rebase origin master
 
 
 Using SVN
