@@ -318,7 +318,7 @@
       <label>314121</label>
       <onclick>SetFocus(7022)</onclick>
       <onright>SetFocus(7022)</onright>
-      <visible>Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)</visible>
+      <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + ![!Skin.HasSetting(transparentwall) + Control.IsVisible(53)]</visible>
     </control>
     <control type="radiobutton" id="700324">
       <include>MediaMenuRadioButton</include>
@@ -400,7 +400,7 @@
       <label>31067</label>
       <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(transparentwall)</onclick>
-      <selected>Skin.HasSetting(transparentwall)</selected>
+      <selected>!Skin.HasSetting(transparentwall)</selected>
       <visible>Control.IsVisible(53)</visible>
     </control>
   </include>
