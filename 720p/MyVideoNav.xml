@@ -38,12 +38,6 @@
       <texture>special://skin/extras/movie/genrefanart/$INFO[ListItem.Label].jpg</texture>
       <visible>Skin.HasSetting(GenreFanartOn) + Container.Content(genres)</visible>
     </control>
-    <!--	<control type="image">
-			<include>FullscreenDimensions</include>
-			<fadetime>400</fadetime>
-			<texture background="true">YearBackdrops/$INFO[ListItem.Label]/backdrop.png</texture>
-			<visible>!Skin.HasSetting(yearbackdropsoff) + Container.Content(years)</visible>
-		</control>-->
     <control type="largeimage">
       <include>FullscreenDimensions</include>
       <visible>Skin.HasSetting(fallbackimage) + [Control.IsVisible(553) | Control.IsVisible(55) | Control.IsVisible(556) | [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + [[Container.Content(movies) + Skin.HasSetting(moviefanart)] | [Container.Content(tvshows) + Skin.HasSetting(tvshowfanart)] | [Skin.HasSetting(seasonsfanart) + Container.Content(seasons)] | [Container.Content(episodes) + Skin.HasSetting(episodesfanart)]]</visible>
@@ -102,9 +96,9 @@
         <include condition="[!Skin.HasSetting(MultiplexOldOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiplexOldTVOff) + Skin.HasSetting(videotv)]">Viewtype_MultiplexOld</include>
         <include condition="[!Skin.HasSetting(LargeListOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(LargeListTVOff) + Skin.HasSetting(videotv)]">Viewtype_Large_List</include>
         <include condition="[!Skin.HasSetting(PosterViewOff) + Skin.HasSetting(videomovies)]">Viewtype_Poster</include>
-        <include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_FloorMediaFlags</include>
-        <include condition="Skin.HasSetting(videomovies) + !Skin.HasSetting(nomediaflags)">Furniture_MultiWallMediaFlags</include>
-        <include condition="Skin.HasSetting(videotv) + !Skin.HasSetting(nomediaflags)">Furniture_FloorTVMediaFlags</include>
+        <include condition="Skin.HasSetting(videomovies)">Furniture_FloorMediaFlags</include>
+        <include condition="Skin.HasSetting(videotv)">Furniture_FloorTVMediaFlags</include>
+        <include>Furniture_MultiWallMediaFlags</include>
       </control>
       <include>Furniture_Time</include>
       <include>Furniture_NowPlayingWidget</include>

@@ -327,9 +327,59 @@
         <visible>Control.HasFocus(6) | Control.HasFocus(7) | Control.HasFocus(8) | Control.HasFocus(9) | Control.HasFocus(300) | Control.HasFocus(301) | Control.HasFocus(92)</visible>
       </control>
       <!-- Virtual Home page environment starts -->
-      <control type="group"><posx>332</posx><posy>58</posy><width>840</width><height>472</height><include>Animation_CommonFade</include><visible>Control.HasFocus(6) | Control.HasFocus(7) | Control.HasFocus(8) | Control.HasFocus(9) | Control.HasFocus(300) | Control.HasFocus(301) | Control.HasFocus(92) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32)</visible><control type="image" id="87"><visible>[Container(300).OnNext | Container(300).OnPrevious] | [Container(301).OnNext | Container(301).OnPrevious]</visible><animation effect="fade" time="300">Hidden</animation></control><control type="image" id="88"><visible>Control.IsVisible(300) | Control.IsVisible(301)</visible><animation effect="fade" time="300">Hidden</animation></control>--&gt;
-
-				<control type="multiimage"><include>BackgroundVarsVirtual</include><imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath><visible>Control.IsVisible(300)</visible></control><control type="multiimage"><include>BackgroundVarsVirtual</include><imagepath background="true">$INFO[Container(301).ListItem.Icon]</imagepath><visible>Control.IsVisible(301)</visible></control><control type="group"><!-- Virtual Time !highertime--><posx>586</posx><posy>208</posy><width>297</width><height>18</height><visible>!Window.IsActive(Home) + !Skin.HasSetting(highertime)</visible><animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation><include>Animation_CommonFade</include><control type="image"><posx>-43</posx><posy>0</posy><width>297</width><height>18</height><texture>common/timepanel_mid.png</texture></control><control type="label" id="70"><posx>243</posx><posy>2</posy><width>263</width><font>Font_VirtualRSS</font><align>right</align><textcolor>d0ffffff</textcolor><label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label></control></control><control type="group"><!-- Virtual Time highertime--><posx>586</posx><posy>0</posy><width>297</width><height>18</height><visible>Skin.HasSetting(highertime)</visible><include>Animation_CommonFade</include><control type="image"><posx>-43</posx><posy>0</posy><width>297</width><height>16</height><texture flipy="true">common/timepanel_mid.png</texture></control><control type="label" id="70"><posx>243</posx><posy>2</posy><width>263</width><font>Font_VirtualRSS</font><align>right</align><textcolor>d0ffffff</textcolor><label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label></control></control><control type="group"><!-- Virtual RSS oben--><posx>0</posx><posy>266</posy><width>810</width><height>38</height><visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible><animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation><include>Animation_CommonFade</include><control type="image"><posx>36</posx><posy>0</posy><width>804</width><height>38</height><texture>common/rssbar_mid.png</texture></control><control type="rss" id="1"><description>My First RSS control</description><posx>72</posx><posy>3</posy><width>769</width><visible>true</visible><font>Font_VirtualRSS</font><include>Colour_RSS</include><urlset>1</urlset></control><control type="image"><posx>52</posx><posy>0</posy><width>85</width><height>18</height><texture>common/rssbar_mid_fade.png</texture><colordiffuse>e3FFFFFF</colordiffuse></control></control><control type="group"><!-- Virtual RSS unten--><posx>0</posx><posy>434</posy><width>810</width><height>38</height><visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible><include>Animation_CommonFade</include><control type="image"><posx>36</posx><posy>0</posy><width>804</width><height>38</height><texture flipy="true">common/rssbar_mid.png</texture></control><control type="rss" id="1"><description>My First RSS control</description><posx>72</posx><posy>22</posy><width>769</width><visible>true</visible><font>Font_VirtualRSS</font><include>Colour_RSS</include><urlset>1</urlset></control><control type="image"><posx>52</posx><posy>20</posy><width>85</width><height>18</height><texture flipy="true">common/rssbar_mid_fade.png</texture><colordiffuse>e3FFFFFF</colordiffuse></control></control><control type="image"><description>Darken screen for Backdrop type select</description><posx>0</posx><posy>0</posy><width>840</width><height>471</height><texture>settings/backselect.png</texture><visible>Control.HasFocus(92)</visible><include>Animation_VisibleChange400</include></control><control type="group"><posx>0</posx><posy>-13</posy><width>840</width><height>472</height><animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation><include>Animation_CommonFade</include><control type="image"><posx>0</posx><posy>211</posy><width>840</width><height>99</height><texture>home/homemenu_back.png</texture><include>Animation_CommonFade</include></control><control type="group"><posx>0</posx><posy>239</posy><width>840</width><height>40</height><defaultcontrol>300</defaultcontrol><include>VirtualMainMenu</include><include>VirtualMainMenuOptions</include></control><control type="image"><posx>0</posx><posy>211</posy><width>840</width><height>99</height><texture>home/homemenu_gradient.png</texture><include>Animation_CommonFade</include><visible>!Skin.HasSetting(nohomegradient)</visible><colordiffuse>d0FFFFFF</colordiffuse></control></control></control>
+      <control type="group">
+		<posx>332</posx>
+		<posy>58</posy>
+		<width>840</width>
+		<height>472</height>
+		<include>Animation_CommonFade</include>
+		<visible>Control.HasFocus(6) | Control.HasFocus(7) | Control.HasFocus(8) | Control.HasFocus(9) | Control.HasFocus(300) | Control.HasFocus(301) | Control.HasFocus(92) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32)</visible><control type="image" id="87"><visible>[Container(300).OnNext | Container(300).OnPrevious] | [Container(301).OnNext | Container(301).OnPrevious]</visible>
+		<animation effect="fade" time="300">Hidden</animation>
+      </control>
+      <control type="image" id="88">
+		<visible>Control.IsVisible(300) | Control.IsVisible(301)</visible>
+		<animation effect="fade" time="300">Hidden</animation>
+	  </control>
+      <control type="multiimage">
+	    <include>BackgroundVarsVirtual</include>
+		<imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath>
+		<visible>Control.IsVisible(300)</visible>
+	  </control>
+	  <control type="multiimage">
+	    <include>BackgroundVarsVirtual</include>
+		<imagepath background="true">$INFO[Container(301).ListItem.Icon]</imagepath>
+		<visible>Control.IsVisible(301)</visible>
+	  </control>
+	  <control type="group"><!-- Virtual Time !highertime-->
+	    <posx>586</posx>
+		<posy>208</posy>
+		<width>297</width>
+		<height>18</height>
+		<visible>!Window.IsActive(Home) + !Skin.HasSetting(highertime)</visible>
+		<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
+		<include>Animation_CommonFade</include>
+		<control type="image">
+		  <posx>-43</posx>
+		  <posy>0</posy>
+		  <width>297</width>
+		  <height>18</height>
+		  <texture>common/timepanel_mid.png</texture>
+	    </control>
+		  <control type="label" id="70"><posx>243</posx><posy>2</posy><width>263</width><font>Font_VirtualRSS</font><align>right</align><textcolor>d0ffffff</textcolor><label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label></control></control>
+		  <control type="group"><!-- Virtual Time highertime-->
+		  <posx>586</posx><posy>0</posy><width>297</width><height>18</height><visible>Skin.HasSetting(highertime)</visible><include>Animation_CommonFade</include>
+		  <control type="image"><posx>-43</posx><posy>0</posy><width>297</width><height>16</height><texture flipy="true">common/timepanel_mid.png</texture></control>
+		  <control type="label" id="70"><posx>243</posx><posy>2</posy><width>263</width><font>Font_VirtualRSS</font><align>right</align><textcolor>d0ffffff</textcolor><label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label></control></control>
+		  <control type="group"><!-- Virtual RSS oben--><posx>0</posx><posy>266</posy><width>810</width><height>38</height><visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible><animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation><include>Animation_CommonFade</include>
+		  <control type="image"><posx>36</posx><posy>0</posy><width>804</width><height>38</height><texture>common/rssbar_mid.png</texture></control><control type="rss" id="1"><description>My First RSS control</description><posx>72</posx><posy>3</posy><width>769</width><visible>true</visible><font>Font_VirtualRSS</font><include>Colour_RSS</include><urlset>1</urlset></control>
+		  <control type="image"><posx>52</posx><posy>0</posy><width>85</width><height>18</height><texture>common/rssbar_mid_fade.png</texture><colordiffuse>e3FFFFFF</colordiffuse></control></control>
+		  <control type="group"><!-- Virtual RSS unten--><posx>0</posx><posy>434</posy><width>810</width><height>38</height><visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible><include>Animation_CommonFade</include><control type="image"><posx>36</posx><posy>0</posy><width>804</width><height>38</height><texture flipy="true">common/rssbar_mid.png</texture></control>
+		  <control type="rss" id="1"><description>My First RSS control</description><posx>72</posx><posy>22</posy><width>769</width><visible>true</visible><font>Font_VirtualRSS</font><include>Colour_RSS</include><urlset>1</urlset></control>
+		  <control type="image"><posx>52</posx><posy>20</posy><width>85</width><height>18</height><texture flipy="true">common/rssbar_mid_fade.png</texture><colordiffuse>e3FFFFFF</colordiffuse></control></control>
+		  <control type="image"><description>Darken screen for Backdrop type select</description><posx>0</posx><posy>0</posy><width>840</width><height>471</height><texture>settings/backselect.png</texture><visible>Control.HasFocus(92)</visible><include>Animation_VisibleChange400</include></control>
+		  <control type="group"><posx>0</posx><posy>-13</posy><width>840</width><height>472</height><animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation><include>Animation_CommonFade</include><control type="image"><posx>0</posx><posy>211</posy><width>840</width><height>99</height><texture>home/homemenu_back.png</texture><include>Animation_CommonFade</include></control>
+		  <control type="group"><posx>0</posx><posy>239</posy><width>840</width><height>40</height><defaultcontrol>300</defaultcontrol><include>VirtualMainMenu</include><include>VirtualMainMenuOptions</include></control>
+		  <control type="image"><posx>0</posx><posy>211</posy><width>840</width><height>99</height><texture>home/homemenu_gradient.png</texture><include>Animation_CommonFade</include><visible>!Skin.HasSetting(nohomegradient)</visible><colordiffuse>d0FFFFFF</colordiffuse></control></control></control>
       <control type="button" id="30">
         <description>Home Menu furniture select button</description>
         <posx>307</posx>
@@ -337,7 +387,6 @@
         <width>890</width>
         <height>94</height>
         <onclick>Skin.ToggleSetting(lowermainmenu)</onclick>
-        <!--		<include condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowermainmenu)">movewidgets</include>-->
         <onup>8</onup>
         <ondown>8</ondown>
         <onleft>32</onleft>
