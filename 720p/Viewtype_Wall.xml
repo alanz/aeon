@@ -1098,6 +1098,9 @@
   <include name="MovieWall">
     <control type="panel" id="53">
       <viewtype label="Wall">icon</viewtype>
+      <visible>
+        Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) |
+        [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(genres) + !Container.Content(years)]</visible>
       <include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)]">MovieWallBig</include>
       <include condition="Skin.HasSetting(smallmoviewall)">MovieWallSmall</include>
       <include condition="Skin.HasSetting(maxmoviewall)">MovieWallMax</include>
@@ -1106,7 +1109,6 @@
       <preloaditems>2</preloaditems>
       <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
       <include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
-      <visible>Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)]</visible>
       <itemlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">
         <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
         <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
