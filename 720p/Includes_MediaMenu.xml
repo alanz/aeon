@@ -126,35 +126,31 @@
   </include>
   <include name="MediaMenuButton_FlattenFlow">
     <!-- 700001 700002 -->
-    <control type="togglebutton" id="700001">
+    <control type="radiobutton" id="700001">
       <label>31061</label>
-      <altlabel>31060</altlabel>
-      <usealttexture>Skin.HasSetting(flattenshowcasemovies)</usealttexture>
-      <include>MediaMenuButton</include>
+      <selected>!Skin.HasSetting(flattenshowcasemovies)</selected>
+      <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(flattenshowcasemovies)</onclick>
       <visible>Control.IsVisible(57) + Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
     </control>
-    <control type="togglebutton" id="700004">
+    <control type="radiobutton" id="700004">
       <label>31061</label>
-      <altlabel>31060</altlabel>
-      <usealttexture>Skin.HasSetting(flattenshowcasetvshows)</usealttexture>
-      <include>MediaMenuButton</include>
+      <selected>!Skin.HasSetting(flattenshowcasetvshows)</selected>
+      <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(flattenshowcasetvshows)</onclick>
       <visible>Control.IsVisible(57) + Container.Content(tvshows) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
     </control>
-    <control type="togglebutton" id="700005">
+    <control type="radiobutton" id="700005">
       <label>31061</label>
-      <altlabel>31060</altlabel>
-      <usealttexture>Skin.HasSetting(flattenshowcaseseasons)</usealttexture>
-      <include>MediaMenuButton</include>
+      <selected>!Skin.HasSetting(flattenshowcaseseasons)</selected>
+      <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(flattenshowcaseseasons)</onclick>
       <visible>Control.IsVisible(57) + Container.Content(seasons) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
     </control>
-    <control type="togglebutton" id="700003">
+    <control type="radiobutton" id="700003">
       <label>31061</label>
-      <altlabel>31060</altlabel>
-      <usealttexture>Skin.HasSetting(flattenshowcasemusic)</usealttexture>
-      <include>MediaMenuButton</include>
+      <selected>!Skin.HasSetting(flattenshowcasemusic)</selected>
+      <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(flattenshowcasemusic)</onclick>
       <visible>Control.IsVisible(57) + ![Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
     </control>
