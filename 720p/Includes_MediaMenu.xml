@@ -12,8 +12,8 @@
   </include>
   <!-- Common Button -->
   <include name="MediaMenuButton">
-    <height>30</height>
-    <width>235</width>
+    <height>35</height>
+    <width>259</width>
     <!--<textcolor>FF939597</textcolor>-->
     <textcolor>60FFFFFF</textcolor>
     <focusedcolor>d0000000</focusedcolor>
@@ -34,8 +34,8 @@
   <include name="MediaMenuRadioButton">
     <posx>0</posx>
     <posy>0</posy>
-    <height>30</height>
-    <width>235</width>
+    <height>35</height>
+    <width>259</width>
     <font>Font_SettingsOptions</font>
     <texturefocus>verticalmenu/button_focus.png</texturefocus>
     <alttexturefocus>verticalmenu/button_focus.png</alttexturefocus>
@@ -43,8 +43,8 @@
     <focusedcolor>d0000000</focusedcolor>
     <textoffsetx>10</textoffsetx>
     <pulseonselect>true</pulseonselect>
-    <radiowidth>84</radiowidth>
-    <radioposx>170</radioposx>
+    <radiowidth>89</radiowidth>
+    <radioposx>185</radioposx>
     <radioheight>65</radioheight>
     <textoffsetx>50</textoffsetx>
     <align>left</align>
@@ -78,10 +78,9 @@
     <!--2-->
     <control type="selectbutton" id="2">
       <label>[B]$LOCALIZE[31050] $INFO[Container.ViewMode][/B]</label>
-      <height>30</height>
-      <width>235</width>
-      <!--<textcolor>FF939597</textcolor>-->
-      <textcolor>60FFFFFF</textcolor>
+      <height>35</height>
+      <width>260</width>
+      <textcolor>A0FFFFFF</textcolor>
       <focusedcolor>d0000000</focusedcolor>
       <textoffsetx>10</textoffsetx>
       <texturefocus>verticalmenu/button_focus.png</texturefocus>
@@ -89,8 +88,6 @@
       <radiowidth>72</radiowidth>
       <radioposx>146</radioposx>
       <radioheight>50</radioheight>
-      <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
-      <textureradionofocus>settings/settings_radiobuttonon.png</textureradionofocus>
       <align>center</align>
       <aligny>center</aligny>
       <pulseonselect>true</pulseonselect>
@@ -189,14 +186,6 @@
       <usealttexture>!Skin.HasSetting(showcasetvbigthumb)</usealttexture>
       <onclick>Skin.ToggleSetting(showcasetvbigthumb)</onclick>
       <visible>[Container.Content(episodes) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(57)]</visible>
-    </control>
-    <control type="togglebutton" id="700077">
-      <include>MediaMenuButton</include>
-      <label>IMAGE: EXTRATHUMBS</label>
-      <altlabel>IMAGE: FANART</altlabel>
-      <usealttexture>!Skin.HasSetting(trailerthumbs)</usealttexture>
-      <onclick>Skin.ToggleSetting(trailerthumbs)</onclick>
-      <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + Skin.HasSetting(fanartlayout)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Showcase">
@@ -532,15 +521,6 @@
     </control>
   </include>
   <include name="MediaMenuButton_LowList">
-    <control type="togglebutton" id="700131">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[535]: $LOCALIZE[391]</label>
-      <altlabel>$LOCALIZE[535]: $LOCALIZE[393]</altlabel>
-      <onclick>Skin.SetBool(highlist)</onclick>
-      <altclick>Skin.Reset(highlist)</altclick>
-      <selected>Skin.HasSetting(highlist)</selected>
-      <visible>Control.IsVisible(551)</visible>
-    </control>
     <control type="togglebutton" id="700132">
       <include>MediaMenuButton</include>
       <label>$LOCALIZE[539]: $LOCALIZE[31044]</label>
@@ -565,12 +545,17 @@
       <onclick>SetFocus(55103)</onclick>
       <visible>Control.IsVisible(551) + [Container.Content(movies) | Window.IsActive(musiclibrary)]</visible>
     </control>
-    <control type="togglebutton" id="700135">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31070]: $LOCALIZE[31048]</label>
-      <altlabel>$LOCALIZE[31070]: $LOCALIZE[31049]</altlabel>
-      <onclick>Skin.SetBool(lowlistinfoauto)</onclick>
-      <altclick>Skin.Reset(lowlistinfoauto)</altclick>
+    <control type="radiobutton" id="700131">
+      <include>MediaMenuRadioButton</include>
+      <label>310800</label>
+      <onclick>Skin.ToggleSetting(highlist)</onclick>
+      <selected>Skin.HasSetting(highlist)</selected>
+      <visible>Control.IsVisible(551)</visible>
+    </control>
+    <control type="radiobutton" id="700135">
+      <include>MediaMenuRadioButton</include>
+      <label>310801</label>
+      <onclick>Skin.ToggleSetting(lowlistinfoauto)</onclick>
       <selected>Skin.HasSetting(lowlistinfoauto)</selected>
       <visible>Control.IsVisible(551)</visible>
     </control>
@@ -671,17 +656,17 @@
         <effect type="fade" start="100" end="0" time="400" revertible="false"/>
       </animation>
       <control type="image">
-        <posx>229</posx>
+        <posx>254</posx>
         <posy>45</posy>
         <width>222</width>
-        <height>545</height>
+        <height>665</height>
         <texture>verticalmenu/panel.png</texture>
       </control>
       <control type="grouplist" id="7011">
-        <posx>245</posx>
+        <posx>270</posx>
         <posy>52</posy>
         <height>5800</height>
-        <width>235</width>
+        <width>260</width>
         <onleft>7000</onleft>
         <onright>50</onright>
         <onup>7011</onup>
@@ -712,10 +697,25 @@
           <onclick>Skin.Reset(posterlayout)</onclick>
           <onclick>Skin.Reset(plotlayout)</onclick>
           <onclick>Skin.Reset(extrathumbslayout)</onclick>
+		  <onclick>Skin.Reset(trailerthumbs)</onclick>
           <onright>SetFocus(50)</onright>
           <visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
         </control>
-        <control type="button" id="3005">
+		<control type="button" id="3005">
+          <!--extrathumb-->
+          <texturefocus>viewselect/trailer_focus.png</texturefocus>
+          <texturenofocus>viewselect/trailer.png</texturenofocus>
+          <include>ViewImage</include>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <onclick>Skin.SetBool(fanartlayout)</onclick>
+          <onclick>Skin.Reset(posterlayout)</onclick>
+          <onclick>Skin.Reset(plotlayout)</onclick>
+          <onclick>Skin.Reset(extrathumbslayout)</onclick>
+		  <onclick>Skin.SetBool(trailerthumbs)</onclick>
+          <onright>SetFocus(50)</onright>
+          <visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
+        </control>
+        <control type="button" id="3006">
           <!--poster-->
           <texturefocus>viewselect/poster_focus.png</texturefocus>
           <texturenofocus>viewselect/poster.png</texturenofocus>
@@ -728,7 +728,7 @@
           <onright>SetFocus(50)</onright>
           <visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
         </control>
-        <control type="button" id="3006">
+        <control type="button" id="3007">
           <!--extrathumbs-->
           <texturefocus>viewselect/extrathumbs_focus.png</texturefocus>
           <texturenofocus>viewselect/extrathumbs.png</texturenofocus>
@@ -743,13 +743,18 @@
         </control>
         <control type="label">
           <include>MediaMenuLabel</include>
-          <label>Fanart / Thumb</label>
+          <label>Fanart</label>
           <visible>Control.HasFocus(3004)</visible>
         </control>
         <control type="label">
           <include>MediaMenuLabel</include>
-          <label>Poster</label>
+          <label>ExtraThumb</label>
           <visible>Control.HasFocus(3005)</visible>
+        </control>
+        <control type="label">
+          <include>MediaMenuLabel</include>
+          <label>Poster</label>
+          <visible>Control.HasFocus(3006)</visible>
         </control>
         <control type="label">
           <include>MediaMenuLabel</include>
@@ -759,7 +764,7 @@
         <control type="label">
           <include>MediaMenuLabel</include>
           <label>Extrathumbs</label>
-          <visible>Control.HasFocus(3006)</visible>
+          <visible>Control.HasFocus(3007)</visible>
         </control>
       </control>
     </control>
@@ -773,7 +778,7 @@
       <control type="image">
         <posx>-28</posx>
         <posy>0</posy>
-        <width>275</width>
+        <width>300</width>
         <height>720</height>
         <texture>verticalmenu/panel.png</texture>
         <include>Animation_MediaMenuSlide</include>
@@ -848,11 +853,11 @@
       <control type="grouplist" id="7000">
         <posx>0</posx>
         <posy>60</posy>
-        <width>235</width>
+        <width>260</width>
         <height>600</height>
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
-        <scroll>false</scroll>
+        <scroll>true</scroll>
         <onleft>50</onleft>
         <onright>50</onright>
         <onup>7000</onup>
@@ -876,10 +881,10 @@
         <include>MediaMenuButton_Overlay</include>
         <include>MediaMenuButton_StackButton</include>
         <include>MediaMenuButton_Wall</include>
-        <include>MediaMenuButton_Search</include>
         <include>MediaMenuButton_LargeList</include>
         <include>MediaMenuButton_Files</include>
         <include>MediaMenuButton_Watched</include>
+	    <include>MediaMenuButton_Search</include>
         <include>MediaMenuButton_Setup</include>
         <include condition="Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)">MediaMenuButton_Playlist</include>
         <include condition="Window.IsActive(musicplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
@@ -897,7 +902,7 @@
         <effect type="fade" start="100" end="0" time="500"/>
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
-      <posx>235</posx>
+      <posx>263</posx>
       <visible>ControlGroup(7000).HasFocus(700060)</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
@@ -907,14 +912,14 @@
         <posx>-6</posx>
         <posy>100</posy>
         <width>142</width>
-        <height>120</height>
+        <height>140</height>
         <texture>verticalmenu/panel.png</texture>
       </control>
       <control type="grouplist" id="7020">
         <posx>0</posx>
         <posy>100</posy>
         <width>130</width>
-        <height>120</height>
+        <height>140</height>
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <scroll>false</scroll>
@@ -1497,7 +1502,7 @@
         <effect type="fade" start="100" end="0" time="500"/>
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
-      <posx>235</posx>
+      <posx>263</posx>
       <visible>ControlGroup(7000).HasFocus(700017)</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
@@ -1587,7 +1592,7 @@
         <effect type="fade" start="100" end="0" time="500"/>
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
-      <posx>235</posx>
+      <posx>263</posx>
       <visible>ControlGroup(7000).HasFocus(700016)</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
@@ -1597,14 +1602,14 @@
         <posx>-6</posx>
         <posy>280</posy>
         <width>142</width>
-        <height>90</height>
+        <height>105</height>
         <texture>verticalmenu/panel.png</texture>
       </control>
       <control type="grouplist" id="7022">
         <posx>0</posx>
         <posy>280</posy>
         <width>130</width>
-        <height>90</height>
+        <height>105</height>
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <scroll>false</scroll>
