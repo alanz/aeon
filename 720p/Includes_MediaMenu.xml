@@ -1,12 +1,5 @@
 <?xml version="1.0"?>
 <includes>
-  <!--############################################ Animations #################################################-->
-  <!--#########################################################################################################-->
-  <include name="Animation_MediaMenuSlide">
-    <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
-      <effect type="slide" end="-235,0" time="400" easing="in" tween="cubic"/>
-    </animation>
-  </include>
   <!--################################### Button Look and Dimensions ##########################################-->
   <!--#########################################################################################################-->
   <include name="ViewImage">
@@ -78,21 +71,6 @@
     <align>left</align>
     <aligny>center</aligny>
     <include>Animation_CommonFadeOpenClose</include>
-  </include>
-  <include name="MediaMenuGroup">
-    <posx>0</posx>
-    <posy>60</posy>
-    <width>235</width>
-    <height>600</height>
-    <itemgap>0</itemgap>
-    <orientation>vertical</orientation>
-    <scroll>false</scroll>
-    <onleft>50</onleft>
-    <onright>50</onright>
-    <onup>7000</onup>
-    <ondown>7000</ondown>
-    <include>Animation_CommonFade</include>
-    <include>Animation_MediaMenuSlide</include>
   </include>
   <!--############################################ Buttons ####################################################-->
   <!--#########################################################################################################-->
@@ -257,7 +235,6 @@
     </control>
   </include>
   <include name="MediaMenuButton_List">
-    <!-- 700023 -->
     <control type="radiobutton" id="700021">
       <include>MediaMenuRadioButton</include>
       <label>31052</label>
@@ -265,22 +242,18 @@
       <onclick>Skin.ToggleSetting(listpanelthin)</onclick>
       <visible>Control.IsVisible(50)| Control.IsVisible(551)</visible>
     </control>
-    <control type="togglebutton" id="700023">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700023">
+      <include>MediaMenuRadioButton</include>
       <label>313000</label>
-      <altlabel>313001</altlabel>
-      <usealttexture>Skin.HasSetting(slimlisttv)</usealttexture>
-      <onclick>Skin.SetBool(slimlisttv)</onclick>
-      <altclick>Skin.Reset(slimlisttv)</altclick>
+      <selected>Skin.HasSetting(slimlisttv)</selected>
+      <onclick>Skin.ToggleSetting(slimlisttv)</onclick>
       <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + Control.IsVisible(50)</visible>
     </control>
-    <control type="togglebutton" id="7000211">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="7000211">
+      <include>MediaMenuRadioButton</include>
       <label>313000</label>
-      <altlabel>313001</altlabel>
-      <usealttexture>Skin.HasSetting(slimlist)</usealttexture>
-      <onclick>Skin.SetBool(slimlist)</onclick>
-      <altclick>Skin.Reset(slimlist)</altclick>
+      <selected>Skin.HasSetting(slimlist)</selected>
+      <onclick>Skin.Togglesetting(slimlist)</onclick>
       <visible>Control.IsVisible(50) + [Window.IsActive(pictures) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)]]</visible>
     </control>
     <control type="radiobutton" id="7000214">
@@ -290,13 +263,11 @@
       <selected>Skin.HasSetting(listdvdcase)</selected>
       <visible>Control.IsVisible(50) + Window.IsActive(videolibrary) + Container.Content(movies)</visible>
     </control>
-    <control type="togglebutton" id="7000213">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="7000213">
+      <include>MediaMenuRadioButton</include>
       <label>313000</label>
-      <altlabel>313001</altlabel>
-      <usealttexture>Skin.HasSetting(slimlistmusic)</usealttexture>
-      <onclick>Skin.SetBool(slimlistmusic)</onclick>
-      <altclick>Skin.Reset(slimlistmusic)</altclick>
+      <selected>Skin.HasSetting(slimlistmusic)</selected>
+      <onclick>Skin.ToggleSetting(slimlistmusic)</onclick>
       <visible>Control.IsVisible(50) + [Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
     </control>
   </include>
@@ -406,17 +377,6 @@
       <onclick>Skin.ToggleSetting(notvoverlays)</onclick>
       <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
       <selected>!Skin.HasSetting(notvoverlays)</selected>
-    </control>
-  </include>
-  <include name="MediaMenuButton_LightNight">
-    <control type="togglebutton" id="700141">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31042]</label>
-      <altlabel>$LOCALIZE[31043]</altlabel>
-      <usealttexture>Skin.HasSetting(darkfloor)</usealttexture>
-      <onclick>Skin.ToggleSetting(darkfloor)</onclick>
-      <onclick>ReloadSkin</onclick>
-      <visible>[Control.IsVisible(51) | Control.IsVisible(50)| Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(57)] | Control.IsVisible(53)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Watched">
@@ -886,7 +846,19 @@
         <visible>Window.IsActive(videofiles)</visible>
       </control>	  
       <control type="grouplist" id="7000">
-        <include>MediaMenuGroup</include>
+        <posx>0</posx>
+        <posy>60</posy>
+        <width>235</width>
+        <height>600</height>
+        <itemgap>0</itemgap>
+        <orientation>vertical</orientation>
+        <scroll>false</scroll>
+        <onleft>50</onleft>
+        <onright>50</onright>
+        <onup>7000</onup>
+        <ondown>7000</ondown>
+        <include>Animation_CommonFade</include>
+        <include>Animation_MediaMenuSlide</include>
         <include>MediaMenuButton_Viewmode</include>
         <include>MediaMenuButton_Sort</include>
         <include>MediaMenuButton_Random</include>
@@ -902,7 +874,6 @@
         <include>MediaMenuButton_Stripshow</include>
         <include>MediaMenuButton_Background</include>
         <include>MediaMenuButton_Overlay</include>
-        <include>MediaMenuButton_LightNight</include>
         <include>MediaMenuButton_StackButton</include>
         <include>MediaMenuButton_Wall</include>
         <include>MediaMenuButton_Search</include>
