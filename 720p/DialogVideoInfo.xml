@@ -437,11 +437,22 @@
       </control>
       <control type="label">
         <description>Movie title</description>
+        <animation effect="slide" start="0,0" end="0,-11" time="0" condition="!IsEmpty(ListItem.Tagline)">Conditional</animation>
         <posx>0</posx>
         <posy>0</posy>
         <width>700</width>
         <font>Font_FSInfoTitle</font>
         <label>$INFO[ListItem.Title]</label>
+        <include>Colour_OffWhite</include>
+      </control>
+      <control type="label">
+        <description>Tagline</description>
+        <posx>2</posx>
+        <posy>41</posy>
+        <width>700</width>
+        <autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>
+        <font>11</font>
+        <label>$INFO[ListItem.Tagline]</label>
         <include>Colour_OffWhite</include>
       </control>
       <control type="label">
