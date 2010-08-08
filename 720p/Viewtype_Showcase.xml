@@ -97,6 +97,26 @@
     <height>199</height>
   </include>
 
+  <include name="ShowcaseAnimationInFocusOutFocus">
+    <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+    <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+  </include>
+
+  <include name="ShowcaseAnimationInFocusOutFocus2">
+    <animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+    <animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+  </include>
+
+  <include name="ShowcaseAnimationInFocusOutFocus3">
+    <animation effect="zoom" start="100" end="140" center="auto" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+    <animation effect="zoom" start="140" end="100" center="auto" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+  </include>
+
+  <include name="ShowcaseAnimationInFocusOutFocus4">
+    <animation effect="zoom" start="100" end="140" center="-15,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+    <animation effect="zoom" start="140" end="100" center="-15,180" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+  </include>
+
   <include name="Showcase_List_Content">
     <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
     <animation effect="slide" end="0,-8" time="700" delay="1000" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Conditional</animation>
@@ -187,8 +207,7 @@
         <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
         <info>ListItem.Icon</info>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + !Container.Content(years)</visible>
-        <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
       </control>
       <control type="image">
         <posx>49</posx>
@@ -199,8 +218,7 @@
         <aspectratio scalediffuse="false">stretch</aspectratio>
         <texture>yearicons/$INFO[ListItem.label]/folder.png</texture>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + Container.Content(years)</visible>
-        <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
       </control>
       <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_20</include>
       <control type="image">
@@ -208,8 +226,7 @@
         <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
         <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + !Container.Content(years)</visible>
-        <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
       </control>
       <control type="image">
         <description>Black overlay</description>
@@ -221,23 +238,20 @@
         <animation effect="fade" end="100" time="200" condition="ControlGroup(7000).HasFocus">Conditional</animation>
         <animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-        <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
       </control>
       <control type="image">
         <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMain</include>
         <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMainDVD</include>
         <info>ListItem.Icon</info>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000) + !Container.Content(years)</visible>
-        <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
       </control>
       <control type="image">
         <description>Glass overlay reflection</description>
         <include>MovieShowcaseThumbReflectionDVD</include>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-        <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
       </control>
       <control type="image">
         <include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
@@ -245,8 +259,7 @@
         <include>detailcolornofocus</include>
         <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
         <texture>showcase/$INFO[ListItem(0).Overlay]</texture>
-        <animation effect="zoom" start="100" end="120" center="135,205" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,205" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
       </control>
       <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_ref_20</include>
     </focusedlayout>
@@ -290,16 +303,14 @@
         <include>MusicShowcaseThumbMain</include>
         <info>ListItem.Icon</info>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus2</include>
       </control>
       <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_22</include>
       <control type="image">
         <description>Glass overlay</description>
         <include>MusicShowcaseGlassOverlay</include>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus2</include>
       </control>
       <control type="image">
         <description>Black overlay</description>
@@ -311,22 +322,19 @@
         <visible>![Control.HasFocus(57) | Control.HasFocus(71) | Control.HasFocus(85)]</visible>
         <include>Animation_CommonFade</include>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus2</include>
       </control>
       <control type="image">
         <include>MusicShowcaseThumbReflection</include>
         <info>ListItem.Icon</info>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus2</include>
       </control>
       <control type="image">
         <description>Glass overlay reflection</description>
         <include>MusicShowcaseThumbReflectionCD</include>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="120" center="135,230" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="120" end="100" center="135,230" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus2</include>
       </control>
     </focusedlayout>
     <itemlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
@@ -375,8 +383,7 @@
         <include>EpisodeShowcaseThumbMain</include>
         <info>ListItem.Icon</info>
         <visible>[[[[Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="140" center="auto" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="140" end="100" center="auto" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus3</include>
       </control>
       <control type="image">
         <include>EpisodeShowcaseThumbDimensions</include>
@@ -384,16 +391,14 @@
         <aspectratio scalediffuse="false">stretch</aspectratio>
         <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
         <visible>[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)]</visible>
-        <animation effect="zoom" start="100" end="140" center="auto" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="140" end="100" center="auto" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus3</include>
       </control>
       <include condition="!Skin.HasSetting(MovieGenreOff) | !Skin.HasSetting(MusicGenreOff)">genre_Showcase_22</include>
       <control type="image">
         <description>Glass overlay</description>
         <include>EpisodeShowcaseGlassOverlay</include>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="140" center="auto" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="140" end="100" center="auto" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus3</include>
       </control>
       <control type="image">
         <description>Black overlay</description>
@@ -404,22 +409,19 @@
         <visible>![Control.HasFocus(57) | Control.HasFocus(71) | Control.HasFocus(85)]</visible>
         <include>Animation_CommonFade</include>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="140" center="auto" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="140" end="100" center="auto" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus3</include>
       </control>
       <control type="image">
         <include>EpisodeShowcaseThumbReflection</include>
         <info>ListItem.Icon</info>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="140" center="-15,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="140" end="100" center="-15,180" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus4</include>
       </control>
       <control type="image">
         <description>Glass overlay reflection</description>
         <include>MusicShowcaseThumbReflectionCD</include>
         <visible>[[[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
-        <animation effect="zoom" start="100" end="140" center="auto" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-        <animation effect="zoom" start="140" end="100" center="auto" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
+        <include>ShowcaseAnimationInFocusOutFocus3</include>
       </control>
     </focusedlayout>
   </include>
