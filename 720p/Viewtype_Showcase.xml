@@ -1602,12 +1602,8 @@
   </include>
 
   <!-- Music Showcase Variables: Main thumbs -->
-  <!-- For extra includes see Includes_CDDVDMod.xml -->
-  <include name="MusicShowcaseThumbKeep">
-    <aspectratio scalediffuse="false">keep</aspectratio>
-  </include>
-  <include name="MusicShowcaseThumbStretch">
-    <aspectratio scalediffuse="false">stretch</aspectratio>
+  <include name="MusicShowcaseThumbAspectRatio">
+    <aspectratio scalediffuse="false">scale</aspectratio>
   </include>
 
   <include name="MusicShowcaseThumb">
@@ -1615,8 +1611,7 @@
     <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
     <include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskNormal</include>
     <include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskCD</include>
-    <include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
-    <include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+    <include>MusicShowcaseThumbAspectRatio</include>
     <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
   </include>
 
@@ -1645,8 +1640,7 @@
     <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
     <include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskNormal</include>
     <include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskCD</include>
-    <include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
-    <include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+    <include>MusicShowcaseThumbAspectRatio</include>
     <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
   </include>
 
@@ -1663,8 +1657,7 @@
     <colordiffuse>d0FFFFFF</colordiffuse>
     <include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionNormal</include>
     <include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionCD</include>
-    <include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
-    <include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+    <include>MusicShowcaseThumbAspectRatio</include>
     <animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
     <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
   </include>
@@ -1673,7 +1666,7 @@
     <include>EpisodeShowcaseThumbReflectionDimensions</include>
     <colordiffuse>d0FFFFFF</colordiffuse>
     <include>MusicCoverMaskReflectionNormal</include>
-    <include>MusicShowcaseThumbStretch</include>
+    <include>MusicShowcaseThumbScale</include>
     <animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
     <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
   </include>
@@ -1684,8 +1677,7 @@
     <colordiffuse>52FFFFFF</colordiffuse>
     <include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionNormal</include>
     <include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionCD</include>
-    <include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
-    <include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+    <include>MusicShowcaseThumbAspectRatio</include>
     <animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
     <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
   </include>
@@ -1698,8 +1690,7 @@
     <colordiffuse>d0FFFFFF</colordiffuse>
     <bordertexture>thumbs/boxes/cd_shadow_reflect.png</bordertexture>
     <texture>thumbs/boxes/cd_glass_reflect.png</texture>
-    <include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
-    <include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+    <include>MusicShowcaseThumbAspectRatio</include>
     <animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
     <visible>Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
   </include>
@@ -1712,8 +1703,7 @@
     <colordiffuse>52FFFFFF</colordiffuse>
     <bordertexture>thumbs/boxes/cd_shadow_reflect.png</bordertexture>
     <texture>thumbs/boxes/cd_glass_reflect.png</texture>
-    <include condition="Window.IsActive(pictures)">MusicShowcaseThumbKeep</include>
-    <include condition="!Window.IsActive(pictures)">MusicShowcaseThumbStretch</include>
+    <include>MusicShowcaseThumbAspectRatio</include>
     <animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
     <visible>Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
   </include>
