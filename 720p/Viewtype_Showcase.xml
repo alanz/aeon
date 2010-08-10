@@ -1308,18 +1308,35 @@
             <label fallback="31425">$INFO[Container(57).ListItem.Property(Artist_YearsActive)]</label>
           </control>
         </control>
+
+        <!-- Formed / Born -->
         <control type="group">
-          <posy>58</posy>
+          <posy>55</posy>
           <control type="label">
             <include>ShowcaseInfoLabel</include>
-            <label>Formed:</label>
+            <label>$LOCALIZE[21894]:</label><!-- Formed -->
+            <visible>!IsEmpty(Container(57).ListItem.Property(artist_formed))</visible>
+          </control>
+          <control type="label">
+            <include>ShowcaseInfoLabel</include>
+            <label>$LOCALIZE[21893]:</label><!-- Born -->
+            <visible>IsEmpty(Container(57).ListItem.Property(artist_formed))</visible>
           </control>
           <control type="label">
             <width>370</width>
             <include>ShowcaseInfoValue</include>
             <label fallback="31425">$INFO[Container(57).ListItem.Property(artist_formed)]</label>
+            <visible>!IsEmpty(Container(57).ListItem.Property(artist_formed))</visible>
+          </control>
+          <control type="label">
+            <width>370</width>
+            <include>ShowcaseInfoValue</include>
+            <label fallback="31425">$INFO[Container(57).ListItem.Property(artist_born)]</label>
+            <visible>IsEmpty(Container(57).ListItem.Property(artist_formed))</visible>
           </control>
         </control>
+        <!-- Formed / Born -->
+
         <control type="group">
           <posy>100</posy>
           <control type="label">
