@@ -1120,6 +1120,48 @@
         <texture border="0,0,0,204">multiplex/multiplex_tvposter_tablet.png</texture>
       </control>
       <control type="group">
+        <!--episodes-->
+        <posx>105</posx>
+        <posy>30</posy>
+        <visible>Container.Content(episodes)</visible>
+        <control type="group">
+          <posy>8</posy>
+          <control type="label">
+            <include>ShowcaseInfoLabel</include>
+            <label>$LOCALIZE[31402]:</label>
+          </control>
+          <control type="label">
+            <include>ShowcaseInfoValue</include>
+            <width>370</width>
+            <label fallback="31425">$INFO[Container(57).ListItem.Director]</label>
+          </control>
+        </control>
+        <control type="group">
+          <posy>54</posy>
+          <control type="label">
+            <include>ShowcaseInfoLabel</include>
+            <label>$LOCALIZE[31401]:</label>
+          </control>
+          <control type="label">
+            <include>ShowcaseInfoValue</include>
+            <width>370</width>
+            <label fallback="31425">$INFO[Container(57).ListItem.Writer]</label>
+          </control>
+        </control>
+        <control type="group">
+          <posy>100</posy>
+          <control type="label">
+            <include>ShowcaseInfoLabel</include>
+            <label>$LOCALIZE[31407]:</label>
+          </control>
+          <control type="label">
+            <include>ShowcaseInfoValue</include>
+            <width>370</width>
+            <label fallback="31425">$INFO[Container(57).ListItem.Date]</label>
+          </control>
+        </control>
+      </control>
+      <control type="group">
         <!--tvshows-->
         <posx>105</posx>
         <posy>30</posy>
@@ -1137,7 +1179,7 @@
           </control>
         </control>
         <control type="group">
-          <posy>58</posy>
+          <posy>54</posy>
           <control type="label">
             <include>ShowcaseInfoLabel</include>
             <label>$LOCALIZE[31406]:</label>
@@ -1179,7 +1221,7 @@
           </control>
         </control>
         <control type="group">
-          <posy>58</posy>
+          <posy>54</posy>
           <control type="label">
             <include>ShowcaseInfoLabel</include>
             <label>$LOCALIZE[31439]:</label>
@@ -1212,7 +1254,7 @@
         <info>Container(57).ListItem.Plot</info>
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Container.Content(tvshows)</visible>
+        <visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
       </control>
       <control type="textbox">
         <posx>105</posx>
