@@ -248,7 +248,9 @@
       <label>314121</label>
       <onclick>SetFocus(7022)</onclick>
       <onright>SetFocus(7022)</onright>
-      <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + ![!Skin.HasSetting(transparentwall) + Control.IsVisible(53)]</visible>
+      <visible>[[Window.IsActive(videolibrary) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]] | Window.IsActive(musiclibrary)] + 
+	![!Skin.HasSetting(transparentwall) + Control.IsVisible(53)]
+      </visible>
     </control>
     <control type="radiobutton" id="700324">
       <include>MediaMenuRadioButton</include>
