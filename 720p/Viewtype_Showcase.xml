@@ -1101,8 +1101,30 @@
       <width>1280</width>
       <height>381</height>
       <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
-      <visible>Skin.HasSetting(videotv) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | [[Skin.HasSetting(showcasetvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoon) + Container.Content(seasons)]] | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [[[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]]]]</visible>
-      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="![[Skin.HasSetting(showcasetvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoon) + Container.Content(seasons)]]">WindowOpen</animation>
+      <visible>
+        Skin.HasSetting(videotv) + Control.IsVisible(57) + !Control.HasFocus(70197) +
+        [Control.IsVisible(109) | Control.HasFocus(70110) |
+          [
+            [Skin.HasSetting(showcasetvshowinfoon) + Container.Content(tvshows)] |
+            [Skin.HasSetting(showcaseepisodeinfoon) + Container.Content(episodes)] |
+            [Skin.HasSetting(showcaseseasoninfoon) + Container.Content(seasons)]
+          ] |
+          [
+            [ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] +
+            [
+              [Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] |
+              [Skin.HasSetting(showcaseepisodeinfotrigger) + Container.Content(episodes)] |
+              [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)] |
+              [Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] |
+              [Skin.HasSetting(showcaseepisodeinfoauto) + Container.Content(episodes)] |
+              [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]
+            ]
+          ]
+        ]</visible>
+      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="![
+        [Skin.HasSetting(showcasetvshowinfoon) + Container.Content(tvshows)] |
+        [Skin.HasSetting(showcaseepisodeinfoon) + Container.Content(episodes)] |
+        [Skin.HasSetting(showcaseseasoninfoon) + Container.Content(seasons)]]">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <include>Animation_InfoPanelSlide</include>
       <control type="image">
