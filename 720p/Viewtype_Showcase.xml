@@ -1465,17 +1465,6 @@
           <width>638</width>
           <height>328</height>
           <fadetime>400</fadetime>
-          <aspectratio>keep</aspectratio>
-          <texture>$INFO[Container(57).ListItem.Thumb]</texture>
-          <visible>IsEmpty(Fanart.Image) + IsEmpty(Container(57).ListItem.property(fanart_image))</visible>
-          <include>Animation_VisibleChange200</include>
-        </control>
-        <control type="largeimage">
-          <posx>15</posx>
-          <posy>-7</posy>
-          <width>638</width>
-          <height>328</height>
-          <fadetime>400</fadetime>
           <aspectratio>stretch</aspectratio>
           <texture>$INFO[Container(57).ListItem.property(fanart_image)]</texture>
           <visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
@@ -1498,9 +1487,9 @@
           <width>668</width>
           <height>316</height>
           <fadetime>400</fadetime>
-          <aspectratio>scale</aspectratio>
+          <aspectratio>keep</aspectratio>
           <texture>$INFO[Container(57).ListItem.thumb]</texture>
-          <visible>Skin.HasSetting(showcasemusicbigthumb) + Container.Content(episodes)</visible>
+          <visible>[Skin.HasSetting(showcasemusicbigthumb) + Container.Content(episodes)] | IsEmpty(Fanart.Image) + IsEmpty(Container(57).ListItem.property(fanart_image))</visible>
           <include>Animation_VisibleChange200</include>
         </control>
       </control>
