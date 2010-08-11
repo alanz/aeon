@@ -588,7 +588,8 @@
       <include>MediaMenuButton</include>
       <label>313004</label>
       <onclick>SetFocus(7020)</onclick>
-      <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + [Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
+      <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + !Container.Content(genres) +
+	[Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
       <onright>SetFocus(7020)</onright>
       <visible>!Skin.HasSetting(noinfotriggerbuttons)</visible>
     </control>
