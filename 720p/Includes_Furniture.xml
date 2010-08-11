@@ -152,7 +152,7 @@
       <width>451</width>
       <height>27</height>
       <animation effect="slide" start="0,0" end="0,-37" time="200" condition="[Control.IsVisible(57) + Control.HasFocus(70197)]">Conditional</animation>
-      <visible>[Skin.HasSetting(highertime) + Window.IsActive(Home)] | [[Control.IsVisible(553) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(556) |  Control.IsVisible(556) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(51) | Control.IsVisible(53)] + !Window.IsVisible(112) + !Window.IsVisible(133)]</visible>
+      <visible>[Skin.HasSetting(highertime) + Window.IsActive(Home)] | Window.IsActive(FileManager) | [[Control.IsVisible(553) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(556) |  Control.IsVisible(556) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(51) | Control.IsVisible(53)] + !Window.IsVisible(112) + !Window.IsVisible(133)]</visible>
       <include>Furniture_TimePanelHigh</include>
       <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
         <effect type="zoom" start="180" end="100" center="640,360" time="2500" tween="cubic" easing="out"/>
@@ -176,15 +176,6 @@
       <include>Furniture_TimePanel</include>
       <include>Animation_OpenCloseZoom</include>
     </control>
-    <control type="group">
-      <posx>900</posx>
-      <posy>15</posy>
-      <width>451</width>
-      <height>27</height>
-	  <visible>Window.IsActive(FileManager)</visible>
-      <include>Furniture_TimePanel</include>
-      <include>Animation_OpenCloseZoom</include>
-    </control>	
   </include>
   <!-- RSS Feeds-->
   <include name="Furniture_RSS">
@@ -194,7 +185,7 @@
       <width>1280</width>
       <height>57</height>
       <visible>!Control.IsVisible(560)</visible>
-      <animation effect="slide" start="0,0" end="0,-37" time="300" condition="[Control.IsVisible(53) + !Control.HasFocus(53) + !Control.HasFocus(71)] | [Control.IsVisible(57) + Control.HasFocus(70197)] | ControlGroup(7000).HasFocus() | Player.HasMedia">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-37" time="300" condition="[Control.IsVisible(53) + !Control.HasFocus(53) + !Control.HasFocus(71)] | [Control.IsVisible(57) + Control.HasFocus(70197)] | ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus() | Player.HasMedia">Conditional</animation>
       <include>Animation_CommonFade</include>
       <control type="image">
         <posx>0</posx>
@@ -443,22 +434,17 @@
       <control type="label">
         <label>[B][UPPERCASE]$INFO[ListItem.Label][/UPPERCASE][/B]</label>
         <include>FloorTextMainLabel</include>
-        <visible>Container.Content(movies) + !Skin.HasSetting(nomediaflags) + !Window.IsActive(videofiles)</visible>
+        <visible>Container.Content(movies)</visible>
       </control>
       <control type="label">
         <label>[B][UPPERCASE]$INFO[ListItem.Label][/UPPERCASE][/B]</label>
         <include>FloorTextMainLabelWide</include>
-        <visible>!Container.Content(episodes) + [[!Container.Content(movies) | Window.IsActive(videofiles)] | [Container.Content(movies) + Skin.HasSetting(nomediaflags)]]</visible>
+        <visible>!Container.Content(episodes) +  !Container.Content(movies)</visible>
       </control>
       <control type="label">
         <label>[UPPERCASE]$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title][/UPPERCASE]</label>
         <include>FloorTextMainLabel</include>
-        <visible>Container.Content(episodes) + !Skin.HasSetting(nomediaflags) + !Window.IsActive(videofiles)</visible>
-      </control>
-      <control type="label">
-        <label>[UPPERCASE]$INFO[ListItem.Season].$INFO[ListItem.Episode]: $INFO[ListItem.Title][/UPPERCASE]</label>
-        <include>FloorTextMainLabelWide</include>
-        <visible>Container.Content(episodes) + Skin.HasSetting(nomediaflags) + !Window.IsActive(videofiles)</visible>
+        <visible>Container.Content(episodes)</visible>
       </control>
       <control type="label">
         <label>[B][UPPERCASE]$INFO[Container.NumItems] $LOCALIZE[31005][/UPPERCASE][/B]</label>
@@ -499,7 +485,7 @@
       <control type="label" id="72">
         <label>[UPPERCASE]$INFO[ListItem.Episode] $LOCALIZE[31406][/UPPERCASE]</label>
         <include>FloorTextDetailLabel</include>
-        <visible>[Container.Content(tvshows)] + !IsEmpty(ListItem.Episode)</visible>
+        <visible>Container.Content(tvshows) + !IsEmpty(ListItem.Episode)</visible>
       </control>
       <control type="label" id="73">
         <info>ListItem.year</info>
@@ -657,7 +643,7 @@
       <!-- 112 -->
       <posy>3</posy>
       <!-- -143 -->
-      <texture fallback="backdrops/artist_fanart/default/default.png">$INFO[Player.FolderPath]cdart.png</texture>
+      <texture fallback="cdart/default.png">$INFO[Player.FolderPath]cdart.png</texture>
       <aspectratio align="bottom">keep</aspectratio>
     </control>
     <control type="image">

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <window id="2006">
+
   <allowoverlay>no</allowoverlay>
   <controls>
     <control type="multiimage">
@@ -14,31 +15,23 @@
       <animation effect="fade" time="800">Visible</animation>
       <animation effect="fade" delay="300" time="800" condition="![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]">Hidden</animation>
       <include>BackgroundVarsMusic</include>
-      <visible>![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled]</visible>
+      <visible>![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled] + IsEmpty(MusicPlayer.property(fanart_image))</visible>
       <include>Animation_OpenCloseZoom</include>
     </control>
+    
     <control type="largeimage">
       <!-- Artist Fanart-->
-      <include>FullscreenDimensions</include>
+      <include>Animation_Fanart_400ms</include>
       <texture>$INFO[MusicPlayer.property(fanart_image)]</texture>
-      <fadetime>400</fadetime>
-      <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <include>Animation_VisibleChange400</include>
       <visible>![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled]</visible>
-      <include>Animation_OpenCloseZoom</include>
     </control>
     <control type="largeimage">
       <!-- musicpath/Artist/Album/fanart.jpg -->
-      <include>FullscreenDimensions</include>
+      <include>Animation_Fanart_400ms</include>
       <texture>$INFO[Player.FolderPath]fanart.jpg</texture>
-      <fadetime>400</fadetime>
-      <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-      <include>Animation_VisibleChange400</include>
       <visible>Skin.HasSetting(visbackground2) + ![Skin.HasSetting(blackvisbackground) + Visualisation.Enabled] </visible>
-      <include>Animation_OpenCloseZoom</include>
     </control>
+    
     <control type="visualisation" id="2">
       <description>visualisation</description>
       <posx>0</posx>
@@ -113,7 +106,6 @@
         <effect type="fade" time="400" start="100" end="0"/>
         <effect type="slide" time="400" start="0,0" end="0,151" easing="in" tween="cubic"/>
       </animation>
-      <!-- Mod code start -->
       <control type="image">
         <description>black background shadow</description>
         <posx>0</posx>
@@ -141,9 +133,7 @@
           <width>258</width>
           <height>254</height>
           <posx>175</posx>
-          <!-- 112 -->
           <posy>-162</posy>
-          <!-- -143 -->
           <texture>$INFO[Player.FolderPath]cdart.png</texture>
           <aspectratio align="bottom">keep</aspectratio>
         </control>
@@ -151,7 +141,6 @@
           <description>Cover image</description>
           <posy>-165</posy>
           <posx>45</posx>
-          <!-- 112 -->
           <width>260</width>
           <height>265</height>
           <texture diffuse="thumbs/boxes/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
@@ -232,7 +221,6 @@
           <control type="label">
             <posx>415</posx>
             <posy>-95</posy>
-            <!-- -103 -->
             <width>1280</width>
             <height>24</height>
             <align>left</align>
@@ -244,8 +232,7 @@
           <control type="label">
             <posx>430</posx>
             <posy>-70</posy>
-            <width>550</width>
-            <!-- 1280 -->
+            <width>820</width>
             <height>30</height>
             <align>left</align>
             <aligny>-</aligny>
@@ -259,7 +246,6 @@
           <control type="label">
             <posx>325</posx>
             <posy>-182</posy>
-            <!-- -143 -->
             <width>880</width>
             <height>25</height>
             <align>left</align>
@@ -271,7 +257,6 @@
           <control type="label">
             <posx>325</posx>
             <posy>-95</posy>
-            <!-- -103 -->
             <width>1280</width>
             <height>24</height>
             <align>left</align>
@@ -283,7 +268,6 @@
             <posx>325</posx>
             <posy>-70</posy>
             <width>550</width>
-            <!-- 1280 -->
             <height>30</height>
             <align>left</align>
             <aligny>-</aligny>
@@ -307,12 +291,11 @@
           <width>170</width>
           <height>59</height>
           <texture>flags/music/year/year.png</texture>
-          <visible>!IsEmpty(MusicPlayer.Genre)</visible>
+          <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
         </control>
         <control type="label">
           <posx>413</posx>
           <posy>59</posy>
-          <!-- -103 -->
           <width>145</width>
           <height>24</height>
           <align>center</align>
@@ -320,11 +303,11 @@
           <scroll>true</scroll>
           <font>Font_OSDSeek</font>
           <label>[COLOR 80c2c4c3]$INFO[MusicPlayer.Genre][/COLOR]</label>
+          <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
         </control>
         <control type="label">
           <posx>725</posx>
           <posy>68</posy>
-          <!-- -103 -->
           <width>1280</width>
           <height>24</height>
           <align>left</align>
@@ -335,7 +318,6 @@
         <control type="label">
           <posx>725</posx>
           <posy>48</posy>
-          <!-- -103 -->
           <width>1280</width>
           <height>24</height>
           <align>left</align>
@@ -354,10 +336,10 @@
           <align>right</align>
         </control>
         <control type="fadelabel">
-          <description>My First fadelabel</description>
-          <posx>750</posx>
+          <description>Previous / Next Fadelabel</description>
+          <posx>345</posx>
           <posy>105</posy>
-          <width>500</width>
+          <width>900</width>
           <visible>true</visible>
           <scroll>false</scroll>
           <scrollout>false</scrollout>

@@ -61,7 +61,7 @@
         <texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
         <bordertexture border="-18">thumbs/movieposter_frame.png</bordertexture>
         <fadetime>400</fadetime>
-        <visible>&gt;![Skin.HasSetting(dvdcaselowlist) + !Container.Content(years) + !Container.Content(studios)]</visible>
+        <visible>![Skin.HasSetting(dvdcaselowlist) + !Container.Content(years) + !Container.Content(studios)]</visible>
       </control>
       <control type="largeimage" id="7200">
         <description>POSTER.JPG icon</description>
@@ -1058,6 +1058,15 @@
           <visible>IsEmpty(ListItem.Artist)</visible>
           <include>Animation_HighListSlide</include>
         </control>
+        <control type="image">
+          <posx>205</posx>
+          <posy>161</posy>
+          <width>73</width>
+          <height>48</height>
+          <include>FloorMediaFlagNightShade</include>
+          <visible>Control.IsVisible(551)</visible>
+          <texture>$INFO[ListItem.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
+        </control>
         <control type="label">
           <description>ALBUM: info label</description>
           <include>LowList_DetailInfoLabelPos2</include>
@@ -1347,13 +1356,13 @@
         <control type="label">
           <include>LowList_WideInfoLabelVars</include>
           <posy>-100</posy>
-          <label>$LOCALIZE[31402]: $INFO[ListItem.Director]</label>
+          <label>$INFO[ListItem.Director,$LOCALIZE[31402]: ,]</label>
         </control>
         <control type="label">
           <textcolor>d0ffffff</textcolor>
           <include>LowList_WideInfoLabelVars</include>
           <posy>-80</posy>
-          <label>$LOCALIZE[31401]: $INFO[ListItem.Writer]</label>
+          <label>$INFO[ListItem.Writer,$LOCALIZE[31401]: ,]</label>
         </control>
       </control>
       <control type="group">
@@ -1556,7 +1565,7 @@
         <posx>10</posx>
         <align>left</align>
         <width>370</width>
-        <label>$LOCALIZE[31402]: [COLOR d0ffffff]$INFO[ListItem.director][/COLOR]</label>
+        <label>[COLOR d0ffffff]$INFO[ListItem.director,$LOCALIZE[31402]: ,][/COLOR]</label>
         <visible>Window.IsActive(videolibrary)</visible>
         <!--	<include>Animation_HighListSlide</include>-->
       </control>
@@ -1569,14 +1578,14 @@
       <control type="label">
         <description>DIRECTED BY: info label</description>
         <include>LowList_DetailInfoLabelPos1</include>
-        <label>$LOCALIZE[31402]: [COLOR d0ffffff]$INFO[ListItem.director][/COLOR]</label>
+        <label>[COLOR d0ffffff]$INFO[ListItem.director,$LOCALIZE[31402]: ,][/COLOR]</label>
         <visible>Window.IsActive(videolibrary)</visible>
         <include>Animation_HighListSlide</include>
       </control>
       <control type="label">
         <description>DIRECTOR: info label</description>
         <include>LowList_DetailInfoLabelPos2</include>
-        <label>$LOCALIZE[31401]: [COLOR d0ffffff]$INFO[ListItem.Writer][/COLOR]</label>
+        <label>[COLOR d0ffffff]$INFO[ListItem.Writer,$LOCALIZE[31401]: ,][/COLOR]</label>
         <visible>Window.IsActive(videolibrary)</visible>
         <include>Animation_HighListSlide</include>
       </control>

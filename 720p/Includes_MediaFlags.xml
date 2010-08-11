@@ -161,61 +161,64 @@
     </control>
   </include>
   <include name="Furniture_ListMediaFlags">
-    <visible>[Control.IsVisible(50)] + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
-    <include>Animation_VisibleHiddenZoom</include>
-    <include>Animation_OpenCloseZoom</include>
     <control type="group">
-      <posx>1125</posx>
-      <control type="image">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+      <animation effect="fade" delay="500" start="0" end="100" time="1000" condition="Control.IsVisible(50)">Conditional</animation>
+      <visible>[Control.IsVisible(50)] + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+      <include>Animation_VisibleHiddenZoom</include>
+      <include>Animation_OpenCloseZoom</include>
+      <control type="group">
+        <posx>1125</posx>
+        <control type="image">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+        </control>
       </control>
-    </control>
-    <control type="group">
-      <posx>1035</posx>
-      <control type="image" id="187">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+      <control type="group">
+        <posx>1035</posx>
+        <control type="image" id="187">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+        </control>
       </control>
-    </control>
-    <control type="group">
-      <posx>945</posx>
-      <control type="image" id="188">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+      <control type="group">
+        <posx>945</posx>
+        <control type="image" id="188">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+        </control>
+        <control type="image" id="188">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>$INFO[ListItem.AudioChannels,flags/audio/,ch.png]</texture>
+        </control>
       </control>
-      <control type="image" id="188">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>$INFO[ListItem.AudioChannels,flags/audio/,ch.png]</texture>
-      </control>
-    </control>
-    <control type="group">
-      <posx>845</posx>
-      <control type="image" id="189">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
-        <visible>!substring(ListItem.filename,hdtv) + !substring(ListItem.filename,dvd) + !substring(ListItem.filename,bluray) + !substring(ListItem.filename,blu-ray) + !substring(ListItem.filename,bdrip) + !substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,.ifo,Right)</visible>
-      </control>
-      <control type="image" id="189">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>flags/source/hdtv.png</texture>
-        <visible>substring(ListItem.filename,hdtv)</visible>
-      </control>
-      <control type="image" id="189">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>flags/source/hddvd.png</texture>
-        <visible>substring(ListItem.filename,hddvd) | substring(ListItem.filename,hd-dvd)</visible>
-      </control>
-      <control type="image" id="189">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>flags/source/bluray.png</texture>
-        <visible>substring(ListItem.filename,bluray) | substring(ListItem.filename,blu-ray) | substring(ListItem.filename,bdrip)</visible>
-      </control>
-      <control type="image" id="189">
-        <include>Furniture_ListMediaFlagsVars</include>
-        <texture>flags/source/dvd.png</texture>
-        <visible>[substring(ListItem.filename,dvd) + !substring(ListItem.filename,hddvd) + !substring(ListItem.filename,hd-dvd) + !substring(ListItem.filename,bluray)] | [substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,bluray)] | substring(ListItem.filename,.ifo,Right)</visible>
-      </control>
+      <control type="group">
+        <posx>845</posx>
+        <control type="image" id="189">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
+          <visible>!substring(ListItem.filename,hdtv) + !substring(ListItem.filename,dvd) + !substring(ListItem.filename,bluray) + !substring(ListItem.filename,blu-ray) + !substring(ListItem.filename,bdrip) + !substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,.ifo,Right)</visible>
+        </control>
+        <control type="image" id="189">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>flags/source/hdtv.png</texture>
+          <visible>substring(ListItem.filename,hdtv)</visible>
+        </control>
+        <control type="image" id="189">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>flags/source/hddvd.png</texture>
+          <visible>substring(ListItem.filename,hddvd) | substring(ListItem.filename,hd-dvd)</visible>
+        </control>
+        <control type="image" id="189">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>flags/source/bluray.png</texture>
+          <visible>substring(ListItem.filename,bluray) | substring(ListItem.filename,blu-ray) | substring(ListItem.filename,bdrip)</visible>
+        </control>
+        <control type="image" id="189">
+          <include>Furniture_ListMediaFlagsVars</include>
+          <texture>flags/source/dvd.png</texture>
+          <visible>[substring(ListItem.filename,dvd) + !substring(ListItem.filename,hddvd) + !substring(ListItem.filename,hd-dvd) + !substring(ListItem.filename,bluray)] | [substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,bluray)] | substring(ListItem.filename,.ifo,Right)</visible>
+        </control>
+	  </control>
       <control type="image" id="189">
         <include>Furniture_ListMediaFlagsVars</include>
         <texture>flags/source/dvb.png</texture>
@@ -255,62 +258,62 @@
           <visible>substring(ListItem.mpaa,Germany:18) | substring(ListItem.mpaa,ab 18)</visible>
         </control>
         <!-- UK Certification -->
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
 					<visible>substring(ListItem.mpaa,UK:U)</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
 					<visible>substring(ListItem.mpaa,UK:PG)</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
 					<visible>substring(ListItem.mpaa,UK:12) + !substring(ListItem.mpaa,UK:12A)</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
 					<visible>substring(ListItem.mpaa,UK:12A)</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
 					<visible>substring(ListItem.mpaa,UK:15)</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
 					<visible>substring(ListItem.mpaa,UK:18)</visible>
 				</control>
         <!-- US Certification -->
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/MPAA_G_Certificate_US.png</texture>
 					<visible>[substring(ListItem.mpaa,US:G) | substring(ListItem.mpaa,USA:G) | substring(ListItem.mpaa,Rated G)]</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
 					<visible>[substring(ListItem.mpaa,US:PG) | substring(ListItem.mpaa,USA:PG) | [substring(ListItem.mpaa,Rated PG) + !substring(ListItem.mpaa,Rated PG-13)]]</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
 					<visible>[substring(ListItem.mpaa,US:PG-13) | substring(ListItem.mpaa,USA:PG-13) | substring(ListItem.mpaa,Rated PG-13)]</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/MPAA_R_Certificate_US.png</texture>
 					<visible>[substring(ListItem.mpaa,US:R) | substring(ListItem.mpaa,USA:R) | substring(ListItem.mpaa,Rated R)]</visible>
 				</control>
-        <control type="image" id="1171">&gt;
+        <control type="image" id="1171">
 					<include>LowList_MovieFlagVarsCertification</include>
 					<texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
 					<visible>[substring(ListItem.mpaa,US:NC-17) | substring(ListItem.mpaa,USA:NC-17) | substring(ListItem.mpaa,Rated NC-17)]</visible>
-				</control>
+		</control>
       </control>
     </control>
     <!-- Browsing flags -->
@@ -478,7 +481,7 @@
   </include>
   <include name="Furniture_FloorMediaFlags">
     <control type="group">
-      <visible>[Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+      <visible>[Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
       <include>Animation_CommonFade</include>
       <control type="image">
         <posx>0</posx>
@@ -500,7 +503,7 @@
       </control>
     </control>
     <control type="group">
-      <visible>[Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+      <visible>[Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
       <!--ADDED WALL-->
       <include>Animation_CommonFade</include>
       <control type="group">
@@ -731,7 +734,7 @@
   </include>
   <include name="Furniture_FloorTVMediaFlags">
     <control type="group">
-      <visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+      <visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
       <include>Animation_CommonFade</include>
       <control type="image">
         <posx>0</posx>
@@ -753,7 +756,7 @@
       </control>
     </control>
     <control type="group">
-      <visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + !Skin.HasSetting(nomediaflags) + [Container.Content(episodes) | Container.Content(tvshows)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+      <visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + [Container.Content(episodes) | Container.Content(tvshows)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
       <include>Animation_CommonFade</include>
       <control type="group">
         <posx>110</posx>
@@ -833,7 +836,7 @@
   </include>
   <include name="Furniture_MultiWallMediaFlags">
     <control type="group">
-      <visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + !Skin.HasSetting(nomediaflags) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
+      <visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
       <include>Animation_OpenCloseZoom</include>
       <include>Animation_VisibleHiddenZoom</include>
       <animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
@@ -1198,7 +1201,7 @@
     </control>
   </include>
   <include name="Furniture_OldMultiplexMediaFlags">
-    <visible>Window.IsActive(videolibrary) + Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)</visible>
+    <visible>Window.IsActive(videolibrary) + Control.IsVisible(553)</visible>
     <include>Animation_CommonFade</include>
     <include>Animation_HideMultiplex</include>
     <control type="group">
@@ -1252,7 +1255,7 @@
     </control>
   </include>
   <include name="Furniture_OldMultiplexMediaFlagsTv">
-    <visible>Window.IsActive(videolibrary) + Control.IsVisible(553) + !Skin.HasSetting(nomediaflags)</visible>
+    <visible>Window.IsActive(videolibrary) + Control.IsVisible(553)</visible>
     <include>Animation_CommonFade</include>
     <control type="group">
       <visible>Container.Content(episodes)</visible>

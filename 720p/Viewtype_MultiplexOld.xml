@@ -730,19 +730,6 @@
         <align>center</align>
         <font>Font_MultiplexMainLabelOld</font>
         <label>$INFO[Container(553).ListItem.Label]</label>
-        <visible>!Skin.HasSetting(nomediaflags)</visible>
-        <include>Animation_HideMultiplex</include>
-      </control>
-      <control type="label">
-        <posx>50</posx>
-        <posy>447</posy>
-        <width>1180</width>
-        <height>71</height>
-        <aligny>center</aligny>
-        <align>center</align>
-        <font>Font_MultiplexMainLabelOld</font>
-        <label>$INFO[Container(553).ListItem.Label]</label>
-        <visible>Skin.HasSetting(nomediaflags)</visible>
         <include>Animation_HideMultiplex</include>
       </control>
       <control type="image">
@@ -795,17 +782,20 @@
     <control type="wraplist" id="553">
       <viewtype label="31582">wrap</viewtype>
       <include condition="Skin.HasSetting(videomovies)">OldMultiplexMovieVarsWrap</include>
+      <include condition="Skin.HasSetting(videomovies)">OldMultiplexFocusMovies</include>
       <include condition="Skin.HasSetting(videotv)">OldMultiplexTVVarsWrap</include>
+      <include condition="Skin.HasSetting(videotv)">OldMultiplexFocusTV</include>
+      <visible>
+        Window.IsActive(videolibrary) +
+        [!Container.Content(Genres) + !Container.Content(Years) + !Container.Content(Actors) + !Container.Content(Directors) + !Container.Content(Studios) + !Container.Content(Countries) + !Container.Content()]
+      </visible>
       <pagecontrol>60</pagecontrol>
       <onleft>553</onleft>
       <onright>553</onright>
       <onup>110</onup>
       <ondown>60</ondown>
       <orientation>horizontal</orientation>
-      <include condition="Skin.HasSetting(videomovies)">OldMultiplexFocusMovies</include>
-      <include condition="Skin.HasSetting(videotv)">OldMultiplexFocusTV</include>
       <scrolltime>200</scrolltime>
-      <visible>Window.IsActive(videolibrary)</visible>
       <include>Animation_HideMultiplex</include>
       <animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60) | Control.HasFocus(197)">Conditional</animation>
       <itemlayout width="89" height="129" condition="Container.Content(movies)">

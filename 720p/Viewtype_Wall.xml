@@ -907,6 +907,12 @@
   <include name="MusicWall">
     <control type="panel" id="53">
       <viewtype label="31750">icon</viewtype>
+      <visible>
+        Window.IsActive(scripts) | 
+        Window.IsActive(pictures) | 
+        Window.IsActive(musicplaylist) | 
+        [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]
+      </visible>
       <include condition="!Skin.HasSetting(smallmusicwall)">WallWidthBig</include>
       <include condition="Skin.HasSetting(smallmusicwall)">WallWidthSmall</include>
       <posy>93</posy>
@@ -916,11 +922,10 @@
       <preloaditems>2</preloaditems>
       <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
       <include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
-      <visible>Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]</visible>
       <itemlayout width="133" height="133" condition="!Skin.HasSetting(smallmusicwall)">
         <control type="image">
           <include>WallIconDimensions</include>
-          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
         </control>
@@ -940,7 +945,7 @@
         </control>
         <control type="image">
           <include>WallIconDimensions</include>
-          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture background="true" diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -955,7 +960,7 @@
       <focusedlayout width="133" height="133" condition="!Skin.HasSetting(smallmusicwall)">
         <control type="image">
           <include>WallIconDimensions</include>
-          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
           <animation effect="zoom" center="66,90" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
@@ -969,7 +974,7 @@
         </control>
         <control type="image">
           <include>WallIconDimensions</include>
-          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture background="true" diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -1014,7 +1019,7 @@
         </control>
         <control type="image">
           <include>WallIconDimensionsSmall</include>
-          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
         </control>
@@ -1028,7 +1033,7 @@
         </control>
         <control type="image">
           <include>WallIconDimensionsSmall</include>
-          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture background="true" diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -1043,7 +1048,7 @@
       <focusedlayout width="106" height="106" condition="Skin.HasSetting(smallmusicwall)">
         <control type="image">
           <include>WallIconDimensionsSmall</include>
-          <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
           <animation effect="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
@@ -1057,7 +1062,7 @@
         </control>
         <control type="image">
           <include>WallIconDimensionsSmall</include>
-          <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
+          <texture background="true" diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -1078,8 +1083,6 @@
           <bordertexture border="-3">wall/wall_nfborder.png</bordertexture>
           <texture>wall/wall_nfoverlay.png</texture>
           <animation type="Focus" reversible="false">
-            <!--<effect type="fade" start="100" end="0" time="200" reversible="false" />-->
-            <!--REENABLED GLOSS OVERLAY FOR FOCUSED-->
             <effect type="zoom" center="51,60" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
           </animation>
         </control>
@@ -1098,6 +1101,9 @@
   <include name="MovieWall">
     <control type="panel" id="53">
       <viewtype label="Wall">icon</viewtype>
+      <visible>
+        Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) |
+        [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(genres) + !Container.Content(years) + !Container.Content()]</visible>
       <include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)]">MovieWallBig</include>
       <include condition="Skin.HasSetting(smallmoviewall)">MovieWallSmall</include>
       <include condition="Skin.HasSetting(maxmoviewall)">MovieWallMax</include>
@@ -1106,7 +1112,6 @@
       <preloaditems>2</preloaditems>
       <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
       <include condition="!Skin.HasSetting(VerticalWall)">HorizontalWall</include>
-      <visible>Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)]</visible>
       <itemlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">
         <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
         <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>

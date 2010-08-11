@@ -370,13 +370,13 @@
   </include>
   <!-- Button menu -->
   <include name="Objects_ButtonMenu10Group">
-    <height>390</height>
+    <height>351</height>
   </include>
   <include name="Objects_ButtonMenu11Group">
-    <height>429</height>
+    <height>390</height>
   </include>
   <include name="Objects_ButtonMenu12Group">
-    <height>460</height>
+    <height>421</height>
   </include>
   <!-- Login Screen -->
   <include name="LoginThumb">
@@ -437,30 +437,62 @@
       <animation effect="slide" end="605,400" time="0" condition="Control.IsVisible(556)">Conditional</animation>
       <animation effect="slide" end="420,330" time="0" condition="Control.IsVisible(560)">Conditional</animation>
       <control type="group">
-        <animation effect="fade" start="100" end="100" time="0" condition="Container.Scrolling">Conditional</animation>
-        <animation effect="fade" start="100" end="0" time="800" condition="!Container.Scrolling">Conditional</animation>
-        <control type="image">
-          <posx>0</posx>
-          <posy>0</posy>
-          <width>70</width>
-          <height>70</height>
-          <align>center</align>
-          <aligny>center</aligny>
-          <texture>common/scroll_letter_background.png</texture>
-          <visible>Skin.HasSetting(scrollletters)</visible>
-        </control>
-        <control type="label">
-          <posx>0</posx>
-          <posy>0</posy>
-          <width>70</width>
-          <height>70</height>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$INFO[ListItem.SortLetter]</label>
-          <textcolor>ffffffff</textcolor>
-          <font>Font_MultiplexTVLabel</font>
-          <visible>Skin.HasSetting(scrollletters)</visible>
-        </control>
+	<animation effect="fade" start="100" end="100" time="0" condition="Container.Scrolling">Conditional</animation>
+	<animation effect="fade" start="100" end="0" time="800" condition="!Container.Scrolling">Conditional</animation>
+	<!-- General SortLabel -->
+	<control type="group">
+	  <control type="image">
+	    <posx>0</posx>
+	    <posy>0</posy>
+	    <width>70</width>
+	    <height>70</height>
+	    <align>center</align>
+	    <aligny>center</aligny>
+	    <texture>common/scroll_letter_background.png</texture>
+	    <visible>Skin.HasSetting(scrollletters)</visible>
+	  </control>
+	  <control type="label">
+	    <posx>0</posx>
+	    <posy>0</posy>
+	    <width>70</width>
+	    <height>70</height>
+	    <align>center</align>
+	    <aligny>center</aligny>
+	    <label>$INFO[ListItem.SortLetter]</label>
+	    <textcolor>ffffffff</textcolor>
+	    <font>Font_MultiplexTVLabel</font>
+	    <visible>Skin.HasSetting(scrollletters)</visible>
+	  </control>
+	  <visible>!IsEmpty(ListItem.SortLetter)</visible>
+	  <visible>!SubString(Container.SortMethod,year)</visible>
+	</control>
+	<!-- SortLabel used for years -->
+	<control type="group">
+	  <control type="image">
+	    <posx>0</posx>
+	    <posy>0</posy>
+	    <width>140</width>
+	    <height>70</height>
+	    <align>center</align>
+	    <aligny>center</aligny>
+	    <texture>common/scroll_letter_background.png</texture>
+	    <visible>Skin.HasSetting(scrollletters)</visible>
+	  </control>
+	  <control type="label">
+	    <posx>0</posx>
+	    <posy>0</posy>
+	    <width>140</width>
+	    <height>70</height>
+	    <align>center</align>
+	    <aligny>center</aligny>
+	    <label>$INFO[ListItem.Year]</label>
+	    <textcolor>ffffffff</textcolor>
+	    <font>Font_MultiplexTVLabel</font>
+	    <visible>Skin.HasSetting(scrollletters)</visible>
+	  </control>
+	  <visible>!IsEmpty(ListItem.Year)</visible>
+	  <visible>SubString(Container.SortMethod,year)</visible>
+	</control>
       </control>
     </control>
   </include>

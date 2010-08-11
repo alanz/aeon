@@ -187,7 +187,7 @@
         <width>1130</width>
         <height>564</height>
         <texture>multiplex/multiplex_tablet.png</texture>
-        <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
+        <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)</visible>
       </control>
       <control type="image">
         <animation effect="fade" start="85" end="85" time="300" delay="0" condition="Skin.HasSetting(multiplexthin)">Conditional</animation>
@@ -201,11 +201,13 @@
         <posx>105</posx>
         <posy>26</posy>
         <control type="group">
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout)</visible>
+          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(extrathumbslayout)</visible>
           <posy>22</posy>
+          <posx>0</posx>
           <control type="label">
             <include>MultiplexInfoLabel</include>
-            <label>$LOCALIZE[31402]:</label>
+            <label>$LOCALIZE[31402]:</label> <!--DIRECTOR -->
+            <visible>!Skin.HasSetting(extrathumbslayout)</visible>
           </control>
           <control type="label">
             <include>MultiplexInfoValue</include>
@@ -217,16 +219,33 @@
             <include>MultiplexInfoValue</include>
             <label fallback="31425">$INFO[Container(52).ListItem.Director]</label>
             <width>285</width>
-            <visible>!Skin.HasSetting(fanartlayout)</visible>
+            <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
           </control>
+
+          <!--Extrathumbs Director-->
+          <control type="group">
+            <posx>315</posx>
+            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <control type="label">
+              <include>MultiplexInfoLabel</include>
+              <label>$LOCALIZE[31402]:</label> <!--DIRECTOR -->
+            </control>
+            <control type="label">
+              <include>MultiplexInfoValue</include>
+              <label fallback="31425">$INFO[Container(52).ListItem.Director]</label>
+              <width>200</width>
+            </control>
+          </control>
+
         </control>
         <control type="group">
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout)</visible>
+          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(extrathumbslayout)</visible>
           <posy>72</posy>
           <control type="label">
             <include>MultiplexInfoLabel</include>
-            <label>$LOCALIZE[31401]:</label>
-          </control>
+	    <label>$LOCALIZE[31401]:</label><!--Writer -->
+	    <visible>!Skin.HasSetting(extrathumbslayout)</visible>
+	  </control>
           <control type="label">
             <include>MultiplexInfoValue</include>
             <label fallback="31425">$INFO[Container(52).ListItem.Writer]</label>
@@ -237,21 +256,104 @@
             <include>MultiplexInfoValue</include>
             <label fallback="31425">$INFO[Container(52).ListItem.Writer]</label>
             <width>285</width>
-            <visible>!Skin.HasSetting(fanartlayout)</visible>
+            <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
+          </control>
+
+          <!--Extrathumbs Writer-->
+          <control type="group">
+            <posx>315</posx>
+            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <control type="label">
+              <include>MultiplexInfoLabel</include>
+              <label>$LOCALIZE[31401]:</label> <!--Writer -->
+            </control>
+            <control type="label">
+              <include>MultiplexInfoValue</include>
+              <label fallback="31425">$INFO[Container(52).ListItem.Writer]</label>
+              <width>200</width>
+            </control>
+          </control>
+
+	</control>
+	<control type="group">
+	  <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(extrathumbslayout)</visible>
+	  <posy>122</posy>
+	  <control type="label">
+	    <include>MultiplexInfoLabel</include>
+	    <label>$LOCALIZE[31436]:</label>
+	    <visible>!Skin.HasSetting(extrathumbslayout)</visible>
+	  </control>
+	  <control type="label">
+	    <include>MultiplexInfoValue</include>
+	    <width>200</width>
+	    <label fallback="31425">$INFO[Container(52).ListItem.Year]</label>
+	    <visible>!Skin.HasSetting(extrathumbslayout)</visible>
+	  </control>
+          <!--Extrathumbs Year-->
+          <control type="group">
+            <posx>315</posx>
+            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <control type="label">
+              <include>MultiplexInfoLabel</include>
+              <label>$LOCALIZE[31436]:</label> <!--Year -->
+            </control>
+            <control type="label">
+              <include>MultiplexInfoValue</include>
+              <label fallback="31425">$INFO[Container(52).ListItem.Year]</label>
+              <width>200</width>
+            </control>
           </control>
         </control>
+
+        <!-- EXTRATHUMB LAYOUT -->
         <control type="group">
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout)</visible>
-          <posy>122</posy>
-          <control type="label">
-            <include>MultiplexInfoLabel</include>
-            <label>$LOCALIZE[31436]:</label>
+          <visible>Skin.HasSetting(extrathumbslayout)</visible>
+          <control  type="group">
+            <posy>22</posy>
+            <posx>550</posx>
+            <control type="label">
+              <include>MultiplexInfoLabel</include>
+              <label>$LOCALIZE[31709]:</label>
+            </control>
+            <control type="label">
+              <include>MultiplexInfoValue</include>
+              <label fallback="31425">$INFO[Container(52).ListItem.Duration]</label>
+              <width>200</width>
+            </control>
           </control>
-          <control type="label">
-            <include>MultiplexInfoValue</include>
-            <label fallback="31425">$INFO[Container(52).ListItem.Year]</label>
+
+          <control  type="group">
+            <posy>72</posy>
+            <posx>550</posx>
+            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <control type="label">
+              <include>MultiplexInfoLabel</include>
+              <label>$LOCALIZE[31438]:</label>
+            </control>
+            <control type="label">
+              <include>MultiplexInfoValue</include>
+              <label fallback="31425">$INFO[Container(52).ListItem.Genre]</label>
+              <width>200</width>
+            </control>
+          </control>
+
+          <control type="group">
+            <posy>122</posy>
+            <posx>550</posx>
+            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <control type="label">
+              <include>MultiplexInfoLabel</include>
+              <label>$LOCALIZE[31417]:</label>
+            </control>
+            <control type="label">
+              <include>MultiplexInfoValue</include>
+              <label fallback="31425">$INFO[Container(52).ListItem.MPAA]</label>
+              <width>200</width>
+            </control>
           </control>
         </control>
+        <!-- END OF EXTRATHUMBS -->
+
         <control type="group">
           <!-- Posterlayout / Plotlayout -->
           <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
@@ -273,6 +375,8 @@
               <width>200</width>
               <visible>Skin.HasSetting(fanartlayout)</visible>
             </control>
+
+
           </control>
           <control type="group">
             <posy>222</posy>
@@ -320,6 +424,7 @@
             </control>
             <control type="label">
               <include>MultiplexInfoValue</include>
+              <width>200</width>
               <label fallback="31425">$INFO[Container(52).ListItem.RatingAndVotes]</label>
             </control>
           </control>
@@ -374,6 +479,17 @@
         <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
       </control>
       <control type="textbox">
+        <posx>416</posx>
+        <posy>195</posy>
+        <width>455</width>
+        <height>170</height>
+        <font>Font_MultiplexPlot</font>
+        <info>Container(52).ListItem.Plot</info>
+        <textcolor>d0FFFFFF</textcolor>
+        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+        <visible>Skin.HasSetting(extrathumbslayout)</visible>
+      </control>
+      <control type="textbox">
         <posx>105</posx>
         <posy>213</posy>
         <width>435</width>
@@ -405,7 +521,7 @@
           <height>161</height>
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
-          <texture fallback="DefaultVideo.png">$INFO[Container(52).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
+          <texture fallback="DefaultExtras.png">$INFO[Container(52).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
         </control>
         <control type="image">
           <posx>0</posx>
@@ -423,7 +539,7 @@
           <height>161</height>
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
-          <texture fallback="DefaultVideo.png">$INFO[Container(52).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+          <texture fallback="DefaultExtras.png">$INFO[Container(52).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
         </control>
       </control>
       <control type="group">
@@ -505,9 +621,9 @@
       </control>
       <control type="group">
         <posx>575</posx>
-        <posy>50</posy>
-        <animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)">Conditional</animation>
-        <control type="image">
+	<posy>50</posy>
+	<animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)">Conditional</animation>
+	<control type="image">
           <posx>177</posx>
           <posy>316</posy>
           <align>center</align>
@@ -559,32 +675,32 @@
       </control>
     </control>
     <control type="group">
-      <posy>260</posy>
+      <posy>330</posy>
       <visible>Skin.HasSetting(extrathumbslayout)</visible>
       <control type="group">
         <!--thumbs right-->
-        <visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
+	<visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
         <animation effect="slide" time="1000" start="300,0" end="0,0" delay="1000" tween="cubic" easing="inout">WindowOpen</animation>
         <animation effect="slide" time="1000" start="0,0" end="300,0" delay="0" tween="cubic" easing="inout">WindowClose</animation>
         <animation effect="slide" start="350,0" end="0,0" time="700" tween="cubic" easing="inout">VisibleChange</animation>
-        <animation effect="rotatey" center="0" end="10" time="0" condition="true">Conditional</animation>
-        <posx>937</posx>
+        <animation effect="rotatey" center="1230" end="10" time="0" condition="true">Conditional</animation>
+        <posx>967</posx>
         <control type="group">
           <description>Thumbs on Right</description>
-          <posy>0</posy>
+          <posy>-40</posy>
           <control type="largeimage">
-            <posx>-8</posx>
-            <posy>-9</posy>
-            <width>191</width>
-            <height>130</height>
+            <posx>-12</posx>
+            <posy>-14</posy>
+            <width>287</width>
+            <height>195</height>
             <fadetime>400</fadetime>
             <texture>list/list_tvicon_shadow.png</texture>
             <visible>Container.Content(movies)</visible>
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>175</width>
-            <height>112</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
             <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -593,38 +709,38 @@
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>175</width>
-            <height>112</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
-            <fadetime>400</fadetime>
+	    <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
             <texture diffuse="list/list_tvicon_mask.png" fallback="DefaultExtras.png">$INFO[Skin.String(moviefolder)]$INFO[ListItem.Title,,/extrathumbs/thumb4.jpg]</texture>
             <visible>substring(ListItem.Path,stack) + !Container.Content(episodes)</visible>
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>175</width>
-            <height>112</height>
+            <width>263</width>
+            <height>168</height>
             <fadetime>400</fadetime>
             <texture diffuse="list/list_tvicon_mask.png">list/list_tvicon_glass.png</texture>
             <visible>!Container.Content(episodes)</visible>
           </control>
         </control>
         <control type="group">
-          <posy>-120</posy>
+          <posy>-220</posy>
           <control type="largeimage">
-            <posx>-8</posx>
-            <posy>-9</posy>
-            <width>191</width>
-            <height>130</height>
+            <posx>-12</posx>
+            <posy>-14</posy>
+            <width>287</width>
+            <height>195</height>
             <fadetime>400</fadetime>
             <texture>list/list_tvicon_shadow.png</texture>
             <visible>Container.Content(movies)</visible>
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>175</width>
-            <height>112</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
             <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -633,8 +749,8 @@
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>175</width>
-            <height>112</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
             <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -643,8 +759,8 @@
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>175</width>
-            <height>112</height>
+            <width>263</width>
+            <height>168</height>
             <fadetime>400</fadetime>
             <texture diffuse="list/list_tvicon_mask.png">list/list_tvicon_glass.png</texture>
             <visible>!Container.Content(episodes)</visible>
@@ -653,28 +769,28 @@
       </control>
       <control type="group">
         <!--thumbs left-->
-        <visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
+	<visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
         <animation effect="slide" time="1000" start="-300,0" end="0,0" delay="1000" tween="cubic" easing="inout">WindowOpen</animation>
         <animation effect="slide" time="1000" start="0,0" end="-300,0" delay="0" tween="cubic" easing="inout">WindowClose</animation>
         <animation effect="slide" start="-350,0" end="0,0" time="700" tween="cubic" easing="inout">VisibleChange</animation>
-        <animation effect="rotatey" center="0" end="-10" time="0" condition="true">Conditional</animation>
-        <posx>37</posx>
+        <animation effect="rotatey" center="50" end="-10" time="0" condition="true">Conditional</animation>
+        <posx>50</posx>
         <control type="group">
-          <description>Thumbs on left</description>
+          <description>Thumbs on Right</description>
           <posy>-40</posy>
           <control type="largeimage">
-            <posx>-8</posx>
-            <posy>-9</posy>
-            <width>261</width>
-            <height>178</height>
+            <posx>-12</posx>
+            <posy>-14</posy>
+            <width>287</width>
+            <height>195</height>
             <fadetime>400</fadetime>
             <texture>list/list_tvicon_shadow.png</texture>
             <visible>Container.Content(movies)</visible>
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>240</width>
-            <height>154</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
             <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -683,8 +799,8 @@
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>240</width>
-            <height>154</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
             <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -693,28 +809,28 @@
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>240</width>
-            <height>154</height>
+            <width>263</width>
+            <height>168</height>
             <fadetime>400</fadetime>
             <texture diffuse="list/list_tvicon_mask.png">list/list_tvicon_glass.png</texture>
             <visible>!Container.Content(episodes)</visible>
           </control>
         </control>
         <control type="group">
-          <posy>-200</posy>
+          <posy>-220</posy>
           <control type="largeimage">
-            <posx>-8</posx>
-            <posy>-9</posy>
-            <width>191</width>
-            <height>130</height>
+            <posx>-12</posx>
+            <posy>-14</posy>
+            <width>287</width>
+            <height>195</height>
             <fadetime>400</fadetime>
             <texture>list/list_tvicon_shadow.png</texture>
             <visible>Container.Content(movies)</visible>
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>240</width>
-            <height>154</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
             <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -723,8 +839,8 @@
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>240</width>
-            <height>154</height>
+            <width>263</width>
+            <height>168</height>
             <aspectratio>stretch</aspectratio>
             <fadetime>400</fadetime>
             <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -733,8 +849,8 @@
           </control>
           <control type="largeimage">
             <posy>0</posy>
-            <width>240</width>
-            <height>154</height>
+            <width>263</width>
+            <height>168</height>
             <fadetime>400</fadetime>
             <texture diffuse="list/list_tvicon_mask.png">list/list_tvicon_glass.png</texture>
             <visible>!Container.Content(episodes)</visible>

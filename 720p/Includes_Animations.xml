@@ -380,4 +380,20 @@
       <effect type="fade" start="100" end="0" delay="100" time="50"/>
     </animation>
   </include>
+  <include name="Animation_MediaMenuSlide">
+    <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
+      <effect type="slide" end="-260,0" time="400" easing="in" tween="cubic"/>
+    </animation>
+  </include>
+
+  <!-- used in MusicVis -->
+  <include name="Animation_Fanart_400ms">
+    <include>FullscreenDimensions</include>
+    <fadetime>400</fadetime>
+    <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+    <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+    <include>Animation_VisibleChange400</include>
+    <include>Animation_OpenCloseZoom</include>
+  </include>
+
 </includes>

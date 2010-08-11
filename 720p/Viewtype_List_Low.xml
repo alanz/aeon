@@ -275,6 +275,10 @@
       <!-- THE MAIN LIST CONTROL -->
       <control type="fixedlist" id="551">
         <viewtype label="31580">list</viewtype>
+        <visible>
+          ![Window.IsActive(videolibrary) +
+          [Container.Content(Genres) | Container.Content(Years) | Container.Content(Actors) | Container.Content(Directors) | Container.Content(Studios) | Container.Content()]]
+        </visible>
         <posx>210</posx>
         <posy>503</posy>
         <width>651</width>
@@ -287,7 +291,6 @@
         <ondown>551</ondown>
         <preloaditems>2</preloaditems>
         <include>Animation_HighListSlide</include>
-        <visible>![Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]</visible>
         <include>Animation_HideList</include>
         <!-- Slim item layout -->
         <itemlayout condition="[Window.IsActive(pictures) + !Skin.HasSetting(pictureslistfull)] | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(movieslistfull) + !Skin.HasSetting(videotv)] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![[Container.Content(artists) + Skin.HasSetting(artistlistfull)] | [Container.Content(albums) + Skin.HasSetting(albumlistfull)] | [Container.Content(songs) + Skin.HasSetting(songlistfull)] | [Window.IsActive(musicplaylist) + Skin.HasSetting(playlistfull)]]]" height="40">
