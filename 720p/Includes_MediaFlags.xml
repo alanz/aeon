@@ -880,7 +880,7 @@
       <posy>207</posy>
       <control type="group">
         <!-- Studios for episodes-->
-        <posx>85</posx>
+        <posx>1180</posx>
         <visible>Container.Content(episodes)</visible>
         <control type="image" id="81">
           <include>Furniture_PanelMediaFlagsVars</include>
@@ -893,10 +893,20 @@
           <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
         </control>
       </control>
+	  <control type="group">
+        <!-- aspect ratio for episodes-->
+        <posx>85</posx>
+        <visible>Container.Content(episodes) | Container.Content(movies)</visible>
+        <control type="image">
+          <include>Furniture_PanelMediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoAspect,flags/AspectRatio/,.png]</texture>
+          <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+        </control>
+      </control>
       <control type="group">
         <!-- studios-->
-        <posx>85</posx>
-        <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+        <posx>1180</posx>
+        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
         <control type="image" id="81">
           <include>Furniture_PanelMediaFlagsVars</include>
           <texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
