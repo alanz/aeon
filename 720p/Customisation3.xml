@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <window id="604">
   <defaultcontrol always="true">7</defaultcontrol>
   <allowoverlay>yes</allowoverlay>
@@ -132,7 +132,7 @@
           <onleft>30</onleft>
           <onright>30</onright>
           <onclick>SetFocus(30)</onclick>
-          <visible allowhiddenfocus="true">!Control.HasFocus(30) + !Control.HasFocus(31) + !Control.HasFocus(32)</visible>
+          <visible allowhiddenfocus="true">!Control.HasFocus(30) + !Control.HasFocus(31) + !Control.HasFocus(32) + !Control.HasFocus(33)</visible>
         </control>
         <control type="button" id="8">
           <description>Ausstattung</description>
@@ -143,7 +143,7 @@
           <ondown>14</ondown>
           <onleft>30</onleft>
           <onright>30</onright>
-          <visible>Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32)</visible>
+          <visible>Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33)</visible>
         </control>
         <control type="label">
           <description>My Programs Sub Unfocused</description>
@@ -151,7 +151,7 @@
           <label>31125</label>
           <textcolor>FFf5f5f5</textcolor>
           <include>Objects_SettingsSectionMenuButtonSubtitle</include>
-          <visible>!Control.HasFocus(8) + !Control.HasFocus(30) + !Control.HasFocus(31) + !Control.HasFocus(32)</visible>
+          <visible>!Control.HasFocus(8) + !Control.HasFocus(30) + !Control.HasFocus(31) + !Control.HasFocus(32) + !Control.HasFocus(33)</visible>
         </control>
         <control type="label">
           <description>My Programs Sub Unfocused</description>
@@ -159,7 +159,7 @@
           <label>31125</label>
           <textcolor>FF262728</textcolor>
           <include>Objects_SettingsSectionMenuButtonSubtitle</include>
-          <visible>Control.HasFocus(8) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32)</visible>
+          <visible>Control.HasFocus(8) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33)</visible>
         </control>
         <control type="button" id="14">
           <posy>174</posy>
@@ -333,10 +333,12 @@
 		<width>840</width>
 		<height>472</height>
 		<include>Animation_CommonFade</include>
-		<visible>Control.HasFocus(6) | Control.HasFocus(7) | Control.HasFocus(8) | Control.HasFocus(9) | Control.HasFocus(300) | Control.HasFocus(301) | Control.HasFocus(92) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32)</visible><control type="image" id="87"><visible>[Container(300).OnNext | Container(300).OnPrevious] | [Container(301).OnNext | Container(301).OnPrevious]</visible>
+		<visible>Control.HasFocus(6) | Control.HasFocus(7) | Control.HasFocus(8) | Control.HasFocus(9) | Control.HasFocus(300) | Control.HasFocus(301) | Control.HasFocus(92) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33)</visible>
+		<control type="button" id="87">
+		  <visible>[Container(300).OnNext | Container(300).OnPrevious] | [Container(301).OnNext | Container(301).OnPrevious]</visible>
 		<animation effect="fade" time="300">Hidden</animation>
       </control>
-      <control type="image" id="88">
+      <control type="button" id="88">
 		<visible>Control.IsVisible(300) | Control.IsVisible(301)</visible>
 		<animation effect="fade" time="300">Hidden</animation>
 	  </control>
@@ -355,7 +357,7 @@
 		<posy>208</posy>
 		<width>297</width>
 		<height>18</height>
-		<visible>!Window.IsActive(Home) + !Skin.HasSetting(highertime)</visible>
+		<visible>!Skin.HasSetting(highertime) + !Skin.HasSetting(hometimeoff)</visible>
 		<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
 		<include>Animation_CommonFade</include>
 		<control type="image">
@@ -365,21 +367,202 @@
 		  <height>18</height>
 		  <texture>common/timepanel_mid.png</texture>
 	    </control>
-		  <control type="label" id="70"><posx>243</posx><posy>2</posy><width>263</width><font>Font_VirtualRSS</font><align>right</align><textcolor>d0ffffff</textcolor><label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label></control></control>
-		  <control type="group"><!-- Virtual Time highertime-->
-		  <posx>586</posx><posy>0</posy><width>297</width><height>18</height><visible>Skin.HasSetting(highertime)</visible><include>Animation_CommonFade</include>
-		  <control type="image"><posx>-43</posx><posy>0</posy><width>297</width><height>16</height><texture flipy="true">common/timepanel_mid.png</texture></control>
-		  <control type="label" id="70"><posx>243</posx><posy>2</posy><width>263</width><font>Font_VirtualRSS</font><align>right</align><textcolor>d0ffffff</textcolor><label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label></control></control>
-		  <control type="group"><!-- Virtual RSS oben--><posx>0</posx><posy>266</posy><width>810</width><height>38</height><visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible><animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation><include>Animation_CommonFade</include>
-		  <control type="image"><posx>36</posx><posy>0</posy><width>804</width><height>38</height><texture>common/rssbar_mid.png</texture></control><control type="rss" id="1"><description>My First RSS control</description><posx>72</posx><posy>3</posy><width>769</width><visible>true</visible><font>Font_VirtualRSS</font><include>Colour_RSS</include><urlset>1</urlset></control>
-		  <control type="image"><posx>52</posx><posy>0</posy><width>85</width><height>18</height><texture>common/rssbar_mid_fade.png</texture><colordiffuse>e3FFFFFF</colordiffuse></control></control>
-		  <control type="group"><!-- Virtual RSS unten--><posx>0</posx><posy>434</posy><width>810</width><height>38</height><visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds)</visible><include>Animation_CommonFade</include><control type="image"><posx>36</posx><posy>0</posy><width>804</width><height>38</height><texture flipy="true">common/rssbar_mid.png</texture></control>
-		  <control type="rss" id="1"><description>My First RSS control</description><posx>72</posx><posy>22</posy><width>769</width><visible>true</visible><font>Font_VirtualRSS</font><include>Colour_RSS</include><urlset>1</urlset></control>
-		  <control type="image"><posx>52</posx><posy>20</posy><width>85</width><height>18</height><texture flipy="true">common/rssbar_mid_fade.png</texture><colordiffuse>e3FFFFFF</colordiffuse></control></control>
-		  <control type="image"><description>Darken screen for Backdrop type select</description><posx>0</posx><posy>0</posy><width>840</width><height>471</height><texture>settings/backselect.png</texture><visible>Control.HasFocus(92)</visible><include>Animation_VisibleChange400</include></control>
-		  <control type="group"><posx>0</posx><posy>-13</posy><width>840</width><height>472</height><animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation><include>Animation_CommonFade</include><control type="image"><posx>0</posx><posy>211</posy><width>840</width><height>99</height><texture>home/homemenu_back.png</texture><include>Animation_CommonFade</include></control>
-		  <control type="group"><posx>0</posx><posy>239</posy><width>840</width><height>40</height><defaultcontrol>300</defaultcontrol><include>VirtualMainMenu</include><include>VirtualMainMenuOptions</include></control>
-		  <control type="image"><posx>0</posx><posy>211</posy><width>840</width><height>99</height><texture>home/homemenu_gradient.png</texture><include>Animation_CommonFade</include><visible>!Skin.HasSetting(nohomegradient)</visible><colordiffuse>d0FFFFFF</colordiffuse></control></control></control>
+	    <control type="label" id="70">
+		  <posx>243</posx>
+		  <posy>2</posy>
+		  <width>263</width>
+		  <font>Font_VirtualRSS</font>
+		  <align>right</align>
+		  <textcolor>d0ffffff</textcolor>
+		  <label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+		</control>
+	  </control>
+	  <control type="group"><!-- Virtual Time highertime-->
+	    <posx>586</posx>
+	    <posy>0</posy>
+	    <width>297</width>
+	    <height>18</height>
+	    <visible>Skin.HasSetting(highertime) + !Skin.HasSetting(hometimeoff)</visible>
+	    <include>Animation_CommonFade</include>
+	    <control type="image">
+	      <posx>-43</posx>
+	      <posy>0</posy>
+		  <width>297</width>
+		  <height>16</height>
+		  <texture flipy="true">common/timepanel_mid.png</texture>
+		</control>
+		<control type="label" id="70">
+		  <posx>243</posx>
+		  <posy>2</posy>
+		  <width>263</width>
+		  <font>Font_VirtualRSS</font>
+		  <align>right</align>
+		  <textcolor>d0ffffff</textcolor>
+		  <label>[COLOR FFe5e5e5][UPPERCASE]$INFO[System.Date][/UPPERCASE]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
+		</control>
+	  </control>
+	   <control type="group"><!-- Virtual Totals highertotals-->
+	    <posx>0</posx>
+	    <posy>0</posy>
+	    <width>297</width>
+	    <height>18</height>
+	    <visible>Skin.HasSetting(highertotals) + !Skin.HasSetting(TotalsOff)</visible>
+	    <include>Animation_CommonFade</include>
+	    <control type="image">
+	      <posx>0</posx>
+	      <posy>0</posy>
+		  <width>297</width>
+		  <height>16</height>
+		  <texture flipy="true">common/librarypanel_mid.png</texture>
+		</control>
+		<control type="label" id="70">
+		  <posx>233</posx>
+		  <posy>2</posy>
+		  <width>263</width>
+		  <font>Font_VirtualRSS</font>
+		  <align>right</align>
+		  <textcolor>d0ffffff</textcolor>
+		  <label>$LOCALIZE[20342]: 276   |   $LOCALIZE[16102]: 121   |   $LOCALIZE[16101]: 155 </label>
+		</control>
+	  </control>
+	    <control type="group"><!-- Virtual Totals !highertotals-->
+	    <posx>0</posx>
+		<posy>208</posy>
+		<width>297</width>
+		<height>18</height>
+		<visible>!Skin.HasSetting(highertotals) + !Skin.HasSetting(TotalsOff)</visible>
+		<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
+		<include>Animation_CommonFade</include>
+		<control type="image">
+		  <posx>0</posx>
+		  <posy>0</posy>
+		  <width>297</width>
+		  <height>18</height>
+		  <texture>common/librarypanel_mid.png</texture>
+	    </control>
+	    <control type="label" id="70">
+		  <posx>243</posx>
+		  <posy>2</posy>
+		  <width>263</width>
+		  <font>Font_VirtualRSS</font>
+		  <align>right</align>
+		  <textcolor>d0ffffff</textcolor>
+		  <label>$LOCALIZE[20342]: 276   |   $LOCALIZE[16102]: 121   |   $LOCALIZE[16101]: 155 </label>
+		</control>
+	  </control>
+	  <control type="group"><!-- Virtual RSS oben-->
+	    <posx>0</posx>
+		<posy>266</posy>
+		<width>810</width>
+		<height>38</height>
+		<visible>!Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(homerssoff)</visible>
+		<animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
+		<include>Animation_CommonFade</include>
+		<control type="image">
+		<posx>36</posx>
+		<posy>0</posy>
+		<width>804</width>
+		<height>38</height>
+		<texture>common/rssbar_mid.png</texture>
+	  </control>
+	  <control type="rss" id="1">
+	    <description>My First RSS control</description>
+		<posx>72</posx>
+		<posy>3</posy>
+		<width>769</width>
+		<visible>true</visible>
+		<font>Font_VirtualRSS</font>
+		<include>Colour_RSS</include>
+		<urlset>1</urlset>
+	  </control>
+	  <control type="image">
+	    <posx>52</posx>
+		<posy>0</posy>
+		<width>85</width>
+		<height>18</height>
+		<texture>common/rssbar_mid_fade.png</texture>
+		<colordiffuse>e3FFFFFF</colordiffuse>
+	  </control>
+	</control>
+    <control type="group"><!-- Virtual RSS unten-->
+	  <posx>0</posx>
+	  <posy>434</posy>
+	  <width>810</width>
+	  <height>38</height>
+	  <visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(homerssoff)</visible>
+	  <include>Animation_CommonFade</include>
+	  <control type="image">
+	    <posx>36</posx>
+		<posy>0</posy>
+		<width>804</width>
+		<height>38</height>
+		<texture flipy="true">common/rssbar_mid.png</texture>
+	  </control>
+	  <control type="rss" id="1">
+	    <description>My First RSS control</description>
+		<posx>72</posx>
+		<posy>22</posy>
+		<width>769</width>
+		<visible>true</visible>
+		<font>Font_VirtualRSS</font>
+		<include>Colour_RSS</include>
+		<urlset>1</urlset>
+	  </control>
+	  <control type="image">
+	    <posx>52</posx>
+		<posy>20</posy>
+		<width>85</width>
+		<height>18</height>
+		<texture flipy="true">common/rssbar_mid_fade.png</texture>
+		<colordiffuse>e3FFFFFF</colordiffuse>
+	  </control>
+	</control>
+	<control type="image">
+	  <description>Darken screen for Backdrop type select</description>
+	  <posx>0</posx>
+	  <posy>0</posy>
+	  <width>840</width>
+	  <height>471</height>
+	  <texture>settings/backselect.png</texture>
+	  <visible>Control.HasFocus(92)</visible>
+	  <include>Animation_VisibleChange400</include>
+	</control>
+	<control type="group">
+	  <posx>0</posx>
+	  <posy>-13</posy>
+	  <width>840</width>
+	  <height>472</height>
+	  <animation effect="slide" start="0,0" end="0,150" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Control.HasFocus(92)">Conditional</animation>
+	  <include>Animation_CommonFade</include>
+	  <control type="image">
+	    <posx>0</posx>
+		<posy>211</posy>
+		<width>840</width>
+		<height>99</height>
+		<texture>home/homemenu_back.png</texture>
+		<include>Animation_CommonFade</include>
+	  </control>
+	  <control type="group">
+	    <posx>0</posx>
+		<posy>239</posy>
+		<width>840</width>
+		<height>40</height>
+		<defaultcontrol>300</defaultcontrol>
+		<include>VirtualMainMenu</include>
+		<include>VirtualMainMenuOptions</include>
+	  </control>
+	  <control type="image">
+	    <posx>0</posx>
+		<posy>211</posy>
+		<width>840</width>
+		<height>99</height>
+		<texture>home/homemenu_gradient.png</texture>
+		<include>Animation_CommonFade</include>
+		<visible>!Skin.HasSetting(nohomegradient)</visible>
+		<colordiffuse>d0FFFFFF</colordiffuse>
+	  </control>
+	</control>
+  </control>
       <control type="button" id="30">
         <description>Home Menu furniture select button</description>
         <posx>307</posx>
@@ -389,7 +572,7 @@
         <onclick>Skin.ToggleSetting(lowermainmenu)</onclick>
         <onup>8</onup>
         <ondown>8</ondown>
-        <onleft>32</onleft>
+        <onleft>33</onleft>
         <onright>31</onright>
         <texturefocus>settings/settings_furniture_mainmenu.png</texturefocus>
         <texturenofocus>-</texturenofocus>
@@ -406,7 +589,7 @@
         <height>37</height>
         <onclick>Skin.ToggleSetting(highertime)</onclick>
         <onup>8</onup>
-        <ondown>8</ondown>
+        <ondown>Skin.ToggleSetting(hometimeoff)</ondown>
         <onleft>30</onleft>
         <onright>32</onright>
         <texturefocus>settings/settings_furniture_timepanel.png</texturefocus>
@@ -424,7 +607,7 @@
         <height>37</height>
         <onclick>Skin.ToggleSetting(highertime)</onclick>
         <onup>8</onup>
-        <ondown>8</ondown>
+        <ondown>Skin.ToggleSetting(hometimeoff)</ondown>
         <onleft>30</onleft>
         <onright>32</onright>
         <texturefocus>settings/settings_furniture_timepanel.png</texturefocus>
@@ -443,9 +626,9 @@
         <height>35</height>
         <onclick>Skin.ToggleSetting(lowerrss)</onclick>
         <onup>8</onup>
-        <ondown>8</ondown>
+        <ondown>Skin.ToggleSetting(homerssoff)</ondown>
         <onleft>31</onleft>
-        <onright>30</onright>
+        <onright>33</onright>
         <texturefocus>settings/settings_furniture_rss.png</texturefocus>
         <texturenofocus>-</texturenofocus>
         <pulseonselect>true</pulseonselect>
@@ -461,14 +644,51 @@
         <height>35</height>
         <onclick>Skin.ToggleSetting(lowerrss)</onclick>
         <onup>8</onup>
-        <ondown>8</ondown>
+        <ondown>Skin.ToggleSetting(homerssoff)</ondown>
         <onleft>31</onleft>
-        <onright>30</onright>
+        <onright>33</onright>
         <texturefocus>settings/settings_furniture_rss.png</texturefocus>
         <texturenofocus>-</texturenofocus>
         <pulseonselect>true</pulseonselect>
         <visible>Skin.HasSetting(lowermainmenu)</visible>
         <animation effect="slide" start="0,0" end="0,36" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(lowerrss)">Conditional</animation>
+        <include>Animation_CommonFadeFocus</include>
+      </control>
+      <control type="button" id="33">
+        <!-- Totals Buttons-->
+        <description>Totals panel furniture select button - Normal version</description>
+        <posx>303</posx>
+        <posy>257</posy>
+        <width>334</width>
+        <height>37</height>
+        <onclick>Skin.ToggleSetting(highertotals)</onclick>
+        <onup>8</onup>
+        <ondown>Skin.ToggleSetting(TotalsOff)</ondown>
+        <onleft>32</onleft>
+        <onright>30</onright>
+        <texturefocus>settings/settings_furniture_timepanel.png</texturefocus>
+        <texturenofocus>-</texturenofocus>
+        <pulseonselect>true</pulseonselect>
+        <visible>!Skin.HasSetting(lowermainmenu)</visible>
+        <animation effect="slide" start="0,0" end="0,-210" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(highertotals)">Conditional</animation>
+        <include>Animation_CommonFadeFocus</include>
+      </control>
+      <control type="button" id="33">
+        <description>Totals panel furniture select button - Lower version</description>
+        <posx>303</posx>
+        <posy>407</posy>
+        <width>334</width>
+        <height>37</height>
+        <onclick>Skin.ToggleSetting(highertotals)</onclick>
+        <onup>8</onup>
+        <ondown>Skin.ToggleSetting(TotalsOff)</ondown>
+        <onleft>32</onleft>
+        <onright>30</onright>
+        <texturefocus>settings/settings_furniture_timepanel.png</texturefocus>
+        <texturenofocus>-</texturenofocus>
+        <pulseonselect>true</pulseonselect>
+        <visible>Skin.HasSetting(lowermainmenu)</visible>
+        <animation effect="slide" start="0,0" end="0,-362" time="200" easing="inout" tween="circle" condition="Skin.HasSetting(highertotals)">Conditional</animation>
         <include>Animation_CommonFadeFocus</include>
       </control>
       <control type="button" id="40">
@@ -570,11 +790,11 @@
         <control type="group">
           <description>31089</description>
           <include>Labels_MainLabelGroup</include>
-          <visible>Control.HasFocus(8) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32)</visible>
+          <visible>Control.HasFocus(8) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33)</visible>
           <control type="label">
             <include>Labels_MainLabelBigVars</include>
             <label>31090</label>
-            <visible>Control.HasFocus(8) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32)</visible>
+            <visible>Control.HasFocus(8) | Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33)</visible>
           </control>
           <control type="label">
             <include>Labels_MainLabelSmallVars</include>
@@ -596,6 +816,16 @@
             <label>31094</label>
             <visible>Control.HasFocus(31) + !Skin.HasSetting(highertime)</visible>
           </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars2</include>
+            <label>31113</label>
+            <visible>Control.HasFocus(31) + Skin.HasSetting(hometimeoff)</visible>
+          </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars2</include>
+            <label>31105</label>
+            <visible>Control.HasFocus(31) + !Skin.HasSetting(hometimeoff)</visible>
+          </control>
           <control type="label">
             <include>Labels_MainLabelSmallVars</include>
             <label>31095</label>
@@ -606,7 +836,44 @@
             <label>31096</label>
             <visible>Control.HasFocus(32) + !Skin.HasSetting(lowerrss)</visible>
           </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars</include>
+            <label>31111</label>
+            <visible>Control.HasFocus(33) + Skin.HasSetting(highertotals)</visible>
+          </control>
+          <control type="label">
+            <include>Labels_MainLabelSmallVars</include>
+            <label>31112</label>
+            <visible>Control.HasFocus(33) + !Skin.HasSetting(highertotals)</visible>
+          </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars2</include>
+            <label>31106</label>
+            <visible>Control.HasFocus(32) + Skin.HasSetting(homerssoff)</visible>
+          </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars2</include>
+            <label>31107</label>
+            <visible>Control.HasFocus(32) + !Skin.HasSetting(homerssoff)</visible>
+          </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars2</include>
+            <label>31110</label>
+            <visible>Control.HasFocus(33) + !Skin.HasSetting(TotalsOff)</visible>
+          </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars2</include>
+            <label>31109</label>
+            <visible>Control.HasFocus(33) + Skin.HasSetting(Totalsoff)</visible>
+          </control>
+		  <control type="label">
+            <include>Labels_MainLabelSmallVars3</include>
+			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="Control.HasFocus(30)">Conditional</animation>
+            <label>31108</label>
+            <visible>Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33)</visible>
+          </control>
         </control>
+		
         <control type="group">
           <description>31097</description>
           <include>Labels_MainLabelGroup</include>
@@ -728,12 +995,6 @@
         <label>312993</label>
         <onclick>Skin.ToggleSetting(weathericons)</onclick>
         <selected>Skin.HasSetting(weathericons)</selected>
-      </control>
-      <control type="radiobutton" id="511">
-        <include>Objects_SettingsDefaultRadioButton</include>
-        <label>32002</label>
-        <onclick>Skin.ToggleSetting(TotalsOff)</onclick>
-        <selected>!Skin.HasSetting(TotalsOff)</selected>
       </control>
       <control type="radiobutton" id="512">
         <include>Objects_SettingsDefaultRadioButton</include>
