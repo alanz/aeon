@@ -178,7 +178,7 @@
         <width>1130</width>
         <height>564</height>
         <texture>multiplex/multiplex_back.png</texture>
-        <visible>!Skin.HasSetting(multiplexthin) + !Skin.HasSetting(extrathumbslayout)</visible>
+        <visible>!Skin.HasSetting(multiplexthin)</visible>
         <include>Animation_CommonFade</include>
       </control>
       <control type="image">
@@ -225,7 +225,7 @@
           <!--Extrathumbs Director-->
           <control type="group">
             <posx>315</posx>
-            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <visible>Skin.HasSetting(extrathumbslayout)  + !Player.HasVideo</visible>
             <control type="label">
               <include>MultiplexInfoLabel</include>
               <label>$LOCALIZE[31402]:</label> <!--DIRECTOR -->
@@ -236,7 +236,6 @@
               <width>200</width>
             </control>
           </control>
-
         </control>
         <control type="group">
           <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(extrathumbslayout)</visible>
@@ -262,7 +261,7 @@
           <!--Extrathumbs Writer-->
           <control type="group">
             <posx>315</posx>
-            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
             <control type="label">
               <include>MultiplexInfoLabel</include>
               <label>$LOCALIZE[31401]:</label> <!--Writer -->
@@ -292,7 +291,7 @@
           <!--Extrathumbs Year-->
           <control type="group">
             <posx>315</posx>
-            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
             <control type="label">
               <include>MultiplexInfoLabel</include>
               <label>$LOCALIZE[31436]:</label> <!--Year -->
@@ -307,7 +306,7 @@
 
         <!-- EXTRATHUMB LAYOUT -->
         <control type="group">
-          <visible>Skin.HasSetting(extrathumbslayout)</visible>
+          <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
           <control  type="group">
             <posy>22</posy>
             <posx>550</posx>
@@ -325,7 +324,7 @@
           <control  type="group">
             <posy>72</posy>
             <posx>550</posx>
-            <visible>Skin.HasSetting(extrathumbslayout)</visible>
+            <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
             <control type="label">
               <include>MultiplexInfoLabel</include>
               <label>$LOCALIZE[31438]:</label>
@@ -476,7 +475,7 @@
         <info>Container(52).ListItem.Plot</info>
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
+        <visible>[Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)] + !Player.HasVideo</visible>
       </control>
       <control type="textbox">
         <posx>416</posx>
@@ -487,7 +486,7 @@
         <info>Container(52).ListItem.Plot</info>
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Skin.HasSetting(extrathumbslayout)</visible>
+        <visible>Skin.HasSetting(extrathumbslayout)  + !Player.HasVideo</visible>
       </control>
       <control type="textbox">
         <posx>105</posx>
@@ -619,6 +618,18 @@
           <randomize>true</randomize>
         </control>
       </control>
+	  <control type="group">
+		  <posx>425</posx>
+          <posy>30</posy>
+		  <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)</visible>
+		  <control type="videowindow">
+            <posx>1</posx>
+            <posy>1</posy>
+            <width>430</width>
+            <height>360</height>
+            <visible>[Control.IsVisible(52) + [Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
+          </control>
+	    </control>  
       <control type="group">
         <posx>575</posx>
 	<posy>50</posy>
@@ -674,7 +685,7 @@
         </control>
       </control>
     </control>
-    <control type="group">
+    <control type="group"><!--extrathumbs -->
       <posy>330</posy>
       <visible>Skin.HasSetting(extrathumbslayout)</visible>
       <control type="group">
@@ -927,7 +938,25 @@
             <include>MultiplexInfoValueTV</include>
             <label fallback="31425">$INFO[Container(52).ListItem.premiered]</label>
           </control>
-        </control>
+		</control>
+        <control type="largeimage">
+	      <posx>890</posx>
+		  <posy>-170</posy>
+		  <width>160</width>
+		  <height>62</height>
+		  <texture>$INFO[ListItem.path]logo.png</texture>
+		  <fadetime>300</fadetime>
+		  <aspectratio scalediffuse="false">stretch</aspectratio>
+		</control>
+		<control type="largeimage">
+		  <posx>890</posx>
+		  <posy>-170</posy>
+		  <width>160</width>
+		  <height>62</height>
+		  <texture>$INFO[ListItem.path]../logo.png</texture>
+		  <fadetime>300</fadetime>
+		  <aspectratio scalediffuse="false">stretch</aspectratio>
+	    </control>
       </control>
       <control type="group">
         <posx>105</posx>
@@ -965,6 +994,15 @@
             <include>MultiplexInfoValueTV</include>
             <label fallback="31425">$INFO[Container(52).ListItem.Date]</label>
           </control>
+		  <control type="image">
+			<posx>890</posx>
+			<posy>-170</posy>
+			<width>160</width>
+			<height>62</height>
+			<texture>$INFO[ListItem.path]logo.png</texture>
+			<fadetime>300</fadetime>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+		  </control>
         </control>
       </control>
       <control type="group">
@@ -1003,6 +1041,15 @@
             <include>MultiplexInfoValueTV</include>
             <label fallback="31425">$INFO[Container(52).ListItem.Property(UnwatchedEpisodes)]</label>
           </control>
+		  <control type="image">
+			<posx>890</posx>
+			<posy>-46</posy>
+			<width>160</width>
+			<height>62</height>
+			<texture>$INFO[ListItem.path]logo.png</texture>
+			<fadetime>300</fadetime>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+		  </control>
         </control>
       </control>
       <control type="textbox">
