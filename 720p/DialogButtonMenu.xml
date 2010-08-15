@@ -7,6 +7,7 @@
     <posx>0</posx>
     <posy>0</posy>
   </coordinates>
+  
   <animation type="WindowOpen" reversible="false">
     <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
     <effect type="fade" start="0" end="100" time="300"/>
@@ -15,50 +16,57 @@
     <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
     <effect type="fade" start="100" end="0" time="200"/>
   </animation>
+
   <controls>
     <control type="group">
+
       <posx>486</posx>
       <posy>184</posy>
       <width>308</width>
-      <height>404</height>
-      <animation effect="slide" start="0,-19" end="0,-19" time="0" condition="![system.hasloginscreen | System.HasMediaDVD]">Conditional</animation>
-      <animation effect="slide" start="0,-38" end="0,-38" time="0" condition="system.hasloginscreen + System.HasMediaDVD">Conditional</animation>
+      
+      <include condition="![System.HasLoginScreen | System.HasMediaDVD]">Objects_ButtonMenu09Group</include>
+      <include condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
+      <include condition="System.HasLoginScreen + System.HasMediaDVD">Objects_ButtonMenu11Group</include>
+      
       <control type="image">
-        <description>background top image</description>
+        <description>Background Top Image</description>
         <posx>0</posx>
         <posy>-26</posy>
         <width>308</width>
         <height>26</height>
         <texture>dialogs/context_top.png</texture>
       </control>
+      
       <control type="image">
-        <description>background image</description>
+        <description>Background image</description>
         <posx>0</posx>
         <posy>0</posy>
         <width>308</width>
-        <include condition="![system.hasloginscreen | System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
-        <include condition="[system.hasloginscreen + !System.HasMediaDVD] | [!system.hasloginscreen + System.HasMediaDVD]">Objects_ButtonMenu11Group</include>
-        <include condition="system.hasloginscreen + System.HasMediaDVD">Objects_ButtonMenu12Group</include>
+        <include condition="![System.HasLoginScreen | System.HasMediaDVD]">Objects_ButtonMenu09Group</include>
+        <include condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
+        <include condition="System.HasLoginScreen + System.HasMediaDVD">Objects_ButtonMenu11Group</include>
         <texture>dialogs/context_middle.png</texture>
       </control>
+      
       <control type="image">
-        <description>background bottom image</description>
+        <description>Background Bottom Image</description>
         <posx>0</posx>
-        <posy>390</posy>
+        <posy>428</posy>
         <width>308</width>
-        <height>27</height>
-        <animation effect="slide" start="0,-69" end="0,-79" time="0" condition="![system.hasloginscreen | System.HasMediaDVD]">Conditional</animation>
-        <animation effect="slide" start="0,39" end="0,79" time="0" condition="system.hasloginscreen + System.HasMediaDVD">Conditional</animation>
+	<height>27</height>
+	<animation effect="slide" start="0,-0" end="0,-78" time="0" condition="![System.HasLoginScreen | System.HasMediaDVD]">Conditional</animation>
+	<animation effect="slide" start="0,-0" end="0,-38" time="0" condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Conditional</animation>
         <texture>dialogs/context_bottom.png</texture>
       </control>
-	  <!-- ShutdownMenu -->
+      
+      <!-- ShutdownMenu -->
       <control type="grouplist" id="4112">
         <posx>0</posx>
         <posy>0</posy>
         <width>308</width>
-        <include condition="![system.hasloginscreen | System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
-        <include condition="[system.hasloginscreen + !System.HasMediaDVD] | [!system.hasloginscreen + System.HasMediaDVD]">Objects_ButtonMenu11Group</include>
-        <include condition="system.hasloginscreen + System.HasMediaDVD">Objects_ButtonMenu12Group</include>
+        <include condition="![System.HasLoginScreen | System.HasMediaDVD]">Objects_ButtonMenu09Group</include>
+        <include condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
+        <include condition="System.HasLoginScreen + System.HasMediaDVD">Objects_ButtonMenu11Group</include>
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <onup>4112</onup>
@@ -68,7 +76,8 @@
           <label>31200</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(4)</onclick>
-        </control>
+	</control>
+
         <control type="togglebutton" id="803">
           <description>Home Visualiser (Video)</description>
           <label>31203</label>
@@ -77,7 +86,8 @@
           <onclick>Skin.Togglesetting(homevisvideo)</onclick>
           <usealttexture>Skin.HasSetting(homevisvideo)</usealttexture>
         </control>
-        <control type="togglebutton" id="804">
+	
+	<control type="togglebutton" id="804">
           <description>Home Visualiser (Audio)</description>
           <label>312030</label>
           <altlabel>312040</altlabel>
@@ -85,63 +95,65 @@
           <onclick>Skin.Togglesetting(homevisaudio)</onclick>
           <usealttexture>Skin.HasSetting(homevisaudio)</usealttexture>
         </control>
-        <control type="button" id="805">
+	
+	<control type="button" id="805">
           <description>Now Playing</description>
           <label>31006</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(500)</onclick>
         </control>
-        <control type="button" id="806">
+	
+	<control type="button" id="806">
           <description>Exit Timer</description>
           <label>31206</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>AlarmClock(,XBMC.Quit(),)</onclick>
         </control>
-        <control type="button" id="807">
+	
+	<control type="button" id="807">
           <description>Log Out</description>
           <label>31209</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>System.LogOff</onclick>
-          <visible>system.hasloginscreen</visible>
+          <visible>System.HasLoginScreen</visible>
         </control>
-		<!--
-        <control type="button" id="808">
-          <description>Restart</description>
-          <label>31207</label>
-          <include>Objects_ContextMenuButton</include>
-          <onclick>RestartApp</onclick>
-        </control>-->
-        <control type="button" id="809">
+
+	<control type="button" id="809">
           <description>Exit XBMC</description>
           <label fallback="EXIT XBMC">41003</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>XBMC.Quit()</onclick>
         </control>
-        <control type="button" id="810">
+
+	<control type="button" id="810">
           <description>Eject Tray</description>
           <label>31210</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>EjectTray()</onclick>
           <visible>System.HasMediaDVD</visible>
         </control>
-        <control type="button" id="811">
+
+	<control type="button" id="811">
           <description>File Manager</description>
           <label>10003</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(3)</onclick>
         </control>
-        <control type="button" id="802">
+
+	<control type="button" id="802">
           <description>Add-ons</description>
           <label>24001</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(AddonBrowser)</onclick>
         </control>		
-        <control type="button" id="812">
+
+	<control type="button" id="812">
           <description>Favourites</description>
           <label>$LOCALIZE[1036]</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(Favourites)</onclick>
         </control>
+
       </control>
     </control>
   </controls>
