@@ -10,27 +10,79 @@
       <width>0</width>
       <height>0</height>
       <texture>-</texture>
-      <visible>[Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] + ![Skin.HasSetting(oldmultiplexinfooff) | Skin.HasSetting(oldmultiplexinfotrigger)] + [Control.HasFocus(553) | ControlGroup(7000).HasFocus()] + [!Container(553).OnNext + !Container(553).OnPrevious]] |
-					[Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] + ![Skin.HasSetting(oldmultiplextvinfooff) | Skin.HasSetting(oldmultiplextvinfotrigger)] + [Control.HasFocus(553) | ControlGroup(7000).HasFocus()] + [!Container(553).OnNext + !Container(553).OnPrevious]] |
-					[Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] + ![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] + [Control.HasFocus(52) | ControlGroup(7000).HasFocus()] + [!Container(52).OnNext + !Container(52).OnPrevious]] |
-					[Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] + ![[[Skin.HasSetting(multiplextvshowinfooff) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfooff) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfooff) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]]] + [Control.HasFocus(52) | Control.HasFocus(552) | ControlGroup(7000).HasFocus()] + [!Container(52).OnNext + !Container(52).OnPrevious + !Container(552).OnPrevious + !Container(552).OnPrevious]] |
-					[Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] + ![[[Skin.HasSetting(showcasetvshowinfooff) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfooff) + Container.Content(seasons)]] | [[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]]] + [Control.HasFocus(57) | ControlGroup(7000).HasFocus()] + [!Container(57).OnNext + !Container(57).OnPrevious]] | 
-					[Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] + ![Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfotrigger)] + [Control.HasFocus(57) | ControlGroup(7000).HasFocus()] + [!Container(57).OnNext + !Container(57).OnPrevious]] |
-					[[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + ![Skin.HasSetting(showcasemusicinfooff) | Skin.HasSetting(showcasemusicinfotrigger)] + [Control.HasFocus(57) | ControlGroup(7000).HasFocus()] + [!Container(57).OnNext + !Container(57).OnPrevious]]</visible>
+      <visible>
+	[
+		Skin.HasSetting(videomovies) +
+		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+		![Skin.HasSetting(oldmultiplexinfooff) | Skin.HasSetting(oldmultiplexinfotrigger)] +
+		[Control.HasFocus(553) | ControlGroup(7000).HasFocus()] +
+		[!Container(553).OnNext + !Container(553).OnPrevious]
+	] | [
+		Skin.HasSetting(videotv) +
+		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+		![Skin.HasSetting(oldmultiplextvinfooff) | Skin.HasSetting(oldmultiplextvinfotrigger)] +
+		[Control.HasFocus(553) | ControlGroup(7000).HasFocus()] +
+		[!Container(553).OnNext + !Container(553).OnPrevious]
+	] | [
+		Skin.HasSetting(videomovies) +
+		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+		![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] +
+		[Control.HasFocus(52) | ControlGroup(7000).HasFocus()] +
+		[!Container(52).OnNext + !Container(52).OnPrevious]
+	] | [
+		Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+		![
+			[
+				[Skin.HasSetting(multiplextvshowinfooff) + Container.Content(tvshows)] |
+				[Skin.HasSetting(multiplexseasoninfooff) + Container.Content(seasons)] |
+				[Skin.HasSetting(multiplexepisodeinfooff) + Container.Content(episodes)]
+			] | [
+				[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] |
+				[Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] |
+				[Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]
+			]
+		] +
+		[Control.HasFocus(52) | Control.HasFocus(552) | ControlGroup(7000).HasFocus()] +
+		[!Container(52).OnNext + !Container(52).OnPrevious + !Container(552).OnPrevious + !Container(552).OnPrevious]
+	] | [
+		Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+		![
+			[
+				[Skin.HasSetting(showcasetvshowinfooff) + Container.Content(tvshows)] |
+				[Skin.HasSetting(showcaseseasoninfooff) + Container.Content(seasons)]
+			] | [
+				[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] |
+				[Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]
+			]
+		] +
+		[Control.HasFocus(57) | ControlGroup(7000).HasFocus()] +
+		[!Container(57).OnNext + !Container(57).OnPrevious]
+	] | [
+		Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+		![Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfotrigger)] +
+		[Control.HasFocus(57) | ControlGroup(7000).HasFocus()] +
+		[!Container(57).OnNext + !Container(57).OnPrevious]
+	] | [
+		[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] +
+		![Skin.HasSetting(showcasemusicinfooff) | Skin.HasSetting(showcasemusicinfotrigger)] +
+		[Control.HasFocus(57) | ControlGroup(7000).HasFocus()] +
+		[!Container(57).OnNext + !Container(57).OnPrevious]
+	]
+      </visible>
       <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
     </control>
+
     <control type="group">
       <visible>[!Skin.HasSetting(GenreFanartOn) + Container.Content(genres)] | !Container.Content(genres)</visible>
-      <!-- other backgrounds-->
-      <!-- <<<<< ADD this -->
       <include condition="Skin.HasSetting(videotv)">MediaBackdropsTV</include>
       <include condition="Skin.HasSetting(videomovies)">MediaBackdropsMovies</include>
-      <visible>!Skin.HasSetting(fallbackimage)</visible>
+      <visible>!Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image))</visible>
     </control>
+
     <control type="image">
       <!-- genre fanart -->
       <include>FullscreenDimensions</include>
@@ -40,14 +92,54 @@
     </control>
     <control type="largeimage">
       <include>FullscreenDimensions</include>
-      <visible>Skin.HasSetting(fallbackimage) + [Control.IsVisible(553) | Control.IsVisible(55) | Control.IsVisible(556) | [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + [[Container.Content(movies) + Skin.HasSetting(moviefanart)] | [Container.Content(tvshows) + Skin.HasSetting(tvshowfanart)] | [Skin.HasSetting(seasonsfanart) + Container.Content(seasons)] | [Container.Content(episodes) + Skin.HasSetting(episodesfanart)]]</visible>
+      <visible>
+	Skin.HasSetting(fallbackimage) +
+	[
+		Control.IsVisible(553) |
+		Control.IsVisible(55) |
+		Control.IsVisible(556) |
+		[Control.IsVisible(560) + Skin.HasSetting(transparentlist)] |
+		Control.IsVisible(50) |
+		Control.IsVisible(57) |
+		Control.IsVisible(53) |
+		Control.IsVisible(52) |
+		Control.IsVisible(552) |
+		Control.IsVisible(550) |
+		Control.IsVisible(551)
+	] + [
+		[Container.Content(movies) + Skin.HasSetting(moviefanart)] |
+		[Container.Content(tvshows) + Skin.HasSetting(tvshowfanart)] |
+		[Container.Content(seasons) + Skin.HasSetting(seasonsfanart)] |
+		[Container.Content(episodes) + Skin.HasSetting(episodesfanart)]
+	]
+      </visible>
       <fadetime>400</fadetime>
       <texture>$INFO[Skin.String(fallbackimagepath)]</texture>
+      <visible>IsEmpty(ListItem.property(fanart_image))</visible>
       <include>Animation_FanartFade</include>
     </control>
     <control type="largeimage" id="102">
       <include>FullscreenDimensions</include>
-      <visible>[Control.IsVisible(553) | Control.IsVisible(556) | Control.IsVisible(55) | [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + [[Container.Content(movies) + Skin.HasSetting(moviefanart)] | [Container.Content(tvshows) + Skin.HasSetting(tvshowfanart)] | [Skin.HasSetting(seasonsfanart) + Container.Content(seasons)] | [Container.Content(episodes) + Skin.HasSetting(episodesfanart)]] + !IsEmpty(ListItem.property(fanart_image))</visible>
+      <visible>
+	[
+		Control.IsVisible(553) |
+		Control.IsVisible(556) |
+		Control.IsVisible(55) |
+		[Control.IsVisible(560) + Skin.HasSetting(transparentlist)] |
+		Control.IsVisible(50) |
+		Control.IsVisible(57) |
+		Control.IsVisible(53) |
+		Control.IsVisible(52) |
+		Control.IsVisible(552) |
+		Control.IsVisible(550) |
+		Control.IsVisible(551)
+	] + [
+		[Container.Content(movies) + Skin.HasSetting(moviefanart)] |
+		[Container.Content(tvshows) + Skin.HasSetting(tvshowfanart)] |
+		[Skin.HasSetting(seasonsfanart) + Container.Content(seasons)] |
+		[Container.Content(episodes) + Skin.HasSetting(episodesfanart)]
+	] + !IsEmpty(ListItem.property(fanart_image))
+      </visible>
       <fadetime>400</fadetime>
       <texture>$INFO[ListItem.property(fanart_image)]</texture>
       <include>Animation_FanartFade</include>
