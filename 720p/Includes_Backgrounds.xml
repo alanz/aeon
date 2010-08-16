@@ -21,14 +21,14 @@
     <include>Animation_BackgroundFade</include>
     <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
     <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+    <!-- visible is the negation of CurtainsBackdrop -->
     <visible>
-      ![Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] |
-      [
-        [!Skin.HasSetting(moviecurtains) + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] |
-        [!Skin.HasSetting(tvcurtains) + Window.IsActive(videolibrary) + Container.Content(tvshows)] |
-        [!Skin.HasSetting(tvseasonscurtains) + Window.IsActive(videolibrary) + Container.Content(seasons)] |
-        [!Skin.HasSetting(tvepisodescurtains) + Window.IsActive(videolibrary) + Container.Content(episodes)] |
-        [!Skin.HasSetting(musiccurtains) + Window.IsActive(musiclibrary)]
+      ![
+        [Skin.HasSetting(moviecurtains) + Container.Content(movies)] |
+        [Skin.HasSetting(tvcurtains) + Window.IsActive(videolibrary) + Container.Content(tvshows)] |
+        [Skin.HasSetting(tvseasonscurtains) + Window.IsActive(videolibrary) + Container.Content(seasons)] |
+        [Skin.HasSetting(tvepisodescurtains) + Window.IsActive(videolibrary) + Container.Content(episodes)] |
+        [Skin.HasSetting(musiccurtains) + Window.IsActive(musiclibrary)]
       ]
     </visible>
   </include>
