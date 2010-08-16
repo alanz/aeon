@@ -77,10 +77,9 @@
     </control>
 
     <control type="group">
-      <visible>[!Skin.HasSetting(GenreFanartOn) + Container.Content(genres)] | !Container.Content(genres)</visible>
       <include condition="Skin.HasSetting(videotv)">MediaBackdropsTV</include>
       <include condition="Skin.HasSetting(videomovies)">MediaBackdropsMovies</include>
-      <visible>!Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image))</visible>
+      <visible>[!Skin.HasSetting(GenreFanartOn) | !Container.Content(genres)] + !Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image))</visible>
     </control>
 
     <control type="image">
@@ -90,6 +89,7 @@
       <texture>special://skin/extras/movie/genrefanart/$INFO[ListItem.Label].jpg</texture>
       <visible>Skin.HasSetting(GenreFanartOn) + Container.Content(genres)</visible>
     </control>
+
     <control type="largeimage">
       <include>FullscreenDimensions</include>
       <visible>
@@ -118,6 +118,7 @@
       <visible>IsEmpty(ListItem.property(fanart_image))</visible>
       <include>Animation_FanartFade</include>
     </control>
+
     <control type="largeimage" id="102">
       <include>FullscreenDimensions</include>
       <visible>
@@ -144,7 +145,9 @@
       <texture>$INFO[ListItem.property(fanart_image)]</texture>
       <include>Animation_FanartFade</include>
     </control>
+
     <include>CurtainsBackdrop</include>
+
     <control type="group">
       <visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
       <include>FullscreenDimensions</include>
