@@ -686,17 +686,11 @@
       <texture>settings/settings_panelback.png</texture>
     </control>
     <control type="multiimage">
-      <animations effect="fade" time="600">Visible</animations>
-      <animations effect="fade" time="600">Hidden</animations>
       <posx>38</posx>
       <posy>26</posy>
       <width>1200</width>
       <height>653</height>
-      <imagepath>cerberus</imagepath>
-      <timeperimage>0</timeperimage>
-      <fadetime>0</fadetime>
-      <loop>yes</loop>
-      <randomize>false</randomize>
+      <include>BackgroundEffectCommon</include>
     </control>
   </include>
   <include name="Furniture_SettingsFrontPanel">
@@ -763,20 +757,23 @@
     <font>Font_List</font>
     <aligny>center</aligny>
   </include>
+  <include name="BackgroundEffectCommon">
+    <animations effect="fade" time="600">Visible</animations>
+    <animations effect="fade" time="600">Hidden</animations>
+    <imagepath>cerberus</imagepath>
+    <timeperimage>0</timeperimage>
+    <fadetime>0</fadetime>
+    <loop>yes</loop>
+    <randomize>false</randomize>
+    <visible>!Skin.HasSetting(backgroundeffectoff)</visible>
+  </include>
   <include name="BackgroundEffect">
     <control type="multiimage">
-      <animations effect="fade" time="600">Visible</animations>
-      <animations effect="fade" time="600">Hidden</animations>
       <posx>0</posx>
       <posy>0</posy>
       <width>1280</width>
       <height>720</height>
-      <imagepath>cerberus</imagepath>
-      <timeperimage>0</timeperimage>
-      <fadetime>0</fadetime>
-      <loop>yes</loop>
-      <randomize>false</randomize>
-	  <visible>!Skin.HasSetting(backgroundeffectoff)</visible>
+      <include>BackgroundEffectCommon</include>
     </control>
   </include>
 </includes>
