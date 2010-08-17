@@ -61,7 +61,7 @@
             <visible>Control.IsVisible(52)</visible>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--genre-->
           <posy>22</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -72,7 +72,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.genre]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--mood-->
           <posy>72</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -83,7 +83,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Album_Mood)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--style-->
           <posy>122</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -94,7 +94,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Album_Style)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--theme-->
           <posy>172</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -105,7 +105,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Album_Theme)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--label-->
           <posy>222</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -116,7 +116,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Artist_Label)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--year-->
           <posy>272</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -127,7 +127,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Year]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--rating-->
           <posy>322</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -157,7 +157,7 @@
         <width>695</width>
         <height>569</height>
         <visible>Container.Content(artists)</visible>
-        <control type="group">
+        <control type="group"><!--formed-->
           <posy>22</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -168,7 +168,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(artist_formed)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--born - died-->
           <posy>72</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -179,7 +179,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(artist_born)] - $INFO[Container(52).ListItem.Property(artist_died)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--genre-->
           <posy>122</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -190,7 +190,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Genre)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--style-->
           <posy>172</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -201,7 +201,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Artist_Style)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--mood-->
           <posy>222</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -212,7 +212,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Artist_Mood)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--instrument-->
           <posy>272</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -223,7 +223,7 @@
             <label fallback="31425">$INFO[Container(52).ListItem.Property(Artist_Instrument)]</label>
           </control>
         </control>
-        <control type="group">
+        <control type="group"><!--yearsactive-->
           <posy>322</posy>
           <control type="label">
             <include>Music_MultiplexInfoLabel</include>
@@ -240,7 +240,7 @@
         <posx>600</posx>
         <posy>22</posy>
         <visible>IsEmpty(Container(52).ListItem.property(fanart_image))</visible>
-        <control type="image">
+        <control type="image"><!--black bg-->
           <posx>0</posx>
           <posy>0</posy>
           <width>351</width>
@@ -249,18 +249,16 @@
           <colordiffuse>94FFFFFF</colordiffuse>
           <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
         </control>
-        <control type="multiimage">
+        <control type="image"><!--listitem.icon-->
           <posx>2</posx>
           <posy>2</posy>
           <width>347</width>
           <height>347</height>
           <aspectratio>scale</aspectratio>
-          <fadetime>400</fadetime>
-          <timeperimage>4000</timeperimage>
-          <imagepath>$INFO[Container(52).ListItem.icon]</imagepath>
+          <texture>$INFO[Container(52).ListItem.icon]</texture>
         </control>
         <!-- description -->
-        <control type="image">
+        <control type="image"><!--black bg-->
           <posx>355</posx>
           <posy>0</posy>
           <width>315</width>
@@ -269,13 +267,24 @@
           <colordiffuse>b6FFFFFF</colordiffuse>
         </control>
         <control type="textbox">
-          <visible>!IsEmpty(Container(52).ListItem.Property(description))</visible>
+          <visible>!IsEmpty(Container(52).ListItem.Property(Artist_description))</visible>
           <posx>365</posx>
           <posy>2</posy>
           <width>305</width>
           <height>341</height>
           <font>Font_MultiplexPlot</font>
-          <label fallback="31425">$INFO[Container(52).ListItem.Property(description)]</label>
+          <label fallback="31425">$INFO[Container(52).ListItem.Property(Artist_description)]</label>
+          <textcolor>d0FFFFFF</textcolor>
+          <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+        </control>
+	    <control type="textbox">
+          <visible>!IsEmpty(Container(52).ListItem.Property(Album_description))</visible>
+          <posx>365</posx>
+          <posy>2</posy>
+          <width>305</width>
+          <height>341</height>
+          <font>Font_MultiplexPlot</font>
+          <label fallback="31425">$INFO[Container(52).ListItem.Property(Album_description)]</label>
           <textcolor>d0FFFFFF</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
@@ -315,15 +324,6 @@
           <fadetime>400</fadetime>
           <texture>$INFO[Container(52).ListItem.property(fanart_image)]</texture>
         </control>
-        <control type="largeimage">
-          <posx>2</posx>
-          <posy>2</posy>
-          <width>613</width>
-          <height>347</height>
-          <aspectratio>scale</aspectratio>
-          <fadetime>400</fadetime>
-          <texture>$INFO[Container(52).property(fanart_image)]</texture>
-        </control>
         <!-- description -->
         <control type="image">
           <posx>2</posx>
@@ -335,13 +335,24 @@
           <visible>!IsEmpty(Container(52).ListItem.Property(description))</visible>
         </control>
         <control type="textbox">
-          <visible>!IsEmpty(Container(52).ListItem.Property(description))</visible>
+          <visible>!IsEmpty(Container(52).ListItem.Property(Artist_Description))</visible>
           <posx>12</posx>
           <posy>196</posy>
           <width>589</width>
           <height>150</height>
           <font>Font_MultiplexPlot</font>
-          <info>Container(52).ListItem.Property(description)</info>
+          <label>$INFO[Container(52).ListItem.Property(Artist_Description)]</label>
+          <textcolor>d0FFFFFF</textcolor>
+          <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+        </control>
+	    <control type="textbox">
+          <visible>!IsEmpty(Container(52).ListItem.Property(Album_Description))</visible>
+          <posx>12</posx>
+          <posy>196</posy>
+          <width>589</width>
+          <height>150</height>
+          <font>Font_MultiplexPlot</font>
+           <label>$INFO[Container(52).ListItem.Property(Album_Description)]</label>
           <textcolor>d0FFFFFF</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
