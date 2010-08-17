@@ -233,12 +233,20 @@
         <texture>list/listpanel_back.png</texture>
         <visible>Control.IsVisible(50)</visible>
       </control>
-      <control type="group">
-        <posx>69</posx>
-        <posy>73</posy>
-        <visible>Control.IsVisible(50)</visible>
-        <include>BackgroundEffect</include>
-      </control>
+      <control type="multiimage">
+		<animations effect="fade" time="600">Visible</animations>
+		<animations effect="fade" time="600">Hidden</animations>
+		<posx>69</posx>
+		<posy>73</posy>
+		<width>742</width>
+		<height>600</height>
+		<imagepath>cerberus</imagepath>
+		<timeperimage>0</timeperimage>
+		<fadetime>0</fadetime>
+		<loop>yes</loop>
+		<randomize>false</randomize>
+		<visible>Control.IsVisible(50) + !Skin.HasSetting(backgroundeffectoff)</visible>
+	  </control>
       <control type="image">
         <posx>96</posx>
         <posy>82</posy>
