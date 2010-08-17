@@ -685,6 +685,7 @@
       <height>673</height>
       <texture>settings/settings_panelback.png</texture>
     </control>
+    <include>BackgroundEffect</include>
   </include>
   <include name="Furniture_SettingsFrontPanel">
     <control type="image">
@@ -749,5 +750,21 @@
     <height>41</height>
     <font>Font_List</font>
     <aligny>center</aligny>
+  </include>
+  <include name="BackgroundEffect">
+    <control type="multiimage">
+      <animations effect="fade" time="600">Visible</animations>
+      <animations effect="fade" time="600">Hidden</animations>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1280</width>
+      <height>720</height>
+      <imagepath>cerberus</imagepath>
+      <timeperimage>0</timeperimage>
+      <fadetime>0</fadetime>
+      <loop>yes</loop>
+      <randomize>false</randomize>
+	  <visible>!Skin.HasSetting(backgroundeffectoff)</visible>
+    </control>
   </include>
 </includes>
