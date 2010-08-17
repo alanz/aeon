@@ -1225,8 +1225,9 @@
 			<loop>yes</loop>
 			<randomize>false</randomize>
       </control>
+
+      <!--artists info pane-->
       <control type="group">
-        <!--artists-->
         <posx>105</posx>
         <posy>30</posy>
         <visible>Container.Content(artists)</visible>
@@ -1242,7 +1243,6 @@
             <label fallback="31425">$INFO[Container(57).ListItem.Property(Artist_YearsActive)]</label>
           </control>
         </control>
-
         <!-- Formed / Born -->
         <control type="group">
           <posy>55</posy>
@@ -1270,7 +1270,6 @@
           </control>
         </control>
         <!-- Formed / Born -->
-
         <control type="group">
           <posy>100</posy>
           <control type="label">
@@ -1284,8 +1283,10 @@
           </control>
         </control>
       </control>
+
+
+      <!--albums info pane-->
       <control type="group">
-        <!--albums-->
         <posx>105</posx>
         <posy>30</posy>
         <visible>Container.Content(albums)</visible>
@@ -1317,15 +1318,16 @@
           <posy>100</posy>
           <control type="label">
             <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[31440]:</label>
+            <label>$LOCALIZE[31413]:</label>
           </control>
           <control type="label">
             <width>370</width>
             <include>ShowcaseInfoValue</include>
-            <label fallback="31425">$INFO[Container(57).ListItem.Property(UnwatchedEpisodes)]</label>
+            <label fallback="31425">$INFO[Container(57).ListItem.Property(Album_Mood)]</label>
           </control>
         </control>
       </control>
+
       <control type="textbox">
         <posx>105</posx>
         <posy>174</posy>
@@ -1337,6 +1339,7 @@
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <visible>Container.Content(artists)</visible>
       </control>
+
       <control type="textbox">
         <posx>105</posx>
         <posy>174</posy>
@@ -1348,6 +1351,7 @@
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <visible>Container.Content(albums)</visible>
       </control>
+
       <control type="group">
         <posx>508</posx>
         <posy>40</posy>
@@ -1357,11 +1361,12 @@
           <width>638</width>
           <height>328</height>
           <fadetime>400</fadetime>
-          <aspectratio>stretch</aspectratio>
+          <aspectratio>scale</aspectratio>
           <texture>$INFO[Container(57).ListItem.property(fanart_image)]</texture>
           <visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
           <include>Animation_VisibleChange200</include>
         </control>
+
         <control type="largeimage">
           <posx>15</posx>
           <posy>-7</posy>
@@ -1373,6 +1378,7 @@
           <visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
           <include>Animation_VisibleChange200</include>
         </control>
+
         <control type="image">
           <posx>1</posx>
           <posy>1</posy>
@@ -1385,6 +1391,7 @@
           <include>Animation_VisibleChange200</include>
         </control>
       </control>
+
     </control>
   </include>
 
