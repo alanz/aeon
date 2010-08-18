@@ -247,34 +247,36 @@
     </control>
     <!-- stoli - Add Big paused text to screen - font is from Alaska skin - Alaska_Menu.ttf  -->
     <!-- stoli - added this far down to ensure it stays on top of other text/images          -->
-    <control type="label">
-      <posx>-320</posx>
-      <posy>320</posy>
-      <width>1920</width>
-      <align>center</align>
-      <aligny>center</aligny>
-      <font>Big_Text</font>
-      <label>PAUSED</label>
-      <textcolor>33ffffff</textcolor>
-      <visible>Player.Paused + Skin.HasSetting(AlaskaPausedLabel)</visible>
-      <!-- stoli - animation added -->
-      <animation type="Visible">
-        <effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="0" end="100" time="600"/>
-      </animation>
-      <animation type="WindowOpen">
-        <effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="0" end="100" time="600"/>
-      </animation>
-      <animation type="WindowClose">
-        <effect type="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="100" end="0" time="600"/>
-      </animation>
-      <animation type="Hidden">
-        <effect type="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="100" end="0" time="600"/>
-      </animation>
-      <!-- stoli - animation end -->
-    </control>
+    <control type="group">
+       <visible>Player.Paused + Skin.HasSetting(AlaskaPausedLabel)</visible>
+       <animation type="Visible">
+         <effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out"/>
+         <effect type="fade" start="0" end="100" time="600"/>
+       </animation>
+       <animation type="WindowOpen">
+         <effect type="slide" start="0,-600" end="0,0" time="600" tween="cubic" easing="out"/>
+         <effect type="fade" start="0" end="100" time="600"/>
+       </animation>
+       <animation type="WindowClose">
+         <effect type="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="out"/>
+         <effect type="fade" start="100" end="0" time="600"/>
+       </animation>
+       <animation type="Hidden">
+         <effect type="slide" start="0,0" end="-600,0" time="600" tween="cubic" easing="out"/>
+         <effect type="fade" start="100" end="0" time="600"/>
+       </animation>
+       <control type="label">
+    	 <posx>-320</posx>
+     	 <posy>320</posy>
+     	 <width>1920</width>
+     	 <align>center</align>
+	 <aligny>center</aligny>
+	 <font>Big_Text</font>
+	 <label>PAUSED</label>
+	 <textcolor>33ffffff</textcolor>
+	
+	</control>
+	<include>BackgroundEffect</include>
+      </control>
   </controls>
 </window>
