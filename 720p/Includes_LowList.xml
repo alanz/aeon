@@ -95,13 +95,15 @@
         <fadetime>400</fadetime>
         <visible>Container.Content(tvshows) + !Skin.HasSetting(tvposter) + Skin.HasSetting(dvdcaselowlist) + !Control.IsVisible(7200)</visible>
       </control>
+
+      <!-- Container(551).SeasonThumb isn't available in 'all season' show the TvshowThumb as fallback -->
       <control type="largeimage">
         <description>SEASON THUMB icon</description>
         <include>LowList_PosterIconVars</include>
         <aspectratio scalediffuse="false">stretch</aspectratio>
         <texture fallback="DefaultVideoBigPoster.png" diffuse="thumbs/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
         <fadetime>400</fadetime>
-        <visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(dvdcaselowlist)</visible>
+        <visible>Container.Content(episodes) + !IsEmpty(Container(551).SeasonThumb) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(dvdcaselowlist)</visible>
       </control>
       <control type="largeimage">
         <description>SEASON THUMB icon</description>
@@ -109,8 +111,26 @@
         <aspectratio scalediffuse="false">stretch</aspectratio>
         <texture fallback="DefaultVideoBigPoster.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[Container(551).SeasonThumb]</texture>
         <fadetime>400</fadetime>
-        <visible>Container.Content(episodes) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(dvdcaselowlist)</visible>
+        <visible>Container.Content(episodes) + !IsEmpty(Container(551).SeasonThumb) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(dvdcaselowlist)</visible>
       </control>
+      <control type="largeimage">
+        <description>SEASON THUMB icon</description>
+        <include>LowList_PosterIconVars</include>
+        <aspectratio scalediffuse="false">stretch</aspectratio>
+        <texture fallback="DefaultVideoBigPoster.png" diffuse="thumbs/movieposter_mask.png">$INFO[Container(551).TvshowThumb]</texture>
+        <fadetime>400</fadetime>
+        <visible>Container.Content(episodes) + IsEmpty(Container(551).SeasonThumb) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + !Skin.HasSetting(dvdcaselowlist)</visible>
+      </control>
+      <control type="largeimage">
+        <description>SEASON THUMB icon</description>
+        <include>LowList_PosterIconInCase</include>
+        <aspectratio scalediffuse="false">stretch</aspectratio>
+        <texture fallback="DefaultVideoBigPoster.png" diffuse="thumbs/boxes/movieposter_mask.png">$INFO[Container(551).TvshowThumb]</texture>
+        <fadetime>400</fadetime>
+        <visible>Container.Content(episodes) + IsEmpty(Container(551).SeasonThumb) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)] + Skin.HasSetting(dvdcaselowlist)</visible>
+      </control>
+      <!-- end of SeasonThumb/TvshowThumb fallback -->
+
       <control type="largeimage">
         <description>POSTER icon</description>
         <include>LowList_PosterIconVars</include>
@@ -653,7 +673,6 @@
     <fadetime>400</fadetime>
     <aspectratio>scale</aspectratio>
     <animation effect="slide" start="0,0" end="240,0" time="0" condition="Container.Content(episodes) | Window.IsActive(musiclibrary)">Conditional</animation>
-    <!--<animation effect="zoom" end="257,-95,414,225" time="0" condition="Container.Content(episodes)">Conditional</animation>-->
   </include>
   <include name="LowList_SettingsButtonVars">
     <posx>10</posx>
@@ -731,7 +750,6 @@
       <include>Animation_FadeInSlideOut</include>
       <include>LowList_DetailPanelVars</include>
       <visible>Control.IsVisible(551) + Window.IsActive(musiclibrary) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
-      <!-- Tagline bar 	<control type="label"><posx>30</posx><posy>-150</posy><height>41</height><width>870</width><textcolor>d0ffffff</textcolor><align>center</align><aligny>center</aligny><font>Font_SettingsMainLabelBig</font><label fallback="...">$INFO[ListItem.TVShowTitle]: $LOCALIZE[20373] $INFO[ListItem.Season]</label><visible>Container.Content(episodes)</visible></control>-->
       <!-- Info Labels -->
       <control type="group">
         <posx>0</posx>
@@ -1346,7 +1364,6 @@
         <font>Font_SettingsMainLabelBig</font>
         <label fallback="...">$INFO[ListItem.Tagline]</label>
       </control>
-      <!-- Right arrow 	<control type="image"><posx>910</posx><posy>-141</posy><width>19</width><height>21</height><texture flipx="true">lowlist/lowlist_arrow.png</texture><colordiffuse>e3FFFFFF</colordiffuse><animation effect="fade" start="70" end="70" condition="true">Conditional</animation></control>-->
       <!-- Info Labels -->
       <control type="group">
         <description>DIRECTED BY:</description>
@@ -1644,7 +1661,6 @@
       <include>Animation_FadeInSlideOut</include>
       <include>LowList_DetailPanelVars</include>
       <visible>Control.IsVisible(551) + Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
-      <!-- Tagline bar 	<control type="label"><posx>30</posx><posy>-150</posy><height>41</height><width>870</width><textcolor>d0ffffff</textcolor><align>center</align><aligny>center</aligny><font>Font_SettingsMainLabelBig</font><label fallback="...">$INFO[ListItem.TVShowTitle]: $LOCALIZE[20373] $INFO[ListItem.Season]</label><visible>Container.Content(episodes)</visible></control>-->
       <!-- Info Labels -->
       <control type="group">
         <posx>0</posx>
@@ -1922,7 +1938,6 @@
         <visible>Container.Content(seasons) + !Skin.HasSetting(highlist) + ![Skin.HasSetting(tvdescpaneloff) + IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(Container.Property(fanart_image))]</visible>
         <include>LowList_ShortTextBox</include>
       </control>
-      <!--<control type="label"><description>DESCRIPTION:</description><label>$LOCALIZE[21821]:</label><include>LowList_DetailInfoLabelPos1</include><include>Animation_HighListSlide</include><visible>Skin.HasSetting(highlist)</visible></control>-->
       <control type="textbox">
         <description>PLOT (Tall - TV Shows and Episodes)</description>
         <label fallback="31425">$INFO[ListItem.Plot]</label>
