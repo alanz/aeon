@@ -86,15 +86,14 @@
         <height>0</height>
         <texturefocus>-</texturefocus>
         <texturenofocus>-</texturenofocus>
-        <onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
+        <onclick>560</onclick>
         <onfocus>560</onfocus>
-        <onright>560</onright>
+        <onright>562</onright>
         <onleft>560</onleft>
         <onup>560</onup>
         <ondown>560</ondown>
-        <visible>!IsEmpty(ListItem.Trailer)</visible>
       </control>
-      <control type="button" id="561">
+      <control type="button" id="562">
         <description>INVISIBLE button for navigation</description>
         <posx>0</posx>
         <posy>0</posy>
@@ -102,12 +101,29 @@
         <height>0</height>
         <texturefocus>-</texturefocus>
         <texturenofocus>-</texturenofocus>
-        <visible>IsEmpty(ListItem.Trailer)</visible>
-        <onfocus>560</onfocus>
+        <onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
+        <onfocus>SetFocus(560)</onfocus>
+        <onclick>560</onclick>
         <onright>560</onright>
         <onleft>560</onleft>
         <onup>560</onup>
         <ondown>560</ondown>
+      </control>
+      <control type="button" id="562">
+        <description>INVISIBLE button for navigation</description>
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>0</width>
+        <height>0</height>
+        <texturefocus>-</texturefocus>
+        <texturenofocus>-</texturenofocus>
+        <onfocus>SetFocus(560)</onfocus>
+        <onclick>560</onclick>
+        <onright>560</onright>
+        <onleft>560</onleft>
+        <onup>560</onup>
+        <ondown>560</ondown>
+        <visible>IsEmpty(ListItem.Trailer)</visible>
       </control>
       <control type="list" id="560">
         <viewtype label="LARGE LIST">list</viewtype>
@@ -123,15 +139,6 @@
         <ondown>560</ondown>
         <preloaditems>2</preloaditems>
         <itemlayout height="35">
-          <!--		<control type="image">
-						<posx>560</posx>
-						<posy>8</posy>
-						<height>27</height>
-						<width>27</width>
-						<include>Animation_ButtonFocusFade2</include>
-						<visible>!IsEmpty(ListItem.Trailer)</visible>
-						<texture>list/trailerarrow.png</texture>
-					</control>-->
           <control type="image">
             <posx>35</posx>
             <posy>39</posy>
@@ -182,7 +189,6 @@
             <texture>list/listpanel_selectbar2.png</texture>
             <animation effect="slide" start="0,35" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(560).OnPrevious">focus</animation>
             <animation effect="slide" start="0,-35" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(560).OnNext">focus</animation>
-            <!--		<include>Animation_ButtonFocusFade</include>-->
             <visible>!Control.HasFocus(61)</visible>
             <visible>Control.IsVisible(560) | Window.IsActive(106) | Window.IsActive(129) | Window.IsActive(126) | Window.IsActive(601) | Window.IsActive(602) | Window.IsActive(111) | Window.IsActive(2003)</visible>
           </control>
@@ -191,7 +197,6 @@
             <posy>8</posy>
             <height>28</height>
             <width>40</width>
-            <!--		<include>Animation_ButtonFocusFade3</include>-->
             <texture>list/hdflag.png</texture>
             <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
             <colordiffuse>FF000000</colordiffuse>
@@ -201,7 +206,6 @@
             <posy>8</posy>
             <height>27</height>
             <width>27</width>
-            <!--		<include>Animation_ButtonFocusFade2</include>-->
             <visible>!IsEmpty(ListItem.Trailer)</visible>
             <texture>list/trailerarrow.png</texture>
             <colordiffuse>FF000000</colordiffuse>
@@ -216,7 +220,6 @@
           <control type="label">
             <include>ListLabel_DetailSmall_Slim2</include>
             <include>detailcolornofocus</include>
-            <!--	<include>Animation_ButtonFocusFade_fix</include>-->
             <label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
             <visible>[!Control.IsVisible(76) + Container.Content(movies)]</visible>
           </control>
@@ -257,8 +260,8 @@
       </control>
     </control>
     <control type="group">
-      <animation effect="fade" start="100" end="0" time="1300" condition="Player.HasVideo | Control.HasFocus(561)">Conditional</animation>
-      <animation effect="zoom" end="0,50" start="100,100" center="auto" time="900" delay="200" tween="cubic" easing="inout" condition="Player.HasVideo | Control.HasFocus(561)">Conditional</animation>
+      <animation effect="fade" start="100" end="0" time="1300" condition="Player.HasVideo | Control.HasFocus(561) | Control.HasFocus(562)">Conditional</animation>
+      <animation effect="zoom" end="0,50" start="100,100" center="auto" time="900" delay="200" tween="cubic" easing="inout" condition="Player.HasVideo | Control.HasFocus(561) | Control.HasFocus(562)">Conditional</animation>
       <posx>722</posx>
       <posy>0</posy>
       <visible>Control.IsVisible(560)</visible>
@@ -310,7 +313,7 @@
     </control>
     <control type="group">
       <animation effect="fade" start="0" end="100" time="700" delay="200">VisibleChange</animation>
-      <visible>[Player.HasVideo | Control.HasFocus(561)] + Control.IsVisible(560)</visible>
+      <visible>[Player.HasVideo | Control.HasFocus(562) | Control.HasFocus(561)] + Control.IsVisible(560)</visible>
       <control type="largeimage">
         <posx>740</posx>
         <posy>150</posy>
@@ -322,38 +325,54 @@
       <control type="videowindow">
         <posx>740</posx>
         <posy>150</posy>
-        <width>543</width>
+        <width>523</width>
         <height>320</height>
       </control>
       <control type="largeimage">
-        <posx>750</posx>
+        <posx>740</posx>
         <posy>150</posy>
-        <width>500</width>
-        <height>281</height>
+        <width>523</width>
+        <height>320</height>
         <aspectratio>scale</aspectratio>
         <fadetime>400</fadetime>
         <texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(560).ListItem.property(fanart_image)]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>!Player.HasVideo</visible>
       </control>
+      <control type="image">
+        <posx>860</posx>
+        <posy>433</posy>
+        <align>center</align>
+        <width>280</width>
+        <height>32</height>
+        <texture>multiplex/multiplex_trailer_label.png</texture>
+        <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.HasFocus(561)</visible>
+        <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+      </control>
       <control type="label">
-        <posx>825</posx>
+        <posx>860</posx>
+        <posy>433</posy>
+        <align>center</align>
+        <aligny>center</aligny>
+        <width>280</width>
+        <height>32</height>
+        <font>Font_MultiplexPlotSmall</font>
+        <label>312576</label>
+        <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.HasFocus(561)</visible>
+        <colordiffuse>d0FFFFFF</colordiffuse>
+        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+      </control>
+      <control type="label">
+        <posx>740</posx>
         <posy>500</posy>
-        <width>400</width>
+        <width>523</width>
         <height>53</height>
+        <align>center</align>
         <font>Font_FSInfoYear</font>
         <include>Colour_ShowcaseLabelNightShade</include>
         <label>312574</label>
         <visible>Player.HasVideo</visible>
       </control>
-      <!--		<control type="image">
-			<posx>835</posx>
-			<posy>118</posy>
-			<width>420</width>
-			<height>10</height>
-			<include>FloorMediaFlagLightShade</include>
-			<texture>list/list_line_slim.png</texture>
-		</control>-->
       <control type="group">
         <posx>958</posx>
         <posy>110</posy>
@@ -393,22 +412,6 @@
           <visible>substring(ListItem.mpaa,17)</visible>
         </control>
       </control>
-      <!--		<control type="image">
-			<posx>1100</posx>
-			<posy>470</posy>
-			<width>130</width>
-			<height>102</height>
-			<include>FloorMediaFlagNightShade</include>
-			<texture fallback="flags/default.png">$INFO[ListItem.studio,flags/studios/,.png]</texture>
-		</control>
-		<control type="image">
-			<posx>1050</posx>
-			<posy>480</posy>
-			<width>10</width>
-			<height>90</height>
-			<include>FloorMediaFlagLightShade</include>
-			<texture>list/list_line_slimvert.png</texture>
-		</control>-->
       <control type="label">
         <posx>750</posx>
         <posy>80</posy>
@@ -427,31 +430,36 @@
         <include>Colour_ShowcaseLabelNightShade</include>
         <label>[B]DURATION:[/B] $INFO[ListItem.Duration] $LOCALIZE[12391]</label>
       </control>
-      <!--
-		<control type="image">
-			<posx>835</posx>
-			<posy>570</posy>
-			<width>420</width>
-			<height>10</height>
-			<include>FloorMediaFlagLightShade</include>
-			<texture>list/list_line_slim.png</texture>
-		</control>-->
+      <!-- Tagline / Label Fallback -->
       <control type="label">
-        <posx>750</posx>
+        <posx>745</posx>
         <posy>22</posy>
         <width>525</width>
         <height>53</height>
         <font>Font_FSInfoYear</font>
         <include>Colour_ShowcaseLabelNightShade</include>
         <label>$INFO[ListItem.TagLine]</label>
+        <visible>!IsEmpty(ListItem.TagLine)</visible>
         <scroll>true</scroll>
       </control>
+      <control type="label">
+        <posx>745</posx>
+        <posy>22</posy>
+        <width>525</width>
+        <height>53</height>
+        <font>Font_FSInfoYear</font>
+        <include>Colour_ShowcaseLabelNightShade</include>
+        <label>$INFO[ListItem.Label]</label>
+        <visible>IsEmpty(ListItem.TagLine)</visible>
+        <scroll>true</scroll>
+      </control>
+      <!-- End of TagLine / Label Fallback -->
       <control type="textbox">
         <description>MOVIE PLOT: textbox</description>
-        <posx>738</posx>
-        <posy>435</posy>
-        <width>550</width>
-        <height>227</height>
+        <posx>740</posx>
+        <posy>470</posy>
+        <width>523</width>
+        <height>195</height>
         <font>Font_MultiplexPlot</font>
         <textcolor>d0ffffff</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
