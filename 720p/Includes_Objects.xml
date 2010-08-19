@@ -476,6 +476,33 @@
     </control>
   </include>
 
+  <!--
+       This will generate an hidden label which will store the
+       current plot, which will fallback to plotoutline then tagline
+   -->
+  <include name="PlotTextGenerator">
+    <control type="label" id="900004">
+      <include>HiddenObject</include>
+      <label>$INFO[Container.ShowPlot]</label>
+      <visible>!IsEmpty(Container.ShowPlot) + IsEmpty(Control.GetLabel(900004) + Container.Content(seasons)</visible>
+    </control>
+    <control type="label" id="900004">
+      <include>HiddenObject</include>
+      <label>$INFO[ListItem.Plot]</label>
+      <visible>!IsEmpty(ListItem.Plot) + IsEmpty(Control.GetLabel(900004)</visible>
+    </control>
+    <control type="label" id="900004">
+      <include>HiddenObject</include>
+      <label>$INFO[ListItem.PlotOutline]</label>
+      <visible>!IsEmpty(ListItem.PlotOutline) + IsEmpty(Control.GetLabel(900004)</visible>
+    </control>
+    <control type="label" id="900004">
+      <include>HiddenObject</include>
+      <label>$INFO[ListItem.Tagline]</label>
+      <visible>!IsEmpty(ListItem.Tagline) + IsEmpty(Control.GetLabel(900004)</visible>
+    </control>
+  </include>
+
   <include name="ScrollOffsetLabel">
     <control type="group">
       <posx>0</posx>

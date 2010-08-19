@@ -74,28 +74,6 @@
     <texture>thumbs/cd_glass.png</texture>
   </include>
 
-  <!--
-       This will generate an hidden label which will store the
-       current plot, which will fallback to plotoutline then tagline
-   -->
-  <include name="PlotTextGeneratorShowcase">
-    <control type="label" id="900003">
-      <include>HiddenObject</include>
-      <label>$INFO[Container(57).ListItem.Plot]</label>
-      <visible>!IsEmpty(Container(57).ListItem.Plot)</visible>
-    </control>
-    <control type="label" id="900003">
-      <include>HiddenObject</include>
-      <label>$INFO[Container(57).ListItem.PlotOutline]</label>
-      <visible>IsEmpty(Container(57).ListItem.Plot) + !IsEmpty(Container(57).ListItem.PlotOutline)</visible>
-    </control>
-    <control type="label" id="900003">
-      <include>HiddenObject</include>
-      <label fallback="31414">$INFO[Container(57).ListItem.Tagline]</label>
-      <visible>IsEmpty(Container(57).ListItem.Plot) + IsEmpty(Container(57).ListItem.PlotOutline)</visible>
-    </control>
-  </include>
-
   <!-- Music CD -->
   <!-- Case Dimensions -->
   <include name="MusicShowcaseThumbDimensionsCD">
@@ -504,7 +482,6 @@
 
   <include name="ShowcaseInfoPaneMovies">
     <control type="group">
-      <include>PlotTextGeneratorShowcase</include>
       <posx>0</posx>
       <posy>26</posy>
       <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)">Conditional</animation>
@@ -714,7 +691,7 @@
           <width>455</width>
           <height>312</height>
           <font>Font_MultiplexPlot</font>
-          <info>Control.GetLabel(900003)</info>
+          <info>Control.GetLabel(900004)</info>
           <textcolor>d0FFFFFF</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
           <visible>!Player.HasVideo</visible>
@@ -814,7 +791,7 @@
           <width>435</width>
           <height>149</height>
           <font>Font_MultiplexPlotSmall</font>
-	  <info>Control.GetLabel(900003)</info>
+	  <info>Control.GetLabel(900004)</info>
           <textcolor>d0FFFFFF</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
@@ -932,7 +909,6 @@
 
   <include name="ShowcaseInfoPaneTV">
     <control type="group">
-      <include>PlotTextGeneratorShowcase</include>
       <posx>0</posx>
       <posy>26</posy>
       <width>1280</width>
@@ -1118,21 +1094,10 @@
         <width>375</width>
         <height>187</height>
         <font>Font_MultiplexPlotSmall</font>
-        <info>Control.GetLabel(900003)</info>
+        <info>Control.GetLabel(900004)</info>
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
-      </control>
-      <control type="textbox">
-        <posx>105</posx>
-        <posy>174</posy>
-        <width>375</width>
-        <height>187</height>
-        <font>Font_MultiplexPlotSmall</font>
-        <info>Container(57).ShowPlot</info>
-        <textcolor>d0FFFFFF</textcolor>
-        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Container.Content(seasons)</visible>
+        <visible>Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)</visible>
       </control>
       <control type="group">
         <!--images-->
@@ -4300,6 +4265,7 @@
   </include>
 
   <include name="Viewtype_Showcase">
+    <include>PlotTextGenerator</include>
     <include condition="Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)">ShowcaseInfoPaneMovies</include>
     <include condition="Skin.HasSetting(videotv) + Window.IsActive(videolibrary)">ShowcaseInfoPaneTV</include>
     <include condition="Window.IsActive(musiclibrary)">ShowcaseInfoPaneMusic</include>
