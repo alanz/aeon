@@ -222,7 +222,7 @@
         <width>491</width>
         <height>320</height>
         <font>Font_MultiplexPlotOld</font>
-        <info>Container(553).ListItem.Plot</info>
+        <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
@@ -302,7 +302,7 @@
           <width>530</width>
           <height>200</height>
           <font>Font_MultiplexPlotOld</font>
-          <info>Container(553).ListItem.Plot</info>
+          <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
           <textcolor>d0FFFFFF</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
@@ -581,21 +581,9 @@
         <width>570</width>
         <height>197</height>
         <font>Font_MultiplexPlotOld</font>
-        <info fallback="31414">Container(553).ListItem.Plot</info>
+        <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>!Container.Content(seasons)</visible>
-      </control>
-      <control type="textbox">
-        <posx>60</posx>
-        <posy>245</posy>
-        <width>570</width>
-        <height>197</height>
-        <font>Font_MultiplexPlotOld</font>
-        <info fallback="31414">Container(553).ShowPlot</info>
-        <textcolor>d0FFFFFF</textcolor>
-        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Container.Content(seasons)</visible>
       </control>
       <control type="group">
         <posx>670</posx>
@@ -748,6 +736,7 @@
     </control>
   </include>
   <include name="Viewtype_MultiplexOld">
+    <include>PlotTextGenerator</include>
     <control type="button" id="110">
       <texturefocus>-</texturefocus>
       <texturenofocus>-</texturenofocus>
