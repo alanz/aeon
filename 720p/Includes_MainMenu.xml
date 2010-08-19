@@ -242,18 +242,33 @@
           <label>FAVS</label>
           <onclick>ActivateWindow(favourites)</onclick>
           <visible>Skin.HasSetting(favourites)</visible>
-        </item>
-        <item id="26">
-          <!--Trailers-->
-          <description>Trailers</description>
-          <include>BackgroundVarsTrailers</include>
-          <label>TRAILERS</label> 
-		  <onclick>Skin.SetBool(trailerslinkon)</onclick>
-          <onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/addon.py,return)</onclick>
-          <visible>!Skin.HasSetting(notrailers)</visible>
-		  <onclick>SetFocus(25)</onclick>
-        </item>
-        <item id="27">
+	</item>
+
+	<!--
+	     Trailers are shown in MyVideoLibrary if the Library contains videos
+	-->
+	<item id="26">
+	  <description>Trailers</description>
+	  <label>TRAILERS</label>
+	  <include>BackgroundVarsTrailers</include>
+	  <include>Movie_Link</include>
+	  <onclick>Skin.SetBool(trailerslinkon)</onclick>
+	  <onclick>XBMC.ActivateWindow(MyVideoLibrary, plugin://plugin.video.apple.movie.trailers.lite/addon.py,return)</onclick>
+	  <onclick>SetFocus(25)</onclick>
+	  <visible>!Skin.HasSetting(notrailers) + Library.HasContent(Video)</visible>
+	</item>
+	<item id="26">
+	  <description>Trailers</description>
+	  <label>TRAILERS</label>
+	  <include>BackgroundVarsTrailers</include>
+          <include>Movie_Link</include>
+	  <onclick>Skin.SetBool(trailerslinkon)</onclick>
+	  <onclick>XBMC.ActivateWindow(MyVideoFiles, plugin://plugin.video.apple.movie.trailers.lite/addon.py,return)</onclick>
+	  <onclick>SetFocus(25)</onclick>
+	  <visible>!Skin.HasSetting(notrailers) + !Library.HasContent(Video)</visible>
+	</item>
+
+	<item id="27">
           <!--addons-->
           <description>Addons</description>
           <include>BackgroundVarsAddons</include>
