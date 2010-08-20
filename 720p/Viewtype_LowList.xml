@@ -400,7 +400,7 @@
             <font>Font_ListSmall2</font>
             <aligny>center</aligny>
             <include>lowlistcolorfocus</include>
-            <label>$INFO[ListItem.duration] $LOCALIZE[12391]  -  $INFO[ListItem.Genre]</label>
+            <label>$INFO[ListItem.duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, - ,]</label>
           </control>
           <control type="label">
             <include>ListLabel_Detail_LowSmall_Low</include>
@@ -725,6 +725,12 @@
             <include>listcolornofocus</include>
             <info>ListItem.Title</info>
             <visible>!IsEmpty(ListItem.Title)</visible>
+          </control>
+          <control type="label">
+            <include>ListLabel_Main_LowTV_Low</include>
+            <include>listcolornofocus</include>
+            <info>ListItem.Label</info>
+            <visible>IsEmpty(ListItem.Title)</visible>
           </control>
           <control type="label">
             <font>Font_FileBrowserDetail</font>
