@@ -488,7 +488,7 @@
         <width>1130</width>
         <height>590</height>
         <texture border="0,0,0,204">multiplex/multiplex_tablet.png</texture>
-        <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
+        <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout) | Skin.HasSetting(extrathumbslayout)</visible>
       </control>
       <control type="image">
         <posx>75</posx>
@@ -824,8 +824,8 @@
         <!--trailer label-->
         <posx>610</posx>
         <posy>50</posy>
-        <animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57) + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="-230,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Control.HasFocus(57) + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
         <control type="image">
           <posx>140</posx>
           <posy>278</posy>
@@ -874,19 +874,29 @@
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
       </control>
-    </control>
-    <control type="group">
-      <posy>260</posy>
-      <visible>Skin.HasSetting(extrathumbslayout)</visible>
       <control type="group">
-        <!--thumbs right-->
-        <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
-        <include>Object_ExtraThumbsRight</include>
-      </control>
-      <control type="group">
-        <!--thumbs left-->
-        <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
-        <include>Object_ExtraThumbsLeft</include>
+	<!--
+	     Screen space is limited, I know this is not pretty but anyway, I don't want to put too much view related code
+	     in Object_ExtraThumbsInformations so that's fine for now
+	-->
+	<animation effect="zoom" center="auto" start="100" end="90" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(extrathumbslayout)">Conditional</animation>
+	<animation effect="slide" start="0,0" end="0,-37" time="300" easing="inout" tween="cubic" condition="Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(extrathumbslayout)">Conditional</animation>
+	<posy>240</posy>
+	<visible>Skin.HasSetting(extrathumbslayout) + !Skin.HasSetting(showcaseinfooff) + Control.IsVisible(57)</visible>
+	<control type="group">
+	  <!--thumbs right-->
+	  <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+	  <include>Object_ExtraThumbsRight</include>
+	</control>
+	<control type="group">
+	  <posy>-195</posy>
+	  <include>Object_ExtraThumbsInformations</include>
+	</control>
+	<control type="group">
+	  <!--thumbs left-->
+	  <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+	  <include>Object_ExtraThumbsLeft</include>
+	</control>
       </control>
     </control>
   </include>

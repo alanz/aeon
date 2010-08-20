@@ -212,13 +212,12 @@
         <posx>105</posx>
         <posy>26</posy>
         <control type="group">
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(extrathumbslayout)</visible>
+          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout)</visible>
           <posy>22</posy>
           <posx>0</posx>
           <control type="label">
             <include>MultiplexInfoLabel</include>
             <label>$LOCALIZE[31402]:</label> <!--DIRECTOR -->
-            <visible>!Skin.HasSetting(extrathumbslayout)</visible>
           </control>
           <control type="label">
             <include>MultiplexInfoValue</include>
@@ -232,29 +231,13 @@
             <width>285</width>
             <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
           </control>
-
-          <!--Extrathumbs Director-->
-          <control type="group">
-            <posx>315</posx>
-            <visible>Skin.HasSetting(extrathumbslayout)  + !Player.HasVideo</visible>
-            <control type="label">
-              <include>MultiplexInfoLabel</include>
-              <label>$LOCALIZE[31402]:</label> <!--DIRECTOR -->
-            </control>
-            <control type="label">
-              <include>MultiplexInfoValue</include>
-              <label fallback="31425">$INFO[Container(52).ListItem.Director]</label>
-              <width>200</width>
-            </control>
-          </control>
         </control>
         <control type="group">
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(extrathumbslayout)</visible>
+          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout)</visible>
           <posy>72</posy>
           <control type="label">
             <include>MultiplexInfoLabel</include>
 	    <label>$LOCALIZE[31401]:</label><!--Writer -->
-	    <visible>!Skin.HasSetting(extrathumbslayout)</visible>
 	  </control>
           <control type="label">
             <include>MultiplexInfoValue</include>
@@ -268,30 +251,13 @@
             <width>285</width>
             <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
           </control>
-
-          <!--Extrathumbs Writer-->
-          <control type="group">
-            <posx>315</posx>
-            <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
-            <control type="label">
-              <include>MultiplexInfoLabel</include>
-              <label>$LOCALIZE[31401]:</label> <!--Writer -->
-            </control>
-            <control type="label">
-              <include>MultiplexInfoValue</include>
-              <label fallback="31425">$INFO[Container(52).ListItem.Writer]</label>
-              <width>200</width>
-            </control>
-          </control>
-
 	</control>
 	<control type="group">
-	  <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(extrathumbslayout)</visible>
+	  <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout)</visible>
 	  <posy>122</posy>
 	  <control type="label">
 	    <include>MultiplexInfoLabel</include>
 	    <label>$LOCALIZE[31436]:</label>
-	    <visible>!Skin.HasSetting(extrathumbslayout)</visible>
 	  </control>
 	  <control type="label">
 	    <include>MultiplexInfoValue</include>
@@ -299,70 +265,7 @@
 	    <label fallback="31425">$INFO[Container(52).ListItem.Year]</label>
 	    <visible>!Skin.HasSetting(extrathumbslayout)</visible>
 	  </control>
-          <!--Extrathumbs Year-->
-          <control type="group">
-            <posx>315</posx>
-            <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
-            <control type="label">
-              <include>MultiplexInfoLabel</include>
-              <label>$LOCALIZE[31436]:</label> <!--Year -->
-            </control>
-            <control type="label">
-              <include>MultiplexInfoValue</include>
-              <label fallback="31425">$INFO[Container(52).ListItem.Year]</label>
-              <width>200</width>
-            </control>
-          </control>
         </control>
-
-        <!-- EXTRATHUMB LAYOUT -->
-        <control type="group">
-          <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
-          <control  type="group">
-            <posy>22</posy>
-            <posx>550</posx>
-            <control type="label">
-              <include>MultiplexInfoLabel</include>
-              <label>$LOCALIZE[31709]:</label>
-            </control>
-            <control type="label">
-              <include>MultiplexInfoValue</include>
-              <label fallback="31425">$INFO[Container(52).ListItem.Duration] $LOCALIZE[12391]</label>
-              <width>200</width>
-            </control>
-          </control>
-
-          <control  type="group">
-            <posy>72</posy>
-            <posx>550</posx>
-            <visible>Skin.HasSetting(extrathumbslayout) + !Player.HasVideo</visible>
-            <control type="label">
-              <include>MultiplexInfoLabel</include>
-              <label>$LOCALIZE[31438]:</label>
-            </control>
-            <control type="label">
-              <include>MultiplexInfoValue</include>
-              <label fallback="31425">$INFO[Container(52).ListItem.Genre]</label>
-              <width>200</width>
-            </control>
-          </control>
-
-          <control type="group">
-            <posy>122</posy>
-            <posx>550</posx>
-            <visible>Skin.HasSetting(extrathumbslayout)</visible>
-            <control type="label">
-              <include>MultiplexInfoLabel</include>
-              <label>$LOCALIZE[31417]:</label>
-            </control>
-            <control type="label">
-              <include>MultiplexInfoValue</include>
-              <label fallback="31425">$INFO[Container(52).ListItem.MPAA]</label>
-              <width>200</width>
-            </control>
-          </control>
-        </control>
-        <!-- END OF EXTRATHUMBS -->
 
         <control type="group">
           <!-- Posterlayout / Plotlayout -->
@@ -487,17 +390,6 @@
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <visible>[Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)] + !Player.HasVideo</visible>
-      </control>
-      <control type="textbox">
-        <posx>416</posx>
-        <posy>195</posy>
-        <width>455</width>
-        <height>170</height>
-        <font>Font_MultiplexPlot</font>
-        <info>Control.GetLabel(900004)</info>
-        <textcolor>d0FFFFFF</textcolor>
-        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Skin.HasSetting(extrathumbslayout)  + !Player.HasVideo</visible>
       </control>
       <control type="textbox">
         <posx>105</posx>
@@ -628,18 +520,18 @@
           <randomize>true</randomize>
         </control>
       </control>
-	  <control type="group">
-		  <posx>425</posx>
-          <posy>30</posy>
-		  <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)</visible>
-		  <control type="videowindow">
-            <posx>1</posx>
-            <posy>1</posy>
-            <width>430</width>
-            <height>360</height>
-            <visible>[Control.IsVisible(52) + [Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
-          </control>
-	    </control>  
+      <control type="group">
+	<posx>425</posx>
+	<posy>30</posy>
+	<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)</visible>
+	<control type="videowindow">
+	  <posx>1</posx>
+	  <posy>1</posy>
+	  <width>430</width>
+	  <height>360</height>
+	  <visible>[Control.IsVisible(52) + [Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
+	</control>
+      </control>
       <control type="group">
         <posx>575</posx>
 	<posy>50</posy>
@@ -694,19 +586,23 @@
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
       </control>
-    </control>
-    <control type="group"><!--extrathumbs -->
-      <posy>330</posy>
-      <visible>Skin.HasSetting(extrathumbslayout)</visible>
       <control type="group">
-        <!--thumbs right-->
-	<visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]]</visible>
-	<include>Object_ExtraThumbsRight</include>
-      </control>
-      <control type="group">
-        <!--thumbs left-->
-	<visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
-	<include>Object_ExtraThumbsLeft</include>
+	<posy>260</posy>
+	<visible>Skin.HasSetting(extrathumbslayout) + !Skin.HasSetting(multiplexinfooff) + Control.IsVisible(52)</visible>
+	<control type="group">
+	  <!--thumbs right-->
+	  <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]</visible>
+	  <include>Object_ExtraThumbsRight</include>
+	</control>
+	<control type="group">
+	  <posy>-195</posy>
+	  <include>Object_ExtraThumbsInformations</include>
+	</control>
+	<control type="group">
+	  <!--thumbs left-->
+	  <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]</visible>
+	  <include>Object_ExtraThumbsLeft</include>
+	</control>
       </control>
     </control>
   </include>

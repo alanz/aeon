@@ -97,27 +97,22 @@
         <visible>Skin.HasSetting(fanartlayout)</visible>
       </control>
 
-      <! extra thumbs layout -->
+      <!-- extra thumbs layout -->
       <control type="group">
         <posy>240</posy>
-        <control type="textbox">
-          <!--plot / poster-->
-          <posx>395</posx>
-          <posy>-220</posy>
-          <width>490</width>
-          <height>320</height>
-          <font>Font_MultiplexPlotOld</font>
-          <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
-          <textcolor>d0FFFFFF</textcolor>
-          <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        </control>
-        <visible>Skin.HasSetting(extrathumbslayout)</visible>
+        <visible>Skin.HasSetting(extrathumbslayout) + !Skin.HasSetting(oldmultiplexinfooff) + Control.IsVisible(553)</visible>
         <control type="group">
-          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(oldmultiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(oldmultiplexinfotrigger) | Skin.HasSetting(oldmultiplexinfoauto)]]]</visible>
+          <!--thumbs right-->
+          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(oldmultiplexinfotrigger) | Skin.HasSetting(oldmultiplexinfoauto)]]]</visible>
           <include>Object_ExtraThumbsRight</include>
         </control>
         <control type="group">
-          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(oldmultiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(oldmultiplexinfotrigger) | Skin.HasSetting(oldmultiplexinfoauto)]]]</visible>
+          <posy>-195</posy>
+          <include>Object_ExtraThumbsInformations</include>
+        </control>
+        <control type="group">
+          <!--thumbs left-->
+          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(oldmultiplexinfotrigger) | Skin.HasSetting(oldmultiplexinfoauto)]]]</visible>
           <include>Object_ExtraThumbsLeft</include>
         </control>
       </control>
@@ -755,6 +750,7 @@
         <height>71</height>
         <aligny>center</aligny>
         <align>center</align>
+        <scroll>true</scroll>
         <font>Font_MultiplexMainLabelOld</font>
         <label>$INFO[Container(553).ListItem.Label]</label>
         <include>Animation_HideMultiplex</include>
