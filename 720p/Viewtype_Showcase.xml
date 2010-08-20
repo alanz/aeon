@@ -118,7 +118,7 @@
   </include>
 
   <include name="Showcase_List_Content">
-    <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+    <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
     <animation effect="slide" end="0,-8" time="700" delay="1000" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">Conditional</animation>
     <viewtype label="Showcase">list</viewtype>
     <include condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)">MovieShowcaseGroupVars</include>
@@ -459,10 +459,16 @@
   </include>
 
   <include name="ShowcaseInfoPaneMovies">
+    <control type="image"><!-- black overlay-->
+      <include>BlackOverlayCommon</include>
+      <animation effect="fade" start="0" end="100" time="600" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
+      <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+      <animation effect="slide" start="0,0" end="0,25" time="400" easing="inout" tween="cubic" condition="[!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)] + Control.IsVisible(57)">Conditional</animation>
+    </control>
     <control type="group">
       <posx>0</posx>
       <posy>26</posy>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30"  time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <width>1280</width>
       <height>500</height>
       <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
@@ -886,12 +892,41 @@
   </include>
 
   <include name="ShowcaseInfoPaneTV">
+    <control type="image"><!-- black overlay-->
+      <include>BlackOverlayCommon</include>
+      <animation effect="fade" start="0" end="100" time="600" delay="3000" condition="![
+        [!Skin.HasSetting(showcasetvshowinfoon) + Container.Content(tvshows)] |
+        [!Skin.HasSetting(showcaseepisodeinfoon) + Container.Content(episodes)] |
+        [!Skin.HasSetting(showcaseseasoninfoon) + Container.Content(seasons)]]">WindowOpen</animation>
+        <visible>
+        !Container.Content(genres) +
+        Skin.HasSetting(videotv) + Control.IsVisible(57) + !Control.HasFocus(70197) +
+        [Control.IsVisible(109) | Control.HasFocus(70110) |
+          [
+            [Skin.HasSetting(showcasetvshowinfoon) + Container.Content(tvshows)] |
+            [Skin.HasSetting(showcaseepisodeinfoon) + Container.Content(episodes)] |
+            [Skin.HasSetting(showcaseseasoninfoon) + Container.Content(seasons)]
+          ] |
+          [
+            [ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] +
+            [
+              [Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] |
+              [Skin.HasSetting(showcaseepisodeinfotrigger) + Container.Content(episodes)] |
+              [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)] |
+              [Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] |
+              [Skin.HasSetting(showcaseepisodeinfoauto) + Container.Content(episodes)] |
+              [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]
+            ]
+          ]
+        ]</visible>
+        <animation effect="slide" start="0,0" end="0,25" time="400" easing="inout" tween="cubic" condition="[!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)] + Control.IsVisible(57)">Conditional</animation>
+    </control>
     <control type="group">
       <posx>0</posx>
       <posy>26</posy>
       <width>1280</width>
       <height>381</height>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <visible>
         !Container.Content(genres) +
         Skin.HasSetting(videotv) + Control.IsVisible(57) + !Control.HasFocus(70197) +
@@ -1124,7 +1159,7 @@
       <posy>26</posy>
       <width>1280</width>
       <height>381</height>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) |  Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) |  Container.Content(genres)">Conditional</animation>
       <visible>Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcasemusicinfoon) | [[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus()] + [Skin.HasSetting(showcasemusicinfotrigger) | Skin.HasSetting(showcasemusicinfoauto)]]] + [!Container.Content(genres) + Window.IsActive(musiclibrary) ]</visible>
       <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcasemusicinfoon)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
@@ -1622,7 +1657,7 @@
       <camera x="640" y="540"/>
       <visible>Control.IsVisible(57) + Container.OnNext + ![[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]</visible>
       <animation effect="slide" end="-100,0" time="250" reversible="false">Hidden</animation>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <control type="group">
         <posx>50</posx>
         <visible>Container.OnNext</visible>
@@ -1964,7 +1999,7 @@
       <camera x="640" y="540"/>
       <visible>Control.IsVisible(57) + Container.OnPrevious + ![[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]</visible>
       <animation effect="slide" end="100,0" time="250" reversible="false">Hidden</animation>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <control type="group">
         <posx>960</posx>
         <visible>Container.OnPrevious</visible>
@@ -2300,7 +2335,7 @@
     </control>
     <control type="group" id="6500">
       <posy>387</posy>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <camera x="640" y="540"/>
       <animation effect="fade" time="500">WindowOpen</animation>
       <animation effect="fade" time="200">WindowClose</animation>
@@ -2646,7 +2681,7 @@
   <include name="ShowcaseMovies">
     <control type="group" id="6001">
       <posy>380</posy>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <camera x="640" y="540"/>
       <visible>Control.IsVisible(57) + Container.OnNext + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]</visible>
       <animation effect="slide" end="-90,0" time="250" reversible="false">Hidden</animation>
@@ -3191,7 +3226,7 @@
     </control>
     <control type="group" id="6002">
       <posy>380</posy>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <camera x="640" y="540"/>
       <visible>Control.IsVisible(57) + Container.OnPrevious + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]</visible>
       <animation effect="slide" end="90,0" time="250" reversible="false">Hidden</animation>
@@ -3741,7 +3776,7 @@
     </control>
     <control type="group" id="6000">
       <posy>380</posy>
-      <animation effect="slide" end="0,30" time="200" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <animation effect="fade" time="500">WindowOpen</animation>
       <animation effect="fade" time="200">WindowClose</animation>
       <visible>Control.IsVisible(57) + !Control.IsVisible(6001) + !Control.IsVisible(6002) + Control.IsVisible(960)</visible>
