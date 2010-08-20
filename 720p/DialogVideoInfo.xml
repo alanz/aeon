@@ -100,7 +100,16 @@
       <aspectratio>stretch</aspectratio>
       <visible>!Container.Content(episodes) + !Skin.HasSetting(videotv)</visible>
     </control>
-
+    <control type="image">
+      <description>background image</description>
+      <posx>486</posx>
+      <posy>0</posy>
+      <width>795</width>
+      <height>720</height>
+      <texture>info/info_rightpaneltop.png</texture>
+      <colordiffuse>EEFFFFFF</colordiffuse>
+    </control>
+    <include>BackgroundEffect</include>
     <!-- This is moved before ListItem.thumb as is conflict this xbmc own thumb for seasons -->
     <control type="largeimage">
       <description>Cover image</description>
@@ -155,16 +164,6 @@
       <texture>showcase/$INFO[ListItem.Overlay]</texture>
       <visible>!Container.Content(episodes)</visible>
     </control>
-    <control type="image">
-      <description>background image</description>
-      <posx>486</posx>
-      <posy>0</posy>
-      <width>795</width>
-      <height>720</height>
-      <texture>info/info_rightpaneltop.png</texture>
-      <colordiffuse>EEFFFFFF</colordiffuse>
-    </control>
-    <include>BackgroundEffect</include>
     <control type="wraplist" id="20030">
       <animation effect="slide" start="0,0" end="0,-20" time="0" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">Conditional</animation>
       <posx>530</posx>
@@ -521,6 +520,37 @@
         <posy>170</posy>
         <include>Objects_FSInfoValue</include>
         <label>$INFO[ListItem.Duration] $LOCALIZE[12391]</label>
+      </control>
+      <control type="image">
+        <posx>380</posx>
+        <posy>171</posy>
+        <width>1</width>
+        <height>27</height>
+        <texture>info/info_flagupright.png</texture>
+      </control>
+      <control type="label">
+        <description>IMDB:</description>
+        <posx>290</posx>
+        <posy>170</posy>
+        <width>110</width>
+        <height>29</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>Font_FSInfoLabel</font>
+        <include>Colour_Grey</include>
+        <label>31417</label>
+      </control>
+      <control type="label">
+        <description>IMDB rating</description>
+        <posx>390</posx>
+        <posy>170</posy>
+        <width>510</width>
+        <height>29</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>Font_FSInfoData</font>
+        <label>[UPPERCASE]$INFO[ListItem.RatingAndVotes][/UPPERCASE]</label>
+        <include>Colour_OffWhite</include>
       </control>
       <control type="textbox">
         <description>Cast</description>
