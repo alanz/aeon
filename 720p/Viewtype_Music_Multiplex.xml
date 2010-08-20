@@ -267,7 +267,7 @@
           <colordiffuse>b6FFFFFF</colordiffuse>
         </control>
         <control type="textbox">
-          <visible>!IsEmpty(Container(52).ListItem.Property(Artist_description))</visible>
+          <visible>[!IsEmpty(Container(52).ListItem.Property(Artist_description)) + Container.Content(artists)]</visible>
           <posx>365</posx>
           <posy>2</posy>
           <width>305</width>
@@ -278,7 +278,7 @@
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
 	    <control type="textbox">
-          <visible>!IsEmpty(Container(52).ListItem.Property(Album_description))</visible>
+          <visible>!IsEmpty(Container(52).ListItem.Property(Album_description)) + Container.Content(albums)</visible>
           <posx>365</posx>
           <posy>2</posy>
           <width>305</width>
@@ -289,7 +289,7 @@
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
         <control type="label">
-          <visible>IsEmpty(Container(52).ListItem.Property(description))</visible>
+          <visible>[IsEmpty(Container(52).ListItem.Property(Artist_description)) + Container.Content(artists)] | [IsEmpty(Container(52).ListItem.Property(Album_description)) + Container.Content(albums)]</visible>
           <posx>365</posx>
           <posy>2</posy>
           <width>305</width>
@@ -332,7 +332,7 @@
           <height>155</height>
           <texture>common/black.png</texture>
           <colordiffuse>b6FFFFFF</colordiffuse>
-          <visible>!IsEmpty(Container(52).ListItem.Property(description))</visible>
+          <visible>[!IsEmpty(Container(52).ListItem.Property(Artist_description)) + Container.Content(artists)] | [!IsEmpty(Container(52).ListItem.Property(Album_description)) + Container.Content(albums)]</visible>
         </control>
         <control type="textbox">
           <visible>!IsEmpty(Container(52).ListItem.Property(Artist_Description))</visible>
