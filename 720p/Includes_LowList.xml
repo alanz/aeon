@@ -950,6 +950,12 @@
         <label>$INFO[ListItem.Property(artist_description),[UPPERCASE][COLOR 66ffffff]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][/UPPERCASE][CR]]</label>
         <visible>Skin.HasSetting(highlist) + [[!IsEmpty(ListItem.Property(artist_description)) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
       </control>
+      <control type="textbox">
+        <description>DESCRIPTION: (Tall)</description>
+        <include>LowList_TallTextBox</include>
+        <label>$INFO[ListItem.Comment,[UPPERCASE][COLOR 66ffffff]$LOCALIZE[569]/$LOCALIZE[21821]:[/COLOR][/UPPERCASE][CR]]</label>
+        <visible>Skin.HasSetting(highlist) + [[!IsEmpty(ListItem.Comment) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
+      </control>
       <!-- Artist labels -->
       <control type="label">
         <description>FORMED: info label</description>
