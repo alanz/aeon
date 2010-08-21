@@ -299,9 +299,10 @@
                             <label fallback="31425">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
                         </control>
                     </control>
-                    <!-- Genre -->
+                    <!-- Genre or MPAA Ratings -->
                     <control  type="group">
                         <posy>40</posy>
+                        <visible>!IsEmpty(ListItem.Genre)</visible>
                         <control type="label">
                             <include>ExtraThumbsInfoLabel</include>
                             <label>$LOCALIZE[31438]:</label>
@@ -311,8 +312,20 @@
                             <label fallback="31425">$INFO[ListItem.Genre]</label>
                         </control>
                     </control>
+                    <control  type="group">
+                        <posy>40</posy>
+                        <visible>IsEmpty(ListItem.Genre)</visible>
+                        <control type="label">
+                            <include>ExtraThumbsInfoLabel</include>
+                            <label>$LOCALIZE[20074]:</label>
+                        </control>
+                        <control type="label">
+                            <include>ExtraThumbsInfoValue</include>
+                            <label fallback="31425">$INFO[ListItem.Mpaa]</label>
+                        </control>
+                    </control>
 
-                    <!-- Ratings or MPAA Ratings -->
+                    <!-- Ratings or Size -->
                     <control type="group">
                         <posy>80</posy>
                         <visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
@@ -330,11 +343,11 @@
                         <visible>IsEmpty(ListItem.RatingAndVotes)</visible>
                         <control type="label">
                             <include>ExtraThumbsInfoLabel</include>
-                            <label>$LOCALIZE[20074]:</label>
+                            <label>$LOCALIZE[553]:</label>
                         </control>
                         <control type="label">
                             <include>ExtraThumbsInfoValue</include>
-                            <label fallback="31425">$INFO[ListItem.Mpaa]</label>
+                            <label fallback="31425">$INFO[ListItem.Size]</label>
                         </control>
                     </control>
                 </control>
