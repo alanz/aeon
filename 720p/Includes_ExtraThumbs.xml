@@ -175,6 +175,18 @@
             </control>
         </control>
     </include>
+
+    <include name="ExtraThumbsInfoLabel">
+        <width>232</width>
+        <include>MultiplexInfoLabel</include>
+    </include>
+
+    <include name="ExtraThumbsInfoValue">
+        <width>232</width>
+        <include>MultiplexInfoValue</include>
+        <scroll>true</scroll>
+    </include>
+
     <include name="Object_ExtraThumbsInformations">
         <control type="group">
             <posy>0</posy>
@@ -199,49 +211,72 @@
                     <posx>0</posx>
                     <width>235</width>
 
-                    <!-- Director -->
+                    <!-- Director or OriginalTitle -->
                     <control type="group">
                         <posy>0</posy>
+                        <visible>!IsEmpty(ListItem.Director)</visible>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoLabel</include>
+                            <include>ExtraThumbsInfoLabel</include>
                             <label>$LOCALIZE[31402]:</label> <!--DIRECTOR -->
                         </control>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoValue</include>
+                            <include>ExtraThumbsInfoValue</include>
                             <label fallback="31425">$INFO[ListItem.Director]</label>
-                            <scroll>true</scroll>
                         </control>
                     </control>
-                    <!-- Writer -->
+                    <control type="group">
+                        <posy>0</posy>
+                        <visible>IsEmpty(ListItem.Director)</visible>
+                        <control type="label">
+                            <include>ExtraThumbsInfoLabel</include>
+                            <label>$LOCALIZE[369]:</label> <!--Title -->
+                        </control>
+                        <control type="label">
+                            <include>ExtraThumbsInfoValue</include>
+                            <label fallback="31425">$INFO[ListItem.OriginalTitle]</label>
+                            <visible>!IsEmpty(ListItem.OriginalTitle)</visible>
+                        </control>
+                        <control type="label">
+                            <include>ExtraThumbsInfoValue</include>
+                            <label fallback="31425">$INFO[ListItem.Title]</label>
+                            <visible>IsEmpty(ListItem.OriginalTitle)</visible>
+                        </control>
+                    </control>
+                    <!-- Writer or Studio -->
                     <control type="group">
                         <posy>40</posy>
+                        <visible>!IsEmpty(ListItem.Writer)</visible>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoLabel</include>
+                            <include>ExtraThumbsInfoLabel</include>
                             <label>$LOCALIZE[31401]:</label> <!--Writer -->
                         </control>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoValue</include>
+                            <include>ExtraThumbsInfoValue</include>
                             <label fallback="31425">$INFO[ListItem.Writer]</label>
-                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <posy>40</posy>
+                        <visible>IsEmpty(ListItem.Writer)</visible>
+                        <control type="label">
+                            <include>ExtraThumbsInfoLabel</include>
+                            <label>$LOCALIZE[572]:</label> <!--Studio -->
+                        </control>
+                        <control type="label">
+                            <include>ExtraThumbsInfoValue</include>
+                            <label fallback="31425">$INFO[ListItem.Studio]</label>
                         </control>
                     </control>
                     <!-- Year -->
                     <control type="group">
                         <posy>80</posy>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoLabel</include>
+                            <include>ExtraThumbsInfoLabel</include>
                             <label>$LOCALIZE[31436]:</label> <!--Year -->
                         </control>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoValue</include>
+                            <include>ExtraThumbsInfoValue</include>
                             <label fallback="31425">$INFO[ListItem.Year]</label>
-                            <scroll>true</scroll>
                         </control>
                     </control>
                 </control>
@@ -253,49 +288,53 @@
 
                     <!-- Duration -->
                     <control type="group">
-                        <control  type="group">
-                            <posy>0</posy>
-                            <control type="label">
-                                <width>232</width>
-                                <include>MultiplexInfoLabel</include>
-                                <label>$LOCALIZE[31709]:</label> <!--DURATION-->
-                            </control>
-                            <control type="label">
-                                <width>232</width>
-                                <include>MultiplexInfoValue</include>
-                                <label fallback="31425">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
-                                <scroll>true</scroll>
-                            </control>
+                        <posy>0</posy>
+                        <control type="label">
+                            <width>232</width>
+                            <include>MultiplexInfoLabel</include>
+                            <label>$LOCALIZE[31709]:</label> <!--DURATION-->
+                        </control>
+                        <control type="label">
+                            <include>ExtraThumbsInfoValue</include>
+                            <label fallback="31425">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
                         </control>
                     </control>
                     <!-- Genre -->
                     <control  type="group">
                         <posy>40</posy>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoLabel</include>
+                            <include>ExtraThumbsInfoLabel</include>
                             <label>$LOCALIZE[31438]:</label>
                         </control>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoValue</include>
+                            <include>ExtraThumbsInfoValue</include>
                             <label fallback="31425">$INFO[ListItem.Genre]</label>
-                            <scroll>true</scroll>
                         </control>
                     </control>
-                    <!-- Ratings -->
+
+                    <!-- Ratings or MPAA Ratings -->
                     <control type="group">
                         <posy>80</posy>
+                        <visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoLabel</include>
-                            <label>$LOCALIZE[31408]:</label>
+                            <include>ExtraThumbsInfoLabel</include>
+                            <label>$LOCALIZE[563]:</label>
                         </control>
                         <control type="label">
-                            <width>232</width>
-                            <include>MultiplexInfoValue</include>
+                            <include>ExtraThumbsInfoValue</include>
                             <label fallback="31425">$INFO[ListItem.RatingAndVotes]</label>
-                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <posy>80</posy>
+                        <visible>IsEmpty(ListItem.RatingAndVotes)</visible>
+                        <control type="label">
+                            <include>ExtraThumbsInfoLabel</include>
+                            <label>$LOCALIZE[20074]:</label>
+                        </control>
+                        <control type="label">
+                            <include>ExtraThumbsInfoValue</include>
+                            <label fallback="31425">$INFO[ListItem.Mpaa]</label>
                         </control>
                     </control>
                 </control>
