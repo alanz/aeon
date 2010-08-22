@@ -481,25 +481,33 @@
        current plot, which will fallback to plotoutline then tagline
    -->
   <include name="PlotTextGenerator">
-    <control type="label" id="900004">
+    <control type="label" id="9000040">
       <include>HiddenObject</include>
       <label>$INFO[Container.ShowPlot]</label>
-      <visible>!IsEmpty(Container.ShowPlot) + IsEmpty(Control.GetLabel(900004) + Container.Content(seasons)</visible>
+      <visible>!IsEmpty(Container.ShowPlot) + Container.Content(seasons)</visible>
+      <visible>!Control.IsVisible(9000040) | StringCompare(Container.ShowPlot, Control.GetLabel(900004))</visible>
     </control>
-    <control type="label" id="900004">
+    <control type="label" id="9000040">
       <include>HiddenObject</include>
       <label>$INFO[ListItem.Plot]</label>
-      <visible>!IsEmpty(ListItem.Plot) + IsEmpty(Control.GetLabel(900004)</visible>
+      <visible>!IsEmpty(ListItem.Plot)</visible>
+      <visible>!Control.IsVisible(9000040) | StringCompare(ListItem.Plot, Control.GetLabel(900004))</visible>
     </control>
-    <control type="label" id="900004">
+    <control type="label" id="9000040">
       <include>HiddenObject</include>
       <label>$INFO[ListItem.PlotOutline]</label>
-      <visible>!IsEmpty(ListItem.PlotOutline) + IsEmpty(Control.GetLabel(900004)</visible>
+      <visible>!IsEmpty(ListItem.PlotOutline)</visible>
+      <visible>!Control.IsVisible(9000040) | StringCompare(ListItem.PlotOutline, Control.GetLabel(900004))</visible>
+    </control>
+    <control type="label" id="9000040">
+      <include>HiddenObject</include>
+      <label>$INFO[ListItem.Tagline]</label>
+      <visible>!IsEmpty(ListItem.Tagline)</visible>
+      <visible>!Control.IsVisible(9000040) | StringCompare(ListItem.Tagline, Control.GetLabel(900004))</visible>
     </control>
     <control type="label" id="900004">
       <include>HiddenObject</include>
-      <label>$INFO[ListItem.Tagline]</label>
-      <visible>!IsEmpty(ListItem.Tagline) + IsEmpty(Control.GetLabel(900004)</visible>
+      <label>$INFO[Control.GetLabel(9000040)]</label>
     </control>
   </include>
 
