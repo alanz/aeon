@@ -975,11 +975,32 @@
       <visible>[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)] + Control.IsVisible(556) + Control.IsVisible(208) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwallmusicinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwallmusicinfotrigger) + !Container.Content(songs)]]</visible>
     </control>
   </include>
+
+  <include name="WatchedOverlayMultiWallPoster">
+    <control type="image">
+      <posx>70</posx>
+      <posy>2</posy>
+      <width>30</width>
+      <height>30</height>
+      <include>detailcolornofocus</include>
+      <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+      <include>MultiWallIconZoomAnimationDVD</include>
+      <texture>$INFO[ListItem.Overlay,showcase/,]</texture>
+      <animation effect="slide" start="0,0" end="-3,3" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+    </control>
+  </include>
   <include name="WatchedOverlayMultiWallTV">
-    <posx>122</posx>
-    <posy>9</posy>
-    <width>27</width>
-    <height>27</height>
+    <control type="image">
+      <posx>125</posx>
+      <posy>5</posy>
+      <width>30</width>
+      <height>30</height>
+      <include>detailcolornofocus</include>
+      <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+      <texture>$INFO[ListItem.Overlay,showcase/,]</texture>
+      <include>MultiWallTVIconZoomAnimationDVD</include>
+      <animation effect="slide" start="0,0" end="-3,2" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+    </control>
   </include>
   <!-- Multiwall -->
   <include name="MultiWallTrailerIndicator">
@@ -1541,29 +1562,12 @@
       <itemlayout width="101" height="146">
         <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
         <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
-        <control type="image">
-          <posx>68</posx>
-          <posy>6</posy>
-          <width>30</width>
-          <height>30</height>
-          <include>detailcolornofocus</include>
-          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
-        </control>
+        <include>WatchedOverlayMultiWallPoster</include>
       </itemlayout>
       <focusedlayout width="101" height="146">
         <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormalFocus</include>
         <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVDFocus</include>
-        <control type="image">
-          <posx>68</posx>
-          <posy>6</posy>
-          <width>30</width>
-          <height>30</height>
-          <include>detailcolornofocus</include>
-          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
-          <include>MultiWallIconZoomAnimationDVD</include>
-        </control>
+        <include>WatchedOverlayMultiWallPoster</include>
       </focusedlayout>
     </control>
   </include>
@@ -1617,51 +1621,27 @@
       <visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
       <include>Animation_HideMultiplex</include>
       <preloaditems>2</preloaditems>
+
       <itemlayout width="159" height="93" condition="!Skin.HasSetting(tvposter) | Container.Content(episodes)">
         <include condition="!Skin.HasSetting(dvdcase)">MultiWallTVIconNormal</include>
         <include condition="Skin.HasSetting(dvdcase)">MultiWallTVIconDVD</include>
-        <control type="image">
-          <include>WatchedOverlayMultiWallTV</include>
-          <include>detailcolornofocus</include>
-          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
-          <animation effect="slide" start="0,0" end="5,-2" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
-        </control>
+        <include>WatchedOverlayMultiWallTV</include>
       </itemlayout>
       <focusedlayout width="159" height="93" condition="!Skin.HasSetting(tvposter) | Container.Content(episodes)">
         <include condition="!Skin.HasSetting(dvdcase)">MultiWallTVIconNormalFocus</include>
         <include condition="Skin.HasSetting(dvdcase)">MultiWallTVIconDVDFocus</include>
-        <control type="image">
-          <include>WatchedOverlayMultiWallTV</include>
-          <include>detailcolornofocus</include>
-          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
-          <include>MultiWallTVIconZoomAnimationDVD</include>
-          <animation effect="slide" start="0,0" end="5,-2" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
-        </control>
+        <include>WatchedOverlayMultiWallTV</include>
       </focusedlayout>
+
       <itemlayout width="159" height="146" condition="Skin.HasSetting(tvposter) + !Container.Content(episodes)">
         <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
         <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
-        <control type="image">
-          <include>WatchedOverlayMultiWallTV</include>
-          <include>detailcolornofocus</include>
-          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
-          <animation effect="slide" start="0,0" end="5,-2" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
-        </control>
+        <include>WatchedOverlayMultiWallPoster</include>
       </itemlayout>
       <focusedlayout width="159" height="146" condition="Skin.HasSetting(tvposter) + !Container.Content(episodes)">
         <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormalFocus</include>
         <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVDFocus</include>
-        <control type="image">
-          <include>WatchedOverlayMultiWallTV</include>
-          <include>detailcolornofocus</include>
-          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
-          <include>MultiWallTVIconZoomAnimationDVD</include>
-          <animation effect="slide" start="0,0" end="5,-2" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
-        </control>
+        <include>WatchedOverlayMultiWallPoster</include>
       </focusedlayout>
     </control>
   </include>
