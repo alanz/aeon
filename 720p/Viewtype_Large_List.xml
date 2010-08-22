@@ -270,7 +270,16 @@
         <height>720</height>
         <fadetime>400</fadetime>
         <texture background="true">$INFO[ListItem.Icon]</texture>
-        <visible>!Container.Content(years) + !Container.Content(genres)</visible>
+        <visible>!Container.Content(years) + !Container.Content(genres) + !Container.Content(episodes)</visible>
+      </control>
+      <control type="largeimage">
+        <width>558</width>
+        <posy>204</posy>
+        <height>313</height>
+        <fadetime>400</fadetime>
+        <texture background="true">$INFO[ListItem.Icon]</texture>
+        <aspectratio>scale</aspectratio>
+        <visible>Container.Content(episodes)</visible>
       </control>
       <control type="largeimage">
         <description>Cover image</description>
@@ -287,6 +296,7 @@
         <width>120</width>
         <height>120</height>
         <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        <animation effect="slide" start="0,0" end="0,204" time="0" condition="Container.Content(episodes)">Conditional</animation>
       </control>
       <control type="largeimage">
         <posx>100</posx>
