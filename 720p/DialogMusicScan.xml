@@ -15,7 +15,6 @@
     <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
     <effect type="fade" start="100" end="0" time="300"/>
   </animation>
-  <include>Animation_OpenCloseZoom</include>
   <controls>
     <control type="button" id="1111">
       <posx>-10</posx>
@@ -31,11 +30,12 @@
       <animation effect="zoom" start="100" end="60" time="800" easing="inout" tween="circle" condition="Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)">Conditional</animation>
       <animation effect="slide" end="280,-60" time="800" easing="inout" tween="circle" condition="Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)">Conditional</animation>
       <animation effect="slide" end="0,-600" time="400" easing="inout" tween="circle" condition="Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(slideshow)">Conditional</animation>
+      <animation effect="fade" start="100" end="0" time="200" condition="Skin.HasSetting(trigger)" revertible="false">Conditional</animation>
       <posx>760</posx>
       <posy>38</posy>
       <width>509</width>
       <height>91</height>
-      <include>Dialogs_Tablet</include>
+      <include>Dialogs_TabletSmall</include>
       <control type="progress" id="403">
         <include>Dialogs_Progress</include>
       </control>
