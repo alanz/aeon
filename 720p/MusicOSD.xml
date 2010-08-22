@@ -18,14 +18,16 @@
         <texture>osd/osd_back.png</texture>
       </control>
       <control type="grouplist" id="213">
-        <posx>242</posx>
+        <posx>0</posx>
         <posy>60</posy>
-        <width>863</width>
+        <width>1280</width>
         <height>96</height>
+        <align>center</align>
         <itemgap>-10</itemgap>
         <onup>-</onup>
         <ondown>-</ondown>
         <orientation>horizontal</orientation>
+
         <control type="button" id="921">
           <include>Objects_OSDButton</include>
           <onclick>Dialog.Close(MusicOSD)</onclick>
@@ -66,13 +68,18 @@
           <include>Objects_OSDButton</include>
           <onclick>ActivateWindow(122)</onclick>
         </control>
+        <control type="button" id="111">
+          <include>Objects_OSDButton</include>
+          <onclick>XBMC.PlayerControl(Random)</onclick>
+        </control>
       </control>
       <control type="grouplist" id="214">
-        <posx>242</posx>
+        <posx>0</posx>
         <posy>60</posy>
-        <width>863</width>
+        <width>1280</width>
         <height>96</height>
         <itemgap>-10</itemgap>
+        <align>center</align>
         <orientation>horizontal</orientation>
         <control type="button">
           <include>Objects_OSDButtonTop</include>
@@ -125,6 +132,21 @@
           <include>Objects_OSDButtonTop</include>
           <texturenofocus>osd/osd_button_vis.png</texturenofocus>
           <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(920)">Conditional</animation>
+        </control>
+
+        <control type="button">
+          <include>Objects_OSDButtonTop</include>
+          <texturenofocus>osd/osd_button_shuffle.png</texturenofocus>
+          <colordiffuse>9b3cd2fd</colordiffuse>
+          <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(111)">Conditional</animation>
+          <visible>Playlist.IsRandom</visible>
+        </control>
+
+        <control type="button">
+          <include>Objects_OSDButtonTop</include>
+          <texturenofocus>osd/osd_button_shuffle.png</texturenofocus>
+          <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(111)">Conditional</animation>
+          <visible>!Playlist.IsRandom</visible>
         </control>
       </control>
       <control type="progress" id="23">
