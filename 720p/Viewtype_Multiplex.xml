@@ -98,7 +98,7 @@
   </include>
   <include name="WatchedOverlayMultiPlexNormal">
     <posx>72</posx>
-    <posy>-1</posy>
+    <posy>0</posy>
     <width>40</width>
     <height>40</height>
   </include>
@@ -109,8 +109,8 @@
     <height>65</height>
   </include>
   <include name="WatchedOverlayMultiPlexDVD">
-    <posx>71</posx>
-    <posy>7</posy>
+    <posx>72</posx>
+    <posy>8</posy>
     <width>40</width>
     <height>40</height>
   </include>
@@ -925,13 +925,14 @@
       <include>detailcolornofocus</include>
       <visible>Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + !Skin.HasSetting(multiplexflow) + !Control.IsVisible(8000)</visible>
       <texture>showcase/$INFO[ListItem.Overlay]</texture>
-      <include>Animation_MultiplexFocusZoomDVD</include>
+      <include>Animation_MultiplexFocusZoom</include>
     </control>
     <control type="image">
-      <include>WatchedOverlayMultiPlexDVD</include>
+      <include>WatchedOverlayMultiPlexNormal</include>
       <include>detailcolornofocus</include>
       <visible>Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + !Skin.HasSetting(multiplexflow) + !Control.IsVisible(8000)</visible>
       <texture>showcase/$INFO[ListItem.Overlay]</texture>
+      <include>Animation_MultiplexFocusZoom</include>
     </control>
   </include>
   <include name="MultiplexNormalCoversFocus">
@@ -979,11 +980,11 @@
       <include>Animation_MultiplexFocusZoom</include>
     </control>
     <control type="image">
-      <include>WatchedOverlayMultiPlexDVD</include>
+      <include>WatchedOverlayMultiPlexNormal</include>
       <include>detailcolornofocus</include>
       <visible>Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + !Skin.HasSetting(multiplexflow) + !Control.IsVisible(8000)</visible>
       <texture>showcase/$INFO[ListItem.Overlay]</texture>
-      <include>Animation_MultiplexFocusZoomDVD</include>
+      <include>Animation_MultiplexFocusZoom</include>
     </control>
   </include>
   <include name="MultiplexDVDCoversNoFocus">
