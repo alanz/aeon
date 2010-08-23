@@ -287,30 +287,36 @@
       </control>
       <control type="radiobutton" id="402">
         <include>Objects_SettingsDefaultRadioButton</include>
+        <label>Debug Grid</label>
+        <onclick>Skin.ToggleSetting(debuggrid)</onclick>
+        <selected>Skin.HasSetting(debuggrid)</selected>
+      </control>
+      <control type="radiobutton" id="403">
+        <include>Objects_SettingsDefaultRadioButton</include>
         <label>31278</label>
         <onclick>Skin.ToggleSetting(allowscroll)</onclick>
         <selected>Skin.HasSetting(allowscroll)</selected>
       </control>
-      <control type="radiobutton" id="403">
+      <control type="radiobutton" id="404">
         <include>Objects_SettingsDefaultRadioButton</include>
         <label>31273</label>
         <onclick>Skin.ToggleSetting(startplay)</onclick>
         <selected>Skin.HasSetting(startplay)</selected>
       </control>
-      <control type="button" id="404">
+      <control type="button" id="405">
         <include>Objects_SettingsDefaultRadioButton</include>
         <label>31274</label>
         <label2>$INFO[Skin.String(startuplocation)]</label2>
         <onclick>Skin.SetFile(startuplocation,.m3u,Q:\UserData\playlists\music\)</onclick>
         <visible>Skin.HasSetting(startplay)</visible>
       </control>
-      <control type="radiobutton" id="405">
+      <control type="radiobutton" id="406">
         <include>Objects_SettingsDefaultRadioButton</include>
         <label>31277</label>
         <onclick>Skin.ToggleSetting(youtrailer)</onclick>
         <selected>Skin.HasSetting(youtrailer)</selected>
       </control>
-      <control type="button" id="406">
+      <control type="button" id="407">
         <include>Objects_SettingsDefaultRadioButton</include>
         <label>31282</label>
         <onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=True,logo=True,showthumb=True)</onclick>
@@ -510,6 +516,7 @@
     </control>
     <include>Furniture_SettingsFrontPanel</include>
     <include>Background_ContextBlack</include>
-    <include>Furniture_Debug</include>
+    <include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
+    <include condition="Skin.HasSetting(DebugGrid)">Furniture_DebugGrid</include>
   </controls>
 </window>
