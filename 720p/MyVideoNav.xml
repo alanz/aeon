@@ -94,7 +94,7 @@
     <control type="largeimage">
       <include>FullscreenDimensions</include>
       <visible>
-	Skin.HasSetting(fallbackimage) +
+	Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) +
 	[
 		Control.IsVisible(553) |
 		Control.IsVisible(55) |
@@ -116,7 +116,6 @@
       </visible>
       <fadetime>400</fadetime>
       <texture>$INFO[Skin.String(fallbackimagepath)]</texture>
-      <visible>IsEmpty(ListItem.property(fanart_image))</visible>
       <include>Animation_FanartFade</include>
     </control>
 
