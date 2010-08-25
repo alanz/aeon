@@ -11,7 +11,7 @@
       <width>0</width>
       <height>0</height>
       <texture>-</texture>
-      <visible>![Skin.HasSetting(showcasemusicinfooff) | Skin.HasSetting(showcasemusicinfotrigger)] + [Control.HasFocus(57) | ControlGroup(7000).HasFocus()] + [!Container(57).OnNext + !Container(57).OnPrevious]</visible>
+      <visible>![Skin.HasSetting(showcasemusicinfooff) | Skin.HasSetting(showcasemusicinfotrigger)] + [Control.HasFocus(57) | Control.IsVisible(7777)] + [!Container(57).OnNext + !Container(57).OnPrevious]</visible>
       <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
@@ -68,7 +68,7 @@
     <include>CurtainsBackdrop</include>
     <include condition="!Skin.HasSetting(MusicWallOff)">Furniture_WallBackground</include>
     <control type="group">
-      <animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Skin.HasSetting(mediamenuslide)">
+      <animation type="Conditional" condition="Control.IsVisible(7777) + Skin.HasSetting(mediamenuslide)">
         <effect type="slide" end="235,0" time="400" easing="out" tween="cubic"/>
       </animation>
       <include>Furniture_NowPlayingWidget</include>

@@ -16,19 +16,19 @@
 		Skin.HasSetting(videomovies) +
 		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
 		![Skin.HasSetting(oldmultiplexinfooff) | Skin.HasSetting(oldmultiplexinfotrigger)] +
-		[Control.HasFocus(553) | ControlGroup(7000).HasFocus()] +
+		[Control.HasFocus(553) | Control.IsVisible(7777)] +
 		[!Container(553).OnNext + !Container(553).OnPrevious]
 	] | [
 		Skin.HasSetting(videotv) +
 		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
 		![Skin.HasSetting(oldmultiplextvinfooff) | Skin.HasSetting(oldmultiplextvinfotrigger)] +
-		[Control.HasFocus(553) | ControlGroup(7000).HasFocus()] +
+		[Control.HasFocus(553) | Control.IsVisible(7777)] +
 		[!Container(553).OnNext + !Container(553).OnPrevious]
 	] | [
 		Skin.HasSetting(videomovies) +
 		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
 		![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] +
-		[Control.HasFocus(52) | ControlGroup(7000).HasFocus()] +
+		[Control.HasFocus(52) | Control.IsVisible(7777)] +
 		[!Container(52).OnNext + !Container(52).OnPrevious]
 	] | [
 		Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
@@ -43,7 +43,7 @@
 				[Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]
 			]
 		] +
-		[Control.HasFocus(52) | Control.HasFocus(552) | ControlGroup(7000).HasFocus()] +
+		[Control.HasFocus(52) | Control.HasFocus(552) | Control.IsVisible(7777)] +
 		[!Container(52).OnNext + !Container(52).OnPrevious + !Container(552).OnNext + !Container(552).OnPrevious]
 	] | [
 		Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
@@ -56,17 +56,17 @@
 				[Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]
 			]
 		] +
-		[Control.HasFocus(57) | ControlGroup(7000).HasFocus()] +
+		[Control.HasFocus(57) | Control.IsVisible(7777)] +
 		[!Container(57).OnNext + !Container(57).OnPrevious]
 	] | [
 		Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
 		![Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfotrigger)] +
-		[Control.HasFocus(57) | ControlGroup(7000).HasFocus()] +
+		[Control.HasFocus(57) | Control.IsVisible(7777)] +
 		[!Container(57).OnNext + !Container(57).OnPrevious]
 	] | [
 		[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] +
 		![Skin.HasSetting(showcasemusicinfooff) | Skin.HasSetting(showcasemusicinfotrigger)] +
-		[Control.HasFocus(57) | ControlGroup(7000).HasFocus()] +
+		[Control.HasFocus(57) | Control.IsVisible(7777)] +
 		[!Container(57).OnNext + !Container(57).OnPrevious]
 	]
       </visible>
@@ -182,7 +182,7 @@
       <include>Furniture_WallBackground</include>
       <include>Furniture_MediaPanel</include>
       <control type="group">
-        <animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Skin.HasSetting(mediamenuslide)">
+        <animation type="Conditional" condition="Control.IsVisible(7777) + Skin.HasSetting(mediamenuslide)">
           <effect type="slide" end="235,0" time="400" easing="out" tween="cubic"/>
         </animation>
         <visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>

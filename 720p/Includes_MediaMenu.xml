@@ -636,7 +636,7 @@
       <visible>!Skin.HasSetting(videotv)</visible>
       <visible allowhiddenfocus="true">[ControlGroup(7000).HasFocus(700018) | ControlGroup(7011).HasFocus()]</visible>
       <include>Animation_MediaMenuSlide</include>
-      <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
+      <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" revertible="false"/>
       </animation>
       <control type="image">
@@ -756,6 +756,16 @@
   <!--############################################ Media Menu #################################################-->
   <!--#########################################################################################################-->
   <include name="MediaMenu">
+    <control type="button" id="7777">
+      <description>INVISIBLE button: Focus On MediaMenu</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>0</width>
+      <height>0</height>
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+      <visible>ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus() | Control.HasFocus(4)</visible>
+    </control>
     <control type="group">
       <include>Animation_OpenCloseZoom</include>
       <visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
@@ -909,7 +919,7 @@
       <posx>263</posx>
       <visible>ControlGroup(7000).HasFocus(700060)</visible>
       <include>Animation_MediaMenuSlide</include>
-      <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
+      <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" revertible="false"/>
       </animation>
       <control type="image">
@@ -1550,7 +1560,7 @@
       <posx>263</posx>
       <visible>ControlGroup(7000).HasFocus(700017)</visible>
       <include>Animation_MediaMenuSlide</include>
-      <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
+      <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" revertible="false"/>
       </animation>
       <control type="image">
@@ -1640,7 +1650,7 @@
       <posx>263</posx>
       <visible>ControlGroup(7000).HasFocus(700016)</visible>
       <include>Animation_MediaMenuSlide</include>
-      <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
+      <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" revertible="false"/>
       </animation>
       <control type="image">
