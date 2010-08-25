@@ -83,11 +83,11 @@
       <visible>[!Skin.HasSetting(GenreFanartOn) | !Container.Content(genres)] + !Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) + IsEmpty(Fanart.Image)</visible>
     </control>
 
-    <control type="image">
+    <control type="largeimage">
       <!-- genre fanart -->
       <include>FullscreenDimensions</include>
       <fadetime>400</fadetime>
-      <texture>special://skin/extras/movie/genrefanart/$INFO[ListItem.Label].jpg</texture>
+      <texture background="true">special://skin/extras/movie/genrefanart/$INFO[ListItem.Label].jpg</texture>
       <visible>Skin.HasSetting(GenreFanartOn) + Container.Content(genres)</visible>
     </control>
 
@@ -142,7 +142,7 @@
 	] + !IsEmpty(ListItem.property(fanart_image))
       </visible>
       <fadetime>400</fadetime>
-      <texture>$INFO[ListItem.property(fanart_image)]</texture>
+      <texture background="true">$INFO[ListItem.property(fanart_image)]</texture>
       <include>Animation_FanartFade</include>
     </control>
 
@@ -168,7 +168,7 @@
 	] + !IsEmpty(Fanart.Image) + IsEmpty(ListItem.property(fanart_image))
       </visible>
       <fadetime>400</fadetime>
-      <texture>$INFO[Fanart.Image]</texture>
+      <texture background="true">$INFO[Fanart.Image]</texture>
       <include>Animation_FanartFade</include>
     </control>
 

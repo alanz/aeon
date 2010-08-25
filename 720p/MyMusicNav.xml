@@ -18,7 +18,6 @@
       <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
     </control>
-
     <control type="group">
       <visible>[!Skin.HasSetting(musicGenreFanartOn) + Container.Content(genres)] | !Container.Content(genres)</visible>
 
@@ -40,36 +39,34 @@
         <include>FullscreenDimensions</include>
         <visible>!Control.IsVisible(103) + [Control.IsVisible(57) | Control.IsVisible(50) | Control.IsVisible(551) | Control.IsVisible(556) | Control.IsVisible(53)] + !IsEmpty(ListItem.property(fanart_image)) + Skin.HasSetting(musicfanart)</visible>
         <fadetime>400</fadetime>
-        <texture>$INFO[ListItem.property(fanart_image)]</texture>
+        <texture background="true">$INFO[ListItem.property(fanart_image)]</texture>
         <include>Animation_FanartFade</include>
       </control>
       <control type="largeimage" id="103">
         <include>FullscreenDimensions</include>
         <visible>[Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(551) | Control.IsVisible(556) | Control.IsVisible(53)] + !IsEmpty(Container.Property(fanart_image)) + Skin.HasSetting(musicfanart)</visible>
         <fadetime>400</fadetime>
-        <texture>$INFO[Container.Property(fanart_image)]</texture>
+        <texture background="true">$INFO[Container.Property(fanart_image)]</texture>
         <include>Animation_FanartFade</include>
       </control>
 
       <control type="largeimage">
         <!-- musicpath/Artist/Album/fanart.jpg -->
         <include>FullscreenDimensions</include>
-        <texture>$INFO[ListItem.FolderPath]fanart.jpg</texture>
+        <texture background="true">$INFO[ListItem.FolderPath]fanart.jpg</texture>
         <fadetime>400</fadetime>
         <include>Animation_FanartFade</include>
         <visible>Container.Content(songs)</visible>
       </control>
     </control>
-
-    <control type="image">
+    <control type="largeimage">
       <include>FullscreenDimensions</include>
       <fadetime>400</fadetime>
-      <texture>special://skin/extras/music/genrefanart/$INFO[ListItem.Label].jpg</texture>
+      <texture background="true">special://skin/extras/music/genrefanart/$INFO[ListItem.Label].jpg</texture>
       <visible>[Skin.HasSetting(musicGenreFanartOn) + Container.Content(genres)]</visible>
     </control>
-
     <include>CurtainsBackdrop</include>
-    <include>Furniture_WallBackground</include>
+    <include condition="!Skin.HasSetting(MusicWallOff)">Furniture_WallBackground</include>
     <control type="group">
       <animation type="Conditional" condition="[ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus()] + Skin.HasSetting(mediamenuslide)">
         <effect type="slide" end="235,0" time="400" easing="out" tween="cubic"/>
@@ -88,7 +85,6 @@
       <include>Furniture_Time</include>
       <include>MusicMediaFlags</include>
     </control>
-
     <include condition="!Skin.HasSetting(kiosk)">MediaMenu</include>
     <include>Furniture_DarkGradient</include>
     <include condition="Skin.HasSetting(scrollletters)">ScrollOffsetLabel</include>
