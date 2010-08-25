@@ -140,6 +140,30 @@
       <effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in"/>
     </animation>
   </include>
+  <include name="Animation_DialogZoom">
+    <animation type="WindowOpen" reversible="false">
+      <effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out"/>
+      <effect type="fade" start="0" end="100" time="900"/>
+    </animation>
+    <animation type="WindowClose" reversible="false">
+      <effect type="fade" start="100" end="0" time="300"/>
+      <effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in"/>
+    </animation>
+  </include>
+  <include name="Animation_WidgetZoom">
+    <animation type="WindowOpen" reversible="false">
+      <effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out" delay="500"/>
+    </animation>
+    <animation type="WindowClose" reversible="false">
+      <effect type="zoom" start="100" end="130" center="640,360" time="500" tween="cubic" easing="in"/>
+    </animation>
+    <animation type="Visible" reversible="false">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="500"/>
+    </animation>
+    <animation type="Hidden" reversible="false">
+      <effect type="zoom" start="100" end="130" center="640,360" time="200" tween="cubic" easing="in"/>
+    </animation>
+  </include>
   <include name="Animation_OpenCloseZoom2">
     <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
       <effect type="zoom" start="180" end="100" center="640,600" time="2500" tween="cubic" easing="out"/>
@@ -378,7 +402,7 @@
     </animation>
   </include>
   <include name="Animation_MediaMenuSlide">
-    <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus()">
+    <animation type="Conditional" condition="!ControlGroup(7000).HasFocus() + !ControlGroup(7011).HasFocus() + !ControlGroup(7020).HasFocus() + !ControlGroup(7021).HasFocus() + !ControlGroup(7022).HasFocus() + !Control.HasFocus(4)">
       <effect type="slide" end="-260,0" time="400" easing="in" tween="cubic"/>
     </animation>
   </include>
