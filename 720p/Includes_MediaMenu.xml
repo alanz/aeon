@@ -327,13 +327,12 @@
       <onright>50</onright>
       <visible>Control.IsVisible(53) + Window.IsActive(videolibrary) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)</visible>
     </control>
-    <control type="togglebutton" id="700036">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700036">
+      <include>MediaMenuRadioButton</include>
       <label>$LOCALIZE[31076]: $LOCALIZE[31074]</label>
-      <altlabel>$LOCALIZE[31076]: $LOCALIZE[31073]</altlabel>
-      <usealttexture>!Skin.HasSetting(smallmusicwall)</usealttexture>
       <onclick>Skin.ToggleSetting(smallmusicwall)</onclick>
       <onclick>ReloadSkin</onclick>
+      <selected>Skin.HasSetting(smallmusicwall)</selected>
       <visible>Control.IsVisible(53)</visible>
       <visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Container.Content(episodes)]]</visible>
     </control>
