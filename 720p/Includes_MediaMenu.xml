@@ -138,15 +138,27 @@
     </control>
   </include>
   <include name="MediaMenuButton_Sort">
-    <!--3-->
     <control type="button" id="3">
       <label>103</label>
-      <include>MediaMenuButton</include>
+      <height>35</height>
+      <width>205</width>
+      <textcolor>60FFFFFF</textcolor>
+      <focusedcolor>d0000000</focusedcolor>
+      <textoffsetx>10</textoffsetx>
+      <texturefocus>verticalmenu/button_focus.png</texturefocus>
+      <alttexturefocus>verticalmenu/button_focus.png</alttexturefocus>
+      <radiowidth>72</radiowidth>
+      <radioposx>146</radioposx>
+      <radioheight>50</radioheight>
+      <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
+      <textureradionofocus>settings/settings_radiobuttonon.png</textureradionofocus>
+      <align>left</align>
+      <aligny>center</aligny>
+      <pulseonselect>true</pulseonselect>
+      <font>Font_MediaWindowMenu</font>
+      <include>Animation_CommonFade</include>
+      <onright>SetFocus(4)</onright>
     </control>
-    <!--	<control type="togglebutton" id="4">
-	
-			<include>MediaMenuButton</include>
-		</control>-->
   </include>
   <include name="MediaMenuButton_StackButton">
     <control type="radiobutton" id="7">
@@ -839,6 +851,7 @@
         <include>Animation_MediaMenuSlide</include>
         <include>MediaMenuButton_Viewmode</include>
         <include>MediaMenuButton_Sort</include>
+        <include>MediaMenuButton_Search</include>
         <include>MediaMenuButton_Random</include>
         <include>MediaMenuButton_FlattenFlow</include>
         <include>MediaMenuButton_InfoTrigger</include>
@@ -856,11 +869,31 @@
         <include>MediaMenuButton_LargeList</include>
         <include>MediaMenuButton_Files</include>
         <include>MediaMenuButton_Watched</include>
-	    <include>MediaMenuButton_Search</include>
         <include>MediaMenuButton_Setup</include>
         <include condition="Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)">MediaMenuButton_Playlist</include>
         <include condition="Window.IsActive(musicplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
         <include>MediaMenuButton_MediaDebug</include>
+      </control>
+      <control type="togglebutton" id="4">
+        <posx>222</posx>
+        <posy>101</posy>
+        <height>22</height>
+        <width>22</width>
+        <textoffsetx>10</textoffsetx>
+        <texturefocus>verticalmenu/arrow_down.png</texturefocus>
+        <texturenofocus>verticalmenu/arrow_down_nf.png</texturenofocus>
+        <alttexturefocus>verticalmenu/arrow_up.png</alttexturefocus>
+        <alttexturenofocus>verticalmenu/arrow_up_nf.png</alttexturenofocus>
+        <align>left</align>
+        <aligny>center</aligny>
+        <pulseonselect>true</pulseonselect>
+        <font>Font_MediaWindowMenu</font>
+        <include>Animation_CommonFade</include>
+        <include>Animation_MediaMenuSlide</include>
+        <onleft>SetFocus(3)</onleft>
+        <onup>SetFocus(2)</onup>
+        <ondown>SetFocus(8)</ondown>
+        <onright>SetFocus(50)</onright>
       </control>
     </control>
   </include>
