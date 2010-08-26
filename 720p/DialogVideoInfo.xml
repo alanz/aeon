@@ -268,7 +268,7 @@
           <label>TRAILER</label>
           <onclick>Dialog.Close(MovieInformation)</onclick>
           <onclick>RunScript(special://home/scripts/YouTrailer/default.py,1)</onclick>
-          <visible>!Skin.HasSetting(kioskininfo) + Container.Content(movies) + Skin.HasSetting(youtrailer)</visible>
+          <visible>!Skin.HasSetting(kioskmode) + Container.Content(movies) + Skin.HasSetting(youtrailer)</visible>
           <description>Trailers</description>
         </item>
         <item id="6">
@@ -281,25 +281,25 @@
         <item id="7">
           <label>31410</label>
           <onclick>SendClick(2003,6)</onclick>
-          <visible>!Skin.HasSetting(kioskininfo)</visible>
+          <visible>!Skin.HasSetting(kioskmode)</visible>
           <description>Refresh</description>
         </item>
         <item id="8">
           <label>13405</label>
           <onclick>SendClick(2003,10)</onclick>
-          <visible>!Skin.HasSetting(kioskininfo)</visible>
+          <visible>!Skin.HasSetting(kioskmode)</visible>
           <description>Get Thumb</description>
         </item>
         <item id="9">
           <label>20413</label>
           <onclick>SendClick(2003,12)</onclick>
-          <visible>!Skin.HasSetting(kioskininfo) + !Container.Content(episodes) + !Container.Content(seasons)</visible>
+          <visible>!Skin.HasSetting(kioskmode) + !Container.Content(episodes) + !Container.Content(seasons)</visible>
           <description>Get Fanart</description>
         </item>
         <item id="10">
           <label>31437</label>
           <onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,clearart=True,showthumb=True,showname=$INFO[ListItem.TVShowTitle])</onclick>
-          <visible>Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)</visible>
+          <visible>[Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)] + !Skin.HasSetting(kioskmode)</visible>
           <description>TVShow Downloader</description>
         </item>
       </content>
@@ -812,7 +812,7 @@
 				<control type="button" id="6">
 					<label>31410</label>
 					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kioskininfo)</visible>
+					<visible>!Skin.HasSetting(kioskmode)</visible>
 				</control>
 				<control type="button" id="10">
 					<label>31418</label>
