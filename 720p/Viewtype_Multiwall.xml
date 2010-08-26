@@ -187,7 +187,7 @@
       <effect type="rotatey" center="335" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out"/>
     </animation>
   </include>
-  <!-- Info Flip Animaiton Trigger -->
+  <!-- Info Flip Animation Trigger -->
   <include name="MultiWallInfoFlipAnimationInfoTrigger">
     <animation type="Conditional" condition="Player.HasVideo + Control.HasFocus(208)" reversible="false">
       <effect type="rotatey" center="335" start="0" end="-90" time="450" delay="200" tween="cubic" easing="in"/>
@@ -203,7 +203,7 @@
       <effect type="rotatey" center="335" start="-90" end="0" time="450" delay="1000" tween="cubic" easing="out"/>
     </animation>
   </include>
-  <!-- Trailer Flip Animaiton Trigger -->
+  <!-- Trailer Flip Animation Trigger -->
   <include name="MultiWallInfoAnimationTrailerTrigger">
     <animation type="Conditional" condition="Player.HasVideo + Control.HasFocus(208)" reversible="false">
       <effect type="slide" start="0,-35" end="0,0" time="200" tween="cubic" easing="in"/>
@@ -787,7 +787,7 @@
             <height>283</height>
             <fadetime>400</fadetime>
             <aspectratio>scale</aspectratio>
-            <texture>$INFO[Container(556).ListItem.Path,,poster.jpg]</texture>
+            <texture>$INFO[Container(556).ListItem.Icon]</texture>
             <include>Animation_VisibleChange200</include>
           </control>
         </control>
@@ -1053,13 +1053,11 @@
   <include name="MultiWallIconZoomAnimationDVD">
     <animation effect="zoom" center="51,71" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
     <animation effect="zoom" center="51,71" start="155" end="100" time="400" easing="out" tween="cubic" reversible="false">UnFocus</animation>
-    <animation effect="zoom" center="51,71" start="155" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="ControlGroup(7000).HasFocus() + !Skin.HasSetting(multiwallinfotrigger)">Conditional</animation>
     <animation effect="zoom" center="51,71" start="155" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="Control.HasFocus(209)">Conditional</animation>
   </include>
   <include name="MultiWallTVIconZoomAnimationNormal">
     <animation effect="zoom" center="77,44" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
     <animation effect="zoom" center="77,44" start="155" end="100" time="400" easing="out" tween="cubic" reversible="false">UnFocus</animation>
-    <animation effect="zoom" center="77,44" start="155" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="ControlGroup(7000).HasFocus() + !Skin.HasSetting(multiwalltvinfotrigger)">Conditional</animation>
     <animation effect="zoom" center="77,44" start="155" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="Control.HasFocus(209)">Conditional</animation>
   </include>
   <include name="MultiWallTVIconZoomAnimationDVD">
@@ -1692,12 +1690,6 @@
     <font>Font_MultiWallDuration</font>
     <info>ListItem.Artist</info>
   </include>
-  <include name="MultiWallSongCover">
-    <width>102</width>
-    <height>104</height>
-    <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormalFocus</include>
-    <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
-  </include>
   <include name="MusicMultiwall">
     <control type="group">
       <visible>Control.IsVisible(556) | Control.IsVisible(557)</visible>
@@ -1735,7 +1727,10 @@
         <include>Animation_HideMultiplex</include>
         <control type="group">
           <posx>510</posx>
-          <include>MultiWallSongCover</include>
+          <width>102</width>
+          <height>104</height>
+          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormalFocus</include>
+          <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
           <animation effect="zoom" center="558,48" start="170" end="170" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
           <animation effect="zoom" center="561,51" start="165" end="165" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
         </control>
@@ -2024,7 +2019,7 @@
       <animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
     </control>
     <include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicMultiwall</include>
-    <include condition="!Skin.HasSetting(videotv) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">MovieMultiwall</include>
+    <include condition="Skin.HasSetting(videomovies) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">MovieMultiwall</include>
     <include condition="Skin.HasSetting(videotv) + [Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">TVMultiwall</include>
     <control type="group">
       <posx>1160</posx>
