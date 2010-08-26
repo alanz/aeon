@@ -773,18 +773,20 @@
     </control>
   </include>
   <include name="VerticalWall">
-    <onleft>2</onleft>
-    <onright>2</onright>
+    <onleft>7000</onleft>
+    <onright>63</onright>
     <onup>53</onup>
     <ondown>53</ondown>
     <orientation>vertical</orientation>
+    <pagecontrol>63</pagecontrol>
   </include>
   <include name="HorizontalWall">
     <onleft>53</onleft>
     <onright>53</onright>
-    <onup>2</onup>
-    <ondown>2</ondown>
+    <onup>7000</onup>
+    <ondown>60</ondown>
     <orientation>horizontal</orientation>
+    <pagecontrol>60</pagecontrol>
   </include>
   <include name="Conditions_WallLeftSmall">
     <visible>[Container(53).Column(5) | Container(53).Column(6) | Container(53).Column(7) | Container(53).Column(8) | Container(53).Column(9) | Container(53).Column(10)]</visible>
@@ -918,7 +920,6 @@
       <include condition="Skin.HasSetting(smallmusicwall)">WallWidthSmall</include>
       <posy>93</posy>
       <height>532</height>
-      <pagecontrol>61</pagecontrol>
       <scrolltime>200</scrolltime>
       <preloaditems>2</preloaditems>
       <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
@@ -1108,7 +1109,6 @@
       <include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)]">MovieWallBig</include>
       <include condition="Skin.HasSetting(smallmoviewall)">MovieWallSmall</include>
       <include condition="Skin.HasSetting(maxmoviewall)">MovieWallMax</include>
-      <pagecontrol>61</pagecontrol>
       <scrolltime>200</scrolltime>
       <preloaditems>2</preloaditems>
       <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
@@ -1359,5 +1359,48 @@
     <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesBig</include>
     <include condition="Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesSmall</include>
     <include condition="Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesMax</include>
+    <control type="scrollbar" id="60">
+      <description>For Horizontal Scrolling</description>
+      <posx>67</posx>
+      <posy>663</posy>
+      <width>1147</width>
+      <height>41</height>
+      <visible allowhiddenfocus="true">Control.IsVisible(53) + !Skin.HasSetting(VerticalWall) + Control.HasFocus(60)</visible>
+      <texturesliderbackground>stripshow/stripshow_scrollbar.png</texturesliderbackground>
+      <texturesliderbar>-</texturesliderbar>
+      <texturesliderbarfocus>-</texturesliderbarfocus>
+      <textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+      <textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+      <pulseonselect/>
+      <orientation>horizontal</orientation>
+      <showonepage>false</showonepage>
+      <onup>53</onup>
+      <ondown>7000</ondown>
+      <onleft>60</onleft>
+      <onright>60</onright>
+      <include>Animation_CommonFade</include>
+      <include>Animation_HideMultiplex</include>
+    </control>
+    <control type="scrollbar" id="63">
+      <description>For Vertical Scrolling</description>
+      <posx>1215</posx>
+      <posy>75</posy>
+      <width>65</width>
+      <height>545</height>
+      <visible allowhiddenfocus="true">Control.IsVisible(53) + Skin.HasSetting(VerticalWall) + Control.HasFocus(63)</visible>
+      <texturesliderbackground>windows/scrollbarbacklist.png</texturesliderbackground>
+      <texturesliderbar>-</texturesliderbar>
+      <texturesliderbarfocus>-</texturesliderbarfocus>
+      <textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+      <textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+      <pulseonselect/>
+      <orientation>vertical</orientation>
+      <showonepage>false</showonepage>
+      <onright>7000</onright>
+      <onleft>53</onleft>
+      <onup>63</onup>
+      <ondown>63</ondown>
+      <include>Animation_CommonFade</include>
+    </control>
   </include>
 </includes>
