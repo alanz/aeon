@@ -1772,31 +1772,22 @@
       </control>
       <!-- Wide TV Info Panel Fanart/Slideshow -->
       <control type="largeimage">
-        <texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.property(fanart_image)]</texture>
-        <aspectratio scalediffuse="false">scale</aspectratio>
+        <texture background="true" diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.property(fanart_image)]</texture>
+        <aspectratio>stretch</aspectratio>
         <visible>!IsEmpty(Container(551).ListItem.property(fanart_image))</visible>
         <visible>!Container.Content(episodes)</visible>
         <visible>!Player.HasVideo</visible>
         <include>LowList_WideImageVarsBig</include>
         <include>Animation_BackgroundFade</include>
       </control>
-      <control type="largeimage">
-        <texture diffuse="list/list_episodeicon_mask.png">$INFO[Container.Property(fanart_image)]</texture>
-        <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>!IsEmpty(Container.Property(fanart_image))</visible>
-        <visible>!Container.Content(episodes)</visible>
-        <visible>!Player.HasVideo</visible>
-        <include>LowList_WideImageVarsBig</include>
+      <control type="image">
+        <posx>194</posx>
+        <posy>-143</posy>
+        <width>489</width>
+        <height>285</height>
+        <visible>!IsEmpty(Container(551).ListItem.property(fanart_image))</visible>
         <include>Animation_BackgroundFade</include>
-      </control>
-      <control type="largeimage">
-        <texture fallback="common/black.png" background="true" diffuse="list/list_episodeicon_mask.png">DefaultVideo.png</texture>
-        <info>ListItem.Icon</info>
-        <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>Container.Content(episodes)</visible>
-        <visible>!Player.HasVideo</visible>
-        <include>LowList_WideImageVarsBig</include>
-        <include>Animation_BackgroundFade</include>
+        <texture>thumbs/episode_poster_shadow.png</texture>
       </control>
       <!-- Plot textboxes -->
       <control type="textbox">
