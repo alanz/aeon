@@ -588,7 +588,7 @@
     <width>414</width>
     <height>225</height>
     <fadetime>400</fadetime>
-    <aspectratio>scale</aspectratio>
+    <aspectratio>stretch</aspectratio>
   </include>
   <include name="LowList_WideImageVarsBig">
     <posx>208</posx>
@@ -1394,27 +1394,27 @@
       <!-- Wide Info Panel Fanart/Slideshow -->
       <control type="largeimage">
         <include>LowList_WideImageVars</include>
-        <texture diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.property(fanart_image)]</texture>
+        <texture background="true" diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.property(fanart_image)]</texture>
         <visible>!IsEmpty(Container(551).ListItem.property(fanart_image))</visible>
-        <include>Animation_BackgroundFade</include>
-        <visible>!Skin.HasSetting(widepanelthumbon)</visible>
-        <visible>!Player.HasVideo</visible>
-      </control>
-      <control type="largeimage">
-        <include>LowList_WideImageVars</include>
-        <texture diffuse="list/list_episodeicon_mask.png">$INFO[Container.Property(fanart_image)]</texture>
-        <visible>!IsEmpty(Container.Property(fanart_image))</visible>
         <include>Animation_BackgroundFade</include>
         <visible>!Skin.HasSetting(widepanelthumbon)</visible>
         <visible>!Player.HasVideo</visible>
       </control>
       <control type="multiimage">
         <include>LowList_WideImageVars</include>
-        <timeperimage>4500</timeperimage>
-        <imagepath fallback="common/black.png" diffuse="list/list_episodeicon_mask.png" background="true">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
+        <timeperimage>5500</timeperimage>
+        <imagepath background="true" fallback="common/black.png" diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
         <include>Animation_BackgroundFade</include>
         <visible>Skin.HasSetting(widepanelthumbon)</visible>
         <visible>!Player.HasVideo</visible>
+      </control>
+      <control type="image">
+        <posx>244</posx>
+        <posy>-106</posy>
+        <width>439</width>
+        <height>248</height>
+        <include>Animation_BackgroundFade</include>
+        <texture>thumbs/episode_poster_shadow.png</texture>
       </control>
       <!-- Wide Info Panel Trailer -->
       <control type="videowindow" id="2">
