@@ -1562,6 +1562,23 @@
         <visible>Window.IsActive(videolibrary)</visible>
         <include>Animation_HighListSlide</include>
       </control>
+      <control type="label">
+        <description>IMDB</description>
+        <include>LowList_DetailInfoLabelPos4</include>
+        <label>IMDB: [COLOR d0ffffff]$INFO[ListItem.RatingAndVotes][/COLOR]</label>
+        <visible>Window.IsActive(videolibrary)</visible>
+        <include>Animation_HighListSlide</include>
+      </control>
+      <control type="image">
+        <description>IMDB rating</description>
+        <posx>285</posx>
+        <posy>125</posy>
+        <width>100</width>
+        <height>21</height>
+        <info>ListItem.StarRating</info>
+        <visible>Window.IsActive(videolibrary)</visible>
+        <include>Animation_HighListSlide</include>
+      </control>
       <control type="textbox">
         <description>PLOT OUTLINE: (Short)</description>
         <include>LowList_ShortTextBox</include>
@@ -1844,7 +1861,7 @@
       </control>
       <!-- Star rating -->
       <control type="group">
-        <posx>660</posx>
+        <posx>690</posx>
         <posy>4</posy>
         <include>ListDetail_Stars</include>
       </control>
@@ -1891,16 +1908,9 @@
         <visible>Container.Content(episodes)</visible>
       </control>
       <control type="label">
-        <include>LowList_DetailInfoLabelPos5L</include>
-        <label>[COLOR 66ffffff]$LOCALIZE[20360]:[/COLOR] [COLOR d0ffffff]-[/COLOR]</label>
-        <visible>IsEmpty(ListItem.episode)</visible>
-        <visible>Container.Content(tvshows)</visible>
-      </control>
-      <control type="label">
         <description>WATCHED:</description>
         <include>LowList_DetailInfoLabelPos5L</include>
         <label>[COLOR 66ffffff]$LOCALIZE[16102]:[/COLOR] [COLOR d0ffffff]$INFO[ListItem.Property(WatchedEpisodes)] / $INFO[ListItem.Property(UnwatchedEpisodes)] $LOCALIZE[20360][/COLOR]</label>
-        <visible>!IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
         <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
       </control>
       <control type="label">
