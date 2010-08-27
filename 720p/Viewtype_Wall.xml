@@ -910,7 +910,6 @@
     <control type="panel" id="53">
       <viewtype label="31750">icon</viewtype>
       <visible>
-        Window.IsActive(scripts) | 
         Window.IsActive(pictures) | 
         Window.IsActive(musicplaylist) | 
         Window.IsActive(musicfiles) |
@@ -1224,8 +1223,8 @@
     </control>
   </include>
   <include name="Viewtype_Wall">
-    <include condition="Window.IsActive(scripts) | Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicWall</include>
-    <include condition="Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)">MovieWall</include>
+    <include condition="Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">MusicWall</include>
+    <include condition="Window.IsActive(scripts) | Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)">MovieWall</include>
     <control type="image">
       <posx>57</posx>
       <posy>98</posy>
@@ -1245,7 +1244,11 @@
       <texture flipx="true">wall/wall_arrow.png</texture>
       <visible>Control.IsVisible(53) + !Skin.HasSetting(VerticalWall)</visible>
       <animation effect="slide" start="100" end="0" delay="800" time="400" easing="out" tween="cubic">WindowOpen</animation>
-      <animation effect="fade" start="100" end="0" time="400" condition="[[Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container(53).Column(7)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(8) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(10) + Skin.HasSetting(smallmoviewall)] | [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)] + Container(53).Column(13) + Skin.HasSetting(maxmoviewall)] + !Control.IsVisible(7777)">Conditional</animation>
+      <animation effect="fade" start="100" end="0" time="400" condition=" !Control.IsVisible(7777) +
+                                                                          [[[Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + Container(53).Column(7)] |
+                                                                          [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(scripts)] + Container(53).Column(8) + !Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] |
+                                                                          [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(scripts)] + Container(53).Column(10) + Skin.HasSetting(smallmoviewall)] |
+                                                                          [[Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(scripts)] + Container(53).Column(13) + Skin.HasSetting(maxmoviewall)]]">Conditional</animation>
       <animation effect="slide" start="-18" end="-18" time="0" condition="Window.IsActive(pictures) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">Conditional</animation>
     </control>
     <!--Music Wall-->
