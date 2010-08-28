@@ -73,123 +73,128 @@
   <include name="Furniture_MovieInfoMediaFlags">
     <control type="group">
       <control type="image">
-	<posx>104</posx>
-	<include>Furniture_FlagUpright</include>
+        <posx>104</posx>
+        <include>Furniture_FlagUpright</include>
+        <colordiffuse>AAFFFFFF</colordiffuse>
       </control>
       <control type="image">
-	<posx>253</posx>
-	<include>Furniture_FlagUpright</include>
+        <posx>253</posx>
+        <include>Furniture_FlagUpright</include>
+        <colordiffuse>99FFFFFF</colordiffuse>
       </control>
       <control type="image">
-	<posx>339</posx>
-	<include>Furniture_FlagUpright</include>
+        <posx>339</posx>
+        <include>Furniture_FlagUpright</include>
+        <colordiffuse>88FFFFFF</colordiffuse>
       </control>
       <control type="image">
-	<posx>433</posx>
-	<include>Furniture_FlagUpright</include>
+        <posx>433</posx>
+        <include>Furniture_FlagUpright</include>
+        <colordiffuse>66FFFFFF</colordiffuse>
       </control>
       <control type="image">
-	<posx>535</posx>
-	<include>Furniture_FlagUpright</include>
-	<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+        <posx>535</posx>
+        <include>Furniture_FlagUpright</include>
+        <visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+        <colordiffuse>44FFFFFF</colordiffuse>
       </control>
       <control type="image" id="91">
-	<include>Furniture_MovieInfoFlagSource</include>
-	<texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
-	<visible>!substring(ListItem.filename,hdtv) + !substring(ListItem.filename,dvd) + !substring(ListItem.filename,bluray) + !substring(ListItem.filename,blu-ray) + !substring(ListItem.filename,bdrip) + !substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,.ifo,Right)</visible>
+        <include>Furniture_MovieInfoFlagSource</include>
+        <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
+        <visible>!substring(ListItem.filename,hdtv) + !substring(ListItem.filename,dvd) + !substring(ListItem.filename,bluray) + !substring(ListItem.filename,blu-ray) + !substring(ListItem.filename,bdrip) + !substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,.ifo,Right)</visible>
       </control>
       <control type="image" id="91">
-	<include>Furniture_MovieInfoFlagSource</include>
-	<texture>flags/source/hdtv.png</texture>
-	<visible>substring(ListItem.filename,hdtv)</visible>
+        <include>Furniture_MovieInfoFlagSource</include>
+        <texture>flags/source/hdtv.png</texture>
+        <visible>substring(ListItem.filename,hdtv)</visible>
       </control>
       <control type="image" id="91">
-	<include>Furniture_MovieInfoFlagSource</include>
-	<texture>flags/source/hddvd.png</texture>
-	<visible>substring(ListItem.filename,hddvd) | substring(ListItem.filename,hd-dvd)</visible>
+        <include>Furniture_MovieInfoFlagSource</include>
+        <texture>flags/source/hddvd.png</texture>
+        <visible>substring(ListItem.filename,hddvd) | substring(ListItem.filename,hd-dvd)</visible>
       </control>
       <control type="image" id="91">
-	<include>Furniture_MovieInfoFlagSource</include>
-	<texture>flags/source/bluray.png</texture>
-	<visible>substring(ListItem.filename,bluray) | substring(ListItem.filename,blu-ray) | substring(ListItem.filename,bdrip)</visible>
+        <include>Furniture_MovieInfoFlagSource</include>
+        <texture>flags/source/bluray.png</texture>
+        <visible>substring(ListItem.filename,bluray) | substring(ListItem.filename,blu-ray) | substring(ListItem.filename,bdrip)</visible>
       </control>
       <control type="image" id="91">
-	<include>Furniture_MovieInfoFlagSource</include>
-	<texture>flags/source/dvd.png</texture>
-	<visible>[substring(ListItem.filename,dvd) + !substring(ListItem.filename,hddvd) + !substring(ListItem.filename,hd-dvd) + !substring(ListItem.filename,bluray)] | [substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,bluray)] | substring(ListItem.filename,.ifo,Right)</visible>
+        <include>Furniture_MovieInfoFlagSource</include>
+        <texture>flags/source/dvd.png</texture>
+        <visible>[substring(ListItem.filename,dvd) + !substring(ListItem.filename,hddvd) + !substring(ListItem.filename,hd-dvd) + !substring(ListItem.filename,bluray)] | [substring(ListItem.filename,.iso,Right) + !substring(ListItem.filename,bluray)] | substring(ListItem.filename,.ifo,Right)</visible>
       </control>
       <control type="image" id="920">
-	<posx>109</posx>
-	<posy>585</posy>
-	<height>40</height>
-	<width>70</width>
-	<include>Furniture_MovieInfoFlagSound</include>
-	<texture>$INFO[Control.GetLabel(900005)]</texture>
-	<aspectratio>keep</aspectratio>
-	<visible>!IsEmpty(Control.GetLabel(900006))</visible>
+        <posx>109</posx>
+        <posy>585</posy>
+        <height>40</height>
+        <width>70</width>
+        <include>Furniture_MovieInfoFlagSound</include>
+        <texture>$INFO[Control.GetLabel(900005)]</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>!IsEmpty(Control.GetLabel(900006))</visible>
       </control>
       <control type="image" id="920">
-	<posx>180</posx>
-	<posy>585</posy>
-	<height>40</height>
-	<width>70</width>
-	<include>Furniture_MovieInfoFlagSound</include>
-	<texture>$INFO[Control.GetLabel(900006)]</texture>
-	<aspectratio>keep</aspectratio>
-	<visible>!IsEmpty(Control.GetLabel(900006))</visible>
+        <posx>180</posx>
+        <posy>585</posy>
+        <height>40</height>
+        <width>70</width>
+        <include>Furniture_MovieInfoFlagSound</include>
+        <texture>$INFO[Control.GetLabel(900006)]</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>!IsEmpty(Control.GetLabel(900006))</visible>
       </control>
       <control type="image" id="921">
-	<posx>109</posx>
-	<posy>585</posy>
-	<height>40</height>
-	<width>141</width>
-	<include>Furniture_MovieInfoFlagSound</include>
-	<texture>$INFO[Control.GetLabel(900005)]</texture>
-	<aspectratio>keep</aspectratio>
-	<visible>IsEmpty(Control.GetLabel(900006))</visible>
+        <posx>109</posx>
+        <posy>585</posy>
+        <height>40</height>
+        <width>141</width>
+        <include>Furniture_MovieInfoFlagSound</include>
+        <texture>$INFO[Control.GetLabel(900005)]</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>IsEmpty(Control.GetLabel(900006))</visible>
       </control>
       <control type="image" id="93">
-	<posx>550</posx>
-	<posy>585</posy>
-	<width>49</width>
-	<height>40</height>
-	<colordiffuse>FFDDDDDD</colordiffuse>
-	<texture>flags/misc/cc.png</texture>
-	<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+        <posx>550</posx>
+        <posy>585</posy>
+        <width>49</width>
+        <height>40</height>
+        <colordiffuse>FFDDDDDD</colordiffuse>
+        <texture>flags/misc/cc.png</texture>
+        <visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
       </control>
       <control type="image" id="94">
-	<posx>248</posx>
-	<posy>574</posy>
-	<width>97</width>
-	<height>60</height>
-	<colordiffuse>FF7DDDDDD</colordiffuse>
-	<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+        <posx>248</posx>
+        <posy>574</posy>
+        <width>97</width>
+        <height>60</height>
+        <colordiffuse>FF7DDDDDD</colordiffuse>
+        <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
       </control>
       <control type="image" id="95">
-	<posx>345</posx>
-	<posy>574</posy>
-	<width>80</width>
-	<height>60</height>
-	<colordiffuse>FF7DDDDDD</colordiffuse>
-	<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+        <posx>345</posx>
+        <posy>574</posy>
+        <width>80</width>
+        <height>60</height>
+        <colordiffuse>FF7DDDDDD</colordiffuse>
+        <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
       </control>
       <control type="image" id="96">
-	<posx>444</posx>
-	<posy>579</posy>
-	<width>81</width>
-	<height>50</height>
-	<colordiffuse>FF7DDDDDD</colordiffuse>
-	<texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
-	<visible>Container.Content(movies) | [Container.Content(episodes) + [substring(ListItem.VideoResolution,480) | substring(ListItem.VideoResolution,540)]]</visible>
+        <posx>444</posx>
+        <posy>579</posy>
+        <width>81</width>
+        <height>50</height>
+        <colordiffuse>FF7DDDDDD</colordiffuse>
+        <texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+        <visible>Container.Content(movies) | [Container.Content(episodes) + [substring(ListItem.VideoResolution,480) | substring(ListItem.VideoResolution,540)]]</visible>
       </control>
       <control type="image" id="96">
-	<posx>444</posx>
-	<posy>579</posy>
-	<width>81</width>
-	<height>50</height>
-	<colordiffuse>FF7DDDDDD</colordiffuse>
-	<texture>$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
-	<visible>Container.Content(episodes) + [substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+        <posx>444</posx>
+        <posy>579</posy>
+        <width>81</width>
+        <height>50</height>
+        <colordiffuse>FF7DDDDDD</colordiffuse>
+        <texture>$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
+        <visible>Container.Content(episodes) + [substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
       </control>
     </control>
   </include>
