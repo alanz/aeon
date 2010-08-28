@@ -295,110 +295,143 @@
 
       <!-- left column -->
       <control type="group">
-	<posx>0</posx>
-	<posy>0</posy>
-	<control type="group">
-	  <visible>VideoPlayer.Content(episodes)</visible>
-	  <control type="image">
-	    <description>Clearart</description>
-	    <posx>15</posx>
-	    <posy>-19</posy>
-	    <width>230</width>
-	    <height>156</height>
-	    <texture background="true">$INFO[Player.FolderPath]/clearart.png</texture>
-	    <aspectratio>keep</aspectratio>
-	    <animation type="WindowOpen">
-	      <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-	      <effect type="fade" start="0" end="100" time="600"/>
-	    </animation>
-	    <animation type="WindowClose">
-	      <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
-	      <effect type="fade" start="100" end="0" time="600"/>
-	    </animation>
-	  </control>
-	  <control type="image">
-	    <description>Clearart</description>
-	    <posx>15</posx>
-	    <posy>-19</posy>
-	    <width>230</width>
-	    <height>156</height>
-	    <texture background="true">$INFO[Player.FolderPath]/../clearart.png</texture>
-	    <aspectratio>keep</aspectratio>
-	    <animation type="WindowOpen">
-	      <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-	      <effect type="fade" start="0" end="100" time="600"/>
-	    </animation>
-	    <animation type="WindowClose">
-	      <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
-	      <effect type="fade" start="100" end="0" time="600"/>
-	    </animation>
-	  </control>
-	</control>
-	<control type="group">
-	  <visible>VideoPlayer.Content(movies)</visible>
-	  <control type="image">
-	    <description>IMDB Rating</description>
-	    <posx>65</posx>
-	    <posy>70</posy>
-	    <width>130</width>
-	    <height>25</height>
-	    <align>center</align>
-	    <aligny>center</aligny>
-	    <info>Player.StarRating</info>
-	  </control>
-	  <control type="label">
-	    <posx>65</posx>
-	    <posy>37</posy>
-	    <width>130</width>
-	    <height>25</height>
-	    <align>center</align>
-	    <aligny>center</aligny>
-	    <font>Font_OSDMusicTitle</font>
-	    <label>$INFO[VideoPlayer.Year]</label>
-	  </control>
-	</control>
+        <posx>0</posx>
+        <posy>0</posy>
+        <control type="group">
+          <visible>VideoPlayer.Content(episodes)</visible>
+          <control type="image" id="1000">
+            <description>Clearart</description>
+            <posx>15</posx>
+            <posy>-19</posy>
+            <width>230</width>
+            <height>156</height>
+            <texture background="true">$INFO[Player.FolderPath]/clearart.png</texture>
+            <aspectratio>keep</aspectratio>
+            <animation type="WindowOpen">
+              <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="0" end="100" time="600"/>
+            </animation>
+            <animation type="WindowClose">
+              <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="100" end="0" time="600"/>
+            </animation>
+          </control>
+          <control type="image" id="1001">
+            <description>Clearart</description>
+            <posx>15</posx>
+            <posy>-19</posy>
+            <width>230</width>
+            <height>156</height>
+            <texture background="true">$INFO[Player.FolderPath]/../clearart.png</texture>
+            <aspectratio>keep</aspectratio>
+            <visible>IsEmpty(Control.GetLabel(1000))</visible>
+            <animation type="WindowOpen">
+              <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="0" end="100" time="600"/>
+            </animation>
+            <animation type="WindowClose">
+              <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="100" end="0" time="600"/>
+            </animation>
+          </control>
+          <control type="image" id="1002">
+            <description>Logo.png fallback</description>
+            <posx>15</posx>
+            <posy>-29</posy>
+            <width>230</width>
+            <height>156</height>
+            <texture background="true">$INFO[Player.FolderPath]/../logo.png</texture>
+            <aspectratio>keep</aspectratio>
+            <visible>IsEmpty(Control.GetLabel(1000)) + IsEmpty(Control.GetLabel(1001))</visible>
+            <animation type="WindowOpen">
+              <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="0" end="100" time="600"/>
+            </animation>
+            <animation type="WindowClose">
+              <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="100" end="0" time="600"/>
+            </animation>
+          </control>
+          <control type="image" id="1003">
+            <description>Logo.png fallback</description>
+            <posx>15</posx>
+            <posy>-29</posy>
+            <width>230</width>
+            <height>156</height>
+            <visible>IsEmpty(Control.GetLabel(1000)) + IsEmpty(Control.GetLabel(1001)) + IsEmpty(Control.GetLabel(1002))</visible>
+            <texture background="true">$INFO[Player.FolderPath]/../logo.png</texture>
+            <aspectratio>keep</aspectratio>
+            <animation type="WindowOpen">
+              <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="0" end="100" time="600"/>
+            </animation>
+            <animation type="WindowClose">
+              <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
+              <effect type="fade" start="100" end="0" time="600"/>
+            </animation>
+          </control>
+        </control>
+        <control type="group">
+          <visible>VideoPlayer.Content(movies)</visible>
+          <control type="image">
+            <description>IMDB Rating</description>
+            <posx>65</posx>
+            <posy>70</posy>
+            <width>130</width>
+            <height>25</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <info>Player.StarRating</info>
+          </control>
+          <control type="label">
+            <posx>65</posx>
+            <posy>37</posy>
+            <width>130</width>
+            <height>25</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>Font_OSDMusicTitle</font>
+            <label>$INFO[VideoPlayer.Year]</label>
+          </control>
+        </control>
       </control>
-
       <!-- right column -->
       <control type="image">
-	<visible>!VideoPlayer.Content(episodes)</visible>
-	<description>Cover Image</description>
-	<posx>1050</posx>
-	<posy>-200</posy>
-	<width>200</width>
-	<height>310</height>
-	<texture diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.Cover]</texture>
-	<bordertexture border="-21">thumbs/poster_shadow.png</bordertexture>
-	<aspectratio aligny="bottom">Keep</aspectratio>
-	<animation type="WindowOpen">
-	  <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-	</animation>
-	<animation type="WindowClose">
-	  <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
-	  <effect type="fade" start="100" end="0" time="600"/>
-	</animation>
+        <visible>!VideoPlayer.Content(episodes)</visible>
+        <description>Cover Image</description>
+        <posx>1050</posx>
+        <posy>-200</posy>
+        <width>200</width>
+        <height>310</height>
+        <texture diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.Cover]</texture>
+        <bordertexture border="-21">thumbs/poster_shadow.png</bordertexture>
+        <aspectratio aligny="bottom">Keep</aspectratio>
+        <animation type="WindowOpen">
+          <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+        </animation>
+        <animation type="WindowClose">
+          <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
+          <effect type="fade" start="100" end="0" time="600"/>
+        </animation>
       </control>
       <control type="image">
-	<visible>VideoPlayer.Content(episodes)</visible>
-	<description>Cover Image</description>
-	<posx>1045</posx>
-	<posy>-30</posy>
-	<width>210</width>
-	<height>130</height>
-	<texture diffuse="thumbs/cdcover_mask.png" background="true">$INFO[VideoPlayer.Cover]</texture>
-	<aspectratio scalediffuse="false">scale</aspectratio>
-	<bordertexture border="-32,-7,-32,-7">thumbs/poster_shadow.png</bordertexture>
-	<animation type="WindowOpen">
-	  <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-	</animation>
-	<animation type="WindowClose">
-	  <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
-	  <effect type="fade" start="100" end="0" time="600"/>
-	</animation>
+        <visible>VideoPlayer.Content(episodes)</visible>
+        <description>Cover Image</description>
+        <posx>1045</posx>
+        <posy>-30</posy>
+        <width>210</width>
+        <height>130</height>
+        <texture diffuse="thumbs/cdcover_mask.png" background="true">$INFO[VideoPlayer.Cover]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <bordertexture border="-32,-7,-32,-7">thumbs/poster_shadow.png</bordertexture>
+        <animation type="WindowOpen">
+          <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+        </animation>
+        <animation type="WindowClose">
+          <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
+          <effect type="fade" start="100" end="0" time="600"/>
+        </animation>
       </control>
-
-      
-
       <control type="image">
         <description>Pause button</description>
         <posx>920</posx>
@@ -426,7 +459,6 @@
         </animation>
       </control>
     </control>
-
     <control type="group">
       <visible>Player.Paused + Skin.HasSetting(AlaskaPausedLabel)</visible>
       <animation type="Visible">
@@ -456,6 +488,5 @@
         <textcolor>33ffffff</textcolor>
       </control>
     </control>
-
   </controls>
 </window>
