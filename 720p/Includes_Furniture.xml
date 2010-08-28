@@ -445,6 +445,11 @@
         <visible>Container.Content(songs)</visible>
       </control>
       <control type="label" id="72">
+        <label>$LOCALIZE[21898]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_YearsActive)][/COLOR]</label>
+        <include>FloorTextDetailLabel</include>
+        <visible>Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+      </control>
+      <control type="label" id="72">
         <info>ListItem.Label2</info>
         <include>FloorTextDetailLabel</include>
         <visible>Window.IsActive(programs) | Container.Content(albums) | Window.IsActive(musicfiles)</visible>
@@ -474,6 +479,11 @@
         <label>[UPPERCASE]$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.year, - ,][/UPPERCASE]</label>
         <include>FloorTextDetailLabel2</include>
         <visible>!Control.IsVisible(7777) + Container.Content(movies) + [[Skin.HasSetting(showcaseinfolines) + Control.IsVisible(57)] | Control.IsVisible(53) | Control.IsVisible(55)]</visible>
+      </control>
+      <control type="label" id="73">
+        <label>$LOCALIZE[21894]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
+        <include>FloorTextDetailLabel2</include>
+        <visible>!Control.IsVisible(7777) + Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Formed))</visible>
       </control>
     </control>
   </include>
