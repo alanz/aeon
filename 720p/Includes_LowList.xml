@@ -1797,12 +1797,23 @@
         <include>LowList_WideImageVarsBig</include>
         <include>Animation_BackgroundFade</include>
       </control>
+      <control type="largeimage">
+        <texture background="true" diffuse="list/list_episodeicon_mask.png">$INFO[Container(551).ListItem.Icon]</texture>
+        <aspectratio>stretch</aspectratio>
+        <visible>!IsEmpty(Container(551).ListItem.Icon)</visible>
+        <visible>Container.Content(episodes)</visible>
+        <visible>!Player.HasVideo</visible>
+        <include>LowList_WideImageVarsBig</include>
+        <include>Animation_BackgroundFade</include>
+      </control>
       <control type="image">
         <posx>194</posx>
         <posy>-143</posy>
         <width>489</width>
         <height>285</height>
-        <visible>!IsEmpty(Container(551).ListItem.property(fanart_image))</visible>
+        <animation effect="slide" start="0,0" end="240,0" time="0" condition="Container.Content(episodes)">Conditional</animation>
+        <visible>!IsEmpty(Container(551).ListItem.property(fanart_image)) | [Container.Content(episodes) + !IsEmpty(Container(551).ListItem.Icon))]</visible>
+        <visible>!Player.HasVideo</visible>
         <include>Animation_BackgroundFade</include>
         <texture>thumbs/episode_poster_shadow.png</texture>
       </control>
