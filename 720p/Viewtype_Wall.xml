@@ -860,19 +860,37 @@
     <posx>108</posx>
     <width>1060</width>
   </include>
-  <include name="MovieWallMax">
+  <include name="MovieWallMaxVerticalVars">
+    <posx>74</posx>
+    <posy>40</posy>
+    <width>1136</width>
+    <height>585</height>
+  </include>
+  <include name="MovieWallBigVerticalVars">
+    <posx>85</posx>
+    <posy>91</posy>
+    <width>1108</width>
+    <height>539</height>
+  </include>
+  <include name="MovieWallSmallVerticalVars">
+    <posx>83</posx>
+    <posy>46</posy>
+    <width>1113</width>
+    <height>585</height>
+  </include>
+  <include name="MovieWallMaxHorizontalVars">
     <posx>74</posx>
     <posy>40</posy>
     <width>1136</width>
     <height>685</height>
   </include>
-  <include name="MovieWallBig">
+  <include name="MovieWallBigHorizontalVars">
     <posx>85</posx>
     <posy>91</posy>
     <width>1108</width>
     <height>600</height>
   </include>
-  <include name="MovieWallSmall">
+  <include name="MovieWallSmallHorizontalVars">
     <posx>83</posx>
     <posy>46</posy>
     <width>1113</width>
@@ -1077,9 +1095,12 @@
       <visible>
         Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) |
         [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(genres) + !Container.Content(years) + !Container.Content()]</visible>
-      <include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)]">MovieWallBig</include>
-      <include condition="Skin.HasSetting(smallmoviewall)">MovieWallSmall</include>
-      <include condition="Skin.HasSetting(maxmoviewall)">MovieWallMax</include>
+      <include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] + Skin.HasSetting(VerticalWall)">MovieWallBigVerticalVars</include>
+      <include condition="Skin.HasSetting(smallmoviewall) + Skin.HasSetting(VerticalWall)">MovieWallSmallVerticalVars</include>
+      <include condition="Skin.HasSetting(maxmoviewall) + Skin.HasSetting(VerticalWall)">MovieWallMaxVerticalVars</include>
+      <include condition="[!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)] + !Skin.HasSetting(VerticalWall)">MovieWallBigHorizontalVars</include>
+      <include condition="Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(VerticalWall)">MovieWallSmallHorizontalVars</include>
+      <include condition="Skin.HasSetting(maxmoviewall) + !Skin.HasSetting(VerticalWall)">MovieWallMaxHorizontalVars</include>
       <scrolltime>200</scrolltime>
       <preloaditems>2</preloaditems>
       <include condition="Skin.HasSetting(VerticalWall)">VerticalWall</include>
@@ -1107,7 +1128,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>!Skin.HasSetting(dvdcase)</visible>
+          <visible>!Skin.HasSetting(dvdcase) + !Skin.HasSetting(verticalwall)</visible>
         </control>		
       </itemlayout>
       <focusedlayout width="123" height="179" condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(maxmoviewall)">
@@ -1140,7 +1161,7 @@
           <animation type="Focus" reversible="false">
             <effect type="zoom" center="60,179" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
           </animation>
-          <visible>Container(53).Row(2) + !Skin.HasSetting(dvdcase)</visible>
+          <visible>Container(53).Row(2) + !Skin.HasSetting(dvdcase) + !Skin.HasSetting(verticalwall)</visible>
         </control>	
       </focusedlayout>
       <itemlayout width="101" height="146" condition="Skin.HasSetting(smallmoviewall)">
@@ -1166,7 +1187,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>!Skin.HasSetting(dvdcase)</visible>
+          <visible>!Skin.HasSetting(dvdcase) + !Skin.HasSetting(verticalwall)</visible>
           </control>
       </itemlayout>
       <focusedlayout width="101" height="146" condition="Skin.HasSetting(smallmoviewall)">
@@ -1199,7 +1220,7 @@
           <animation type="Focus" reversible="false">
             <effect type="zoom" center="51,138" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
           </animation>
-          <visible>Container(53).Row(3) + !Skin.HasSetting(dvdcase)</visible>
+          <visible>Container(53).Row(3) + !Skin.HasSetting(dvdcase) + !Skin.HasSetting(verticalwall)</visible>
         </control>	
       </focusedlayout>
       <itemlayout width="81" height="117" condition="Skin.HasSetting(maxmoviewall)">
@@ -1225,7 +1246,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>!Skin.HasSetting(dvdcase)</visible>
+          <visible>!Skin.HasSetting(dvdcase) + !Skin.HasSetting(verticalwall)</visible>
         </control>
       </itemlayout>
       <focusedlayout width="81" height="117" condition="Skin.HasSetting(maxmoviewall)">
@@ -1258,7 +1279,7 @@
           <animation type="Focus" reversible="false">
             <effect type="zoom" center="48,100" start="100" end="172" time="400" easing="out" tween="cubic" reversible="false" />
           </animation>
-          <visible>Container(53).Row(4) + !Skin.HasSetting(dvdcase)</visible>
+          <visible>Container(53).Row(4) + !Skin.HasSetting(dvdcase) + !Skin.HasSetting(verticalwall)</visible>
         </control>	
       </focusedlayout>
     </control>
