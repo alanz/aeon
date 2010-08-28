@@ -99,6 +99,15 @@
       <texturerightfocus>multiplex/multiplex_arrowfocus.png</texturerightfocus>
     </control>
   </include>
+  <include name="MediaMenuButton_FanartShowcase">
+    <control type="radiobutton" id="700025">
+      <label>20425</label>
+      <selected>Skin.HasSetting(showcasefanart)</selected>
+      <include>MediaMenuRadioButton</include>
+      <onclick>Skin.ToggleSetting(showcasefanart)</onclick>
+      <visible>Control.IsVisible(57) + Skin.HasSetting(videomovies) + Container.Content(movies) + Skin.HasSetting(flattenshowcasemovies)</visible>
+    </control>
+  </include>
   <include name="MediaMenuButton_FlattenFlow">
     <!-- 700001 700002 -->
     <control type="radiobutton" id="700001">
@@ -870,6 +879,7 @@
         <include>MediaMenuButton_Search</include>
         <include>MediaMenuButton_Random</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_FlattenFlow</include>
+        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_FanartShowcase</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_InfoTrigger</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_LowList</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_GamesPoster</include>
