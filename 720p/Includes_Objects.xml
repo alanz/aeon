@@ -588,81 +588,82 @@
       <animation effect="slide" end="605,340" time="0" condition="Control.IsVisible(53)">Conditional</animation>
       <animation effect="slide" end="340,340" time="0" condition="Control.IsVisible(54)">Conditional</animation>
       <animation effect="slide" end="605,540" time="0" condition="[Control.IsVisible(52) | Control.IsVisible(552)] + Skin.HasSetting(videotv)">Conditional</animation>
+      <animation effect="slide" end="605,320" time="0" condition="Control.IsVisible(54)">Conditional</animation>
       <animation effect="slide" end="605,440" time="0" condition="Control.IsVisible(57)">Conditional</animation>
       <animation effect="slide" end="420,330" time="0" condition="Control.IsVisible(50)">Conditional</animation>
       <animation effect="slide" end="560,540" time="0" condition="Control.IsVisible(551)">Conditional</animation>
       <animation effect="slide" end="605,400" time="0" condition="Control.IsVisible(556)">Conditional</animation>
       <animation effect="slide" end="420,330" time="0" condition="Control.IsVisible(560)">Conditional</animation>
       <control type="group">
-	<animation effect="fade" start="100" end="100" time="0" condition="Container.Scrolling">Conditional</animation>
-	<animation effect="fade" start="100" end="0" time="1000" condition="!Container.Scrolling">Conditional</animation>
-	<!-- General SortLabel -->
-	<control type="group">
-	  <control type="image">
-	    <posx>0</posx>
-	    <posy>0</posy>
-	    <width>70</width>
-	    <height>70</height>
-	    <align>center</align>
-	    <aligny>center</aligny>
-	    <texture>common/scroll_letter_background.png</texture>
-	    <visible>Skin.HasSetting(scrollletters)</visible>
-	  </control>
-	  <control type="label">
-	    <posx>0</posx>
-	    <posy>0</posy>
-	    <width>70</width>
-	    <height>70</height>
-	    <align>center</align>
-	    <aligny>center</aligny>
-	    <label>$INFO[ListItem.SortLetter]</label>
-	    <textcolor>ffffffff</textcolor>
-	    <font>Font_MultiplexTVLabel</font>
-	    <visible>Skin.HasSetting(scrollletters)</visible>
-	  </control>
-	  <visible>!IsEmpty(ListItem.SortLetter)</visible>
-	  <visible>!SubString(Container.SortMethod,year) + !SubString(Container.SortMethod,episode)</visible>
-	</control>
-	<!-- SortLabel used for years/episodes -->
-	<control type="group">
-	  <include>SeasonEpisodeZeroPadded</include>
-	  <control type="image">
-	    <posx>0</posx>
-	    <posy>0</posy>
-	    <width>140</width>
-	    <height>70</height>
-	    <align>center</align>
-	    <aligny>center</aligny>
-	    <texture>common/scroll_letter_background.png</texture>
-	    <visible>Skin.HasSetting(scrollletters)</visible>
-	  </control>
-	  <control type="label">
-	    <posx>0</posx>
-	    <posy>0</posy>
-	    <width>140</width>
-	    <height>70</height>
-	    <align>center</align>
-	    <aligny>center</aligny>
-	    <label>$INFO[ListItem.Year]</label>
-	    <textcolor>ffffffff</textcolor>
-	    <font>Font_MultiplexTVLabel</font>
-	    <visible>Skin.HasSetting(scrollletters) + SubString(Container.SortMethod,year)</visible>
-	  </control>
-	  <control type="label">
-	    <posx>0</posx>
-	    <posy>0</posy>
-	    <width>140</width>
-	    <height>70</height>
-	    <align>center</align>
-	    <aligny>center</aligny>
-	    <label>$INFO[Control.GetLabel(900000)]</label>
-	    <textcolor>ffffffff</textcolor>
-	    <font>Font_MultiplexTVLabel</font>
-	    <visible>Skin.HasSetting(scrollletters) + SubString(Container.SortMethod,episode)</visible>
-	  </control>
-	  <visible>!IsEmpty(ListItem.Year)</visible>
-	  <visible>SubString(Container.SortMethod,year) | SubString(Container.SortMethod,episode)</visible>
-	</control>
+        <animation effect="fade" start="100" end="100" time="0" condition="Container.Scrolling">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="1000" condition="!Container.Scrolling">Conditional</animation>
+        <!-- General SortLabel -->
+        <control type="group">
+          <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>70</width>
+            <height>70</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texture>common/scroll_letter_background.png</texture>
+            <visible>Skin.HasSetting(scrollletters)</visible>
+          </control>
+          <control type="label">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>70</width>
+            <height>70</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.SortLetter]</label>
+            <textcolor>ffffffff</textcolor>
+            <font>Font_MultiplexTVLabel</font>
+            <visible>Skin.HasSetting(scrollletters)</visible>
+          </control>
+          <visible>!IsEmpty(ListItem.SortLetter)</visible>
+          <visible>!SubString(Container.SortMethod,year) + !SubString(Container.SortMethod,episode)</visible>
+        </control>
+        <!-- SortLabel used for years/episodes -->
+        <control type="group">
+          <include>SeasonEpisodeZeroPadded</include>
+          <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>140</width>
+            <height>70</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texture>common/scroll_letter_background.png</texture>
+            <visible>Skin.HasSetting(scrollletters)</visible>
+          </control>
+          <control type="label">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>140</width>
+            <height>70</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.Year]</label>
+            <textcolor>ffffffff</textcolor>
+            <font>Font_MultiplexTVLabel</font>
+            <visible>Skin.HasSetting(scrollletters) + SubString(Container.SortMethod,year)</visible>
+          </control>
+          <control type="label">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>140</width>
+            <height>70</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <label>$INFO[Control.GetLabel(900000)]</label>
+            <textcolor>ffffffff</textcolor>
+            <font>Font_MultiplexTVLabel</font>
+            <visible>Skin.HasSetting(scrollletters) + SubString(Container.SortMethod,episode)</visible>
+          </control>
+          <visible>!IsEmpty(ListItem.Year)</visible>
+          <visible>SubString(Container.SortMethod,year) | SubString(Container.SortMethod,episode)</visible>
+        </control>
       </control>
     </control>
   </include>
