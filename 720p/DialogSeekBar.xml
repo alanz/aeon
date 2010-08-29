@@ -3,6 +3,7 @@
   <defaultcontrol>23</defaultcontrol>
   <visible>Window.IsActive(fullscreenvideo) + !Window.IsActive(videoosd) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]+ !Window.IsActive(fullscreeninfo)</visible>
   <controls>
+    <include>Object_AlaskaPausedLabel</include>
     <control type="group">
       <posx>0</posx>
       <posy>600</posy>
@@ -457,35 +458,6 @@
           <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
           <effect type="fade" start="100" end="0" time="600"/>
         </animation>
-      </control>
-    </control>
-    <control type="group">
-      <visible>Player.Paused + Skin.HasSetting(AlaskaPausedLabel)</visible>
-      <animation type="Visible">
-        <effect type="slide" start="0,-500" end="0,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="0" end="100" time="600"/>
-      </animation>
-      <animation type="WindowOpen">
-        <effect type="slide" start="0,-500" end="0,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="0" end="100" time="600"/>
-      </animation>
-      <animation type="WindowClose">
-        <effect type="slide" start="0,0" end="-500,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="100" end="0" time="600"/>
-      </animation>
-      <animation type="Hidden">
-        <effect type="slide" start="0,0" end="-500,0" time="600" tween="cubic" easing="out"/>
-        <effect type="fade" start="100" end="0" time="600"/>
-      </animation>
-      <control type="label">
-        <posx>-320</posx>
-        <posy>280</posy>
-        <width>1920</width>
-        <align>center</align>
-        <aligny>center</aligny>
-        <font>Big_Text</font>
-        <label>PAUSED</label>
-        <textcolor>33ffffff</textcolor>
       </control>
     </control>
   </controls>
