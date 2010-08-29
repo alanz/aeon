@@ -1,0 +1,935 @@
+<?xml version="1.0"?>
+<includes>
+  <include name="FullscreenWallIconMovieDimensionsDVD">
+    <posx>51</posx>
+    <posy>3</posy>
+    <width>122</width>
+    <height>180</height>
+  </include>
+  <include name="FullscreenWallIconMovieDimensionsDVDSmall">
+    <posx>32</posx>
+    <posy>3</posy>
+    <width>99</width>
+    <height>152</height>
+  </include>
+  <!-- Animations -->
+  <!-- Normal -->
+  <include name="MovieFullscreenWallIconZoomAnimation">
+    <animation type="Focus" condition="Container(54).Row(3)" reversible="false">
+      <effect type="zoom" center="100,180" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(1) | Container(54).Row(2)" reversible="false">
+      <effect type="zoom" center="100,110" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(0)" reversible="false">
+      <effect type="zoom" center="100,0" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="MovieFullscreenWallIconZoomAnimationSmall">
+    <animation type="Focus" condition="Container(54).Row(0)" reversible="false">
+      <effect type="zoom" center="101,48" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(1) | Container(54).Row(2) | Container(54).Row(3)" reversible="false">
+      <effect type="zoom" center="101,102" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(4)" reversible="false">
+      <effect type="zoom" center="101,210" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="MusicFullscreenWallIconZoomAnimation">
+    <animation type="Focus" condition="Container(54).Row(3)" reversible="false">
+      <effect type="zoom" center="116,134" start="100" end="180" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(1) | Container(54).Row(2)" reversible="false">
+      <effect type="zoom" center="116,80" start="100" end="180" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(0)" reversible="false">
+      <effect type="zoom" center="116,34" start="100" end="180" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="MusicFullscreenWallIconZoomAnimationSmall">
+    <animation type="Focus" condition="Container(54).Row(0)" reversible="false">
+      <effect type="zoom" center="101,38" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(1) | Container(54).Row(2) | Container(54).Row(3)" reversible="false">
+      <effect type="zoom" center="101,51" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(4)" reversible="false">
+      <effect type="zoom" center="101,95" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <!-- DVD -->
+  <include name="FullscreenWallIconZoomAnimationDVD">
+    <animation type="Focus" condition="Container(54).Row(2)" reversible="false">
+      <effect type="zoom" center="112,155" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(1)" reversible="false">
+      <effect type="zoom" center="112,135" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+    <animation type="Focus" condition="Container(54).Row(0)" reversible="false">
+      <effect type="zoom" center="112,105" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
+    </animation>
+  </include>
+  <include name="FullscreenWallIconZoomAnimationDVDSmall">
+    <animation effect="zoom" center="81,132" start="100" end="168" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+  </include>
+  <!-- Border -->
+  <include name="FullscreenWallIconMovieBorderSmall">
+    <bordertexture border="-4">Wall/Wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="FullscreenWallIconMovieBorder">
+    <bordertexture border="-5">Wall/Wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="FullscreenWallIconMovieBorderFocus">
+    <bordertexture border="-3">Wall/Wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="FullscreenWallIconMovieBorderFocusSmall">
+    <bordertexture border="-5">Wall/Wall_movie_nfborder.png</bordertexture>
+  </include>
+  <include name="FullscreenWallIconMovieBorderFocus2">
+    <bordertexture border="-12">Wall/Wall_movie_fborder.png</bordertexture>
+  </include>
+  <include name="FullscreenWallIconMovieBorderFocus2Small">
+    <bordertexture border="-9">Wall/Wall_movie_fborder.png</bordertexture>
+  </include>
+  <include name="FullscreenWallIconNormalFocus">
+    <!--########################################################-->
+    <control type="largeimage">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsSmall</include>
+      <texture background="true" diffuse="Wall/Wall_movie_mask.png">DefaultVideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <info>ListItem.Icon</info>
+      <bordertexture border="-8">thumbs/poster_shadow2.png</bordertexture>
+      <fadetime>500</fadetime>
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">MovieFullscreenWallIconZoomAnimation</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">MovieFullscreenWallIconZoomAnimationSmall</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsSmall</include>
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieBorderFocus2</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieBorderFocus2Small</include>
+      <texture>common/blank.png</texture>
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">MovieFullscreenWallIconZoomAnimation</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">MovieFullscreenWallIconZoomAnimationSmall</include>
+    </control>
+  </include>
+  <!-- Movie Normal -->
+  <include name="FullscreenWallIconNormal">
+    <control type="largeimage">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensions</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsSmall</include>
+      <texture background="true">DefaultVideo.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <info>ListItem.Icon</info>
+      <fadetime>500</fadetime>
+    </control>
+  </include>
+  <!-- Movie DVD -->
+  <include name="FullscreenWallIconDVD">
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
+      <texture>Wall/boxes/FullscreenWall_movie_nfborder.png</texture>
+      <aspectratio scalediffuse="false">stretch</aspectratio>
+    </control>
+    <control type="largeimage">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
+      <texture background="true" diffuse="Wall/boxes/FullscreenWall_movie_mask.png">DefaultVideo.png</texture>
+      <aspectratio scalediffuse="false">stretch</aspectratio>
+      <info>ListItem.Icon</info>
+      <fadetime>500</fadetime>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
+      <texture>Wall/boxes/FullscreenWall_nfoverlay.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+    </control>
+  </include>
+  <include name="FullscreenWallIconDVDFocus">
+    <!--########################################################-->
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
+      <texture>Wall/boxes/FullscreenWall_movie_nfborder.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVDSmall</include>
+    </control>
+    <control type="largeimage">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
+      <texture background="true" diffuse="Wall/boxes/FullscreenWall_movie_mask.png">DefaultVideo.png</texture>
+      <aspectratio scalediffuse="false">stretch</aspectratio>
+      <info>ListItem.Icon</info>
+      <fadetime>500</fadetime>
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVDSmall</include>
+    </control>
+    <control type="image">
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
+      <texture>Wall/boxes/FullscreenWall_nfoverlay.png</texture>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVD</include>
+      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVDSmall</include>
+    </control>
+  </include>
+  <include name="FullscreenWallInfoPaneTopLeft">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>Wall/info_pane_topleft_title.png</texture>
+  </include>
+  <include name="FullscreenWallInfoPaneMidLeft">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>Wall/info_pane_midleft_title.png</texture>
+  </include>
+  <include name="FullscreenWallInfoPaneBottomLeft">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>Wall/info_pane_bottomleft_title.png</texture>
+  </include>
+  <include name="FullscreenWallInfoPaneTopRight">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>Wall/info_pane_topright_title.png</texture>
+  </include>
+  <include name="FullscreenWallInfoPaneMidRight">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>Wall/info_pane_midright_title.png</texture>
+  </include>
+  <include name="FullscreenWallInfoPaneBottomRight">
+    <posy>-10</posy>
+    <width>442</width>
+    <height>442</height>
+    <texture>Wall/info_pane_bottomright_title.png</texture>
+  </include>
+  <include name="FullscreenWallInfoLabel">
+    <posx>0</posx>
+    <posy>0</posy>
+    <width>187</width>
+    <height>13</height>
+    <font>Font_FullscreenWallInfoLabel</font>
+    <textcolor>abFFFFFF</textcolor>
+  </include>
+  <include name="FullscreenWallInfoPaneMoviesBig">
+    <control type="group">
+      <!-- TopRight -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>185</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="121,0" time="0" condition="Container(54).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="242,0" time="0" condition="Container(54).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="363,0" time="0" condition="Container(54).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="484,0" time="0" condition="Container(54).Column(4)">Conditional</animation>
+      <visible>[Container(54).Column(0) | Container(54).Column(1) | Container(54).Column(2) | Container(54).Column(3)  | Container(54).Column(4)] + Container(54).Row(0)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>FullscreenWallInfoPaneTopRight</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidRight -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>185</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="121,0" time="0" condition="Container(54).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="242,0" time="0" condition="Container(54).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="363,0" time="0" condition="Container(54).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="484,0" time="0" condition="Container(54).Column(4)">Conditional</animation>
+      <visible>[Container(54).Column(0) | Container(54).Column(1) | Container(54).Column(2) | Container(54).Column(3) | Container(54).Column(4)] + [Container(54).Row(1) | Container(54).Row(2)]</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>FullscreenWallInfoPaneMidRight</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomRight -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>185</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="121,0" time="0" condition="Container(54).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="242,0" time="0" condition="Container(54).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="363,0" time="0" condition="Container(54).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="484,0" time="0" condition="Container(54).Column(4)">Conditional</animation>
+      <visible>[Container(54).Column(0) | Container(54).Column(1) | Container(54).Column(2) | Container(54).Column(3) | Container(54).Column(4)] + Container(54).Row(3)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>FullscreenWallInfoPaneBottomRight</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- TopLeft -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>179</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="121,0" time="0" condition="Container(54).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="242,0" time="0" condition="Container(54).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="363,0" time="0" condition="Container(54).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="484,0" time="0" condition="Container(54).Column(9)">Conditional</animation>
+      <visible>[Container(54).Column(5) | Container(54).Column(6) | Container(54).Column(7) | Container(54).Column(8) | Container(54).Column(9)] + Container(54).Row(0)</visible>
+      <control type="image">
+        <include>FullscreenWallInfoPaneTopLeft</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidLeft -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>179</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="121,0" time="0" condition="Container(54).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="242,0" time="0" condition="Container(54).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="363,0" time="0" condition="Container(54).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="484,0" time="0" condition="Container(54).Column(9)">Conditional</animation>
+      <visible>[Container(54).Column(5) | Container(54).Column(6) | Container(54).Column(7) | Container(54).Column(8) | Container(54).Column(9)] + [Container(54).Row(1) | Container(54).Row(2)]</visible>
+      <control type="image">
+        <include>FullscreenWallInfoPaneMidLeft</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomLeft -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>179</posx>
+      <posy>144</posy>
+      <animation effect="slide" start="0,0" end="121,0" time="0" condition="Container(54).Column(6)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="242,0" time="0" condition="Container(54).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="363,0" time="0" condition="Container(54).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="484,0" time="0" condition="Container(54).Column(9)">Conditional</animation>
+      <visible>[Container(54).Column(5) | Container(54).Column(6) | Container(54).Column(7) | Container(54).Column(8) | Container(54).Column(9)] + Container(54).Row(3)</visible>
+      <control type="image">
+        <include>FullscreenWallInfoPaneBottomLeft</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+  </include>
+  <include name="FullscreenWallInfoPaneMoviesSmall">
+    <control type="group">
+      <!-- TopRight -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>165</posx>
+      <posy>104</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(54).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(54).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(54).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(54).Column(4)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(54).Column(5)">Conditional</animation>
+      <visible>[Container(54).Column(0) | Container(54).Column(1) | Container(54).Column(2) | Container(54).Column(3) | Container(54).Column(4) | Container(54).Column(5)] + Container(54).Row(0)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>FullscreenWallInfoPaneTopRight</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidRight -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>165</posx>
+      <posy>71</posy>
+      <animation effect="slide" start="0,0" end="0,145" time="0" condition="Container(54).Row(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(54).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(54).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(54).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(54).Column(4)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(54).Column(5)">Conditional</animation>
+      <visible>[Container(54).Column(0) | Container(54).Column(1) | Container(54).Column(2) | Container(54).Column(3) | Container(54).Column(4) | Container(54).Column(5)] + [Container(54).Row(1) | Container(54).Row(2)]"</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>FullscreenWallInfoPaneMidRight</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomRight -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>165</posx>
+      <posy>185</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(54).Column(1)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(54).Column(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(54).Column(3)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(54).Column(4)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(54).Column(5)">Conditional</animation>
+      <visible>[Container(54).Column(0) | Container(54).Column(1) | Container(54).Column(2) | Container(54).Column(3) | Container(54).Column(4) | Container(54).Column(5)] + Container(54).Row(3)</visible>
+      <control type="image">
+        <posx>-9</posx>
+        <include>FullscreenWallInfoPaneBottomRight</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- TopLeft -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>184</posx>
+      <posy>104</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(54).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(54).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(54).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(54).Column(10)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(54).Column(11)">Conditional</animation>
+      <visible>[Container(54).Column(6) | Container(54).Column(7) | Container(54).Column(8) | Container(54).Column(9) | Container(54).Column(10) | Container(54).Column(11)] + [Container(54).Row(0) | Container(54).Row(1)]</visible>
+      <control type="image">
+        <include>FullscreenWallInfoPaneTopLeft</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- MidLeft -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>184</posx>
+      <posy>71</posy>
+      <animation effect="slide" start="0,0" end="0,145" time="0" condition="Container(54).Row(2)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(54).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(54).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(54).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(54).Column(10)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(54).Column(11)">Conditional</animation>
+      <visible>[Container(54).Column(6) | Container(54).Column(7) | Container(54).Column(8) | Container(54).Column(9) | Container(54).Column(10) | Container(54).Column(11)] + Container(54).Row(2)</visible>
+      <control type="image">
+        <include>FullscreenWallInfoPaneMidLeft</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+    <control type="group">
+      <!-- BottomLeft -->
+      <include>FullscreenWallInfoPaneMoviesVars</include>
+      <posx>184</posx>
+      <posy>185</posy>
+      <animation effect="slide" start="0,0" end="101,0" time="0" condition="Container(54).Column(7)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="202,0" time="0" condition="Container(54).Column(8)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="303,0" time="0" condition="Container(54).Column(9)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="404,0" time="0" condition="Container(54).Column(10)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="505,0" time="0" condition="Container(54).Column(11)">Conditional</animation>
+      <visible>[Container(54).Column(6) | Container(54).Column(7) | Container(54).Column(8) | Container(54).Column(9) | Container(54).Column(10) | Container(54).Column(11)] + [Container(54).Row(3) | Container(54).Row(4)]</visible>
+      <control type="image">
+        <include>FullscreenWallInfoPaneBottomLeft</include>
+      </control>
+      <include>FullscreenWallInfoPaneMovieInfo</include>
+    </control>
+  </include>
+  <include name="FullscreenWallInfoOpenAnimationAuto">
+    <animation type="WindowOpen" reversible="false">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="3085"/>
+      <effect type="fade" start="0" end="100" time="800" delay="3085"/>
+    </animation>
+    <animation type="Visible" reversible="false">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="3085"/>
+      <effect type="fade" start="0" end="100" time="800" delay="3085"/>
+    </animation>
+  </include>
+  <include name="FullscreenWallInfoPaneMoviesVars">
+    <width>442</width>
+    <height>432</height>
+    <include>FullscreenWallInfoOpenAnimationAuto</include>
+    <animation effect="fade" end="0" time="200">WindowClose</animation>
+    <visible>Container.Content(movies) + Control.IsVisible(54) + Control.HasFocus(54) + [Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + !Container.OnPrevious + !Container.OnNext</visible>
+  </include>
+  <include name="FullscreenWallInfoValue">
+    <posx>0</posx>
+    <posy>14</posy>
+    <width>187</width>
+    <height>13</height>
+    <font>Font_FullscreenWallInfoValue</font>
+    <textcolor>FFFFFFFF</textcolor>
+  </include>
+  <include name="FullscreenWallInfoPanelMovieInfoTitle">
+    <control type="group">
+      <control type="label">
+        <posx>0</posx>
+        <posy>-25</posy>
+        <width>394</width>
+        <height>17</height>
+        <align>center</align>
+        <font>Font_FullscreenWallTitleMod</font>
+        <textcolor>cdFFFFFF</textcolor>
+        <label>$INFO[Container(54).ListItem.Title]</label>
+      </control>
+    </control>
+  </include>
+  <include name="FullscreenWallInfoPaneMovieInfo">
+    <control type="group">
+      <posx>19</posx>
+      <posy>25</posy>
+      <include>FullscreenWallInfoPanelMovieInfoTitle</include>
+      <control type="group">
+        <control type="label">
+          <include>FullscreenWallInfoLabel</include>
+          <label>$LOCALIZE[31402]:</label>
+        </control>
+        <control type="label">
+          <include>FullscreenWallInfoValue</include>
+          <label fallback="31425">$INFO[Container(54).ListItem.Director]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>38</posy>
+        <control type="label">
+          <include>FullscreenWallInfoLabel</include>
+          <label>$LOCALIZE[31401]:</label>
+        </control>
+        <control type="label">
+          <include>FullscreenWallInfoValue</include>
+          <label fallback="31425">$INFO[Container(54).ListItem.Writer]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>76</posy>
+        <control type="label">
+          <include>FullscreenWallInfoLabel</include>
+          <label>$LOCALIZE[31436]:</label>
+        </control>
+        <control type="label">
+          <include>FullscreenWallInfoValue</include>
+          <label fallback="31425">$INFO[Container(54).ListItem.Year]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posx>208</posx>
+        <control type="label">
+          <include>FullscreenWallInfoLabel</include>
+          <label>$LOCALIZE[31709]:</label>
+        </control>
+        <control type="label">
+          <include>FullscreenWallInfoValue</include>
+          <label fallback="31425">$INFO[Container(54).ListItem.Duration] $LOCALIZE[12391]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>38</posy>
+        <posx>208</posx>
+        <control type="label">
+          <include>FullscreenWallInfoLabel</include>
+          <label>$LOCALIZE[31417]:</label>
+        </control>
+        <control type="label">
+          <include>FullscreenWallInfoValue</include>
+          <label fallback="31425">$INFO[Container(54).ListItem.MPAA]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>76</posy>
+        <posx>208</posx>
+        <control type="label">
+          <include>FullscreenWallInfoLabel</include>
+          <label>$LOCALIZE[31408]:</label>
+        </control>
+        <control type="label">
+          <include>FullscreenWallInfoValue</include>
+          <label fallback="31425">$INFO[Container(54).ListItem.RatingAndVotes]</label>
+        </control>
+      </control>
+      <control type="textbox">
+        <posy>113</posy>
+        <posx>0</posx>
+        <width>395</width>
+        <height>128</height>
+        <font>Font_FullscreenWallPlot</font>
+        <info>Container(54).ListItem.Plot</info>
+        <textcolor>d0FFFFFF</textcolor>
+        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+      </control>
+      <control type="group">
+        <posx>4</posx>
+        <posy>259</posy>
+        <control type="image">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>187</width>
+          <height>113</height>
+          <texture>common/black.png</texture>
+          <colordiffuse>94FFFFFF</colordiffuse>
+        </control>
+        <control type="largeimage">
+          <posx>1</posx>
+          <posy>1</posy>
+          <width>185</width>
+          <height>111</height>
+          <aspectratio>scale</aspectratio>
+          <texture>$INFO[Container(54).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
+        </control>
+        <control type="image">
+          <posx>200</posx>
+          <posy>0</posy>
+          <width>187</width>
+          <height>113</height>
+          <texture>common/black.png</texture>
+          <colordiffuse>94FFFFFF</colordiffuse>
+        </control>
+        <control type="largeimage">
+          <posx>201</posx>
+          <posy>1</posy>
+          <width>185</width>
+          <height>111</height>
+          <aspectratio>scale</aspectratio>
+          <texture>$INFO[Container(54).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+        </control>
+      </control>
+    </control>
+  </include>
+  <include name="MusicFullscreenWallIconDimensions">
+    <posx>0</posx>
+    <posy>0</posy>
+    <width>137</width>
+    <height>137</height>
+  </include>
+  <include name="MusicFullscreenWallIconDimensionsSmall">
+    <posx>0</posx>
+    <posy>0</posy>
+    <width>102</width>
+    <height>102</height>
+  </include>
+  <include name="FullscreenWallIconMovieDimensions">
+    <posx>47</posx>
+    <posy>3</posy>
+    <width>121</width>
+    <height>179</height>
+  </include>
+  <include name="FullscreenWallIconMovieDimensionsSmall">
+    <posx>53</posx>
+    <posy>50</posy>
+    <width>99</width>
+    <height>145</height>
+  </include>
+  <include name="FullscreenWallLabelVars">
+    <posx>0</posx>
+    <posy>0</posy>
+    <width>440</width>
+    <height>20</height>
+    <font>Font_FullscreenWallLabelMain</font>
+    <include>Animation_CommonFadeIn</include>
+  </include>
+  <include name="MusicFullscreenWall">
+    <control type="panel" id="54">
+      <viewtype label="BIG WALL">icon</viewtype>
+      <visible>
+        Window.IsActive(pictures) | 
+        Window.IsActive(musicplaylist) | 
+        Window.IsActive(musicfiles) |
+        [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]
+      </visible>
+      <posx>0</posx>
+      <width>1280</width>
+      <posy>0</posy>
+      <height>602</height>
+      <scrolltime>200</scrolltime>
+      <preloaditems>2</preloaditems>
+      <onleft>54</onleft>
+      <onright>54</onright>
+      <onup>7000</onup>
+      <ondown>60</ondown>
+      <orientation>horizontal</orientation>
+      <pagecontrol>60</pagecontrol>
+      <animation effect="slide" start="0,0" end="0,-30" time="0" condition="!Skin.HasSetting(smallmusicFullscreenWall)">Conditional</animation>
+      <itemlayout width="146" height="140" condition="!Skin.HasSetting(smallmusicFullscreenWall)">
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <bordertexture border="-3">Wall/Wall_nfborder.png</bordertexture>
+          <texture>Wall/Wall_nfoverlay.png</texture>
+        </control>
+      </itemlayout>
+      <focusedlayout width="146" height="140" condition="!Skin.HasSetting(smallmusicFullscreenWall)">
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <include>MusicFullscreenWallIconZoomAnimation</include>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+          <include>MusicFullscreenWallIconZoomAnimation</include>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <include>MusicFullscreenWallIconZoomAnimation</include>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+          <include>MusicFullscreenWallIconZoomAnimation</include>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <bordertexture border="-3">Wall/Wall_nfborder.png</bordertexture>
+          <texture>Wall/Wall_nfoverlay.png</texture>
+          <include>MusicFullscreenWallIconZoomAnimation</include>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensions</include>
+          <bordertexture border="-8">Wall/Wall_fborder.png</bordertexture>
+          <texture>common/blank.png</texture>
+          <include>MusicFullscreenWallIconZoomAnimation</include>
+        </control>
+      </focusedlayout>
+      <itemlayout width="108" height="106" condition="Skin.HasSetting(smallmusicFullscreenWall)">
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+          <visible>IsEmpty(ListItem.Icon)</visible>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <visible>IsEmpty(ListItem.Icon)</visible>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <bordertexture border="-3">Wall/Wall_nfborder.png</bordertexture>
+          <texture>Wall/Wall_nfoverlay.png</texture>
+        </control>	
+      </itemlayout>
+      <focusedlayout width="108" height="106" condition="Skin.HasSetting(smallmusicFullscreenWall)">
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>Window.IsActive(pictures)</visible>
+          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
+        </control>
+        <control type="largeimage">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <info>ListItem.Icon</info>
+          <fadetime>500</fadetime>
+          <visible>Window.IsActive(pictures)</visible>
+          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <bordertexture border="-3">Wall/Wall_nfborder.png</bordertexture>
+          <texture>Wall/Wall_nfoverlay.png</texture>
+          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
+        </control>
+        <control type="image">
+          <include>MusicFullscreenWallIconDimensionsSmall</include>
+          <bordertexture border="-5">Wall/Wall_fborder.png</bordertexture>
+          <texture>common/blank.png</texture>
+          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
+        </control>
+      </focusedlayout>
+    </control>
+  </include>
+  <include name="MovieFullscreenWall">
+    <control type="panel" id="54">
+      <viewtype label="BIG WALL">icon</viewtype>
+      <visible>
+        Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) |
+        [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(genres) + !Container.Content(years) + !Container.Content()]</visible>
+      <posx>-15</posx>
+      <posy>-50</posy>
+      <width>1295</width>
+      <height>790</height>
+      <scrolltime>200</scrolltime>
+      <preloaditems>2</preloaditems>
+      <onleft>54</onleft>
+      <onright>54</onright>
+      <onup>7000</onup>
+      <ondown>60</ondown>
+      <orientation>horizontal</orientation>
+      <pagecontrol>60</pagecontrol>
+      <animation effect="slide" start="0,0" end="0,50" time="0" condition="!Skin.HasSetting(smallmovieFullscreenWall)">Conditional</animation>
+      <itemlayout width="121" height="179" condition="!Skin.HasSetting(smallmovieFullscreenWall)">
+        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <control type="image">
+          <posx>124</posx>
+          <posy>2</posy>
+          <width>40</width>
+          <height>40</height>
+          <include>detailcolornofocus</include>
+          <visible>!IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(notvoverlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(nomovieoverlays) + Skin.HasSetting(videomovies)]]</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>   
+        <control type="image">
+          <include>FullscreenWallIconMovieDimensions</include>
+          <texture>common/black.png</texture>
+          <colordiffuse>C3FFFFFF</colordiffuse>
+        </control>        
+      </itemlayout>
+      <focusedlayout width="121" height="179" condition="!Skin.HasSetting(smallmovieFullscreenWall)">
+        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormalFocus</include>
+        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <control type="image">
+          <posx>124</posx>
+          <posy>2</posy>
+          <width>40</width>
+          <height>40</height>
+          <include>detailcolornofocus</include>
+          <visible>!IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(notvoverlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(nomovieoverlays) + Skin.HasSetting(videomovies)]]</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">MovieFullscreenWallIconZoomAnimation</include>
+          <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconZoomAnimationDVD</include>
+        </control>
+      </focusedlayout>
+      <itemlayout width="101" height="145" condition="Skin.HasSetting(smallmovieFullscreenWall)">
+        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <control type="image">
+          <posx>115</posx>
+          <posy>52</posy>
+          <width>35</width>
+          <height>35</height>
+          <include>detailcolornofocus</include>
+          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+          <visible>!IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(notvoverlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(nomovieoverlays) + Skin.HasSetting(videomovies)]]</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+        </control>
+        <control type="image">
+          <include>FullscreenWallIconMovieDimensionsSmall</include>
+          <texture>common/black.png</texture>
+          <visible>!Skin.HasSetting(nodarkfullscreenwall)</visible>
+          <colordiffuse>C3FFFFFF</colordiffuse>
+          <include>Animation_VisibleChange400</include>
+        </control>  
+      </itemlayout>
+      <focusedlayout width="101" height="145" condition="Skin.HasSetting(smallmovieFullscreenWall)">
+        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormalFocus</include>
+        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <control type="image">
+          <posx>115</posx>
+          <posy>52</posy>
+          <width>35</width>
+          <height>35</height>
+          <include>detailcolornofocus</include>
+          <visible>!IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(notvoverlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(nomovieoverlays) + Skin.HasSetting(videomovies)]]</visible>
+          <texture>showcase/$INFO[ListItem.Overlay]</texture>
+          <include condition="!Skin.HasSetting(dvdcase)">MovieFullscreenWallIconZoomAnimationSmall</include>
+          <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconZoomAnimationDVDSmall</include>
+          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+        </control>
+      </focusedlayout>
+    </control>
+  </include>
+  <include name="Viewtype_FullscreenWall">
+    <include condition="[Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]">MusicFullscreenWall</include>
+    <include condition="[Window.IsActive(scripts) | Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">MovieFullscreenWall</include>
+    <control type="label" id="217">
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1280</width>
+      <height>720</height>
+      <font>Font_List</font>
+      <align>center</align>
+      <aligny>center</aligny>
+      <textcolor>98FFFFFF</textcolor>
+      <include condition="Window.IsActive(videolibrary)">EmptyLibraryLabelMovies</include>
+      <include condition="Window.IsActive(musiclibrary)">EmptyLibraryLabelMusic</include>
+      <include>Animation_CommonFade</include>
+      <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + Control.IsVisible(54) + stringcompare(container(54).numitems,0)</visible>
+    </control>
+    <include condition="!Skin.HasSetting(smallmovieFullscreenWall) + !Skin.HasSetting(FullscreenWallinfooff)">FullscreenWallInfoPaneMoviesBig</include>
+    <include condition="Skin.HasSetting(smallmovieFullscreenWall) + !Skin.HasSetting(FullscreenWallinfooff)">FullscreenWallInfoPaneMoviesSmall</include>
+    <control type="scrollbar" id="60">
+      <description>For Scrolling</description>
+      <posx>67</posx>
+      <posy>663</posy>
+      <width>1147</width>
+      <height>41</height>
+      <visible allowhiddenfocus="true">Control.IsVisible(54) + Control.HasFocus(60)</visible>
+      <texturesliderbackground>stripshow/stripshow_scrollbar.png</texturesliderbackground>
+      <texturesliderbar>-</texturesliderbar>
+      <texturesliderbarfocus>-</texturesliderbarfocus>
+      <textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+      <textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+      <pulseonselect/>
+      <orientation>horizontal</orientation>
+      <showonepage>false</showonepage>
+      <onup>54</onup>
+      <ondown>7000</ondown>
+      <onleft>60</onleft>
+      <onright>60</onright>
+      <include>Animation_CommonFade</include>
+      <include>Animation_HideMultiplex</include>
+    </control>
+  </include>
+</includes>

@@ -333,6 +333,33 @@
       <visible>Control.IsVisible(53)</visible>
     </control>
   </include>
+  <include name="MediaMenuButton_FullScreenWall">
+    <control type="radiobutton" id="30008">
+      <include>MediaMenuRadioButton</include>
+      <label>SMALL ICONS</label>
+      <onclick>Skin.ToggleSetting(smallmoviefullscreenwall)</onclick>
+      <onclick>ReloadSkin</onclick>
+      <onright>50</onright>
+      <selected>Skin.HasSetting(smallmoviefullscreenwall)</selected>
+      <visible>Control.IsVisible(54) + Window.IsActive(videolibrary)</visible>
+    </control>
+    <control type="radiobutton" id="30009">
+      <include>MediaMenuRadioButton</include>
+      <label>$LOCALIZE[31076]: $LOCALIZE[31074]</label>
+      <onclick>Skin.ToggleSetting(smallmusicfullscreenwall)</onclick>
+      <onclick>ReloadSkin</onclick>
+      <selected>Skin.HasSetting(smallmusicfullscreenwall)</selected>
+      <visible>Control.IsVisible(54)</visible>
+      <visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Container.Content(episodes)]]</visible>
+    </control>
+    <control type="radiobutton" id="30010">
+      <label>DARK OVERLAY</label>
+      <include>MediaMenuRadioButton</include>
+      <onclick>Skin.ToggleSetting(nodarkfullscreenwall)</onclick>
+      <selected>!Skin.HasSetting(nodarkfullscreenwall)</selected>
+      <visible>Control.IsVisible(54)</visible>
+    </control>
+  </include>
   <include name="MediaMenuButton_Overlay">
     <control type="radiobutton" id="700038">
       <include>MediaMenuRadioButton</include>
@@ -865,6 +892,7 @@
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Overlay</include>
         <include>MediaMenuButton_StackButton</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Wall</include>
+        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_FullScreenWall</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_LargeList</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Files</include>
         <include>MediaMenuButton_Watched</include>
