@@ -883,7 +883,7 @@
           <include>OldMultiplexSeasonOverlayWrap</include>
           <texture>common/black.png</texture>
           <colordiffuse>b6FFFFFF</colordiffuse>
-          <visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+          <visible>[Container.Content(seasons) | Container.Content(episodes)] + !substring(ListItem.label,..)</visible>
         </control>
         <control type="label">
           <posx>115</posx>
@@ -894,7 +894,7 @@
           <aligny>center</aligny>
           <font>Font_MultiplexSeasonLabelOld</font>
           <label>$INFO[ListItem.Label]</label>
-          <visible>Container.Content(seasons)</visible>
+          <visible>Container.Content(seasons)  + !substring(Container.ListItem.Label,..,left)</visible>
           <animation effect="zoom" center="115,100" start="80" end="80" time="0" condition="true">Conditional</animation>
         </control>
         <control type="label">
@@ -907,12 +907,12 @@
           <font>Font_MultiplexSeasonLabelOld</font>
           <label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
           <animation effect="zoom" center="115,100" start="80" end="80" time="0" condition="true">Conditional</animation>
-          <visible>Container.Content(episodes)</visible>
+          <visible>Container.Content(episodes) + !substring(ListItem.label,..)</visible>
         </control>
         <control type="image">
           <include>OldMultiplexSeasonOverlayWrap</include>
           <texture>multiplex/old/multiplex_seasongradient.png</texture>
-          <visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+          <visible>[Container.Content(seasons) | Container.Content(episodes)]  + !substring(Container.ListItem.Label,..,left)</visible>
         </control>
         <control type="image">
           <include>OldMultiplexIconDimensionsTVWrap</include>
@@ -924,6 +924,7 @@
           <include>OldMultiplexIconDimensionsTVWrap</include>
           <texture>common/black.png</texture>
           <colordiffuse>58FFFFFF</colordiffuse>
+          <visible>!substring(ListItem.label,..)</visible>
         </control>
         <control type="image">
           <posx>181</posx>
@@ -953,7 +954,7 @@
           <texture>common/black.png</texture>
           <colordiffuse>b6FFFFFF</colordiffuse>
           <animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-          <visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+          <visible>[Container.Content(seasons) | Container.Content(episodes)] + !substring(ListItem.label,..)</visible>
         </control>
         <control type="label">
           <posx>115</posx>
@@ -966,7 +967,7 @@
           <label>$INFO[ListItem.Label]</label>
           <animation effect="zoom" center="115,100" start="80" end="100" time="205" reversible="false">Focus</animation>
           <animation effect="zoom" center="115,100" start="100" end="80" reversible="false">UnFocus</animation>
-          <visible>Container.Content(seasons)</visible>
+          <visible>Container.Content(seasons) + !substring(ListItem.label,..)</visible>
         </control>
         <control type="label">
           <posx>115</posx>
@@ -979,7 +980,7 @@
           <label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
           <animation effect="zoom" center="115,100" start="80" end="100" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
           <animation effect="zoom" center="115,100" start="100" end="80" time="400" easing="in" tween="cubic" reversible="false">UnFocus</animation>
-          <visible>Container.Content(episodes)</visible>
+          <visible>Container.Content(episodes) + !substring(ListItem.label,..)</visible>
         </control>
         <control type="image">
           <include>OldMultiplexSeasonOverlayWrap</include>
