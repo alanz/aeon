@@ -580,16 +580,16 @@
     </control>
   </include>
   <include name="MusicFullscreenWallIconDimensions">
-    <posx>0</posx>
+    <posx>30</posx>
     <posy>0</posy>
-    <width>137</width>
-    <height>137</height>
+    <width>180</width>
+    <height>180</height>
   </include>
   <include name="MusicFullscreenWallIconDimensionsSmall">
-    <posx>0</posx>
-    <posy>0</posy>
-    <width>102</width>
-    <height>102</height>
+    <posx>70</posx>
+    <posy>1</posy>
+    <width>146</width>
+    <height>144</height>
   </include>
   <include name="FullscreenWallIconMovieDimensions">
     <posx>47</posx>
@@ -620,10 +620,10 @@
         Window.IsActive(musicfiles) |
         [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]
       </visible>
-      <posx>0</posx>
-      <width>1280</width>
+      <posx>-20</posx>
+      <width>1300</width>
       <posy>0</posy>
-      <height>602</height>
+      <height>730</height>
       <scrolltime>200</scrolltime>
       <preloaditems>2</preloaditems>
       <onleft>54</onleft>
@@ -632,23 +632,10 @@
       <ondown>60</ondown>
       <orientation>horizontal</orientation>
       <pagecontrol>60</pagecontrol>
-      <animation effect="slide" start="0,0" end="0,-30" time="0" condition="!Skin.HasSetting(smallmusicFullscreenWall)">Conditional</animation>
-      <itemlayout width="146" height="140" condition="!Skin.HasSetting(smallmusicFullscreenWall)">
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensions</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-        </control>
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensions</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(pictures)</visible>
-        </control>
+      <itemlayout width="180" height="180" condition="!Skin.HasSetting(smallmusicFullscreenWall)">
         <control type="largeimage">
           <include>MusicFullscreenWallIconDimensions</include>
-          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <texture background="true">DefaultPicture.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -656,7 +643,7 @@
         </control>
         <control type="largeimage">
           <include>MusicFullscreenWallIconDimensions</include>
-          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <texture background="true">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -664,25 +651,11 @@
         </control>
         <control type="image">
           <include>MusicFullscreenWallIconDimensions</include>
-          <bordertexture border="-3">Wall/Wall_nfborder.png</bordertexture>
-          <texture>Wall/Wall_nfoverlay.png</texture>
-        </control>
+          <texture>common/black.png</texture>
+          <colordiffuse>C3FFFFFF</colordiffuse>
+        </control> 
       </itemlayout>
-      <focusedlayout width="146" height="140" condition="!Skin.HasSetting(smallmusicFullscreenWall)">
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensions</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-          <include>MusicFullscreenWallIconZoomAnimation</include>
-        </control>
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensions</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(pictures)</visible>
-          <include>MusicFullscreenWallIconZoomAnimation</include>
-        </control>
+      <focusedlayout width="180" height="180" condition="!Skin.HasSetting(smallmusicFullscreenWall)">
         <control type="largeimage">
           <include>MusicFullscreenWallIconDimensions</include>
           <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
@@ -714,24 +687,10 @@
           <include>MusicFullscreenWallIconZoomAnimation</include>
         </control>
       </focusedlayout>
-      <itemlayout width="108" height="106" condition="Skin.HasSetting(smallmusicFullscreenWall)">
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensionsSmall</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(pictures)</visible>
-          <visible>IsEmpty(ListItem.Icon)</visible>
-        </control>
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensionsSmall</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-          <visible>IsEmpty(ListItem.Icon)</visible>
-        </control>
+      <itemlayout width="146" height="144" condition="Skin.HasSetting(smallmusicFullscreenWall)">
         <control type="largeimage">
           <include>MusicFullscreenWallIconDimensionsSmall</include>
-          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
+          <texture background="true">DefaultPicture.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -739,7 +698,7 @@
         </control>
         <control type="largeimage">
           <include>MusicFullscreenWallIconDimensionsSmall</include>
-          <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
+          <texture background="true">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
@@ -747,25 +706,11 @@
         </control>
         <control type="image">
           <include>MusicFullscreenWallIconDimensionsSmall</include>
-          <bordertexture border="-3">Wall/Wall_nfborder.png</bordertexture>
-          <texture>Wall/Wall_nfoverlay.png</texture>
-        </control>	
+          <texture>common/black.png</texture>
+          <colordiffuse>C3FFFFFF</colordiffuse>
+        </control> 
       </itemlayout>
-      <focusedlayout width="108" height="106" condition="Skin.HasSetting(smallmusicFullscreenWall)">
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensionsSmall</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
-        </control>
-        <control type="image">
-          <include>MusicFullscreenWallIconDimensionsSmall</include>
-          <texture diffuse="Wall/Wall_mask.png">DefaultPicture.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(pictures)</visible>
-          <include>MusicFullscreenWallIconZoomAnimationSmall</include>
-        </control>
+      <focusedlayout width="146" height="144" condition="Skin.HasSetting(smallmusicFullscreenWall)">
         <control type="largeimage">
           <include>MusicFullscreenWallIconDimensionsSmall</include>
           <texture background="true" diffuse="Wall/Wall_mask.png">DefaultAudio.png</texture>
