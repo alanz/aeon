@@ -640,12 +640,7 @@
   <include name="MusicWall">
     <control type="panel" id="53">
       <viewtype label="31750">icon</viewtype>
-      <visible>
-        Window.IsActive(pictures) | 
-        Window.IsActive(musicplaylist) | 
-        Window.IsActive(musicfiles) |
-        [Window.IsActive(musiclibrary) + [Container.Content(albums) | Container.Content(artists)]]
-      </visible>
+      <visible>![Window.IsActive(musiclibrary) + [Container.Content(songs) | Container.Content()]]</visible>
       <posx>0</posx>
       <width>1280</width>
       <posy>93</posy>
@@ -660,18 +655,6 @@
       <pagecontrol>60</pagecontrol>
       <animation effect="slide" start="0,0" end="0,-30" time="0" condition="!Skin.HasSetting(smallmusicwall)">Conditional</animation>
       <itemlayout width="146" height="140" condition="!Skin.HasSetting(smallmusicwall)">
-        <control type="image">
-          <include>MusicWallIconDimensions</include>
-          <texture diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-        </control>
-        <control type="image">
-          <include>MusicWallIconDimensions</include>
-          <texture diffuse="wall/wall_mask.png">DefaultPicture.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(pictures)</visible>
-        </control>
         <control type="largeimage">
           <include>MusicWallIconDimensions</include>
           <texture background="true" diffuse="wall/wall_mask.png">DefaultPicture.png</texture>
@@ -686,7 +669,7 @@
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <visible>!Window.IsActive(pictures)</visible>
         </control>
         <control type="image">
           <include>MusicWallIconDimensions</include>
@@ -705,27 +688,13 @@
 				</control>
       </itemlayout>
       <focusedlayout width="146" height="140" condition="!Skin.HasSetting(smallmusicwall)">
-        <control type="image">
-          <include>MusicWallIconDimensions</include>
-          <texture diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
-          <include>MusicWallIconZoomAnimation</include>
-        </control>
-        <control type="image">
-          <include>MusicWallIconDimensions</include>
-          <texture diffuse="wall/wall_mask.png">DefaultPicture.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>Window.IsActive(pictures)</visible>
-          <include>MusicWallIconZoomAnimation</include>
-        </control>
         <control type="largeimage">
           <include>MusicWallIconDimensions</include>
           <texture background="true" diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <info>ListItem.Icon</info>
           <fadetime>500</fadetime>
-          <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Container.Content(episodes)</visible>
+          <visible>!Window.IsActive(pictures)</visible>
           <include>MusicWallIconZoomAnimation</include>
         </control>
         <control type="largeimage">
@@ -1049,8 +1018,8 @@
     </control>
   </include>
   <include name="Viewtype_Wall">
-    <include condition="[Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]">MusicWall</include>
-    <include condition="[Window.IsActive(scripts) | Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)]">MovieWall</include>
+    <include condition="Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(musicvideos)]">MusicWall</include>
+    <include condition="[Window.IsActive(scripts) | Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(musicvideos)]]">MovieWall</include>
     <include>Furniture_FloorText</include>
     <control type="label" id="217">
       <posx>0</posx>

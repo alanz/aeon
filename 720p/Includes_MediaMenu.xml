@@ -314,7 +314,7 @@
       <onclick>ReloadSkin</onclick>
       <onright>50</onright>
       <selected>Skin.HasSetting(smallmoviewall)</selected>
-      <visible>Control.IsVisible(53) + Window.IsActive(videolibrary)</visible>
+      <visible>Control.IsVisible(53) + [Window.IsActive(videolibrary) + ![Container.Content(episodes) | Skin.HasSetting(musicvideos)]]</visible>
     </control>
     <control type="radiobutton" id="700036">
       <include>MediaMenuRadioButton</include>
@@ -323,7 +323,7 @@
       <onclick>ReloadSkin</onclick>
       <selected>Skin.HasSetting(smallmusicwall)</selected>
       <visible>Control.IsVisible(53)</visible>
-      <visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | [Window.IsActive(videolibrary) + Container.Content(episodes)]]</visible>
+      <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | [Window.IsActive(videolibrary) + [Container.Content(episodes) | Skin.HasSetting(musicvideos)]]</visible>
     </control>
     <control type="radiobutton" id="700037">
       <label>31114</label>
