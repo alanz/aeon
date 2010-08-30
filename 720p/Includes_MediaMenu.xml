@@ -396,6 +396,15 @@
       <visible>Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)</visible>
     </control>
   </include>
+  <include name="MediaMenuButton_Party">
+    <control type="radiobutton" id="915">
+      <description>PartyMode</description>
+      <include>MediaMenuRadioButton</include>
+      <label>589</label>
+      <onclick>PlayerControl(Partymode(music))</onclick>
+      <visible>Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]]</visible>
+    </control>
+  </include>
   <include name="MediaMenuButton_Files">
     <control type="radiobutton" id="11">
       <label>29800</label>
@@ -425,12 +434,6 @@
     </control>
   </include>
   <include name="MediaMenuButton_Playlist">
-    <control type="radiobutton" id="16">
-      <description>PartyMode</description>
-      <include>MediaMenuRadioButton</include>
-      <label>589</label>
-      <visible>Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]]</visible>
-    </control>
     <control type="radiobutton" id="20">
       <label>313002</label>
       <include>MediaMenuRadioButton</include>
@@ -895,9 +898,10 @@
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_FullScreenWall</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_LargeList</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Files</include>
+        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Party</include>
         <include>MediaMenuButton_Watched</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Setup</include>
-        <include>MediaMenuButton_Playlist</include>
+        <include condition="Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">MediaMenuButton_Playlist</include>
         <include condition="Window.IsActive(musicplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
         <include>MediaMenuButton_MediaDebug</include>
       </control>
