@@ -4372,11 +4372,15 @@
     <include condition="Skin.HasSetting(videotv) + Window.IsActive(videolibrary)">ShowcaseInfoPaneTV</include>
     <include condition="Window.IsActive(musiclibrary)">ShowcaseInfoPaneMusic</include>
     <control type="group">
+      <visible>Control.IsVisible(57)</visible>
+      <include>Animation_VisibleHiddenZoom</include>
       <visible>Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes)] | Window.IsActive(programs)</visible>
       <include condition="Window.IsActive(programs) | Window.IsActive(videofiles) | Window.IsActive(videolibrary)">ShowcaseMovies</include>
       <include>Animation_HideShowcase</include>
     </control>
     <control type="group">
+      <visible>Control.IsVisible(57)</visible>
+      <include>Animation_VisibleHiddenZoom</include>
       <visible>Window.IsActive(scripts) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(musicplaylist) | Window.IsActive(pictures)</visible>
       <include condition="Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">ShowcaseSquare</include>
       <include>Animation_HideShowcase</include>
@@ -4409,6 +4413,7 @@
     </control>
     <control type="group">
       <visible>Control.IsVisible(57)</visible>
+      <include>Animation_VisibleHiddenZoom</include>
       <include condition="Skin.HasSetting(showcasefixedlist)">ShowcaseFixedList</include>
       <include condition="!Skin.HasSetting(showcasefixedlist)">ShowcaseWrapList</include>
       <control type="scrollbar" id="68">

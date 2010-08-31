@@ -413,132 +413,136 @@
     </control>
   </include>
   <include name="Viewtype_Music_Multiplex">
-    <include>Music_MultiplexInfoPane</include>
-    <include>Music_MultiplexBase</include>
-    <control type="wraplist" id="52">
-      <viewtype label="31757">wrap</viewtype>
-      <posx>60</posx>
-      <posy>534</posy>
-      <width>1157</width>
-      <height>169</height>
-      <pagecontrol>60</pagecontrol>
-      <onleft>52</onleft>
-      <onright>52</onright>
-      <onup>7000</onup>
-      <ondown>60</ondown>
-      <orientation>horizontal</orientation>
-      <focusposition>4</focusposition>
-      <scrolltime>200</scrolltime>
-      <include>Music_Animation_HideMultiplex</include>
-      <animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60) | Control.HasFocus(197)">Conditional</animation>
-      <itemlayout width="129" height="129">
-        <control type="image">
-          <posx>0</posx>
-          <posy>20</posy>
-          <width>130</width>
-          <height>129</height>
-          <texture>common/black.png</texture>
-        </control>
-        <control type="image">
-          <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
-          <posx>0</posx>
-          <posy>20</posy>
-          <width>130</width>
-          <height>129</height>
-          <texture>DefaultVideoBig.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-        </control>
-        <include>mod_musicgenre_Multiplex1</include>
-        <control type="image">
-          <posx>0</posx>
-          <posy>20</posy>
-          <width>130</width>
-          <height>129</height>
-          <texture>common/black.png</texture>
-          <colordiffuse>58FFFFFF</colordiffuse>
-        </control>
-      </itemlayout>
-      <focusedlayout width="129" height="129">
-        <control type="image">
-          <posx>0</posx>
-          <posy>20</posy>
-          <width>130</width>
-          <height>129</height>
-          <texture>common/black.png</texture>
-          <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-        </control>
-        <control type="image">
-          <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
-          <posx>0</posx>
-          <posy>20</posy>
-          <width>130</width>
-          <height>129</height>
-          <texture>DefaultVideoBig.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-          <bordertexture border="-28">multiplex2/multiplex2_iconframe.png</bordertexture>
-          <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-        </control>
-        <include>mod_musicgenre_Multiplex2</include>
-      </focusedlayout>
-    </control>
     <control type="group">
-      <control type="label">
-        <posx>50</posx>
-        <posy>447</posy>
-        <width>1180</width>
-        <height>71</height>
-        <aligny>center</aligny>
-        <align>center</align>
-        <font>Font_MultiplexMainLabel</font>
-        <label>$INFO[Container(52).ListItem.Label]</label>
+      <visible>Control.IsVisible(52)</visible>
+      <include>Music_MultiplexInfoPane</include>
+      <include>Music_MultiplexBase</include>
+      <include>Animation_VisibleHiddenZoom</include>
+      <control type="wraplist" id="52">
+        <viewtype label="31757">wrap</viewtype>
+        <posx>60</posx>
+        <posy>534</posy>
+        <width>1157</width>
+        <height>169</height>
+        <pagecontrol>60</pagecontrol>
+        <onleft>52</onleft>
+        <onright>52</onright>
+        <onup>7000</onup>
+        <ondown>60</ondown>
+        <orientation>horizontal</orientation>
+        <focusposition>4</focusposition>
+        <scrolltime>200</scrolltime>
+        <include>Music_Animation_HideMultiplex</include>
+        <animation effect="slide" start="0,0" end="0,-15" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(60) | Control.HasFocus(197)">Conditional</animation>
+        <itemlayout width="129" height="129">
+          <control type="image">
+            <posx>0</posx>
+            <posy>20</posy>
+            <width>130</width>
+            <height>129</height>
+            <texture>common/black.png</texture>
+          </control>
+          <control type="image">
+            <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
+            <posx>0</posx>
+            <posy>20</posy>
+            <width>130</width>
+            <height>129</height>
+            <texture>DefaultVideoBig.png</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <info>ListItem.Icon</info>
+          </control>
+          <include>mod_musicgenre_Multiplex1</include>
+          <control type="image">
+            <posx>0</posx>
+            <posy>20</posy>
+            <width>130</width>
+            <height>129</height>
+            <texture>common/black.png</texture>
+            <colordiffuse>58FFFFFF</colordiffuse>
+          </control>
+        </itemlayout>
+        <focusedlayout width="129" height="129">
+          <control type="image">
+            <posx>0</posx>
+            <posy>20</posy>
+            <width>130</width>
+            <height>129</height>
+            <texture>common/black.png</texture>
+            <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+          </control>
+          <control type="image">
+            <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
+            <posx>0</posx>
+            <posy>20</posy>
+            <width>130</width>
+            <height>129</height>
+            <texture>DefaultVideoBig.png</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <info>ListItem.Icon</info>
+            <bordertexture border="-28">multiplex2/multiplex2_iconframe.png</bordertexture>
+            <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+          </control>
+          <include>mod_musicgenre_Multiplex2</include>
+        </focusedlayout>
+      </control>
+      <control type="group">
+        <control type="label">
+          <posx>50</posx>
+          <posy>447</posy>
+          <width>1180</width>
+          <height>71</height>
+          <aligny>center</aligny>
+          <align>center</align>
+          <font>Font_MultiplexMainLabel</font>
+          <label>$INFO[Container(52).ListItem.Label]</label>
+          <include>Music_Animation_HideMultiplex</include>
+        </control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>462</posy>
+          <width>1280</width>
+          <height>56</height>
+          <texture>multiplex/multiplex_gradient.png</texture>
+          <include>Music_Animation_HideMultiplex</include>
+          <visible>Control.IsVisible(52)</visible>
+          <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
+        </control>
+      </control>
+      <control type="scrollbar" id="60">
+        <description>My first scroll bar control</description>
+        <posx>67</posx>
+        <posy>673</posy>
+        <width>1147</width>
+        <height>41</height>
+        <visible allowhiddenfocus="true">Control.IsVisible(52) + Control.HasFocus(60) + !Control.IsVisible(105)</visible>
+        <texturesliderbackground>stripshow/stripshow_scrollbar.png</texturesliderbackground>
+        <texturesliderbar>-</texturesliderbar>
+        <texturesliderbarfocus>-</texturesliderbarfocus>
+        <textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
+        <textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
+        <pulseonselect/>
+        <orientation>horizontal</orientation>
+        <showonepage>false</showonepage>
+        <onup>52</onup>
+        <ondown>197</ondown>
+        <onleft>60</onleft>
+        <onright>60</onright>
+        <animation effect="fade" start="0" end="100" time="200">Visible</animation>
         <include>Music_Animation_HideMultiplex</include>
       </control>
-      <control type="image">
+      <control type="button" id="197">
         <posx>0</posx>
-        <posy>462</posy>
-        <width>1280</width>
-        <height>56</height>
-        <texture>multiplex/multiplex_gradient.png</texture>
-        <include>Music_Animation_HideMultiplex</include>
-        <visible>Control.IsVisible(52)</visible>
-        <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
+        <posy>0</posy>
+        <width>0</width>
+        <height>0</height>
+        <texturefocus>-</texturefocus>
+        <texturenofocus>-</texturenofocus>
+        <onleft>52</onleft>
+        <onright>52</onright>
+        <onup>52</onup>
+        <ondown>52</ondown>
       </control>
-    </control>
-    <control type="scrollbar" id="60">
-      <description>My first scroll bar control</description>
-      <posx>67</posx>
-      <posy>673</posy>
-      <width>1147</width>
-      <height>41</height>
-      <visible allowhiddenfocus="true">Control.IsVisible(52) + Control.HasFocus(60) + !Control.IsVisible(105)</visible>
-      <texturesliderbackground>stripshow/stripshow_scrollbar.png</texturesliderbackground>
-      <texturesliderbar>-</texturesliderbar>
-      <texturesliderbarfocus>-</texturesliderbarfocus>
-      <textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
-      <textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
-      <pulseonselect/>
-      <orientation>horizontal</orientation>
-      <showonepage>false</showonepage>
-      <onup>52</onup>
-      <ondown>197</ondown>
-      <onleft>60</onleft>
-      <onright>60</onright>
-      <animation effect="fade" start="0" end="100" time="200">Visible</animation>
-      <include>Music_Animation_HideMultiplex</include>
-    </control>
-    <control type="button" id="197">
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>0</width>
-      <height>0</height>
-      <texturefocus>-</texturefocus>
-      <texturenofocus>-</texturenofocus>
-      <onleft>52</onleft>
-      <onright>52</onright>
-      <onup>52</onup>
-      <ondown>52</ondown>
     </control>
   </include>
 </includes>
