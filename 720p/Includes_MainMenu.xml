@@ -5,12 +5,10 @@
     <onclick>Skin.SetBool(videotv)</onclick>
     <onclick>Skin.Reset(videomovies)</onclick>
     <onclick>Skin.Reset(musicvideos)</onclick>
-    <onclick>Skin.SetBool(trigger)</onclick>
   </include>
   <include name="Movie_Link">
     <onclick>Skin.SetBool(videomovies)</onclick>
     <onclick>Skin.Reset(videotv)</onclick>
-    <onclick>Skin.SetBool(trigger)</onclick>
     <onclick>Skin.Reset(musicvideos)</onclick>
   </include>
   <!-- latest addition movies/musics/tv series plugin for the main menu-->
@@ -112,8 +110,7 @@
           <description>Music</description>
           <label>31010</label>
           <include>BackgroundVarsMusic</include>
-          <onclick>Skin.SetBool(trigger)</onclick>
-          <onclick>ActivateWindow(MyMusic,return)</onclick>
+          <onclick>ActivateWindow(musiclibrary)</onclick>
           <visible>!Skin.HasSetting(nomusic)</visible>
         </item>
         <item id="2">
@@ -193,13 +190,6 @@
           <onclick>ActivateWindow(musicplaylist)</onclick>
           <visible>Player.HasAudio</visible>
         </item>
-		<item id="12">
-		    <!--Video/Movie Playlist-->
-		    <label>Playlist</label>
-		    <include>BackgroundVarsMovies</include>
-		    <onclick>ActivateWindow(videoplaylist)</onclick>
-		    <visible>Player.HasVideo</visible>
-		</item>		
         <item id="13">
           <!--DVD-->
           <description>Play DVD</description>

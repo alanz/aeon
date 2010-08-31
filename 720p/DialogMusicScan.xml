@@ -7,8 +7,6 @@
     <posx>0</posx>
     <posy>0</posy>
   </coordinates>
-  <include>Animation_VisibleHiddenZoom</include>
-  <include>Animation_OpenCloseZoom</include>
   <controls>
     <control type="button" id="1111">
       <posx>-10</posx>
@@ -20,11 +18,7 @@
       <onfocus>Skin.SetBool(LibraryUpdated)</onfocus>
     </control>
     <control type="group">
-      <animation effect="slide" end="0,425" time="400" easing="inout" tween="cubic" condition="Window.IsActive(Home) + !Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
-      <animation effect="zoom" start="100" end="60" time="800" easing="inout" tween="circle" condition="Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)">Conditional</animation>
-      <animation effect="slide" end="280,-60" time="800" easing="inout" tween="circle" condition="Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)">Conditional</animation>
-      <animation effect="slide" end="0,-600" time="400" easing="inout" tween="circle" condition="Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(slideshow)">Conditional</animation>
-      <animation effect="fade" start="100" end="0" time="200" condition="Skin.HasSetting(trigger)" revertible="false">Conditional</animation>
+      <include>Animations_ScanDialog</include>
       <posx>760</posx>
       <posy>38</posy>
       <width>509</width>
