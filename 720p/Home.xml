@@ -5,13 +5,8 @@
   <controls>
     <control type="button" id="5043">
       <description>visible at startup</description>
-      <posx>-20</posx>
-      <posy>-20</posy>
-      <width>1</width>
-      <height>1</height>
-      <texturenofocus>-</texturenofocus>
-      <texturefocus>-</texturefocus>
-	  <onfocus>Skin.Reset(trailerslinkon)</onfocus>	   
+      <include>HiddenObject</include>
+      <onfocus>Skin.Reset(trailerslinkon)</onfocus>	   
       <onfocus>Skin.SetBool(Startup)</onfocus>
       <onfocus>RunScript(script.recentlyadded,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>SetFocus(300,7)</onfocus>
@@ -19,27 +14,17 @@
     </control>
     <control type="button" id="5043">
       <description>visible after library update has finished</description>
-      <posx>-20</posx>
-      <posy>-20</posy>
-      <width>1</width>
-      <height>1</height>
-      <texturenofocus>-</texturenofocus>
-      <texturefocus>-</texturefocus>
-	  <onfocus>Skin.Reset(trailerslinkon)</onfocus>	 
+      <include>HiddenObject</include>
+      <onfocus>Skin.Reset(trailerslinkon)</onfocus>	 
       <onfocus>Skin.Reset(LibraryUpdated)</onfocus>
       <onfocus>RunScript(script.recentlyadded,limit=5&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>SetFocus(300,7)</onfocus>
       <visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
     </control>
     <control type="button" id="5043">
-      <description>visible in all other cases</description>
-      <posx>-20</posx>
-      <posy>-20</posy>
-      <width>1</width>
-      <height>1</height>
-      <texturenofocus>-</texturenofocus>
-      <texturefocus>-</texturefocus>
-	  <onfocus>Skin.Reset(trailerslinkon)</onfocus>	 
+      <description>visible in all other cases</description>  
+      <include>HiddenObject</include>      
+      <onfocus>Skin.Reset(trailerslinkon)</onfocus>	 
       <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>SetFocus(300,7)</onfocus>
       <visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
@@ -54,7 +39,7 @@
       <visible>Skin.HasSetting(Startup2)</visible>
     </control>
     <control type="image" id="87">
-      <texture>-</texture>
+      <include>HiddenObject</include>
       <visible>Container(300).OnNext | Container(300).OnPrevious</visible>
       <animation effect="fade" time="200">Hidden</animation>
     </control>
