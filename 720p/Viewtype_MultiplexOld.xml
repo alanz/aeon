@@ -26,9 +26,9 @@
   </include>
   <include name="OldMultiplexSeasonOverlayWrap">
     <posx>0</posx>
-    <posy>119</posy>
+    <posy>114</posy>
     <width>229</width>
-    <height>30</height>
+    <height>35</height>
   </include>
   <include name="OldMultiplexTVLabel">
     <posx>60</posx>
@@ -828,44 +828,43 @@
           <colordiffuse>58FFFFFF</colordiffuse>
         </control>
         <control type="image">
-          <posx>45</posx>
-          <posy>18</posy>
-          <width>60</width>
-          <height>28</height>
-          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
+          <posx>44</posx>
+          <posy>20</posy>
+          <width>45</width>
+          <height>45</height>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
+          <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
           <include>Animation_VisibleChange200</include>
         </control>
       </itemlayout>
       <focusedlayout width="89" height="129" condition="Container.Content(movies)">
-        <control type="image">
-          <include>OldMultiplexIconDimensionsWrap</include>
-          <texture>common/black.png</texture>
-          <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-        </control>
-        <control type="image">
-          <include>OldMultiplexIconDimensionsWrap</include>
-          <texture>DefaultVideoBig.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-          <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-        </control>
-        <control type="image">
-          <include>OldMultiplexIconDimensionsWrap</include>
-          <bordertexture border="-30">multiplex/old/multiplex_iconframe.png</bordertexture>
-          <texture>common/blank.png</texture>
-          <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-          <visible>!Container(553).Column(12)</visible>
-        </control>
-        <control type="image">
-          <posx>45</posx>
-          <posy>18</posy>
-          <width>60</width>
-          <height>28</height>
-          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <info>ListItem.Overlay</info>
-          <include>Animation_VisibleChange200</include>
-          <animation effect="zoom" center="45,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        <control type="group">
+          <animation effect="zoom" center="45,75" start="100" end="130" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsWrap</include>
+            <texture>common/black.png</texture>
+          </control>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsWrap</include>
+            <texture>DefaultVideoBig.png</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <info>ListItem.Icon</info>
+          </control>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsWrap</include>
+            <bordertexture border="-30">multiplex/old/multiplex_iconframe.png</bordertexture>
+            <texture>common/blank.png</texture>
+            <visible>!Container(553).Column(12)</visible>
+          </control>
+          <control type="image">
+            <posx>44</posx>
+            <posy>20</posy>
+            <width>45</width>
+            <height>45</height>
+            <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
+            <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
+            <include>Animation_VisibleChange200</include>
+          </control>
         </control>
       </focusedlayout>
       <itemlayout width="229" height="129" condition="Skin.HasSetting(videotv)">
@@ -887,7 +886,7 @@
         </control>
         <control type="label">
           <posx>115</posx>
-          <posy>129</posy>
+          <posy>117</posy>
           <width>229</width>
           <height>30</height>
           <align>center</align>
@@ -895,18 +894,16 @@
           <font>Font_MultiplexSeasonLabelOld</font>
           <label>$INFO[ListItem.Label]</label>
           <visible>Container.Content(seasons)  + !substring(Container.ListItem.Label,..,left)</visible>
-          <animation effect="zoom" center="115,100" start="80" end="80" time="0" condition="true">Conditional</animation>
         </control>
         <control type="label">
           <posx>115</posx>
-          <posy>129</posy>
+          <posy>117</posy>
           <width>229</width>
           <height>30</height>
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_MultiplexSeasonLabelOld</font>
           <label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
-          <animation effect="zoom" center="115,100" start="80" end="80" time="0" condition="true">Conditional</animation>
           <visible>Container.Content(episodes) + !substring(ListItem.label,..)</visible>
         </control>
         <control type="image">
@@ -927,84 +924,76 @@
           <visible>!substring(ListItem.label,..)</visible>
         </control>
         <control type="image">
-          <posx>181</posx>
-          <posy>18</posy>
-          <width>48</width>
-          <height>52</height>
-          <info>ListItem.Overlay</info>
-          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+          <posx>175</posx>
+          <posy>19</posy>
+          <width>55</width>
+          <height>55</height>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
+          <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
           <include>Animation_VisibleChange200</include>
         </control>
       </itemlayout>
       <focusedlayout width="229" height="129" condition="Skin.HasSetting(videotv)">
-        <control type="image">
-          <include>OldMultiplexIconDimensionsTVWrap</include>
-          <texture>common/black.png</texture>
-          <animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-        </control>
-        <control type="image">
-          <include>OldMultiplexIconDimensionsTVWrap</include>
-          <texture>DefaultVideo.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-          <animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-        </control>
-        <control type="image">
-          <include>OldMultiplexSeasonOverlayWrap</include>
-          <texture>common/black.png</texture>
-          <colordiffuse>b6FFFFFF</colordiffuse>
-          <animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-          <visible>[Container.Content(seasons) | Container.Content(episodes)] + !substring(ListItem.label,..)</visible>
-        </control>
-        <control type="label">
-          <posx>115</posx>
-          <posy>129</posy>
-          <width>229</width>
-          <height>30</height>
-          <align>center</align>
-          <aligny>center</aligny>
-          <font>Font_MultiplexSeasonLabelOld</font>
-          <label>$INFO[ListItem.Label]</label>
-          <animation effect="zoom" center="115,100" start="80" end="100" time="205" reversible="false">Focus</animation>
-          <animation effect="zoom" center="115,100" start="100" end="80" reversible="false">UnFocus</animation>
-          <visible>Container.Content(seasons) + !substring(ListItem.label,..)</visible>
-        </control>
-        <control type="label">
-          <posx>115</posx>
-          <posy>129</posy>
-          <width>229</width>
-          <height>30</height>
-          <align>center</align>
-          <aligny>center</aligny>
-          <font>Font_MultiplexSeasonLabelOld</font>
-          <label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
-          <animation effect="zoom" center="115,100" start="80" end="100" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-          <animation effect="zoom" center="115,100" start="100" end="80" time="400" easing="in" tween="cubic" reversible="false">UnFocus</animation>
-          <visible>Container.Content(episodes) + !substring(ListItem.label,..)</visible>
-        </control>
-        <control type="image">
-          <include>OldMultiplexSeasonOverlayWrap</include>
-          <texture>multiplex/old/multiplex_seasongradient.png</texture>
-          <animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-          <visible>Container.Content(seasons) | Container.Content(episodes)</visible>
-        </control>
-        <control type="image">
-          <include>OldMultiplexIconDimensionsTVWrap</include>
-          <bordertexture border="-30">multiplex/old/multiplex_iconframetv.png</bordertexture>
-          <texture>common/blank.png</texture>
-          <animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-          <animation effect="fade" start="0" end="100" time="0">UnFocus</animation>
-          <visible>!Container(553).Column(4)</visible>
-        </control>
-        <control type="image">
-          <posx>181</posx>
-          <posy>18</posy>
-          <width>48</width>
-          <height>52</height>
-          <info>ListItem.Overlay</info>
-          <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-          <include>Animation_VisibleChange200</include>
-          <animation effect="zoom" center="115,75" start="100" end="120" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+        <control type="group">
+          <animation effect="zoom" center="auto" start="100" end="120" time="400" easing="out" tween="cubic" reversible="true">Focus</animation>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsTVWrap</include>
+            <texture>common/black.png</texture>
+          </control>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsTVWrap</include>
+            <texture>DefaultVideo.png</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <info>ListItem.Icon</info>
+          </control>
+          <control type="image">
+            <include>OldMultiplexSeasonOverlayWrap</include>
+            <texture>common/black.png</texture>
+            <colordiffuse>b6FFFFFF</colordiffuse>
+            <visible>[Container.Content(seasons) | Container.Content(episodes)] + !substring(ListItem.label,..)</visible>
+          </control>
+          <control type="label">
+            <posx>115</posx>
+            <posy>117</posy>
+            <width>229</width>
+            <height>30</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>Font_MultiplexSeasonLabelOld</font>
+            <label>$INFO[ListItem.Label]</label>
+            <visible>Container.Content(seasons) + !substring(ListItem.label,..)</visible>
+          </control>
+          <control type="label">
+            <posx>115</posx>
+            <posy>117</posy>
+            <width>229</width>
+            <height>30</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>Font_MultiplexSeasonLabelOld</font>
+            <label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
+            <visible>Container.Content(episodes) + !substring(ListItem.label,..)</visible>
+          </control>
+          <control type="image">
+            <include>OldMultiplexSeasonOverlayWrap</include>
+            <texture>multiplex/old/multiplex_seasongradient.png</texture>
+            <visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+          </control>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsTVWrap</include>
+            <bordertexture border="-30">multiplex/old/multiplex_iconframetv.png</bordertexture>
+            <texture>common/blank.png</texture>
+            <visible>!Container(553).Column(4)</visible>
+          </control>
+          <control type="image">
+            <posx>175</posx>
+            <posy>19</posy>
+            <width>55</width>
+            <height>55</height>
+            <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay) + StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
+            <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
+            <include>Animation_VisibleChange200</include>
+          </control>
         </control>
       </focusedlayout>
     </control>
