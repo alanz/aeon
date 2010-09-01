@@ -81,7 +81,7 @@
         <height>230</height>
         <texture flipy="true" diffuse="common/Thumb_Mask6.png">$INFO[ListItem.thumb]</texture>
         <aspectratio>stretch</aspectratio>
-	<visible>Container.Content(episodes)</visible>
+        <visible>Container.Content(episodes)</visible>
       </control>
       <control type="image">
         <posx>280</posx>
@@ -89,6 +89,7 @@
         <width>90</width>
         <height>90</height>
         <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
+        <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png)</visible>
       </control>
     </control>
     <control type="image">
@@ -99,7 +100,7 @@
       <height>720</height>
       <texture>info/movieinfogradient.png</texture>
       <aspectratio>stretch</aspectratio>
-      <visible>!Container.Content(episodes) + !Skin.HasSetting(videotv)</visible>
+      <visible>!Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes)</visible>
     </control>
     <control type="image">
       <description>background image</description>
@@ -144,7 +145,7 @@
       <height>720</height>
       <texture>$INFO[ListItem.thumb]</texture>
       <aspectratio>stretch</aspectratio>
-      <visible>!Container.Content(episodes) | Container.Content(tvshows)</visible>
+      <visible>!Container.Content(episodes)</visible>
     </control>
     <control type="largeimage">
       <description>Cover image</description>
@@ -155,7 +156,7 @@
       <texture>$INFO[ListItem.path]movie.tbn</texture>
       <aspectratio>stretch</aspectratio>
       <fadetime>500</fadetime>
-      <visible>!Skin.HasSetting(videotv)</visible>
+      <visible>Container.Content(movies) | Window.IsActive(videofiles)</visible>
     </control>
     <control type="image">
       <posx>366</posx>
@@ -163,7 +164,7 @@
       <width>120</width>
       <height>120</height>
       <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
-      <visible>!Container.Content(episodes)</visible>
+      <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !Container.Content(episodes)</visible>
     </control>
     <control type="wraplist" id="20030">
       <animation effect="slide" start="0,0" end="0,-20" time="0" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">Conditional</animation>
