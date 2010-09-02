@@ -1078,433 +1078,299 @@
     <animation effect="zoom" center="48,48" start="170" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="Control.HasFocus(209)">Conditional</animation>
   </include>
   <include name="MultiWallMusicIconZoomAnimationDVD">
-    <animation effect="zoom" center="51,51" start="100" end="165" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-    <animation effect="zoom" center="51,51" start="165" end="100" time="400" easing="out" tween="cubic" reversible="false">UnFocus</animation>
-    <animation effect="zoom" center="51,51" start="165" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="ControlGroup(7000).HasFocus() + !Skin.HasSetting(multiwallmusicinfotrigger)">Conditional</animation>
-    <animation effect="zoom" center="51,51" start="165" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="Control.HasFocus(209)">Conditional</animation>
+    <animation effect="zoom" center="51,51" start="100" end="170" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+    <animation effect="zoom" center="51,51" start="170" end="100" time="400" easing="out" tween="cubic" reversible="false">UnFocus</animation>
+    <animation effect="zoom" center="51,51" start="170" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="ControlGroup(7000).HasFocus() + !Skin.HasSetting(multiwallmusicinfotrigger)">Conditional</animation>
+    <animation effect="zoom" center="51,51" start="170" end="100" time="400" easing="in" tween="cubic" reversible="false" condition="Control.HasFocus(209)">Conditional</animation>
   </include>
   <!-- Movie Normal -->
   <include name="MultiWallIconNormal">
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsSmall</include>
-      <texture diffuse="wall/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallIconMovieDimensionsSmall</include>
-      <texture background="true" diffuse="wall/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-    </control>
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsSmall</include>
-      <bordertexture border="-4">wall/wall_movie_nfborder.png</bordertexture>
-      <texture>wall/wall_nfoverlay.png</texture>
+    <control type="group">
+      <include>MultiWallIconZoomAnimationDVD</include>
+      <control type="largeimage">
+        <include>MultiWallIconMovieDimensionsSmall</include>
+        <texture background="true" diffuse="wall/wall_movie_mask.png">DefaultVideo.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <info>ListItem.Icon</info>
+        <fadetime>500</fadetime>
+      </control>
+      <control type="image">
+        <include>MultiWallIconMovieDimensionsSmall</include>
+        <bordertexture border="-4">wall/wall_movie_nfborder.png</bordertexture>
+        <texture>wall/wall_nfoverlay.png</texture>
+      </control>
     </control>
   </include>
-  <include name="MultiWallIconNormalFocus">
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsSmall</include>
-      <texture diffuse="wall/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
+  <include name="MultiWallIconNormalTrailerIcon">
+    <control type="group">
       <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallIconMovieDimensionsSmall</include>
-      <texture background="true" diffuse="wall/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-      <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsSmall</include>
-      <bordertexture border="-4">wall/wall_movie_nfborder.png</bordertexture>
-      <texture>wall/wall_nfoverlay.png</texture>
-      <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallTrailerIndicator</include>
-      <texture>multiwall/multiwall_trailer.png</texture>
-      <visible>!IsEmpty(ListItem.Trailer)</visible>
-      <animation effect="fade" start="0" end="100" time="100" condition="!Player.HasVideo">Conditional</animation>
-      <animation effect="fade" start="100" end="0" time="100" condition="Player.HasVideo">Conditional</animation>
-      <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallTrailerIndicator</include>
-      <texture>multiwall/multiwall_trailer_playing.png</texture>
-      <visible>!IsEmpty(ListItem.Trailer)</visible>
-      <animation effect="fade" start="0" end="100" time="100" condition="Player.HasVideo">Conditional</animation>
-      <animation effect="fade" start="100" end="0" time="100" condition="!Player.HasVideo">Conditional</animation>
-      <include>MultiWallIconZoomAnimationDVD</include>
+      <control type="image">
+        <include>MultiWallTrailerIndicator</include>
+        <texture>multiwall/multiwall_trailer.png</texture>
+        <visible>!IsEmpty(ListItem.Trailer)</visible>
+        <animation effect="fade" start="0" end="100" time="100" condition="!Player.HasVideo">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="100" condition="Player.HasVideo">Conditional</animation>
+      </control>
+      <control type="image">
+        <include>MultiWallTrailerIndicator</include>
+        <texture>multiwall/multiwall_trailer_playing.png</texture>
+        <visible>!IsEmpty(ListItem.Trailer)</visible>
+        <animation effect="fade" start="0" end="100" time="100" condition="Player.HasVideo">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="100" condition="!Player.HasVideo">Conditional</animation>
+      </control>
     </control>
   </include>
   <!-- Movie DVD -->
   <include name="MultiWallIconDVD">
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture>wall/boxes/wall_movie_nfborder.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture diffuse="wall/boxes/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture background="true" diffuse="wall/boxes/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-    </control>
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture>wall/boxes/wall_nfoverlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
+    <control type="group">
+      <include>MultiWallIconZoomAnimationDVD</include>
+      <control type="image">
+        <include>MultiWallIconMovieDimensionsDVDSmall</include>
+        <texture>wall/boxes/wall_movie_nfborder.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="largeimage">
+        <include>MultiWallIconMovieDimensionsDVDSmall</include>
+        <texture background="true" diffuse="wall/boxes/wall_movie_mask.png">DefaultVideo.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <info>ListItem.Icon</info>
+        <fadetime>500</fadetime>
+      </control>
+      <control type="image">
+        <include>MultiWallIconMovieDimensionsDVDSmall</include>
+        <texture>wall/boxes/wall_nfoverlay.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
     </control>
   </include>
-  <include name="MultiWallIconDVDFocus">
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture>wall/boxes/wall_movie_nfborder.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
+  <include name="MultiWallIconDVDTrailerIcon">
+    <control type="group">
       <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture diffuse="wall/boxes/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture background="true" diffuse="wall/boxes/wall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-      <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallIconMovieDimensionsDVDSmall</include>
-      <texture>wall/boxes/wall_nfoverlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallTrailerIndicator</include>
-      <texture>multiwall/multiwall_trailer.png</texture>
-      <visible>!IsEmpty(ListItem.Trailer)</visible>
-      <animation effect="fade" start="0" end="100" time="100" condition="!Player.HasVideo">Conditional</animation>
-      <animation effect="fade" start="100" end="0" time="100" condition="Player.HasVideo">Conditional</animation>
-      <include>MultiWallIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallTrailerIndicator</include>
-      <texture>multiwall/multiwall_trailer_playing.png</texture>
-      <visible>!IsEmpty(ListItem.Trailer)</visible>
-      <animation effect="fade" start="0" end="100" time="100" condition="Player.HasVideo">Conditional</animation>
-      <animation effect="fade" start="100" end="0" time="100" condition="!Player.HasVideo">Conditional</animation>
-      <include>MultiWallIconZoomAnimationDVD</include>
+      <control type="image">
+        <include>MultiWallTrailerIndicator</include>
+        <texture>multiwall/multiwall_trailer.png</texture>
+        <visible>!IsEmpty(ListItem.Trailer)</visible>
+        <animation effect="fade" start="0" end="100" time="100" condition="!Player.HasVideo">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="100" condition="Player.HasVideo">Conditional</animation>
+      </control>
+      <control type="image">
+        <include>MultiWallTrailerIndicator</include>
+        <texture>multiwall/multiwall_trailer_playing.png</texture>
+        <visible>!IsEmpty(ListItem.Trailer)</visible>
+        <animation effect="fade" start="0" end="100" time="100" condition="Player.HasVideo">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="100" condition="!Player.HasVideo">Conditional</animation>
+      </control>
     </control>
   </include>
   <!-- TV Normal -->
   <include name="MultiWallTVIconNormal">
-    <control type="image">
-      <include>MultiWallTVIconDimensionsNormal</include>
-      <texture diffuse="multiplex/multiplex_tvmask.png">common/black.png</texture>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallTVIconDimensionsNormal</include>
-      <texture background="true" diffuse="multiplex/multiplex_tvmask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-    </control>
-    <control type="image">
-      <posx>3</posx>
-      <posy>58</posy>
-      <width>153</width>
-      <height>34</height>
-      <texture>multiwall/multiwall_label.png</texture>
-      <visible>Container.Content(seasons) | Container.Content(Episodes)</visible>
-    </control>
-    <control type="label">
-      <posx>79</posx>
-      <posy>71</posy>
-      <width>144</width>
-      <align>center</align>
-      <font>Font_MultiwallInfoLabel</font>
-      <colordiffuse>40FFFFFF</colordiffuse>
-      <label>$LOCALIZE[31432] $INFO[ListItem.Season]</label>
-      <visible>Container.Content(seasons) + !IsEmpty(ListItem.Season)</visible>
-    </control>
-    <control type="label">
-      <posx>79</posx>
-      <posy>71</posy>
-      <width>144</width>
-      <align>center</align>
-      <font>Font_MultiwallInfoLabel</font>
-      <colordiffuse>40FFFFFF</colordiffuse>
-      <label>$LOCALIZE[20366]</label>
-      <visible>Container.Content(seasons) + IsEmpty(ListItem.Season)</visible>
-    </control>
-    <control type="label">
-      <posx>79</posx>
-      <posy>71</posy>
-      <width>144</width>
-      <align>center</align>
-      <font>Font_MultiwallInfoLabel</font>
-      <colordiffuse>40FFFFFF</colordiffuse>
-      <label>$LOCALIZE[31433] $INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
-      <visible>Container.Content(episodes)</visible>
-    </control>
-    <control type="image">
-      <include>MultiWallTVIconDimensionsNormal</include>
-      <bordertexture border="-6">multiplex/multiplex_tvborder.png</bordertexture>
-      <texture>common/blank.png</texture>
-    </control>
-    <control type="image">
-      <include>MultiWallTVIconDimensionsNormal</include>
-      <texture diffuse="multiplex/multiplex_tvmask.png">multiplex/multiplex_tvglass.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-  </include>
-  <include name="MultiWallTVIconNormalFocus">
-    <control type="largeimage">
-      <include>MultiWallTVIconDimensionsNormal</include>
-      <texture background="true" diffuse="multiplex/multiplex_tvmask.png">common/black.png</texture>
+    <control type="group">
       <include>MultiWallTVIconZoomAnimationNormal</include>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallTVIconDimensionsNormal</include>
-      <texture background="true" diffuse="multiplex/multiplex_tvmask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <include>MultiWallTVIconZoomAnimationNormal</include>
-    </control>
-    <control type="image">
-      <include>MultiWallTVIconDimensionsNormal</include>
-      <texture diffuse="multiplex/multiplex_tvmask.png">multiplex/multiplex_tvglass.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include>MultiWallTVIconZoomAnimationNormal</include>
+      <control type="image">
+        <include>MultiWallTVIconDimensionsNormal</include>
+        <texture diffuse="multiplex/multiplex_tvmask.png">common/black.png</texture>
+      </control>
+      <control type="largeimage">
+        <include>MultiWallTVIconDimensionsNormal</include>
+        <texture background="true" diffuse="multiplex/multiplex_tvmask.png">DefaultVideo.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <info>ListItem.Icon</info>
+      </control>
+      <control type="group">
+        <animation effect="fade" start="100" end="0" time="800" easing="out" tween="cubic" reversible="true">Focus</animation>
+        <control type="image">
+          <posx>3</posx>
+          <posy>58</posy>
+          <width>153</width>
+          <height>34</height>
+          <texture>multiwall/multiwall_label.png</texture>
+          <visible>[Container.Content(seasons) | Container.Content(Episodes)] + !StringCompare(ListItem.Label,..)</visible>
+        </control>
+        <control type="label">
+          <posx>79</posx>
+          <posy>71</posy>
+          <width>144</width>
+          <align>center</align>
+          <font>Font_MultiwallInfoLabel</font>
+          <colordiffuse>40FFFFFF</colordiffuse>
+          <label>$LOCALIZE[31432] $INFO[ListItem.Season]</label>
+          <visible>Container.Content(seasons) + !IsEmpty(ListItem.Season)</visible>
+        </control>
+        <control type="label">
+          <posx>79</posx>
+          <posy>71</posy>
+          <width>144</width>
+          <align>center</align>
+          <font>Font_MultiwallInfoLabel</font>
+          <colordiffuse>40FFFFFF</colordiffuse>
+          <label>$LOCALIZE[20366]</label>
+          <visible>Container.Content(seasons) + IsEmpty(ListItem.Season) + !StringCompare(ListItem.Label,..)</visible>
+        </control>
+        <control type="label">
+          <posx>79</posx>
+          <posy>71</posy>
+          <width>144</width>
+          <align>center</align>
+          <font>Font_MultiwallInfoLabel</font>
+          <colordiffuse>40FFFFFF</colordiffuse>
+          <label>$LOCALIZE[31433] $INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
+          <visible>Container.Content(episodes) + !StringCompare(ListItem.Label,..)</visible>
+        </control>
+      </control>
+      <control type="image">
+        <include>MultiWallTVIconDimensionsNormal</include>
+        <bordertexture border="-6">multiplex/multiplex_tvborder.png</bordertexture>
+        <texture>common/blank.png</texture>
+      </control>
+      <control type="image">
+        <include>MultiWallTVIconDimensionsNormal</include>
+        <texture diffuse="multiplex/multiplex_tvmask.png">multiplex/multiplex_tvglass.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
     </control>
   </include>
   <!-- TV DVD -->
   <include name="MultiWallTVIconDVD">
-    <control type="image">
-      <include>MultiWallTVIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_tv_border.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="image">
-      <include>MultiWallTVIconDimensionsDVDCover</include>
-      <texture diffuse="multiwall/boxes/multiwall_tv_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallTVIconDimensionsDVDCover</include>
-      <texture background="true" diffuse="multivwall/boxes/multiwall_tv_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-    </control>
-    <control type="image">
-      <posx>7</posx>
-      <posy>59</posy>
-      <width>144</width>
-      <height>30</height>
-      <texture>multiwall/boxes/multiwall_label.png</texture>
-      <visible>Container.Content(seasons) | Container.Content(Episodes)</visible>
-    </control>
-    <control type="label">
-      <posx>79</posx>
-      <posy>68</posy>
-      <width>144</width>
-      <align>center</align>
-      <font>Font_MultiwallInfoLabel</font>
-      <colordiffuse>40FFFFFF</colordiffuse>
-      <label>$LOCALIZE[31432] $INFO[ListItem.Season]</label>
-      <visible>Container.Content(seasons) + !IsEmpty(ListItem.Season)</visible>
-    </control>
-    <control type="label">
-      <posx>79</posx>
-      <posy>68</posy>
-      <width>144</width>
-      <align>center</align>
-      <font>Font_MultiwallInfoLabel</font>
-      <colordiffuse>40FFFFFF</colordiffuse>
-      <label>$LOCALIZE[20366]</label>
-      <visible>Container.Content(seasons) + IsEmpty(ListItem.Season)</visible>
-    </control>
-    <control type="label">
-      <posx>79</posx>
-      <posy>68</posy>
-      <width>144</width>
-      <align>center</align>
-      <font>Font_MultiwallInfoLabel</font>
-      <colordiffuse>40FFFFFF</colordiffuse>
-      <label>$LOCALIZE[31433] $INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
-      <visible>Container.Content(episodes)</visible>
-    </control>
-    <control type="image">
-      <include>MultiWallTVIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_tv_overlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-  </include>
-  <include name="MultiWallTVIconDVDFocus">
-    <control type="image">
-      <include>MultiWallTVIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_tv_border.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
+    <control type="group">
       <include>MultiWallTVIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallTVIconDimensionsDVDCover</include>
-      <texture diffuse="multiwall/boxes/multiwall_tv_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include>MultiWallTVIconZoomAnimationDVD</include>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallTVIconDimensionsDVDCover</include>
-      <texture background="true" diffuse="multiwall/boxes/multiwall_tv_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-      <include>MultiWallTVIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallTVIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_tv_overlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include>MultiWallTVIconZoomAnimationDVD</include>
+      <control type="image">
+        <include>MultiWallTVIconDimensionsDVD</include>
+        <texture>multiwall/boxes/multiwall_tv_border.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="largeimage">
+        <include>MultiWallTVIconDimensionsDVDCover</include>
+        <texture background="true" diffuse="multivwall/boxes/multiwall_tv_mask.png">DefaultVideo.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <info>ListItem.Icon</info>
+        <fadetime>500</fadetime>
+      </control>
+      <control type="group">
+        <animation effect="fade" start="100" end="0" time="800" easing="out" tween="cubic" reversible="false">Focus</animation>
+        <animation effect="fade" start="0" end="100" time="200" easing="out" tween="cubic" reversible="false">UnFocus</animation>
+        <control type="image">
+          <posx>7</posx>
+          <posy>59</posy>
+          <width>144</width>
+          <height>30</height>
+          <texture>multiwall/boxes/multiwall_label.png</texture>
+          <visible>[Container.Content(seasons) | Container.Content(Episodes)] + !StringCompare(ListItem.Label,..)</visible>
+        </control>
+        <control type="label">
+          <posx>79</posx>
+          <posy>68</posy>
+          <width>144</width>
+          <align>center</align>
+          <font>Font_MultiwallInfoLabel</font>
+          <colordiffuse>40FFFFFF</colordiffuse>
+          <label>$LOCALIZE[31432] $INFO[ListItem.Season]</label>
+          <visible>Container.Content(seasons) + !IsEmpty(ListItem.Season)</visible>
+        </control>
+        <control type="label">
+          <posx>79</posx>
+          <posy>68</posy>
+          <width>144</width>
+          <align>center</align>
+          <font>Font_MultiwallInfoLabel</font>
+          <colordiffuse>40FFFFFF</colordiffuse>
+          <label>$LOCALIZE[20366]</label>
+          <visible>Container.Content(seasons) + IsEmpty(ListItem.Season) + !StringCompare(ListItem.Label,..)</visible>
+        </control>
+        <control type="label">
+          <posx>79</posx>
+          <posy>68</posy>
+          <width>144</width>
+          <align>center</align>
+          <font>Font_MultiwallInfoLabel</font>
+          <colordiffuse>40FFFFFF</colordiffuse>
+          <label>$LOCALIZE[31433] $INFO[ListItem.Season].$INFO[ListItem.Episode]</label>
+          <visible>Container.Content(episodes) + !StringCompare(ListItem.Label,..)</visible>
+        </control>
+      </control>
+      <control type="image">
+        <include>MultiWallTVIconDimensionsDVD</include>
+        <texture>multiwall/boxes/multiwall_tv_overlay.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
     </control>
   </include>
   <!-- Music Normal -->
   <include name="MultiWallMusicIconNormal">
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsNormal</include>
-      <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallMusicIconDimensionsNormal</include>
-      <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-    </control>
-    <control type="image">
-      <width>102</width>
-      <height>104</height>
-      <texture>multiwall/multiwall_sortlabel.png</texture>
-      <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
-    </control>
-    <control type="label">
-      <posx>81</posx>
-      <posy>74</posy>
-      <font>Font_MultiwallSortLabel</font>
-      <textcolor>85FFFFFF</textcolor>
-      <align>center</align>
-      <info>ListItem.SortLetter</info>
-      <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
-    </control>
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsNormal</include>
-      <bordertexture border="-2">wall/wall_nfborder.png</bordertexture>
-      <texture>wall/wall_nfoverlay.png</texture>
-    </control>
-  </include>
-  <include name="MultiWallMusicIconNormalFocus">
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsNormal</include>
-      <texture diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
+    <control type="group">
       <include>MultiWallMusicIconZoomAnimationNormal</include>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallMusicIconDimensionsNormal</include>
-      <texture background="true" diffuse="wall/wall_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-      <include>MultiWallMusicIconZoomAnimationNormal</include>
-    </control>
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsNormal</include>
-      <bordertexture border="-2">wall/wall_nfborder.png</bordertexture>
-      <texture>wall/wall_nfoverlay.png</texture>
-      <include>MultiWallMusicIconZoomAnimationNormal</include>
+      <control type="largeimage">
+        <include>MultiWallMusicIconDimensionsNormal</include>
+        <texture background="true" diffuse="wall/wall_mask.png">DefaultAudio.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <info>ListItem.Icon</info>
+        <fadetime>500</fadetime>
+      </control>
+      <control type="group">
+        <animation effect="fade" start="100" end="0" time="800" easing="out" tween="cubic" reversible="false">Focus</animation>
+        <animation effect="fade" start="0" end="100" time="200" easing="out" tween="cubic" reversible="false">UnFocus</animation>
+        <control type="image">
+          <width>102</width>
+          <height>104</height>
+          <texture>multiwall/multiwall_sortlabel.png</texture>
+          <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
+        </control>
+        <control type="label">
+          <posx>81</posx>
+          <posy>74</posy>
+          <font>Font_MultiwallSortLabel</font>
+          <textcolor>85FFFFFF</textcolor>
+          <align>center</align>
+          <info>ListItem.SortLetter</info>
+          <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
+        </control>
+      </control>
+      <control type="image">
+        <include>MultiWallMusicIconDimensionsNormal</include>
+        <bordertexture border="-2">wall/wall_nfborder.png</bordertexture>
+        <texture>wall/wall_nfoverlay.png</texture>
+      </control>
     </control>
   </include>
   <!-- Music DVD -->
   <include name="MultiWallMusicIconDVD">
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_music_border.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsDVDCover</include>
-      <texture diffuse="multiwall/boxes/multiwall_music_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallMusicIconDimensionsDVDCover</include>
-      <texture background="true" diffuse="multiwall/boxes/multiwall_music_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-    </control>
-    <control type="image">
-      <width>102</width>
-      <height>104</height>
-      <texture>multiwall/boxes/multiwall_sortlabel.png</texture>
-      <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
-    </control>
-    <control type="label">
-      <posx>81</posx>
-      <posy>74</posy>
-      <font>Font_MultiwallSortLabel</font>
-      <textcolor>85FFFFFF</textcolor>
-      <align>center</align>
-      <info>ListItem.SortLetter</info>
-      <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
-    </control>
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_music_overlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-  </include>
-  <include name="MultiWallMusicIconDVDFocus">
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_music_border.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
+    <control type="group">
       <include>MultiWallMusicIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsDVDCover</include>
-      <texture diffuse="multiwall/boxes/multiwall_music_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include>MultiWallMusicIconZoomAnimationDVD</include>
-    </control>
-    <control type="largeimage">
-      <include>MultiWallMusicIconDimensionsDVDCover</include>
-      <texture background="true" diffuse="multiwall/boxes/multiwall_music_mask.png">defaultaudio.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-      <include>MultiWallMusicIconZoomAnimationDVD</include>
-    </control>
-    <control type="image">
-      <include>MultiWallMusicIconDimensionsDVD</include>
-      <texture>multiwall/boxes/multiwall_music_overlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include>MultiWallMusicIconZoomAnimationDVD</include>
+      <control type="image">
+        <include>MultiWallMusicIconDimensionsDVD</include>
+        <texture>multiwall/boxes/multiwall_music_border.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="largeimage">
+        <include>MultiWallMusicIconDimensionsDVDCover</include>
+        <texture background="true" diffuse="multiwall/boxes/multiwall_music_mask.png">DefaultAudio.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <info>ListItem.Icon</info>
+        <fadetime>500</fadetime>
+      </control>
+      <control type="group">
+        <animation effect="fade" start="100" end="0" time="800" easing="out" tween="cubic" reversible="false">Focus</animation>
+        <animation effect="fade" start="0" end="100" time="200" easing="out" tween="cubic" reversible="false">UnFocus</animation>
+        <control type="image">
+          <width>102</width>
+          <height>104</height>
+          <texture>multiwall/boxes/multiwall_sortlabel.png</texture>
+          <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
+        </control>
+        <control type="label">
+          <posx>81</posx>
+          <posy>74</posy>
+          <font>Font_MultiwallSortLabel</font>
+          <textcolor>85FFFFFF</textcolor>
+          <align>center</align>
+          <info>ListItem.SortLetter</info>
+          <visible>!Skin.HasSetting(nosortlabel) + [Container.Content(artists) | Container.Content(albums)]</visible>
+        </control>
+      </control>
+      <control type="image">
+        <include>MultiWallMusicIconDimensionsDVD</include>
+        <texture>multiwall/boxes/multiwall_music_overlay.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
     </control>
   </include>
   <include name="MultiWallLabelVars">
@@ -1569,8 +1435,10 @@
         <include>WatchedOverlayMultiWallPoster</include>
       </itemlayout>
       <focusedlayout width="101" height="146">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormalFocus</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVDFocus</include>
+        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
+        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormalTrailerIcon</include>
+        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
+        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVDTrailerIcon</include>
         <include>WatchedOverlayMultiWallPoster</include>
       </focusedlayout>
     </control>
@@ -1632,8 +1500,8 @@
         <include>WatchedOverlayMultiWallTV</include>
       </itemlayout>
       <focusedlayout width="159" height="93" condition="!Skin.HasSetting(tvposter) | Container.Content(episodes)">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallTVIconNormalFocus</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallTVIconDVDFocus</include>
+        <include condition="!Skin.HasSetting(dvdcase)">MultiWallTVIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase)">MultiWallTVIconDVD</include>
         <include>WatchedOverlayMultiWallTV</include>
       </focusedlayout>
 
@@ -1643,8 +1511,8 @@
         <include>WatchedOverlayMultiWallPoster</include>
       </itemlayout>
       <focusedlayout width="159" height="146" condition="Skin.HasSetting(tvposter) + !Container.Content(episodes)">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormalFocus</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVDFocus</include>
+        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
         <include>WatchedOverlayMultiWallPoster</include>
       </focusedlayout>
     </control>
@@ -1720,8 +1588,8 @@
           <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
         </itemlayout>
         <focusedlayout width="102" height="104">
-          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormalFocus</include>
-          <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVDFocus</include>
+          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormal</include>
+          <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
         </focusedlayout>
       </control>
       <control type="group">
@@ -1735,7 +1603,7 @@
           <posx>510</posx>
           <width>102</width>
           <height>104</height>
-          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormalFocus</include>
+          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormal</include>
           <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
           <animation effect="zoom" center="558,48" start="170" end="170" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
           <animation effect="zoom" center="561,51" start="165" end="165" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
