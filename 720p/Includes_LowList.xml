@@ -695,14 +695,14 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-80</posy>
-            <label fallback="-">$INFO[ListItem.Property(Artist_Formed)]</label>
+            <label fallback="161">$INFO[ListItem.Property(Artist_Formed)]</label>
             <visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
           </control>
           <control type="label">
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-80</posy>
-            <label fallback="-">$INFO[ListItem.Property(Artist_Born)]</label>
+            <label fallback="161">$INFO[ListItem.Property(Artist_Born)]</label>
             <visible>IsEmpty(ListItem.Property(Artist_Formed))</visible>
           </control>
         </control>
@@ -721,7 +721,7 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-25</posy>
-            <label fallback="-">$INFO[ListItem.Property(Artist_Style)]</label>
+            <label fallback="161">$INFO[ListItem.Property(Artist_Style)]</label>
           </control>
         </control>
         <!-- Album Page -->
@@ -740,7 +740,7 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-80</posy>
-            <label fallback="-">$INFO[ListItem.Property(Album_Label)]</label>
+            <label fallback="161">$INFO[ListItem.Property(Album_Label)]</label>
           </control>
         </control>
         <control type="group">
@@ -758,7 +758,7 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-25</posy>
-            <label fallback="-">$INFO[ListItem.Genre]</label>
+            <label fallback="161">$INFO[ListItem.Genre]</label>
           </control>
         </control>
         <!-- Song Page -->
@@ -777,7 +777,8 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-80</posy>
-            <label fallback="-">$INFO[ListItem.artist] / $INFO[ListItem.album] $INFO[ListItem.year,(,)]</label>
+            <label fallback="161">$INFO[ListItem.artist,, / ]$INFO[ListItem.album]$INFO[ListItem.year, (,)]</label>
+            <scroll>true</scroll>
           </control>
         </control>
         <control type="group">
@@ -795,7 +796,7 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-25</posy>
-            <label fallback="-">$INFO[ListItem.Genre]</label>
+            <label fallback="161">$INFO[ListItem.Genre]</label>
           </control>
         </control>
       </control>
@@ -821,7 +822,7 @@
         <width>400</width>
         <height>160</height>
         <font>Font_MultiplexPlot</font>
-        <label fallback="-">$INFO[ListItem.property(Album_Description)]</label>
+        <label>$INFO[ListItem.property(Album_Description)]</label>
         <include>LowList_ShortTextBox</include>
         <visible>Container.Content(albums)</visible>
       </control>
@@ -831,7 +832,7 @@
         <width>400</width>
         <height>160</height>
         <font>Font_MultiplexPlot</font>
-        <label fallback="-">$INFO[ListItem.property(Artist_Description)]</label>
+        <label>$INFO[ListItem.property(Artist_Description)]</label>
         <include>LowList_ShortTextBox</include>
         <visible>Container.Content(artists)</visible>
       </control>
@@ -841,7 +842,7 @@
         <width>400</width>
         <height>160</height>
         <font>Font_MultiplexPlot</font>
-        <label fallback="-">$INFO[ListItem.comment]</label>
+        <label>$INFO[ListItem.comment]</label>
         <include>LowList_ShortTextBox</include>
         <visible>Container.Content(songs)</visible>
       </control>
@@ -849,7 +850,7 @@
       <control type="label">
         <posx>10</posx>
         <posy>157</posy>
-        <width>620</width>
+        <width>720</width>
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
@@ -860,18 +861,19 @@
       <control type="label">
         <posx>10</posx>
         <posy>157</posy>
-        <width>620</width>
+        <width>720</width>
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
         <font>Font_MultiplexMainLabelOld</font>
-        <label fallback="...">$INFO[Container(551).ListItem.Artist] / $INFO[Container(551).ListItem.Label]</label>
+        <label fallback="...">$INFO[Container(551).ListItem.Artist,, / ]$INFO[Container(551).ListItem.Label]</label>
         <visible>Container.Content(albums)</visible>
+        <scroll>true</scroll>
       </control>
       <control type="label">
         <posx>10</posx>
         <posy>157</posy>
-        <width>620</width>
+        <width>720</width>
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
@@ -888,7 +890,7 @@
       </control>
       <!-- Star rating -->
       <control type="group">
-        <posx>660</posx>
+        <posx>760</posx>
         <posy>4</posy>
         <include>ListDetail_Stars</include>
       </control>
