@@ -4,6 +4,7 @@
   <visible>Window.IsActive(fullscreenvideo) + !Window.IsActive(videoosd) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]+ !Window.IsActive(fullscreeninfo)</visible>
   <controls>
     <include>Object_AlaskaPausedLabel</include>
+    <include>StarRatingGeneratorVideoPlayer</include>
     <control type="group">
       <posx>0</posx>
       <posy>600</posy>
@@ -375,12 +376,13 @@
         </control>
         <control type="group">
           <visible>VideoPlayer.Content(movies)</visible>
-          <control type="group">
+          <control type="image">
             <description>IMDB Rating</description>
             <posx>65</posx>
             <posy>70</posy>
-            <animation effect="zoom" start="100" end="75" time="0" condition="true">Conditional</animation>
-            <include>Object_StarRatingVideoPlayer</include>
+            <width>120</width>
+            <height>24</height>
+            <texture>$INFO[Control.GetLabel(900008)]</texture>
           </control>
           <control type="label">
             <posx>65</posx>

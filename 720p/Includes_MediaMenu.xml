@@ -271,21 +271,47 @@
     </control>
   </include>
   <include name="MediaMenuButton_Background">
-    <control type="button" id="700016">
-      <include>MediaMenuButton</include>
-      <label>314121</label>
-      <onclick>SetFocus(7022)</onclick>
-      <onright>SetFocus(7022)</onright>
-      <visible>[[Window.IsActive(videolibrary) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]] | Window.IsActive(musiclibrary)] + 
-	![!Skin.HasSetting(transparentwall) + Control.IsVisible(53)]
-      </visible>
-    </control>
     <control type="radiobutton" id="700324">
       <include>MediaMenuRadioButton</include>
       <label>31064</label>
       <onclick>Skin.ToggleSetting(nopicturefanart)</onclick>
       <visible>Window.IsActive(pictures) + Control.IsVisible(57)</visible>
       <selected>!Skin.HasSetting(nopicturefanart)</selected>
+    </control>
+    <control type="radiobutton" id="700325">
+      <include>MediaMenuRadioButton</include>
+      <label>31064</label>
+      <onclick>Skin.ToggleSetting(moviefanart)</onclick>
+      <visible>Container.Content(movies)</visible>
+      <selected>Skin.HasSetting(moviefanart)</selected>
+    </control>
+    <control type="radiobutton" id="700326">
+      <include>MediaMenuRadioButton</include>
+      <label>31064</label>
+      <onclick>Skin.ToggleSetting(seasonsfanart)</onclick>
+      <visible>Container.Content(seasons)</visible>
+      <selected>Skin.HasSetting(seasonsfanart)</selected>
+    </control>
+    <control type="radiobutton" id="700327">
+      <include>MediaMenuRadioButton</include>
+      <label>31064</label>
+      <onclick>Skin.ToggleSetting(episodesfanart)</onclick>
+      <visible>Container.Content(episodes)</visible>
+      <selected>Skin.HasSetting(episodesfanart)</selected>
+    </control>
+    <control type="radiobutton" id="700328">
+      <include>MediaMenuRadioButton</include>
+      <label>31064</label>
+      <onclick>Skin.ToggleSetting(tvshowfanart)</onclick>
+      <visible>Container.Content(tvshows)</visible>
+      <selected>Skin.HasSetting(tvshowfanart)</selected>
+    </control>
+    <control type="radiobutton" id="700328">
+      <include>MediaMenuRadioButton</include>
+      <label>31064</label>
+      <onclick>Skin.ToggleSetting(musicfanart)</onclick>
+      <visible>Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)</visible>
+      <selected>Skin.HasSetting(musicfanart)</selected>
     </control>
   </include>
   <include name="MediaMenuButton_Stripshow">
@@ -401,7 +427,7 @@
       <description>PartyMode</description>
       <include>MediaMenuRadioButton</include>
       <label>589</label>
-      <visible>Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]]</visible>
+      <visible>Window.IsActive(musiclibrary) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]]</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Files">
@@ -782,7 +808,7 @@
       <height>0</height>
       <texturefocus>-</texturefocus>
       <texturenofocus>-</texturenofocus>
-      <visible>ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | ControlGroup(7022).HasFocus() | Control.HasFocus(4)</visible>
+      <visible>ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | Control.HasFocus(4)</visible>
     </control>
     <control type="group">
       <include>Animation_OpenCloseZoom</include>
@@ -798,7 +824,6 @@
       <include>ViewSelect</include>
       <include>TriggerSelect</include>
       <include>DelaySelect</include>
-      <include>BackgroundSelect</include>
       <control type="image">
         <include>MediaMenuLogo</include>
         <texture>windows/logo_movies.png</texture>
@@ -1654,150 +1679,6 @@
           <onclick>Skin.Reset(fourseconds)</onclick>
           <onright>50</onright>
           <visible>[Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
-        </control>
-      </control>
-    </control>
-  </include>
-  <include name="BackgroundSelect">
-    <control type="group">
-      <animation type="Visible" reversible="false">
-        <effect type="fade" start="0" end="100" time="300"/>
-        <effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out"/>
-      </animation>
-      <animation type="Hidden" reversible="false">
-        <effect type="fade" start="100" end="0" time="500"/>
-        <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
-      </animation>
-      <posx>263</posx>
-      <visible>ControlGroup(7000).HasFocus(700016)</visible>
-      <include>Animation_MediaMenuSlide</include>
-      <animation type="Conditional" condition="!Control.IsVisible(7777)">
-        <effect type="fade" start="100" end="0" time="400" reversible="false"/>
-      </animation>
-      <control type="image">
-        <posx>-6</posx>
-        <posy>280</posy>
-        <width>142</width>
-        <height>105</height>
-        <texture>verticalmenu/panel.png</texture>
-      </control>
-      <control type="grouplist" id="7022">
-        <posx>0</posx>
-        <posy>280</posy>
-        <width>130</width>
-        <height>105</height>
-        <itemgap>0</itemgap>
-        <orientation>vertical</orientation>
-        <scroll>false</scroll>
-        <onleft>7000</onleft>
-        <onright>50</onright>
-        <onup>7022</onup>
-        <ondown>7022</ondown>
-        <include>Animation_CommonFade</include>
-        <control type="button" id="702225">
-          <include>MediaMenuButton</include>
-          <label>31078</label>
-          <onclick>Skin.Reset(moviefanart)</onclick>
-          <onclick>Skin.Reset(moviecurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(movies)</visible>
-        </control>
-        <control type="button" id="702226">
-          <include>MediaMenuButton</include>
-          <label>31412</label>
-          <onclick>Skin.SetBool(moviefanart)</onclick>
-          <onclick>Skin.Reset(moviecurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(movies)</visible>
-        </control>
-        <control type="button" id="702227">
-          <include>MediaMenuButton</include>
-          <label>31067</label>
-          <onclick>Skin.Reset(moviefanart)</onclick>
-          <onclick>Skin.SetBool(moviecurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(movies)</visible>
-        </control>
-        <control type="button" id="702268">
-          <include>MediaMenuButton</include>
-          <label>31078</label>
-          <onclick>Skin.Reset(tvshowfanart)</onclick>
-          <onclick>Skin.Reset(tvcurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
-        </control>
-        <control type="button" id="702269">
-          <include>MediaMenuButton</include>
-          <label>31412</label>
-          <onclick>Skin.SetBool(tvshowfanart)</onclick>
-          <onclick>Skin.Reset(tvcurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
-        </control>
-        <control type="button" id="702270">
-          <include>MediaMenuButton</include>
-          <label>31067</label>
-          <onclick>Skin.Reset(tvshowfanart)</onclick>
-          <onclick>Skin.SetBool(tvcurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(tvshows)</visible>
-        </control>
-        <control type="button" id="702271">
-          <include>MediaMenuButton</include>
-          <label>31078</label>
-          <onclick>Skin.Reset(seasonsfanart)</onclick>
-          <onclick>Skin.Reset(tvseasonscurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
-        </control>
-        <control type="button" id="702272">
-          <include>MediaMenuButton</include>
-          <label>31412</label>
-          <onclick>Skin.SetBool(seasonsfanart)</onclick>
-          <onclick>Skin.Reset(tvseasonscurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
-        </control>
-        <control type="button" id="702273">
-          <include>MediaMenuButton</include>
-          <label>31067</label>
-          <onclick>Skin.Reset(seasonsfanart)</onclick>
-          <onclick>Skin.SetBool(tvseasonscurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(seasons)</visible>
-        </control>
-        <control type="button" id="702246">
-          <include>MediaMenuButton</include>
-          <label>31078</label>
-          <onclick>Skin.Reset(episodesfanart)</onclick>
-          <onclick>Skin.Reset(tvepisodescurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
-        </control>
-        <control type="button" id="702247">
-          <include>MediaMenuButton</include>
-          <label>31412</label>
-          <onclick>Skin.SetBool(episodesfanart)</onclick>
-          <onclick>Skin.Reset(tvepisodescurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
-        </control>
-        <control type="button" id="702248">
-          <include>MediaMenuButton</include>
-          <label>31067</label>
-          <onclick>Skin.Reset(episodesfanart)</onclick>
-          <onclick>Skin.SetBool(tvepisodescurtains)</onclick>
-          <visible>Window.IsActive(videolibrary) + Container.Content(episodes)</visible>
-        </control>
-        <control type="button" id="702225">
-          <include>MediaMenuButton</include>
-          <label>31078</label>
-          <onclick>Skin.Reset(musicfanart)</onclick>
-          <onclick>Skin.Reset(musiccurtains)</onclick>
-          <visible>Window.IsActive(musiclibrary)</visible>
-        </control>
-        <control type="button" id="702226">
-          <include>MediaMenuButton</include>
-          <label>31412</label>
-          <onclick>Skin.SetBool(musicfanart)</onclick>
-          <onclick>Skin.Reset(musiccurtains)</onclick>
-          <visible>Window.IsActive(musiclibrary)</visible>
-        </control>
-        <control type="button" id="702227">
-          <include>MediaMenuButton</include>
-          <label>31067</label>
-          <onclick>Skin.Reset(musicfanart)</onclick>
-          <onclick>Skin.SetBool(musiccurtains)</onclick>
-          <visible>Window.IsActive(musiclibrary)</visible>
         </control>
       </control>
     </control>

@@ -358,14 +358,16 @@
             <label>[UPPERCASE]$INFO[ListItem.Duration][/UPPERCASE]</label>
             <visible>[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]</visible>
           </control>
-          <control type="group">
+          <control type="image">
             <description>IMDB rating</description>
-            <posx>608</posx>
+            <posx>623</posx>
             <posy>37</posy>
-            <animation effect="zoom" end="40" time="0" condition="true">Conditional</animation>
-            <animation effect="slide" end="39,0" time="0" condition="true">Conditional</animation>
+            <width>65</width>
+            <height>13</height>
+            <info>ListItem.StarRating</info>
+            <colordiffuse>dcbdbdbd</colordiffuse>
+            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="substring(Container.ListItem.Label,..,left)" >Conditional</animation>
             <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres)]</visible>
-            <include>Object_StarRating</include>
           </control>
           <control type="image">
             <include>WatchedOverlay_Movies</include>
@@ -473,6 +475,18 @@
               <effect type="fade" start="70" end="70" time="0"/>
             </animation>
           </control>
+          <control type="image">
+            <description>IMDB rating</description>
+            <posx>623</posx>
+            <posy>37</posy>
+            <width>65</width>
+            <height>13</height>
+            <info>ListItem.StarRating</info>
+            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="substring(Container.ListItem.Label,..,left)" >Conditional</animation>
+            <colordiffuse>dcbdbdbd</colordiffuse>
+            <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres)]</visible>
+            <include>Animation_ButtonFocusFade_fix</include>
+          </control>
           <control type="label">
             <include>ListLabel_Track</include>
             <include>listcolorfocus</include>
@@ -554,14 +568,17 @@
               <effect type="fade" start="70" end="70" time="0"/>
             </animation>
           </control>
-          <control type="group">
+          <control type="image">
             <description>IMDB rating</description>
-            <posx>608</posx>
+            <posx>623</posx>
             <posy>37</posy>
-            <animation effect="zoom" end="40" time="0" condition="true">Conditional</animation>
-            <animation effect="slide" end="39,0" time="0" condition="true">Conditional</animation>
+            <width>65</width>
+            <height>13</height>
+            <info>ListItem.StarRating</info>
+            <colordiffuse>FF585858</colordiffuse>
+            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="substring(Container.ListItem.Label,..,left)" >Conditional</animation>
             <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres)]</visible>
-            <include>Object_StarRating</include>
+            <include>Animation_ButtonFocusFade</include>
           </control>
           <control type="image">
             <include>WatchedOverlay_Movies</include>

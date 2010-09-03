@@ -21,16 +21,6 @@
     <include>Animation_BackgroundFade</include>
     <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
     <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-    <!-- visible is the negation of CurtainsBackdrop -->
-    <visible>
-      ![
-        [Skin.HasSetting(moviecurtains) + Container.Content(movies)] |
-        [Skin.HasSetting(tvcurtains) + Container.Content(tvshows)] |
-        [Skin.HasSetting(tvseasonscurtains) + Container.Content(seasons)] |
-        [Skin.HasSetting(tvepisodescurtains) + Container.Content(episodes)] |
-        [Skin.HasSetting(musiccurtains) + Window.IsActive(musiclibrary)]
-      ]
-    </visible>
   </include>
 
   <include name="BackgroundVarsVirtual">
@@ -163,70 +153,26 @@
     <thumb>$INFO[Skin.String(CustomFileManager)]</thumb>
     <imagepath background="true" fallback="special://skin/extras/backdrops/default_filemanager/">$INFO[Skin.String(CustomFileManager)]</imagepath>
   </include>
-
-  <include name="BackgroundVarsWeatherSpring">
-    <icon>special://skin/extras/backdrops/spring/spring.png</icon>
-    <imagepath background="true">special://skin/extras/backdrops/spring/spring.png</imagepath>
-  </include>
-
-  <include name="BackgroundVarsWeatherSummer">
-    <icon>special://skin/extras/backdrops/summer/summer.png</icon>
-    <imagepath background="true">special://skin/extras/backdrops/summer/summer.png</imagepath>
-  </include>
-
-  <include name="BackgroundVarsWeatherWinter">
-    <icon>special://skin/extras/backdrops/winter/winter.png</icon>
-    <imagepath background="true">special://skin/extras/backdrops/winter/winter.png</imagepath>
-  </include>
-
-  <include name="BackgroundVarsWeatherAutumn">
-    <icon>special://skin/extras/backdrops/autumn/autumn.png</icon>
-    <imagepath background="true">special://skin/extras/backdrops/autumn/autumn.png</imagepath>
-  </include>
-
+    <!-- Weather Backdrop by Current Weather Conditions -->
   <include name="BackgroundVarsWeather">
-    <include condition="System.Date(03-21,06-21)">BackgroundVarsWeatherSpring</include>
-    <include condition="System.Date(06-21,09-23)">BackgroundVarsWeatherSummer</include>
-    <include condition="System.Date(12-21,03-21)">BackgroundVarsWeatherWinter</include>
-    <include condition="System.Date(09-23,12-21)">BackgroundVarsWeatherAutumn</include>
+    <icon>special://skin/extras/backdrops/default_weather/$INFO[Weather.FanartCode]</icon>
     <thumb>$INFO[Skin.String(CustomWeather)]</thumb>
+    <imagepath background="true" fallback="special://skin/extras/backdrops/default_weather/">$INFO[Skin.String(CustomWeather)]</imagepath>
   </include>
-
   <include name="MediaBackdropsVideo">
     <control type="multiimage">
       <include>BackgroundVarsGlobal</include>
       <include>BackgroundVarsMovies</include>
       <visible>Container.Content(movies) +
-      [!Skin.HasSetting(GenreFanartOn) | !Container.Content(genres)] +
+      ![Skin.HasSetting(GenreFanartOn) + Container.Content(genres)] +
       !Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) + IsEmpty(Fanart.Image)</visible>
     </control>
     <control type="multiimage">
       <include>BackgroundVarsGlobal</include>
       <include>BackgroundVarsTV</include>
       <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] +
-      [!Skin.HasSetting(GenreFanartOn) | !Container.Content(genres)] +
+      ![Skin.HasSetting(GenreFanartOn) + Container.Content(genres)] +
       !Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) + IsEmpty(Fanart.Image)</visible>
-    </control>
-  </include>
-
-  <include name="CurtainsBackdrop">
-    <control type="multiimage">
-      <include>FullscreenDimensions</include>
-      <timeperimage>20000</timeperimage>
-      <randomize>true</randomize>
-      <fadetime>1000</fadetime>
-      <visible>
-        [Skin.HasSetting(moviecurtains) + Container.Content(movies)] |
-        [Skin.HasSetting(tvcurtains) + Window.IsActive(videolibrary) + Container.Content(tvshows)] |
-        [Skin.HasSetting(tvseasonscurtains) + Window.IsActive(videolibrary) + Container.Content(seasons)] |
-        [Skin.HasSetting(tvepisodescurtains) + Window.IsActive(videolibrary) + Container.Content(episodes)] |
-        [Skin.HasSetting(musiccurtains) + Window.IsActive(musiclibrary)]
-      </visible>
-      <include>Animation_BackgroundFade</include>
-      <icon>special://skin/extras/backdrops/multiplex/curtains.png</icon>
-      <thumb>$INFO[Skin.String(CustomCurtains)]</thumb>
-      <imagepath background="true">special://skin/extras/backdrops/multiplex/curtains.png</imagepath>
-      <info>Skin.String(CustomCurtains)</info>
     </control>
   </include>
 </includes>

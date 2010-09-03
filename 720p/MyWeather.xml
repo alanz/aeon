@@ -11,47 +11,8 @@
     <!-- Background_Wallpaper -->
     <control type="multiimage">
       <include>FullscreenDimensions</include>
-      <include>BackgroundTimings</include>
-      <imagepath background="true">special://skin/extras/backdrops/winter</imagepath>
-      <info>Skin.String(CustomWeather)</info>
-      <visible>!Skin.String(CustomWeatherFolder)</visible>
-      <visible>System.Date(12-21,03-21)</visible>
-    </control>
-    <control type="multiimage">
-      <include>FullscreenDimensions</include>
-      <include>BackgroundTimings</include>
-      <imagepath background="true">special://skin/extras/backdrops/spring</imagepath>
-      <info>Skin.String(CustomWeather)</info>
-      <visible>!Skin.String(CustomWeatherFolder)</visible>
-      <visible>System.Date(03-21,06-21)</visible>
-    </control>
-    <control type="multiimage">
-      <include>FullscreenDimensions</include>
-      <include>BackgroundTimings</include>
-      <imagepath background="true">special://skin/extras/backdrops/summer</imagepath>
-      <info>Skin.String(CustomWeather)</info>
-      <visible>!Skin.String(CustomWeatherFolder)</visible>
-      <visible>System.Date(06-21,09-23)</visible>
-    </control>
-    <control type="multiimage">
-      <include>FullscreenDimensions</include>
-      <include>BackgroundTimings</include>
-      <imagepath background="true">special://skin/extras/backdrops/autumn</imagepath>
-      <info>Skin.String(CustomWeather)</info>
-      <visible>!Skin.String(CustomWeatherFolder)</visible>
-      <visible>System.Date(09-23,12-21)</visible>
-    </control>
-    <control type="multiimage">
-      <include>Background_ImageFolder</include>
-      <info>Skin.String(CustomWeatherFolder)</info>
-      <visible>Skin.String(CustomWeatherFolder)</visible>
-      <visible>!Skin.HasSetting(CustomWeather)</visible>
-    </control>
-    <control type="multiimage">
-      <include>Background_ImageFolder</include>
-      <imagepath>weather/$INFO[Weather.FanartCode]</imagepath>
-      <visible>Skin.String(CustomWeatherFolder)</visible>
-      <visible>Skin.HasSetting(CustomWeather)</visible>
+      <imagepath background="true">special://skin/extras/backdrops/default_weather/$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+      <include>Animation_Fanart_400ms</include>
     </control>
     <!-- Background_Wallpaper end -->
     <control type="group">
