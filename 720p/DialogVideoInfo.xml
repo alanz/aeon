@@ -889,7 +889,7 @@
         <control type="label">
           <posx>30</posx>
           <posy>3</posy>
-          <width>370</width>
+          <width>390</width>
           <height>22</height>
           <font>Font_FSInfoPlot</font>
           <include>Colour_Grey</include>
@@ -916,31 +916,31 @@
 	     If someone got a better idea, or wants to refactor this mess,
 	     feel free to send a patch ;-)
         -->
-	<control type="label">
-	  <visible>Control.HasFocus(50) | Control.HasFocus(3)</visible>
+        <control type="label">
+          <visible>Control.HasFocus(50) | Control.HasFocus(3)</visible>
           <posx>30</posx>
           <posy>3</posy>
-          <width>370</width>
+          <width>390</width>
           <height>22</height>
-	  <font>Font_FSInfoPlot</font>
+          <font>Font_FSInfoPlot</font>
           <aligny>center</aligny>
           <selectedcolor>green</selectedcolor>
           <align>left</align>
           <info>ListItem.Label</info>
         </control>
-	<control type="label">
-	  <visible>!Control.HasFocus(50) + !Control.HasFocus(3)</visible>
+        <control type="label">
+          <visible>!Control.HasFocus(50) + !Control.HasFocus(3)</visible>
           <posx>30</posx>
           <posy>3</posy>
-          <width>370</width>
+          <width>390</width>
           <height>22</height>
-	  <font>Font_FSInfoPlot</font>
+          <font>Font_FSInfoPlot</font>
           <include>Colour_Grey</include>
           <aligny>center</aligny>
           <selectedcolor>green</selectedcolor>
           <align>left</align>
           <info>ListItem.Label</info>
-	</control>
+         </control>
 	<!-- end of fake out of focus item -->
       </focusedlayout>
     </control>
@@ -949,13 +949,14 @@
       <animation effect="slide" start="0,0" end="25,0" time="0" condition="!Control.IsVisible(61)">conditional</animation>
       <control type="image">
         <description>Actor image</description>
-        <posx>920</posx>
+        <posx>950</posx>
         <posy>410</posy>
-        <width>150</width>
+        <width>170</width>
         <height>200</height>
-        <info>Container(50).ListItem.Icon</info>
-        <aspectratio aligny="center">keep</aspectratio>
+        <texture diffuse="thumbs/movieposter_mask.png">$INFO[Container(50).ListItem.Icon]</texture>
+        <aspectratio scalediffuse="true">keep</aspectratio>
         <align>center</align>
+        <fadetime>400</fadetime>
       </control>
     </control>
     <include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
