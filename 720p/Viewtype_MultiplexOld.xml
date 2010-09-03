@@ -882,7 +882,7 @@
           <include>OldMultiplexSeasonOverlayWrap</include>
           <texture>common/black.png</texture>
           <colordiffuse>b6FFFFFF</colordiffuse>
-          <visible>[Container.Content(seasons) | Container.Content(episodes)] + !substring(ListItem.label,..)</visible>
+          <visible>[Container.Content(seasons) | Container.Content(episodes)] + !StringCompare(ListItem.label,..)</visible>
         </control>
         <control type="label">
           <posx>115</posx>
@@ -893,7 +893,7 @@
           <aligny>center</aligny>
           <font>Font_MultiplexSeasonLabelOld</font>
           <label>$INFO[ListItem.Label]</label>
-          <visible>Container.Content(seasons)  + !substring(Container.ListItem.Label,..,left)</visible>
+          <visible>Container.Content(seasons)  + !StringCompare(Container.ListItem.Label,..)</visible>
         </control>
         <control type="label">
           <posx>115</posx>
@@ -904,12 +904,12 @@
           <aligny>center</aligny>
           <font>Font_MultiplexSeasonLabelOld</font>
           <label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
-          <visible>Container.Content(episodes) + !substring(ListItem.label,..)</visible>
+          <visible>Container.Content(episodes) + !StringCompare(ListItem.label,..)</visible>
         </control>
         <control type="image">
           <include>OldMultiplexSeasonOverlayWrap</include>
           <texture>multiplex/old/multiplex_seasongradient.png</texture>
-          <visible>[Container.Content(seasons) | Container.Content(episodes)]  + !substring(Container.ListItem.Label,..,left)</visible>
+          <visible>[Container.Content(seasons) | Container.Content(episodes)]  + !StringCompare(Container.ListItem.Label,..)</visible>
         </control>
         <control type="image">
           <include>OldMultiplexIconDimensionsTVWrap</include>
@@ -921,7 +921,7 @@
           <include>OldMultiplexIconDimensionsTVWrap</include>
           <texture>common/black.png</texture>
           <colordiffuse>58FFFFFF</colordiffuse>
-          <visible>!substring(ListItem.label,..)</visible>
+          <visible>!StringCompare(ListItem.label,..)</visible>
         </control>
         <control type="image">
           <posx>175</posx>
@@ -950,7 +950,7 @@
             <include>OldMultiplexSeasonOverlayWrap</include>
             <texture>common/black.png</texture>
             <colordiffuse>b6FFFFFF</colordiffuse>
-            <visible>[Container.Content(seasons) | Container.Content(episodes)] + !substring(ListItem.label,..)</visible>
+            <visible>[Container.Content(seasons) | Container.Content(episodes)] + !StringCompare(ListItem.label,..)</visible>
           </control>
           <control type="label">
             <posx>115</posx>
@@ -961,7 +961,7 @@
             <aligny>center</aligny>
             <font>Font_MultiplexSeasonLabelOld</font>
             <label>$INFO[ListItem.Label]</label>
-            <visible>Container.Content(seasons) + !substring(ListItem.label,..)</visible>
+            <visible>Container.Content(seasons) + !StringCompare(ListItem.label,..)</visible>
           </control>
           <control type="label">
             <posx>115</posx>
@@ -972,7 +972,7 @@
             <aligny>center</aligny>
             <font>Font_MultiplexSeasonLabelOld</font>
             <label>$LOCALIZE[31433] $INFO[ListItem.Episode]</label>
-            <visible>Container.Content(episodes) + !substring(ListItem.label,..)</visible>
+            <visible>Container.Content(episodes) + !StringCompare(ListItem.label,..)</visible>
           </control>
           <control type="image">
             <include>OldMultiplexSeasonOverlayWrap</include>
