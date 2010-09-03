@@ -166,15 +166,15 @@
     <control type="image"><!-- black overlay-->
       <include>BlackOverlayCommon</include>
       <animation effect="fade" start="0" end="100" time="600" delay="3000" condition="!Skin.HasSetting(multiplexinfoon)">WindowOpen</animation>
-      <visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]]</visible>
+      <visible>[Container.Content(movies) + Control.IsVisible(52) + !StringCompare(Container.ListItem.Label,..) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]]</visible>
     </control>
     <control type="group"><!-- plot poster fanart-->
       <posx>0</posx>
       <posy>65</posy>
       <width>1280</width>
       <height>381</height>
-      <visible>[Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]] </visible>
-      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(multiplexinfoon)">WindowOpen</animation>
+      <visible>Container.Content(movies) + Control.IsVisible(52) + !StringCompare(Container.ListItem.Label,..) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]] </visible>
+      <animation effect="slide" start="0,-600" end="0,0" time="900" tween="cubic" easing="out" delay="3000" condition="!Skin.HasSetting(multiplexinfoon)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <include>Animation_InfoPanelSlide</include>
       <control type="image">
