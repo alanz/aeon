@@ -1279,7 +1279,7 @@
           <textcolor>d0ffffff</textcolor>
           <include>LowList_WideInfoLabelVars</include>
           <posy>-80</posy>
-          <label>$INFO[ListItem.Director]</label>
+          <label fallback="-">$INFO[ListItem.Director]</label>
         </control>
       </control>
       <control type="group">
@@ -1458,7 +1458,7 @@
       <control type="label">
         <posx>-30</posx>
         <posy>157</posy>
-        <width>580</width>
+        <width>500</width>
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
@@ -1745,16 +1745,35 @@
           <width>940</width>
           <height>217</height>
           <visible>Container.Content(episodes)</visible>
-          <control type="label">
-            <include>LowList_WideInfoLabelEpisodeVars</include>
-            <posy>-45</posy>
-            <label>$LOCALIZE[31402]:</label>
+          <!-- Director -->
+          <control type="group">
+            <visible>!IsEmpty(ListItem.Director)</visible>
+            <control type="label">
+              <include>LowList_WideInfoLabelEpisodeVars</include>
+              <posy>-45</posy>
+              <label>$LOCALIZE[31402]:</label>
+            </control>
+            <control type="label">
+              <textcolor>d0ffffff</textcolor>
+              <include>LowList_WideInfoLabelEpisodeVars</include>
+              <posy>-25</posy>
+              <label fallback="-">$INFO[ListItem.Director]</label>
+            </control>
           </control>
-          <control type="label">
-            <textcolor>d0ffffff</textcolor>
-            <include>LowList_WideInfoLabelEpisodeVars</include>
-            <posy>-25</posy>
-            <label fallback="-">$INFO[ListItem.Director]</label>
+          <!-- Writer -->
+          <control type="group">
+            <visible>IsEmpty(ListItem.Director)</visible>
+            <control type="label">
+              <include>LowList_WideInfoLabelEpisodeVars</include>
+              <posy>-45</posy>
+              <label>$LOCALIZE[31401]:</label>
+            </control>
+            <control type="label">
+              <textcolor>d0ffffff</textcolor>
+              <include>LowList_WideInfoLabelEpisodeVars</include>
+              <posy>-25</posy>
+              <label fallback="-">$INFO[ListItem.Writer]</label>
+            </control>
           </control>
         </control>
       </control>
