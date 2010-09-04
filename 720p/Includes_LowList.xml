@@ -509,7 +509,6 @@
     <width>100</width>
     <include>LowList_WideInfoLabelVars</include>
     <posy>125</posy>
-    <!--<animation effect="slide" start="0,0" end="0,55" time="200" condition="!Skin.HasSetting(highlist)">Conditional</animation>-->
   </include>
   <include name="LowList_ShortTextBox">
     <posy>8</posy>
@@ -1335,30 +1334,33 @@
         </control>
       </control>
       <!-- MPAA Labels -->
-      <control type="label">
-        <include>LowList_MpaaLabelVars</include>
-        <label>Rated [COLOR d0ffffff]R[/COLOR]</label>
-        <visible>substring(ListItem.mpaa,Rated R)</visible>
-      </control>
-      <control type="label">
-        <include>LowList_MpaaLabelVars</include>
-        <label>Rated [COLOR d0ffffff]PG-13[/COLOR]</label>
-        <visible>substring(ListItem.mpaa,Rated PG-13)</visible>
-      </control>
-      <control type="label">
-        <include>LowList_MpaaLabelVars</include>
-        <label>Rated [COLOR d0ffffff]PG[/COLOR]</label>
-        <visible>substring(ListItem.mpaa,Rated PG f)</visible>
-      </control>
-      <control type="label">
-        <include>LowList_MpaaLabelVars</include>
-        <label>Rated [COLOR d0ffffff]NC-17[/COLOR]</label>
-        <visible>substring(ListItem.mpaa,Rated NC)</visible>
-      </control>
-      <control type="label">
-        <include>LowList_MpaaLabelVars</include>
-        <label>Rated [COLOR d0ffffff]G[/COLOR]</label>
-        <visible>substring(ListItem.mpaa,Rated G)</visible>
+      <control type="group">
+        <posx>-35</posx>
+        <control type="label">
+          <include>LowList_MpaaLabelVars</include>
+          <label>Rated [COLOR d0ffffff]R[/COLOR]</label>
+          <visible>substring(ListItem.mpaa,Rated R)</visible>
+        </control>
+        <control type="label">
+          <include>LowList_MpaaLabelVars</include>
+          <label>Rated [COLOR d0ffffff]PG-13[/COLOR]</label>
+          <visible>substring(ListItem.mpaa,Rated PG-13)</visible>
+        </control>
+        <control type="label">
+          <include>LowList_MpaaLabelVars</include>
+          <label>Rated [COLOR d0ffffff]PG[/COLOR]</label>
+          <visible>substring(ListItem.mpaa,Rated PG f)</visible>
+        </control>
+        <control type="label">
+          <include>LowList_MpaaLabelVars</include>
+          <label>Rated [COLOR d0ffffff]NC-17[/COLOR]</label>
+          <visible>substring(ListItem.mpaa,Rated NC)</visible>
+        </control>
+        <control type="label">
+          <include>LowList_MpaaLabelVars</include>
+          <label>Rated [COLOR d0ffffff]G[/COLOR]</label>
+          <visible>substring(ListItem.mpaa,Rated G)</visible>
+        </control>
       </control>
       <!-- Wide Info Panel Fanart/Slideshow -->
       <control type="largeimage">
