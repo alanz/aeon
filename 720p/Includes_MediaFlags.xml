@@ -840,23 +840,28 @@
         <posx>1070</posx>
         <control type="image">
           <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+          <texture>$INFO[Control.GetLabel(900006)]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>$INFO[Control.GetLabel(900005)]</texture>
+          <aspectratio>keep</aspectratio>
         </control>
       </control>
       <control type="group">
         <posx>1180</posx>
         <control type="image">
-          <posy>655</posy>
-          <width>100</width>
-          <height>65</height>
+          <posy>658</posy>
+          <width>90</width>
+          <height>60</height>
           <include>Animation_CommonFade</include>
           <include>Animation_HideShowcase</include>
           <include>Animation_HideMultiplex</include>
-          <visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)</visible>
-          <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-          <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+          <visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(55)</visible>
           <fadetime>400</fadetime>
-          <texture>$INFO[ListItem.AudioChannels,flags/audio/,ch.png]</texture>
+          <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
+          <aspectratio>keep</aspectratio>
         </control>
       </control>
     </control>
