@@ -179,13 +179,13 @@
         <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
       </control>
       <control type="image" id="96">
-        <posx>444</posx>
-        <posy>579</posy>
-        <width>81</width>
-        <height>50</height>
-        <colordiffuse>FF7DDDDDD</colordiffuse>
-        <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
-        <visible>Container.Content(movies) | Container.Content(episodes)</visible>
+	<posx>444</posx>
+	<posy>579</posy>
+	<width>81</width>
+	<height>50</height>
+	<colordiffuse>FF7DDDDDD</colordiffuse>
+	<texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
+	<visible>Container.Content(movies) | Container.Content(episodes)</visible>
       </control>
     </control>
   </include>
@@ -597,7 +597,7 @@
         <posx>92</posx>
         <control type="image">
           <include>Furniture_FloorMediaFlagsVars</include>
-          <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
+          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
         </control>
       </control>
       <control type="group">
@@ -781,31 +781,22 @@
       <animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
       <posy>207</posy>
       <control type="group">
-        <!-- Studios for episodes-->
-        <posx>1180</posx>
-        <visible>Container.Content(episodes)</visible>
-        <control type="image" id="81">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
-        </control>
-      </control>
-	  <control type="group">
-        <!-- aspect ratio for episodes-->
-        <posx>85</posx>
-        <visible>Container.Content(episodes) | Container.Content(movies)</visible>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>$INFO[ListItem.VideoAspect,flags/AspectRatio/,.png]</texture>
-          <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+	<!-- aspect ratio for episodes-->
+	<posx>85</posx>
+	<visible>Container.Content(episodes) | Container.Content(movies)</visible>
+	<control type="image">
+	  <include>Furniture_PanelMediaFlagsVars</include>
+	  <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+	  <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
         </control>
       </control>
       <control type="group">
         <!-- studios-->
         <posx>1180</posx>
-        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
         <control type="image" id="81">
           <include>Furniture_PanelMediaFlagsVars</include>
-          <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
+          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
         </control>
       </control>
       <control type="group">
@@ -1142,7 +1133,7 @@
       <posx>25</posx>
       <control type="image" id="91">
         <include>Furniture_OldMultiplexMediaFlagsVars</include>
-        <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
+	<texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
       </control>
     </control>
     <control type="group">
@@ -1197,20 +1188,12 @@
       </control>
     </control>
     <control type="group">
-      <visible>Container.Content(episodes)</visible>
+      <visible>Container.Content(episodes) | Container.Content(tvshows)</visible>
       <posx>1000</posx>
       <control type="image" id="81">
         <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
+	<texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
         <visible>!Container.Content(tvshows)</visible>
-      </control>
-    </control>
-    <control type="group">
-      <visible>Container.Content(tvshows)</visible>
-      <posx>1000</posx>
-      <control type="image" id="91">
-        <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
       </control>
     </control>
     <control type="group">
