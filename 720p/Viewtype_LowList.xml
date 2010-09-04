@@ -138,7 +138,7 @@
   <include name="ListDetail_Stars">
     <control type="image">
       <posx>5</posx>
-      <posy>166</posy>
+      <posy>168</posy>
       <width>141</width>
       <height>30</height>
       <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
@@ -791,6 +791,7 @@
         <texturenofocus>-</texturenofocus>
         <onfocus>SetFocus(55110)</onfocus>
         <visible>Control.IsVisible(551) + !Skin.HasSetting(lowlistinfoauto)</visible>
+        <visible>!StringCompare(ListItem.Label,..)</visible>
       </control>
       <control type="button" id="55105">
         <!--SetFocus(7000), auto trigger, !55111-->
@@ -803,6 +804,7 @@
         <texturenofocus>-</texturenofocus>
         <onfocus>SetFocus(7000)</onfocus>
         <visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + !Control.IsVisible(55111)</visible>
+        <visible>!StringCompare(ListItem.Label,..)</visible>
       </control>
       <control type="button" id="55105">
         <!--on right: trailer-->
@@ -816,6 +818,7 @@
         <onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
         <onfocus>SetFocus(55110)</onfocus>
         <visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + !IsEmpty(ListItem.Trailer) + Control.IsVisible(55111)</visible>
+        <visible>!StringCompare(ListItem.Label,..)</visible>
       </control>
       <control type="button" id="55105">
         <!--on right: setfocus(7000)-->
@@ -828,6 +831,7 @@
         <texturenofocus>-</texturenofocus>
         <onfocus>SetFocus(7000)</onfocus>
         <visible>Control.IsVisible(551) + Skin.HasSetting(lowlistinfoauto) + IsEmpty(ListItem.Trailer) + Control.IsVisible(55111)</visible>
+        <visible>!StringCompare(ListItem.Label,..)</visible>
       </control>
       <!-- Wide Info Panel Invisible Buttons -->
       <control type="button" id="55110">

@@ -184,17 +184,8 @@
         <width>81</width>
         <height>50</height>
         <colordiffuse>FF7DDDDDD</colordiffuse>
-        <texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
-        <visible>Container.Content(movies) | [Container.Content(episodes) + [substring(ListItem.VideoResolution,480) | substring(ListItem.VideoResolution,540)]]</visible>
-      </control>
-      <control type="image" id="96">
-        <posx>444</posx>
-        <posy>579</posy>
-        <width>81</width>
-        <height>50</height>
-        <colordiffuse>FF7DDDDDD</colordiffuse>
-        <texture>$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
-        <visible>Container.Content(episodes) + [substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+        <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
+        <visible>Container.Content(movies) | Container.Content(episodes)</visible>
       </control>
     </control>
   </include>
@@ -369,8 +360,8 @@
         <posx>-80</posx>
         <control type="image" id="81">
           <include>LowList_MovieFlagVars</include>
-          <texture>$INFO[ListItem.studio,flags/studios/,.png]</texture>
-          <animation effect="slide" start="0,0" end="330,-5" time="0" condition="Container.Content(tvshows) | Container.Content(seasons)">Conditional</animation>
+	  <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
+          <animation effect="slide" start="0,0" end="350,0" time="0" condition="Container.Content(tvshows) | Container.Content(seasons)">Conditional</animation>
         </control>
       </control>
       <control type="group">
@@ -606,7 +597,7 @@
         <posx>92</posx>
         <control type="image">
           <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>$INFO[ListItem.studio,flags/studios/,.png]</texture>
+          <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
         </control>
       </control>
       <control type="group">
@@ -709,13 +700,8 @@
         <posx>110</posx>
         <control type="image" id="81">
           <include>Furniture_FloorMediaFlagsVars</include>
-          <texture fallback="flags/source/sdtv.png">$INFO[ListItem.Studio,flags/studios/,.png]</texture>
-          <visible>substring(ListItem.VideoResolution,480) | substring(ListItem.VideoResolution,540) | Container.Content(tvshows)</visible>
-        </control>
-        <control type="image" id="81">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture fallback="flags/source/hdtv.png">$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
-          <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
+          <visible>Container.Content(tvshows)</visible>
         </control>
       </control>
       <control type="group">
@@ -800,13 +786,7 @@
         <visible>Container.Content(episodes)</visible>
         <control type="image" id="81">
           <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
-          <visible>substring(ListItem.VideoResolution,480) | substring(ListItem.VideoResolution,540)</visible>
-        </control>
-        <control type="image" id="81">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
-          <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
+          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
         </control>
       </control>
 	  <control type="group">
@@ -825,7 +805,7 @@
         <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
         <control type="image" id="81">
           <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+          <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
         </control>
       </control>
       <control type="group">
@@ -1162,7 +1142,7 @@
       <posx>25</posx>
       <control type="image" id="91">
         <include>Furniture_OldMultiplexMediaFlagsVars</include>
-        <texture fallback="flags/default.png">$INFO[ListItem.studio,flags/studios/,.png]</texture>
+        <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
       </control>
     </control>
     <control type="group">
@@ -1221,14 +1201,8 @@
       <posx>1000</posx>
       <control type="image" id="81">
         <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture fallback="flags/default.png">$INFO[ListItem.Studio,flags/studios/,.png]</texture>
-        <visible>substring(ListItem.VideoResolution,480) | substring(ListItem.VideoResolution,540) | substring(ListItem.filename,sddvd)</visible>
+        <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
         <visible>!Container.Content(tvshows)</visible>
-      </control>
-      <control type="image" id="81">
-        <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture fallback="flags/default.png">$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
-        <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
       </control>
     </control>
     <control type="group">
@@ -1236,7 +1210,7 @@
       <posx>1000</posx>
       <control type="image" id="91">
         <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture fallback="flags/default.png">$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+        <texture fallback="flags/studios/default.png">$INF0[Control.GetLabel(900009)]</texture>
       </control>
     </control>
     <control type="group">

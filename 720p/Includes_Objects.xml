@@ -577,6 +577,39 @@
     </control>
   </include>
 
+  <!--
+       This will generate two (or one label specific to the AudioChannel and Audio codec
+       of the current stream
+  -->
+  <include name="StudioGenerator">
+    <control type="group">
+      <include>HiddenObject</include>
+      <control type="image" id="9000090">
+	<texture></texture>
+	<visible>false</visible>
+      </control>
+      <control type="image" id="9000090">
+        <texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+      </control>
+      <control type="image" id="9000091">
+	<texture></texture>
+	<visible>false</visible>
+      </control>
+      <control type="image" id="9000091">
+        <texture>$INFO[ListItem.Studio,flags/studios/,_hd.png]</texture>
+        <visible>[SubString(ListItem.VideoResolution,720) | SubString(ListItem.VideoResolution,1080)]</visible>
+      </control>
+      <control type="label" id="900009">
+	<label>$INFO[Control.GetLabel(9000091)]</label>
+	<visible>!IsEmpty(Control.GetLabel(9000091))</visible>
+      </control>
+      <control type="label" id="900009">
+	<label>$INFO[Control.GetLabel(9000090)]</label>
+	<visible>IsEmpty(Control.GetLabel(9000091))</visible>
+      </control>
+    </control>
+  </include>
+
   <include name="ScrollOffsetLabel">
     <control type="group">
       <posx>0</posx>
