@@ -719,6 +719,52 @@
     </control>
   </include>
 
+  <include name="SourceGenerator">
+    <control type="group">
+      <include>HiddenObject</include>
+      <control type="label" id="900011">
+	<label></label>
+	<visible>false</visible>
+      </control>
+      <control type="label" id="900011">
+	<label>flags/source/sdtv.png</label>
+        <visible>SubString(ListItem.filename,PDTV) | SubString(ListItem.filename,sdtv)</visible>
+      </control>
+      <control type="label" id="900011">
+	<label>flags/source/hdtv.png</label>
+	<visible>SubString(ListItem.Filename,hdtv)</visible>
+      </control>
+      <control type="label" id="900011">
+	<label>flags/source/hddvd.png</label>
+	<visible>SubString(ListItem.Filename,hddvd) | SubString(ListItem.Filename,hd-dvd)</visible>
+      </control>
+      <control type="label" id="900011">
+	<label>flags/source/bluray.png</label>
+	<visible>SubString(ListItem.Filename,bluray) | SubString(ListItem.Filename,blu-ray) | SubString(ListItem.Filename,bdrip)</visible>
+      </control>
+      <control type="label" id="900011">
+	<label>flags/source/dvd.png</label>
+	<visible>[SubString(ListItem.Filename,dvd) + !SubString(ListItem.Filename,hddvd) + !SubString(ListItem.Filename,hd-dvd) + !SubString(ListItem.Filename,bluray)] | [SubString(ListItem.Filename,.iso,Right) + !SubString(ListItem.Filename,bluray)] | SubString(ListItem.Filename,.ifo,Right)</visible>
+      </control>
+      <control type="label" id="900011">
+	<label>flags/source/dvb.png</label>
+	<visible>SubString(ListItem.Filename,dvb)</visible>
+      </control>
+      <control type="label" id="900012">
+	<label></label>
+	<visible>false</visible>
+      </control>
+      <control type="label" id="900012">
+	<label>$INFO[Control.GetLabel(900011)]</label>
+	<visible>Skin.HasSetting(sourceflag) + !IsEmpty(Control.GetLabel(900011))</visible>
+      </control>
+      <control type="label" id="900012">
+	<label>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</label>
+	<visible>!Skin.HasSetting(sourceflag) | IsEmpty(Control.GetLabel(900011))</visible>
+      </control>
+    </control>
+  </include>
+
   <include name="ScrollOffsetLabel">
     <control type="group">
       <posx>0</posx>
