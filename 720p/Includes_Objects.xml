@@ -578,8 +578,8 @@
   </include>
 
   <!--
-       This will generate two (or one label specific to the AudioChannel and Audio codec
-       of the current stream
+       This will generate the HD or Regular Studio Label for the
+       Current ListItem
   -->
   <include name="StudioGenerator">
     <control type="group">
@@ -606,6 +606,115 @@
       <control type="label" id="900009">
 	<label>$INFO[Control.GetLabel(9000090)]</label>
 	<visible>IsEmpty(Control.GetLabel(9000091))</visible>
+      </control>
+    </control>
+  </include>
+
+  <!--
+       Retrieve the Rating image
+  -->
+  <include name="RatingsGenerator">
+    <control type="group">
+      <include>HiddenObject</include>
+      <control type="image" id="900010">
+	<texture></texture>
+	<visible>false</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/FSK-0.png</texture>
+	<visible>SubString(ListItem.mpaa,Germany:0) | SubString(ListItem.mpaa,o.A)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/FSK-6.png</texture>
+	<visible>SubString(ListItem.mpaa,Germany:6) | SubString(ListItem.mpaa,ab 6)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/FSK-12.png</texture>
+	<visible>SubString(ListItem.mpaa,Germany:12) | SubString(ListItem.mpaa,ab 12)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/FSK-16.png</texture>
+	<visible>SubString(ListItem.mpaa,Germany:16) | SubString(ListItem.mpaa,ab 16)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/FSK-18.png</texture>
+	<visible>SubString(ListItem.mpaa,Germany:18) | SubString(ListItem.mpaa,ab 18)</visible>
+      </control>
+      <!-- UK Certification -->
+      <control type="image" id="900010">
+	<texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
+	<visible>SubString(ListItem.mpaa,UK:U)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
+	<visible>SubString(ListItem.mpaa,UK:PG)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
+	<visible>SubString(ListItem.mpaa,UK:12) + !SubString(ListItem.mpaa,UK:12A)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
+	<visible>SubString(ListItem.mpaa,UK:12A)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
+	<visible>SubString(ListItem.mpaa,UK:15)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
+	<visible>SubString(ListItem.mpaa,UK:18)</visible>
+      </control>
+      <!-- US Certification -->
+      <control type="image" id="900010">
+	<texture>flags/rating/MPAA_G_Certificate_US.png</texture>
+	<visible>SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
+	<visible>SubString(ListItem.mpaa,US:PG) | SubString(ListItem.mpaa,USA:PG) | [SubString(ListItem.mpaa,Rated PG) + !SubString(ListItem.mpaa,Rated PG-13)]</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
+	<visible>SubString(ListItem.mpaa,US:PG-13) | SubString(ListItem.mpaa,USA:PG-13) | SubString(ListItem.mpaa,Rated PG-13)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/MPAA_R_Certificate_US.png</texture>
+	<visible>SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R)</visible>
+      </control>
+      <control type="image" id="900010">
+	<texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
+	<visible>SubString(ListItem.mpaa,US:NC-17) | SubString(ListItem.mpaa,USA:NC-17) | SubString(ListItem.mpaa,Rated NC-17)</visible>
+      </control>
+      <control type="image" id="900010">
+	<include>Furniture_PanelMediaFlagsVars</include>
+	<texture>flags/rating/TV-G_Certificate_US.png</texture>
+	<visible>substring(ListItem.mpaa,TV-G)</visible>
+      </control>
+      <control type="image" id="900010">
+	<include>Furniture_PanelMediaFlagsVars</include>
+	<texture>flags/rating/TV-PG_Certificate_US.png</texture>
+	<visible>substring(ListItem.mpaa,TV-PG)</visible>
+      </control>
+      <control type="image" id="900010">
+	<include>Furniture_PanelMediaFlagsVars</include>
+	<texture>flags/rating/TV-14_Certificate_US.png</texture>
+	<visible>substring(ListItem.mpaa,TV-14)</visible>
+      </control>
+      <control type="image" id="900010">
+	<include>Furniture_PanelMediaFlagsVars</include>
+	<texture>flags/rating/TV-MA_Certificate_US.png</texture>
+	<visible>substring(ListItem.mpaa,TV-MA)</visible>
+      </control>
+      <control type="image" id="900010">
+	<include>Furniture_PanelMediaFlagsVars</include>
+	<texture>flags/rating/tv-y.png</texture>
+	<visible>StringCompare(ListItem.mpaa,Y)</visible> <!-- Not sure about this one -->
+      </control>
+      <control type="image" id="900010">
+	<include>Furniture_PanelMediaFlagsVars</include>
+	<texture>flags/rating/tv-y7.png</texture>
+	<visible>StringCompare(ListItem.mpaa,7)</visible> <!-- Not sure about this one -->
       </control>
     </control>
   </include>

@@ -14,19 +14,9 @@
     <include>Animation_HideShowcase</include>
     <include>Animation_HideMultiplex</include>
     <visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(55)</visible>
+    <aspectratio>keep</aspectratio>
     <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
     <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
-    <fadetime>400</fadetime>
-  </include>
-  <include name="Furniture_FloorMediaFlagsVarsGerman">
-    <posy>668</posy>
-    <width>73</width>
-    <height>50</height>
-    <include>Animation_CommonFade</include>
-    <include>Animation_HideShowcase</include>
-    <include>Animation_HideMultiplex</include>
-    <visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(55)</visible>
-    <include>FloorMediaFlagNightShade</include>
     <fadetime>400</fadetime>
   </include>
   <include name="Furniture_ListMediaFlagsVars">
@@ -259,93 +249,16 @@
   </include>
   <include name="LowList_MediaFlags">
     <control type="group">
-      <posx>-6</posx>
-      <posy>665</posy>
-      <control type="group">
-	<posx>-70</posx>
-	<posy>5</posy>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/FSK-0.png</texture>
-	  <visible>substring(ListItem.mpaa,Germany:0) | substring(ListItem.mpaa,o.A)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/FSK-6.png</texture>
-	  <visible>substring(ListItem.mpaa,Germany:6) | substring(ListItem.mpaa,ab 6)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/FSK-12.png</texture>
-	  <visible>substring(ListItem.mpaa,Germany:12) | substring(ListItem.mpaa,ab 12)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/FSK-16.png</texture>
-	  <visible>substring(ListItem.mpaa,Germany:16) | substring(ListItem.mpaa,ab 16)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/FSK-18.png</texture>
-	  <visible>substring(ListItem.mpaa,Germany:18) | substring(ListItem.mpaa,ab 18)</visible>
-	</control>
-	<!-- UK Certification -->
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
-	  <visible>substring(ListItem.mpaa,UK:U)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
-	  <visible>substring(ListItem.mpaa,UK:PG)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
-	  <visible>substring(ListItem.mpaa,UK:12) + !substring(ListItem.mpaa,UK:12A)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
-	  <visible>substring(ListItem.mpaa,UK:12A)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
-	  <visible>substring(ListItem.mpaa,UK:15)</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
-	  <visible>substring(ListItem.mpaa,UK:18)</visible>
-	</control>
-	<!-- US Certification -->
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/MPAA_G_Certificate_US.png</texture>
-	  <visible>[substring(ListItem.mpaa,US:G) | substring(ListItem.mpaa,USA:G) | substring(ListItem.mpaa,Rated G)]</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
-	  <visible>[substring(ListItem.mpaa,US:PG) | substring(ListItem.mpaa,USA:PG) | [substring(ListItem.mpaa,Rated PG) + !substring(ListItem.mpaa,Rated PG-13)]]</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
-	  <visible>[substring(ListItem.mpaa,US:PG-13) | substring(ListItem.mpaa,USA:PG-13) | substring(ListItem.mpaa,Rated PG-13)]</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/MPAA_R_Certificate_US.png</texture>
-	  <visible>[substring(ListItem.mpaa,US:R) | substring(ListItem.mpaa,USA:R) | substring(ListItem.mpaa,Rated R)]</visible>
-	</control>
-	<control type="image" id="1171">
-	  <include>LowList_MovieFlagVarsCertification</include>
-	  <texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
-	  <visible>[substring(ListItem.mpaa,US:NC-17) | substring(ListItem.mpaa,USA:NC-17) | substring(ListItem.mpaa,Rated NC-17)]</visible>
-	</control>
+      <posx>-76</posx>
+      <posy>670</posy>
+      <control type="image" id="1171">
+	<animation effect="slide" start="0,0" end="85,0" easing="inout" tween="cubic" time="200">Visible</animation>
+	<animation effect="slide" start="85,0" end="0,0" easing="inout" tween="cubic" time="200">Hidden</animation>
+	<width>100</width>
+	<height>53</height>
+	<aspectratio>keep</aspectratio>
+	<texture>$INFO[Control.GetLabel(900010)]</texture>
+	<visible>Control.IsVisible(551) + Window.IsActive(videolibrary) + !IsEmpty(Control.GetLabel(900010))</visible>
       </control>
     </control>
     <!-- Browsing flags -->
@@ -443,16 +356,6 @@
     <fadetime>300</fadetime>
     <visible>Control.IsVisible(551) + Window.IsActive(videolibrary)</visible>
   </include>
-  <include name="LowList_MovieFlagVarsCertification">
-    <posx>0</posx>
-    <posy>0</posy>
-    <width>81</width>
-    <height>53</height>
-    <aspectratio>keep</aspectratio>
-    <visible>Control.IsVisible(551) + Window.IsActive(videolibrary)</visible>
-    <animation effect="slide" start="0,0" end="85,0" easing="inout" tween="cubic" time="200">Visible</animation>
-    <animation effect="slide" start="85,0" end="0,0" easing="inout" tween="cubic" time="200">Hidden</animation>
-  </include>
   <include name="Furniture_FloorMediaFlags">
     <control type="group">
       <visible>[Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + Container.Content(movies) + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
@@ -481,159 +384,7 @@
       <!--ADDED WALL-->
       <include>Animation_CommonFade</include>
       <control type="group">
-        <posx>5</posx>
-        <include>Animation_CommonFade</include>
-        <include>Animation_HideShowcase</include>
-        <include>Animation_HideMultiplex</include>
-        <visible>Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552)</visible>
-        <!-- UK Certification -->
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
-          <visible>substring(ListItem.mpaa,UK:U)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
-          <visible>substring(ListItem.mpaa,UK:PG)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
-          <visible>substring(ListItem.mpaa,UK:12) + !substring(ListItem.mpaa,UK:12A)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
-          <visible>substring(ListItem.mpaa,UK:12A)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
-          <visible>substring(ListItem.mpaa,UK:15)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
-          <visible>substring(ListItem.mpaa,UK:18)</visible>
-        </control>
-        <!-- US Certification -->
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/MPAA_G_Certificate_US.png</texture>
-          <visible>[substring(ListItem.mpaa,US:G) | substring(ListItem.mpaa,USA:G) | substring(ListItem.mpaa,Rated G)]</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
-          <visible>[substring(ListItem.mpaa,US:PG) | substring(ListItem.mpaa,USA:PG) | [substring(ListItem.mpaa,Rated PG) + !substring(ListItem.mpaa,Rated PG-13)]]</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
-          <visible>[substring(ListItem.mpaa,US:PG-13) | substring(ListItem.mpaa,USA:PG-13) | substring(ListItem.mpaa,Rated PG-13)]</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/MPAA_R_Certificate_US.png</texture>
-          <visible>[substring(ListItem.mpaa,US:R) | substring(ListItem.mpaa,USA:R) | substring(ListItem.mpaa,Rated R)]</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
-          <visible>[substring(ListItem.mpaa,US:NC-17) | substring(ListItem.mpaa,USA:NC-17) | substring(ListItem.mpaa,Rated NC-17)]</visible>
-        </control>
-        <!-- Germany Certification -->
-        <control type="group">
-          <posy>-5</posy>
-          <control type="image">
-            <include>Furniture_FloorMediaFlagsVarsGerman</include>
-            <texture>flags/rating/FSK-0.png</texture>
-            <visible>substring(ListItem.mpaa,Germany:0) | substring(ListItem.mpaa,o.A)</visible>
-          </control>
-          <control type="image">
-            <include>Furniture_FloorMediaFlagsVarsGerman</include>
-            <texture>flags/rating/FSK-6.png</texture>
-            <visible>substring(ListItem.mpaa,Germany:6) | substring(ListItem.mpaa,ab 6)</visible>
-          </control>
-          <control type="image">
-            <include>Furniture_FloorMediaFlagsVarsGerman</include>
-            <texture>flags/rating/FSK-12.png</texture>
-            <visible>substring(ListItem.mpaa,Germany:12) | substring(ListItem.mpaa,ab 12)</visible>
-          </control>
-          <control type="image">
-            <include>Furniture_FloorMediaFlagsVarsGerman</include>
-            <texture>flags/rating/FSK-16.png</texture>
-            <visible>substring(ListItem.mpaa,Germany:16) | substring(ListItem.mpaa,ab 16)</visible>
-          </control>
-          <control type="image">
-            <include>Furniture_FloorMediaFlagsVarsGerman</include>
-            <texture>flags/rating/FSK-18.png</texture>
-            <visible>substring(ListItem.mpaa,Germany:18) | substring(ListItem.mpaa,ab 18)</visible>
-          </control>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/TV-G_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-G)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/TV-PG_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-PG)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/TV-14_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-14)]</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>flags/rating/TV-MA_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-MA)]</visible>
-        </control>
-      </control>
-      <control type="group">
-        <posx>92</posx>
-        <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
-        </control>
-      </control>
-      <control type="group">
-        <posx>990</posx>
-        <control type="image" id="81">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-        </control>
-      </control>
-      <control type="group">
-        <posx>1080</posx>
-        <control type="image" id="83">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-        </control>
-        <control type="image" id="84">
-          <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>$INFO[ListItem.VideoResolution,flags/resolution/sd.png]</texture>
-          <visible>!Control.IsVisible(83)</visible>
-        </control>
-      </control>
-      <control type="group">
-        <posx>1170</posx>
-        <control type="image">
-	  <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>$INFO[Control.GetLabel(900006)]</texture>
-          <aspectratio>keep</aspectratio>
-        </control>
-        <control type="image" id="92">
-	  <include>Furniture_FloorMediaFlagsVars</include>
-          <texture>$INFO[Control.GetLabel(900005)]</texture>
-          <aspectratio>keep</aspectratio>
-        </control>
-      </control>
-      <control type="group">
-        <posx>198</posx>
+        <posx>10</posx>
         <control type="group">
           <visible>Skin.HasSetting(sourceflag)</visible>
           <control type="image" id="888">
@@ -666,6 +417,58 @@
           <include>Furniture_FloorMediaFlagsVars</include>
           <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
           <visible>!Control.IsVisible(888) | !Skin.HasSetting(sourceflag)</visible>
+        </control>
+      </control>
+      <control type="group">
+        <posx>110</posx>
+        <control type="image">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
+        </control>
+      </control>
+      <control type="group">
+	<posx>210</posx>
+	<include>Animation_CommonFade</include>
+	<include>Animation_HideShowcase</include>
+	<include>Animation_HideMultiplex</include>
+	<visible>Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552)</visible>
+	<control type="image">
+	  <include>Furniture_FloorMediaFlagsVars</include>
+	  <texture>$INFO[Control.GetLabel(900010)]</texture>
+	  <visible>!IsEmpty(Control.GetLabel(900010))</visible>
+	  <aspectratio>keep</aspectratio>
+	</control>
+      </control>
+      <control type="group">
+        <posx>980</posx>
+        <control type="image" id="81">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+        </control>
+      </control>
+      <control type="group">
+        <posx>1080</posx>
+        <control type="image" id="83">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+        </control>
+        <control type="image" id="84">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoResolution,flags/resolution/sd.png]</texture>
+          <visible>!Control.IsVisible(83)</visible>
+        </control>
+      </control>
+      <control type="group">
+        <posx>1180</posx>
+        <control type="image">
+	  <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>$INFO[Control.GetLabel(900006)]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image" id="92">
+	  <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>$INFO[Control.GetLabel(900005)]</texture>
+          <aspectratio>keep</aspectratio>
         </control>
       </control>
     </control>
@@ -781,78 +584,51 @@
       <animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
       <posy>207</posy>
       <control type="group">
+        <!-- tvshows certificate-->
+        <posx>5</posx>
+        <control type="image">
+          <include>Furniture_PanelMediaFlagsVars</include>
+          <texture>$INFO[Control.GetLabel(900010)]</texture>
+	  <visible>!IsEmpty(Control.GetLabel(900010))</visible>
+        </control>
+      </control>
+      <control type="group">
 	<!-- aspect ratio for episodes-->
-	<posx>85</posx>
-	<visible>Container.Content(episodes) | Container.Content(movies)</visible>
+	<posx>105</posx>
 	<control type="image">
 	  <include>Furniture_PanelMediaFlagsVars</include>
 	  <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
 	  <visible>[substring(ListItem.VideoResolution,720) | substring(ListItem.VideoResolution,1080)]</visible>
-        </control>
+	</control>
       </control>
       <control type="group">
-        <!-- studios-->
-        <posx>1180</posx>
-        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-        <control type="image" id="81">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
-        </control>
+	<!-- source-->
+	<posx>205</posx>
+	<control type="image">
+	  <include>Furniture_PanelMediaFlagsVars</include>
+	  <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
+	  <aspectratio>keep</aspectratio>
+	</control>
       </control>
       <control type="group">
-        <!-- Resolution -->
-        <visible>!Container.Content(tvshows)</visible>
-        <posx>305</posx>
-        <control type="image" id="93">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-          <visible>!substring(ListItem.filename,.iso,Right)]</visible>
-        </control>
-        <control type="image" id="83">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>flags/resolution/480.png</texture>
-          <visible>substring(ListItem.filename,.iso,Right)</visible>
-        </control>
-      </control>
-      <control type="group">
-        <!-- tvshows certificate-->
-        <posx>305</posx>
-        <visible>Container.Content(tvshows)</visible>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>flags/rating/TV-G_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-G)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>flags/rating/TV-PG_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-PG)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>flags/rating/TV-14_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-14)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>flags/rating/TV-MA_Certificate_US.png</texture>
-          <visible>substring(ListItem.mpaa,TV-MA)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>flags/rating/tv-y.png</texture>
-          <visible>substring(ListItem.mpaa,Y)</visible>
-        </control>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>flags/rating/tv-y7.png</texture>
-          <visible>substring(ListItem.mpaa,7)</visible>
-        </control>
+	<!-- Resolution -->
+	<posx>305</posx>
+	<control type="image" id="93">
+	  <include>Furniture_PanelMediaFlagsVars</include>
+	  <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+	  <visible>!substring(ListItem.filename,.iso,Right)]</visible>
+	  <aspectratio>keep</aspectratio>
+	</control>
+	<control type="image" id="83">
+	  <include>Furniture_PanelMediaFlagsVars</include>
+	  <texture>flags/resolution/480.png</texture>
+	  <visible>substring(ListItem.filename,.iso,Right)</visible>
+	  <aspectratio>keep</aspectratio>
+	</control>
       </control>
       <control type="group">
 	<!-- sound-->
-	<visible>!Container.Content(tvshows)</visible>
-	<posx>415</posx>
+	<posx>405</posx>
 	<control type="image">
 	  <include>Furniture_PanelMediaFlagsVars</include>
 	  <texture>$INFO[Control.GetLabel(900006)]</texture>
@@ -865,13 +641,12 @@
 	</control>
       </control>
       <control type="group">
-        <!-- source-->
-        <visible>!Container.Content(tvshows)</visible>
-        <posx>195</posx>
-        <control type="image">
+        <!-- studios-->
+        <posx>1180</posx>
+        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+        <control type="image" id="81">
           <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
-          <visible>!Container.Content(episodes)</visible>
+          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
         </control>
       </control>
     </control>
@@ -1201,33 +976,8 @@
       <visible>Container.Content(tvshows)</visible>
       <control type="image">
         <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture>flags/rating/TV-G_Certificate_US.png</texture>
-        <visible>substring(ListItem.mpaa,TV-G)</visible>
-      </control>
-      <control type="image">
-        <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture>flags/rating/TV-PG_Certificate_US.png</texture>
-        <visible>substring(ListItem.mpaa,TV-PG)</visible>
-      </control>
-      <control type="image">
-        <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture>flags/rating/TV-14_Certificate_US.png</texture>
-        <visible>substring(ListItem.mpaa,TV-14)</visible>
-      </control>
-      <control type="image">
-        <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture>flags/rating/TV-MA_Certificate_US.png</texture>
-        <visible>substring(ListItem.mpaa,TV-MA)</visible>
-      </control>
-      <control type="image">
-        <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture>flags/rating/tv-y.png</texture>
-        <visible>substring(ListItem.mpaa,Y)</visible>
-      </control>
-      <control type="image">
-        <include>Furniture_OldMultiplexMediaFlagsVarsTv</include>
-        <texture>flags/rating/tv-y7.png</texture>
-        <visible>substring(ListItem.mpaa,7)</visible>
+        <texture>$INFO[Control.GetLabel(900010)]</texture>
+        <visible>!IsEmpty(Control.GetLabel(900010))</visible>
       </control>
     </control>
     <control type="group">
