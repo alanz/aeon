@@ -52,20 +52,7 @@
     <posy>68</posy>
     <width>166</width>
     <height>38</height>
-  </include>
-  <include name="Objects_FSUKInfoCertificate">
-    <posx>-15</posx>
-    <posy>66</posy>
-    <width>180</width>
-    <height>42</height>
-  </include>
-  <include name="Objects_FSDEInfoCertificate">
-    <posx>1</posx>
-    <posy>62</posy>
-    <width>58</width>
-    <height>50</height>
-    <colordiffuse>FFcccccc</colordiffuse>
-    <aspectratio scalediffuse="false">scale</aspectratio>
+    <aspectratio>keep</aspectratio>
   </include>
   <include name="Objects_FSInfoYear">
     <width>109</width>
@@ -616,6 +603,92 @@
   <include name="RatingsGenerator">
     <control type="group">
       <include>HiddenObject</include>
+
+      <control type="image" id="900013">
+	<texture></texture>
+	<visible>false</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/mpaa_restricted.png</texture>
+        <visible>substring(ListItem.mpaa,Rated R)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/mpaa_pg13.png</texture>
+        <visible>substring(ListItem.mpaa,Rated PG-13)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/mpaa_pg.png</texture>
+        <visible>substring(ListItem.mpaa,Rated PG) + !substring(ListItem.mpaa,Rated PG-13)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/mpaa_nc17.png</texture>
+        <visible>substring(listitem.mpaa,rated nc)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/mpaa_g.png</texture>
+        <visible>substring(listitem.mpaa,rated g)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/bbfc_u.png</texture>
+        <visible>substring(listitem.mpaa,uk:u)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/bbfc_pg.png</texture>
+        <visible>substring(listitem.mpaa,uk:pg)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/bbfc_12.png</texture>
+        <visible>substring(listitem.mpaa,uk:12)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/bbfc_15.png</texture>
+        <visible>substring(listitem.mpaa,uk:15)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/bbfc_18.png</texture>
+        <visible>substring(listitem.mpaa,uk:18)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/bbfc_18.png</texture>
+        <visible>substring(listitem.mpaa,uk:x)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/fsk-0_info.png</texture>
+        <visible>substring(listitem.mpaa,germany:0) | substring(listitem.mpaa,o.a)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/fsk-6_info.png</texture>
+        <visible>substring(listitem.mpaa,germany:6) | substring(listitem.mpaa,ab 6)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/fsk-12_info.png</texture>
+        <visible>substring(listitem.mpaa,germany:12) | substring(listitem.mpaa,ab 12)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/fsk-16_info.png</texture>
+        <visible>substring(listitem.mpaa,germany:16) | substring(listitem.mpaa,ab 16)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/fsk-18_info.png</texture>
+        <visible>substring(listitem.mpaa,germany:18) | substring(listitem.mpaa,ab 18)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/australia_r.png</texture>
+        <visible>substring(listitem.mpaa,australia:r)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/australia_m.png</texture>
+        <visible>substring(listitem.mpaa,australia:m) + ! substring(listitem.mpaa,australia:ma)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/australia_ma.png</texture>
+        <visible>substring(listitem.mpaa,australia:ma)</visible>
+      </control>
+      <control type="image" id="900013">
+        <texture>flags/rating/australia_pg.png</texture>
+        <visible>substring(listitem.mpaa,australia:pg)</visible>
+      </control>
+
       <control type="image" id="900010">
 	<texture></texture>
 	<visible>false</visible>
