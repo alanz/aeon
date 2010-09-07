@@ -38,6 +38,7 @@
     <height>59</height>
     <include>Animation_CommonFade</include>
     <visible>Control.IsVisible(553) | Control.IsVisible(556)</visible>
+    <aspectratio>keep</aspectratio>
     <fadetime>400</fadetime>
   </include>
   <include name="Furniture_MovieInfoFlagSource">
@@ -470,76 +471,99 @@
   </include>
   <include name="Furniture_MultiWallMediaFlags">
     <control type="group">
-      <visible>Window.IsActive(videolibrary) + Control.IsVisible(556) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
-      <include>Animation_OpenCloseZoom</include>
-      <include>Animation_VisibleHiddenZoom</include>
-      <animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
-      <posy>207</posy>
+      <visible>Control.IsVisible(556)</visible>
       <control type="group">
-        <!-- tvshows certificate-->
-        <posx>5</posx>
-        <control type="image">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture>$INFO[Control.GetLabel(900010)]</texture>
-	  <visible>!IsEmpty(Control.GetLabel(900010))</visible>
-        </control>
-      </control>
-      <control type="group">
-	<!-- aspect ratio for episodes-->
-	<posx>105</posx>
-	<control type="image">
-	  <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+	<visible>Window.IsActive(videolibrary) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
+	<include>Animation_OpenCloseZoom</include>
+	<include>Animation_VisibleHiddenZoom</include>
+	<animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
+	<posy>207</posy>
+	<control type="group">
+	  <!-- tvshows certificate-->
+	  <posx>5</posx>
+	  <control type="image">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture>$INFO[Control.GetLabel(900010)]</texture>
+	    <visible>!IsEmpty(Control.GetLabel(900010))</visible>
+	  </control>
+	</control>
+	<control type="group">
+	  <!-- aspect ratio for episodes-->
+	  <posx>105</posx>
+	  <control type="image">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+	  </control>
+	</control>
+	<control type="group">
+	  <!-- source-->
+	  <posx>205</posx>
+	  <control type="image">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture>$INFO[Control.GetLabel(900012)]</texture>
+	    <aspectratio>keep</aspectratio>
+	  </control>
+	</control>
+	<control type="group">
+	  <!-- Resolution -->
+	  <posx>305</posx>
+	  <control type="image" id="93">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+	    <visible>!substring(ListItem.filename,.iso,Right)]</visible>
+	    <aspectratio>keep</aspectratio>
+	  </control>
+	  <control type="image" id="83">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture>flags/resolution/480.png</texture>
+	    <visible>substring(ListItem.filename,.iso,Right)</visible>
+	    <aspectratio>keep</aspectratio>
+	  </control>
+	</control>
+	<control type="group">
+	  <!-- sound-->
+	  <posx>405</posx>
+	  <control type="image">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture>$INFO[Control.GetLabel(900006)]</texture>
+	    <aspectratio>keep</aspectratio>
+	  </control>
+	  <control type="image">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture>$INFO[Control.GetLabel(900005)]</texture>
+	    <aspectratio>keep</aspectratio>
+	  </control>
+	</control>
+	<control type="group">
+	  <!-- studios-->
+	  <posx>1180</posx>
+	  <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+	  <control type="image" id="81">
+	    <include>Furniture_PanelMediaFlagsVars</include>
+	    <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
+	    <visible>!StringCompare(ListItem.Label,..)</visible>
+	  </control>
 	</control>
       </control>
       <control type="group">
-	<!-- source-->
-	<posx>205</posx>
-	<control type="image">
-	  <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>$INFO[Control.GetLabel(900012)]</texture>
-	  <aspectratio>keep</aspectratio>
+	<include>Animation_OpenCloseZoom</include>
+	<include>Animation_VisibleHiddenZoom</include>
+	<animation effect="fade" start="50" end="50" time="0" condition="true">Conditional</animation>
+	<posy>207</posy>
+	<control type="group">
+	  <!-- studios-->
+	  <posx>1205</posx>
+	  <control type="image" id="81">
+	    <posy>454</posy>
+	    <width>70</width>
+	    <height>59</height>
+	    <aspectratio>keep</aspectratio>
+	    <fadetime>400</fadetime>
+	    <texture>$INFO[ListItem.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
+	    <visible>!StringCompare(ListItem.Label,..)</visible>
+	    <include>Animation_CommonFade</include>
+	  </control>
 	</control>
-      </control>
-      <control type="group">
-	<!-- Resolution -->
-	<posx>305</posx>
-	<control type="image" id="93">
-	  <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-	  <visible>!substring(ListItem.filename,.iso,Right)]</visible>
-	  <aspectratio>keep</aspectratio>
-	</control>
-	<control type="image" id="83">
-	  <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>flags/resolution/480.png</texture>
-	  <visible>substring(ListItem.filename,.iso,Right)</visible>
-	  <aspectratio>keep</aspectratio>
-	</control>
-      </control>
-      <control type="group">
-	<!-- sound-->
-	<posx>405</posx>
-	<control type="image">
-	  <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>$INFO[Control.GetLabel(900006)]</texture>
-	  <aspectratio>keep</aspectratio>
-	</control>
-	<control type="image">
-	  <include>Furniture_PanelMediaFlagsVars</include>
-	  <texture>$INFO[Control.GetLabel(900005)]</texture>
-	  <aspectratio>keep</aspectratio>
-	</control>
-      </control>
-      <control type="group">
-        <!-- studios-->
-        <posx>1180</posx>
-        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-        <control type="image" id="81">
-          <include>Furniture_PanelMediaFlagsVars</include>
-          <texture fallback="flags/studios/default.png">$INFO[Control.GetLabel(900009)]</texture>
-	  <visible>!StringCompare(ListItem.Label,..)</visible>
-        </control>
       </control>
     </control>
   </include>

@@ -564,6 +564,25 @@
     </control>
   </include>
 
+
+  <include name="StarRatingGenerator">
+    <control type="group">
+      <include>HiddenObject</include>
+      <control type="label" id="900007">
+	<label></label>
+	<visible>false</visible>
+      </control>
+      <control type="label" id="900007">
+	<label>$INFO[ListItem.Rating,flags/starrating/,.png]</label>
+	<visible>!IsEmpty(ListItem.Rating)</visible>
+      </control>
+      <control type="label" id="900007">
+	<label>$INFO[ListItem.StarRating,flags/starrating/,.png]</label>
+	<visible>!IsEmpty(ListItem.StarRating) + IsEmpty(ListItem.Rating)</visible>
+      </control>
+    </control>
+  </include>
+
   <!--
        This will generate the HD or Regular Studio Label for the
        Current ListItem
