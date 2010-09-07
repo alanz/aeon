@@ -10,6 +10,7 @@
   <include>Animation_OpenCloseZoom</include>
   <include>Animation_VisibleHiddenZoom</include>
   <controls>
+    <include>StarRatingGenerator</include>
     <control type="image">
       <include>FullscreenDimensions</include>
       <texture>common/darkgrey.png</texture>
@@ -193,21 +194,33 @@
       <control type="label">
         <description>Rating:</description>
         <posx>3</posx>
-        <posy>576</posy>
+        <posy>566</posy>
         <width>110</width>
-        <height>29</height>
+        <height>43</height>
         <align>left</align>
+        <aligny>center</aligny>
         <font>Font_FSIMDB</font>
         <label>31417</label>
         <include>Colour_Grey</include>
       </control>
       <control type="image">
-        <description>Star rating</description>
-        <posx>76</posx>
+        <description>IMDB rating</description>
+        <posx>86</posx>
         <posy>566</posy>
         <width>201</width>
         <height>43</height>
-        <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
+        <texture>$INFO[Control.GetLabel(900007)]</texture>
+        <visible>!IsEmpty(Control.GetLabel(900007))</visible>
+      </control>
+      <control type="image">
+        <description>IMDB rating</description>
+        <posx>86</posx>
+        <posy>566</posy>
+        <width>201</width>
+        <height>43</height>
+        <texture>flags/starrating/0.png</texture>
+        <colordiffuse>1AFFFFFF</colordiffuse>
+        <visible>IsEmpty(Control.GetLabel(900007))</visible>
       </control>
     </control>
     <include>Background_ContextBlack</include>
