@@ -1172,6 +1172,12 @@
         <aspectratio scalediffuse="false">scale</aspectratio>
         <info>ListItem.Icon</info>
       </control>
+      <control type="image">
+        <include>MultiWallTVIconDimensionsNormal</include>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <texture diffuse="multiplex/multiplex_tvmask.png">$INFO[ListItem.Path,,folder.jpg]</texture>
+        <visible>Skin.HasSetting(use_folder_jpg) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+      </control>
       <control type="group">
         <animation effect="fade" start="100" end="0" time="800" easing="out" tween="cubic" reversible="true">Focus</animation>
         <control type="image">
