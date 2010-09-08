@@ -141,9 +141,18 @@
       <posy>168</posy>
       <width>141</width>
       <height>30</height>
-      <texture>$INFO[Control.GetLabel(900007)]</texture>
+      <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture>
       <colordiffuse>dcbdbdbd</colordiffuse>
-      <visible>[Container.Content(songs) | Container.Content(albums) | [[Container.Content(tvshows) | Container.Content(seasons)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]]</visible>
+      <visible>[[Container.Content(tvshows) | Container.Content(seasons)] + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]]</visible>
+    </control>
+    <control type="image">
+      <posx>5</posx>
+      <posy>168</posy>
+      <width>141</width>
+      <height>30</height>
+      <info>ListItem.StarRating</info>
+      <colordiffuse>dcbdbdbd</colordiffuse>
+      <visible>Container.Content(songs) | Container.Content(albums)</visible>
     </control>
   </include>
   <include name="LowList_Separator">
@@ -519,7 +528,7 @@
             <posy>37</posy>
             <width>65</width>
             <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture>
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture>
             <colordiffuse>dcbdbdbd</colordiffuse>
             <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
           </control>
@@ -646,7 +655,7 @@
             <posy>37</posy>
             <width>65</width>
             <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture>
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture>
             <colordiffuse>dcbdbdbd</colordiffuse>
             <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(albums)]</visible>
           </control>

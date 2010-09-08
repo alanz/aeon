@@ -364,10 +364,21 @@
             <posy>37</posy>
             <width>65</width>
             <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture> 
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
             <colordiffuse>dcbdbdbd</colordiffuse>
             <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
-            <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres)]</visible>
+            <visible>![Window.IsActive(musiclibrary) | Container.Content(years) | Container.Content(genres)]</visible>
+          </control>
+          <control type="image">
+            <description>IMDB rating</description>
+            <posx>623</posx>
+            <posy>37</posy>
+            <width>65</width>
+            <height>13</height>
+            <info>ListItem.StarRating</info>
+            <colordiffuse>dcbdbdbd</colordiffuse>
+            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
+            <visible>Container.Content(albums) | Container.Content(songs)</visible>
           </control>
           <control type="image">
             <include>WatchedOverlay_Movies</include>
@@ -481,11 +492,21 @@
             <posy>37</posy>
             <width>65</width>
             <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture> 
-            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
             <colordiffuse>dcbdbdbd</colordiffuse>
-            <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres)]</visible>
-            <include>Animation_ButtonFocusFade_fix</include>
+            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
+            <visible>![Window.IsActive(musiclibrary) | Container.Content(years) | Container.Content(genres)]</visible>
+          </control>
+          <control type="image">
+            <description>IMDB rating</description>
+            <posx>623</posx>
+            <posy>37</posy>
+            <width>65</width>
+            <height>13</height>
+            <info>ListItem.StarRating</info>
+            <colordiffuse>dcbdbdbd</colordiffuse>
+            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
+            <visible>Container.Content(albums) | Container.Content(songs)</visible>
           </control>
           <control type="label">
             <include>ListLabel_Track</include>
@@ -569,18 +590,6 @@
             </animation>
           </control>
           <control type="image">
-            <description>IMDB rating</description>
-            <posx>623</posx>
-            <posy>37</posy>
-            <width>65</width>
-            <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture> 
-            <colordiffuse>FF585858</colordiffuse>
-            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
-            <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres)]</visible>
-            <include>Animation_ButtonFocusFade</include>
-          </control>
-          <control type="image">
             <include>WatchedOverlay_Movies</include>
             <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
             <info>ListItem.Overlay</info>
@@ -635,7 +644,7 @@
             <posy>37</posy>
             <width>65</width>
             <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture> 
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
             <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
             <colordiffuse>dcbdbdbd</colordiffuse>
             <visible>![Container.Content(artists) | Container.Content(years) | Container.Content(genres) | Container.Content(seasons)]</visible>
@@ -712,7 +721,7 @@
             <posy>37</posy>
             <width>65</width>
             <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture> 
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
             <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
             <include>Animation_ButtonFocusFade_fix</include>
             <colordiffuse>dcbdbdbd</colordiffuse>
@@ -765,7 +774,7 @@
             <posy>37</posy>
             <width>65</width>
             <height>13</height>
-            <texture>$INFO[Control.GetLabel(900007)]</texture> 
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
             <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
             <include>Animation_ButtonFocusFade</include>
             <colordiffuse>FF585858</colordiffuse>
