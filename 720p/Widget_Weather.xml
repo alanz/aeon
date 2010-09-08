@@ -40,12 +40,10 @@
       <animation effect="slide" start="0,-20" end="0,-20" time="0" condition="!Skin.HasSetting(highertime)">Conditional</animation>
       <animation effect="zoom" start="100" end="90" time="200" center="640,80" condition="Player.HasVideo + Skin.HasSetting(lowermainmenu) + Skin.HasSetting(homevideowindow)">Conditional</animation>
       <animation effect="zoom" start="100" end="80" time="200" center="640,80" condition="Player.HasAudio + Skin.HasSetting(lowermainmenu)">Conditional</animation>
-      <animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-      <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+      <include>Animation_OpenCloseZoom</include>
       <control type="group">
         <posx>67</posx>
-        <animation effect="fade" start="0" end="100" delay="1500" time="400">Visible</animation>
-        <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+        <include>Animation_VisibleHiddenZoom</include>
         <visible>Container(300).HasFocus(10)</visible>
         <control type="multiimage">
           <description>Weather image</description>
@@ -106,8 +104,14 @@
         <control type="group">
           <visible>Container(300).HasFocus(10)</visible>
           <posx>370</posx>
-          <animation effect="fade" start="0" end="100" delay="1600" time="400">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+          <animation type="Visible" reversible="true">
+            <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="1200"/>
+            <effect type="fade" start="0" end="100" time="800" delay="1200"/>
+          </animation>
+          <animation type="Hidden" reversible="true">
+            <effect type="fade" start="100" end="0" time="200"/>
+            <effect type="zoom" start="100" end="130" center="640,360" time="200" tween="cubic" easing="in"/>
+          </animation>
           <control type="image">
             <include>Objects_WeatherBack</include>
           </control>
@@ -136,8 +140,14 @@
         <control type="group">
           <visible>Container(300).HasFocus(10)</visible>
           <posx>586</posx>
-          <animation effect="fade" start="0" end="100" delay="1700" time="400">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+          <animation type="Visible" reversible="true">
+            <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="1400"/>
+            <effect type="fade" start="0" end="100" time="800" delay="1400"/>
+          </animation>
+          <animation type="Hidden" reversible="true">
+            <effect type="fade" start="100" end="0" time="200"/>
+            <effect type="zoom" start="100" end="130" center="640,360" time="200" tween="cubic" easing="in"/>
+          </animation>
           <control type="image">
             <include>Objects_WeatherBack</include>
           </control>
@@ -166,8 +176,14 @@
         <control type="group">
           <visible>Container(300).HasFocus(10)</visible>
           <posx>802</posx>
-          <animation effect="fade" start="0" end="100" delay="1800" time="400">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+          <animation type="Visible" reversible="true">
+            <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="1600"/>
+            <effect type="fade" start="0" end="100" time="800" delay="1600"/>
+          </animation>
+          <animation type="Hidden" reversible="true">
+            <effect type="fade" start="100" end="0" time="200"/>
+            <effect type="zoom" start="100" end="130" center="640,360" time="200" tween="cubic" easing="in"/>
+          </animation>
           <control type="image">
             <include>Objects_WeatherBack</include>
           </control>
@@ -196,8 +212,14 @@
         <control type="group">
           <visible>Container(300).HasFocus(10)</visible>
           <posx>1018</posx>
-          <animation effect="fade" start="0" end="100" delay="1900" time="400">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+          <animation type="Visible" reversible="true">
+            <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="1800"/>
+            <effect type="fade" start="0" end="100" time="800" delay="1800"/>
+          </animation>
+          <animation type="Hidden" reversible="true">
+            <effect type="fade" start="100" end="0" time="200"/>
+            <effect type="zoom" start="100" end="130" center="640,360" time="200" tween="cubic" easing="in"/>
+          </animation>
           <control type="image">
             <include>Objects_WeatherBack</include>
           </control>
