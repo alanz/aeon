@@ -1,4 +1,9 @@
 <?xml version="1.0"?>
+<!--
+        200300 - poster.jpg
+        200301 - movie.tbn
+        200302 - ListItem.Thumb
+-->
 <window type="dialog" id="2003">
   <defaultcontrol always="true">20030</defaultcontrol>
   <zorder>2</zorder>
@@ -104,32 +109,40 @@
       <colordiffuse>EEFFFFFF</colordiffuse>
     </control>
     <include>BackgroundEffect</include>
-    <!-- This is moved before ListItem.thumb as is conflict this xbmc own thumb for seasons -->
-    <control type="largeimage">
-      <description>Cover image</description>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>486</width>
-      <height>720</height>
-      <texture>$INFO[ListItem.FileNameAndPath]folder.jpg</texture>
-      <aspectratio>stretch</aspectratio>
-      <fadetime>500</fadetime>
-      <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
-    </control>
-    <control type="largeimage">
-      <description>Cover image</description>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>486</width>
-      <height>720</height>
-      <texture>$INFO[ListItem.FileNameAndPath]poster.jpg</texture>
-      <aspectratio>stretch</aspectratio>
-      <fadetime>500</fadetime>
-      <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
-    </control>
-    <!-- -->
 
-    <control type="largeimage">
+    <!-- This is moved before ListItem.thumb as is conflict this xbmc own thumb for seasons -->
+    <control type="image" id="200300">
+      <visible>false</visible>
+    </control>
+    <control type="image" id="200300">
+      <description>Cover image</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>486</width>
+      <height>720</height>
+      <texture>$INFO[ListItem.FileNameAndPath,,poster.jpg]</texture>
+      <aspectratio>stretch</aspectratio>
+      <fadetime>500</fadetime>
+      <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
+    </control>
+    <control type="image" id="200301">
+      <visible>false</visible>
+    </control>
+    <control type="image" id="200301">
+      <description>Cover image</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>486</width>
+      <height>720</height>
+      <texture>$INFO[ListItem.path,,movie.tbn]</texture>
+      <aspectratio>stretch</aspectratio>
+      <fadetime>500</fadetime>
+      <visible>[Container.Content(movies) | Window.IsActive(videofiles)] + IsEmpty(Control.GetLabel(200300)) + IsEmpty(Control.GetLabel(200301))</visible>
+    </control>
+    <control type="image" id="200302">
+      <visible>false</visible>
+    </control>
+    <control type="image" id="200302">
       <description>Cover image</description>
       <posx>0</posx>
       <posy>0</posy>
@@ -137,19 +150,9 @@
       <height>720</height>
       <texture>$INFO[ListItem.thumb]</texture>
       <aspectratio>stretch</aspectratio>
-      <visible>!Container.Content(episodes)</visible>
+      <visible>!Container.Content(episodes) + IsEmpty(Control.GetLabel(200300))</visible>
     </control>
-    <control type="largeimage">
-      <description>Cover image</description>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>486</width>
-      <height>720</height>
-      <texture>$INFO[ListItem.path]movie.tbn</texture>
-      <aspectratio>stretch</aspectratio>
-      <fadetime>500</fadetime>
-      <visible>Container.Content(movies) | Window.IsActive(videofiles)</visible>
-    </control>
+    <!-- -->
     <control type="image">
       <posx>366</posx>
       <posy>0</posy>
