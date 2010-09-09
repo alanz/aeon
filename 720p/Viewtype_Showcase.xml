@@ -457,16 +457,32 @@
       <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
       <animation effect="slide" start="0,0" end="0,25" time="400" easing="inout" tween="cubic" condition="[!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)] + Control.IsVisible(57)">Conditional</animation>
     </control>
-    <control type="group">
+    <control type="group"><!-- info pane -->
       <posx>0</posx>
       <posy>26</posy>
+      <animation type="Conditional" condition="Player.HasVideo" reversible="false">
+        <effect type="rotatey" center="640" start="0" end="-90" time="550" tween="cubic" easing="in"/>
+        <effect type="rotatey" center="640" start="-90" end="90" time="0" delay="550"/>
+        <effect type="fade" start="100" end="0" time="0" delay="550"/>
+        <effect type="rotatey" center="640" start="90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
+        <effect type="zoom" start="100" end="70" center="auto" easing="in" tween="back" time="450"/>
+      </animation>
+      <animation type="Conditional" condition="!Player.HasVideo" reversible="false">
+        <effect type="rotatey" center="640" start="0" end="90" time="550" tween="cubic" easing="in"/>
+        <effect type="rotatey" center="640" start="90" end="-90" time="0" delay="550"/>
+        <effect type="fade" start="0" end="100" time="0" delay="550"/>
+        <effect type="rotatey" center="640" start="-90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
+        <effect type="slide" start="0,-60" end="0,0"  time="550" easing="in" tween="cubic" delay="550"/>
+        <effect type="zoom" start="70" end="100" center="auto" easing="in" tween="back" time="450" delay="550"/>
+      </animation>
+      <animation effect="slide" end="0,-160"  time="550" easing="out" tween="cubic" condition="Player.HasVideo">Conditional</animation>
       <animation effect="slide" end="0,30"  time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
-      <width>1280</width>
-      <height>500</height>
-      <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
       <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <include>Animation_InfoPanelSlide</include>
+      <width>1280</width>
+      <height>500</height>
+      <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
       <control type="image">
         <posx>75</posx>
         <width>1130</width>
@@ -670,14 +686,6 @@
           <info>Control.GetLabel(900004)</info>
           <textcolor>d0FFFFFF</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-          <visible>!Player.HasVideo</visible>
-        </control>
-        <control type="videowindow">
-          <posx>414</posx>
-          <posy>27</posy>
-          <width>460</width>
-          <height>335</height>
-          <visible>[!Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
         </control>
       </control>
       <control type="group">
@@ -782,13 +790,6 @@
           <colordiffuse>94FFFFFF</colordiffuse>
           <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
         </control>
-        <control type="videowindow">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>522</width>
-          <height>293</height>
-          <visible>[Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]] | VideoPlayer.Content(movies)</visible>
-        </control>
         <control type="largeimage">
           <posx>1</posx>
           <posy>1</posy>
@@ -797,7 +798,6 @@
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
           <texture>$INFO[Container(57).ListItem.property(fanart_image)]</texture>
-          <visible>!Player.HasVideo</visible>
         </control>
         <control type="multiimage">
           <posx>1</posx>
@@ -808,7 +808,7 @@
           <fadetime>400</fadetime>
           <timeperimage>4000</timeperimage>
           <imagepath background="true">$INFO[Container(57).ListItem.Path,,extrathumbs]</imagepath>
-          <visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs)</visible>
+          <visible>Skin.HasSetting(trailerthumbs)</visible>
           <randomize>true</randomize>
         </control>
       </control>
@@ -921,6 +921,48 @@
 	</control>
       </control>
     </control>
+		<control type="group"><!-- trailer pane -->
+			<posx>0</posx>
+			<posy>26</posy>
+	    <animation effect="slide" end="0,30"  time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
+      <width>1280</width>
+      <height>500</height>
+      <visible>Container.Content(movies) + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
+      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
+      <animation effect="fade" end="0" time="200">WindowClose</animation>
+      <include>Animation_InfoPanelSlide</include>
+      <animation type="Conditional" condition="Player.HasVideo" reversible="false">
+        <effect type="rotatey" center="640" start="0" end="-90" time="550" tween="cubic" easing="in"/>
+        <effect type="rotatey" center="640" start="-90" end="90" time="0" delay="550"/>
+        <effect type="fade" start="0" end="100" time="0" delay="550"/>
+        <effect type="rotatey" center="640" start="90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
+        <effect type="slide" start="0,0" end="0,-60"  delay="550" time="0"/>
+        <effect type="zoom" start="70" end="70" center="auto" easing="in" tween="back" time="550" delay="550"/>
+      </animation>
+      <animation type="Conditional" condition="!Player.HasVideo" reversible="false">
+        <effect type="rotatey" center="640" start="0" end="90" time="550" tween="cubic" easing="in"/>
+        <effect type="rotatey" center="640" start="90" end="-90" time="0" delay="550"/>
+        <effect type="fade" start="100" end="0" time="0" delay="550"/>
+        <effect type="rotatey" center="640" start="-90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
+        <effect type="slide" start="0,-60" end="0,-60"  time="0" easing="in" tween="cubic"/>
+        <effect type="zoom" start="70" end="70" center="auto" time="0"/>
+      </animation>
+      <control type="image">
+        <posx>75</posx>
+        <width>1130</width>
+        <height>540</height>
+        <texture border="0,0,0,204">multiplex/multiplex_back.png</texture>
+        <include>Animation_CommonFade</include>
+      </control>
+			<control type="videowindow" id="2">
+				<posx>160</posx>
+				<posy>30</posy>
+				<width>960</width>
+				<height>460</height>
+				<animation effect="fade" start="0" end="100" time="0" delay="1100">Visible</animation>
+				<visible>Container.Content(movies) + Player.HasVideo</visible>
+			</control>
+		</control>
   </include>
 
   <include name="ShowcaseInfoPaneTV">
