@@ -8,18 +8,18 @@
       <include>BackgroundTimings</include>
       <imagepath background="true">special://skin/extras/backdrops/default_settings</imagepath>
       <info>Skin.String(CustomSettings)</info>
-      <animation effect="fade" start="0" end="100" time="200" condition="Window.Previous(Home)">WindowOpen</animation>
-      <animation effect="fade" start="100" end="0" time="200" condition="Window.Next(Home) | Window.Next(25) | Window.Next(24) | Window.Next(1) | Window.Next(2) | Window.Next(500) | Window.Next(501) | Window.Next(502)">WindowClose</animation>
+      <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+      <animation effect="slide" start="-10,-10" end="10,10" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
     </control>
     <control type="group">
       <include>FullscreenDimensions</include>
-      <animation type="WindowOpen" reversible="false" condition="!Window.Previous(12) + !Window.Previous(13) + !Window.Previous(14) + !Window.Previous(15) + !Window.Previous(16) + !Window.Previous(18) + !Window.Previous(19) + !Window.Previous(17) + !Window.Previous(604) + !Window.Previous(56) + !Window.Previous(34)">
-        <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
-        <effect type="fade" start="0" end="100" time="300"/>
+      <animation type="WindowOpen" reversible="false" condition="!Window.Previous(picturessettings) + !Window.Previous(programssettings) + !Window.Previous(weathersettings) + !Window.Previous(musicsettings) + !Window.Previous(systemsettings) + !Window.Previous(networksettings) + !Window.Previous(appearancesettings) + !Window.Previous(videossettings) + !Window.Previous(604) + !Window.Previous(56) + !Window.Previous(profiles) + !Window.Previous(addonbrowser)">
+        <effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out"/>
+        <effect type="fade" start="0" end="100" time="900"/>
       </animation>
       <animation type="WindowClose" reversible="false" condition="Window.Next(Home) | Window.Next(25) | Window.Next(24) | Window.Next(1) | Window.Next(2) | Window.Next(500) | Window.Next(501) | Window.Next(502)">
-        <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
         <effect type="fade" start="100" end="0" time="300"/>
+        <effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in"/>
       </animation>
       <include>Furniture_SettingsBackPanel</include>
       <control type="image">
