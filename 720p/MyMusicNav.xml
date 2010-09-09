@@ -23,12 +23,12 @@
       <control type="multiimage"> <!-- Default music backdrops -->
         <include>BackgroundVarsGlobal</include>
         <include>BackgroundVarsMusic</include>
-        <visible>!Skin.HasSetting(fallbackimage) + IsEmpty(Container.Property(fanart_image)) + IsEmpty(ListItem.property(fanart_image))</visible>
+        <visible>[!Skin.HasSetting(fallbackimagemusic) + IsEmpty(Container.Property(fanart_image)) + IsEmpty(ListItem.property(fanart_image))] | !Skin.HasSetting(musicfanart)</visible>
       </control>
 
       <control type="largeimage"> <!-- Backdrops if falback active -->
         <include>FullscreenDimensions</include>
-        <visible>Skin.HasSetting(fallbackimage) + Skin.HasSetting(musicfanart) + IsEmpty(Container.Property(fanart_image)) + IsEmpty(ListItem.property(fanart_image))</visible>
+        <visible>Skin.HasSetting(fallbackimagemusic) + Skin.HasSetting(musicfanart) + IsEmpty(Container.Property(fanart_image)) + IsEmpty(ListItem.property(fanart_image))</visible>
         <fadetime>400</fadetime>
         <texture>$INFO[Skin.String(fallbackimagepathmusic)]</texture>
         <include>Animation_FanartFade</include>

@@ -26,11 +26,30 @@
     <control type="multiimage">
       <include>BackgroundVarsGlobal</include>
       <include>BackgroundVarsVideo</include>
-      <visible>IsEmpty(ListItem.property(fanart_image))</visible>
+      <visible>IsEmpty(ListItem.property(fanart_image)) | !Skin.HasSetting(moviefanart)</visible>
     </control>
     <control type="largeimage">
       <include>FullscreenDimensions</include>
-      <visible>[Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)]</visible>
+      <visible>
+        Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) + Skin.HasSetting(moviefanart) +
+        [
+          Control.IsVisible(55) |
+          [Control.IsVisible(560) + Skin.HasSetting(transparentlist)] |
+          Control.IsVisible(50) |
+          Control.IsVisible(57) |
+          Control.IsVisible(53) |
+          Control.IsVisible(52) |
+          Control.IsVisible(550) |
+          Control.IsVisible(551)
+        ]
+      </visible>
+      <fadetime>400</fadetime>
+      <texture>$INFO[Skin.String(fallbackimagepath)]</texture>
+      <include>Animation_FanartFade</include>
+    </control>
+    <control type="largeimage">
+      <include>FullscreenDimensions</include>
+      <visible>[Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552) | Control.IsVisible(550) | Control.IsVisible(551)] + Skin.HasSetting(moviefanart)</visible>
       <fadetime>400</fadetime>
       <texture background="true">$INFO[ListItem.property(fanart_image)]</texture>
       <include>Animation_FanartFade</include>
