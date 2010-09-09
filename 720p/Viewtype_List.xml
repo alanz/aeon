@@ -1117,27 +1117,6 @@
       <animation effect="slide" time="1000" start="0,0" end="600,0" tween="cubic" easing="out">WindowClose</animation>
       <animation effect="slide" time="1000" start="800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
       <animation effect="fade" time="400" start="100" end="0">Hidden</animation>
-      <!-- DVD back -->
-      <control type="image">
-        <posx>-15</posx>
-        <posy>10</posy>
-        <width>398</width>
-        <height>520</height>
-        <fadetime>400</fadetime>
-        <texture>list/boxes/list_movieicon_frame.png</texture>
-        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(listdvdcase)</visible>
-      </control>
-      <!-- DVD back reflection -->
-      <control type="image">
-        <posx>-15</posx>
-        <posy>504</posy>
-        <width>398</width>
-        <height>233</height>
-        <colordiffuse>75FFFFFF</colordiffuse>
-        <fadetime>400</fadetime>
-        <texture>list/boxes/list_movieicon_frame_reflect.png</texture>
-        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(listdvdcase)</visible>
-      </control>
       <control type="largeimage">
         <posy>-482</posy>
         <width>366</width>
@@ -1164,15 +1143,9 @@
         <fadetime>400</fadetime>
         <texture diffuse="list/list_movieicon_mask.png">defaultVideo.png</texture>
         <bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
+        <aspectratio scalediffuse="true" aligny="bottom">keep</aspectratio>
         <info>ListItem.Icon</info>
         <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + !Container.Content(genres)] + !Skin.HasSetting(listdvdcase)</visible>
-      </control>
-      <control type="image">
-        <include>MovieIconDimensionsDVDCover</include>
-        <fadetime>400</fadetime>
-        <texture diffuse="list/boxes/list_movieicon_mask.png">defaultVideo.png</texture>
-        <info>ListItem.Icon</info>
-        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + !Container.Content(genres)] + Skin.HasSetting(listdvdcase)</visible>
       </control>
       <control type="image">
         <posy>510</posy>
@@ -1182,7 +1155,35 @@
         <texture flipy="true" diffuse="list/list_movieicon_flipmask.png">$INFO[ListItem.Icon]</texture>
         <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + !Container.Content(genres)] + !Skin.HasSetting(listdvdcase)</visible>
       </control>
+      <!-- DVD back -->
       <control type="image">
+        <posx>-15</posx>
+        <posy>10</posy>
+        <width>398</width>
+        <height>520</height>
+        <fadetime>400</fadetime>
+        <texture>list/boxes/list_movieicon_frame.png</texture>
+        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(listdvdcase)</visible>
+      </control>
+      <!-- DVD back reflection -->
+      <control type="image">
+        <posx>-15</posx>
+        <posy>504</posy>
+        <width>398</width>
+        <height>233</height>
+        <colordiffuse>75FFFFFF</colordiffuse>
+        <fadetime>400</fadetime>
+        <texture>list/boxes/list_movieicon_frame_reflect.png</texture>
+        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(listdvdcase)</visible>
+      </control>
+      <control type="image"><!--dvd-->
+        <include>MovieIconDimensionsDVDCover</include>
+        <fadetime>400</fadetime>
+        <texture diffuse="list/boxes/list_movieicon_mask.png">defaultVideo.png</texture>
+        <info>ListItem.Icon</info>
+        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + !Container.Content(genres)] + Skin.HasSetting(listdvdcase)</visible>
+      </control>
+      <control type="image"><!--dvd-->
         <posx>39</posx>
         <posy>527</posy>
         <width>323</width>
@@ -1191,26 +1192,28 @@
         <texture flipy="true" diffuse="list/list_movieicon_flipmask.png">$INFO[ListItem.Icon]</texture>
         <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + !Container.Content(genres)] + Skin.HasSetting(listdvdcase)</visible>
       </control>
-      <include>mod_moviegenre_list2</include>
-      <!-- <<<<<< Add this -->
-      <control type="largeimage">
-        <include>MovieIconDimensionsNormal</include>
+      <control type="image">
+        <visible>Container.Content(genres) + !Window.IsActive(musiclibrary)</visible>
+        <posy>513</posy>
+        <width>346</width>
+        <height>511</height>
         <fadetime>400</fadetime>
-        <texture background="true" diffuse="list/list_movieicon_mask.png">$INFO[ListItem.path,,poster.jpg]</texture>
-        <visible>!Skin.HasSetting(listdvdcase)</visible>
+        <texture flipy="true" diffuse="list/list_movieicon_flipmask.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem(0).Label].jpg</texture>
       </control>
+      <control type="image">
+        <visible>Container.Content(studios) + !Window.IsActive(musiclibrary)</visible>
+        <posy>513</posy>
+        <width>346</width>
+        <height>511</height>
+        <fadetime>400</fadetime>
+        <texture flipy="true" diffuse="list/list_movieicon_flipmask.png">flags/studios/$INFO[ListItem(0).Label].png</texture>
+      </control>
+      <!-- <<<<<< Add this -->
       <control type="largeimage">
         <include>MovieIconDimensionsDVDCover</include>
         <fadetime>400</fadetime>
         <texture background="true" diffuse="list/boxes/list_movieicon_mask.png">$INFO[ListItem.path,,poster.jpg]</texture>
         <visible>Skin.HasSetting(listdvdcase)</visible>
-      </control>
-      <include>mod_moviegenre_list1</include>
-      <control type="image">
-        <include>MovieIconDimensionsNormal</include>
-        <fadetime>400</fadetime>
-        <texture>list/list_movieicon_glass.png</texture>
-        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + !Skin.HasSetting(listdvdcase)</visible>
       </control>
       <control type="image">
         <posx>-15</posx>
@@ -1231,6 +1234,58 @@
         <fadetime>400</fadetime>
         <texture>list/boxes/list_movieicon_glass_reflect.png</texture>
         <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(listdvdcase)</visible>
+      </control>
+      <control type="largeimage">
+        <include>MovieIconDimensionsNormal</include>
+        <fadetime>400</fadetime>
+        <texture background="true" diffuse="list/list_movieicon_mask.png">$INFO[ListItem.path,,poster.jpg]</texture>
+        <visible>!Skin.HasSetting(listdvdcase)</visible>
+      </control>
+      <control type="image">
+        <!--genre-->
+        <visible>Container.Content(genres) + !Window.IsActive(musiclibrary)</visible>
+        <width>346</width>
+        <height>511</height>
+        <fadetime>400</fadetime>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <texture diffuse="list/list_movieicon_mask.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem(0).Label].jpg</texture>
+        <bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
+      </control>
+      <control type="image">
+        <!--black background-->
+        <visible>[Container.Content(studios) | Container.Content(years)] + !Window.IsActive(musiclibrary)</visible>
+        <width>346</width>
+        <height>511</height>
+        <fadetime>400</fadetime>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <texture diffuse="list/list_movieicon_mask.png">DefaultGenre.png</texture>
+        <bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
+      </control>
+      <control type="image">
+        <!--studio-->
+        <visible>Container.Content(studios) + !Window.IsActive(musiclibrary)</visible>
+        <posy>170</posy>
+        <posx>72</posx>
+        <width>210</width>
+        <height>162</height>
+        <texture>flags/studios/$INFO[ListItem(0).Label].png</texture>
+        <fadetime>400</fadetime>
+      </control>
+      <control type="image">
+        <!--year-->
+        <posy>40</posy>
+        <posx>92</posx>
+        <visible>Container.Content(years) + !Window.IsActive(musiclibrary)</visible>
+        <width>185</width>
+        <height>450</height>
+        <fadetime>400</fadetime>
+        <texture>yearicons/$INFO[ListItem(0).Label]/folder.png</texture>
+      </control>
+      <control type="image">
+        <include>MovieIconDimensionsNormal</include>
+        <fadetime>400</fadetime>
+        <texture>list/list_movieicon_glass.png</texture>
+        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + !Skin.HasSetting(listdvdcase)</visible>
       </control>
       <!-- CD back -->
       <control type="image">

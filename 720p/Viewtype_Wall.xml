@@ -104,6 +104,7 @@
       <fadetime>500</fadetime>
       <include condition="!Skin.HasSetting(smallmoviewall)">MovieWallIconZoomAnimation</include>
       <include condition="Skin.HasSetting(smallmoviewall)">MovieWallIconZoomAnimationSmall</include>
+      <visible>!Container.Content(genres)</visible>
     </control>
     <control type="image">
       <include condition="!Skin.HasSetting(smallmoviewall)">WallIconMovieDimensions</include>
@@ -125,6 +126,7 @@
       <info>ListItem.Icon</info>
       <bordertexture border="-10">thumbs/poster_shadow.png</bordertexture>
       <fadetime>500</fadetime>
+      <visible>!Container.Content(genres)</visible>
     </control>
   </include>
   <!-- Movie DVD -->
@@ -847,7 +849,7 @@
       <viewtype label="Wall">icon</viewtype>
       <visible>
         Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) |
-        [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(genres) + !Container.Content(years) + !Container.Content()]</visible>
+        [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(years) + !Container.Content()]</visible>
       <posx>-15</posx>
       <posy>41</posy>
       <width>1295</width>
@@ -865,6 +867,12 @@
         <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
         <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
         <control type="image">
+          <visible>Container.Content(genres)</visible>
+          <include>WallIconMovieDimensions</include>
+          <texture diffuse="wall/wall_mask.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image">
           <posx>124</posx>
           <posy>2</posy>
           <width>40</width>
@@ -881,7 +889,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>!Skin.HasSetting(dvdcase)</visible>
+          <visible>!Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>57</posx>
@@ -891,8 +899,17 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>Skin.HasSetting(dvdcase)</visible>
+          <visible>Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
         </control>	        
+        <control type="largeimage">
+          <posx>53</posx>
+          <posy>177</posy>
+          <width>118</width>
+          <height>174</height>
+          <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">stretch</aspectratio>
+          <visible>Container.Content(genres)</visible>
+        </control>
       </itemlayout>
       <focusedlayout width="121" height="179" condition="!Skin.HasSetting(smallmoviewall)">
         <include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
@@ -908,6 +925,13 @@
           <include condition="!Skin.HasSetting(dvdcase)">MovieWallIconZoomAnimation</include>
           <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVD</include>
         </control>
+        <control type="image">
+          <visible>Container.Content(genres)</visible>
+          <include>WallIconMovieDimensions</include>
+          <texture diffuse="wall/wall_mask.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <include>MovieWallIconZoomAnimation</include>
+        </control>
         <control type="largeimage">
           <posx>53</posx>
           <posy>177</posy>
@@ -920,7 +944,7 @@
             <effect type="zoom" center="117,155" start="100" end="153" time="400" easing="out" tween="cubic" reversible="false" />
   				  <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(2) + !Skin.HasSetting(dvdcase)</visible>
+          <visible>Container(53).Row(2) + !Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>57</posx>
@@ -934,12 +958,31 @@
             <effect type="zoom" center="112,155" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false" />
   				  <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(2) + Skin.HasSetting(dvdcase)</visible>
-        </control>	
+          <visible>Container(53).Row(2) + Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+        </control>
+        <control type="largeimage">
+          <posx>53</posx>
+          <posy>177</posy>
+          <width>118</width>
+          <height>174</height>
+          <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">stretch</aspectratio>
+          <animation type="Focus" reversible="false">
+            <effect type="zoom" center="117,155" start="100" end="153" time="400" easing="out" tween="cubic" reversible="false" />
+  				  <effect type="fade" start="30" end="100" time="400" reversible="false" />
+          </animation>
+          <visible>Container(53).Row(2) + Container.Content(genres)</visible>
+        </control>
       </focusedlayout>
       <itemlayout width="101" height="148" condition="Skin.HasSetting(smallmoviewall)">
         <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
         <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <visible>Container.Content(genres)</visible>
+          <include>WallIconMovieDimensionsSmall</include>
+          <texture diffuse="wall/wall_mask.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
         <control type="image">
           <posx>115</posx>
           <posy>2</posy>
@@ -958,7 +1001,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>!Skin.HasSetting(dvdcase)</visible>
+          <visible>!Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>36</posx>
@@ -968,12 +1011,28 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>Skin.HasSetting(dvdcase)</visible>
+          <visible>Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+        </control>
+        <control type="largeimage">
+          <posx>53</posx>
+          <posy>145</posy>
+          <width>97</width>
+          <height>142</height>
+          <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">stretch</aspectratio>
+          <visible>Container.Content(genres)</visible>
         </control>
       </itemlayout>
       <focusedlayout width="101" height="148" condition="Skin.HasSetting(smallmoviewall)">
         <include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
         <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <control type="image">
+          <visible>Container.Content(genres)</visible>
+          <include>WallIconMovieDimensionsSmall</include>
+          <texture diffuse="wall/wall_mask.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <include>MovieWallIconZoomAnimationSmall</include>
+        </control>
         <control type="image">
           <posx>115</posx>
           <posy>2</posy>
@@ -998,7 +1057,7 @@
             <effect type="zoom" center="100,128" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
    	        <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(3) + !Skin.HasSetting(dvdcase)</visible>
+          <visible>Container(53).Row(3) + !Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>40</posx>
@@ -1012,8 +1071,21 @@
             <effect type="zoom" center="100,128" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
    	        <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(3) + Skin.HasSetting(dvdcase)</visible>
+          <visible>Container(53).Row(3) + Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
         </control>	
+        <control type="largeimage">
+          <posx>53</posx>
+          <posy>145</posy>
+          <width>97</width>
+          <height>142</height>
+          <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png" fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+          <aspectratio scalediffuse="false">stretch</aspectratio>
+          <animation type="Focus" reversible="false">
+            <effect type="zoom" center="100,128" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
+   	        <effect type="fade" start="30" end="100" time="400" reversible="false" />
+          </animation>
+          <visible>Container(53).Row(3) + Container.Content(genres)</visible>
+        </control>
       </focusedlayout>
     </control>
   </include>
