@@ -23,11 +23,10 @@
         <width>1280</width>
         <height>96</height>
         <align>center</align>
-        <itemgap>-10</itemgap>
+        <itemgap>-15</itemgap>
         <onup>-</onup>
         <ondown>-</ondown>
         <orientation>horizontal</orientation>
-
         <control type="button" id="921">
           <include>Objects_OSDButton</include>
           <onclick>Dialog.Close(MusicOSD)</onclick>
@@ -39,6 +38,14 @@
         </control>
         <control type="button" id="500">
           <include>Objects_OSDButton</include>
+        </control>
+        <control type="button" id="701">
+          <include>Objects_OSDButton</include>
+          <onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+        </control>
+        <control type="button" id="920">
+          <include>Objects_OSDButton</include>
+          <onclick>ActivateWindow(visualisationpresetlist)</onclick>
         </control>
         <control type="button" id="11">
           <include>Objects_OSDButton</include>
@@ -64,10 +71,6 @@
           <include>Objects_OSDButton</include>
           <onclick>PlayerControl(Next)</onclick>
         </control>
-        <control type="button" id="920">
-          <include>Objects_OSDButton</include>
-          <onclick>ActivateWindow(visualisationpresetlist)</onclick>
-        </control>
         <control type="button" id="111">
           <include>Objects_OSDButton</include>
           <onclick>XBMC.PlayerControl(Random)</onclick>
@@ -78,7 +81,7 @@
         <posy>60</posy>
         <width>1280</width>
         <height>96</height>
-        <itemgap>-10</itemgap>
+        <itemgap>-15</itemgap>
         <align>center</align>
         <orientation>horizontal</orientation>
         <control type="button">
@@ -95,6 +98,16 @@
           <include>Objects_OSDButtonTop</include>
           <texturenofocus>osd/osd_button_video.png</texturenofocus>
           <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(500)">Conditional</animation>
+        </control>
+        <control type="button">
+          <include>Objects_OSDButtonTop</include>
+          <texturenofocus>osd/osd_button_settings.png</texturenofocus>
+          <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(701)">Conditional</animation>
+        </control>
+        <control type="button">
+          <include>Objects_OSDButtonTop</include>
+          <texturenofocus>osd/osd_button_vis.png</texturenofocus>
+          <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(920)">Conditional</animation>
         </control>
         <control type="button">
           <include>Objects_OSDButtonTop</include>
@@ -128,12 +141,6 @@
           <texturenofocus>osd/osd_button_skipfwd.png</texturenofocus>
           <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(16)">Conditional</animation>
         </control>
-        <control type="button">
-          <include>Objects_OSDButtonTop</include>
-          <texturenofocus>osd/osd_button_vis.png</texturenofocus>
-          <animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(920)">Conditional</animation>
-        </control>
-
         <control type="button">
           <include>Objects_OSDButtonTop</include>
           <texturenofocus>osd/osd_button_shuffle.png</texturenofocus>
