@@ -8,34 +8,41 @@
     <posy>0</posy>
   </coordinates>
   <controls>
-    <control type="button" id="1111">
-      <posx>-10</posx>
-      <posy>-10</posy>
-      <height>1</height>
-      <width>1</width>
-      <texturefocus/>
-      <texturenofocus/>
-      <onfocus>Skin.SetBool(LibraryUpdated)</onfocus>
-    </control>
     <control type="group">
-      <include>Animations_ScanDialog</include>  
-      <posx>760</posx>
-      <posy>38</posy>
-      <width>509</width>
-      <height>91</height>
-      <include>Dialogs_TabletSmall</include>
-	  <control type="progress" id="403">
-        <include>Dialogs_ProgressSmall</include>
+      <animation effect="slide" start="0,0" end="0,70" time="200" easing="inout" tween="circle" condition="Window.IsActive(musicscan)">Conditional</animation>
+      <control type="button" id="1111">
+        <posx>-10</posx>
+        <posy>-10</posy>
+        <height>1</height>
+        <width>1</width>
+        <texturefocus/>
+        <texturenofocus/>
+        <onfocus>Skin.SetBool(LibraryUpdated)</onfocus>
       </control>
-      <control type="progress" id="404">
-        <include>Dialogs_ProgressSmall</include>
-      </control>
-      <include>Dialogs_HardDrive</include>
-      <control type="label" id="401">
-        <include>Dialogs_Label2</include>
-      </control>
-      <control type="label" id="405">
-        <include>Dialogs_Label3</include>
+      <control type="group">
+        <include>Animations_ScanDialog</include>  
+        <posx>760</posx>
+        <posy>38</posy>
+        <width>509</width>
+        <height>91</height>
+        <include>Dialogs_TabletSmall</include>
+        <include>Dialogs_HardDrive</include>
+        <control type="label" id="401">
+          <posy>20</posy>
+          <include>Dialogs_LabelVars</include>
+        </control>
+        <control type="label" id="405">
+          <posy>38</posy>
+          <include>Dialogs_LabelVars</include>
+        </control>
+        <control type="progress" id="403">
+          <description>progress control</description>
+          <include>Dialogs_ProgressSmall</include>
+        </control>
+        <control type="progress" id="404">
+          <description>progress control</description>
+          <include>Dialogs_ProgressSmall</include>
+        </control>
       </control>
     </control>
   </controls>
