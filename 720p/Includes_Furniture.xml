@@ -629,9 +629,20 @@
         <height>60</height>
         <posx>4</posx>
         <posy>2</posy>
-        <visible>Player.HasMedia + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
+        <visible>Player.HasAudio + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
         <animation effect="fade" time="800">Hidden</animation>
         <texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
+      </control>
+      <control type="image">
+        <description>COVER</description>
+        <aspectratio>scale</aspectratio>
+        <width>50</width>
+        <height>75</height>
+        <posx>4</posx>
+        <posy>2</posy>
+        <visible>Player.HasVideo + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
+        <animation effect="fade" time="800">Hidden</animation>
+        <texture fallback="DefaultVideo.png" diffuse="thumbs/cdcover_mask2.png">$INFO[VideoPlayer.Cover]</texture>
       </control>
     </control>
   </include>
