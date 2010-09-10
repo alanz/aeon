@@ -589,15 +589,15 @@
       </control>
       <control type="image" id="900013">
         <texture>flags/rating/mpaa_restricted.png</texture>
-        <visible>substring(ListItem.mpaa,Rated R)</visible>
+        <visible>SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.Mpaa,R)</visible>
       </control>
       <control type="image" id="900013">
         <texture>flags/rating/mpaa_pg13.png</texture>
-        <visible>substring(ListItem.mpaa,Rated PG-13)</visible>
+        <visible>substring(ListItem.mpaa,PG-13)</visible>
       </control>
       <control type="image" id="900013">
         <texture>flags/rating/mpaa_pg.png</texture>
-        <visible>substring(ListItem.mpaa,Rated PG) + !substring(ListItem.mpaa,Rated PG-13)</visible>
+        <visible>[Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !substring(ListItem.mpaa,PG-13)</visible>
       </control>
       <control type="image" id="900013">
         <texture>flags/rating/mpaa_nc17.png</texture>
@@ -632,23 +632,23 @@
         <visible>substring(listitem.mpaa,uk:x)</visible>
       </control>
       <control type="image" id="900013">
-        <texture>flags/rating/fsk-0_info.png</texture>
+        <texture>flags/rating/FSK-0_info.png</texture>
         <visible>substring(listitem.mpaa,germany:0) | substring(listitem.mpaa,o.a)</visible>
       </control>
       <control type="image" id="900013">
-        <texture>flags/rating/fsk-6_info.png</texture>
+        <texture>flags/rating/FSK-6_info.png</texture>
         <visible>substring(listitem.mpaa,germany:6) | substring(listitem.mpaa,ab 6)</visible>
       </control>
       <control type="image" id="900013">
-        <texture>flags/rating/fsk-12_info.png</texture>
+        <texture>flags/rating/FSK-12_info.png</texture>
         <visible>substring(listitem.mpaa,germany:12) | substring(listitem.mpaa,ab 12)</visible>
       </control>
       <control type="image" id="900013">
-        <texture>flags/rating/fsk-16_info.png</texture>
+        <texture>flags/rating/FSK-16_info.png</texture>
         <visible>substring(listitem.mpaa,germany:16) | substring(listitem.mpaa,ab 16)</visible>
       </control>
       <control type="image" id="900013">
-        <texture>flags/rating/fsk-18_info.png</texture>
+        <texture>flags/rating/FSK-18_info.png</texture>
         <visible>substring(listitem.mpaa,germany:18) | substring(listitem.mpaa,ab 18)</visible>
       </control>
       <control type="image" id="900013">
@@ -724,15 +724,15 @@
       </control>
       <control type="image" id="900010">
 	<texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
-	<visible>SubString(ListItem.mpaa,US:PG) | SubString(ListItem.mpaa,USA:PG) | [SubString(ListItem.mpaa,Rated PG) + !SubString(ListItem.mpaa,Rated PG-13)]</visible>
+        <visible>[Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !substring(ListItem.mpaa,PG-13)</visible>
       </control>
       <control type="image" id="900010">
 	<texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
-	<visible>SubString(ListItem.mpaa,US:PG-13) | SubString(ListItem.mpaa,USA:PG-13) | SubString(ListItem.mpaa,Rated PG-13)</visible>
+	<visible>SubString(ListItem.mpaa,PG-13)</visible>
       </control>
       <control type="image" id="900010">
 	<texture>flags/rating/MPAA_R_Certificate_US.png</texture>
-	<visible>SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R)</visible>
+	<visible>SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.Mpaa,R)</visible>
       </control>
       <control type="image" id="900010">
 	<texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
