@@ -1094,20 +1094,6 @@
         <label>PLAYLIST</label>
         <visible>[Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)] + Control.IsVisible(50)</visible>
       </control>
-      <control type="label" id="217">
-        <posx>130</posx>
-        <posy>198</posy>
-        <width>450</width>
-        <height>317</height>
-        <font>Font_List</font>
-        <align>center</align>
-        <aligny>center</aligny>
-        <textcolor>98FFFFFF</textcolor>
-        <include condition="Window.IsActive(videolibrary)">EmptyLibraryLabelMovies</include>
-        <include condition="Window.IsActive(musiclibrary)">EmptyLibraryLabelMusic</include>
-        <include>Animation_CommonFade</include>
-        <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + Control.IsVisible(50) + stringcompare(container(50).numitems,0)</visible>
-      </control>
     </control>
     <control type="group">
       <posx>855</posx>
@@ -1128,7 +1114,7 @@
         <bordersize>8</bordersize>
         <visible>Window.IsActive(videofiles)</visible>
       </control>
-      <control type="image">
+      <control type="image"><!--reflection-->
         <posy>506</posy>
         <width>366</width>
         <height>1000</height>
@@ -1145,7 +1131,7 @@
         <bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
         <aspectratio scalediffuse="true" aligny="bottom">keep</aspectratio>
         <info>ListItem.Icon</info>
-        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos)] + !Container.Content(genres)] + !Skin.HasSetting(listdvdcase)</visible>
+        <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes)] + !Container.Content(genres)] + !Skin.HasSetting(listdvdcase)</visible>
       </control>
       <control type="image">
         <posy>510</posy>
