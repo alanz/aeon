@@ -2067,20 +2067,6 @@
         <visible>!Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Window.IsActive(musicplaylist)</visible>
       </control>
     </control>
-    <control type="label" id="217">
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>1280</width>
-      <height>720</height>
-      <font>Font_List</font>
-      <align>center</align>
-      <aligny>center</aligny>
-      <textcolor>98FFFFFF</textcolor>
-      <include condition="Window.IsActive(videolibrary)">EmptyLibraryLabelMovies</include>
-      <include condition="Window.IsActive(musiclibrary)">EmptyLibraryLabelMusic</include>
-      <include>Animation_CommonFade</include>
-      <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + Control.IsVisible(556) + stringcompare(container(556).numitems,0)</visible>
-    </control>
     <include condition="Skin.HasSetting(videomovies) + ![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]">MultiWallInfoPaneMovies</include>
     <include condition="Skin.HasSetting(videotv) + ![Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]">MultiWallInfoPaneTV</include>
     <include contition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + ![Container.Content(genres) | Container.Content(songs)]">MultiWallInfoPaneMusic</include>

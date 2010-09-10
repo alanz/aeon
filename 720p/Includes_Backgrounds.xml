@@ -88,10 +88,10 @@
     <imagepath background="true" fallback="special://skin/extras/backdrops/default_movies/">$INFO[Skin.String(CustomMovies)]</imagepath>
   </include>
 
-  <include name="BackgroundVarsTrailers">
-    <icon>special://skin/extras/backdrops/default_movies/</icon>
-    <thumb>$INFO[Skin.String(CustomTrailers)]</thumb>
-    <imagepath background="true" fallback="special://skin/extras/backdrops/default_movies/">$INFO[Skin.String(CustomTrailers)]</imagepath>
+  <include name="BackgroundVarsMusicVideos">
+    <icon>special://skin/extras/backdrops/default_musicvideos/</icon>
+    <thumb>$INFO[Skin.String(CustomMusicVideos)]</thumb>
+    <imagepath background="true" fallback="special://skin/extras/backdrops/default_musicvideos/">$INFO[Skin.String(CustomMusicVideos)]</imagepath>
   </include>
 
   <include name="BackgroundVarsTV">
@@ -167,6 +167,12 @@
       <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] +
       ![Skin.HasSetting(GenreFanartOn) + Container.Content(genres)] +
       !Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) + IsEmpty(Fanart.Image) + !Control.IsVisible(54) + !Control.isVisible(560)</visible>
+    </control>
+    <control type="multiimage">
+      <include>BackgroundVarsGlobal</include>
+      <icon>special://skin/extras/backdrops/default_addons/</icon>
+      <imagepath background="true">special://skin/extras/backdrops/default_addons/</imagepath>
+      <visible>[Window.IsVisible(MyVideoLibrary) | Window.IsVisible(MyVideoFiles)] + !IsEmpty(ListItem.Property(Addon.Name))</visible>
     </control>
   </include>
 </includes>

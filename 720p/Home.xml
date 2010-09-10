@@ -5,8 +5,7 @@
   <controls>
     <control type="button" id="5043">
       <description>visible at startup</description>
-      <include>HiddenObject</include>
-      <onfocus>Skin.Reset(trailerslinkon)</onfocus>	   
+      <include>HiddenObject</include>	   
       <onfocus>Skin.SetBool(Startup)</onfocus>
       <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>SetFocus(300,7)</onfocus>
@@ -15,7 +14,6 @@
     <control type="button" id="5043">
       <description>visible after library update has finished</description>
       <include>HiddenObject</include>
-      <onfocus>Skin.Reset(trailerslinkon)</onfocus>	 
       <onfocus>Skin.Reset(LibraryUpdated)</onfocus>
       <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>SetFocus(300,7)</onfocus>
@@ -24,7 +22,6 @@
     <control type="button" id="5043">
       <description>visible in all other cases</description>  
       <include>HiddenObject</include>      
-      <onfocus>Skin.Reset(trailerslinkon)</onfocus>	 
       <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>SetFocus(300,7)</onfocus>
       <visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
