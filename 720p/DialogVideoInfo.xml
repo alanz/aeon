@@ -123,7 +123,7 @@
       <texture>$INFO[ListItem.FileNameAndPath,,poster.jpg]</texture>
       <aspectratio>stretch</aspectratio>
       <fadetime>500</fadetime>
-      <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
+      <visible>Container.Content(seasons) | Container.Content(tvshows) | Container.Content(movies)</visible>
     </control>
     <control type="image" id="200301">
       <visible>false</visible>
@@ -137,7 +137,7 @@
       <texture>$INFO[ListItem.path,,movie.tbn]</texture>
       <aspectratio>stretch</aspectratio>
       <fadetime>500</fadetime>
-      <visible>[Container.Content(movies) | Window.IsActive(videofiles)] + IsEmpty(Control.GetLabel(200300)) + IsEmpty(Control.GetLabel(200301))</visible>
+      <visible>[Container.Content(movies) | Window.IsActive(videofiles)] + IsEmpty(Control.GetLabel(200300))</visible>
     </control>
     <control type="image" id="200302">
       <visible>false</visible>
@@ -150,7 +150,7 @@
       <height>720</height>
       <texture>$INFO[ListItem.thumb]</texture>
       <aspectratio>stretch</aspectratio>
-      <visible>!Container.Content(episodes) + IsEmpty(Control.GetLabel(200300))</visible>
+      <visible>!Container.Content(episodes) + IsEmpty(Control.GetLabel(200300)) + IsEmpty(Control.GetLabel(200301))</visible>
     </control>
     <!-- -->
     <control type="image">
