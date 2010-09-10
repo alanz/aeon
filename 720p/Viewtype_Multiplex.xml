@@ -528,15 +528,10 @@
         </control>
       </control>
       <control type="group">
-        <posx>425</posx>
-        <posy>30</posy>
-        <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)</visible>
-      </control>
-      <control type="group">
         <posx>575</posx>
-	<posy>50</posy>
-	<animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)">Conditional</animation>
-	<control type="image">
+        <posy>50</posy>
+        <animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)">Conditional</animation>
+        <control type="image">
           <posx>177</posx>
           <posy>316</posy>
           <align>center</align>
@@ -544,20 +539,6 @@
           <height>32</height>
           <texture>multiplex/multiplex_trailer_label.png</texture>
           <visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
-          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-        </control>
-        <control type="label">
-          <!--press x to stop-->
-          <posx>177</posx>
-          <posy>320</posy>
-          <align>center</align>
-          <width>240</width>
-          <height>32</height>
-          <font>Font_MultiplexPlot</font>
-          <label>312574</label>
-          <visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
         <control type="label">
@@ -588,27 +569,27 @@
         </control>
       </control>
       <control type="group">
-	<posy>260</posy>
-	<visible>Skin.HasSetting(extrathumbslayout) + !Skin.HasSetting(multiplexinfooff) + Control.IsVisible(52)</visible>
-	<control type="group">
-	  <!--thumbs right-->
-	  <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]</visible>
-	  <include>Object_ExtraThumbsRight</include>
-	</control>
-	<control type="group">
-	  <posy>-195</posy>
-	  <include>Object_ExtraThumbsInformations</include>
-	</control>
-	<control type="group">
-	  <!--thumbs left-->
-	  <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]</visible>
-	  <include>Object_ExtraThumbsLeft</include>
-	</control>
+        <posy>260</posy>
+        <visible>Skin.HasSetting(extrathumbslayout) + !Skin.HasSetting(multiplexinfooff) + Control.IsVisible(52)</visible>
+        <control type="group">
+          <!--thumbs right-->
+          <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]</visible>
+          <include>Object_ExtraThumbsRight</include>
+        </control>
+        <control type="group">
+          <posy>-195</posy>
+          <include>Object_ExtraThumbsInformations</include>
+        </control>
+        <control type="group">
+          <!--thumbs left-->
+          <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]</visible>
+          <include>Object_ExtraThumbsLeft</include>
+        </control>
       </control>
     </control>
     <control type="group"><!-- trailer pane -->
       <posx>0</posx>
-      <posy>16</posy>
+      <posy>0</posy>
       <animation effect="slide" end="0,30"  time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <width>1280</width>
       <height>500</height>
@@ -621,14 +602,14 @@
         <effect type="rotatey" center="640" start="-90" end="90" time="0" delay="550"/>
         <effect type="fade" start="0" end="100" time="0" delay="550"/>
         <effect type="rotatey" center="640" start="90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
-        <effect type="zoom" start="70" end="70" center="auto" easing="in" tween="back" time="550" delay="550"/>
+        <effect type="zoom" start="80" end="80" center="auto" easing="in" tween="back" time="550" delay="550"/>
       </animation>
       <animation type="Conditional" condition="!Player.HasVideo" reversible="false">
         <effect type="rotatey" center="640" start="0" end="90" time="550" tween="cubic" easing="in"/>
         <effect type="rotatey" center="640" start="90" end="-90" time="0" delay="550"/>
         <effect type="fade" start="100" end="0" time="0" delay="550"/>
         <effect type="rotatey" center="640" start="-90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
-        <effect type="zoom" start="70" end="70" center="auto" time="0"/>
+        <effect type="zoom" start="80" end="80" center="auto" time="0"/>
       </animation>
       <control type="image">
         <posx>75</posx>
@@ -651,6 +632,30 @@
 				<animation effect="fade" start="0" end="100" time="0" delay="1100">Visible</animation>
 				<visible>Container.Content(movies) + Player.HasVideo</visible>
 			</control>
+      <control type="image">
+          <posx>528</posx>
+          <posy>496</posy>
+          <align>center</align>
+          <width>240</width>
+          <height>32</height>
+          <texture>multiplex/multiplex_trailer_label.png</texture>
+          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+          <visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(52) + !Control.HasFocus(197)</visible>
+      </control>
+      <control type="label">
+        <!--press x to stop-->
+        <posx>528</posx>
+        <posy>500</posy>
+        <align>center</align>
+        <width>240</width>
+        <height>32</height>
+        <font>Font_MultiplexPlot</font>
+        <label>312574</label>
+        <visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(52) + !Control.HasFocus(197)</visible>
+        <colordiffuse>d0FFFFFF</colordiffuse>
+        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+        <animation effect="fade" start="40" time="600" condition="Player.HasVideo" pulse="true">Conditional</animation>
+      </control>
 		</control>
   </include>
   <include name="MultiplexInfoPaneTV">
