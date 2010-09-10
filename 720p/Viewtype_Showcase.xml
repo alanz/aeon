@@ -897,7 +897,7 @@
         <effect type="fade" start="0" end="100" time="0" delay="550"/>
         <effect type="rotatey" center="640" start="90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
         <effect type="slide" start="0,0" end="0,-60"  delay="550" time="0"/>
-        <effect type="zoom" start="70" end="70" center="auto" easing="in" tween="back" time="550" delay="550"/>
+        <effect type="zoom" start="75" end="75" center="auto" easing="in" tween="back" time="550" delay="550"/>
       </animation>
       <animation type="Conditional" condition="!Player.HasVideo" reversible="false">
         <effect type="rotatey" center="640" start="0" end="90" time="550" tween="cubic" easing="in"/>
@@ -905,44 +905,43 @@
         <effect type="fade" start="100" end="0" time="0" delay="550"/>
         <effect type="rotatey" center="640" start="-90" end="0" time="550" delay="550" tween="cubic" easing="out"/>
         <effect type="slide" start="0,-60" end="0,-60"  time="0" easing="in" tween="cubic"/>
-        <effect type="zoom" start="70" end="70" center="auto" time="0"/>
+        <effect type="zoom" start="75" end="75" center="auto" time="0"/>
       </animation>
-      <control type="image">
-        <posx>528</posx>
-        <posy>496</posy>
-        <align>center</align>
-        <width>240</width>
-        <height>32</height>
-        <texture>multiplex/multiplex_trailer_label.png</texture>
-        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-        <visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
-      </control>
-      <control type="label">
-        <!--press x to stop-->
-        <posx>528</posx>
-        <posy>500</posy>
-        <align>center</align>
-        <width>240</width>
-        <height>32</height>
-        <font>Font_MultiplexPlot</font>
-        <label>312574</label>
-        <visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
-        <colordiffuse>d0FFFFFF</colordiffuse>
-        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-        <animation effect="fade" start="40" time="600" condition="Player.HasVideo" pulse="true">Conditional</animation>
-      </control>
       <control type="image">
         <posx>75</posx>
         <width>1130</width>
         <height>630</height>
         <texture border="0,0,0,0">list/listpanel_back.png</texture>
       </control>
-      
+      <control type="image">
+        <posx>525</posx>
+        <posy>456</posy>
+        <align>center</align>
+        <width>240</width>
+        <height>32</height>
+        <texture>multiplex/multiplex_trailer_label.png</texture>
+        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+        <visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(57) + !Control.HasFocus(70197)</visible>
+      </control>
+      <control type="label">
+        <!--press x to stop-->
+        <posx>525</posx>
+        <posy>460</posy>
+        <align>center</align>
+        <width>240</width>
+        <height>32</height>
+        <font>Font_MultiplexPlot</font>
+        <label>312574</label>
+        <visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197)</visible>
+        <colordiffuse>d0FFFFFF</colordiffuse>
+        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+        <animation effect="fade" start="40" time="600" condition="Player.HasVideo" pulse="true">Conditional</animation>
+      </control>      
 			<control type="videowindow" id="2">
 				<posx>160</posx>
-				<posy>30</posy>
+				<posy>40</posy>
 				<width>960</width>
-				<height>430</height>
+				<height>410</height>
 				<animation effect="fade" start="0" end="100" time="0" delay="1100">Visible</animation>
 				<visible>Container.Content(movies) + Player.HasVideo</visible>
 			</control>
