@@ -992,7 +992,8 @@
       <width>30</width>
       <height>30</height>
       <include>detailcolornofocus</include>
-      <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+      <visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [!Skin.HasSetting(nomovieoverlays) + Skin.HasSetting(videomovies)]</visible>
+      <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
       <include>MultiWallIconZoomAnimationDVD</include>
       <texture>$INFO[ListItem.Overlay,showcase/,]</texture>
       <animation effect="slide" start="0,0" end="-3,3" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
@@ -1005,8 +1006,8 @@
       <width>30</width>
       <height>30</height>
       <include>detailcolornofocus</include>
-      <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-      <texture>$INFO[ListItem.Overlay,showcase/,]</texture>
+      <visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [!Skin.HasSetting(notvoverlays) + Skin.HasSetting(videotv)]</visible>
+      <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
       <include>MultiWallTVIconZoomAnimationDVD</include>
       <animation effect="slide" start="0,0" end="-3,2" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
     </control>
