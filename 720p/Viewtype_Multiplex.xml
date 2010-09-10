@@ -404,7 +404,7 @@
         <info>Control.GetLabel(900004)</info>
         <textcolor>d0FFFFFF</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>[Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)] + !Player.HasVideo</visible>
+        <visible>[Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)]</visible>
       </control>
       <control type="textbox">
         <posx>105</posx>
@@ -505,13 +505,6 @@
           <colordiffuse>94FFFFFF</colordiffuse>
           <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
         </control>
-        <control type="videowindow">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>593</width>
-          <height>333</height>
-          <visible>[Control.IsVisible(52) + Skin.HasSetting(fanartlayout) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + Skin.HasSetting(multiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
-        </control>
         <control type="largeimage">
           <posx>1</posx>
           <posy>1</posy>
@@ -520,7 +513,6 @@
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
           <texture>$INFO[Container(52).ListItem.property(fanart_image)]</texture>
-          <visible>!Player.HasVideo</visible>
         </control>
         <control type="multiimage">
           <posx>1</posx>
@@ -531,21 +523,14 @@
           <fadetime>400</fadetime>
           <timeperimage>4000</timeperimage>
           <imagepath background="true">$INFO[Container(52).ListItem.Path,,extrathumbs]</imagepath>
-          <visible>!Player.HasVideo + Skin.HasSetting(trailerthumbs)</visible>
+          <visible>Skin.HasSetting(trailerthumbs)</visible>
           <randomize>true</randomize>
         </control>
       </control>
       <control type="group">
-	<posx>425</posx>
-	<posy>30</posy>
-	<visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)</visible>
-	<control type="videowindow">
-	  <posx>1</posx>
-	  <posy>1</posy>
-	  <width>430</width>
-	  <height>360</height>
-	  <visible>[Control.IsVisible(52) + [Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)] + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + Skin.HasSetting(multiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
-	</control>
+        <posx>425</posx>
+        <posy>30</posy>
+        <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout) | Skin.HasSetting(posterlayout)</visible>
       </control>
       <control type="group">
         <posx>575</posx>
