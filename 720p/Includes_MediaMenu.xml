@@ -12,7 +12,7 @@
   </include>
   <!-- Common Button -->
   <include name="MediaMenuButton">
-    <height>35</height>
+    <height>45</height>
     <width>259</width>
     <!--<textcolor>FF939597</textcolor>-->
     <textcolor>60FFFFFF</textcolor>
@@ -28,15 +28,15 @@
     <align>left</align>
     <aligny>center</aligny>
     <pulseonselect>true</pulseonselect>
-    <font>Font_MediaWindowMenu</font>
+    <font>Font_LowListFullTitle</font>
     <include>Animation_CommonFade</include>
   </include>
   <include name="MediaMenuRadioButton">
     <posx>0</posx>
     <posy>0</posy>
-    <height>35</height>
+    <height>45</height>
     <width>259</width>
-    <font>Font_SettingsOptions</font>
+    <font>Font_LowListFullTitle</font>
     <texturefocus>verticalmenu/button_focus.png</texturefocus>
     <alttexturefocus>verticalmenu/button_focus.png</alttexturefocus>
     <textcolor>60FFFFFF</textcolor>
@@ -66,7 +66,7 @@
     <posy>18</posy>
     <height>25</height>
     <include>Animation_MediaMenuSlide</include>
-    <font>Font_MediaWindowTitle</font>
+    <font>Font_LowListFullTitle</font>
     <textcolor>d0FFFFFF</textcolor>
     <align>left</align>
     <aligny>center</aligny>
@@ -77,21 +77,18 @@
   <include name="MediaMenuButton_Viewmode">
     <!--2-->
     <control type="selectbutton" id="2">
-      <label>[B]$LOCALIZE[31050] $INFO[Container.ViewMode][/B]</label>
-      <height>35</height>
+      <label></label>
+      <height>65</height>
       <width>260</width>
       <textcolor>A0FFFFFF</textcolor>
       <focusedcolor>d0000000</focusedcolor>
       <textoffsetx>10</textoffsetx>
       <texturefocus>verticalmenu/button_focus.png</texturefocus>
       <alttexturefocus>verticalmenu/button_focus.png</alttexturefocus>
-      <radiowidth>72</radiowidth>
-      <radioposx>146</radioposx>
-      <radioheight>50</radioheight>
       <align>center</align>
       <aligny>center</aligny>
       <pulseonselect>true</pulseonselect>
-      <font>Font_MediaWindowMenu</font>
+      <font>Font_AddSourceEdit</font>
       <include>Animation_CommonFade</include>
       <textureleft>multiplex/multiplex_arrow2.png</textureleft>
       <textureright>multiplex/multiplex_arrow.png</textureright>
@@ -149,7 +146,7 @@
   <include name="MediaMenuButton_Sort">
     <control type="button" id="3">
       <label>103</label>
-      <height>35</height>
+      <height>45</height>
       <width>205</width>
       <textcolor>60FFFFFF</textcolor>
       <focusedcolor>d0000000</focusedcolor>
@@ -164,7 +161,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <pulseonselect>true</pulseonselect>
-      <font>Font_MediaWindowMenu</font>
+      <font>Font_LowListFullTitle</font>
       <include>Animation_CommonFade</include>
       <onright>SetFocus(4)</onright>
     </control>
@@ -174,6 +171,14 @@
       <include>MediaMenuRadioButton</include>
       <label>31055</label>
       <visible>Window.IsActive(videofiles) | Window.IsActive(videolibrary)</visible>
+    </control>
+  </include>
+  <include name="MediaMenuButton_ViewTypeSettings">
+    <control type="button" id="71000">
+      <include>MediaMenuButton</include>
+      <label>SKIN SETTINGS</label>
+      <onclick>SetFocus(7100)</onclick>
+      <onright>SetFocus(7100)</onright>
     </control>
   </include>
   <include name="MediaMenuButton_style">
@@ -678,7 +683,7 @@
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
       <visible>!Skin.HasSetting(videotv)</visible>
-      <visible allowhiddenfocus="true">[ControlGroup(7000).HasFocus(700018) | ControlGroup(7011).HasFocus()]</visible>
+      <visible allowhiddenfocus="true">ControlGroup(7011).HasFocus]</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
@@ -701,7 +706,7 @@
         <ondown>7011</ondown>
         <orientation>Vertical</orientation>
         <focusposition>1</focusposition>
-        <scrolltime>200</scrolltime>
+        <scrolltime>300</scrolltime>
         <control type="button" id="3001">
           <!--plot-->
           <texturefocus>viewselect/plot_focus.png</texturefocus>
@@ -729,7 +734,7 @@
           <onright>SetFocus(50)</onright>
           <visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
         </control>
-		<control type="button" id="3005">
+        <control type="button" id="3005">
           <!--extrathumb-->
           <texturefocus>viewselect/fanart_focus.png</texturefocus>
           <texturenofocus>viewselect/fanart.png</texturenofocus>
@@ -739,7 +744,7 @@
           <onclick>Skin.Reset(posterlayout)</onclick>
           <onclick>Skin.Reset(plotlayout)</onclick>
           <onclick>Skin.Reset(extrathumbslayout)</onclick>
-		  <onclick>Skin.SetBool(trailerthumbs)</onclick>
+          <onclick>Skin.SetBool(trailerthumbs)</onclick>
           <onright>SetFocus(50)</onright>
           <visible>Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)</visible>
         </control>
@@ -808,7 +813,7 @@
       <height>0</height>
       <texturefocus>-</texturefocus>
       <texturenofocus>-</texturenofocus>
-      <visible>ControlGroup(7000).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | Control.HasFocus(4)</visible>
+      <visible>ControlGroup(7000).HasFocus() | ControlGroup(7100).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | Control.HasFocus(4)</visible>
     </control>
     <control type="group">
       <include>Animation_OpenCloseZoom</include>
@@ -824,6 +829,7 @@
       <include>ViewSelect</include>
       <include>TriggerSelect</include>
       <include>DelaySelect</include>
+      <include>ViewTypeMenu</include>
       <control type="image">
         <include>MediaMenuLogo</include>
         <texture>windows/logo_movies.png</texture>
@@ -899,31 +905,19 @@
         <onright>50</onright>
         <onup>7000</onup>
         <ondown>7000</ondown>
+        <scrolltime>300</scrolltime>
         <include>Animation_CommonFade</include>
         <include>Animation_MediaMenuSlide</include>
         <include>MediaMenuButton_Viewmode</include>
         <include>MediaMenuButton_Sort</include>
         <include>MediaMenuButton_Search</include>
         <include>MediaMenuButton_Random</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_FlattenFlow</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_FanartShowcase</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_InfoTrigger</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_LowList</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_GamesPoster</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_style</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_OldMultiplexStyle</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Multiplex</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_List</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Stripshow</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Background</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Overlay</include>
+        <include>MediaMenuButton_Overlay</include>
         <include>MediaMenuButton_StackButton</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Wall</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_FullScreenWall</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_LargeList</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Files</include>
+        <include>MediaMenuButton_Files</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Party</include>
         <include>MediaMenuButton_Watched</include>
+        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_ViewTypeSettings</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Setup</include>
         <include condition="Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">MediaMenuButton_Playlist</include>
         <include condition="Window.IsActive(musicplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
@@ -931,9 +925,9 @@
       </control>
       <control type="togglebutton" id="4">
         <posx>222</posx>
-        <posy>101</posy>
-        <height>22</height>
-        <width>22</width>
+        <posy>134</posy>
+        <height>25</height>
+        <width>25</width>
         <textoffsetx>10</textoffsetx>
         <texturefocus>verticalmenu/arrow_down.png</texturefocus>
         <texturenofocus>verticalmenu/arrow_down_nf.png</texturenofocus>
@@ -950,6 +944,79 @@
         <ondown>SetFocus(8)</ondown>
         <onright>SetFocus(50)</onright>
       </control>
+      <control type="image">
+        <posx>220</posx>
+        <posy>455</posy>
+        <width>18</width>
+        <height>18</height>
+        <texture>HomeHasSub.png</texture>
+        <include>Animation_CommonFade</include>
+        <include>Animation_MediaMenuSlide</include>
+        <animation effect="fade" start="90" end="50" time="700" condition="ControlGroup(7000).HasFocus(71000)" pulse="true">Conditional</animation>
+        <visible>!Skin.HasSetting(kioskmode)</visible>
+      </control>
+    </control>
+  </include>
+  <include name="ViewTypeMenu">
+    <control type="group">
+      <animation type="Visible" reversible="false">
+        <effect type="fade" start="0" end="100" time="300"/>
+        <effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out"/>
+      </animation>
+      <animation type="Hidden" reversible="false">
+        <effect type="fade" start="100" end="0" time="500"/>
+        <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
+      </animation>
+      <posx>280</posx>
+      <include>Animation_OpenCloseZoom</include>
+      <visible allowhiddenfocus="true">[[ControlGroup(7000).HasFocus(71000) + ControlGroup(7000).HasFocus] | ControlGroup(7100).HasFocus()] + ![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
+      <control type="image">
+        <posx>-28</posx>
+        <posy>0</posy>
+        <width>300</width>
+        <height>720</height>
+        <texture>verticalmenu/panel.png</texture>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>80</posy>
+        <font>Font_AddSourceEdit</font>
+        <width>250</width>
+        <height>50</height>
+        <align>center</align>
+        <include>Animation_CommonFadeOpenClose</include>
+        <textcolor>A0FFFFFF</textcolor>
+        <label>SKIN SETTINGS</label>
+      </control>
+      <control type="grouplist" id="7100">
+        <posx>0</posx>
+        <posy>125</posy>
+        <width>260</width>
+        <height>600</height>
+        <itemgap>0</itemgap>
+        <orientation>vertical</orientation>
+        <scroll>true</scroll>
+        <onleft>7000</onleft>
+        <onright>50</onright>
+        <onup>7100</onup>
+        <ondown>7100</ondown>
+        <scrolltime>300</scrolltime>
+        <include>Animation_CommonFade</include>
+        <include>MediaMenuButton_FlattenFlow</include>
+        <include>MediaMenuButton_FanartShowcase</include>
+        <include>MediaMenuButton_InfoTrigger</include>
+        <include>MediaMenuButton_LowList</include>
+        <include>MediaMenuButton_GamesPoster</include>
+        <include>MediaMenuButton_style</include>
+        <include>MediaMenuButton_OldMultiplexStyle</include>
+        <include>MediaMenuButton_Multiplex</include>
+        <include>MediaMenuButton_List</include>
+        <include>MediaMenuButton_Stripshow</include>
+        <include>MediaMenuButton_Background</include>
+        <include>MediaMenuButton_Wall</include>
+        <include>MediaMenuButton_FullScreenWall</include>
+        <include>MediaMenuButton_LargeList</include>
+      </control>
     </control>
   </include>
   <include name="TriggerSelect">
@@ -963,7 +1030,7 @@
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
       <posx>263</posx>
-      <visible>ControlGroup(7000).HasFocus(700060)</visible>
+      <visible allowhiddenfocus="true">ControlGroup(7020).HasFocus</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
@@ -988,6 +1055,7 @@
         <onup>7020</onup>
         <ondown>7020</ondown>
         <include>Animation_CommonFade</include>
+        <scrolltime>300</scrolltime>
         <control type="button" id="702003">
           <!--multiplex-->
           <include>MediaMenuButton</include>
@@ -1604,7 +1672,7 @@
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
       <posx>263</posx>
-      <visible>ControlGroup(7000).HasFocus(700017)</visible>
+      <visible allowhiddenfocus="true">ControlGroup(7021).HasFocus</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
@@ -1629,6 +1697,7 @@
         <onup>7021</onup>
         <ondown>7021</ondown>
         <include>Animation_CommonFade</include>
+        <scrolltime>300</scrolltime>
         <control type="button" id="702103">
           <!--delay settings-->
           <include>MediaMenuButton</include>
