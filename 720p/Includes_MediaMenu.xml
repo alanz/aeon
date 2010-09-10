@@ -917,10 +917,10 @@
         <include>MediaMenuButton_Files</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Party</include>
         <include>MediaMenuButton_Watched</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_ViewTypeSettings</include>
-        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Setup</include>
         <include condition="Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">MediaMenuButton_Playlist</include>
         <include condition="Window.IsActive(musicplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
+        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_ViewTypeSettings</include>
+        <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Setup</include>
         <include>MediaMenuButton_MediaDebug</include>
       </control>
       <control type="togglebutton" id="4">
@@ -954,7 +954,7 @@
         <include>Animation_MediaMenuSlide</include>
         <animation effect="fade" start="90" end="50" time="700" condition="ControlGroup(7000).HasFocus(71000)" pulse="true">Conditional</animation>
         <visible>!Skin.HasSetting(kioskmode)</visible>
-        <animation effect="slide" start="0,0" end="0,-90" time="0" condition="Window.IsActive(videofiles) | Container.Content(musicvideos) | Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-90" time="0" condition="Window.IsActive(musicplaylist) | Window.IsActive(videofiles) | Container.Content(musicvideos) | Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,-135" time="0" condition="Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + [Container.Content() | Container.Content(genres) | Container.Content(years) | Container.Content(studios)]]">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,-180" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,-225" time="0" condition="Window.IsActive(programs)">Conditional</animation>
@@ -990,7 +990,7 @@
         <align>center</align>
         <include>Animation_CommonFadeOpenClose</include>
         <textcolor>A0FFFFFF</textcolor>
-        <label>SKIN SETTINGS</label>
+        <label>VIEWTYPE SETTINGS</label>
       </control>
       <control type="grouplist" id="7100">
         <posx>-13</posx>
