@@ -12,7 +12,7 @@
   </include>
   <!-- Common Button -->
   <include name="MediaMenuButton">
-    <height>45</height>
+    <height>40</height>
     <width>259</width>
     <!--<textcolor>FF939597</textcolor>-->
     <textcolor>60FFFFFF</textcolor>
@@ -28,15 +28,15 @@
     <align>left</align>
     <aligny>center</aligny>
     <pulseonselect>true</pulseonselect>
-    <font>Font_LowListFullTitle</font>
+    <font>Font_MediaWindowMenu</font>
     <include>Animation_CommonFade</include>
   </include>
   <include name="MediaMenuRadioButton">
     <posx>0</posx>
     <posy>0</posy>
-    <height>45</height>
+    <height>40</height>
     <width>259</width>
-    <font>Font_LowListFullTitle</font>
+    <font>Font_MediaWindowMenu</font>
     <texturefocus>windows/listselect.png</texturefocus>
     <alttexturefocus>windows/listselect.png</alttexturefocus>
     <textcolor>60FFFFFF</textcolor>
@@ -55,7 +55,7 @@
   
   <include name="MediaMenuLogo">
     <posx>10</posx>
-    <posy>15</posy>
+    <posy>40</posy>
     <include>Animation_MediaMenuSlide</include>
     <width>44</width>
     <height>30</height>
@@ -63,7 +63,7 @@
   </include>
   <include name="MediaMenuLabel">
     <posx>70</posx>
-    <posy>18</posy>
+    <posy>43</posy>
     <height>25</height>
     <include>Animation_MediaMenuSlide</include>
     <font>Font_LowListFullTitle</font>
@@ -78,7 +78,7 @@
     <!--2-->
     <control type="selectbutton" id="2">
       <label></label>
-      <height>65</height>
+      <height>55</height>
       <width>260</width>
       <textcolor>A0FFFFFF</textcolor>
       <focusedcolor>EEFFFFFF</focusedcolor>
@@ -674,6 +674,7 @@
   </include>
   <include name="ViewSelect">
     <control type="group" id="15">
+      <posx>20</posx>
       <animation type="Visible" reversible="false">
         <effect type="fade" start="0" end="100" time="300"/>
         <effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out"/>
@@ -689,15 +690,15 @@
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
       </animation>
       <control type="image">
-        <posx>254</posx>
-        <posy>45</posy>
+        <posx>249</posx>
+        <posy>0</posy>
         <width>222</width>
-        <height>665</height>
-        <texture>verticalmenu/panel.png</texture>
+        <height>720</height>
+        <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7011">
         <posx>270</posx>
-        <posy>52</posy>
+        <posy>18</posy>
         <height>5800</height>
         <width>260</width>
         <onleft>7000</onleft>
@@ -823,7 +824,7 @@
         <posy>0</posy>
         <width>300</width>
         <height>720</height>
-        <texture>verticalmenu/panel.png</texture>
+        <texture>list/listpanel_back.png</texture>
         <include>Animation_MediaMenuSlide</include>
       </control>
       <include>ViewSelect</include>
@@ -895,7 +896,7 @@
       </control>	  
       <control type="grouplist" id="7000">
         <posx>0</posx>
-        <posy>60</posy>
+        <posy>90</posy>
         <width>260</width>
         <height>600</height>
         <itemgap>0</itemgap>
@@ -925,7 +926,7 @@
       </control>
       <control type="togglebutton" id="4">
         <posx>222</posx>
-        <posy>134</posy>
+        <posy>154</posy>
         <height>25</height>
         <width>25</width>
         <textoffsetx>10</textoffsetx>
@@ -946,7 +947,7 @@
       </control>
       <control type="image">
         <posx>220</posx>
-        <posy>455</posy>
+        <posy>442</posy>
         <width>18</width>
         <height>18</height>
         <texture>HomeHasSub.png</texture>
@@ -954,10 +955,11 @@
         <include>Animation_MediaMenuSlide</include>
         <animation effect="fade" start="90" end="50" time="700" condition="ControlGroup(7000).HasFocus(71000)" pulse="true">Conditional</animation>
         <visible>!Skin.HasSetting(kioskmode)</visible>
-        <animation effect="slide" start="0,0" end="0,-90" time="0" condition="Window.IsActive(musicplaylist) | Window.IsActive(videofiles) | Container.Content(musicvideos) | Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-135" time="0" condition="Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + [Container.Content() | Container.Content(genres) | Container.Content(years) | Container.Content(studios)]]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-180" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-225" time="0" condition="Window.IsActive(programs)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-40" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-80" time="0" condition="Window.IsActive(musiclibrary) |  Window.IsActive(videofiles) | Container.Content(musicvideos) | Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-120" time="0" condition="Window.IsActive(musicfiles)  | [Window.IsActive(videolibrary) + [Container.Content() | Container.Content(genres) | Container.Content(years) | Container.Content(studios)]]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-160" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-200" time="0" condition="Window.IsActive(programs)">Conditional</animation>
       </control>
     </control>
   </include>
@@ -971,7 +973,7 @@
         <effect type="fade" start="100" end="0" time="500"/>
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
-      <posx>280</posx>
+      <posx>295</posx>
       <include>Animation_OpenCloseZoom</include>
       <visible allowhiddenfocus="true">[[ControlGroup(7000).HasFocus(71000) + ControlGroup(7000).HasFocus] | ControlGroup(7100).HasFocus()] + ![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
       <control type="image">
@@ -979,22 +981,11 @@
         <posy>0</posy>
         <width>300</width>
         <height>720</height>
-        <texture>verticalmenu/panel.png</texture>
-      </control>
-      <control type="label">
-        <posx>0</posx>
-        <posy>80</posy>
-        <font>Font_AddSourceEdit</font>
-        <width>250</width>
-        <height>50</height>
-        <align>center</align>
-        <include>Animation_CommonFadeOpenClose</include>
-        <textcolor>A0FFFFFF</textcolor>
-        <label>VIEWTYPE SETTINGS</label>
+        <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7100">
         <posx>-13</posx>
-        <posy>125</posy>
+        <posy>103</posy>
         <width>260</width>
         <height>600</height>
         <itemgap>0</itemgap>
@@ -1005,6 +996,17 @@
         <onup>7100</onup>
         <ondown>7100</ondown>
         <scrolltime>300</scrolltime>
+        <control type="label">
+          <posx>0</posx>
+          <posy>80</posy>
+          <font>Font_AddSourceEdit</font>
+          <width>250</width>
+          <height>45</height>
+          <align>center</align>
+          <include>Animation_CommonFadeOpenClose</include>
+          <textcolor>A0FFFFFF</textcolor>
+          <label>VIEWTYPE SETTINGS</label>
+        </control>
         <include>Animation_CommonFade</include>
         <include>MediaMenuButton_FlattenFlow</include>
         <include>MediaMenuButton_FanartShowcase</include>
@@ -1033,24 +1035,24 @@
         <effect type="fade" start="100" end="0" time="500"/>
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
-      <posx>263</posx>
+      <posx>295</posx>
       <visible allowhiddenfocus="true">ControlGroup(7020).HasFocus</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
       </animation>
       <control type="image">
-        <posx>-6</posx>
-        <posy>100</posy>
-        <width>142</width>
-        <height>140</height>
-        <texture>verticalmenu/panel.png</texture>
+        <posx>-27</posx>
+        <posy>0</posy>
+        <width>170</width>
+        <height>720</height>
+        <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7020">
-        <posx>0</posx>
-        <posy>100</posy>
-        <width>130</width>
-        <height>140</height>
+        <posx>-25</posx>
+        <posy>145</posy>
+        <width>165</width>
+        <height>600</height>
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <scroll>false</scroll>
@@ -1675,24 +1677,24 @@
         <effect type="fade" start="100" end="0" time="500"/>
         <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
       </animation>
-      <posx>263</posx>
+      <posx>295</posx>
       <visible allowhiddenfocus="true">ControlGroup(7021).HasFocus</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
       </animation>
       <control type="image">
-        <posx>-6</posx>
-        <posy>100</posy>
-        <width>142</width>
-        <height>150</height>
-        <texture>verticalmenu/panel.png</texture>
+        <posx>-27</posx>
+        <posy>0</posy>
+        <width>170</width>
+        <height>720</height>
+        <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7021">
-        <posx>0</posx>
-        <posy>100</posy>
-        <width>130</width>
-        <height>150</height>
+        <posx>-25</posx>
+        <posy>145</posy>
+        <width>165</width>
+        <height>600</height>
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <scroll>false</scroll>
