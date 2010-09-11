@@ -375,7 +375,7 @@
     <posx>10</posx>
     <height>16</height>
     <width>450</width>
-    <font>Font_ContextMenuButton</font>
+    <font>Font_SettingsOptions</font>
     <textcolor>abffffff</textcolor>
     <scroll>true</scroll>
   </include>
@@ -569,7 +569,7 @@
     <posx>10</posx>
     <width>350</width>
     <height>41</height>
-    <font>Font_ContextMenuButton</font>
+    <font>Font_SettingsOptions</font>
     <textcolor>FF939597</textcolor>
     <focusedcolor>FFFFFFFF</focusedcolor>
     <aligny>center</aligny>
@@ -700,7 +700,7 @@
           <control type="label">
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-100</posy>
-            <label>$LOCALIZE[31423]:</label>
+            <label>$LOCALIZE[21899]:</label>
           </control>
           <control type="label">
             <textcolor>d0ffffff</textcolor>
@@ -718,7 +718,7 @@
           <control type="label">
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-45</posy>
-            <label>$LOCALIZE[31438]:</label>
+            <label>$LOCALIZE[135]:</label>
           </control>
           <control type="label">
             <textcolor>d0ffffff</textcolor>
@@ -756,7 +756,7 @@
           <control type="label">
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-45</posy>
-            <label>$LOCALIZE[31438]:</label>
+            <label>$LOCALIZE[135]:</label>
           </control>
           <control type="label">
             <textcolor>d0ffffff</textcolor>
@@ -820,7 +820,7 @@
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
-        <font>Font_MultiplexMainLabelOld</font>
+        <font>Font_MultiplexTVLabel</font>
         <label fallback="...">$INFO[Container(551).ListItem.Label]</label>
         <visible>Container.Content(artists)</visible>
       </control>
@@ -831,7 +831,7 @@
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
-        <font>Font_MultiplexMainLabelOld</font>
+        <font>Font_MultiplexTVLabel</font>
         <label fallback="...">$INFO[Container(551).ListItem.Artist,, / ]$INFO[Container(551).ListItem.Label]</label>
         <visible>Container.Content(albums)</visible>
         <scroll>true</scroll>
@@ -843,7 +843,7 @@
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
-        <font>Font_MultiplexMainLabelOld</font>
+        <font>Font_MultiplexTVLabel</font>
         <label fallback="...">$INFO[Container(551).ListItem.TrackNumber]. $INFO[Container(551).ListItem.Title]</label>
         <visible>Container.Content(songs)</visible>
       </control>
@@ -1211,8 +1211,8 @@
       <control type="togglebutton" id="7713">
         <description>MOVIE FANART tracking button</description>
         <include>LowList_MenuButtonVars</include>
-        <label>$LOCALIZE[31044]</label>
-        <altlabel>$LOCALIZE[31044] ($LOCALIZE[571])</altlabel>
+        <label>$LOCALIZE[20445]</label>
+        <altlabel>$LOCALIZE[20445] ($LOCALIZE[571])</altlabel>
         <onclick>Skin.SetBool(movieplotpaneloff)</onclick>
         <onclick>Skin.Reset(moviegallerypanelon)</onclick>
         <onclick>Skin.Reset(movieinfopanelon)</onclick>
@@ -1464,7 +1464,7 @@
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
-        <font>Font_MultiplexMainLabelOld</font>
+        <font>Font_MultiplexTVLabel</font>
         <label fallback="...">$INFO[Container(551).ListItem.Label]</label>
       </control>
       <!-- Separators -->
@@ -1611,7 +1611,7 @@
           <control type="label">
             <include>LowList_WideInfoLabelSmallVars</include>
             <posy>-100</posy>
-            <label>$LOCALIZE[31407]:</label>
+            <label>$LOCALIZE[20416]:</label>
           </control>
           <control type="label">
             <include>LowList_WideInfoValueSmallVars</include>
@@ -1736,7 +1736,7 @@
             <textcolor>d0ffffff</textcolor>
             <include>LowList_WideInfoLabelEpisodeVars</include>
             <posy>-80</posy>
-            <label fallback="-">$LOCALIZE[31062] $INFO[ListItem.Season], $LOCALIZE[31063] $INFO[ListItem.Episode]</label>
+            <label fallback="-">$LOCALIZE[20373] $INFO[ListItem.Season], $LOCALIZE[20452] $INFO[ListItem.Episode]</label>
           </control>
         </control>
         <control type="group">
@@ -1838,7 +1838,7 @@
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
-        <font>Font_MultiplexMainLabelOld</font>
+        <font>Font_MultiplexTVLabel</font>
         <label fallback="...">$INFO[Container(551).ListItem.Label]</label>
         <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
       </control>
@@ -1849,7 +1849,7 @@
         <height>59</height>
         <aligny>center</aligny>
         <align>left</align>
-        <font>Font_MultiplexMainLabelOld</font>
+        <font>Font_MultiplexTVLabel</font>
         <label fallback="...">$INFO[Container(551).ListItem.Title]</label>
         <visible>Container.Content(episodes)</visible>
       </control>
@@ -1875,13 +1875,13 @@
       <include>Animation_HideList</include>
       <control type="textbox">
         <description>DESCRIPTION: (Short - TV Shows and Episodes and Seasons)</description>
-        <label fallback="31425">$INFO[Control.GetLabel(900004),[UPPERCASE][COLOR 66ffffff]$LOCALIZE[21821]: [/COLOR][/UPPERCASE]]</label>
+        <label fallback="161">$INFO[Control.GetLabel(900004),[UPPERCASE][COLOR 66ffffff]$LOCALIZE[21821]: [/COLOR][/UPPERCASE]]</label>
         <visible>!Skin.HasSetting(highlist) + ![Skin.HasSetting(tvdescpaneloff) + IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(Container.Property(fanart_image))]</visible>
         <include>LowList_ShortTextBox</include>
       </control>
       <control type="textbox">
         <description>PLOT (Tall - TV Shows and Episodes)</description>
-        <label fallback="31425">$INFO[Control.GetLabel(900004)]</label>
+        <label fallback="161">$INFO[Control.GetLabel(900004)]</label>
         <visible>Skin.HasSetting(highlist)]</visible>
         <include>LowList_TallTextBox</include>
       </control>

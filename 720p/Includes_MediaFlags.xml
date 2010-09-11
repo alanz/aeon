@@ -315,36 +315,50 @@
     </control>
     <control type="group">
       <visible>[Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + [Container.Content(movies) | Container.Content(musicvideos)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
-      <!--ADDED WALL-->
       <include>Animation_CommonFade</include>
       <control type="group">
-        <posx>10</posx>
-	<control type="image" id="888">
-	  <include>Furniture_FloorMediaFlagsVars</include>
-	  <texture>$INFO[Control.GetLabel(900012)]</texture>
-	  <visible>!IsEmpty(Control.GetLabel(900012))</visible>
-	</control>
-      </control>
-      <control type="group">
-        <posx>110</posx>
-        <control type="image">
+        <posx>210</posx>
+        <control type="image" id="888">
           <include>Furniture_FloorMediaFlagsVars</include>
-          <texture fallback="flags/studios/default-studio.png">$INFO[Control.GetLabel(900009)]</texture>
-	  <visible>!StringCompare(ListItem.Label,..)</visible>
+          <texture>$INFO[Control.GetLabel(900012)]</texture>
+          <visible>!IsEmpty(Control.GetLabel(900012))</visible>
         </control>
       </control>
       <control type="group">
-	<posx>210</posx>
-	<include>Animation_CommonFade</include>
-	<include>Animation_HideShowcase</include>
-	<include>Animation_HideMultiplex</include>
-	<visible>Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552)</visible>
-	<control type="image">
-	  <include>Furniture_FloorMediaFlagsVars</include>
-	  <texture>$INFO[Control.GetLabel(900010)]</texture>
-	  <visible>!IsEmpty(Control.GetLabel(900010))</visible>
-	  <aspectratio>keep</aspectratio>
-	</control>
+        <posx>107</posx>
+        <control type="image">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture fallback="flags/studios/default-studio.png">$INFO[Control.GetLabel(900009)]</texture>
+          <visible>!StringCompare(ListItem.Label,..)</visible>
+        </control>
+      </control>
+      <control type="group">
+        <posx>10</posx>
+        <include>Animation_CommonFade</include>
+        <include>Animation_HideShowcase</include>
+        <include>Animation_HideMultiplex</include>
+        <visible>Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552)</visible>
+        <control type="image">
+          <include>Furniture_FloorMediaFlagsVars</include>
+          <texture>$INFO[Control.GetLabel(900010)]</texture>
+          <visible>!IsEmpty(Control.GetLabel(900010)) + !SubString(ListItem.mpaa,Germany)</visible>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image">
+          <posy>658</posy>
+          <width>90</width>
+          <height>60</height>
+          <include>Animation_CommonFade</include>
+          <include>Animation_HideShowcase</include>
+          <include>Animation_HideMultiplex</include>
+          <visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(55)</visible>
+          <aspectratio>keep</aspectratio>
+          <include>FloorMediaFlagNightShade</include>
+          <fadetime>400</fadetime>
+          <texture>$INFO[Control.GetLabel(900010)]</texture>
+          <visible>!IsEmpty(Control.GetLabel(900010)) + SubString(ListItem.mpaa,Germany)</visible>
+          <aspectratio>keep</aspectratio>
+        </control>
       </control>
       <control type="group">
         <posx>980</posx>
@@ -648,7 +662,7 @@
         <posy>669</posy>
         <width>130</width>
         <height>59</height>
-        <font>Font_BigHome</font>
+        <font>Font_OSDCodecInfo</font>
         <include condition="!Skin.HasSetting(darkfloor)">Colour_BlackAlpha80</include>
         <include condition="Skin.HasSetting(darkfloor)">Colour_WhiteAlpha80</include>
         <align>left</align>
@@ -680,7 +694,7 @@
         <posy>669</posy>
         <width>90</width>
         <height>59</height>
-        <font>Font_BigHome</font>
+        <font>Font_OSDCodecInfo</font>
         <include condition="!Skin.HasSetting(darkfloor)">Colour_BlackAlpha80</include>
         <include condition="Skin.HasSetting(darkfloor)">Colour_WhiteAlpha80</include>
         <align>center</align>

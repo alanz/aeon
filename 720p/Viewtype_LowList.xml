@@ -16,7 +16,7 @@
     <posy>0</posy>
     <width>395</width>
     <height>39</height>
-    <font>Font_ListSmall</font>
+    <font>Font_ListDetail</font>
     <aligny>center</aligny>
     <animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
   </include>
@@ -25,7 +25,7 @@
     <posy>0</posy>
     <width>314</width>
     <height>39</height>
-    <font>Font_ListSmall</font>
+    <font>Font_ListDetail</font>
     <aligny>center</aligny>
     <animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
     <animation effect="slide" start="0,0" end="80,0" time="0" condition="Container.Content(episodes)">Conditional</animation>
@@ -256,7 +256,7 @@
         <viewtype label="31580">list</viewtype>
         <visible>
           ![Window.IsActive(videolibrary) +
-          [Container.Content(Genres) | Container.Content(Years) | Container.Content(Actors) | Container.Content(Directors) | Container.Content(Studios) | Container.Content()]]
+          [Container.Content(Years) | Container.Content(Actors) | Container.Content(Directors) | Container.Content(Studios) | Container.Content()]]
         </visible>
         <posx>210</posx>
         <posy>503</posy>
@@ -396,7 +396,7 @@
             <posy>0</posy>
             <width>395</width>
             <height>39</height>
-            <font>Font_ListSmall</font>
+            <font>Font_ListDetail</font>
             <aligny>center</aligny>
             <include>lowlistcolorfocus</include>
             <label>$INFO[ListItem.Label]</label>
@@ -406,7 +406,7 @@
             <posx>105</posx>
             <posy>48</posy>
             <width>420</width>
-            <font>Font_ListSmall2</font>
+            <font>Font_ListDetail2</font>
             <aligny>center</aligny>
             <include>lowlistcolorfocus</include>
             <label>$INFO[ListItem.duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, - ,]</label>
@@ -1075,7 +1075,7 @@
             <height>41</height>
             <align>center</align>
             <include>LowList_SettingsButtonVars</include>
-            <label>$LOCALIZE[31044]</label>
+            <label>$LOCALIZE[20445]</label>
             <onfocus>Skin.SetBool(movieplotpaneloff)</onfocus>
             <onfocus>Skin.Reset(moviegallerypanelon)</onfocus>
             <onfocus>Skin.Reset(movieinfopanelon)</onfocus>
@@ -1207,8 +1207,15 @@
       <include condition="[Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]">LowList_EpisodeMediaIcons</include>
       <include condition="[Window.IsActive(videolibrary)]">LowList_PosterMediaIcons</include>
       <include condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)]">LowList_SquareMediaIcons</include>
-      <include>mod_moviegenre_lowlist1</include>
-      <!-- Landscape Icons -->
+      <control type="image">
+        <visible>Container.Content(genres) + !Window.IsActive(musiclibrary)</visible>
+        <posx>-30</posx>
+        <width>346</width>
+        <height>311</height>
+        <fadetime>400</fadetime>
+        <aspectratio scalediffuse="false">keep</aspectratio>
+        <texture fallback="special://skin/extras/movie/genre/default.jpg">special://skin/extras/movie/genre/$INFO[ListItem.Label].jpg</texture>
+      </control>
     </control>
     <!-- Scrollbar -->
     <control type="scrollbar" id="65">
