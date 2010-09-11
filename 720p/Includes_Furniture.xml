@@ -530,9 +530,9 @@
       </control>
       <control type="progress" id="20">
         <description>Progressbar</description>
-        <posx>280</posx>
+        <posx>340</posx>
         <posy>2</posy>
-        <width>176</width>
+        <width>120</width>
         <height>13</height>
         <texturebg>list/progress_back.png</texturebg>
         <lefttexture>list/progress_left.png</lefttexture>
@@ -544,7 +544,7 @@
       <control type="label">
         <posx>90</posx>
         <posy>-2</posy>
-        <width>180</width>
+        <width>240</width>
         <height>18</height>
         <font>Font_NowPlaying</font>
         <textcolor>a8FFFFFF</textcolor>
@@ -554,7 +554,7 @@
       <control type="label">
         <posx>92</posx>
         <posy>14</posy>
-        <width>180</width>
+        <width>240</width>
         <height>18</height>
         <font>Font_NowPlaying</font>
         <textcolor>a8FFFFFF</textcolor>
@@ -572,19 +572,32 @@
         <label>[UPPERCASE][COLOR FFFFFFFF]$INFO[Videoplayer.TVShowTitle][/COLOR][/UPPERCASE]</label>
       </control>
       <control type="label">
-        <posx>92</posx>
+        <posx>88</posx>
         <posy>6</posy>
-        <width>180</width>
+        <width>240</width>
         <height>18</height>
         <font>Font_NowPlaying</font>
         <textcolor>a8FFFFFF</textcolor>
         <scroll>true</scroll>
         <label>[UPPERCASE][COLOR FFFFFFFF]$INFO[Videoplayer.Title][/COLOR][/UPPERCASE]</label>
         <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
+        <visible>VideoPlayer.Content(movies)</visible>
+      </control>
+      <control type="label">
+        <posx>18</posx>
+        <posy>6</posy>
+        <width>310</width>
+        <height>18</height>
+        <font>Font_NowPlaying</font>
+        <textcolor>a8FFFFFF</textcolor>
+        <scroll>true</scroll>
+        <label>[UPPERCASE][COLOR FFFFFFFF]$INFO[Videoplayer.Title][/COLOR][/UPPERCASE]</label>
+        <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
+        <visible>!VideoPlayer.Content(movies)</visible>
       </control>
       <control type="label">
         <description>Current time</description>
-        <posx>260</posx>
+        <posx>300</posx>
         <posy>14</posy>
         <width>200</width>
         <height>20</height>
@@ -602,6 +615,7 @@
         <posx>22</posx>
         <posy>5</posy>
         <fadetime>300</fadetime>
+        <visible>VideoPlayer.Content(movies) | Player.HasAudio | VideoPlayer.Content(episodes)</visible>
         <texture fallback="cdart/default.png">$INFO[Player.FolderPath]cdart.png</texture>
         <aspectratio align="bottom">keep</aspectratio>
       </control>
@@ -623,7 +637,7 @@
         <height>75</height>
         <posx>4</posx>
         <posy>2</posy>
-        <visible>Player.HasVideo + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
+        <visible>VideoPlayer.Content(movies) + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
         <animation effect="fade" time="800">Hidden</animation>
         <texture fallback="DefaultVideo.png" diffuse="thumbs/cdcover_mask2.png">$INFO[VideoPlayer.Cover]</texture>
       </control>
@@ -958,8 +972,8 @@
         <width>760</width>
         <height>25</height>
         <font>Font_OSDTime</font>
-	<align>left</align>
-	<textcolor>60FFFFFF</textcolor>
+        <align>left</align>
+        <textcolor>60FFFFFF</textcolor>
         <label>$LOCALIZE[31720]: [COLOR d0ffffff]$INFO[System.Time][/COLOR]</label>
       </control>
       <control type="label">
@@ -968,7 +982,7 @@
         <width>760</width>
         <height>25</height>
         <font>Font_OSDTime</font>
-	<align>right</align>
+        <align>right</align>
         <label>$INFO[VideoPlayer.Duration]</label>
       </control>
       <control type="label">
@@ -976,9 +990,9 @@
         <posy>85</posy>
         <width>760</width>
         <height>25</height>
-	<font>Font_OSDTime</font>
-	<textcolor>60FFFFFF</textcolor>
-	<align>right</align>
+        <font>Font_OSDTime</font>
+        <textcolor>60FFFFFF</textcolor>
+        <align>right</align>
         <label>$LOCALIZE[31710]: [COLOR d0ffffff]$INFO[Player.FinishTime][/COLOR]</label>
       </control>
 
