@@ -166,7 +166,7 @@
     <posx>0</posx>
     <posy>0</posy>
     <width>936</width>
-    <height>49</height>
+    <height>44</height>
     <font>Font_SettingsOptions</font>
     <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
     <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
@@ -181,6 +181,23 @@
     <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
     <textureradionofocus>settings/settings_radiobuttonon.png</textureradionofocus>
   </include>
+ <include name="Objects_SettingsDefaultSubMenuButton">
+    <posx>0</posx>
+    <posy>0</posy>
+    <width>229</width>
+    <height>49</height>
+    <font>Font_SettingsOptions</font>
+    <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
+    <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
+    <textcolor>AA555555</textcolor>
+    <focusedcolor>FFFFFFFF</focusedcolor>
+    <pulseonselect>true</pulseonselect>
+    <textoffsetx>0</textoffsetx>
+    <aligny>center</aligny>
+    <align>center</align>
+    <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
+    <textureradionofocus>settings/settings_radiobuttonon.png</textureradionofocus>
+  </include>
   <include name="Objects_SettingsControlAreaVars">
     <posx>258</posx>
     <posy>120</posy>
@@ -189,6 +206,99 @@
     <itemgap>0</itemgap>
     <animation effect="fade" start="0" end="100" time="125">WindowOpen</animation>
     <animation effect="fade" start="100" end="0" time="125">WindowClose</animation>
+  </include>
+  <include name="Objects_SettingsLeftListVars">
+          <posx>0</posx>
+          <posy>-10</posy>
+          <width>260</width>
+          <height>641</height>
+          <onleft>9000</onleft>
+          <onright>9100</onright>
+          <onup>9000</onup>
+          <ondown>9000</ondown>
+          <pagecontrol>-</pagecontrol>
+          <scrolltime>300</scrolltime>
+          <itemlayout height="54" width="260">
+            <control type="label">
+              <posx>30</posx>
+              <posy>0</posy>
+              <width>216</width>
+              <height>55</height>
+              <font>Font_SettingsSectionMenuButton</font>
+              <textcolor>FFf5f5f5</textcolor>
+              <align>left</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <posy>40</posy>
+              <width>216</width>
+              <height>55</height>
+              <textcolor>FFf5f5f5</textcolor>
+              <align>left</align>
+              <font>Font_SettingsSectionMenuButtonSubtitle</font>
+              <aligny>top</aligny>
+              <include>Animation_CommonFadeOpenClose</include>
+              <label>$INFO[ListItem.Label2]</label>
+            </control>
+          </itemlayout>
+          <focusedlayout height="54" width="220">
+            <control type="image">
+              <posx>0</posx>
+              <posy>9</posy>
+              <width>216</width>
+              <height>55</height>
+              <texture border="5">settings/settings_leftmenufocus.png</texture>
+              <visible>Control.HasFocus(9000)</visible>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <posy>0</posy>
+              <width>216</width>
+              <height>55</height>
+              <font>Font_SettingsSectionMenuButton</font>
+              <textcolor>FF262728</textcolor>
+              <align>left</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <posy>40</posy>
+              <width>216</width>
+              <height>55</height>
+              <textcolor>FF262728</textcolor>
+              <align>left</align>
+              <font>Font_SettingsSectionMenuButtonSubtitle</font>
+              <include>Animation_CommonFadeOpenClose</include>
+              <label>$INFO[ListItem.Label2]</label>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <posy>0</posy>
+              <width>216</width>
+              <height>55</height>
+              <font>Font_SettingsSectionMenuButton</font>
+              <textcolor>FFFFFFFF</textcolor>
+              <align>left</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+              <visible>!Control.HasFocus(9000)</visible>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <posy>40</posy>
+              <width>216</width>
+              <height>55</height>
+              <textcolor>FFFFFFFF</textcolor>
+              <align>left</align>
+              <font>Font_SettingsSectionMenuButtonSubtitle</font>
+              <include>Animation_CommonFadeOpenClose</include>
+              <label>$INFO[ListItem.Label2]</label>
+              <visible>!Control.HasFocus(9000)</visible>
+            </control>
+          </focusedlayout>
   </include>
   <!-- OSD -->
   <include name="Objects_OSDButtonGroup12">

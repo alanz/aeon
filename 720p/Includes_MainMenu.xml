@@ -112,6 +112,14 @@
           <onclick>ActivateWindow(musiclibrary)</onclick>
           <visible>!Skin.HasSetting(nomusic) + Library.HasContent(Music)</visible>
         </item>
+        <item id="1">
+          <!--music-->
+          <description>Music</description>
+          <label>31010</label>
+          <include>BackgroundVarsMusic</include>
+          <onclick>ActivateWindow(musicfiles)</onclick>
+          <visible>!Skin.HasSetting(nomusic) + !Library.HasContent(Music)</visible>
+        </item>
         <item id="2">
           <!--programs-->
           <description>Apps</description>
@@ -377,13 +385,13 @@
       <width>840</width>
       <onleft>300</onleft>
       <onright>300</onright>
-      <onup>6</onup>
-      <ondown>6</ondown>
+      <onup>9000</onup>
+      <ondown>40</ondown>
       <viewtype>list</viewtype>
       <orientation>horizontal</orientation>
       <focusposition>2</focusposition>
       <scrolltime>200</scrolltime>
-      <visible>![Control.HasFocus(301) | Control.HasFocus(7) | Control.HasFocus(10)]</visible>
+      <visible allowhiddenfocus="true">Container(9000).HasFocus(3) | Container(9000).HasFocus(2)</visible>
       <animation effect="fade" start="0" end="100" time="200" condition="!Window.Previous(56) + !Window.Previous(picturessettings) + !Window.Previous(programssettings) + !Window.Previous(weathersettings) + !Window.Previous(musicsettings) + !Window.Previous(systemsettings) + !Window.Previous(videossettings) + !Window.Previous(networksettings) + !Window.Previous(appearancesettings)">WindowOpen</animation>
       <itemlayout width="200" height="40">
         <control type="label">
@@ -624,13 +632,13 @@
       <width>840</width>
       <onleft>301</onleft>
       <onright>301</onright>
-      <onup>7</onup>
-      <ondown>7</ondown>
+      <onup>9000</onup>
+      <ondown>9000</ondown>
       <viewtype>list</viewtype>
       <orientation>horizontal</orientation>
       <focusposition>2</focusposition>
       <scrolltime>200</scrolltime>
-      <visible allowhiddenfocus="true">Control.HasFocus(301) | Control.HasFocus(7)</visible>
+      <visible allowhiddenfocus="true">Control.HasFocus(301) | Container(9000).HasFocus(1)</visible>
       <animation effect="fade" start="0" end="100" time="200" condition="!Window.Previous(56) + !Window.Previous(picturessettings) + !Window.Previous(programssettings) + !Window.Previous(weathersettings) + !Window.Previous(musicsettings) + !Window.Previous(systemsettings) + !Window.Previous(videossettings) + !Window.Previous(networksettings) + !Window.Previous(appearancesettings)">WindowOpen</animation>
       <itemlayout width="200" height="40">
         <control type="label">
@@ -1395,15 +1403,6 @@
             <visible>!Skin.HasSetting(sub_music_Playlists)</visible>
             <visible>Container(300).HasFocus(1)</visible>
           </item>
-          <item id="33">
-            <description>Music Videos</description>
-            <label>20389</label>
-            <onclick>Skin.SetBool(musicvideos)</onclick>
-            <onclick>ActivateWindow(MyVideoLibrary,musicvideos,return)</onclick>
-            <visible>!Skin.HasSetting(sub_music_Videos)</visible>
-            <visible>Container(300).HasFocus(1)</visible>
-            
-          </item>
           <item id="34">
             <description>Genres</description>
             <label>135</label>
@@ -1482,7 +1481,7 @@
             <visible>Container(300).HasFocus(1)</visible>
           </item>
           <!-- Music (1) end -->
-          <!-- extras (2) -->
+          <!-- programs (2) -->
           <item id="51">
             <description>Programs</description>
             <label>0</label>
@@ -1497,33 +1496,6 @@
             <onclick>activatewindow(scripts)</onclick>
             <visible>Skin.HasSetting(scripts)</visible>
             <visible>!Skin.HasSetting(sub_extras_scripts)</visible>
-            <visible>Container(300).HasFocus(2)</visible>
-          </item>
-          <item id="53">
-            <description>Settings</description>
-            <label>31016</label>
-            <onclick>ActivateWindow(settings)</onclick>
-            <visible>Skin.HasSetting(nosettings)</visible>
-            <visible>!Skin.HasSetting(kioskmode)</visible>
-            <visible>!Skin.HasSetting(sub_extras_settings)</visible>
-            <visible>Container(300).HasFocus(2)</visible>
-          </item>
-          <item id="56">
-            <description>Shutdown</description>
-            <label>31019</label>
-            <onclick>Shutdown()</onclick>
-            <visible>Skin.HasSetting(shutdown)</visible>
-            <visible>!Skin.HasSetting(sub_extras_shutdown)</visible>
-            <visible>Container(300).HasFocus(2)</visible>
-          </item>
-          <item id="57">
-            <description>Logout Button</description>
-            <label>20126</label>
-            <onclick>System.LogOff</onclick>
-            <visible>System.HasLoginScreen</visible>
-            <visible>!Skin.HasSetting(signout)</visible>
-            <visible>!Skin.HasSetting(shutdown)</visible>
-            <visible>!Skin.HasSetting(sub_Shutdown_Logout)</visible>
             <visible>Container(300).HasFocus(2)</visible>
           </item>
           <item id="54">
@@ -1550,51 +1522,30 @@
             <visible>System.HasAlarm(Alarm)</visible>
             <visible>Container(300).HasFocus(2)</visible>
           </item>
-          <!-- extras (2) End -->
+          <!-- programs (2) End -->
           <!-- Shutdown (22) -->
           <item id="62">
             <description>Shutdown Timer</description>
             <label fallback="TIMER">31856</label>
             <onclick>AlarmClock($LOCALIZE[20144],Shutdown(),)</onclick>
-            <visible>!Skin.HasSetting(sub_Shutdown_Timer)</visible>
             <visible>Container(300).HasFocus(22)</visible>
           </item>
           <item id="63">
             <description>Restart Button</description>
             <label>13313</label>
-            <onclick>Reset()</onclick>
-            <visible>!Skin.HasSetting(sub_Shutdown_Restart)</visible>
-            <visible>Container(300).HasFocus(22)</visible>
-          </item>
-          <item id="64">
-            <description>Refresh Button</description>
-            <label>31607</label>
-            <onclick>ReloadSkin()</onclick>
-            <visible>!Skin.HasSetting(sub_Shutdown_Refresh)</visible>
-            <visible>Container(300).HasFocus(22)</visible>
-          </item>
-          <item id="65">
-            <description>Dashboard Button</description>
-            <label>13006</label>
-            <onclick>Dashboard()</onclick>
-            <visible>System.Platform.Xbox</visible>
-            <visible>!Skin.HasSetting(sub_Shutdown_Dashboard)</visible>
+            <onclick>Reset</onclick>
             <visible>Container(300).HasFocus(22)</visible>
           </item>
           <item id="66">
             <description>Suspend</description>
             <label>13011</label>
-            <onclick>Suspend()</onclick>
-            <visible>!System.Platform.Xbox</visible>
-            <visible>!Skin.HasSetting(sub_Shutdown_Suspend)</visible>
+            <onclick>Suspend</onclick>
             <visible>Container(300).HasFocus(22)</visible>
           </item>
           <item id="67">
             <description>Hibernate</description>
             <label>13010</label>
-            <onclick>Hibernate()</onclick>
-            <visible>!System.Platform.Xbox</visible>
-            <visible>!Skin.HasSetting(sub_Shutdown_Hibernate)</visible>
+            <onclick>Hibernate</onclick>
             <visible>Container(300).HasFocus(22)</visible>
           </item>
           <item id="68">
@@ -1602,14 +1553,12 @@
             <label>20126</label>
             <onclick>System.LogOff</onclick>
             <visible>System.HasLoginScreen</visible>
-            <visible>!Skin.HasSetting(sub_Shutdown_Logout)</visible>
             <visible>Container(300).HasFocus(22)</visible>
           </item>
           <item id="79">
             <description>Quit</description>
             <label>13009</label>
-            <onclick>Quit()</onclick>
-            <visible>!Skin.HasSetting(sub_Shutdown_Quit)</visible>
+            <onclick>Quit</onclick>
             <visible>Container(300).HasFocus(22)</visible>
           </item>
           <!-- Shutdown (22) End -->
