@@ -289,7 +289,7 @@
 	</control>
       </control>
     </focusedlayout>
-    <itemlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
+    <itemlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(showcasefanart) + Skin.HasSetting(flattenshowcasemovies) + Container.Content(movies)]">
       <control type="image">
         <include>EpisodeShowcaseThumbMain</include>
         <info>ListItem.Icon</info>
@@ -328,7 +328,7 @@
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | Container.Content(episodes)] + !Control.IsVisible(970)</visible>
       </control>
     </itemlayout>
-    <focusedlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
+    <focusedlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(showcasefanart) + Skin.HasSetting(flattenshowcasemovies) + Container.Content(movies)]">
       <control type="group">
         <animation effect="zoom" start="100" end="140" center="-15,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
         <animation effect="zoom" start="140" end="100" center="-15,180" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
