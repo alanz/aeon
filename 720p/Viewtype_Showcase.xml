@@ -1596,11 +1596,9 @@
   </include>
   <include name="MusicShowcaseBlackReflection">
     <control type="image">
-      <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
-      <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
+      <include>MusicShowcaseThumbDimensions</include>
       <colordiffuse>d0FFFFFF</colordiffuse>
-      <include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionBlackNormal</include>
-      <include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskReflectionBlackCD</include>
+      <include>MusicCoverMaskReflectionBlackNormal</include>
       <animation effect="fade" start="50" end="50" time="0" condition="Skin.HasSetting(darkfloor)">Conditional</animation>
     </control>
   </include>
@@ -4386,7 +4384,7 @@
       <onright>SetFocus(57)</onright>
       <onup>SetFocus(7000)</onup>
       <ondown>SetFocus(57)</ondown>
-      <onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+      <onclick>PlayMedia($INFO[ListItem.Trailer],1,noresume)</onclick>
       <visible>![[[Container.Content(movies) | Window.IsActive(videofiles)] + [[[Skin.HasSetting(showcaseinfoon) | Skin.HasSetting(showcaseinfoauto)] + IsEmpty(ListItem.Trailer)] | Skin.HasSetting(Showcaseinfooff)]] |
         [Container.Content(tvshows) + [Skin.HasSetting(showcasetvshowinfoauto) | Skin.HasSetting(showcasetvshowinfoon) | Skin.HasSetting(showcasetvshowinfooff)]] |
         [Container.Content(seasons) + [Skin.HasSetting(showcaseseasoninfoauto) | Skin.HasSetting(showcaseseasoninfoon) | Skin.HasSetting(showcaseseasoninfooff)]] |

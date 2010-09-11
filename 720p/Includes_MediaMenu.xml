@@ -412,14 +412,14 @@
       <description>Watched Toggle Button</description>
       <label>20367</label>
       <include>MediaMenuRadioButton</include>
-      <visible>[[Container.Content(movies) | Window.IsActive(videofiles)] + !Skin.HasSetting(nomenumoviewatched)] | [[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(nomenutvwatched)]</visible>
+      <visible>Window.IsActive(videolibrary) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Search">
     <control type="button" id="8">
       <label>137</label>
       <include>MediaMenuButton</include>
-      <visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomenumoviesearch)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(nomenutvsearch)]] + !Window.IsActive(musicplaylist) + !Window.IsActive(musicplaylisteditor)</visible>
+      <visible></visible>
     </control>
     <control type="button" id="19">
       <label>587</label>
@@ -441,26 +441,26 @@
       <onclick>ReplaceWindow(VideoFiles)</onclick>
       <selected>Window.IsVisible(VideoLibrary)</selected>
       <include>MediaMenuRadioButton</include>
-      <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(videolibrary)</visible>
+      <visible>Window.IsActive(videolibrary)</visible>
     </control>
     <control type="radiobutton" id="700051">
       <label>29800</label>
       <include>MediaMenuRadioButton</include>
       <onclick>ReplaceWindow(videolibrary)</onclick>
-      <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(videofiles)</visible>
+      <visible>Window.IsActive(videofiles)</visible>
     </control>
     <control type="radiobutton" id="700049">
       <label>29800</label>
       <include>MediaMenuRadioButton</include>
       <onclick>ReplaceWindow(MusicFiles)</onclick>
       <selected>Window.IsVisible(MusicLibrary)</selected>
-      <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(musiclibrary)</visible>
+      <visible>Window.IsActive(musiclibrary)</visible>
     </control>
     <control type="radiobutton" id="700050">
       <label>29800</label>
       <include>MediaMenuRadioButton</include>
       <onclick>ReplaceWindow(MusicLibrary)</onclick>
-      <visible>!Skin.HasSetting(nomenufiles) + Window.IsActive(musicfiles)</visible>
+      <visible>Window.IsActive(musicfiles)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Playlist">
@@ -526,25 +526,25 @@
       <label>31016</label>
       <include>MediaMenuButton</include>
       <onclick>ActivateWindow(VideosSettings)</onclick>
-      <visible>!Skin.HasSetting(nomenusettings) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist)]</visible>
+      <visible>Window.IsActive(videolibrary) | Window.IsActive(videofiles) | Window.IsActive(videoplaylist)</visible>
     </control>
     <control type="button" id="700044">
       <label>31016</label>
       <include>MediaMenuButton</include>
       <onclick>ActivateWindow(PicturesSettings)</onclick>
-      <visible>!Skin.HasSetting(nomenusettings) + Window.IsActive(pictures)</visible>
+      <visible>Window.IsActive(pictures)</visible>
     </control>
     <control type="button" id="700045">
       <label>31016</label>
       <include>MediaMenuButton</include>
       <onclick>ActivateWindow(ProgramsSettings)</onclick>
-      <visible>!Skin.HasSetting(nomenusettings) + Window.IsActive(programs)</visible>
+      <visible>Window.IsActive(programs)</visible>
     </control>
     <control type="button" id="700046">
       <label>31016</label>
       <include>MediaMenuButton</include>
       <onclick>ActivateWindow(MusicSettings)</onclick>
-      <visible>!Skin.HasSetting(nomenusettings) + [Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(musicplaylist)]</visible>
+      <visible>Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(musicplaylist)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_MediaDebug">
