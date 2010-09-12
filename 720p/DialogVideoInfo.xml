@@ -467,7 +467,7 @@
         <height>212</height>
         <align>left</align>
         <font>Font_FSInfoPlot</font>
-        <label fallback="31414">$INFO[ListItem.Plot]</label>
+        <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <autoscroll delay="10000" time="3000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <include>Colour_OffWhite</include>
         <!-- castmod prevents it from showing when cast container shows -->
@@ -565,7 +565,7 @@
         <align>left</align>
         <font>Font_FSInfoPlot</font>
         <autoscroll delay="10000" time="3000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <label fallback="31414">$INFO[ListItem.Plot]</label>
+        <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <include>Colour_OffWhite</include>
         <visible>!Control.IsVisible(50)</visible>
       </control>
@@ -692,22 +692,6 @@
         <label fallback="31435">$INFO[ListItem.CastAndRole]</label>
         <include>Colour_OffWhite</include>
       </control>
-      <!--	<control type="grouplist" id="9000">
-				<include>Objects_FSInfoMenu</include>
-				<control type="button" id="8">
-					<label>31411</label>
-					<include>Objects_FSInfoButton</include>
-				</control>
-				<control type="button" id="6">
-					<label>31410</label>
-					<include>Objects_FSInfoButton</include>
-					<visible>!Skin.HasSetting(kioskmode)</visible>
-				</control>
-				<control type="button" id="10">
-					<label>31418</label>
-					<include>Objects_FSInfoButton</include>
-				</control>
-			</control>-->
       <control type="textbox">
         <description>Plot</description>
         <posx>3</posx>
@@ -717,7 +701,7 @@
         <align>left</align>
         <font>Font_FSInfoPlot</font>
         <autoscroll delay="10000" time="3000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <label fallback="31414">$INFO[ListItem.Plot]</label>
+        <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <include>Colour_OffWhite</include>
         <visible>!Control.IsVisible(50)</visible>
       </control>
@@ -843,6 +827,7 @@
     <include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
     <include condition="Skin.HasSetting(DebugGrid)">Furniture_DebugGrid</include>
     <!-- castmod displays selectable cast -->
+    <include>PlotTextGenerator</include>
     <include>AudioCodecGenerator</include>
     <include>StudioGenerator</include>
     <include>SourceGenerator</include>
