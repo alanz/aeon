@@ -640,7 +640,7 @@
       <label>313004</label>
       <onclick>SetFocus(7020)</onclick>
       <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + !Container.Content(genres) +
-	[Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
+	[Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(59) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
       <onright>SetFocus(7020)</onright>
       <visible>!Skin.HasSetting(noinfotriggerbuttons)</visible>
     </control>
@@ -1663,6 +1663,47 @@
           <onclick>Skin.SetBool(showcasemusicinfoon)</onclick>
           <onright>50</onright>
           <visible>Control.IsVisible(57) + Window.IsActive(musiclibrary)</visible>
+        </control>
+        <control type="button" id="702058">
+          <!--dvdcase-->
+          <include>MediaMenuButton</include>
+          <label>$LOCALIZE[591]</label>
+          <onclick>Skin.Reset(dvdcaseinfoauto)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfotrigger)</onclick>
+          <onclick>Skin.SetBool(dvdcaseinfooff)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfoon)</onclick>
+          <onright>50</onright>
+          <visible>[Control.IsVisible(59) | Control.IsVisible(552)] + Container.Content(movies)</visible>
+        </control>
+        <control type="button" id="702059">
+          <include>MediaMenuButton</include>
+          <label>$LOCALIZE[413]</label>
+          <onclick>Skin.Reset(dvdcaseinfoauto)</onclick>
+          <onclick>Skin.SetBool(dvdcaseinfotrigger)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfooff)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfoon)</onclick>
+          <onright>50</onright>
+          <visible>[Control.IsVisible(59) | Control.IsVisible(552)] + Container.Content(movies)</visible>
+        </control>
+        <control type="button" id="702060">
+          <include>MediaMenuButton</include>
+          <label>$LOCALIZE[16019]</label>
+          <onclick>Skin.SetBool(dvdcaseinfoauto)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfotrigger)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfooff)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfoon)</onclick>
+          <onright>50</onright>
+          <visible>[Control.IsVisible(59) | Control.IsVisible(552)] + Container.Content(movies)</visible>
+        </control>
+        <control type="button" id="702061">
+          <include>MediaMenuButton</include>
+          <label>$LOCALIZE[31077]</label>
+          <onclick>Skin.Reset(dvdcaseinfoauto)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfotrigger)</onclick>
+          <onclick>Skin.Reset(dvdcaseinfooff)</onclick>
+          <onclick>Skin.SetBool(dvdcaseinfoon)</onclick>
+          <onright>50</onright>
+          <visible>[Control.IsVisible(59) | Control.IsVisible(552)] + Container.Content(movies)</visible>
         </control>
       </control>
     </control>

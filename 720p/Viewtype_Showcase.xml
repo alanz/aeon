@@ -123,7 +123,7 @@
       Window.IsActive(scripts) |
       Window.IsActive(pictures)
     </visible>
-    <itemlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes) + ![Container.Content(movies) + Skin.HasSetting(showcasefanart)]] | Window.IsActive(programs)">
+    <itemlayout height="380" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes) + ![Container.Content(movies) + Skin.HasSetting(showcasefanart)]] | Window.IsActive(programs)">
       <control type="largeimage">
         <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
         <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
@@ -169,53 +169,69 @@
       </control>
       <include>genre_Showcase_ref_21</include>
     </itemlayout>
-    <focusedlayout height="350" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes) + ![Container.Content(movies) + Skin.HasSetting(showcasefanart)]] | Window.IsActive(programs)">
+    <focusedlayout height="380" width="196" condition="Window.IsActive(videoplaylist) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Container.Content(episodes) + ![Container.Content(movies) + Skin.HasSetting(showcasefanart)]] | Window.IsActive(programs)">
+      <control type="image">
+        <description>Glow</description>
+        <visible>Control.HasFocus(57)</visible>
+        <posx>-6</posx>
+        <posy>43</posy>
+        <width>300</width>
+        <height>298</height>
+			<texture>showcase/showcase_glow2.png</texture>
+			<animation type="Focus" reversible="false">
+				<effect type="zoom" center="165,400" start="100" end="140" time="400" tween="back" easing="out" />
+				<effect type="fade" start="0" end="100" time="1000" delay="500"/>
+			</animation>
+        <aspectratio>stretch</aspectratio>
+        <visible>!Container.Content(genres)</visible>
+        <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+      </control>
       <control type="group">
-	<include>ShowcaseAnimationInFocusOutFocus</include>
-	<control type="largeimage">
-	  <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
-	  <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
-	  <info>ListItem.Icon</info>
-	  <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-	</control>
-	<include>genre_Showcase_20</include>
-	<control type="image">
-	  <description>Glass overlay</description>
-	  <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
-	  <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
-	  <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-	</control>
-	<control type="image">
-	  <description>Black overlay</description>
-	  <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
-	  <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
-	  <colordiffuse>4e000000</colordiffuse>
-	  <texture>-</texture>
-	  <aspectratio scalediffuse="false">scale</aspectratio>
-	  <animation effect="fade" end="100" time="200" condition="ControlGroup(7000).HasFocus">Conditional</animation>
-	  <animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
-	  <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-	</control>
-	<control type="largeimage">
-	  <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMain</include>
-	  <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMainDVD</include>
-	  <info>ListItem.Icon</info>
-	  <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-	</control>
-	<control type="largeimage">
-	  <description>Glass overlay reflection</description>
-	  <include>MovieShowcaseThumbReflectionDVD</include>
-	  <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-	</control>
-	<control type="image">
-	  <include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
-	  <include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
-	  <include>detailcolornofocus</include>
-	  <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
-	  <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png)</visible>
-	  <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
-	</control>
-	<include>genre_Showcase_ref_20</include>
+        <include>ShowcaseAnimationInFocusOutFocus</include>
+        <control type="largeimage">
+          <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
+          <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>
+          <info>ListItem.Icon</info>
+          <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+        </control>
+        <include>genre_Showcase_20</include>
+        <control type="image">
+          <description>Glass overlay</description>
+          <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlay</include>
+          <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseGlassOverlayDVD</include>
+          <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+        </control>
+        <control type="image">
+          <description>Black overlay</description>
+          <include condition="!Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensions</include>
+          <include condition="Skin.HasSetting(dvdcase)">MusicShowcaseThumbDimensionsCDCover</include>
+          <colordiffuse>4e000000</colordiffuse>
+          <texture>-</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <animation effect="fade" end="100" time="200" condition="ControlGroup(7000).HasFocus">Conditional</animation>
+          <animation effect="fade" start="0" end="0" time="0">WindowOpen</animation>
+          <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+        </control>
+        <control type="largeimage">
+          <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMain</include>
+          <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbReflectionMainDVD</include>
+          <info>ListItem.Icon</info>
+          <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+        </control>
+        <control type="largeimage">
+          <description>Glass overlay reflection</description>
+          <include>MovieShowcaseThumbReflectionDVD</include>
+          <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+        </control>
+        <control type="image">
+          <include condition="!Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseNormal</include>
+          <include condition="Skin.HasSetting(dvdcase)">WatchedOverlayShowCaseDVD</include>
+          <include>detailcolornofocus</include>
+          <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem(0).Overlay) + [[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
+          <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png)</visible>
+          <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
+        </control>
+        <include>genre_Showcase_ref_20</include>
       </control>
     </focusedlayout>
     <itemlayout height="350" width="250" condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(pictures) | Window.IsActive(scripts)">
@@ -289,7 +305,7 @@
 	</control>
       </control>
     </focusedlayout>
-    <itemlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
+    <itemlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
       <control type="image">
         <include>EpisodeShowcaseThumbMain</include>
         <info>ListItem.Icon</info>
@@ -319,7 +335,7 @@
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | Container.Content(episodes)] + !Control.IsVisible(970)</visible>
       </control>
     </itemlayout>
-    <focusedlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
+    <focusedlayout height="350" width="250" condition="Container.Content(episodes) | [Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
       <control type="group">
         <animation effect="zoom" start="100" end="140" center="-15,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
         <animation effect="zoom" start="140" end="100" center="-15,180" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | Container.Content(episodes)]">Unfocus</animation>
