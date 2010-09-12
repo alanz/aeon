@@ -63,6 +63,7 @@
           <width>1280</width>
           <height>720</height>
           <texture>list/largelist.png</texture>
+          <colordiffuse>FF999999</colordiffuse>
           <visible>Control.IsVisible(560) + Skin.HasSetting(largelistlight)</visible>
         </control>
         <control type="image">
@@ -70,7 +71,8 @@
           <posy>0</posy>
           <width>1280</width>
           <height>720</height>
-          <texture>list/largelistdark.png</texture>
+          <texture>list/largelist.png</texture>
+          <colordiffuse>FF444444</colordiffuse>
           <visible>Control.IsVisible(560)  + !Skin.HasSetting(largelistlight)</visible>
         </control>
         <control type="image">
@@ -267,17 +269,17 @@
         <animation effect="fade" start="100" end="0" time="1300" condition="Player.HasVideo | Control.HasFocus(561) | Control.HasFocus(562)">Conditional</animation>
         <animation effect="zoom" end="0,50" start="100,100" center="auto" time="900" delay="200" tween="cubic" easing="inout" condition="Player.HasVideo | Control.HasFocus(561) | Control.HasFocus(562)">Conditional</animation>
         <posx>732</posx>
-        <posy>10</posy>
+        <posy>0</posy>
         <visible>Control.IsVisible(560)</visible>
         <control type="largeimage">
-          <width>538</width>
-          <height>700</height>
+          <width>548</width>
+          <height>720</height>
           <fadetime>400</fadetime>
           <texture background="true">$INFO[ListItem.Icon]</texture>
           <visible>!Container.Content(years) + !Container.Content(genres) + !Container.Content(episodes)</visible>
         </control>
         <control type="largeimage">
-          <width>538</width>
+          <width>548</width>
           <posy>204</posy>
           <height>302</height>
           <fadetime>400</fadetime>
@@ -287,10 +289,10 @@
         </control>
         <control type="largeimage">
           <description>Cover image</description>
-          <width>538</width>
-          <height>700</height>
+          <width>548</width>
+          <height>720</height>
           <texture background="true">$INFO[ListItem.path]poster.jpg</texture>
-          <aspectratio>stretch</aspectratio>
+          <aspectratio>scale</aspectratio>
           <fadetime>500</fadetime>
         </control>
         <control type="image">

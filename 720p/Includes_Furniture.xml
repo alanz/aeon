@@ -390,7 +390,7 @@
         <effect type="slide" end="-70,0" time="400" easing="out" tween="cubic"/>
       </animation>
       <control type="label">
-        <label>[B]$INFO[ListItem.Label][/B]</label>
+        <label>[UPPERCASE][B]$INFO[ListItem.Label][/B][/UPPERCASE]</label>
         <include>FloorTextMainLabel</include>
         <visible>Container.Content(movies)</visible>
       </control>
@@ -411,8 +411,6 @@
         <posy>693</posy>
         <width>600</width>
         <font>Font_FloorTextMainLabel</font>
-        <include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-        <include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
         <visible>Control.IsVisible(7777)</visible>
       </control>
       <control type="label" id="72">
@@ -475,6 +473,8 @@
     <include>Animation_HideShowcase</include>
     <include>Animation_HideMultiplex</include>
     <visible>![Control.HasFocus(60) | Control.HasFocus(66) | Control.HasFocus(68) | Control.HasFocus(70) | Control.HasFocus(70197) | Control.HasFocus(197)]</visible>
+    <include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
+    <include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
   </include>
   <include name="FloorTextMainLabel">
     <include>FloorTextLabel</include>
@@ -482,8 +482,6 @@
     <posy>693</posy>
     <width>650</width>
     <font>Font_FloorTextMainLabel</font>
-    <include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
     <visible>!Control.IsVisible(7777)</visible>
   </include>
   <include name="FloorTextMainLabelWide">
@@ -492,8 +490,6 @@
     <posy>693</posy>
     <width>880</width>
     <font>Font_FloorTextMainLabel</font>
-    <include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
     <visible>!Control.IsVisible(7777)</visible>
   </include>
   <include name="FloorTextDetailLabel">
@@ -503,8 +499,6 @@
     <width>600</width>
     <font>Font_FloorTextDetailLabel</font>
     <visible>!Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfolines) | !Control.IsVisible(57)]</visible>
-    <include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
   </include>
   <include name="FloorTextDetailLabel2">
     <include>FloorTextLabel</include>
@@ -512,8 +506,6 @@
     <posy>655</posy>
     <width>600</width>
     <font>Font_FloorTextDetailLabel</font>
-    <include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
   </include>
   <include name="Furniture_NowPlayingWidget">
     <control type="group">
