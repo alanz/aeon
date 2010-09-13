@@ -56,7 +56,6 @@
       <itemlayout height="264" width="264">
         <control type="image">
           <include>LoginThumb</include>
-          <info>ListItem.Icon</info>
         </control>
         <control type="image">
           <description>Glass overlay</description>
@@ -64,13 +63,11 @@
         </control>
         <control type="image">
           <include>LoginThumbReflection</include>
-          <info>ListItem.Icon</info>
         </control>
       </itemlayout>
       <focusedlayout height="264" width="264">
         <control type="image">
           <include>LoginThumb</include>
-          <info>ListItem.Icon</info>
           <animation center="132,132" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
         </control>
         <control type="image">
@@ -80,7 +77,6 @@
         </control>
         <control type="image">
           <include>LoginThumbReflection</include>
-          <info>ListItem.Icon</info>
           <animation center="132,132" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
         </control>
       </focusedlayout>
@@ -114,15 +110,21 @@
     </control>
     <control type="button" id="98">
       <description>ShutDown Button</description>
-      <posx>625</posx>
-      <posy>495</posy>
-      <width>26</width>
+      <animation type="WindowOpen" reversible="false">
+        <effect type="fade" start="0" end="100" time="1200"/>
+        <effect type="slide" start="230,0" end="0,0" time="1200" tween="cubic" easing="out"/>
+      </animation>
+      <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+      <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+      <posx>1015</posx>
+      <posy>625</posy>
+      <width>35</width>
       <height>35</height>
       <align>right</align>
       <textcolor>60ffffff</textcolor>
       <onclick>ActivateWindow(ShutdownMenu)</onclick>
-      <texturefocus>Small-Icon-Shutdown-Focus.png</texturefocus>
-      <texturenofocus>Small-Icon-Shutdown-NoFocus.png</texturenofocus>
+      <texturefocus>welcome/power-focus.png</texturefocus>
+      <texturenofocus>welcome/power.png</texturenofocus>
       <onleft>52</onleft>
       <onright>52</onright>
       <onup>52</onup>

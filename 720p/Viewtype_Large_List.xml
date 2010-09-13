@@ -8,15 +8,8 @@
     <include>Animation_HideShowcase</include>
     <include>Animation_HideMultiplex</include>
     <visible>Control.IsVisible(560)</visible>
-    <include>FloorMediaFlagNightShade</include>
+    <colordiffuse>FFe1e1e1</colordiffuse>
     <fadetime>300</fadetime>
-  </include>
-  <include name="Furniture_ListMediaFlagsVars3">
-    <include>Animation_CommonFade</include>
-    <include>Animation_HideShowcase</include>
-    <include>Animation_HideMultiplex</include>
-    <visible>Control.IsVisible(560)</visible>
-    <include>FloorMediaFlagLightShade</include>
   </include>
   <include name="LargeListWatchedOverlay_Slim">
     <posx>658</posx>
@@ -343,7 +336,7 @@
           <height>320</height>
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
-          <texture background="true" diffuse="list/list_episodeicon_mask.png">$INFO[Container(560).ListItem.property(fanart_image)]</texture>
+          <texture background="true" diffuse="thumbs/list_episodeicon_mask.png">$INFO[Container(560).ListItem.property(fanart_image)]</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <visible>!Player.HasVideo</visible>
         </control>
@@ -433,7 +426,7 @@
           <textcolor>d0ffffff</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
           <include>Animation_VisibleChange200</include>
-          <label fallback="31414">$INFO[ListItem.Plot]</label>
+          <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
           <visible>!Player.HasVideo</visible>
         </control>
       </control>

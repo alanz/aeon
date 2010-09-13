@@ -223,18 +223,6 @@
     </control>
   </include>
   <!-- Media windows -->
-  <include name="ShowcaseFloorNight">
-    <texture>showcase/showcase_floor.png</texture>
-  </include>
-  <include name="ShowcaseFloorLight">
-    <texture>showcase/lite/showcase_floor.png</texture>
-  </include>
-  <include name="ListFloorNight">
-    <texture>list/list_floor.png</texture>
-  </include>
-  <include name="ListFloorLight">
-    <texture>list/lite/list_floor.png</texture>
-  </include>
   <include name="Furniture_MediaPanel">
     <control type="image">
       <include>FullscreenDimensions</include>
@@ -248,8 +236,7 @@
       <posy>335</posy>
       <width>1280</width>
       <height>405</height>
-      <include condition="!Skin.HasSetting(darkfloor)">ShowcaseFloorLight</include>
-      <include condition="Skin.HasSetting(darkfloor)">ShowcaseFloorNight</include>
+      <texture>showcase/showcase_floor.png</texture>
       <visible>Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(552)</visible>
       <include>Animation_CommonFade</include>
       <include>Animation_HideShowcase</include>
@@ -261,8 +248,7 @@
       <posy>603</posy>
       <width>993</width>
       <height>137</height>
-      <include condition="!Skin.HasSetting(darkfloor)">ShowcaseSpotLight</include>
-      <include condition="Skin.HasSetting(darkfloor)">ShowcaseSpotNight</include>
+      <texture>showcase/showcase_spot.png</texture>
       <include>Animation_CommonFade</include>
       <include>Animation_HideShowcase</include>
       <include>Animation_HideMultiplex</include>
@@ -273,8 +259,7 @@
       <posy>65</posy>
       <width>1280</width>
       <height>675</height>
-      <include condition="!Skin.HasSetting(darkfloor)">ShowcaseFloorLight</include>
-      <include condition="Skin.HasSetting(darkfloor)">ShowcaseFloorNight</include>
+      <texture>showcase/showcase_floor.png</texture>
       <visible>Control.IsVisible(55)</visible>
       <!--ADDED WALL FLOOR-->
       <include>Animation_CommonFade</include>
@@ -286,31 +271,19 @@
       <posy>510</posy>
       <width>993</width>
       <height>207</height>
-      <include condition="!Skin.HasSetting(darkfloor)">ShowcaseSpotLight</include>
-      <include condition="Skin.HasSetting(darkfloor)">ShowcaseSpotNight</include>
+      <texture>showcase/showcase_spot.png</texture>
       <include>Animation_CommonFade</include>
       <include>Animation_HideShowcase</include>
       <include>Animation_HideMultiplex</include>
       <visible>Control.IsVisible(55)</visible>
     </control>
-    <!--	<control type="image">
-			<posx>144</posx>
-			<posy>583</posy>
-			<width>993</width>
-			<height>137</height>
-			<include>ShowcaseSpotLight</include>
-			<include>Animation_CommonFade</include>
-			<include>Animation_HideShowcase</include>
-			<visible>Control.IsVisible(50)</visible>
-		</control>-->
     <control type="image">
       <animation effect="slide" end="0,25" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(57) + [!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)]">Conditional</animation>
       <posx>0</posx>
       <posy>335</posy>
       <width>1280</width>
       <height>405</height>
-      <include condition="!Skin.HasSetting(darkfloor)">ListFloorLight</include>
-      <include condition="Skin.HasSetting(darkfloor)">ListFloorNight</include>
+      <texture>list/list_floor.png</texture>
       <visible>Control.IsVisible(50)</visible>
       <include>Animation_CommonFade</include>
       <include>Animation_HideShowcase</include>
@@ -386,9 +359,6 @@
       <include>Animation_HideMultiplex</include>
       <include>Animation_HideShowcase</include>
       <include>Animation_OpenCloseZoom</include>
-      <animation type="Conditional" condition="Control.IsVisible(7777) + Control.IsVisible(57) + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] | [Skin.HasSetting(flattenshowcaseepisodes) + Container.Content(episodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + Skin.HasSetting(mediamenuslide)">
-        <effect type="slide" end="-70,0" time="400" easing="out" tween="cubic"/>
-      </animation>
       <control type="label">
         <label>[UPPERCASE][B]$INFO[ListItem.Label][/B][/UPPERCASE]</label>
         <include>FloorTextMainLabel</include>
@@ -473,8 +443,7 @@
     <include>Animation_HideShowcase</include>
     <include>Animation_HideMultiplex</include>
     <visible>![Control.HasFocus(60) | Control.HasFocus(66) | Control.HasFocus(68) | Control.HasFocus(70) | Control.HasFocus(70197) | Control.HasFocus(197)]</visible>
-    <include condition="!Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">Colour_ShowcaseLabelNightShade</include>
+    <include>Colour_ShowcaseLabelNightShade</include>
   </include>
   <include name="FloorTextMainLabel">
     <include>FloorTextLabel</include>
@@ -644,7 +613,7 @@
       <width>1280</width>
       <height>48</height>
       <texture>showcase/showcase_gradient.png</texture>
-      <visible>Skin.HasSetting(darkfloor) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)]</visible>
+      <visible>[Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)]</visible>
       <include>Animation_CommonFade</include>
     </control>
   </include>
@@ -1125,6 +1094,23 @@
         </animation>
       </control>
       <control type="image">
+      <control type="group">
+        <animation type="WindowOpen">
+          <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+          <effect type="fade" start="0" end="100" time="600"/>
+        </animation>
+        <animation type="WindowClose">
+          <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
+          <effect type="fade" start="100" end="0" time="600"/>
+        </animation>
+        <animation type="Visible">
+          <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+          <effect type="fade" start="0" end="100" time="600"/>
+        </animation>
+        <animation type="Hidden">
+          <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
+          <effect type="fade" start="100" end="0" time="600"/>
+        </animation>
         <visible>VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)</visible>
         <description>Cover Image</description>
         <posx>1045</posx>
@@ -1142,31 +1128,26 @@
           <effect type="fade" start="100" end="0" time="600"/>
         </animation>
       </control>
-      <control type="image">
-        <description>Pause button</description>
-        <posx>920</posx>
-        <posy>-30</posy>
-        <width>73</width>
-        <height>72</height>
-        <texture background="true">osd/paused_mod.png</texture>
-        <aspectratio>keep</aspectratio>
-        <visible>Player.Paused + !Skin.HasSetting(AlaskaPausedLabel)</visible>
-        <animation type="WindowOpen">
-          <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="0" end="100" time="600"/>
-        </animation>
-        <animation type="WindowClose">
-          <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="100" end="0" time="600"/>
-        </animation>
-        <animation type="Visible">
-          <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="0" end="100" time="600"/>
-        </animation>
-        <animation type="Hidden">
-          <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="100" end="0" time="600"/>
-        </animation>
+        <control type="image">
+          <description>Pause button</description>
+          <posx>920</posx>
+          <posy>-30</posy>
+          <width>73</width>
+          <height>72</height>
+          <texture>osd_button_focus.png</texture>
+          <aspectratio>keep</aspectratio>
+          <visible>Player.Paused + !Skin.HasSetting(AlaskaPausedLabel)</visible>
+        </control>
+        <control type="image">
+          <description>Pause button</description>
+          <posx>920</posx>
+          <posy>-30</posy>
+          <width>73</width>
+          <height>72</height>
+          <texture>osd_button_pause.png</texture>
+          <aspectratio>keep</aspectratio>
+          <visible>Player.Paused + !Skin.HasSetting(AlaskaPausedLabel)</visible>
+        </control>
       </control>
     </control>
   </include>

@@ -9,16 +9,24 @@
   </coordinates>
   <include>Animation_DialogZoom</include>
   <controls>
+    <control type="image">
+      <description>Glow</description>
+      <posx>365</posx>
+      <posy>100</posy>
+      <width>550</width>
+      <height>450</height>
+      <texture>showcase/showcase_glow2.png</texture>
+      <animation type="WindowOpen" reversible="false">
+        <effect type="fade" start="0" end="100" time="1000" pulse="true" delay="1000"/>
+      </animation>
+      <animation effect="fade" start="40" time="700" condition="true" pulse="true">Conditional</animation>
+      <aspectratio>stretch</aspectratio>
+      <visible>true</visible>
+    </control>
     <control type="group">
-
       <posx>486</posx>
       <posy>184</posy>
       <width>308</width>
-      
-      <include condition="![System.HasLoginScreen | System.HasMediaDVD]">Objects_ButtonMenu09Group</include>
-      <include condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
-      <include condition="System.HasLoginScreen + System.HasMediaDVD">Objects_ButtonMenu11Group</include>
-      
       <control type="image">
         <description>Background Top Image</description>
         <posx>0</posx>
@@ -27,7 +35,6 @@
         <height>26</height>
         <texture>dialogs/context_top.png</texture>
       </control>
-      
       <control type="image">
         <description>Background image</description>
         <posx>0</posx>
@@ -38,18 +45,16 @@
         <include condition="System.HasLoginScreen + System.HasMediaDVD">Objects_ButtonMenu11Group</include>
         <texture>dialogs/context_middle.png</texture>
       </control>
-      
       <control type="image">
         <description>Background Bottom Image</description>
         <posx>0</posx>
         <posy>428</posy>
         <width>308</width>
-	<height>27</height>
-	<animation effect="slide" start="0,-0" end="0,-78" time="0" condition="![System.HasLoginScreen | System.HasMediaDVD]">Conditional</animation>
-	<animation effect="slide" start="0,-0" end="0,-38" time="0" condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Conditional</animation>
+        <height>27</height>
+        <animation effect="slide" start="0,-0" end="0,-78" time="0" condition="![System.HasLoginScreen | System.HasMediaDVD]">Conditional</animation>
+        <animation effect="slide" start="0,-0" end="0,-38" time="0" condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Conditional</animation>
         <texture>dialogs/context_bottom.png</texture>
       </control>
-      
       <!-- ShutdownMenu -->
       <control type="grouplist" id="4112">
         <posx>0</posx>
@@ -90,25 +95,6 @@
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(musicplaylist)</onclick>
         </control>	
-        <control type="button" id="805">
-          <description>Exit Timer</description>
-          <label>31206</label>
-          <include>Objects_ContextMenuButton</include>
-          <onclick>AlarmClock(,XBMC.Quit(),)</onclick>
-        </control>
-        <control type="button" id="806">
-          <description>Log Out</description>
-          <label>20126</label>
-          <include>Objects_ContextMenuButton</include>
-          <onclick>System.LogOff</onclick>
-          <visible>System.HasLoginScreen</visible>
-        </control>
-        <control type="button" id="807">
-          <description>Exit XBMC</description>
-          <label fallback="EXIT XBMC">41003</label>
-          <include>Objects_ContextMenuButton</include>
-          <onclick>XBMC.Quit()</onclick>
-        </control>
         <control type="button" id="808">
           <description>Eject Tray</description>
           <label>31210</label>
@@ -133,6 +119,31 @@
           <label>$LOCALIZE[1036]</label>
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(Favourites)</onclick>
+        </control>
+        <control type="button" id="812">
+          <description>SystemInfo</description>
+          <label>SystemInfo</label>
+          <include>Objects_ContextMenuButton</include>
+          <onclick>ActivateWindow(SystemInfo)</onclick>
+        </control>
+        <control type="button" id="805">
+          <description>Exit Timer</description>
+          <label>31206</label>
+          <include>Objects_ContextMenuButton</include>
+          <onclick>AlarmClock(,XBMC.Quit(),)</onclick>
+        </control>
+        <control type="button" id="806">
+          <description>Log Out</description>
+          <label>20126</label>
+          <include>Objects_ContextMenuButton</include>
+          <onclick>System.LogOff</onclick>
+          <visible>System.HasLoginScreen</visible>
+        </control>
+        <control type="button" id="807">
+          <description>Exit XBMC</description>
+          <label fallback="EXIT XBMC">41003</label>
+          <include>Objects_ContextMenuButton</include>
+          <onclick>XBMC.Quit()</onclick>
         </control>
       </control>
     </control>

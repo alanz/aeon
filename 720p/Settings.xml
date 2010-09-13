@@ -30,7 +30,7 @@
         <texture>settings/settings_intframe_bottom.png</texture>
         <include>Animation_SettingsInternalPanel</include>
       </control>
-      <control type="group">
+      <control type="group"><!--list-->
         <!--settings buttons and labels-->
         <include>Settings_ButtonGroupDimensions</include>
         <animation effect="fade" time="125">Visible</animation>
@@ -43,66 +43,88 @@
               <label2>31155</label2>
               <onclick>ActivateWindow(AppearanceSettings)</onclick>
               <icon>tutorials/tut_appearance</icon>
+              <property name="BigLabel">$LOCALIZE[31814]</property>
+              <property name="SmallLabel">$LOCALIZE[31815]</property>
             </item>
             <item id="2">
               <label>444</label>
               <label2>31141</label2>
               <onclick>ActivateWindow(VideosSettings)</onclick>
               <icon>tutorials/tut_movies</icon>
+              <property name="BigLabel">$LOCALIZE[31800]</property>
+              <property name="SmallLabel">$LOCALIZE[31801]</property>
             </item>
             <item id="3">
               <label>2</label>
               <label2>31141</label2>
               <onclick>ActivateWindow(MusicSettings)</onclick>
               <icon>tutorials/tut_music</icon>
+              <property name="BigLabel">$LOCALIZE[31802]</property>
+              <property name="SmallLabel">$LOCALIZE[31803]</property>
             </item>
             <item id="4">
               <label>1</label>
               <label2>31147</label2>
               <onclick>ActivateWindow(PicturesSettings)</onclick>
               <icon>tutorials/tut_pictures</icon>
+              <property name="BigLabel">$LOCALIZE[31806]</property>
+              <property name="SmallLabel">$LOCALIZE[31807]</property>
             </item>
             <item id="5">
               <label>12600</label>
               <label2>31149</label2>
               <onclick>ActivateWindow(WeatherSettings)</onclick>
               <icon>tutorials/tut_weather</icon>
+              <property name="BigLabel">$LOCALIZE[31808]</property>
+              <property name="SmallLabel">$LOCALIZE[31809]</property>
             </item>
             <item id="6">
               <label>24001</label>
               <label2>31168</label2>
               <onclick>ActivateWindow(AddonBrowser)</onclick>
               <icon>tutorials/tut_addons</icon>
+              <property name="BigLabel">$LOCALIZE[31823]</property>
+              <property name="SmallLabel">$LOCALIZE[31824]</property>
             </item>
             <item id="7">
               <label>13279</label>
               <label2>31151</label2>
               <onclick>ActivateWindow(NetworkSettings)</onclick>
               <icon>tutorials/tut_network</icon>
+              <property name="BigLabel">$LOCALIZE[31812]</property>
+              <property name="SmallLabel">$LOCALIZE[31813]</property>
             </item>
             <item id="8">
               <label>13000</label>
               <label2>31153</label2>
               <onclick>ActivateWindow(SystemSettings)</onclick>
               <icon>tutorials/tut_system</icon>
+              <property name="BigLabel">$LOCALIZE[31816]</property>
+              <property name="SmallLabel">$LOCALIZE[31817]</property>
             </item>
             <item id="9">
               <label>13200</label>
               <label2>31161</label2>
               <onclick>ActivateWindow(profiles)</onclick>
               <icon>tutorials/tut_profiles</icon>
+              <property name="BigLabel">$LOCALIZE[31820]</property>
+              <property name="SmallLabel">$LOCALIZE[31821]</property>
             </item>
             <item id="10">
               <label>10000</label>
               <label2>31157</label2>
               <onclick>ActivateWindow(604)</onclick>
               <icon>tutorials/tut_aeon</icon>
+              <property name="BigLabel">$LOCALIZE[31804]</property>
+              <property name="SmallLabel">$LOCALIZE[31805]</property>
             </item>
             <item id="11">
               <label>31158</label>
               <label2>31159</label2>
               <onclick>ActivateWindow(56)</onclick>
               <icon>tutorials/tut_advanced</icon>
+              <property name="BigLabel">$LOCALIZE[31810]</property>
+              <property name="SmallLabel">$LOCALIZE[31811]</property>
             </item>
           </content>
         </control>
@@ -119,152 +141,18 @@
 			</control>
       </control>
       <control type="group">
-        <!-- Beschreibungen Network-->
-        <description>Settings Labels - Tier 1: Network</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(7)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31812</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31813</label>
-        </control>
-      </control>
-      <control type="group">
         <!--appearance-->
-        <description>Settings Labels - Tier 1: Appearance</description>
+        <description>Settings Labels</description>
         <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(1)</visible>
         <control type="label">
           <include>Labels_MainLabelBigVars</include>
-          <label>31814</label>
+          <label>$INFO[Container(9000).ListItem.Property(BigLabel)]</label>
         </control>
         <control type="label">
           <include>Labels_MainLabelSmallVars</include>
-          <label>31815</label>
+          <label>$INFO[Container(9000).ListItem.Property(SmallLabel)]</label>
         </control>
       </control>
-      <control type="group">
-        <!--system-->
-        <description>Settings Labels - Tier 1: System</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(8)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31816</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31817</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Movies</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(2)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31800</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31801</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Music</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(3)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31802</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31803</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Menus</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(10)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31804</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31805</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Pictures</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(4)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31806</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31807</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Weather</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(5)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31808</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31809</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Customisation Options</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(11)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31810</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31811</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Advanced Options</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(9)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31820</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31821</label>
-        </control>
-      </control>
-      <control type="group">
-        <description>Settings Labels - Tier 1: Addons</description>
-        <include>Labels_MainLabelGroup</include>
-        <visible>Container(9000).HasFocus(6)</visible>
-        <control type="label">
-          <include>Labels_MainLabelBigVars</include>
-          <label>31823</label>
-        </control>
-        <control type="label">
-          <include>Labels_MainLabelSmallVars</include>
-          <label>31824</label>
-        </control>
-      </control>
-
       <control type="image">
         <!--background image-->
         <description>background image</description>

@@ -177,11 +177,11 @@
         <posy>43</posy>
         <width>300</width>
         <height>298</height>
-			<texture>showcase/showcase_glow2.png</texture>
-			<animation type="Focus" reversible="false">
-				<effect type="zoom" center="165,400" start="100" end="140" time="400" tween="back" easing="out" />
-				<effect type="fade" start="0" end="100" time="1000" delay="500"/>
-			</animation>
+        <texture>showcase/showcase_glow2.png</texture>
+        <animation type="Focus" reversible="false">
+          <effect type="zoom" center="165,400" start="100" end="140" time="400" tween="back" easing="out" />
+          <effect type="fade" start="0" end="100" time="1000" delay="500"/>
+        </animation>
         <aspectratio>stretch</aspectratio>
         <visible>!Container.Content(genres)</visible>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(6000)</visible>
@@ -1442,12 +1442,6 @@
       </control>
 
     </control>
-  </include>
-  <include name="ShowcaseSpotNight">
-    <texture>showcase/showcase_spot.png</texture>
-  </include>
-  <include name="ShowcaseSpotLight">
-    <texture>showcase/lite/showcase_spot.png</texture>
   </include>
   <include name="MovieShowcaseGroupVars">
     <posx>-83</posx>
@@ -4320,9 +4314,6 @@
       <control type="group">
         <posx>505</posx>
         <control type="group">
-          <animation type="Conditional" condition="Control.IsVisible(7777) + Skin.HasSetting(mediamenuslide)">
-            <effect type="slide" end="-70,0" time="400" easing="out" tween="cubic"/>
-          </animation>
           <control type="image">
             <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumbMain</include>
             <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbMainDVD</include>

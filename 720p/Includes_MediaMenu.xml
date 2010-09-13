@@ -676,12 +676,10 @@
     <control type="group" id="15">
       <posx>20</posx>
       <animation type="Visible" reversible="false">
-        <effect type="fade" start="0" end="100" time="300"/>
-        <effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out"/>
+        <effect type="rotatey" start="-130" end="0" time="800" center="-20,0"  tween="cubic" easing="out"/>
       </animation>
       <animation type="Hidden" reversible="false">
-        <effect type="fade" start="100" end="0" time="500"/>
-        <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
+        <effect type="rotatey" start="0" end="-130" time="800" center="-20,0"  tween="cubic" easing="in"/>
       </animation>
       <visible>!Skin.HasSetting(videotv)</visible>
       <visible allowhiddenfocus="true">ControlGroup(7011).HasFocus]</visible>
@@ -689,6 +687,13 @@
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
       </animation>
+      <control type="image">
+        <posx>249</posx>
+        <posy>0</posy>
+        <width>222</width>
+        <height>720</height>
+        <texture>list/listpanel_black.png</texture>
+      </control>
       <control type="image">
         <posx>249</posx>
         <posy>0</posy>
@@ -819,6 +824,18 @@
     <control type="group">
       <include>Animation_OpenCloseZoom</include>
       <visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
+      <include>ViewSelect</include>
+      <include>TriggerSelect</include>
+      <include>DelaySelect</include>
+      <include>ViewTypeMenu</include>
+      <control type="image">
+        <posx>-28</posx>
+        <posy>0</posy>
+        <width>300</width>
+        <height>720</height>
+        <texture>list/listpanel_black.png</texture>
+        <include>Animation_MediaMenuSlide</include>
+      </control>
       <control type="image">
         <posx>-28</posx>
         <posy>0</posy>
@@ -827,10 +844,6 @@
         <texture>list/listpanel_back.png</texture>
         <include>Animation_MediaMenuSlide</include>
       </control>
-      <include>ViewSelect</include>
-      <include>TriggerSelect</include>
-      <include>DelaySelect</include>
-      <include>ViewTypeMenu</include>
       <control type="image">
         <include>MediaMenuLogo</include>
         <texture>verticalmenu/logo_movies.png</texture>
@@ -950,7 +963,7 @@
         <posy>442</posy>
         <width>18</width>
         <height>18</height>
-        <texture>HomeHasSub.png</texture>
+        <texture>multiwall/multiwall_trailer.png</texture>
         <include>Animation_CommonFade</include>
         <include>Animation_MediaMenuSlide</include>
         <animation effect="fade" start="90" end="50" time="700" condition="ControlGroup(7000).HasFocus(71000)" pulse="true">Conditional</animation>
@@ -965,14 +978,13 @@
   </include>
   <include name="ViewTypeMenu">
     <control type="group">
-      <animation type="Visible" reversible="false">
-        <effect type="fade" start="0" end="100" time="300"/>
-        <effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out"/>
+			<animation type="Visible">
+        <effect type="rotatey" start="-130" end="0" time="800" center="-20,0" tween="cubic" easing="out"/>
       </animation>
-      <animation type="Hidden" reversible="false">
-        <effect type="fade" start="100" end="0" time="500"/>
-        <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
+      <animation type="Hidden">
+        <effect type="rotatey" start="0" end="-130" time="800" center="-20,0" tween="cubic" easing="in"/>
       </animation>
+			<animation effect="zoom" start="115,566,1050,35" end="115,601,1050,1" time="200">Hidden</animation>
       <posx>295</posx>
       <include>Animation_OpenCloseZoom</include>
       <visible allowhiddenfocus="true">[[ControlGroup(7000).HasFocus(71000) + ControlGroup(7000).HasFocus] | ControlGroup(7100).HasFocus()] + ![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
@@ -981,10 +993,17 @@
         <posy>0</posy>
         <width>300</width>
         <height>720</height>
+        <texture>list/listpanel_black.png</texture>
+      </control> 
+      <control type="image">
+        <posx>-28</posx>
+        <posy>0</posy>
+        <width>300</width>
+        <height>720</height>
         <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7100">
-        <posx>-13</posx>
+        <posx>-23</posx>
         <posy>103</posy>
         <width>260</width>
         <height>600</height>
@@ -1027,13 +1046,11 @@
   </include>
   <include name="TriggerSelect">
     <control type="group">
-      <animation type="Visible" reversible="false">
-        <effect type="fade" start="0" end="100" time="300"/>
-        <effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out"/>
+			<animation type="Visible">
+        <effect type="rotatey" start="-130" end="0" time="800" center="-20,0" tween="cubic" easing="out"/>
       </animation>
-      <animation type="Hidden" reversible="false">
-        <effect type="fade" start="100" end="0" time="500"/>
-        <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
+      <animation type="Hidden">
+        <effect type="rotatey" start="0" end="-130" time="800" center="-20,0" tween="cubic" easing="in"/>
       </animation>
       <posx>295</posx>
       <visible allowhiddenfocus="true">ControlGroup(7020).HasFocus</visible>
@@ -1041,6 +1058,13 @@
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
       </animation>
+      <control type="image">
+        <posx>-27</posx>
+        <posy>0</posy>
+        <width>170</width>
+        <height>720</height>
+        <texture>list/listpanel_black.png</texture>
+      </control>
       <control type="image">
         <posx>-27</posx>
         <posy>0</posy>
@@ -1710,13 +1734,11 @@
   </include>
   <include name="DelaySelect">
     <control type="group">
-      <animation type="Visible" reversible="false">
-        <effect type="fade" start="0" end="100" time="300"/>
-        <effect type="slide" start="0,-300" end="0,0" time="550" tween="cubic" easing="out"/>
+			<animation type="Visible">
+        <effect type="rotatey" start="-130" end="0" time="800" center="-20,0" tween="cubic" easing="out"/>
       </animation>
-      <animation type="Hidden" reversible="false">
-        <effect type="fade" start="100" end="0" time="500"/>
-        <effect type="slide" start="0,0" end="0,-600" time="600" tween="cubic" easing="in"/>
+      <animation type="Hidden">
+        <effect type="rotatey" start="0" end="-130" time="800" center="-20,0" tween="cubic" easing="in"/>
       </animation>
       <posx>295</posx>
       <visible allowhiddenfocus="true">ControlGroup(7021).HasFocus</visible>
@@ -1725,6 +1747,13 @@
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
       </animation>
       <control type="image">
+        <posx>-27</posx>
+        <posy>0</posy>
+        <width>170</width>
+        <height>720</height>
+        <texture>list/listpanel_black.png</texture>
+      </control> 
+ <control type="image">
         <posx>-27</posx>
         <posy>0</posy>
         <width>170</width>

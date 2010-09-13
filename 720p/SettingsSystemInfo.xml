@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<window id="7">
+  <defaultcontrol>9000</defaultcontrol>
+  <allowoverlay>no</allowoverlay>
+  <controls>
+    <control type="multiimage">
+      <include>FullscreenDimensions</include>
+      <imagepath background="true">special://skin/extras/backdrops/default_settings</imagepath>
+      <info>Skin.String(CustomSettings)</info>
+      <include>BackgroundTimings</include>
+    </control>
+    <include>Furniture_SettingsBackPanel</include>
+    <control type="label">
+      <description>sectiontitle</description>
+      <label>31230</label>
+      <include>Objects_SettingsSectionTitle</include>
+    </control>
+    <control type="label">
+      <description>sectiontitle</description>
+      <posx>308</posx>
+      <posy>70</posy>
+      <width>936</width>
+      <height>49</height>
+      <label>33063</label>
+      <textcolor>FFbec0c2</textcolor>
+      <include>Animation_CommonFadeOpenClose</include>
+      <font>Font_SettingsSectionTitle</font>
+    </control>
+    <control type="group"><!--main list-->
+      <posx>42</posx>
+      <posy>130</posy>
+      <width>217</width>
+      <height>720</height>
+      <control type="list" id="9000">
+        <include>Objects_SettingsLeftListVars</include>
+        <include>Animation_CommonFade</include>
+        <content>
+          <item id="1">
+            <label>128</label>
+            <label2>31233</label2>
+          </item>
+          <item id="2">
+            <label>20445</label>
+            <label2>31241</label2>
+          </item>
+          <item id="4">
+            <label>312476</label>
+            <label2>31016</label2>
+          </item>
+          <item id="5">
+            <label>312471</label>
+            <label2>31247</label2>
+          </item>
+        </content>
+      </control>
+    </control>
+    <control type="grouplist" id="16">
+      <include>Objects_SettingsControlAreaVars</include>
+      <onup>16</onup>
+      <ondown>16</ondown>
+      <onleft>9000</onleft>
+      <onright>9000</onright>
+      <visible>Container(9000).HasFocus(1)</visible>
+      <control type="button" id="400">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>$LOCALIZE[13284] $INFO[System.cpufrequency]</label>
+      </control>
+      <control type="button" id="404">
+        <include>Objects_SettingsDefaultRadioButton</include>
+			<label>$LOCALIZE[13271] $INFO[System.CPUUsage]</label>
+      </control>
+      <control type="button" id="401">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>$LOCALIZE[158]: $INFO[System.FreeMemory] / $INFO[System.Memory(Total)]</label>
+      </control>
+      <control type="button" id="406">
+        <include>Objects_SettingsDefaultRadioButton</include>
+				<label>$LOCALIZE[31309] $INFO[system.memory(used.percent)]</label>
+      </control>
+      <control type="button" id="402">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>$LOCALIZE[150]: $INFO[Network.IPAddress]</label>
+      </control>
+      <control type="button" id="403">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>$INFO[System.videoencoderinfo]</label>
+      </control>
+      <control type="button" id="52">
+        <include>Objects_SettingsDefaultRadioButton</include>
+      </control>
+      <control type="button" id="300">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>Aeon65 v2.0 (alpha)</label>
+      </control>
+    </control>
+    <control type="grouplist" id="17">
+      <include>Objects_SettingsControlAreaVars</include>
+      <visible>Container(9000).HasFocus(2)</visible>
+      <control type="button" id="1">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <visible>!IsEmpty(Control.GetLabel(1))</visible>
+      </control>
+      <control type="button" id="2">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <visible>!IsEmpty(Control.GetLabel(2))</visible>
+      </control>
+      <control type="button" id="3">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <visible>!IsEmpty(Control.GetLabel(3))</visible>
+      </control>
+      <control type="button" id="4">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <visible>!IsEmpty(Control.GetLabel(4))</visible>
+      </control>
+      <control type="button" id="5">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <visible>!IsEmpty(Control.GetLabel(5))</visible>
+      </control>
+      <control type="button" id="6">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <visible>!IsEmpty(Control.GetLabel(6))</visible>
+      </control>
+      <control type="button" id="7">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <visible>!IsEmpty(Control.GetLabel(7))</visible>
+      </control>
+    </control>
+    <control type="grouplist" id="19">
+      <include>Objects_SettingsControlAreaVars</include>
+      <onup>19</onup>
+      <ondown>19</ondown>
+      <onleft>9000</onleft>
+      <onright>9000</onright>
+      <visible>Container(9000).HasFocus(4) | ControlGroup(19).HasFocus</visible>
+      <control type="radiobutton" id="306">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>IP: $INFO[Network.IPAddress]</label>
+      </control>
+      <control type="button" id="307">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>MAC: $INFO[Network.MacAddress]</label>
+      </control>
+      <control type="button" id="308">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>MODE: $INFO[Network.IsDHCP]</label>
+      </control>
+      <control type="button" id="309">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>LINK STATE: $INFO[Network.LinkState]</label>
+      </control>
+      <control type="button" id="310">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>SUBNET: $INFO[Network.SubnetAddress]</label>
+      </control>
+      <control type="button" id="311">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>GATEWAY: $INFO[Network.GatewayAddress]</label>
+      </control>
+      <control type="button" id="312">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>DHCP: $INFO[Network.DHCPAddress]</label>
+      </control>
+      <control type="button" id="313">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>DNS 1:$INFO[Network.DNS1Address]</label>
+      </control>
+      <control type="button" id="314">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>DNS 2:$INFO[Network.DNS2Address]</label>
+      </control>
+    </control>
+    <control type="grouplist" id="20">
+      <include>Objects_SettingsControlAreaVars</include>
+      <onup>20</onup>
+      <ondown>20</ondown>
+      <onleft>9000</onleft>
+      <onright>9000</onright>
+      <visible>Container(9000).HasFocus(5) | ControlGroup(20).HasFocus</visible>
+      <control type="radiobutton" id="600">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31751</label>
+        <onclick>Skin.ToggleSetting(ShowcaseOff)</onclick>
+        <selected>!Skin.HasSetting(ShowcaseOff)</selected>
+      </control>
+      <control type="radiobutton" id="601">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31786</label>
+        <onclick>Skin.ToggleSetting(MultiwallOff)</onclick>
+        <selected>!Skin.HasSetting(MultiwallOff)</selected>
+      </control>
+      <control type="radiobutton" id="602">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31582</label>
+        <onclick>Skin.ToggleSetting(MultiplexOldOff)</onclick>
+        <selected>!Skin.HasSetting(MultiplexOldOff)</selected>
+      </control>
+      <control type="radiobutton" id="603">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31580</label>
+        <onclick>Skin.ToggleSetting(ListLowOff)</onclick>
+        <selected>!Skin.HasSetting(ListLowOff)</selected>
+      </control>
+      <control type="radiobutton" id="606">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31757</label>
+        <onclick>Skin.ToggleSetting(MultiplexOff)</onclick>
+        <selected>!Skin.HasSetting(MultiplexOff)</selected>
+      </control>
+      <control type="radiobutton" id="607">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31750</label>
+        <onclick>Skin.ToggleSetting(WallOff)</onclick>
+        <selected>!Skin.HasSetting(WallOff)</selected>
+      </control>
+      <control type="radiobutton" id="608">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31753</label>
+        <onclick>Skin.ToggleSetting(FullScreenWallOff)</onclick>
+        <selected>!Skin.HasSetting(FullScreenWallOff)</selected>
+      </control>
+      <control type="radiobutton" id="609">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31579</label>
+        <onclick>Skin.ToggleSetting(LargeListOff)</onclick>
+        <selected>!Skin.HasSetting(LargeListOff)</selected>
+      </control>
+      <control type="radiobutton" id="610">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31787</label>
+        <onclick>Skin.ToggleSetting(PosterViewOff)</onclick>
+        <selected>!Skin.HasSetting(PosterViewOff)</selected>
+      </control>
+    </control>
+    <control type="grouplist" id="21">
+      <include>Objects_SettingsControlAreaVars</include>
+      <onup>21</onup>
+      <ondown>21</ondown>
+      <onleft>9000</onleft>
+      <onright>9000</onright>
+      <visible>Container(9000).HasFocus(6) | ControlGroup(21).HasFocus</visible>
+      <control type="radiobutton" id="800">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31751</label>
+        <onclick>Skin.ToggleSetting(MusicShowcaseOff)</onclick>
+        <selected>!Skin.HasSetting(MusicShowcaseOff)</selected>
+      </control>
+      <control type="radiobutton" id="802">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31582</label>
+        <onclick>Skin.ToggleSetting(MusicMultiplexOff)</onclick>
+        <selected>!Skin.HasSetting(MusicMultiplexOff)</selected>
+      </control>
+      <control type="radiobutton" id="803">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31580</label>
+        <onclick>Skin.ToggleSetting(MusicListLowOff)</onclick>
+        <selected>!Skin.HasSetting(MusicListLowOff)</selected>
+      </control>
+      <control type="radiobutton" id="807">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31750</label>
+        <onclick>Skin.ToggleSetting(MusicWallOff)</onclick>
+        <selected>!Skin.HasSetting(MusicWallOff)</selected>
+      </control>
+      <control type="radiobutton" id="808">
+        <include>Objects_SettingsDefaultRadioButton</include>
+        <label>31786</label>
+        <onclick>Skin.ToggleSetting(MusicMultiwallOff)</onclick>
+        <selected>!Skin.HasSetting(MusicMultiwallOff)</selected>
+      </control>
+    </control>
+    <control type="progress">
+      <posx>400</posx> 
+      <posy>185</posy>
+      <width>155</width>
+      <height>14</height>
+      <texturebg>dialogs/progress-back.png</texturebg>
+      <lefttexture>dialogs/left-progress.png</lefttexture>
+      <midtexture>dialogs/center-progress.png</midtexture>
+      <righttexture>dialogs/right-progress.png</righttexture>
+      <visible>Container(9000).HasFocus(1)</visible>
+      <info>System.CPUUsage</info>
+      <colordiffuse>AAFFFFFF</colordiffuse>
+    </control>
+    <control type="progress">
+      <posx>400</posx> 
+      <posy>280</posy>
+      <width>155</width>
+      <height>14</height>
+      <texturebg>dialogs/progress-back.png</texturebg>
+      <lefttexture>dialogs/left-progress.png</lefttexture>
+      <midtexture>dialogs/center-progress.png</midtexture>
+      <righttexture>dialogs/right-progress.png</righttexture>
+      <reveal>false</reveal>
+      <visible>Container(9000).HasFocus(1)</visible>
+			<info>system.memory(used)</info>
+      <colordiffuse>AAFFFFFF</colordiffuse>
+    </control>
+    <include>Furniture_SettingsFrontPanel</include>
+    <include>Background_ContextBlack</include>
+    <include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
+    <include condition="Skin.HasSetting(DebugGrid)">Furniture_DebugGrid</include>
+  </controls>
+</window>

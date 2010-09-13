@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0"?>
 <includes>
-  <include name="FloorMediaFlagLightShade">
-    <colordiffuse>C4000000</colordiffuse>
-  </include>
-  <include name="FloorMediaFlagNightShade">
-    <colordiffuse>FFe1e1e1</colordiffuse>
-  </include>
   <include name="Furniture_FloorMediaFlagsVars">
     <posy>658</posy>
     <width>90</width>
@@ -15,8 +9,7 @@
     <include>Animation_HideMultiplex</include>
     <visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(55)</visible>
     <aspectratio>keep</aspectratio>
-    <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+    <colordiffuse>FFe1e1e1</colordiffuse>
     <fadetime>400</fadetime>
   </include>
   <include name="Furniture_ListMediaFlagsVars">
@@ -28,8 +21,7 @@
     <include>Animation_HideShowcase</include>
     <include>Animation_HideMultiplex</include>
     <visible>Control.IsVisible(50)</visible>
-    <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+    <colordiffuse>FFe1e1e1</colordiffuse>
     <fadetime>400</fadetime>
   </include>
   <include name="Furniture_PanelMediaFlagsVars">
@@ -302,7 +294,6 @@
         <height>151</height>
         <texture>showcase/flagshade.png</texture>
         <include>Animation_HideShowcase</include>
-        <visible>!Skin.HasSetting(darkfloor)</visible>
       </control>
       <control type="image">
         <posx>982</posx>
@@ -311,7 +302,6 @@
         <height>151</height>
         <texture flipx="true">showcase/flagshade.png</texture>
         <include>Animation_HideShowcase</include>
-        <visible>!Skin.HasSetting(darkfloor)</visible>
       </control>
     </control>
     <control type="group">
@@ -354,7 +344,7 @@
           <include>Animation_HideMultiplex</include>
           <visible>Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(55)</visible>
           <aspectratio>keep</aspectratio>
-          <include>FloorMediaFlagNightShade</include>
+          <colordiffuse>FFe1e1e1</colordiffuse>
           <fadetime>400</fadetime>
           <texture>$INFO[Control.GetLabel(900010)]</texture>
           <visible>!IsEmpty(Control.GetLabel(900010)) + SubString(ListItem.mpaa,Germany)</visible>
@@ -406,7 +396,6 @@
         <height>151</height>
         <texture>showcase/flagshade.png</texture>
         <include>Animation_HideShowcase</include>
-        <visible>!Skin.HasSetting(darkfloor)</visible>
       </control>
       <control type="image">
         <posx>982</posx>
@@ -415,7 +404,6 @@
         <height>151</height>
         <texture flipx="true">showcase/flagshade.png</texture>
         <include>Animation_HideShowcase</include>
-        <visible>!Skin.HasSetting(darkfloor)</visible>
       </control>
     </control>
     <control type="group">
@@ -588,8 +576,7 @@
     <posy>653</posy>
     <width>90</width>
     <height>59</height>
-    <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+    <colordiffuse>FFe1e1e1</colordiffuse>
     <visible>Container.Content(Songs) + [Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50) | Control.IsVisible(552)]</visible>
     <animation effect="slide" start="0,0" end="-300,-15" time="0" condition="Control.IsVisible(50)">Conditional</animation>
     <include>Animation_CommonFade</include>
@@ -600,8 +587,7 @@
     <posy>653</posy>
     <width>90</width>
     <height>59</height>
-    <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-    <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+    <colordiffuse>FFe1e1e1</colordiffuse>
     <visible>Container.Content(Albums) | Container.Content(Songs)</visible>
     <visible>Control.IsVisible(53) | Control.IsVisible(57)|  Control.IsVisible(552)</visible>
     <animation effect="slide" start="0,0" end="845,-20" time="0" condition="Control.IsVisible(50)">Conditional</animation>
@@ -649,8 +635,7 @@
         <posy>653</posy>
         <width>90</width>
         <height>59</height>
-        <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-        <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+        <colordiffuse>FFe1e1e1</colordiffuse>
         <visible>Container.Content(Albums) | Container.Content(Songs)</visible>
         <visible>Control.IsVisible(53) | Control.IsVisible(57)|  Control.IsVisible(552) | Control.IsVisible(50)</visible>
         <animation effect="slide" start="0,0" end="990,-20" time="0" condition="Control.IsVisible(50)">Conditional</animation>
@@ -664,11 +649,9 @@
         <width>130</width>
         <height>59</height>
         <font>Font_OSDCodecInfo</font>
-        <include condition="!Skin.HasSetting(darkfloor)">Colour_BlackAlpha80</include>
-        <include condition="Skin.HasSetting(darkfloor)">Colour_WhiteAlpha80</include>
+        <include>Colour_WhiteAlpha80</include>
         <align>left</align>
-        <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-        <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+        <colordiffuse>FFe1e1e1</colordiffuse>
         <visible>[Container.Content(Albums) | Container.Content(Songs)]</visible>
         <visible>Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
         <animation effect="slide" start="0,0" end="990,-20" time="0" condition="Control.IsVisible(50)">Conditional</animation>
@@ -681,8 +664,7 @@
         <posy>653</posy>
         <width>90</width>
         <height>59</height>
-        <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-        <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+        <colordiffuse>FFe1e1e1</colordiffuse>
         <visible>Container.Content(Albums) | Container.Content(Songs)</visible>
         <visible>Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
         <animation effect="slide" start="0,0" end="-80,-18" time="0" condition="Control.IsVisible(50)">Conditional</animation>
@@ -696,11 +678,9 @@
         <width>90</width>
         <height>59</height>
         <font>Font_OSDCodecInfo</font>
-        <include condition="!Skin.HasSetting(darkfloor)">Colour_BlackAlpha80</include>
-        <include condition="Skin.HasSetting(darkfloor)">Colour_WhiteAlpha80</include>
+        <include>Colour_WhiteAlpha80</include>
         <align>center</align>
-        <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-        <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+        <colordiffuse>FFe1e1e1</colordiffuse>
         <visible>Container.Content(Albums) | Container.Content(Songs)</visible>
         <visible>Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(50)| Control.IsVisible(552)</visible>
         <visible>!IsEmpty(ListItem.Year)</visible>
@@ -714,8 +694,7 @@
         <posy>653</posy>
         <width>90</width>
         <height>59</height>
-        <include condition="!Skin.HasSetting(darkfloor)">FloorMediaFlagLightShade</include>
-        <include condition="Skin.HasSetting(darkfloor)">FloorMediaFlagNightShade</include>
+        <colordiffuse>FFe1e1e1</colordiffuse>
         <visible>Container.Content(Albums) + [Control.IsVisible(53) | Control.IsVisible(57) |  Control.IsVisible(50) | Control.IsVisible(552)]</visible>
         <animation effect="slide" start="0,0" end="-300,-10" time="0" condition="Control.IsVisible(50)">Conditional</animation>
         <texture>$INFO[ListItem.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
