@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <includes>
   <!-- Cover Mask -->
-
   <include name="MusicCoverMaskCD">
     <texture background="true" diffuse="thumbs/boxes/cdcover_mask.png">DefaultAudio.png</texture>
   </include>
@@ -624,208 +623,9 @@
         <posx>75</posx>
         <width>1130</width>
         <height>590</height>
-	<texture border="0,0,0,204">multiplex/multiplex_tvposter_tablet.png</texture>
+        <texture border="0,0,0,204">multiplex/multiplex_tvposter_tablet.png</texture>
       </control>
-      <control type="multiimage">
-	<include>BackgroundEffectCommon</include>
-	<posx>88</posx>
-	<width>1105</width>
-	<height>590</height>
-      </control>
-
-      <control type="group">
-        <!--episodes-->
-        <posx>105</posx>
-        <posy>30</posy>
-        <visible>Container.Content(episodes)</visible>
-        <control type="group">
-          <posy>8</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[31402]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Director]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>54</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[31401]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Writer]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>100</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[20416]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Date]</label>
-          </control>
-        </control>
-      </control>
-      <control type="group">
-        <!--tvshows-->
-        <posx>105</posx>
-        <posy>30</posy>
-        <visible>Container.Content(tvshows)</visible>
-        <control type="group">
-          <posy>8</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[135]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Genre]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>54</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[20360]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Episode]  ($LOCALIZE[16101]: $INFO[ListItem.Property(UnwatchedEpisodes)])</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>100</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[20416]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Date]</label>
-          </control>
-        </control>
-      </control>
-      <control type="group">
-        <!--seasons-->
-        <posx>105</posx>
-        <posy>30</posy>
-        <visible>Container.Content(seasons)</visible>
-        <control type="group">
-          <posy>8</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[31403]</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Episode]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>54</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[16102]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Property(WatchedEpisodes)]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>100</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[16101]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <width>370</width>
-            <label fallback="161">$INFO[ListItem.Property(UnwatchedEpisodes)]</label>
-          </control>
-        </control>
-      </control>
-      <control type="textbox">
-        <posx>105</posx>
-        <posy>174</posy>
-        <width>375</width>
-        <height>187</height>
-        <font>Font_MultiplexPlotSmall</font>
-        <info>Control.GetLabel(900004)</info>
-        <textcolor>d0FFFFFF</textcolor>
-        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)</visible>
-      </control>
-      <control type="group">
-        <!--images-->
-        <posx>508</posx>
-        <posy>40</posy>
-        <control type="largeimage">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>600</width>
-          <height>316</height>
-          <fadetime>400</fadetime>
-          <aspectratio>scale</aspectratio>
-          <texture background="true">$INFO[Fanart.Image]</texture>
-          <visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
-          <include>Animation_VisibleChange200</include>
-        </control>
-        <control type="largeimage">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>600</width>
-          <height>316</height>
-          <fadetime>400</fadetime>
-          <aspectratio>scale</aspectratio>
-          <texture>$INFO[ListItem.property(fanart_image)]</texture>
-          <visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
-          <include>Animation_VisibleChange200</include>
-        </control>
-        <control type="image">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>668</width>
-          <height>316</height>
-          <fadetime>400</fadetime>
-          <aspectratio>scale</aspectratio>
-          <texture>$INFO[ListItem.thumb]</texture>
-          <visible>Skin.HasSetting(showcasetvbigthumb) + Container.Content(episodes)</visible>
-          <include>Animation_VisibleChange200</include>
-        </control>
-      </control>
-      <control type="image">
-        <posx>995</posx>
-        <posy>-22</posy>
-        <width>160</width>
-        <height>62</height>
-        <texture>$INFO[ListItem.path]logo.png</texture>
-        <fadetime>300</fadetime>
-        <aspectratio scalediffuse="false">stretch</aspectratio>
-      </control>
-      <control type="image">
-        <posx>995</posx>
-        <posy>-22</posy>
-        <width>160</width>
-        <height>62</height>
-        <texture>$INFO[ListItem.path]../logo.png</texture>
-        <fadetime>300</fadetime>
-        <aspectratio scalediffuse="false">stretch</aspectratio>
-      </control>
+      <include>InfoPaneContentTV</include>
     </control>
   </include>
   <include name="ShowcaseInfoPaneMusic">
@@ -853,180 +653,7 @@
         <height>590</height>
 	<texture border="0,0,0,204">multiplex/multiplex_tvposter_tablet.png</texture>
       </control>
-
-      <control type="multiimage">
-	<posx>88</posx>
-	<width>1105</width>
-	<height>590</height>
-	<include>BackgroundEffectCommon</include>
-      </control>
-
-      <!--artists info pane-->
-      <control type="group">
-        <posx>105</posx>
-        <posy>30</posy>
-        <visible>Container.Content(artists)</visible>
-        <control type="group">
-          <posy>8</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>Years Active:</label>
-          </control>
-          <control type="label">
-            <width>370</width>
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Property(Artist_YearsActive)]</label>
-          </control>
-        </control>
-        <!-- Formed / Born -->
-        <control type="group">
-          <posy>58</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[21894]:</label><!-- Formed -->
-            <visible>!IsEmpty(ListItem.Property(artist_formed))</visible>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[21893]:</label><!-- Born -->
-            <visible>IsEmpty(ListItem.Property(artist_formed))</visible>
-          </control>
-          <control type="label">
-            <width>370</width>
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Property(artist_formed)]</label>
-            <visible>!IsEmpty(ListItem.Property(artist_formed))</visible>
-          </control>
-          <control type="label">
-            <width>370</width>
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Property(artist_born)]</label>
-            <visible>IsEmpty(ListItem.Property(artist_formed))</visible>
-          </control>
-        </control>
-        <!-- Formed / Born -->
-        <control type="group">
-          <posy>100</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[176]:</label>
-          </control>
-          <control type="label">
-            <width>370</width>
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Property(Artist_Style)]</label>
-          </control>
-        </control>
-      </control>
-
-
-      <!--albums info pane-->
-      <control type="group">
-        <posx>105</posx>
-        <posy>30</posy>
-        <visible>Container.Content(albums)</visible>
-        <control type="group">
-          <posy>8</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[135]:</label>
-          </control>
-          <control type="label">
-            <width>370</width>
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Genre]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>58</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[176]:</label>
-          </control>
-          <control type="label">
-            <width>370</width>
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Property(Album_Style)]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>100</posy>
-          <control type="label">
-            <include>ShowcaseInfoLabel</include>
-            <label>$LOCALIZE[175]:</label>
-          </control>
-          <control type="label">
-            <width>370</width>
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Property(Album_Mood)]</label>
-          </control>
-        </control>
-      </control>
-
-      <control type="textbox">
-        <posx>105</posx>
-        <posy>174</posy>
-        <width>375</width>
-        <height>187</height>
-        <font>Font_MultiplexPlotSmall</font>
-        <label>$INFO[ListItem.Property(Artist_Description)]</label>
-        <textcolor>d0FFFFFF</textcolor>
-        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Container.Content(artists)</visible>
-      </control>
-
-      <control type="textbox">
-        <posx>105</posx>
-        <posy>174</posy>
-        <width>375</width>
-        <height>187</height>
-        <font>Font_MultiplexPlotSmall</font>
-        <label>$INFO[ListItem.Property(Album_Description)]</label>
-        <textcolor>d0FFFFFF</textcolor>
-        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        <visible>Container.Content(albums)</visible>
-      </control>
-
-      <control type="group">
-        <posx>508</posx>
-        <posy>40</posy>
-        <control type="largeimage">
-          <posx>15</posx>
-          <posy>-7</posy>
-          <width>638</width>
-          <height>328</height>
-          <fadetime>400</fadetime>
-          <aspectratio>scale</aspectratio>
-          <texture>$INFO[ListItem.property(fanart_image)]</texture>
-          <visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
-          <include>Animation_VisibleChange200</include>
-        </control>
-
-        <control type="largeimage">
-          <posx>15</posx>
-          <posy>-7</posy>
-          <width>638</width>
-          <height>328</height>
-          <fadetime>400</fadetime>
-          <aspectratio>scale</aspectratio>
-          <texture>$INFO[Fanart.Image]</texture>
-          <visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
-          <include>Animation_VisibleChange200</include>
-        </control>
-
-        <control type="image">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>668</width>
-          <height>316</height>
-          <fadetime>400</fadetime>
-          <aspectratio>keep</aspectratio>
-          <texture>$INFO[ListItem.thumb]</texture>
-          <visible>[Skin.HasSetting(showcasemusicbigthumb) + Container.Content(episodes)] | IsEmpty(Fanart.Image) + IsEmpty(ListItem.property(fanart_image))</visible>
-          <include>Animation_VisibleChange200</include>
-        </control>
-      </control>
-
+      <include>InfoPaneContentMusic</include>
     </control>
   </include>
   <include name="MovieShowcaseGroupVars">
@@ -1290,6 +917,7 @@
       <control type="group">
         <posx>50</posx>
         <visible>Container.OnNext</visible>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-6).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
         <animation effect="rotatey" center="-50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
@@ -1318,6 +946,7 @@
       </control>
       <control type="group">
         <posx>150</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1345,6 +974,7 @@
       </control>
       <control type="group">
         <posx>250</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="150" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1372,6 +1002,7 @@
       </control>
       <control type="group">
         <posx>350</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="250" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1399,6 +1030,7 @@
       </control>
       <control type="group">
         <posx>450</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="350" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1427,6 +1059,7 @@
       <control type="group">
         <posx>1060</posx>
         <visible>!Container.OnNext</visible>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
         <animation effect="rotatey" center="1430" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
@@ -1455,6 +1088,7 @@
       </control>
       <control type="group">
         <posx>960</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1330" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1482,6 +1116,7 @@
       </control>
       <control type="group">
         <posx>860</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1230" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1509,6 +1144,7 @@
       </control>
       <control type="group">
         <posx>760</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1130" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1536,6 +1172,7 @@
       </control>
       <control type="group">
         <posx>660</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1030" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1567,6 +1204,7 @@
         <control type="group">
           <posx>560</posx>
           <visible>Container.OnNext</visible>
+          <visible>!IsEmpty(Container(57).ListItemNoWrap(0).label) | !Skin.HasSetting(showcasefixedlist)</visible>
           <animation effect="rotatey" center="930" start="0" end="-65" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
           <animation effect="rotatey" center="930" start="65" end="65" time="0" condition="true">Conditional</animation>
           <control type="group">
@@ -1596,6 +1234,7 @@
         <control type="group">
           <posx>505</posx>
           <visible>Container.OnNext</visible>
+          <visible>!IsEmpty(Container(57).ListItemNoWrap(-1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
           <animation effect="rotatey" center="405" start="0" end="-65" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
           <control type="group">
             <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1632,6 +1271,7 @@
       <control type="group">
         <posx>960</posx>
         <visible>Container.OnPrevious</visible>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(6).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
         <animation effect="rotatey" center="1330" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
@@ -1660,6 +1300,7 @@
       </control>
       <control type="group">
         <posx>860</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1230" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1687,6 +1328,7 @@
       </control>
       <control type="group">
         <posx>760</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1130" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1714,6 +1356,7 @@
       </control>
       <control type="group">
         <posx>660</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1030" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1741,6 +1384,7 @@
       </control>
       <control type="group">
         <posx>560</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="930" start="65" end="65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1769,6 +1413,7 @@
       <control type="group">
         <posx>-50</posx>
         <visible>!Container.OnPrevious</visible>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="fade" start="0" end="100" time="250" reversible="false">Visible</animation>
         <animation effect="rotatey" center="-150" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
@@ -1793,6 +1438,7 @@
       </control>
       <control type="group">
         <posx>50</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="-50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1816,6 +1462,7 @@
       </control>
       <control type="group">
         <posx>150</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1843,6 +1490,7 @@
       </control>
       <control type="group">
         <posx>250</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="150" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1870,6 +1518,7 @@
       </control>
       <control type="group">
         <posx>350</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="250" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1901,6 +1550,7 @@
         <control type="group">
           <posx>450</posx>
           <visible>Container.OnPrevious</visible>
+          <visible>!IsEmpty(Container(57).ListItemNoWrap(0).label) | !Skin.HasSetting(showcasefixedlist)</visible>
           <animation effect="rotatey" center="350" start="0" end="65" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
           <animation effect="rotatey" center="350" start="-65" end="-65" time="0" condition="true">Conditional</animation>
           <control type="group">
@@ -1930,6 +1580,7 @@
         <control type="group">
           <posx>505</posx>
           <visible>Container.OnPrevious</visible>
+          <visible>!IsEmpty(Container(57).ListItemNoWrap(1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
           <animation effect="rotatey" center="875" start="0" end="65" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
           <control type="group">
             <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -1970,6 +1621,7 @@
       <animation effect="fade" time="200">WindowClose</animation>
       <visible>Control.IsVisible(57) + !Control.IsVisible(7001) + !Control.IsVisible(7002) + [Control.IsVisible(970) + !Container.Content(episodes)]</visible>
       <control type="group">
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <posx>50</posx>
         <animation effect="rotatey" center="-50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
@@ -2002,6 +1654,7 @@
       </control>
       <control type="group">
         <posx>150</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="50" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="50" start="0" end="65" time="800" tween="cubic" easing="inout"/>
@@ -2033,6 +1686,7 @@
       </control>
       <control type="group">
         <posx>250</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="150" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="150" start="0" end="65" time="800" tween="cubic" easing="inout"/>
@@ -2064,6 +1718,7 @@
       </control>
       <control type="group">
         <posx>350</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="250" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="250" start="0" end="65" time="800" tween="cubic" easing="inout"/>
@@ -2095,6 +1750,7 @@
       </control>
       <control type="group">
         <posx>450</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="350" start="-65" end="-65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="350" start="0" end="65" time="800" tween="cubic" easing="inout"/>
@@ -2126,6 +1782,7 @@
       </control>
       <control type="group">
         <posx>960</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1330" start="65" end="65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1330" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
@@ -2157,6 +1814,7 @@
       </control>
       <control type="group">
         <posx>860</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1230" start="65" end="65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1230" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
@@ -2188,6 +1846,7 @@
       </control>
       <control type="group">
         <posx>760</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1130" start="65" end="65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1130" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
@@ -2219,6 +1878,7 @@
       </control>
       <control type="group">
         <posx>660</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1030" start="65" end="65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1030" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
@@ -2250,6 +1910,7 @@
       </control>
       <control type="group">
         <posx>560</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="930" start="65" end="65" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="930" start="0" end="-65" time="800" tween="cubic" easing="inout"/>
@@ -2279,7 +1940,8 @@
           <include>genre_Showcase_ref_8</include>
         </control>
       </control>
-      <control type="group">
+      <control type="group"><!--listitem(0)-->
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(0).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <posx>505</posx>
         <control type="group">
           <include condition="Window.IsActive(pictures)">MusicShowcaseBlack</include>
@@ -2316,6 +1978,7 @@
       <control type="group">
         <posx>10</posx>
         <visible>Container.OnNext</visible>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-7).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
         <animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
@@ -2352,6 +2015,7 @@
       </control>
       <control type="group">
         <posx>100</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-6).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2387,6 +2051,7 @@
       </control>
       <control type="group">
         <posx>190</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2422,6 +2087,7 @@
       </control>
       <control type="group">
         <posx>280</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="180" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2457,6 +2123,7 @@
       </control>
       <control type="group">
         <posx>370</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2492,6 +2159,7 @@
       </control>
       <control type="group">
         <posx>460</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="360" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2528,6 +2196,7 @@
       <control type="group">
         <posx>1180</posx>
         <visible>!Container.OnNext</visible>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(9).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
         <control type="group">
           <control type="image">
@@ -2578,6 +2247,7 @@
       </control>
       <control type="group">
         <posx>1090</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(6).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <visible>!Container.OnNext</visible>
         <animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
         <animation effect="rotatey" center="1470" start="55" end="55" time="0" condition="true">Conditional</animation>
@@ -2615,6 +2285,7 @@
       </control>
       <control type="group">
         <posx>1000</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1380" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2650,6 +2321,7 @@
       </control>
       <control type="group">
         <posx>910</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2685,6 +2357,7 @@
       </control>
       <control type="group">
         <posx>820</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1200" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2720,6 +2393,7 @@
       </control>
       <control type="group">
         <posx>730</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1110" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2755,6 +2429,7 @@
       </control>
       <control type="group">
         <posx>640</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1020" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2797,6 +2472,7 @@
           <animation effect="rotatey" center="930" start="0" end="-55" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
           <animation effect="rotatey" center="930" start="55" end="55" time="0" condition="true">Conditional</animation>
           <control type="group">
+            <visible>!IsEmpty(Container(57).ListItemNoWrap(0).label) | !Skin.HasSetting(showcasefixedlist)</visible>
             <control type="image">
               <include condition="!Skin.HasSetting(dvdcase)">MovieShowcaseThumb</include>
               <include condition="Skin.HasSetting(dvdcase)">MovieShowcaseThumbDVD</include>
@@ -2831,6 +2507,7 @@
         <control type="group">
           <posx>505</posx>
           <visible>Container.OnNext</visible>
+          <visible>!IsEmpty(Container(57).ListItemNoWrap(-1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
           <animation effect="rotatey" center="405" start="0" end="-55" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
           <control type="group">
             <control type="image">
@@ -2875,6 +2552,7 @@
       <control type="group">
         <posx>1000</posx>
         <visible>Container.OnPrevious</visible>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(7).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
         <animation effect="rotatey" center="1380" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
@@ -2911,6 +2589,7 @@
       </control>
       <control type="group">
         <posx>910</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(6).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2946,6 +2625,7 @@
       </control>
       <control type="group">
         <posx>820</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1200" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -2981,6 +2661,7 @@
       </control>
       <control type="group">
         <posx>730</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1110" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3016,6 +2697,7 @@
       </control>
       <control type="group">
         <posx>640</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1020" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3051,6 +2733,7 @@
       </control>
       <control type="group">
         <posx>550</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="930" start="55" end="55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3084,7 +2767,7 @@
           <include>genre_Showcase_ref_9</include>
         </control>
       </control>
-      <control type="group">
+  <!--    <control type="group">
         <posx>-180</posx>
         <visible>!Container.OnPrevious</visible>
         <animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
@@ -3171,9 +2854,10 @@
           </control>
           <include>genre_Showcase_ref_1</include>
         </control>
-      </control>
+      </control>-->
       <control type="group">
         <posx>10</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3209,6 +2893,7 @@
       </control>
       <control type="group">
         <posx>100</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3244,6 +2929,7 @@
       </control>
       <control type="group">
         <posx>190</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3279,6 +2965,7 @@
       </control>
       <control type="group">
         <posx>280</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="180" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3314,6 +3001,7 @@
       </control>
       <control type="group">
         <posx>370</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <control type="group">
           <control type="image">
@@ -3351,6 +3039,7 @@
         <visible>Container.OnPrevious</visible>
         <animation effect="slide" end="-50,0" time="250" reversible="false">Hidden</animation>
         <control type="group">
+          <visible>!IsEmpty(Container(57).ListItemNoWrap(0).label) | !Skin.HasSetting(showcasefixedlist)</visible>
           <posx>460</posx>
           <visible>Container.OnPrevious</visible>
           <animation effect="rotatey" center="360" start="0" end="55" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
@@ -3388,6 +3077,7 @@
           </control>
         </control>
         <control type="group">
+          <visible>!IsEmpty(Container(57).ListItemNoWrap(1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
           <posx>505</posx>
           <visible>Container.OnPrevious</visible>
           <animation effect="rotatey" center="885" start="0" end="55" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
@@ -3440,6 +3130,7 @@
       <control type="group">
         <!-- -6 -->
         <posx>10</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-6).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="-90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="-90" start="0" end="55" time="800" tween="cubic" easing="inout"/>
@@ -3467,6 +3158,7 @@
       </control>
       <control type="group">
         <posx>100</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="0" start="0" end="55" time="800" tween="cubic" easing="inout"/>
@@ -3506,6 +3198,7 @@
       </control>
       <control type="group">
         <posx>190</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="90" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="90" start="0" end="55" time="800" tween="cubic" easing="inout"/>
@@ -3545,6 +3238,7 @@
       </control>
       <control type="group">
         <posx>280</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="180" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="180" start="0" end="55" time="800" tween="cubic" easing="inout"/>
@@ -3584,6 +3278,7 @@
       </control>
       <control type="group">
         <posx>370</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="270" start="0" end="55" time="800" tween="cubic" easing="inout"/>
@@ -3624,6 +3319,7 @@
       <control type="group">
         <!-- -1-->
         <posx>460</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(-1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="360" start="-55" end="-55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="360" start="0" end="55" time="800" tween="cubic" easing="inout"/>
@@ -3664,6 +3360,7 @@
       <control type="group">
         <!-- 6 -->
         <posx>1000</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(6).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1380" start="55" end="55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1380" start="0" end="-55" time="800" tween="cubic" easing="inout"/>
@@ -3703,6 +3400,7 @@
       </control>
       <control type="group">
         <posx>910</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1290" start="0" end="-55" time="800" tween="cubic" easing="inout"/>
@@ -3742,6 +3440,7 @@
       </control>
       <control type="group">
         <posx>820</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(4).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1200" start="55" end="55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1200" start="0" end="-55" time="800" tween="cubic" easing="inout"/>
@@ -3781,6 +3480,7 @@
       </control>
       <control type="group">
         <posx>730</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(3).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1110" start="55" end="55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1110" start="0" end="-55" time="800" tween="cubic" easing="inout"/>
@@ -3820,6 +3520,7 @@
       </control>
       <control type="group">
         <posx>640</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(2).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="1020" start="55" end="55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="1020" start="0" end="-55" time="800" tween="cubic" easing="inout"/>
@@ -3860,6 +3561,7 @@
       <control type="group">
         <!-- 1 -->
         <posx>550</posx>
+        <visible>!IsEmpty(Container(57).ListItemNoWrap(1).label) | !Skin.HasSetting(showcasefixedlist)</visible>
         <animation effect="rotatey" center="930" start="55" end="55" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]">
           <effect type="rotatey" center="930" start="0" end="-55" time="800" tween="cubic" easing="inout"/>

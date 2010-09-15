@@ -230,68 +230,46 @@
       <colordiffuse>d0FFFFFF</colordiffuse>
       <visible>Control.IsVisible(50)| Control.IsVisible(551)</visible>
     </control>
-    <control type="image">
-      <animation effect="slide" end="0,25" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(57) + [!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)]">Conditional</animation>
-      <posx>0</posx>
-      <posy>335</posy>
-      <width>1280</width>
-      <height>405</height>
-      <texture>showcase/showcase_floor.png</texture>
-      <visible>Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(552)</visible>
-      <include>Animation_CommonFade</include>
-      <include>Animation_HideShowcase</include>
-      <include>Animation_HideMultiplex</include>
+    <control type="group">
+      <animation effect="slide" end="0,25" time="400" easing="inout" tween="cubic" condition="[Control.IsVisible(57) + [!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)]">Conditional</animation>
+      <animation effect="slide" end="0,-20" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(55)">Conditional</animation>
+      <control type="image">
+        <posx>0</posx>
+        <posy>335</posy>
+        <width>1280</width>
+        <height>405</height>
+        <texture>showcase/showcase_floor.png</texture>
+        <visible>Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(552)</visible>
+        <include>Animation_CommonFade</include>
+        <include>Animation_HideShowcase</include>
+        <include>Animation_HideMultiplex</include>
+      </control>
+      <control type="image">
+        <posx>144</posx>
+        <posy>603</posy>
+        <width>993</width>
+        <height>137</height>
+        <texture>showcase/showcase_spot.png</texture>
+        <include>Animation_CommonFade</include>
+        <include>Animation_HideShowcase</include>
+        <include>Animation_HideMultiplex</include>
+        <visible>Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(50)</visible>
+      </control>
     </control>
-    <control type="image">
-      <animation effect="slide" end="0,25" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(57) + [!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)]">Conditional</animation>
-      <posx>144</posx>
-      <posy>603</posy>
-      <width>993</width>
-      <height>137</height>
-      <texture>showcase/showcase_spot.png</texture>
-      <include>Animation_CommonFade</include>
-      <include>Animation_HideShowcase</include>
-      <include>Animation_HideMultiplex</include>
-      <visible>Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(50)</visible>
-    </control>
-    <control type="image">
-      <posx>0</posx>
-      <posy>65</posy>
-      <width>1280</width>
-      <height>675</height>
-      <texture>showcase/showcase_floor.png</texture>
-      <visible>Control.IsVisible(55)</visible>
-      <!--ADDED WALL FLOOR-->
-      <include>Animation_CommonFade</include>
-      <include>Animation_HideShowcase</include>
-      <include>Animation_HideMultiplex</include>
-    </control>
-    <control type="image">
-      <posx>144</posx>
-      <posy>510</posy>
-      <width>993</width>
-      <height>207</height>
-      <texture>showcase/showcase_spot.png</texture>
-      <include>Animation_CommonFade</include>
-      <include>Animation_HideShowcase</include>
-      <include>Animation_HideMultiplex</include>
-      <visible>Control.IsVisible(55)</visible>
-    </control>
-    <control type="image">
-      <animation effect="slide" end="0,25" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(57) + [!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)]">Conditional</animation>
-      <posx>0</posx>
-      <posy>335</posy>
-      <width>1280</width>
-      <height>405</height>
-      <texture>list/list_floor.png</texture>
-      <visible>Control.IsVisible(50)</visible>
-      <include>Animation_CommonFade</include>
-      <include>Animation_HideShowcase</include>
-      <include>Animation_HideMultiplex</include>
-    </control>
+      <control type="image">
+      <!--list spot-->
+        <posx>0</posx>
+        <posy>335</posy>
+        <width>1280</width>
+        <height>405</height>
+        <texture>list/list_floor.png</texture>
+        <visible>Control.IsVisible(50)</visible>
+        <include>Animation_CommonFade</include>
+        <include>Animation_HideShowcase</include>
+        <include>Animation_HideMultiplex</include>
+      </control>
     <control type="image">
       <!-- lowlist-->
-      <animation effect="slide" end="0,30" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(57) + [!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)]">Conditional</animation>
       <posx>140</posx>
       <posy>503</posy>
       <width>993</width>
@@ -355,12 +333,12 @@
   </include>
   <include name="Furniture_FloorText">
     <control type="group">
-      <visible>[Control.IsVisible(52) + !Window.IsActive(musiclibrary)] | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55)</visible>
+      <visible>[Control.IsVisible(52) + !Window.IsActive(musiclibrary)] | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(53)</visible>
       <include>Animation_HideMultiplex</include>
       <include>Animation_HideShowcase</include>
       <include>Animation_OpenCloseZoom</include>
       <control type="label">
-        <label>[UPPERCASE][B]$INFO[ListItem.Label][/B][/UPPERCASE]</label>
+        <label>$INFO[ListItem.Label]</label>
         <include>FloorTextMainLabel</include>
         <visible>Container.Content(movies)</visible>
       </control>
@@ -448,7 +426,7 @@
   <include name="FloorTextMainLabel">
     <include>FloorTextLabel</include>
     <posx>315</posx>
-    <posy>693</posy>
+    <posy>695</posy>
     <width>650</width>
     <font>Font_FloorTextMainLabel</font>
     <visible>!Control.IsVisible(7777)</visible>
@@ -1567,5 +1545,372 @@
           <include>Object_ExtraThumbsLeft</include>
         </control>
       </control>
+  </include>
+  <include name="InfoPaneContentTV">
+    <control type="multiimage">
+      <include>BackgroundEffectCommon</include>
+      <posx>88</posx>
+      <width>1105</width>
+      <height>590</height>
+    </control>
+    <control type="group">
+      <!--episodes-->
+      <posx>105</posx>
+      <posy>30</posy>
+      <visible>Container.Content(episodes)</visible>
+      <control type="group">
+        <posy>8</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[31402]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Director]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>54</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[31401]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Writer]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>100</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[20416]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Date]</label>
+        </control>
+      </control>
+    </control>
+    <control type="group">
+      <!--tvshows-->
+      <posx>105</posx>
+      <posy>30</posy>
+      <visible>Container.Content(tvshows)</visible>
+      <control type="group">
+        <posy>8</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[135]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Genre]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>54</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[20360]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Episode]  ($LOCALIZE[16101]: $INFO[ListItem.Property(UnwatchedEpisodes)])</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>100</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[20416]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Date]</label>
+        </control>
+      </control>
+    </control>
+    <control type="group">
+      <!--seasons-->
+      <posx>105</posx>
+      <posy>30</posy>
+      <visible>Container.Content(seasons)</visible>
+      <control type="group">
+        <posy>8</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[31403]</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Episode]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>54</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[16102]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Property(WatchedEpisodes)]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>100</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[16101]:</label>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoValue</include>
+          <width>370</width>
+          <label fallback="161">$INFO[ListItem.Property(UnwatchedEpisodes)]</label>
+        </control>
+      </control>
+    </control>
+    <control type="textbox">
+      <posx>105</posx>
+      <posy>174</posy>
+      <width>375</width>
+      <height>187</height>
+      <font>Font_MultiplexPlotSmall</font>
+      <info>Control.GetLabel(900004)</info>
+      <textcolor>d0FFFFFF</textcolor>
+      <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+      <visible>Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)</visible>
+    </control>
+    <control type="group">
+      <!--images-->
+      <posx>508</posx>
+      <posy>40</posy>
+      <control type="largeimage">
+        <posx>1</posx>
+        <posy>1</posy>
+        <width>600</width>
+        <height>316</height>
+        <fadetime>400</fadetime>
+        <aspectratio>scale</aspectratio>
+        <texture background="true">$INFO[Fanart.Image]</texture>
+        <visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
+        <include>Animation_VisibleChange200</include>
+      </control>
+      <control type="largeimage">
+        <posx>1</posx>
+        <posy>1</posy>
+        <width>600</width>
+        <height>316</height>
+        <fadetime>400</fadetime>
+        <aspectratio>scale</aspectratio>
+        <texture>$INFO[ListItem.property(fanart_image)]</texture>
+        <visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
+        <include>Animation_VisibleChange200</include>
+      </control>
+      <control type="image">
+        <posx>1</posx>
+        <posy>1</posy>
+        <width>668</width>
+        <height>316</height>
+        <fadetime>400</fadetime>
+        <aspectratio>scale</aspectratio>
+        <texture>$INFO[ListItem.thumb]</texture>
+        <visible>Skin.HasSetting(showcasetvbigthumb) + Container.Content(episodes)</visible>
+        <include>Animation_VisibleChange200</include>
+      </control>
+    </control>
+    <control type="image">
+      <posx>995</posx>
+      <posy>-22</posy>
+      <width>160</width>
+      <height>62</height>
+      <texture>$INFO[ListItem.path]logo.png</texture>
+      <fadetime>300</fadetime>
+      <aspectratio scalediffuse="false">stretch</aspectratio>
+    </control>
+    <control type="image">
+      <posx>995</posx>
+      <posy>-22</posy>
+      <width>160</width>
+      <height>62</height>
+      <texture>$INFO[ListItem.path]../logo.png</texture>
+      <fadetime>300</fadetime>
+      <aspectratio scalediffuse="false">stretch</aspectratio>
+    </control>
+  </include>
+  <include name="InfoPaneContentMusic">
+    <control type="multiimage">
+      <posx>88</posx>
+      <width>1105</width>
+      <height>590</height>
+      <include>BackgroundEffectCommon</include>
+    </control>
+    <!--artists info pane-->
+    <control type="group">
+      <posx>105</posx>
+      <posy>30</posy>
+      <visible>Container.Content(artists)</visible>
+      <control type="group">
+        <posy>8</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>Years Active:</label>
+        </control>
+        <control type="label">
+          <width>370</width>
+          <include>ShowcaseInfoValue</include>
+          <label fallback="161">$INFO[ListItem.Property(Artist_YearsActive)]</label>
+        </control>
+      </control>
+      <!-- Formed / Born -->
+      <control type="group">
+        <posy>58</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[21894]:</label><!-- Formed -->
+          <visible>!IsEmpty(ListItem.Property(artist_formed))</visible>
+        </control>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[21893]:</label><!-- Born -->
+          <visible>IsEmpty(ListItem.Property(artist_formed))</visible>
+        </control>
+        <control type="label">
+          <width>370</width>
+          <include>ShowcaseInfoValue</include>
+          <label fallback="161">$INFO[ListItem.Property(artist_formed)]</label>
+          <visible>!IsEmpty(ListItem.Property(artist_formed))</visible>
+        </control>
+        <control type="label">
+          <width>370</width>
+          <include>ShowcaseInfoValue</include>
+          <label fallback="161">$INFO[ListItem.Property(artist_born)]</label>
+          <visible>IsEmpty(ListItem.Property(artist_formed))</visible>
+        </control>
+      </control>
+      <!-- Formed / Born -->
+      <control type="group">
+        <posy>100</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[176]:</label>
+        </control>
+        <control type="label">
+          <width>370</width>
+          <include>ShowcaseInfoValue</include>
+          <label fallback="161">$INFO[ListItem.Property(Artist_Style)]</label>
+        </control>
+      </control>
+    </control>
+    <!--albums info pane-->
+    <control type="group">
+      <posx>105</posx>
+      <posy>30</posy>
+      <visible>Container.Content(albums)</visible>
+      <control type="group">
+        <posy>8</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[135]:</label>
+        </control>
+        <control type="label">
+          <width>370</width>
+          <include>ShowcaseInfoValue</include>
+          <label fallback="161">$INFO[ListItem.Genre]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>58</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[176]:</label>
+        </control>
+        <control type="label">
+          <width>370</width>
+          <include>ShowcaseInfoValue</include>
+          <label fallback="161">$INFO[ListItem.Property(Album_Style)]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posy>100</posy>
+        <control type="label">
+          <include>ShowcaseInfoLabel</include>
+          <label>$LOCALIZE[175]:</label>
+        </control>
+        <control type="label">
+          <width>370</width>
+          <include>ShowcaseInfoValue</include>
+          <label fallback="161">$INFO[ListItem.Property(Album_Mood)]</label>
+        </control>
+      </control>
+    </control>
+    <control type="textbox">
+      <posx>105</posx>
+      <posy>174</posy>
+      <width>375</width>
+      <height>187</height>
+      <font>Font_MultiplexPlotSmall</font>
+      <label>$INFO[ListItem.Property(Artist_Description)]</label>
+      <textcolor>d0FFFFFF</textcolor>
+      <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+      <visible>Container.Content(artists)</visible>
+    </control>
+    <control type="textbox">
+      <posx>105</posx>
+      <posy>174</posy>
+      <width>375</width>
+      <height>187</height>
+      <font>Font_MultiplexPlotSmall</font>
+      <label>$INFO[ListItem.Property(Album_Description)]</label>
+      <textcolor>d0FFFFFF</textcolor>
+      <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+      <visible>Container.Content(albums)</visible>
+    </control>
+    <control type="group">
+      <posx>508</posx>
+      <posy>40</posy>
+      <control type="largeimage">
+        <posx>15</posx>
+        <posy>-7</posy>
+        <width>638</width>
+        <height>328</height>
+        <fadetime>400</fadetime>
+        <aspectratio>scale</aspectratio>
+        <texture>$INFO[ListItem.property(fanart_image)]</texture>
+        <visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
+        <include>Animation_VisibleChange200</include>
+      </control>
+      <control type="largeimage">
+        <posx>15</posx>
+        <posy>-7</posy>
+        <width>638</width>
+        <height>328</height>
+        <fadetime>400</fadetime>
+        <aspectratio>scale</aspectratio>
+        <texture>$INFO[Fanart.Image]</texture>
+        <visible>!Skin.HasSetting(showcasemusicbigthumb) | !Container.Content(episodes)</visible>
+        <include>Animation_VisibleChange200</include>
+      </control>
+      <control type="image">
+        <posx>1</posx>
+        <posy>1</posy>
+        <width>668</width>
+        <height>316</height>
+        <fadetime>400</fadetime>
+        <aspectratio>keep</aspectratio>
+        <texture>$INFO[ListItem.thumb]</texture>
+        <visible>[Skin.HasSetting(showcasemusicbigthumb) + Container.Content(episodes)] | IsEmpty(Fanart.Image) + IsEmpty(ListItem.property(fanart_image))</visible>
+        <include>Animation_VisibleChange200</include>
+      </control>
+    </control>
   </include>
 </includes>
