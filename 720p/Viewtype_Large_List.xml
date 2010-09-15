@@ -8,15 +8,8 @@
     <include>Animation_HideShowcase</include>
     <include>Animation_HideMultiplex</include>
     <visible>Control.IsVisible(560)</visible>
-    <include>FloorMediaFlagNightShade</include>
+    <colordiffuse>FFe1e1e1</colordiffuse>
     <fadetime>300</fadetime>
-  </include>
-  <include name="Furniture_ListMediaFlagsVars3">
-    <include>Animation_CommonFade</include>
-    <include>Animation_HideShowcase</include>
-    <include>Animation_HideMultiplex</include>
-    <visible>Control.IsVisible(560)</visible>
-    <include>FloorMediaFlagLightShade</include>
   </include>
   <include name="LargeListWatchedOverlay_Slim">
     <posx>658</posx>
@@ -29,7 +22,7 @@
     <posy>0</posy>
     <width>515</width>
     <height>39</height>
-    <font>Font_ListSmall</font>
+    <font>Font_ListDetail</font>
     <aligny>center</aligny>
     <animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(500) | Window.IsActive(501) | Window.IsActive(502) | [Window.IsActive(25) + !Container.Content(movies)]]">Conditional</animation>
   </include>
@@ -54,7 +47,7 @@
           <posy>0</posy>
           <width>1280</width>
           <height>720</height>
-          <texture>mod/black.png</texture>
+          <texture>common/black.png</texture>
           <visible>Control.IsVisible(560)  + !Skin.HasSetting(transparentlist)</visible>
         </control>
         <control type="image">
@@ -63,6 +56,7 @@
           <width>1280</width>
           <height>720</height>
           <texture>list/largelist.png</texture>
+          <colordiffuse>FF999999</colordiffuse>
           <visible>Control.IsVisible(560) + Skin.HasSetting(largelistlight)</visible>
         </control>
         <control type="image">
@@ -70,7 +64,8 @@
           <posy>0</posy>
           <width>1280</width>
           <height>720</height>
-          <texture>list/largelistdark.png</texture>
+          <texture>list/largelist.png</texture>
+          <colordiffuse>FF444444</colordiffuse>
           <visible>Control.IsVisible(560)  + !Skin.HasSetting(largelistlight)</visible>
         </control>
         <control type="image">
@@ -105,7 +100,7 @@
           <height>0</height>
           <texturefocus>-</texturefocus>
           <texturenofocus>-</texturenofocus>
-          <onfocus>PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
+          <onfocus>PlayMedia($INFO[ListItem.Trailer],1,noresume),noresume)</onfocus>
           <onfocus>SetFocus(560)</onfocus>
           <onclick>560</onclick>
           <onright>560</onright>
@@ -159,7 +154,7 @@
             <control type="label">
               <include>ListLabel_DetailSmall_Slim2</include>
               <include>detailcolornofocus</include>
-              <label>[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+              <label>$INFO[ListItem.Year]</label>
               <visible>[Container.Content(movies) | Container.Content(albums)]</visible>
             </control>
             <control type="image">
@@ -224,7 +219,7 @@
             <control type="label">
               <include>ListLabel_DetailSmall_Slim2</include>
               <include>detailcolornofocus</include>
-              <label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+              <label fallback="-">$INFO[ListItem.Year]</label>
               <visible>[!Control.IsVisible(76) + Container.Content(movies)]</visible>
             </control>
             <control type="label">
@@ -238,7 +233,7 @@
               <include>ListLabel_DetailSmall_Slim2</include>
               <include>detailcolorfocus</include>
               <include>Animation_ButtonFocusFade</include>
-              <label fallback="-">[UPPERCASE]$INFO[ListItem.Year][/UPPERCASE]</label>
+              <label fallback="-">$INFO[ListItem.Year]</label>
               <visible>[!Control.IsVisible(76) + Container.Content(movies)]</visible>
             </control>
             <control type="image">
@@ -253,7 +248,7 @@
           <posy>678</posy>
           <width>180</width>
           <height>41</height>
-          <font>Font_ListObjects</font>
+          <font>Font_ListDetailTV</font>
           <align>left</align>
           <aligny>center</aligny>
           <textcolor>ff969696</textcolor>
@@ -267,17 +262,17 @@
         <animation effect="fade" start="100" end="0" time="1300" condition="Player.HasVideo | Control.HasFocus(561) | Control.HasFocus(562)">Conditional</animation>
         <animation effect="zoom" end="0,50" start="100,100" center="auto" time="900" delay="200" tween="cubic" easing="inout" condition="Player.HasVideo | Control.HasFocus(561) | Control.HasFocus(562)">Conditional</animation>
         <posx>732</posx>
-        <posy>10</posy>
+        <posy>0</posy>
         <visible>Control.IsVisible(560)</visible>
         <control type="largeimage">
-          <width>538</width>
-          <height>700</height>
+          <width>548</width>
+          <height>720</height>
           <fadetime>400</fadetime>
           <texture background="true">$INFO[ListItem.Icon]</texture>
           <visible>!Container.Content(years) + !Container.Content(genres) + !Container.Content(episodes)</visible>
         </control>
         <control type="largeimage">
-          <width>538</width>
+          <width>548</width>
           <posy>204</posy>
           <height>302</height>
           <fadetime>400</fadetime>
@@ -287,10 +282,10 @@
         </control>
         <control type="largeimage">
           <description>Cover image</description>
-          <width>538</width>
-          <height>700</height>
+          <width>548</width>
+          <height>720</height>
           <texture background="true">$INFO[ListItem.path]poster.jpg</texture>
-          <aspectratio>stretch</aspectratio>
+          <aspectratio>scale</aspectratio>
           <fadetime>500</fadetime>
         </control>
         <control type="image">
@@ -325,7 +320,7 @@
           <posy>150</posy>
           <width>943</width>
           <height>320</height>
-          <texture>media/mod/black.png</texture>
+          <texture>common/black.png</texture>
           <visible>Player.HasVideo</visible>
         </control>
         <control type="videowindow">
@@ -341,7 +336,7 @@
           <height>320</height>
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
-          <texture background="true" diffuse="list/list_episodeicon_mask.png">$INFO[Container(560).ListItem.property(fanart_image)]</texture>
+          <texture background="true" diffuse="thumbs/list_episodeicon_mask.png">$INFO[Container(560).ListItem.property(fanart_image)]</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
           <visible>!Player.HasVideo</visible>
         </control>
@@ -431,7 +426,7 @@
           <textcolor>d0ffffff</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
           <include>Animation_VisibleChange200</include>
-          <label fallback="31414">$INFO[ListItem.Plot]</label>
+          <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
           <visible>!Player.HasVideo</visible>
         </control>
       </control>
