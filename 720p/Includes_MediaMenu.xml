@@ -30,6 +30,10 @@
     <pulseonselect>true</pulseonselect>
     <font>Font_MediaWindowMenu</font>
     <include>Animation_CommonFade</include>
+    <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
+    <animation type="Focus" reversible="true">
+      <effect type="fade" start="60" end="100" time="350" delay="0"/>
+    </animation>
   </include>
   <include name="MediaMenuRadioButton">
     <posx>0</posx>
@@ -195,8 +199,25 @@
     </control>
   </include>
   <include name="MediaMenuButton_ViewTypeSettings">
-    <control type="button" id="71000">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="71000">
+      <posx>0</posx>
+      <posy>0</posy>
+      <height>40</height>
+      <width>259</width>
+      <font>Font_MediaWindowMenu</font>
+      <texturefocus>windows/listselect.png</texturefocus>
+      <alttexturefocus>windows/listselect.png</alttexturefocus>
+      <textcolor>60FFFFFF</textcolor>
+      <focusedcolor>EEFFFFFF</focusedcolor>
+      <textoffsetx>10</textoffsetx>
+      <radiowidth>20</radiowidth>
+      <radioposx>221</radioposx>
+      <radioheight>20</radioheight>
+      <textoffsetx>50</textoffsetx>
+      <align>left</align>
+      <aligny>center</aligny>
+      <textureradiofocus>multiwall/multiwall_trailer.png</textureradiofocus>
+      <textureradionofocus>multiwall/multiwall_trailer.png</textureradionofocus>
       <label>310802</label>
       <onclick>SetFocus(7100)</onclick>
       <onright>SetFocus(7100)</onright>
@@ -204,15 +225,49 @@
   </include>
   <include name="MediaMenuButton_style">
     <!-- 700014 700020 -->
-    <control type="button" id="700018">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700018">
+      <posx>0</posx>
+      <posy>0</posy>
+      <height>40</height>
+      <width>259</width>
+      <font>Font_MediaWindowMenu</font>
+      <texturefocus>windows/listselect.png</texturefocus>
+      <alttexturefocus>windows/listselect.png</alttexturefocus>
+      <textcolor>60FFFFFF</textcolor>
+      <focusedcolor>EEFFFFFF</focusedcolor>
+      <textoffsetx>10</textoffsetx>
+      <radiowidth>20</radiowidth>
+      <radioposx>221</radioposx>
+      <radioheight>20</radioheight>
+      <textoffsetx>50</textoffsetx>
+      <align>left</align>
+      <aligny>center</aligny>
+      <textureradiofocus>multiwall/multiwall_trailer.png</textureradiofocus>
+      <textureradionofocus>multiwall/multiwall_trailer.png</textureradionofocus>
       <label>310803</label>
       <onclick>SetFocus(7011)</onclick>
       <onright>SetFocus(7011)</onright>
       <visible>Window.IsActive(videolibrary) + Container.Content(movies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
     </control>
-    <control type="button" id="700017">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700017">
+      <posx>0</posx>
+      <posy>0</posy>
+      <height>40</height>
+      <width>259</width>
+      <font>Font_MediaWindowMenu</font>
+      <texturefocus>windows/listselect.png</texturefocus>
+      <alttexturefocus>windows/listselect.png</alttexturefocus>
+      <textcolor>60FFFFFF</textcolor>
+      <focusedcolor>EEFFFFFF</focusedcolor>
+      <textoffsetx>10</textoffsetx>
+      <radiowidth>20</radiowidth>
+      <radioposx>221</radioposx>
+      <radioheight>20</radioheight>
+      <textoffsetx>50</textoffsetx>
+      <align>left</align>
+      <aligny>center</aligny>
+      <textureradiofocus>multiwall/multiwall_trailer.png</textureradiofocus>
+      <textureradionofocus>multiwall/multiwall_trailer.png</textureradionofocus>
       <label>310804</label>
       <onclick>SetFocus(7021)</onclick>
       <onright>SetFocus(7021)</onright>
@@ -641,8 +696,25 @@
     </control>
   </include>
   <include name="MediaMenuButton_InfoTrigger">
-    <control type="button" id="700060">
-      <include>MediaMenuButton</include>
+    <control type="radiobutton" id="700060">
+      <posx>0</posx>
+      <posy>0</posy>
+      <height>40</height>
+      <width>259</width>
+      <font>Font_MediaWindowMenu</font>
+      <texturefocus>windows/listselect.png</texturefocus>
+      <alttexturefocus>windows/listselect.png</alttexturefocus>
+      <textcolor>60FFFFFF</textcolor>
+      <focusedcolor>EEFFFFFF</focusedcolor>
+      <textoffsetx>10</textoffsetx>
+      <radiowidth>20</radiowidth>
+      <radioposx>221</radioposx>
+      <radioheight>20</radioheight>
+      <textoffsetx>50</textoffsetx>
+      <align>left</align>
+      <aligny>center</aligny>
+      <textureradiofocus>multiwall/multiwall_trailer.png</textureradiofocus>
+      <textureradionofocus>multiwall/multiwall_trailer.png</textureradionofocus>
       <label>310806</label>
       <onclick>SetFocus(7020)</onclick>
       <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + !Container.Content(genres) +
@@ -711,7 +783,7 @@
         <posy>18</posy>
         <height>5800</height>
         <width>260</width>
-        <onleft>7000</onleft>
+        <onleft>7100</onleft>
         <onright>50</onright>
         <onup>7011</onup>
         <ondown>7011</ondown>
@@ -963,22 +1035,6 @@
         <ondown>SetFocus(8)</ondown>
         <onright>SetFocus(50)</onright>
       </control>
-      <control type="image">
-        <posx>220</posx>
-        <posy>442</posy>
-        <width>18</width>
-        <height>18</height>
-        <texture>multiwall/multiwall_trailer.png</texture>
-        <include>Animation_CommonFade</include>
-        <include>Animation_MediaMenuSlide</include>
-        <animation effect="fade" start="90" end="50" time="700" condition="ControlGroup(7000).HasFocus(71000)" pulse="true">Conditional</animation>
-        <visible>!Skin.HasSetting(kioskmode)</visible>
-        <animation effect="slide" start="0,0" end="0,-40" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-80" time="0" condition="Window.IsActive(musiclibrary) |  Window.IsActive(videofiles) | Container.Content(musicvideos) | Window.IsActive(videolibrary) + [Container.Content(artists) | Container.Content(albums)]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-120" time="0" condition="Window.IsActive(musicfiles)  | [Window.IsActive(videolibrary) + [Container.Content() | Container.Content(genres) | Container.Content(years) | Container.Content(studios)]]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-160" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-200" time="0" condition="Window.IsActive(programs)">Conditional</animation>
-      </control>
     </control>
   </include>
   <include name="ViewTypeMenu">
@@ -989,21 +1045,23 @@
       <animation type="Hidden">
         <effect type="rotatey" start="0" end="-130" time="800" center="-20,0" tween="cubic" easing="in"/>
       </animation>
-			<animation effect="zoom" start="115,566,1050,35" end="115,601,1050,1" time="200">Hidden</animation>
+      <animation type="Conditional" condition="!Control.IsVisible(7777)">
+        <effect type="fade" start="100" end="0" time="400" reversible="false"/>
+      </animation>
       <posx>295</posx>
-      <include>Animation_OpenCloseZoom</include>
-      <visible allowhiddenfocus="true">[[ControlGroup(7000).HasFocus(71000) + ControlGroup(7000).HasFocus] | ControlGroup(7100).HasFocus() | ControlGroup(7011).HasFocus()] + ![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
+      <include>Animation_MediaMenuSlide</include>
+      <visible allowhiddenfocus="true">[ControlGroup(7100).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() ] + ![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
       <control type="image">
         <posx>-28</posx>
         <posy>0</posy>
-        <width>300</width>
+        <width>280</width>
         <height>720</height>
         <texture>list/listpanel_black.png</texture>
       </control> 
       <control type="image">
         <posx>-28</posx>
         <posy>0</posy>
-        <width>300</width>
+        <width>280</width>
         <height>720</height>
         <texture>list/listpanel_back.png</texture>
       </control>
@@ -1056,7 +1114,7 @@
       <animation type="Hidden">
         <effect type="rotatey" start="0" end="-130" time="800" center="-20,0" tween="cubic" easing="in"/>
       </animation>
-      <posx>295</posx>
+      <posx>585</posx>
       <visible allowhiddenfocus="true">ControlGroup(7020).HasFocus</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
@@ -1084,7 +1142,7 @@
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <scroll>false</scroll>
-        <onleft>7000</onleft>
+        <onleft>7100</onleft>
         <onright>50</onright>
         <onup>7020</onup>
         <ondown>7020</ondown>
@@ -1744,7 +1802,7 @@
       <animation type="Hidden">
         <effect type="rotatey" start="0" end="-130" time="800" center="-20,0" tween="cubic" easing="in"/>
       </animation>
-      <posx>295</posx>
+      <posx>585</posx>
       <visible allowhiddenfocus="true">ControlGroup(7021).HasFocus</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
@@ -1772,7 +1830,7 @@
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <scroll>false</scroll>
-        <onleft>7000</onleft>
+        <onleft>7100</onleft>
         <onright>50</onright>
         <onup>7021</onup>
         <ondown>7021</ondown>

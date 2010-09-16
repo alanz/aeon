@@ -488,6 +488,23 @@
             <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
             <colordiffuse>dcbdbdbd</colordiffuse>
             <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
+            <animation type="Focus">
+              <effect type="fade" start="100" end="30" time="300"/>
+            </animation>
+            <visible>![Window.IsActive(musiclibrary) | Container.Content(years) | Container.Content(genres)]</visible>
+          </control>
+          <control type="image">
+            <description>IMDB rating</description>
+            <posx>623</posx>
+            <posy>37</posy>
+            <width>65</width>
+            <height>13</height>
+            <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture>
+            <colordiffuse>dcbdbdbd</colordiffuse>
+            <animation effect="fade" start="100" end="0" time="100" delay="0" condition="StringCompare(Container.ListItem.Label,..)" >Conditional</animation>
+            <animation type="Focus">
+              <effect type="fade" start="30" end="100" time="350" delay="300"/>
+            </animation>
             <visible>![Window.IsActive(musiclibrary) | Container.Content(years) | Container.Content(genres)]</visible>
           </control>
           <control type="image">
