@@ -1,5 +1,102 @@
 <?xml version="1.0"?>
 <includes>
+  <include name="MultiplexTVCaseNormal">
+    <control type="group">
+      <include>Animation_MultiplexTVFocusZoom</include>
+      <control type="largeimage">
+	<include>MultiplexIconDimensionsTVWrap</include>
+	<texture background="true" diffuse="multiplex/multiplex_tvmask.png">common/black.png</texture>
+      </control>
+      <control type="largeimage">
+	<include>MultiplexIconDimensionsTVWrap</include>
+	<texture background="true" diffuse="multiplex/multiplex_tvmask.png">DefaultVideo.png</texture>
+	<aspectratio scalediffuse="false">scale</aspectratio>
+	<info>ListItem.Icon</info>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrap</include>
+        <texture diffuse="multiplex/multiplex_tvmask.png">$INFO[ListItem.Path,,folder.jpg]</texture>
+	<aspectratio scalediffuse="false">scale</aspectratio>
+	<visible>Skin.HasSetting(use_folder_jpg) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrap</include>
+	<bordertexture border="-10">multiplex/multiplex_tvborder.png</bordertexture>
+	<texture>common/blank.png</texture>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrap</include>
+	<texture diffuse="multiplex/multiplex_tvmask.png">multiplex/multiplex_tvglass.png</texture>
+	<aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrap</include>
+	<texture>common/blank.png</texture>
+	<colordiffuse>58FFFFFF</colordiffuse>
+      </control>
+      <control type="largeimage">
+	<include>MultiplexIconDimensionsTVWrapReflect</include>
+	<texture background="true" flipy="true" diffuse="multiplex/multiplex_tvmaskreflect.png">DefaultVideo.png</texture>
+	<aspectratio scalediffuse="false">scale</aspectratio>
+	<info>ListItem.Icon</info>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrapReflect</include>
+        <texture diffuse="multiplex/multiplex_tvmaskreflect.png">$INFO[ListItem.Path,,folder.jpg]</texture>
+	<aspectratio scalediffuse="false">scale</aspectratio>
+	<visible>Skin.HasSetting(use_folder_jpg) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+      </control>
+      <control type="image">
+	<include>WatchedOverlayMultiPlexTVNormal</include>
+	<include>detailcolornofocus</include>
+	<visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+	<texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
+      </control>
+    </control>
+  </include>
+  <include name="MultiplexTVCaseDVD">
+    <control type="group">
+      <include>Animation_MultiplexTVFocusZoom</include>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrapDVDCase</include>
+	<texture>multiplex/boxes/multiplex_tvborder.png</texture>
+      </control>
+      <control type="largeimage">
+	<include>MultiplexIconDimensionsTVWrapDVD</include>
+	<texture background="true" diffuse="multiplex/boxes/multiplex_tvmask.png">common/black.png</texture>
+      </control>
+      <control type="largeimage">
+	<include>MultiplexIconDimensionsTVWrapDVD</include>
+	<texture background="true" diffuse="multiplex/boxes/multiplex_tvmask.png">DefaultVideo.png</texture>
+	<aspectratio scalediffuse="false">scale</aspectratio>
+	<info>ListItem.Icon</info>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrapDVDCase</include>
+	<texture>multiplex/boxes/multiplex_tvglass.png</texture>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrapReflectDVDCase</include>
+	<texture>multiplex/boxes/multiplex_tvborderreflect.png</texture>
+      </control>
+      <control type="largeimage">
+	<include>MultiplexIconDimensionsTVWrapReflectDVD</include>
+	<texture background="true" flipy="true" diffuse="multiplex/boxes/multiplex_tvmaskreflect.png">DefaultVideo.png</texture>
+	<aspectratio scalediffuse="false">scale</aspectratio>
+	<info>ListItem.Icon</info>
+      </control>
+      <control type="image">
+	<include>MultiplexIconDimensionsTVWrapReflectDVDCase</include>
+	<texture>multiplex/boxes/multiplex_tvglassreflect.png</texture>
+      </control>
+      <control type="image">
+	<include>WatchedOverlayMultiPlexTVDVD</include>
+	<include>detailcolornofocus</include>
+	<visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+	<texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
+      </control>
+    </control>
+  </include>
   <include name="Multiplex_TV_Layout">
     <control type="group">
       <include condition="!Skin.HasSetting(dvdcase)">MultiplexTVCaseNormal</include>
@@ -49,9 +146,9 @@
   <include name="MultiplexLandscapeFixedList">
     <control type="fixedlist" id="552">
       <viewtype label="31758">list</viewtype>
-      <posx>95</posx>
+      <posx>-130</posx>
       <posy>528</posy>
-      <width>1095</width>
+      <width>1410</width>
       <height>300</height>
       <pagecontrol>66</pagecontrol>
       <onleft>552</onleft>
@@ -59,7 +156,7 @@
       <onup>111</onup>
       <ondown>66</ondown>
       <orientation>horizontal</orientation>
-      <focusposition>2</focusposition>
+      <focusposition>3</focusposition>
       <scrolltime>200</scrolltime>
       <visible>Container.Content(episodes) | [Container.Content(seasons) + !Skin.HasSetting(tvposter)] | [Container.Content(tvshows) + !Skin.HasSetting(tvposter)]</visible>
       <include>Animation_HideMultiplex</include>
@@ -75,9 +172,9 @@
   <include name="MultiplexLandscapeWrapList">
     <control type="wraplist" id="552">
       <viewtype label="31758">list</viewtype>
-      <posx>95</posx>
+      <posx>-150</posx>
       <posy>528</posy>
-      <width>1095</width>
+      <width>1430</width>
       <height>300</height>
       <pagecontrol>66</pagecontrol>
       <onleft>552</onleft>
@@ -85,7 +182,7 @@
       <onup>111</onup>
       <ondown>66</ondown>
       <orientation>horizontal</orientation>
-      <focusposition>2</focusposition>
+      <focusposition>3</focusposition>
       <scrolltime>200</scrolltime>
       <visible>Container.Content(episodes) | [Container.Content(seasons) + !Skin.HasSetting(tvposter)] | [Container.Content(tvshows) + !Skin.HasSetting(tvposter)]</visible>
       <include>Animation_HideMultiplex</include>
@@ -104,24 +201,6 @@
       <texturenofocus>-</texturenofocus>
       <onfocus>SetFocus(7000)</onfocus>
       <visible>[![Skin.HasSetting(multiplexinfotrigger) | [Skin.HasSetting(multiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(multiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(multiplexmusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]</visible>
-    </control>
-    <control type="image">
-      <posx>40</posx>
-      <posy>567</posy>
-      <width>33</width>
-      <height>37</height>
-      <texture>multiplex/multiplex_arrow2.png</texture>
-      <include>Animation_HideMultiplex</include>
-      <visible>Control.IsVisible(552) + ![stringcompare(Container(552).NumItems,1) | stringcompare(Container(552).NumItems,2) | stringcompare(Container(552).NumItems,3) | stringcompare(Container(552).NumItems,4)]</visible>
-    </control>
-    <control type="image">
-      <posx>1207</posx>
-      <posy>567</posy>
-      <width>33</width>
-      <height>37</height>
-      <texture flipx="true">multiplex/multiplex_arrow2.png</texture>
-      <include>Animation_HideMultiplex</include>
-      <visible>Control.IsVisible(552) + ![stringcompare(Container(552).NumItems,1) | stringcompare(Container(552).NumItems,2) | stringcompare(Container(552).NumItems,3) | stringcompare(Container(552).NumItems,4)]</visible>
     </control>
     <include condition="Skin.HasSetting(videotv)">MultiplexLandscapeInfoPaneTV</include>
     <include condition="Skin.HasSetting(landscapefixedlist)">MultiplexLandscapeFixedList</include>
