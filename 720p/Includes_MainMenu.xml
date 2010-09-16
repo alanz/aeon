@@ -1342,6 +1342,13 @@
             <onclick>SetFocus(25)</onclick>
             <visible>!Skin.HasSetting(sub_movies_trailers) + !Library.HasContent(Video) + Container(300).HasFocus(6)</visible>
           </item>
+          <item id="31">
+            <description>Playlists</description>
+            <label>136</label>
+            <onclick>activatewindow(videolibrary,playlists,return)</onclick>
+            <visible>!Skin.HasSetting(sub_video_Playlists)</visible>
+            <visible>Container(300).HasFocus(6)</visible>
+          </item>
           <item id="237">
             <description>Movies_Sub 1</description>
             <label>$INFO[Skin.String(Movies_Sub_1name)]</label>
@@ -1376,27 +1383,7 @@
           </item>
           <!-- Movies (6) End -->
           <!-- Music (1)  -->
-          <item id="41">
-            <description>Partymode</description>
-            <label fallback="PARTY">589</label>
-            <onclick>PlayerControl(Partymode(music))</onclick>
-            <visible>!Skin.HasSetting(sub_music_Party)</visible>
-            <visible>Container(300).HasFocus(1)</visible>
-          </item>
-          <item id="42">
-            <description>Last.FM</description>
-            <label>15200</label>
-            <onclick>ActivateWindow(MusicFiles,Last.FM)</onclick>
-            <visible>!Skin.HasSetting(sub_music_fm)</visible>
-            <visible>Container(300).HasFocus(1)</visible>
-          </item>
-          <item id="31">
-            <description>Browse Button</description>
-            <label>744</label>
-            <onclick>ActivateWindow(musicfiles)</onclick>
-            <visible>!Skin.HasSetting(sub_music_files)</visible>
-            <visible>Container(300).HasFocus(1)</visible>
-          </item>
+
           <item id="32">
             <description>Playlists</description>
             <label>136</label>
@@ -1451,6 +1438,27 @@
             <label fallback="ADD-ONS">24001</label>
             <onclick>ActivateWindow(musiclibrary,plugins,return)</onclick>
             <visible>!Skin.HasSetting(sub_music_Plugins)</visible>
+            <visible>Container(300).HasFocus(1)</visible>
+          </item>
+          <item id="41">
+            <description>Partymode</description>
+            <label fallback="PARTY">589</label>
+            <onclick>PlayerControl(Partymode(music))</onclick>
+            <visible>!Skin.HasSetting(sub_music_Party)</visible>
+            <visible>Container(300).HasFocus(1)</visible>
+          </item>
+          <item id="42">
+            <description>Last.FM</description>
+            <label>15200</label>
+            <onclick>ActivateWindow(MusicFiles,Last.FM)</onclick>
+            <visible>!Skin.HasSetting(sub_music_fm)</visible>
+            <visible>Container(300).HasFocus(1)</visible>
+          </item>
+          <item id="43">
+            <description>Browse Button</description>
+            <label>744</label>
+            <onclick>ActivateWindow(musicfiles)</onclick>
+            <visible>!Skin.HasSetting(sub_music_files)</visible>
             <visible>Container(300).HasFocus(1)</visible>
           </item>
           <item id="241">

@@ -96,16 +96,7 @@
       <texturerightfocus>multiplex/multiplex_arrowfocus.png</texturerightfocus>
     </control>
   </include>
-  <include name="MediaMenuButton_FanartShowcase">
-    <control type="radiobutton" id="700025">
-      <label>20425</label>
-      <selected>Skin.HasSetting(showcasefanart)</selected>
-      <include>MediaMenuRadioButton</include>
-      <onclick>Skin.ToggleSetting(showcasefanart)</onclick>
-      <visible>Control.IsVisible(57) + Skin.HasSetting(videomovies) + Container.Content(movies) + Skin.HasSetting(flattenshowcasemovies)</visible>
-    </control>
-  </include>
-  <include name="MediaMenuButton_FlattenFlow">
+  <include name="MediaMenuButton_Showcase">
     <!-- 700001 700002 -->
     <control type="radiobutton" id="700001">
       <label>31061</label>
@@ -165,6 +156,13 @@
       <visible>Control.IsVisible(57)</visible>
       <selected>Skin.HasSetting(showcasefixedlist)</selected>
     </control>
+    <control type="radiobutton" id="700025">
+      <label>20425</label>
+      <selected>Skin.HasSetting(showcasefanart)</selected>
+      <include>MediaMenuRadioButton</include>
+      <onclick>Skin.ToggleSetting(showcasefanart)</onclick>
+      <visible>Control.IsVisible(57) + Skin.HasSetting(videomovies) + Container.Content(movies) + Skin.HasSetting(flattenshowcasemovies)</visible>
+    </control>
   </include>
   <include name="MediaMenuButton_Sort">
     <control type="button" id="3">
@@ -199,7 +197,7 @@
   <include name="MediaMenuButton_ViewTypeSettings">
     <control type="button" id="71000">
       <include>MediaMenuButton</include>
-      <label>SKIN SETTINGS</label>
+      <label>310802</label>
       <onclick>SetFocus(7100)</onclick>
       <onright>SetFocus(7100)</onright>
     </control>
@@ -208,14 +206,14 @@
     <!-- 700014 700020 -->
     <control type="button" id="700018">
       <include>MediaMenuButton</include>
-      <label>STYLE</label>
+      <label>310803</label>
       <onclick>SetFocus(7011)</onclick>
       <onright>SetFocus(7011)</onright>
       <visible>Window.IsActive(videolibrary) + Container.Content(movies) + [Control.IsVisible(52) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)]</visible>
     </control>
     <control type="button" id="700017">
       <include>MediaMenuButton</include>
-      <label>AUTO TIMER</label>
+      <label>310804</label>
       <onclick>SetFocus(7021)</onclick>
       <onright>SetFocus(7021)</onright>
       <visible>[Control.IsVisible(552) + [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]] | [Control.IsVisible(52) + Skin.HasSetting(multiplexinfoauto)] | [Control.IsVisible(57) + Skin.HasSetting(videotv) + [[Skin.HasSetting(showcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(showcaseseasoninfoauto) + Container.Content(seasons)]]] | [Control.IsVisible(57) + Skin.HasSetting(videomovies) + Skin.HasSetting(showcaseinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videotv) + Skin.HasSetting(oldmultiplextvinfoauto)] | [Control.IsVisible(553) + Skin.HasSetting(videomovies) + Skin.HasSetting(oldmultiplexinfoauto)]</visible>
@@ -230,7 +228,7 @@
     </control>
     <control type="radiobutton" id="7000222">
       <include>MediaMenuRadioButton</include>
-      <label>Poster Layout</label>
+      <label>310805</label>
       <onclick>Skin.ToggleSetting(multiwallposterlayout)</onclick>
       <visible>Control.IsVisible(556) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)</visible>
       <selected>Skin.HasSetting(multiwallposterlayout)</selected>
@@ -645,12 +643,11 @@
   <include name="MediaMenuButton_InfoTrigger">
     <control type="button" id="700060">
       <include>MediaMenuButton</include>
-      <label>313004</label>
+      <label>310806</label>
       <onclick>SetFocus(7020)</onclick>
       <visible>[Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)] + !Container.Content(genres) +
-	[Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(59) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
+                [Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(59) | Control.IsVisible(552) | Control.IsVisible(52) | [Control.IsVisible(53) + Container.Content(movies)] | Control.IsVisible(556)]</visible>
       <onright>SetFocus(7020)</onright>
-      <visible>!Skin.HasSetting(noinfotriggerbuttons)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_OldMultiplexStyle">
@@ -1032,11 +1029,10 @@
           <align>center</align>
           <include>Animation_CommonFadeOpenClose</include>
           <textcolor>A0FFFFFF</textcolor>
-          <label>VIEWTYPE SETTINGS</label>
+          <label>310802</label>
         </control>
         <include>Animation_CommonFade</include>
-        <include>MediaMenuButton_FlattenFlow</include>
-        <include>MediaMenuButton_FanartShowcase</include>
+        <include>MediaMenuButton_Showcase</include>
         <include>MediaMenuButton_InfoTrigger</include>
         <include>MediaMenuButton_LowList</include>
         <include>MediaMenuButton_GamesPoster</include>

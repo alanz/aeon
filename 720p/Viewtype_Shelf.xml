@@ -1,8 +1,8 @@
 <!--Alaska-->
 
 <includes>
-	<include name="Viewtype_DVDCases">
-		
+	<include name="Viewtype_Shelf">
+
 		<!-- Poster Wrap View -->
 		<control type="image"><!-- Fanart -->
 			<visible>Control.IsVisible(59) + !Skin.HasSetting(Poster_Fanart)</visible>
@@ -48,7 +48,7 @@
 			<textcolor>678b8b8b</textcolor>
 			<label>$LOCALIZE[31235]</label>
 		</control>
-    
+
     <control type="group"><!-- plot poster fanart-->
       <posx>0</posx>
       <posy>45</posy>
@@ -102,7 +102,7 @@
       </control>
       <include>InfoPaneContent</include>
     </control>
-			
+
 		<control type="fixedlist" id="59">
 			<posx>-30</posx>
 			<posy>250</posy>
@@ -361,7 +361,7 @@
 						</animation>
 						<visible>[Skin.HasSetting(movieoverlays) | Skin.HasSetting(tvoverlays)] + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
-			</control>	
+			</control>
 			</focusedlayout>
 			<itemlayout width="176" height="245" condition="Window.IsActive(musiclibrary)">
 				<control type="group">
@@ -518,7 +518,7 @@
 							<effect type="fade" start="0" end="70" time="600" />
 						</animation>
 					</control>
-				</control>	
+				</control>
 			</focusedlayout>
 		</control>
     <control type="button" id="112">
@@ -555,9 +555,9 @@
 			<texture>movie-poster/Poster_Fanart_Title_Back.png</texture>
 			<aspectratio>stretch</aspectratio>
 		</control>
-		
+
 		<!-- Browser label and flags -->
-		
+
 		<control type="group">
 			<visible>Control.IsVisible(59)</visible>
 			<posx>0</posx>
@@ -590,7 +590,7 @@
 				<visible>Container.Content(movies) + !Skin.HasSetting(clean_poster) + ![Player.HasVideo | substring(container.folderpath,plugin://video/)]</visible>
 			</control>
 		</control>
-		
+
 	<control type="grouplist">
 		<posx>340</posx>
 		<posy>260</posy>
@@ -651,7 +651,7 @@
 		<include>Animation_ZoomInZoomOut</include>
 		<include>Animation_HiddenByInfo</include>
 		<animation effect="slide" start="0,0" end="0,-40" time="0" tween="cubic" easing="inout" condition="IsEmpty(Control.GetLabel(7015))">Conditional</animation>
-		<visible>Control.IsVisible(59) + !IsEmpty(ListItem.Title) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Poster_Fanart) + !Player.HasVideo</visible>	
+		<visible>Control.IsVisible(59) + !IsEmpty(ListItem.Title) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Poster_Fanart) + !Player.HasVideo</visible>
 			<control type="label">
 				<visible>Container.Content(seasons)</visible>
 				<posx>0</posx>
@@ -723,6 +723,6 @@
 			</control>
 		</control>
 	</include>
-	
+
 	<!-- Square View -->
 </includes>
