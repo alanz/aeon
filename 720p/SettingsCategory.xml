@@ -1,8 +1,18 @@
 <?xml version="1.0"?>
 <window id="12">
-  <defaultcontrol>3</defaultcontrol>
+  <defaultcontrol>300</defaultcontrol>
   <allowoverlay>no</allowoverlay>
   <controls>
+    <control type="button" id="300">
+      <include>HiddenObject</include>
+      <visible>Skin.HasSetting(skinnotification)</visible>
+      <onfocus>Notification(sxx,sddf)</onfocus>
+    </control>
+    <control type="button" id="300">
+      <include>HiddenObject</include>
+      <visible>!Skin.HasSetting(skinnotification)</visible>
+      <onfocus>Notification(test,aa)</onfocus>
+    </control>
     <control type="multiimage">
       <include>FullscreenDimensions</include>
       <include>BackgroundTimings</include>
@@ -94,7 +104,7 @@
         <height>58</height>
         <texturefocus>settings/settings_leftmenufocus.png</texturefocus>
         <texturenofocus>-</texturenofocus>
-        <font>Font_SettingsSectionMenuButton</font>
+        <font>Font_Normal23</font>
         <textcolor>FFf5f5f5</textcolor>
         <focusedcolor>FF262728</focusedcolor>
         <selectedcolor>FF262728</selectedcolor>
@@ -121,7 +131,7 @@
       <posy>0</posy>
       <width>936</width>
       <height>49</height>
-      <font>Font_SettingsOptions</font>
+      <font>Font_Normal18</font>
       <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
       <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
       <textcolor>FFbbbbbb</textcolor>
@@ -137,7 +147,7 @@
       <posy>0</posy>
       <width>936</width>
       <height>49</height>
-      <font>Font_SettingsOptions</font>
+      <font>Font_Normal18</font>
       <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
       <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
       <textcolor>FFbbbbbb</textcolor>
@@ -166,7 +176,7 @@
       <texturedown>settings/spin-down.png</texturedown>
       <textureupfocus>settings/spin-up-focus.png</textureupfocus>
       <texturedownfocus>settings/spin-down-focus.png</texturedownfocus>
-      <font>Font_SettingsOptions</font>
+      <font>Font_Normal18</font>
       <disabledcolor>60d0d0d0</disabledcolor>
       <aligny>center</aligny>
       <spinposx>-2</spinposx>
@@ -177,6 +187,19 @@
       <onright>SetFocus(1)</onright>
     </control>
     <include>Background_ContextBlack</include>
+	  <control type="label">
+			<posx>140</posx>
+			<posy>90</posy>
+			<width>1000</width>
+			<height>300</height>
+			<font>Font_Normal50</font>
+			<label>FIRST USAGE OF AEON65:[CR]PLEASE RESTART XBMC</label>
+      <wrapmultiline>true</wrapmultiline>
+			<textcolor>FFFFFFFF</textcolor>
+			<align>center</align>
+			<aligny>center</aligny>
+      <visible>!Skin.HasSetting(veryfirststart)</visible>
+		</control>
     <include condition="Skin.HasSetting(debug)">Furniture_Debug</include>
     <include condition="Skin.HasSetting(DebugGrid)">Furniture_DebugGrid</include>
   </controls>
