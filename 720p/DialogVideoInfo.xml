@@ -493,23 +493,23 @@
         <height>212</height>
         <align>left</align>
         <font>Font_Normal17_ls09</font>
-        <visible>!Container(20030).HasFocus(9) + !Container(20030).HasFocus(8)</visible>
         <include>Animation_CommonFade</include>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <autoscroll delay="10000" time="3000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <include>Colour_OffWhite</include>
         <!-- castmod prevents it from showing when cast container shows -->
+        <visible>!Container(20030).HasFocus(9) + !Container(20030).HasFocus(8)</visible>
         <visible>!Control.IsVisible(50)</visible>
         <!-- end castmod prevents it from showing when cast container shows -->
       </control>
       <control type="largeimage">
-        <posx>50</posx>
+        <posx>145</posx>
         <posy>359</posy>
         <width>360</width>
         <height>202</height>
         <fadetime>500</fadetime>
-        <texture>$INFO[ListItem.property(fanart_image)]</texture>
-        <visible>Container(20030).HasFocus(9)</visible>
+        <texture diffuse="thumbs/multiplex_tvmask.png">$INFO[ListItem.property(fanart_image)]</texture>
+        <visible>Container(20030).HasFocus(9) + !Control.IsVisible(50)</visible>
         <include>Animation_CommonFade</include>
       </control>
       <control type="largeimage">
@@ -519,7 +519,7 @@
         <height>202</height>
         <fadetime>500</fadetime>
         <texture>$INFO[ListItem.thumb]</texture>
-        <visible>Container(20030).HasFocus(8)</visible>
+        <visible>Container(20030).HasFocus(8) + !Control.IsVisible(50)</visible>
         <include>Animation_CommonFade</include>
       </control>
       <control type="largeimage">
@@ -529,7 +529,7 @@
         <height>202</height>
         <fadetime>500</fadetime>
         <texture>$INFO[ListItem.Path,,poster.jpg]</texture>
-        <visible>Container(20030).HasFocus(8)</visible>
+        <visible>Container(20030).HasFocus(8) + !Control.IsVisible(50)</visible>
         <include>Animation_CommonFade</include>
       </control>
       <control type="largeimage">
@@ -539,7 +539,7 @@
         <height>202</height>
         <fadetime>500</fadetime>
         <texture>$INFO[ListItem.Path,,movie.tbn]</texture>
-        <visible>Container(20030).HasFocus(8)</visible>
+        <visible>Container(20030).HasFocus(8) + !Control.IsVisible(50)</visible>
         <include>Animation_CommonFade</include>
       </control>
       <include>Furniture_MovieInfoMediaFlags</include>
@@ -809,6 +809,7 @@
     </control>
     <!-- castmod displays selectable cast -->
     <control type="list" id="50">
+      <visible>!Container(20030).HasFocus(9) + !Container(20030).HasFocus(8)</visible>
       <description>Cast List Container</description>
       <posx>550</posx>
       <posy>410</posy>
