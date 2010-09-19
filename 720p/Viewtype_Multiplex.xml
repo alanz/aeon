@@ -49,118 +49,11 @@
     <colordiffuse>CCFFFFFF</colordiffuse>
     <fadetime>200</fadetime>
   </include>
-  <!-- TV Normal -->
-  <include name="MultiplexIconDimensionsTVWrap">
-    <posx>4</posx>
-    <posy>0</posy>
-    <width>204</width>
-    <height>114</height>
-  </include>
-  <include name="MultiplexIconDimensionsTVWrapReflect">
-    <posx>4</posx>
-    <posy>113</posy>
-    <width>204</width>
-    <height>114</height>
-    <colordiffuse>aaFFFFFF</colordiffuse>
-  </include>
-  <!-- TV DVD -->
-  <include name="MultiplexIconDimensionsTVWrapDVDCase">
-    <posx>0</posx>
-    <posy>-4</posy>
-    <width>216</width>
-    <height>128</height>
-  </include>
-  <include name="MultiplexIconDimensionsTVWrapReflectDVDCase">
-    <posx>0</posx>
-    <posy>112</posy>
-    <width>216</width>
-    <height>128</height>
-    <colordiffuse>aaFFFFFF</colordiffuse>
-  </include>
-  <include name="MultiplexIconDimensionsTVWrapDVD">
-    <posx>9</posx>
-    <posy>4</posy>
-    <width>198</width>
-    <height>110</height>
-  </include>
-  <include name="MultiplexIconDimensionsTVWrapReflectDVD">
-    <posx>8</posx>
-    <posy>121</posy>
-    <width>200</width>
-    <height>111</height>
-    <colordiffuse>aaFFFFFF</colordiffuse>
-  </include>
-  <include name="WatchedOverlayMultiPlexTVNormal">
-    <posx>143</posx>
-    <posy>-3</posy>
-    <width>65</width>
-    <height>65</height>
-  </include>
   <include name="WatchedOverlayMultiPlexNormal">
     <posx>72</posx>
     <posy>0</posy>
     <width>40</width>
     <height>40</height>
-  </include>
-  <include name="WatchedOverlayMultiPlexTVDVD">
-    <posx>144</posx>
-    <posy>0</posy>
-    <width>65</width>
-    <height>65</height>
-  </include>
-  <include name="WatchedOverlayMultiPlexDVD">
-    <posx>72</posx>
-    <posy>7</posy>
-    <width>40</width>
-    <height>40</height>
-  </include>
-  <include name="MultiplexInfoLabel">
-    <posx>0</posx>
-    <posy>0</posy>
-    <height>13</height>
-    <font>Font_Normal17</font>
-    <textcolor>abFFFFFF</textcolor>
-  </include>
-  <include name="MultiplexInfoLabelTV">
-    <posx>0</posx>
-    <posy>0</posy>
-    <height>13</height>
-    <font>Font_Normal17</font>
-    <textcolor>abFFFFFF</textcolor>
-    <width>380</width>
-  </include>
-  <include name="MultiplexInfoValue">
-    <posx>0</posx>
-    <posy>17</posy>
-    <height>13</height>
-    <font>Font_Normal17</font>
-    <textcolor>FFFFFFFF</textcolor>
-    <scroll>true</scroll>
-  </include>
-  <include name="MultiplexInfoValueTV">
-    <posx>0</posx>
-    <posy>17</posy>
-    <height>13</height>
-    <font>Font_Normal17</font>
-    <textcolor>FFFFFFFF</textcolor>
-    <width>380</width>
-  </include>
-  <include name="MultiplexInfoLabelBigThumb">
-    <posx>235</posx>
-    <posy>0</posy>
-    <width>200</width>
-    <height>13</height>
-    <font>Font_Normal17</font>
-    <textcolor>abFFFFFF</textcolor>
-  </include>
-  <include name="MultiplexInfoValueBigThumb">
-    <posx>235</posx>
-    <posy>17</posy>
-    <width>200</width>
-    <height>13</height>
-    <font>Font_Normal17</font>
-    <textcolor>FFFFFFFF</textcolor>
-    <scroll>true</scroll>
   </include>
   <include name="MultiplexInfoPaneMovies">
     <control type="image"><!-- black overlay-->
@@ -217,12 +110,13 @@
         <texture>multiplex/multiplex_tablet_bigthumb.png</texture>
         <visible>Skin.HasSetting(fanartlayout)</visible>
       </control>
-      <include>InfoPaneContent</include>  
+      <control type="group">
+        <include>InfoPaneContent</include>
+      </control>
     </control>
     <control type="group"><!-- trailer pane -->
       <posx>0</posx>
       <posy>0</posy>
-      <animation effect="slide" end="0,30"  time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(showcaseinfolines) | Container.Content(genres)">Conditional</animation>
       <width>1280</width>
       <height>500</height>
       <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(showcaseinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
@@ -284,7 +178,7 @@
         <font>Font_Normal19</font>
         <label>312574</label>
         <visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(52) + !Control.HasFocus(197)</visible>
-        <colordiffuse>d0FFFFFF</colordiffuse>
+        <colordiffuse>whiteD0</colordiffuse>
         <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         <animation effect="fade" start="40" time="600" condition="Player.HasVideo" pulse="true">Conditional</animation>
       </control>
@@ -353,7 +247,6 @@
     <height>114</height>
     <colordiffuse>aaFFFFFF</colordiffuse>
   </include>
-  <!-- DVD Includes see Includes_CDDVDMod.xml for extra includes -->
   <include name="MultiplexNormalCovers">
     <control type="group">
       <include>Animation_MultiplexFocusZoom</include>
@@ -429,16 +322,22 @@
 	<aspectratio scalediffuse="false">scale</aspectratio>
       </control>
       <control type="image">
-	<include>WatchedOverlayMultiPlexDVD</include>
-	<include>detailcolornofocus</include>
-	<visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-	<texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
+        <posx>72</posx>
+        <posy>7</posy>
+        <width>40</width>
+        <height>40</height>
+        <include>detailcolornofocus</include>
+        <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+        <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
       </control>
       <control type="image">
-	<include>WatchedOverlayMultiPlexDVD</include>
-	<include>detailcolornofocus</include>
-	<visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
-	<texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
+        <posx>72</posx>
+        <posy>7</posy>
+        <width>40</width>
+        <height>40</height>
+        <include>detailcolornofocus</include>
+        <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+        <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
       </control>
     </control>
   </include>
@@ -446,7 +345,7 @@
     <control type="fixedlist" id="52">
       <viewtype label="31757">wrap</viewtype>
       <posx>-25</posx>
-      <posy>478</posy>
+      <posy>468</posy>
       <width>1305</width>
       <height>300</height>
       <pagecontrol>68</pagecontrol>
@@ -474,7 +373,7 @@
     <control type="wraplist" id="52">
       <viewtype label="31757">wrap</viewtype>
       <posx>-25</posx>
-      <posy>478</posy>
+      <posy>468</posy>
       <width>1305</width>
       <height>300</height>
       <pagecontrol>68</pagecontrol>

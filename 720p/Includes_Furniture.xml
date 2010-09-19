@@ -227,11 +227,10 @@
     <control type="image">
       <include>FullscreenDimensions</include>
       <texture>list/list_filter.png</texture>
-      <colordiffuse>d0FFFFFF</colordiffuse>
+      <colordiffuse>whiteD0</colordiffuse>
       <visible>Control.IsVisible(50)| Control.IsVisible(551)</visible>
     </control>
     <control type="group">
-      <animation effect="slide" end="0,25" time="400" easing="inout" tween="cubic" condition="[Control.IsVisible(57) + [!Skin.HasSetting(showcaseinfolines) | Container.Content(years) | Container.Content(genres)]">Conditional</animation>
       <animation effect="slide" end="0,-20" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(55)">Conditional</animation>
       <control type="image">
         <posx>0</posx>
@@ -372,7 +371,7 @@
         <visible>Container.Content(songs)</visible>
       </control>
       <control type="label" id="72">
-        <label>$LOCALIZE[21898]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_YearsActive)][/COLOR]</label>
+        <label>$LOCALIZE[21898]: [COLOR headline]$INFO[ListItem.Property(Artist_YearsActive)][/COLOR]</label>
         <include>FloorTextDetailLabel</include>
         <visible>Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
       </control>
@@ -396,22 +395,6 @@
         <include>FloorTextDetailLabel</include>
         <visible>Container.Content(tvshows) + !IsEmpty(ListItem.Episode)</visible>
       </control>
-      <control type="label" id="73">
-        <info>ListItem.year</info>
-        <include>FloorTextDetailLabel2</include>
-        <visible>!Control.IsVisible(7777) + [[Skin.HasSetting(showcaseinfolines) + Control.IsVisible(57)] | Control.IsVisible(53) | Control.IsVisible(55)]</visible>
-        <visible>Container.Content(albums) | Window.IsActive(musicfiles)</visible>
-      </control>
-      <control type="label" id="73">
-        <label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.year, - ,]</label>
-        <include>FloorTextDetailLabel2</include>
-        <visible>!Control.IsVisible(7777) + Container.Content(movies) + [[Skin.HasSetting(showcaseinfolines) + Control.IsVisible(57)] | Control.IsVisible(53) | Control.IsVisible(55)]</visible>
-      </control>
-      <control type="label" id="73">
-        <label>$LOCALIZE[21894]: [COLOR d0ffffff]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
-        <include>FloorTextDetailLabel2</include>
-        <visible>!Control.IsVisible(7777) + Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Formed)) + [[Skin.HasSetting(showcaseinfolines) + Control.IsVisible(57)] | Control.IsVisible(53) | Control.IsVisible(55)]</visible>
-      </control>
     </control>
   </include>
   <include name="FloorTextLabel">
@@ -428,7 +411,7 @@
     <posx>315</posx>
     <posy>695</posy>
     <width>650</width>
-    <font>Font_Home38</font>
+    <font>Font_Home42</font>
     <visible>!Control.IsVisible(7777)</visible>
   </include>
   <include name="FloorTextMainLabelWide">
@@ -436,23 +419,16 @@
     <posx>200</posx>
     <posy>693</posy>
     <width>880</width>
-    <font>Font_Home38</font>
+    <font>Font_Home42</font>
     <visible>!Control.IsVisible(7777)</visible>
   </include>
   <include name="FloorTextDetailLabel">
     <include>FloorTextLabel</include>
     <posx>340</posx>
-    <posy>670</posy>
+    <posy>668</posy>
     <width>600</width>
-    <font>Font_Normal15</font>
-    <visible>!Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfolines) | !Control.IsVisible(57)]</visible>
-  </include>
-  <include name="FloorTextDetailLabel2">
-    <include>FloorTextLabel</include>
-    <posx>340</posx>
-    <posy>655</posy>
-    <width>600</width>
-    <font>Font_Normal15</font>
+    <font>Font_Normal17</font>
+    <visible>!Control.IsVisible(7777)</visible>
   </include>
   <include name="Furniture_NowPlayingWidget">
     <control type="group">
@@ -497,7 +473,7 @@
         <font>Font_Normal15</font>
         <textcolor>a8FFFFFF</textcolor>
         <scroll>true</scroll>
-        <label>[COLOR FFFFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
+        <label>[COLOR white]$INFO[MusicPlayer.Title][/COLOR]</label>
       </control>
       <control type="label">
         <posx>92</posx>
@@ -507,7 +483,7 @@
         <font>Font_Normal15</font>
         <textcolor>a8FFFFFF</textcolor>
         <scroll>true</scroll>
-        <label>[COLOR FFFFFFFF]$INFO[Videoplayer.TVShowTitle][/COLOR]</label>
+        <label>[COLOR white]$INFO[Videoplayer.TVShowTitle][/COLOR]</label>
       </control>
       <control type="label">
         <posx>88</posx>
@@ -517,7 +493,7 @@
         <font>Font_Normal15</font>
         <textcolor>a8FFFFFF</textcolor>
         <scroll>true</scroll>
-        <label>[COLOR FFFFFFFF]$INFO[Videoplayer.Title][/COLOR]</label>
+        <label>[COLOR white]$INFO[Videoplayer.Title][/COLOR]</label>
         <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
         <visible>VideoPlayer.Content(movies)</visible>
       </control>
@@ -529,7 +505,7 @@
         <font>Font_Normal15</font>
         <textcolor>a8FFFFFF</textcolor>
         <scroll>true</scroll>
-        <label>[COLOR FFFFFFFF]$INFO[Videoplayer.Title][/COLOR]</label>
+        <label>[COLOR white]$INFO[Videoplayer.Title][/COLOR]</label>
         <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
         <visible>!VideoPlayer.Content(movies)</visible>
       </control>
@@ -744,7 +720,7 @@
         <posy>0</posy>
         <height>159</height>
         <width>1280</width>
-        <colordiffuse>ffffffff</colordiffuse>
+        <colordiffuse>white</colordiffuse>
         <texture>osd/osd_back.png</texture>
       </control>
       <control type="multiimage">
@@ -848,8 +824,8 @@
         <width>760</width>
 	<height>25</height>
         <font>Font_Home19</font>
-        <colordiffuse>d0FFFFFF</colordiffuse>
-	<align>left</align>
+        <textcolor>whiteD0</textcolor>
+        <align>left</align>
         <label>$INFO[VideoPlayer.Time]</label>
       </control>
       <control type="label">
@@ -859,8 +835,8 @@
         <height>25</height>
         <font>Font_Home19</font>
         <align>left</align>
-        <textcolor>60FFFFFF</textcolor>
-        <label>$LOCALIZE[31720]: [COLOR d0ffffff]$INFO[System.Time][/COLOR]</label>
+        <textcolor>default</textcolor>
+        <label>$LOCALIZE[31720]: [COLOR headline]$INFO[System.Time][/COLOR]</label>
       </control>
       <control type="label">
         <posx>1020</posx>
@@ -870,6 +846,7 @@
         <font>Font_Home19</font>
         <align>right</align>
         <label>$INFO[VideoPlayer.Duration]</label>
+        <textcolor>whiteD0</textcolor>
       </control>
       <control type="label">
         <posx>1020</posx>
@@ -877,9 +854,9 @@
         <width>760</width>
         <height>25</height>
         <font>Font_Home19</font>
-        <textcolor>60FFFFFF</textcolor>
+        <textcolor>default</textcolor>
         <align>right</align>
-        <label>$LOCALIZE[31710]: [COLOR d0ffffff]$INFO[Player.FinishTime][/COLOR]</label>
+        <label>$LOCALIZE[31710]: [COLOR headline]$INFO[Player.FinishTime][/COLOR]</label>
       </control>
 
       <control type="label">
@@ -890,6 +867,7 @@
         <align>center</align>
         <aligny>center</aligny>
         <font>Font_Home38</font>
+        <textcolor>whiteD0</textcolor>
         <label>$INFO[VideoPlayer.Title]</label>
         <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
         <scroll>true</scroll>
@@ -933,6 +911,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_OSDGenre</font>
+          <textcolor>whiteD0</textcolor>
           <label>$INFO[VideoPlayer.Genre]</label>
         </control>
         <control type="fadelabel">
@@ -1048,6 +1027,7 @@
             <align>center</align>
             <aligny>center</aligny>
             <font>Font_Home38</font>
+            <textcolor>whiteD0</textcolor>
             <label>$INFO[VideoPlayer.Year]</label>
           </control>
         </control>
@@ -1130,59 +1110,214 @@
     </control>
   </include>
   <include name="InfoPaneContent">
-    <control type="multiimage">
-      <include>BackgroundEffectCommon</include>
-      <posx>88</posx>
-      <width>1105</width>
-      <height>460</height>
-    </control>
-      <control type="group">
-        <!--poster und plot und fanart -->
+      <control type="multiimage">
+        <include>BackgroundEffectCommon</include>
+        <posx>88</posx>
+        <width>1105</width>
+        <height>460</height>
+      </control>
+      <control type="group"><!--plotlayout -->
+        <visible>Skin.HasSetting(plotlayout)</visible>
+        <control type="group">
+          <posx>105</posx>
+          <posy>20</posy>
+          <control type="group">
+            <posy>22</posy>
+            <control type="label">
+              <include>InfoPaneInfoLabel</include>
+              <label>$LOCALIZE[31402]:</label>
+            </control>
+            <control type="label">
+              <include>InfoPaneInfoValue</include>
+              <label fallback="161">$INFO[ListItem.Director]</label>
+              <width>280</width>
+            </control>
+          </control>
+          <control type="group">
+            <posy>67</posy>
+            <control type="label">
+              <include>InfoPaneInfoLabel</include>
+              <label>$LOCALIZE[31401]:</label>
+            </control>
+            <control type="label">
+              <include>InfoPaneInfoValue</include>
+              <label fallback="161">$INFO[ListItem.Writer]</label>
+              <width>290</width>
+            </control>
+          </control>
+          <control type="group">
+            <posy>112</posy>
+            <control type="label">
+              <include>InfoPaneInfoLabel</include>
+              <label>$LOCALIZE[345]:</label>
+            </control>
+            <control type="label">
+              <posx>0</posx>
+              <posy>17</posy>
+              <height>13</height>
+              <font>Font_Normal17</font>
+              <textcolor>white</textcolor>
+              <label fallback="161">$INFO[ListItem.Year]</label>
+            </control>
+          </control>
+          <control type="group">
+            <posy>157</posy>
+            <control type="label">
+              <include>InfoPaneInfoLabel</include>
+              <width>285</width>
+              <label>$LOCALIZE[31709]:</label>
+            </control>
+            <control type="label">
+              <include>InfoPaneInfoValue</include>
+              <width>285</width>
+              <label fallback="161">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+            </control>
+          </control>
+          <control type="group">
+            <posy>202</posy>
+            <control type="label">
+              <include>InfoPaneInfoLabel</include>
+              <label>$LOCALIZE[135]:</label>
+            </control>
+            <control type="label">
+              <include>InfoPaneInfoValue</include>
+              <width>290</width>
+              <label fallback="161">$INFO[ListItem.Genre]</label>
+            </control>
+          </control>
+          <control type="group">
+            <posy>247</posy>
+            <control type="label">
+              <include>InfoPaneInfoLabel</include>
+              <label>$LOCALIZE[31417]:</label>
+            </control>
+            <control type="label">
+              <include>InfoPaneInfoValue</include>
+              <width>290</width>
+              <label fallback="161">$INFO[ListItem.MPAA]</label>
+            </control>
+          </control>
+          <control type="group">
+            <posy>292</posy>
+            <control type="label">
+              <include>InfoPaneInfoLabel</include>
+              <label>$LOCALIZE[368]:</label>
+            </control>
+            <control type="label">
+              <include>InfoPaneInfoValue</include>
+              <width>290</width>
+              <label fallback="161">$INFO[ListItem.RatingAndVotes]</label>
+            </control>
+          </control>
+          <control type="textbox">
+            <posx>311</posx>
+            <posy>24</posy>
+            <width>455</width>
+            <height>312</height>
+            <font>Font_Normal19</font>
+            <info>Control.GetLabel(900004)</info>
+            <textcolor>whiteD0</textcolor>
+            <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+          </control>
+        </control>
+        <control type="group">
+          <posx>920</posx>
+          <posy>45</posy>
+          <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>243</width>
+            <height>150</height>
+            <texture>common/black.png</texture>
+            <colordiffuse>94FFFFFF</colordiffuse>
+          </control>
+          <control type="largeimage">
+            <posx>1</posx>
+            <posy>1</posy>
+            <width>243</width>
+            <height>150</height>
+            <aspectratio>scale</aspectratio>
+            <fadetime>400</fadetime>
+            <texture fallback="DefaultVideo.png">$INFO[ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
+          </control>
+          <control type="image">
+            <posx>0</posx>
+            <posy>155</posy>
+            <width>243</width>
+            <height>150</height>
+            <texture>common/black.png</texture>
+            <colordiffuse>94FFFFFF</colordiffuse>
+          </control>
+          <control type="largeimage">
+            <posx>1</posx>
+            <posy>156</posy>
+            <width>243</width>
+            <height>150</height>
+            <aspectratio>scale</aspectratio>
+            <fadetime>400</fadetime>
+            <texture fallback="DefaultVideo.png">$INFO[ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+          </control>
+        </control>
+      </control>
+      <control type="group"><!--fanartlayout-->
+        <!-- fanart -->
         <posx>105</posx>
         <posy>20</posy>
-        <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(fanartlayout) | Skin.HasSetting(posterlayout)</visible>
+        <visible>Skin.HasSetting(fanartlayout)</visible>
         <control type="group">
           <posy>22</posy>
           <control type="label">
-            <include>ShowcaseInfoLabel</include>
+            <include>InfoPaneInfoLabel</include>
             <label>$LOCALIZE[31402]:</label>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
+            <include>InfoPaneInfoValue</include>
             <label fallback="161">$INFO[ListItem.Director]</label>
-            <width>280</width>
-            <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
+            <width>215</width>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Director]</label>
-            <visible>Skin.HasSetting(fanartlayout)</visible>
-            <width>215</width>
+            <posx>235</posx>
+            <posy>0</posy>
+            <width>200</width>
+            <height>13</height>
+            <font>Font_Normal17</font>
+            <textcolor>whiteA0</textcolor>
+            <label>$LOCALIZE[31709]:</label>
+          </control>
+          <control type="label">
+            <include>InfoPaneInfoValueBigThumb</include>
+            <label fallback="161">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
           </control>
         </control>
         <control type="group">
           <posy>67</posy>
           <control type="label">
-            <include>ShowcaseInfoLabel</include>
+            <include>InfoPaneInfoLabel</include>
             <label>$LOCALIZE[31401]:</label>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
+            <include>InfoPaneInfoValue</include>
             <label fallback="161">$INFO[ListItem.Writer]</label>
-            <width>290</width>
-            <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
+            <width>215</width>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
-            <label fallback="161">$INFO[ListItem.Writer]</label>
-            <visible>Skin.HasSetting(fanartlayout)</visible>
-            <width>215</width>
+            <posx>235</posx>
+            <posy>0</posy>
+            <width>200</width>
+            <height>13</height>
+            <font>Font_Normal17</font>
+            <textcolor>whiteA0</textcolor>
+            <label>$LOCALIZE[31417]:</label>
+          </control>
+          <control type="label">
+            <include>InfoPaneInfoValueBigThumb</include>
+            <label fallback="161">$INFO[ListItem.MPAA]</label>
           </control>
         </control>
         <control type="group">
           <posy>112</posy>
           <control type="label">
-            <include>ShowcaseInfoLabel</include>
+            <include>InfoPaneInfoLabel</include>
             <label>$LOCALIZE[345]:</label>
           </control>
           <control type="label">
@@ -1190,338 +1325,207 @@
             <posy>17</posy>
             <height>13</height>
             <font>Font_Normal17</font>
-            <textcolor>FFFFFFFF</textcolor>
+            <textcolor>white</textcolor>
+            <label fallback="161">$INFO[ListItem.Year]</label>
+          </control>
+          <control type="label">
+            <posx>235</posx>
+            <posy>0</posy>
+            <width>200</width>
+            <height>13</height>
+            <font>Font_Normal17</font>
+            <textcolor>whiteA0</textcolor>
+            <label>$LOCALIZE[368]:</label>
+          </control>
+          <control type="label">
+            <include>InfoPaneInfoValueBigThumb</include>
+            <label fallback="161">$INFO[ListItem.RatingAndVotes]</label>
+          </control>
+        </control>
+        <control type="group">
+          <!--fanart-->
+          <posx>505</posx>
+          <posy>30</posy>
+          <!-- Begin Plot / PlotOutline fallback -->
+          <control type="textbox">
+            <posx>-505</posx>
+            <posy>148</posy>
+            <width>435</width>
+            <height>149</height>
+            <font>Font_Normal16</font>
+            <info>Control.GetLabel(900004)</info>
+            <textcolor>whiteD0</textcolor>
+            <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+          </control>
+          <!-- End of PlotOutline fallback -->
+
+          <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>524</width>
+            <height>295</height>
+            <texture>common/black.png</texture>
+            <colordiffuse>94FFFFFF</colordiffuse>
+          </control>
+          <control type="largeimage">
+            <posx>1</posx>
+            <posy>1</posy>
+            <width>522</width>
+            <height>293</height>
+            <aspectratio>scale</aspectratio>
+            <fadetime>400</fadetime>
+            <texture>$INFO[ListItem.property(fanart_image)]</texture>
+          </control>
+          <control type="multiimage">
+            <posx>1</posx>
+            <posy>1</posy>
+            <width>522</width>
+            <height>293</height>
+            <aspectratio>scale</aspectratio>
+            <fadetime>400</fadetime>
+            <timeperimage>4000</timeperimage>
+            <imagepath background="true">$INFO[ListItem.Path,,extrathumbs]</imagepath>
+            <visible>Skin.HasSetting(trailerthumbs)</visible>
+            <randomize>true</randomize>
+          </control>
+        </control>
+      </control>
+      <control type="group"><!--posterlayout-->
+        <posx>105</posx>
+        <posy>20</posy>
+        <visible>Skin.HasSetting(posterlayout)</visible>
+        <control type="group">
+          <posy>22</posy>
+          <control type="label">
+            <include>InfoPaneInfoLabel</include>
+            <label>$LOCALIZE[31402]:</label>
+          </control>
+          <control type="label">
+            <include>InfoPaneInfoValue</include>
+            <label fallback="161">$INFO[ListItem.Director]</label>
+            <width>280</width>
+          </control>
+        </control>
+        <control type="group">
+          <posy>67</posy>
+          <control type="label">
+            <include>InfoPaneInfoLabel</include>
+            <label>$LOCALIZE[31401]:</label>
+          </control>
+          <control type="label">
+            <include>InfoPaneInfoValue</include>
+            <label fallback="161">$INFO[ListItem.Writer]</label>
+            <width>290</width>
+          </control>
+        </control>
+        <control type="group">
+          <posy>112</posy>
+          <control type="label">
+            <include>InfoPaneInfoLabel</include>
+            <label>$LOCALIZE[345]:</label>
+          </control>
+          <control type="label">
+            <posx>0</posx>
+            <posy>17</posy>
+            <height>13</height>
+            <font>Font_Normal17</font>
+            <textcolor>white</textcolor>
             <label fallback="161">$INFO[ListItem.Year]</label>
           </control>
         </control>
         <control type="group">
           <posy>157</posy>
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
           <control type="label">
-            <include>ShowcaseInfoLabel</include>
+            <include>InfoPaneInfoLabel</include>
             <width>285</width>
             <label>$LOCALIZE[31709]:</label>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
+            <include>InfoPaneInfoValue</include>
             <width>285</width>
             <label fallback="161">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
           </control>
         </control>
         <control type="group">
           <posy>202</posy>
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
           <control type="label">
-            <include>ShowcaseInfoLabel</include>
+            <include>InfoPaneInfoLabel</include>
             <label>$LOCALIZE[135]:</label>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
+            <include>InfoPaneInfoValue</include>
             <width>290</width>
             <label fallback="161">$INFO[ListItem.Genre]</label>
           </control>
         </control>
         <control type="group">
           <posy>247</posy>
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
           <control type="label">
-            <include>ShowcaseInfoLabel</include>
+            <include>InfoPaneInfoLabel</include>
             <label>$LOCALIZE[31417]:</label>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
+            <include>InfoPaneInfoValue</include>
             <width>290</width>
             <label fallback="161">$INFO[ListItem.MPAA]</label>
           </control>
         </control>
         <control type="group">
           <posy>292</posy>
-          <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
           <control type="label">
-            <include>ShowcaseInfoLabel</include>
+            <include>InfoPaneInfoLabel</include>
             <label>$LOCALIZE[368]:</label>
           </control>
           <control type="label">
-            <include>ShowcaseInfoValue</include>
+            <include>InfoPaneInfoValue</include>
             <width>290</width>
             <label fallback="161">$INFO[ListItem.RatingAndVotes]</label>
           </control>
         </control>
-        <control type="group">
-          <posy>22</posy>
-          <visible>Skin.HasSetting(fanartlayout)</visible>
-          <control type="label">
-            <posx>235</posx>
-            <posy>0</posy>
-            <width>200</width>
-            <height>13</height>
-            <font>Font_Normal17</font>
-            <textcolor>abFFFFFF</textcolor>
-            <label>$LOCALIZE[31709]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValueBigThumb</include>
-            <label fallback="161">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>67</posy>
-          <visible>Skin.HasSetting(fanartlayout)</visible>
-          <control type="label">
-            <posx>235</posx>
-            <posy>0</posy>
-            <width>200</width>
-            <height>13</height>
-            <font>Font_Normal17</font>
-            <textcolor>abFFFFFF</textcolor>
-            <label>$LOCALIZE[31417]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValueBigThumb</include>
-            <label fallback="161">$INFO[ListItem.MPAA]</label>
-          </control>
-        </control>
-        <control type="group">
-          <posy>112</posy>
-          <visible>Skin.HasSetting(fanartlayout)</visible>
-          <control type="label">
-            <posx>235</posx>
-            <posy>0</posy>
-            <width>200</width>
-            <height>13</height>
-            <font>Font_Normal17</font>
-            <textcolor>abFFFFFF</textcolor>
-            <label>$LOCALIZE[368]:</label>
-          </control>
-          <control type="label">
-            <include>ShowcaseInfoValueBigThumb</include>
-            <label fallback="161">$INFO[ListItem.RatingAndVotes]</label>
-          </control>
-        </control>
-      </control>
-      <control type="group">
-        <!--poster und plot -->
-	<visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout)</visible>
         <control type="textbox">
-          <posx>416</posx>
-          <posy>44</posy>
+          <posx>311</posx>
+          <posy>24</posy>
           <width>455</width>
           <height>312</height>
           <font>Font_Normal19</font>
           <info>Control.GetLabel(900004)</info>
-          <textcolor>d0FFFFFF</textcolor>
+          <textcolor>whiteD0</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
-      </control>
-      <control type="group">
-        <!--plot-->
-        <posx>920</posx>
-        <posy>45</posy>
-        <visible>Skin.HasSetting(plotlayout)</visible>
-        <control type="image">
-          <posx>0</posx>
-          <posy>0</posy>
-          <width>243</width>
-          <height>150</height>
-          <texture>common/black.png</texture>
-          <colordiffuse>94FFFFFF</colordiffuse>
-          <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
-        </control>
-        <control type="largeimage">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>243</width>
-          <height>150</height>
-          <aspectratio>scale</aspectratio>
-          <fadetime>400</fadetime>
-          <texture fallback="DefaultVideo.png">$INFO[ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
-        </control>
-        <control type="image">
-          <posx>0</posx>
-          <posy>155</posy>
-          <width>243</width>
-          <height>150</height>
-          <texture>common/black.png</texture>
-          <colordiffuse>94FFFFFF</colordiffuse>
-          <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
-        </control>
-        <control type="largeimage">
-          <posx>1</posx>
-          <posy>156</posy>
-          <width>243</width>
-          <height>150</height>
-          <aspectratio>scale</aspectratio>
-          <fadetime>400</fadetime>
-          <texture fallback="DefaultVideo.png">$INFO[ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+        <control type="group">
+          <!--poster-->
+          <posx>829</posx>
+          <posy>30</posy>
+          <control type="image">
+            <width>200</width>
+            <height>300</height>
+            <fadetime>200</fadetime>
+            <texture background="true" diffuse="multiplex/multiplex_mask.png">DefaultVideo.png</texture>
+            <aspectratio scalediffuse="false">scretch</aspectratio>
+            <info>ListItem.Icon</info>
+          </control>
+          <control type="image">
+            <posx>-12</posx>
+            <posy>-12</posy>
+            <width>224</width>
+            <height>324</height>
+            <fadetime>200</fadetime>
+            <bordertexture>multiplex/multiplex_border.png</bordertexture>
+            <texture>common/blank.png</texture>
+          </control>
+          <control type="image">
+            <posx>2</posx>
+            <posy>-2</posy>
+            <width>200</width>
+            <height>300</height>
+            <fadetime>200</fadetime>
+            <texture>multiplex/multiplex_glass.png</texture>
+            <aspectratio scalediffuse="false">stretch</aspectratio>
+            <colordiffuse>66FFFFFF</colordiffuse>
+          </control>
         </control>
       </control>
-      <control type="group">
-        <!--poster-->
-        <posx>934</posx>
-        <posy>50</posy>
-        <visible>Skin.HasSetting(posterlayout)</visible>
-        <control type="image">
-          <width>200</width>
-          <height>300</height>
-          <fadetime>200</fadetime>
-          <texture background="true" diffuse="multiplex/multiplex_mask.png">DefaultVideo.png</texture>
-          <aspectratio scalediffuse="false">scretch</aspectratio>
-          <info>ListItem.Icon</info>
-        </control>
-        <control type="image">
-          <posx>-12</posx>
-          <posy>-12</posy>
-          <width>224</width>
-          <height>324</height>
-          <fadetime>200</fadetime>
-          <bordertexture>multiplex/multiplex_border.png</bordertexture>
-          <texture>common/blank.png</texture>
-        </control>
-        <control type="image">
-          <posx>2</posx>
-          <posy>-2</posy>
-          <width>200</width>
-          <height>300</height>
-          <fadetime>200</fadetime>
-          <texture>multiplex/multiplex_glass.png</texture>
-          <aspectratio scalediffuse="false">stretch</aspectratio>
-          <colordiffuse>66FFFFFF</colordiffuse>
-        </control>
-      </control>
-      <control type="group">
-        <!--fanart-->
-        <posx>610</posx>
-        <posy>50</posy>
-        <visible>Skin.HasSetting(fanartlayout)</visible>
-        <!-- Begin Plot / PlotOutline fallback -->
-        <control type="textbox">
-          <posx>-505</posx>
-          <posy>148</posy>
-          <width>435</width>
-          <height>149</height>
-          <font>Font_Normal16</font>
-	  <info>Control.GetLabel(900004)</info>
-          <textcolor>d0FFFFFF</textcolor>
-          <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
-        </control>
-        <!-- End of PlotOutline fallback -->
-
-        <control type="image">
-          <posx>0</posx>
-          <posy>0</posy>
-          <width>524</width>
-          <height>295</height>
-          <texture>common/black.png</texture>
-          <colordiffuse>94FFFFFF</colordiffuse>
-          <animation effect="fade" start="50" end="50" time="0" condition="!Skin.HasSetting(darkfloor)">Conditional</animation>
-        </control>
-        <control type="largeimage">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>522</width>
-          <height>293</height>
-          <aspectratio>scale</aspectratio>
-          <fadetime>400</fadetime>
-          <texture>$INFO[ListItem.property(fanart_image)]</texture>
-        </control>
-        <control type="multiimage">
-          <posx>1</posx>
-          <posy>1</posy>
-          <width>522</width>
-          <height>293</height>
-          <aspectratio>scale</aspectratio>
-          <fadetime>400</fadetime>
-          <timeperimage>4000</timeperimage>
-          <imagepath background="true">$INFO[ListItem.Path,,extrathumbs]</imagepath>
-          <visible>Skin.HasSetting(trailerthumbs)</visible>
-          <randomize>true</randomize>
-        </control>
-      </control>
-      <control type="group">
-        <!--trailer label-->
-        <posx>495</posx>
-        <posy>325</posy>
-	<posx>140</posx>
-	<posy>282</posy>
-	<!-- Flat Showcase => Trailer at top -->
-	<animation effect="slide" start="0,0" end="0,-275" time="400" easing="inout" tween="cubic" condition="
-	  [Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies)] + ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-	<!-- posterlayout, plotlayout, extrathumbslayout => Trailer on the right -->
-	<animation effect="slide" start="0,0" end="230,0" time="400" easing="inout" tween="cubic" condition="
-	  ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-	<!-- flattenshowcase Focus => slide up -->
-	<animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[
-	  [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies)] + Skin.HasSetting(videomovies)] |
-	  [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcasetvshows)] + Container.Content(tvshows)] |
-	  [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcaseseasons)] + Container.Content(seasons)] |
-	  Container.Content(episodes) |
-	  [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]
-	] + Control.HasFocus(57) + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-	<!-- flattenshowcase + showcasefanart => slide down -->
-        <animation effect="slide" start="0,0" end="0,75" time="300" easing="inout" tween="cubic" condition="
-	  Skin.HasSetting(showcasefanart) + Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies) +
-	  [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-	<control type="image">
-	  <posx>0</posx>
-	  <posy>0</posy>
-          <align>center</align>
-          <aligny>center</aligny>
-          <width>290</width>
-          <height>32</height>
-          <texture>multiplex/multiplex_trailer_label.png</texture>
-          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
-          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-        </control>
-        <control type="label">
-	  <posx>0</posx>
-	  <posy>0</posy>
-          <align>center</align>
-          <aligny>center</aligny>
-	  <scroll>true</scroll>
-          <width>290</width>
-          <height>32</height>
-          <font>Font_Normal16</font>
-	  <label>312573</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(70197) + !Control.HasFocus(70110) + [Control.IsVisible(109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-        </control>
-        <control type="label">
-	  <posx>0</posx>
-	  <posy>0</posy>
-          <align>center</align>
-          <aligny>center</aligny>
-	  <scroll>true</scroll>
-          <width>290</width>
-          <height>32</height>
-          <font>Font_Normal16</font>
-          <label>312575</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.HasFocus(70110)</visible>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-          <animation effect="fade" start="40" time="600" condition="Control.HasFocus(70110)" pulse="true">Conditional</animation>
-        </control>
-        <control type="label">
-	  <posx>0</posx>
-	  <posy>0</posy>
-          <align>center</align>
-          <aligny>center</aligny>
-	  <scroll>true</scroll>
-          <width>300</width>
-          <height>32</height>
-          <font>Font_Normal16</font>
-          <label>312574</label>
-          <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-        </control>
-      </control>
-      <control type="group">
+      <control type="group"><!--extrathumbslayout-->
         <!--
              Screen space is limited, I know this is not pretty but anyway, I don't want to put too much view related code
              in Object_ExtraThumbsInformations so that's fine for now
@@ -1545,6 +1549,132 @@
           <include>Object_ExtraThumbsLeft</include>
         </control>
       </control>
+      <control type="group"><!--trailer label showcase-->
+        <posx>495</posx>
+        <posy>325</posy>
+        <visible>Control.IsVisible(57)</visible>
+        <!-- Flat Showcase => Trailer at top -->
+        <animation effect="slide" start="0,0" end="0,-275" time="400" easing="inout" tween="cubic" condition="
+          [Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies)] + ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
+
+        <!-- posterlayout, plotlayout, extrathumbslayout => Trailer on the right -->
+        <animation effect="slide" start="0,0" end="230,0" time="400" easing="inout" tween="cubic" condition="
+          ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
+
+        <!-- flattenshowcase Focus => slide up -->
+        <animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[
+          [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies)] + Skin.HasSetting(videomovies)] |
+          [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcasetvshows)] + Container.Content(tvshows)] |
+          [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcaseseasons)] + Container.Content(seasons)] |
+          Container.Content(episodes) |
+          [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]
+        ] + Control.HasFocus(57) + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
+
+        <!-- flattenshowcase + showcasefanart => slide down -->
+              <animation effect="slide" start="0,0" end="0,75" time="300" easing="inout" tween="cubic" condition="
+          Skin.HasSetting(showcasefanart) + Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies) +
+          [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
+
+        <control type="image">
+          <posx>0</posx>
+          <posy>0</posy>
+          <align>center</align>
+          <aligny>center</aligny>
+          <width>290</width>
+          <height>32</height>
+          <texture>multiplex/multiplex_trailer_label.png</texture>
+          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
+          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+        </control>
+        <control type="label">
+          <posx>0</posx>
+          <posy>0</posy>
+          <align>center</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <width>290</width>
+          <height>32</height>
+          <font>Font_Normal16</font>
+          <label>312573</label>
+          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(70197) + !Control.HasFocus(70110) + [Control.IsVisible(109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
+          <textcolor>whiteD0</textcolor>
+          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+        </control>
+        <control type="label">
+          <posx>0</posx>
+          <posy>0</posy>
+          <align>center</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <width>290</width>
+          <height>32</height>
+          <font>Font_Normal16</font>
+          <label>312575</label>
+          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.HasFocus(70110)</visible>
+          <textcolor>whiteD0</textcolor>
+          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+          <animation effect="fade" start="40" time="600" condition="Control.HasFocus(70110)" pulse="true">Conditional</animation>
+        </control>
+        <control type="label">
+          <posx>0</posx>
+          <posy>0</posy>
+          <align>center</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <width>300</width>
+          <height>32</height>
+          <font>Font_Normal16</font>
+          <label>312574</label>
+          <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+          <textcolor>whiteD0</textcolor>
+          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+        </control>
+      </control>
+      <control type="group"><!--trailer label multiplex-->
+-      <control type="group">
+          <posx>575</posx>
+          <posy>50</posy>
+          <visible>Control.IsVisible(52)</visible>
+          <animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)">Conditional</animation>
+          <control type="image">
+            <posx>177</posx>
+            <posy>316</posy>
+            <align>center</align>
+            <width>240</width>
+            <height>32</height>
+            <texture>multiplex/multiplex_trailer_label.png</texture>
+            <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
+            <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
+          </control>
+          <control type="label">
+            <!--press ok to play trailer -->
+            <posx>177</posx>
+            <posy>320</posy>
+            <align>center</align>
+            <width>240</width>
+            <height>32</height>
+            <font>Font_MultiplexPlot</font>
+            <label>312575</label>
+            <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.HasFocus(111)</visible>
+            <colordiffuse>d0FFFFFF</colordiffuse>
+            <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+            <animation effect="fade" start="40" time="600" condition="Control.HasFocus(111)" pulse="true">Conditional</animation>
+          </control>
+          <control type="label">
+            <posx>177</posx>
+            <posy>320</posy>
+            <align>center</align>
+            <width>240</width>
+            <height>32</height>
+            <font>Font_MultiplexPlot</font>
+            <label>312573</label>
+            <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(197) + !Control.HasFocus(111) + [Control.IsVisible(109) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
+            <colordiffuse>d0FFFFFF</colordiffuse>
+            <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+          </control>
+        </control>
+      </control>
   </include>
   <include name="InfoPaneContentTV">
     <control type="multiimage">
@@ -1561,11 +1691,11 @@
       <control type="group">
         <posy>8</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[31402]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Director]</label>
         </control>
@@ -1573,11 +1703,11 @@
       <control type="group">
         <posy>54</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[31401]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Writer]</label>
         </control>
@@ -1585,11 +1715,11 @@
       <control type="group">
         <posy>100</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[20416]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Date]</label>
         </control>
@@ -1603,11 +1733,11 @@
       <control type="group">
         <posy>8</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[135]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Genre]</label>
         </control>
@@ -1615,11 +1745,11 @@
       <control type="group">
         <posy>54</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[20360]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Episode]  ($LOCALIZE[16101]: $INFO[ListItem.Property(UnwatchedEpisodes)])</label>
         </control>
@@ -1627,11 +1757,11 @@
       <control type="group">
         <posy>100</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[20416]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Date]</label>
         </control>
@@ -1645,11 +1775,11 @@
       <control type="group">
         <posy>8</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[31403]</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Episode]</label>
         </control>
@@ -1657,11 +1787,11 @@
       <control type="group">
         <posy>54</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[16102]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Property(WatchedEpisodes)]</label>
         </control>
@@ -1669,11 +1799,11 @@
       <control type="group">
         <posy>100</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[16101]:</label>
         </control>
         <control type="label">
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <width>370</width>
           <label fallback="161">$INFO[ListItem.Property(UnwatchedEpisodes)]</label>
         </control>
@@ -1686,7 +1816,7 @@
       <height>187</height>
       <font>Font_Normal16</font>
       <info>Control.GetLabel(900004)</info>
-      <textcolor>d0FFFFFF</textcolor>
+      <textcolor>whiteD0</textcolor>
       <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
       <visible>[Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)] + Control.IsVisible(57)</visible>
     </control>
@@ -1697,7 +1827,7 @@
       <height>207</height>
       <font>Font_Normal16</font>
       <info>Control.GetLabel(900004)</info>
-      <textcolor>d0FFFFFF</textcolor>
+      <textcolor>whiteD0</textcolor>
       <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
       <visible>[Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)] + Control.IsVisible(52)</visible>
     </control>
@@ -1713,7 +1843,7 @@
         <fadetime>400</fadetime>
         <aspectratio>scale</aspectratio>
         <texture background="true">$INFO[Fanart.Image]</texture>
-        <visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
+        <visible>!Skin.HasSetting(infopane_extrathumb) | !Container.Content(episodes)</visible>
         <include>Animation_VisibleChange200</include>
       </control>
       <control type="largeimage">
@@ -1724,18 +1854,18 @@
         <fadetime>400</fadetime>
         <aspectratio>scale</aspectratio>
         <texture>$INFO[ListItem.property(fanart_image)]</texture>
-        <visible>!Skin.HasSetting(showcasetvbigthumb) | !Container.Content(episodes)</visible>
+        <visible>!Skin.HasSetting(infopane_extrathumb) | !Container.Content(episodes)</visible>
         <include>Animation_VisibleChange200</include>
       </control>
-      <control type="image">
+      <control type="largeimage">
         <posx>1</posx>
         <posy>1</posy>
         <width>668</width>
         <height>316</height>
         <fadetime>400</fadetime>
         <aspectratio>scale</aspectratio>
-        <texture>$INFO[ListItem.thumb]</texture>
-        <visible>Skin.HasSetting(showcasetvbigthumb) + Container.Content(episodes)</visible>
+        <texture background="true">$INFO[ListItem.thumb]</texture>
+        <visible>Skin.HasSetting(infopane_extrathumb) + Container.Content(episodes)</visible>
         <include>Animation_VisibleChange200</include>
       </control>
     </control>
@@ -1757,7 +1887,7 @@
       <fadetime>300</fadetime>
       <aspectratio scalediffuse="false">stretch</aspectratio>
     </control>
-  </include>
+  </include>  
   <include name="InfoPaneContentMusic">
     <control type="multiimage">
       <posx>88</posx>
@@ -1773,12 +1903,12 @@
       <control type="group">
         <posy>8</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>Years Active:</label>
         </control>
         <control type="label">
           <width>370</width>
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <label fallback="161">$INFO[ListItem.Property(Artist_YearsActive)]</label>
         </control>
       </control>
@@ -1786,24 +1916,24 @@
       <control type="group">
         <posy>58</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[21894]:</label><!-- Formed -->
           <visible>!IsEmpty(ListItem.Property(artist_formed))</visible>
         </control>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[21893]:</label><!-- Born -->
           <visible>IsEmpty(ListItem.Property(artist_formed))</visible>
         </control>
         <control type="label">
           <width>370</width>
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <label fallback="161">$INFO[ListItem.Property(artist_formed)]</label>
           <visible>!IsEmpty(ListItem.Property(artist_formed))</visible>
         </control>
         <control type="label">
           <width>370</width>
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <label fallback="161">$INFO[ListItem.Property(artist_born)]</label>
           <visible>IsEmpty(ListItem.Property(artist_formed))</visible>
         </control>
@@ -1812,12 +1942,12 @@
       <control type="group">
         <posy>100</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[176]:</label>
         </control>
         <control type="label">
           <width>370</width>
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <label fallback="161">$INFO[ListItem.Property(Artist_Style)]</label>
         </control>
       </control>
@@ -1830,36 +1960,36 @@
       <control type="group">
         <posy>8</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[135]:</label>
         </control>
         <control type="label">
           <width>370</width>
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <label fallback="161">$INFO[ListItem.Genre]</label>
         </control>
       </control>
       <control type="group">
         <posy>58</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[176]:</label>
         </control>
         <control type="label">
           <width>370</width>
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <label fallback="161">$INFO[ListItem.Property(Album_Style)]</label>
         </control>
       </control>
       <control type="group">
         <posy>100</posy>
         <control type="label">
-          <include>ShowcaseInfoLabel</include>
+          <include>InfoPaneInfoLabel</include>
           <label>$LOCALIZE[175]:</label>
         </control>
         <control type="label">
           <width>370</width>
-          <include>ShowcaseInfoValue</include>
+          <include>InfoPaneInfoValue</include>
           <label fallback="161">$INFO[ListItem.Property(Album_Mood)]</label>
         </control>
       </control>
@@ -1871,7 +2001,7 @@
       <height>187</height>
       <font>Font_Normal16</font>
       <label>$INFO[ListItem.Property(Artist_Description)]</label>
-      <textcolor>d0FFFFFF</textcolor>
+      <textcolor>whiteD0</textcolor>
       <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
       <visible>Container.Content(artists)</visible>
     </control>
@@ -1882,7 +2012,7 @@
       <height>187</height>
       <font>Font_Normal16</font>
       <label>$INFO[ListItem.Property(Album_Description)]</label>
-      <textcolor>d0FFFFFF</textcolor>
+      <textcolor>headline</textcolor>
       <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
       <visible>Container.Content(albums)</visible>
     </control>
@@ -1923,5 +2053,29 @@
         <include>Animation_VisibleChange200</include>
       </control>
     </control>
+  </include>
+  <include name="InfoPaneInfoLabel">
+    <posx>0</posx>
+    <posy>0</posy>
+    <height>13</height>
+    <font>Font_Normal17</font>
+    <textcolor>whiteA0</textcolor>
+  </include>
+  <include name="InfoPaneInfoValue">
+    <posx>0</posx>
+    <posy>17</posy>
+    <height>13</height>
+    <font>Font_Normal17</font>
+    <textcolor>white</textcolor>
+    <scroll>true</scroll>
+  </include>
+  <include name="InfoPaneInfoValueBigThumb">
+    <posx>235</posx>
+    <posy>17</posy>
+    <width>200</width>
+    <height>13</height>
+    <font>Font_Normal17</font>
+    <textcolor>white</textcolor>
+    <scroll>true</scroll>
   </include>
 </includes>

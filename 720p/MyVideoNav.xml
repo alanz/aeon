@@ -4,7 +4,7 @@
   <allowoverlay>yes</allowoverlay>
   <views>50,551,52,56,556,560,552,553,53,54,57,55,59</views>
   <controls>
-    <control type="image" id="109">
+    <control type="image" id="109"><!--MultiplexOld-->
       <posx>0</posx>
       <posy>0</posy>
       <width>0</width>
@@ -23,51 +23,75 @@
 		![Skin.HasSetting(oldmultiplextvinfooff) | Skin.HasSetting(oldmultiplextvinfotrigger)] +
 		[Control.HasFocus(553) | Control.IsVisible(7777)] +
 		[!Container(553).OnNext + !Container(553).OnPrevious]
-	] | [
-		Skin.HasSetting(videomovies) +
-		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-		![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] +
-		[Control.HasFocus(52) | Control.IsVisible(7777)] +
-		[!Container(52).OnNext + !Container(52).OnPrevious]
-	] | [
-		Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-		![
-			[
-				[Skin.HasSetting(multiplextvshowinfooff) + Container.Content(tvshows)] |
-				[Skin.HasSetting(multiplexseasoninfooff) + Container.Content(seasons)] |
-				[Skin.HasSetting(multiplexepisodeinfooff) + Container.Content(episodes)]
-			] | [
-				[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] |
-				[Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] |
-				[Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]
-			]
-		] +
-		[Control.HasFocus(52) | Control.HasFocus(552) | Control.IsVisible(7777)] +
-		[!Container(52).OnNext + !Container(52).OnPrevious + !Container(552).OnNext + !Container(552).OnPrevious]
-	] | [
-		Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-		![
-			[
-				[Skin.HasSetting(showcasetvshowinfooff) + Container.Content(tvshows)] |
-				[Skin.HasSetting(showcaseseasoninfooff) + Container.Content(seasons)]
-			] | [
-				[Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] |
-				[Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]
-			]
-		] +
-		[Control.HasFocus(57) | Control.IsVisible(7777)] +
-		[!Container(57).OnNext + !Container(57).OnPrevious]
-	] | [
-		Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-		![Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfotrigger)] +
-		[Control.HasFocus(57) | Control.IsVisible(7777)] +
-		[!Container(57).OnNext + !Container(57).OnPrevious]
-	] | [
-		[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] +
-		![Skin.HasSetting(showcasemusicinfooff) | Skin.HasSetting(showcasemusicinfotrigger)] +
-		[Control.HasFocus(57) | Control.IsVisible(7777)] +
-		[!Container(57).OnNext + !Container(57).OnPrevious]
 	]
+      </visible>
+      <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
+    </control>
+    <control type="image" id="109"><!--Showcase-->
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>0</width>
+      <height>0</height>
+      <texture>-</texture>
+      <visible>[
+        Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+        ![
+          [
+            [Skin.HasSetting(showcasetvshowinfooff) + Container.Content(tvshows)] |
+            [Skin.HasSetting(showcaseseasoninfooff) + Container.Content(seasons)]
+          ] | [
+            [Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] |
+            [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]
+          ]
+        ] +
+        [Control.HasFocus(57) | Control.IsVisible(7777)] +
+        [!Container(57).OnNext + !Container(57).OnPrevious]
+      ] | [
+        Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+        ![Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfotrigger)] +
+        [Control.HasFocus(57) | Control.IsVisible(7777)] +
+        [!Container(57).OnNext + !Container(57).OnPrevious]
+      ]
+      </visible>
+      <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
+    </control>
+    <control type="image" id="109"><!--Multiplex-->
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>0</width>
+      <height>0</height>
+      <texture>-</texture>
+      <visible>
+      [
+        Skin.HasSetting(videomovies) +
+        [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+        ![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] +
+        [Control.HasFocus(52) | Control.IsVisible(7777)] +
+        [!Container(52).OnNext + !Container(52).OnPrevious]
+      ] | [
+        Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
+        ![
+          [
+            [Skin.HasSetting(multiplextvshowinfooff) + Container.Content(tvshows)] |
+            [Skin.HasSetting(multiplexseasoninfooff) + Container.Content(seasons)] |
+            [Skin.HasSetting(multiplexepisodeinfooff) + Container.Content(episodes)]
+          ] | [
+            [Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] |
+            [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] |
+            [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]
+          ]
+        ] +
+        [Control.HasFocus(52) | Control.HasFocus(552) | Control.IsVisible(7777)] +
+        [!Container(52).OnNext + !Container(52).OnPrevious + !Container(552).OnNext + !Container(552).OnPrevious]
+      ]
       </visible>
       <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>

@@ -4,32 +4,13 @@
   <allowoverlay>yes</allowoverlay>
   <controls>
     <control type="button" id="5043">
-      <description>visible at startup</description>
-      <include>HiddenObject</include>	   
-      <onfocus>Skin.SetBool(Startup)</onfocus>
-      <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
-      <onfocus>SetFocus(300,7)</onfocus>
-      <visible>!Skin.HasSetting(Startup)</visible>
-    </control>
-    <control type="button" id="5043">
-      <description>visible after library update has finished</description>
-      <include>HiddenObject</include>
-      <onfocus>Skin.Reset(LibraryUpdated)</onfocus>
-      <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
-      <onfocus>SetFocus(300,7)</onfocus>
-      <visible>Skin.HasSetting(Startup) + Skin.HasSetting(LibraryUpdated) + !Window.IsVisible(112) + !Window.IsVisible(133)</visible>
-    </control>
-    <control type="button" id="5043">
-      <description>visible in all other cases</description>  
       <include>HiddenObject</include>      
-      <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
-      <onfocus>SetFocus(300,7)</onfocus>
-      <visible>Skin.HasSetting(Startup) + [!Skin.HasSetting(LibraryUpdated) |  [Skin.HasSetting(LibraryUpdated) + [Window.IsVisible(112) | Window.IsVisible(133)]]]</visible>
+      <onfocus>XBMC.RunScript(script.recentlyadded,limit=8)</onfocus>
+      <onfocus>Control.SetFocus(300)</onfocus>
     </control>
     <control type="label">
       <description>Force Weather update on load</description>
-      <posx>0</posx>
-      <posy>-100</posy>
+      <include>HiddenObject</include> 
       <label>$INFO[Weather.Conditions]</label>
       <font>-</font>
       <onfocus>Skin.SetBool(Startup2)</onfocus>
@@ -161,7 +142,7 @@
         <texture>home/homemenu_gradient.png</texture>
         <include>Animation_CommonFade2</include>
         <visible>!Skin.HasSetting(nohomegradient)</visible>
-        <colordiffuse>d0FFFFFF</colordiffuse>
+        <colordiffuse>whiteD0</colordiffuse>
       </control>
     </control>
     <include>BackgroundEffect</include>   

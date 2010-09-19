@@ -50,7 +50,7 @@
     <include condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
     <height>13</height>
     <font>Font_Normal15</font>
-    <textcolor>abFFFFFF</textcolor>
+    <textcolor>whiteA0</textcolor>
   </include>
   <include name="OldMultiplexInfoValue">
     <posx>0</posx>
@@ -59,7 +59,7 @@
     <include condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
     <height>13</height>
     <font>Font_Normal15</font>
-    <textcolor>FFFFFFFF</textcolor>
+    <textcolor>white</textcolor>
   </include>
   <include name="OldMultiplexFocusMovies">
     <focusposition>6</focusposition>
@@ -251,7 +251,7 @@
         <height>320</height>
         <font>Font_Normal19</font>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
-        <textcolor>d0FFFFFF</textcolor>
+        <textcolor>whiteD0</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
         <visible>!Player.HasVideo</visible>
@@ -339,7 +339,7 @@
           <height>200</height>
           <font>Font_Normal19</font>
           <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
-          <textcolor>d0FFFFFF</textcolor>
+          <textcolor>whiteD0</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         </control>
         <control type="image">
@@ -406,7 +406,7 @@
           <label>312573</label>
           <scroll>true</scroll>
           <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + !Control.HasFocus(110) + [Control.IsVisible(109) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
-          <colordiffuse>d0FFFFFF</colordiffuse>
+          <colordiffuse>whiteD0</colordiffuse>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
         <control type="label">
@@ -421,7 +421,7 @@
           <scroll>true</scroll>
           <label>312575</label>
           <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + Control.HasFocus(110)</visible>
-          <colordiffuse>d0FFFFFF</colordiffuse>
+          <colordiffuse>whiteD0</colordiffuse>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
           <animation effect="fade" start="40" time="600" condition="Control.HasFocus(110)" pulse="true">Conditional</animation>
         </control>
@@ -436,7 +436,7 @@
           <scroll>true</scroll>
           <label>312574</label>
           <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
-          <colordiffuse>d0FFFFFF</colordiffuse>
+          <colordiffuse>whiteD0</colordiffuse>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
@@ -622,7 +622,7 @@
         <height>197</height>
         <font>Font_Normal19</font>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
-        <textcolor>d0FFFFFF</textcolor>
+        <textcolor>whiteD0</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
       </control>
       <control type="group">
@@ -644,7 +644,7 @@
           <fadetime>400</fadetime>
           <aspectratio>scale</aspectratio>
           <texture>$INFO[Container(553).ListItem.property(fanart_image)]</texture>
-          <visible>!Skin.HasSetting(oldmultiplextvbigthumb) | !Container.Content(episodes)</visible>
+          <visible>!Skin.HasSetting(infopane_extrathumb) | !Container.Content(episodes)</visible>
           <include>Animation_VisibleChange200</include>
         </control>
         <control type="largeimage">
@@ -655,7 +655,7 @@
           <fadetime>400</fadetime>
           <aspectratio>scale</aspectratio>
           <texture>$INFO[Fanart.Image]</texture>
-          <visible>!Skin.HasSetting(oldmultiplextvbigthumb) | !Container.Content(episodes)</visible>
+          <visible>!Skin.HasSetting(infopane_extrathumb) | !Container.Content(episodes)</visible>
           <include>Animation_VisibleChange200</include>
         </control>
         <control type="image">
@@ -666,7 +666,7 @@
           <fadetime>400</fadetime>
           <aspectratio>scale</aspectratio>
           <texture>$INFO[Container(553).ListItem.thumb]</texture>
-          <visible>Skin.HasSetting(oldmultiplextvbigthumb) + Container.Content(episodes)</visible>
+          <visible>Skin.HasSetting(infopane_extrathumb) + Container.Content(episodes)</visible>
           <include>Animation_VisibleChange200</include>
         </control>
       </control>

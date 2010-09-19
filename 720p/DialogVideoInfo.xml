@@ -26,7 +26,7 @@
       <height>720</height>
       <texture>info/info_rightpanelbottom.png</texture>
       <animation effect="slide" time="0" start="22,0" end="22,0" condition="Container.Content(episodes)">Conditional</animation>
-      <colordiffuse>EEFFFFFF</colordiffuse>
+      <colordiffuse>white</colordiffuse>
     </control>
     <control type="largeimage">
       <posx>254</posx>
@@ -101,7 +101,7 @@
       <width>795</width>
       <height>720</height>
       <texture>info/info_rightpaneltop.png</texture>
-      <colordiffuse>EEFFFFFF</colordiffuse>
+      <colordiffuse>white</colordiffuse>
     </control>
     <include>BackgroundEffect</include>
 
@@ -171,12 +171,12 @@
       <focusposition>2</focusposition>
       <scrolltime>200</scrolltime>
       <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-      <itemlayout width="140" height="33">
+      <itemlayout width="146" height="33">
         <control type="label">
           <posx>74</posx>
           <posy>0</posy>
           <height>30</height>
-          <width>140</width>
+          <width>144</width>
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_Normal19</font>
@@ -184,17 +184,17 @@
           <textcolor>5fFFFFFF</textcolor>
         </control>
       </itemlayout>
-      <focusedlayout width="140" height="33">
+      <focusedlayout width="146" height="33">
         <control type="label">
           <posx>74</posx>
           <posy>0</posy>
           <height>30</height>
-          <width>140</width>
+          <width>144</width>
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_Normal19</font>
           <info>ListItem.Label</info>
-          <textcolor>FFFFFFFF</textcolor>
+          <textcolor>white</textcolor>
           <animation effect="fade" start="0" end="50" time="200">Focus</animation>
           <animation effect="fade" start="0" end="0" time="200">Unfocus</animation>
         </control>
@@ -202,7 +202,7 @@
           <posx>74</posx>
           <posy>0</posy>
           <height>30</height>
-          <width>140</width>
+          <width>144</width>
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_Normal19</font>
@@ -215,12 +215,12 @@
           <posx>74</posx>
           <posy>0</posy>
           <height>30</height>
-          <width>140</width>
+          <width>144</width>
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_Normal19</font>
           <info>ListItem.Label</info>
-          <textcolor>FFFFFFFF</textcolor>
+          <textcolor>white</textcolor>
           <animation effect="fade" start="50" end="50" time="200">Focus</animation>
           <animation effect="fade" start="50" end="0" time="100">Unfocus</animation>
         </control>
@@ -263,7 +263,7 @@
           <description>Trailers</description>
         </item>-->
         <item id="6">
-          <label>CINEMA</label>
+          <label>314122</label>
           <visible>Container.Content(movies)</visible>
           <onclick>Playlist.Clear</onclick>
           <onclick>Dialog.Close(MovieInformation)</onclick>
@@ -316,7 +316,7 @@
         <width>1</width>
         <height>54</height>
         <texture>info/info_flagupright.png</texture>
-        <colordiffuse>99FFFFFF</colordiffuse>
+        <colordiffuse>whiteA0</colordiffuse>
         <animation effect="slide" start="0,0" end="76,0" time="0" condition="!IsEmpty(Control.GetLabel(900013))">Conditional</animation>
         <animation effect="slide" start="0,0" end="51,0" time="0" condition="substring(listitem.mpaa,germany)">Conditional</animation>
       </control>
@@ -459,7 +459,7 @@
         <height>29</height>
         <align>left</align>
         <aligny>center</aligny>
-        <font>Font_Normal21</font>
+        <font>Font_Normal19</font>
         <label fallback="31446">$INFO[ListItem.RatingAndVotes]</label>
         <include>Colour_OffWhite</include>
         <visible>!Container.Content(musicvideos)</visible>
@@ -477,11 +477,11 @@
       <control type="textbox">
         <description>Cast</description>
         <posx>120</posx>
-        <posy>200</posy>
+        <posy>196</posy>
         <width>500</width>
         <height>111</height>
         <align>left</align>
-        <font>Font_Normal21</font>
+        <font>Font_Normal19_ls08</font>
         <label fallback="31435">$INFO[ListItem.CastAndRole]</label>
         <include>Colour_OffWhite</include>
       </control>
@@ -493,12 +493,54 @@
         <height>212</height>
         <align>left</align>
         <font>Font_Normal17_ls09</font>
+        <visible>!Container(20030).HasFocus(9) + !Container(20030).HasFocus(8)</visible>
+        <include>Animation_CommonFade</include>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <autoscroll delay="10000" time="3000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <include>Colour_OffWhite</include>
         <!-- castmod prevents it from showing when cast container shows -->
         <visible>!Control.IsVisible(50)</visible>
         <!-- end castmod prevents it from showing when cast container shows -->
+      </control>
+      <control type="largeimage">
+        <posx>50</posx>
+        <posy>359</posy>
+        <width>360</width>
+        <height>202</height>
+        <fadetime>500</fadetime>
+        <texture>$INFO[ListItem.property(fanart_image)]</texture>
+        <visible>Container(20030).HasFocus(9)</visible>
+        <include>Animation_CommonFade</include>
+      </control>
+      <control type="largeimage">
+        <posx>50</posx>
+        <posy>359</posy>
+        <width>130</width>
+        <height>202</height>
+        <fadetime>500</fadetime>
+        <texture>$INFO[ListItem.thumb]</texture>
+        <visible>Container(20030).HasFocus(8)</visible>
+        <include>Animation_CommonFade</include>
+      </control>
+      <control type="largeimage">
+        <posx>200</posx>
+        <posy>359</posy>
+        <width>130</width>
+        <height>202</height>
+        <fadetime>500</fadetime>
+        <texture>$INFO[ListItem.Path,,poster.jpg]</texture>
+        <visible>Container(20030).HasFocus(8)</visible>
+        <include>Animation_CommonFade</include>
+      </control>
+      <control type="largeimage">
+        <posx>350</posx>
+        <posy>359</posy>
+        <width>130</width>
+        <height>202</height>
+        <fadetime>500</fadetime>
+        <texture>$INFO[ListItem.Path,,movie.tbn]</texture>
+        <visible>Container(20030).HasFocus(8)</visible>
+        <include>Animation_CommonFade</include>
       </control>
       <include>Furniture_MovieInfoMediaFlags</include>
     </control>
@@ -578,7 +620,7 @@
         <width>500</width>
         <height>108</height>
         <align>left</align>
-        <font>Font_Normal21</font>
+        <font>Font_Normal19_ls08</font>
         <label fallback="31435">$INFO[ListItem.CastAndRole]</label>
         <include>Colour_OffWhite</include>
       </control>
@@ -714,7 +756,7 @@
         <width>500</width>
         <height>108</height>
         <align>left</align>
-        <font>Font_Normal21</font>
+        <font>Font_Normal19_ls08</font>
         <label fallback="31435">$INFO[ListItem.CastAndRole]</label>
         <include>Colour_OffWhite</include>
       </control>
