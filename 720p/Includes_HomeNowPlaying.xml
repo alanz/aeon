@@ -73,7 +73,7 @@
           <align>left</align>
           <description>Time Label</description>
           <label>$INFO[VideoPlayer.Time]</label>
-          <textcolor>abFFFFFF</textcolor>
+          <textcolor>whiteA0</textcolor>
           <font>Font_Home18</font>
         </control>
         <control type="label">
@@ -84,7 +84,7 @@
           <align>right</align>
           <description>Time Duration</description>
           <label>$INFO[VideoPlayer.Duration]</label>
-          <textcolor>abFFFFFF</textcolor>
+          <textcolor>whiteA0</textcolor>
           <font>Font_Home18</font>
         </control>
       </control>
@@ -307,7 +307,7 @@
       <control type="label">
         <posx>480</posx>
         <posy>626</posy>
-        <textcolor>ab749a9a</textcolor>
+        <textcolor>greenlabel</textcolor>
         <label>31006</label>
         <font>Font_Normal16</font>
         <include>Animation_CommonFade</include>
@@ -316,7 +316,7 @@
       <control type="label">
         <posx>480</posx>
         <posy>626</posy>
-        <textcolor>ab749a9a</textcolor>
+        <textcolor>greenlabel</textcolor>
         <label>112</label>
         <font>Font_Normal16</font>
         <include>Animation_CommonFade</include>
@@ -325,7 +325,7 @@
       <control type="label">
         <posx>480</posx>
         <posy>642</posy>
-        <textcolor>abFFFFFF</textcolor>
+        <textcolor>whiteA0</textcolor>
         <label>$INFO[VideoPlayer.Title]</label>
         <include>Animation_CommonFade</include>
         <width>400</width>
@@ -385,14 +385,14 @@
     <control type="label">
       <posy>510</posy>
       <include>Furniture_HomeNowPlayingMetrics</include>
-      <textcolor>abFFFFFF</textcolor>
+      <textcolor>whiteA0</textcolor>
       <label>$INFO[MusicPlayer.Album]</label>
       <font>Font_Normal16</font>
     </control>
     <control type="label">
       <include>Furniture_HomeNowPlayingMetrics</include>
       <posy>634</posy>
-      <textcolor>ab749a9a</textcolor>
+      <textcolor>greenlabel</textcolor>
       <label>31006</label>
       <font>Font_Normal16</font>
       <visible>!Player.Paused</visible>
@@ -400,7 +400,7 @@
     <control type="label">
       <include>Furniture_HomeNowPlayingMetrics</include>
       <posy>634</posy>
-      <textcolor>ab749a9a</textcolor>
+      <textcolor>greenlabel</textcolor>
       <label>112</label>
       <font>Font_Normal16</font>
       <visible>Player.Paused</visible>
@@ -408,7 +408,7 @@
     <control type="label">
       <include>Furniture_HomeNowPlayingMetrics</include>
       <posy>650</posy>
-      <textcolor>abFFFFFF</textcolor>
+      <textcolor>whiteA0</textcolor>
       <label>$INFO[MusicPlayer.Title]</label>
       <font>Font_Normal21</font>
     </control>
@@ -430,6 +430,21 @@
       <texture>home/nowplaying_line.png</texture>
       <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
     </control>
+     <control type="image">
+           <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
+        <effect type="zoom" start="180" end="100" center="640,600" time="2500" tween="cubic" easing="out"/>
+      </animation>
+      <animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+        <effect type="zoom" start="150" end="100" center="640,600" time="900" tween="cubic" easing="out"/>
+      </animation>
+        <posx>18</posx>
+        <posy>444</posy>
+        <height>252</height>
+        <width>270</width>
+        <texture>thumbs/cd_shadow2.png</texture>
+        <aspectratio>stretch</aspectratio>
+  <!--      <bordertexture border="-37,-23,-37,-23">thumbs/cd_shadow2.png</bordertexture>  -->
+      </control>
     <control type="image">
       <description>Cd overlay</description>
       <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
@@ -465,7 +480,7 @@
       <animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
         <effect type="zoom" start="150" end="100" center="640,600" time="900" tween="cubic" easing="out"/>
       </animation>
-      <control type="image">
+     <control type="image">
         <posx>28</posx>
         <posy>455</posy>
         <height>230</height>
@@ -486,7 +501,7 @@
   <include name="Furniture_HomeNowPlayingMetricsCDArt">
     <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
     <width>483</width>
-    <height>25</height>
+    <height>65</height>
     <aligny>left</aligny>
     <visible>Player.HasAudio + !Control.HasFocus(93)</visible>
   </include>
@@ -495,28 +510,39 @@
     <height>25</height>
     <aligny>left</aligny>
     <visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+    <textcolor>white</textcolor>
   </include>
   <include name="Furniture_HomeNowPlayingInfoCDArt">
     <control type="label">
       <posx>360</posx>
-      <posy>478</posy>
+      <posy>468</posy>
       <label>$INFO[MusicPlayer.Artist]</label>
-      <font>Font_Normal21</font>
+      <font>Font_Home36</font>
+      <textcolor>white</textcolor>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
     </control>
     <control type="label">
-      <posx>380</posx>
-      <posy>510</posy>
+      <posx>377</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
-      <textcolor>abFFFFFF</textcolor>
-      <label>$INFO[MusicPlayer.Album]</label>
+      <posy>524</posy>
+      <textcolor>greenlabel</textcolor>
+      <label>Album:</label>
       <font>Font_Normal16</font>
+    </control>
+    <control type="label">
+      <posx>380</posx>
+      <posy>540</posy>
+      <include>Furniture_HomeNowPlayingMetricsCDArt</include>
+      <textcolor>whiteA0</textcolor>
+      <label>$INFO[MusicPlayer.Album]</label>
+      <font>Font_Home30</font>
+      <wrapmultiline>true</wrapmultiline>
     </control>
     <control type="label">
       <posx>377</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
       <posy>594</posy>
-      <textcolor>ab749a9a</textcolor>
+      <textcolor>greenlabel</textcolor>
       <label>31006</label>
       <font>Font_Normal16</font>
       <visible>!Player.Paused</visible>
@@ -525,7 +551,7 @@
       <posx>377</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
       <posy>594</posy>
-      <textcolor>ab749a9a</textcolor>
+      <textcolor>greenlabel</textcolor>
       <label>112</label>
       <font>Font_Normal16</font>
       <visible>Player.Paused</visible>
@@ -534,9 +560,9 @@
       <posx>365</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
       <posy>615</posy>
-      <textcolor>abFFFFFF</textcolor>
+      <textcolor>white</textcolor>
       <label>$INFO[MusicPlayer.Title]</label>
-      <font>Font_Normal21</font>
+      <font>Font_Home36</font>
       <wrapmultiline>true</wrapmultiline>
     </control>
   </include>
@@ -551,7 +577,7 @@
         <include>Furniture_HomeNowPlayingMetricsCDArt</include>
         <posy>-25</posy>
         <label>[COLOR CB94AFAF]NEXT TRACKS:[/COLOR]</label>
-        <font>Font_Normal16</font>
+        <font>Font_Home22</font>
         <visible>!IsEmpty(MusicPlayer.offset(1).Artist)</visible>
       </control>
       <control type="group">
@@ -650,7 +676,7 @@
   </include>
   <include name="Furniture_HomeNowPlaying">
     <control type="group">
-      <visible>Skin.HasSetting(homevisvideo) + Player.HasVideo</visible>
+      <visible>!Skin.HasSetting(homevisvideo) + Skin.HasSetting(homevideowindow) + Player.HasVideo</visible>
       <control type="image">
         <include>FullscreenDimensions</include>
         <texture>common/black.png</texture>
@@ -671,15 +697,6 @@
     </control>
     <control type="group">
       <visible>Player.HasMedia</visible>
-      <control type="group">
-        <visible>Player.HasAudio</visible>
-        <include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
-        <include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
-        <include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
-        <include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
-      </control>
-      <include>Furniture_HomeNowPlayingVideo</include>
-      <include>Furniture_HomePlaylist</include>
       <animation type="WindowOpen" reversible="false">
         <effect type="slide" start="-800,0" end="0,0" delay="500" time="200" easing="out" tween="quadratic"/>
         <effect type="fade" start="0" end="100" delay="500" time="200"/>
@@ -697,12 +714,20 @@
       <!-- <animation effect="slide" time="800" tween="cubic" easing="inout" end="1000,0">Visible</animation> -->
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-140" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" condition="Skin.HasSetting(lowermainmenu) + Skin.HasSetting(highertotals)">Conditional</animation>
-      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,60" delay="700" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(7) + Control.HasFocus(510)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" delay="700" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(1) + Control.HasFocus(510)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-280" condition="Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest) + Skin.HasSetting(lowerwidgets)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + !Control.HasFocus(510) + Skin.HasSetting(homelatest) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,385" condition="!Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(10) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
+      <control type="group">
+        <visible>Player.HasAudio</visible>
+        <include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
+        <include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
+        <include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
+        <include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
+      </control>
+      <include>Furniture_HomeNowPlayingVideo</include>
+      <include>Furniture_HomePlaylist</include>
     </control>
   </include>
 </includes>

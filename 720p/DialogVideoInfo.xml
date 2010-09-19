@@ -648,17 +648,6 @@
         <label>31417</label>
         <include>Colour_Grey</include>
       </control>
-      <control type="label">
-        <description>IMDB rating</description>
-        <posx>300</posx>
-        <posy>570</posy>
-        <width>110</width>
-        <height>29</height>
-        <align>left</align>
-        <font>Font_Normal40</font>
-        <label>($INFO[ListItem.Rating])</label>
-        <include>Colour_OffWhite</include>
-      </control>
       <control type="image">
         <posx>115</posx>
         <posy>587</posy>
@@ -668,12 +657,24 @@
         <animation effect="zoom" end="80" time="0" condition="true">Conditional</animation>
       </control>
       <control type="image" id="96">
-        <posx>400</posx>
+        <posx>300</posx>
         <posy>563</posy>
         <width>113</width>
         <height>70</height>
         <colordiffuse>FF7DDDDDD</colordiffuse>
-        <texture fallback="flags/studios/default-studio.png">$INFO[Control.GetLabel(900009)]</texture>
+        <texture>$INFO[Control.GetLabel(900009)]</texture>
+      </control>
+      <control type="label">
+        <description>Studio</description>
+        <posx>300</posx>
+        <posy>577</posy>
+        <width>210</width>
+        <height>29</height>
+        <align>left</align>
+        <font>Font_Home30</font>
+        <label>$INFO[ListItem.Studio]</label>
+        <include>Colour_OffWhite</include>
+        <visible>IsEmpty(Control.GetLabel(96))</visible>
       </control>
     </control>
     <!-- Episode info -->

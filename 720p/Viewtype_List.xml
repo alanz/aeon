@@ -146,7 +146,7 @@
     <align>left</align>
     <aligny>center</aligny>
     <textcolor>ff969696</textcolor>
-    <visible>Control.IsVisible(50)</visible>
+    
     <animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]]">Conditional</animation>
   </include>
   <include name="ListWatchedOverlay_Slim">
@@ -192,21 +192,12 @@
     <animation effect="slide" start="0,-11" end="0,-11" time="0" condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]">Conditional</animation>
   </include>
   <include name="Viewtype_List">
-    <control type="image" id="232">
-      <animation effect="slide" time="1000" start="800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
-      <width>587</width>
-      <height>137</height>
-      <posx>693</posx>
-      <animation effect="slide" start="0,0" end="17,0" time="0" condition="Skin.HasSetting(listdvdcase)">Conditional</animation>
-      <posy>603</posy>
-      <texture>list/list_spot.png</texture>
-      <visible>Control.IsVisible(50)</visible>
-    </control>
     <control type="group">
-      <animation effect="slide" time="700" start="-800,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
+      <animation effect="slide" time="1000" start="-800,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
       <animation effect="slide" time="700" start="0,0" end="-800,0" tween="cubic" easing="out">WindowClose</animation>
-      <animation effect="slide" time="700" start="-800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
+      <animation effect="slide" time="1000" start="-800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
       <animation effect="fade" time="200" start="100" end="0">Hidden</animation>
+      <visible>Control.IsVisible(50)</visible>
       <control type="image">
         <include>Animation_CommonFade</include>
         <posx>60</posx>
@@ -215,26 +206,20 @@
         <height>647</height>
         <texture>list/listpanel_black.png</texture>
         <visible>!Skin.HasSetting(listpanelthin)</visible>
-        <visible>Control.IsVisible(50)</visible>
       </control>
       <control type="image">
-        <include>Animation_CommonFade</include>
         <posx>60</posx>
         <posy>73</posy>
         <width>759</width>
         <height>647</height>
         <texture>list/listpanel_back.png</texture>
-        <visible>Control.IsVisible(50)</visible>
-      </control>
-      <control type="group">
-        <visible>Control.IsVisible(50)</visible>
-        <control type="multiimage">
-          <include>BackgroundEffectCommon</include>
-	  <posx>69</posx>
-	  <posy>73</posy>
-	  <width>742</width>
-	  <height>600</height>
-	</control>
+      </control>     
+      <control type="multiimage">
+        <include>BackgroundEffectCommon</include>
+        <posx>69</posx>
+        <posy>73</posy>
+        <width>742</width>
+        <height>600</height>
       </control>
       <control type="image">
         <posx>96</posx>
@@ -242,8 +227,7 @@
         <width>53</width>
         <height>579</height>
         <texture>list/listpanel_detailwide.png</texture>
-        <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]</visible>
-        <visible>Control.IsVisible(50)</visible>
+        <visible>Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]</visible> 
       </control>
       <control type="image">
         <posx>669</posx>
@@ -1113,6 +1097,15 @@
       <animation effect="slide" time="1000" start="0,0" end="600,0" tween="cubic" easing="out">WindowClose</animation>
       <animation effect="slide" time="1000" start="800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
       <animation effect="fade" time="400" start="100" end="0">Hidden</animation>
+      <control type="image" id="232">
+        <animation effect="slide" time="1000" start="800,0" end="0,0" tween="cubic" easing="out">Visible</animation>
+        <width>587</width>
+        <height>137</height>
+        <posx>-162</posx>
+        <animation effect="slide" start="0,0" end="17,0" time="0" condition="Skin.HasSetting(listdvdcase)">Conditional</animation>
+        <posy>493</posy>
+        <texture>list/list_spot.png</texture>
+      </control>
       <control type="largeimage">
         <posy>-482</posy>
         <width>366</width>
@@ -1417,7 +1410,7 @@
       <posy>108</posy>
       <width>65</width>
       <height>545</height>
-      <visible>Control.IsVisible(50)</visible>
+      <visible allowhiddenfocus="true">Control.IsVisible(50) + Control.HasFocus(61)</visible>
       <texturesliderbackground>windows/scrollbarbacklist.png</texturesliderbackground>
       <texturesliderbar>-</texturesliderbar>
       <texturesliderbarfocus>-</texturesliderbarfocus>

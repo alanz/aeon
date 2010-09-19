@@ -90,7 +90,7 @@
     <posx>0</posx>
     <width>216</width>
     <height>58</height>
-    <font>Font_Normal23</font>
+    <font>Font_Home30</font>
     <focusedcolor>FF262728</focusedcolor>
     <selectedcolor>FF262728</selectedcolor>
     <textoffsety>7</textoffsety>
@@ -453,50 +453,6 @@
       <posx>-9999</posx>
       <width>0</width>
       <height>0</height>
-  </include>
-  <!-- This will build a label formated like this:
-       S01
-  -->
-  <include name="SeasonZeroPadded">
-    <control type="label" id="900001">
-      <include>HiddenObject</include>
-      <label>$INFO[ListItem.Season,S]</label>
-      <visible>!IsEmpty(ListItem.Season) + IntegerGreaterThan(ListItem.Season,9)</visible>
-    </control>
-    <control type="label" id="900001">
-      <include>HiddenObject</include>
-      <label>$INFO[ListItem.Season,S0]</label>
-      <visible>!IsEmpty(ListItem.Season) + !IntegerGreaterThan(ListItem.Season,9)</visible>
-    </control>
-  </include>
-  <!-- This will build a label formated like this:
-       SE01
-  -->
-  <include name="EpisodeZeroPadded">
-    <control type="label" id="900002">
-      <include>HiddenObject</include>
-      <label>$INFO[ListItem.Episode,E]</label>
-      <visible>!IsEmpty(ListItem.Episode) + IntegerGreaterThan(ListItem.Episode,9)</visible>
-    </control>
-    <control type="label" id="900002">
-      <include>HiddenObject</include>
-      <label>$INFO[ListItem.Episode,E0]</label>
-      <visible>!IsEmpty(ListItem.Episode) + !IntegerGreaterThan(ListItem.Episode,9)</visible>
-    </control>
-  </include>
-  <!-- This will build a label formated like this:
-       S01
-  -->
-  <include name="SeasonEpisodeZeroPadded">
-    <control type="group">
-      <include>HiddenObject</include>
-      <include>SeasonZeroPadded</include>
-      <include>EpisodeZeroPadded</include>
-      <control type="label" id="900000">
-        <include>HiddenObject</include>
-        <label>$INFO[Control.GetLabel(900001)]$INFO[Control.GetLabel(900002)]</label>
-      </control>
-    </control>
   </include>
   <!--
        This will generate an hidden label which will store the
@@ -915,47 +871,7 @@
             <visible>Skin.HasSetting(scrollletters)</visible>
           </control>
           <visible>!IsEmpty(ListItem.SortLetter)</visible>
-          <visible>!SubString(Container.SortMethod,year) + !SubString(Container.SortMethod,episode)</visible>
-        </control>
-        <!-- SortLabel used for years/episodes -->
-        <control type="group">
-          <include>SeasonEpisodeZeroPadded</include>
-          <control type="image">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>140</width>
-            <height>70</height>
-            <align>center</align>
-            <aligny>center</aligny>
-            <texture>common/scroll_letter_background.png</texture>
-            <visible>Skin.HasSetting(scrollletters)</visible>
-          </control>
-          <control type="label">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>140</width>
-            <height>70</height>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Year]</label>
-            <textcolor>white</textcolor>
-            <font>Font_Home55</font>
-            <visible>Skin.HasSetting(scrollletters) + SubString(Container.SortMethod,year)</visible>
-          </control>
-          <control type="label">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>140</width>
-            <height>70</height>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[Control.GetLabel(900000)]</label>
-            <textcolor>white</textcolor>
-            <font>Font_Home55</font>
-            <visible>Skin.HasSetting(scrollletters) + SubString(Container.SortMethod,episode)</visible>
-          </control>
-          <visible>!IsEmpty(ListItem.Year)</visible>
-          <visible>SubString(Container.SortMethod,year) | SubString(Container.SortMethod,episode)</visible>
+          <visible>!Container.Content(years) + !Container.Content(episodes)</visible>
         </control>
       </control>
     </control>
@@ -982,9 +898,10 @@
   <include name="Labels_MainLabelSmallVars">
     <width>800</width>
     <posx>150</posx>
-    <posy>28</posy>
+    <posy>30</posy>
+    <height>200</height>
     <textcolor>d0f5f5f5</textcolor>
-    <font>Font_Home24_ls085</font>
+    <font>Font_Normal16_ls075</font>
   </include>
   <include name="Labels_MainLabelSmallVars2">
     <width>800</width>
@@ -1092,7 +1009,7 @@
     <posx>105</posx>
     <width>376</width>
     <height>21</height>
-    <textcolor>menutext</textcolor>
+    <textcolor>whiteD0</textcolor>
     <align>left</align>
     <font>Font_Normal18</font>
     <scroll>true</scroll>

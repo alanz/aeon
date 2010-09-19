@@ -105,6 +105,13 @@
       <onclick>Skin.ToggleSetting(flattenshowcasemovies)</onclick>
       <visible>Control.IsVisible(57) + Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
     </control>
+    <control type="radiobutton" id="700002">
+      <label>31061</label>
+      <selected>!Skin.HasSetting(flattenshowcaseepisodes)</selected>
+      <include>MediaMenuRadioButton</include>
+      <onclick>Skin.ToggleSetting(flattenshowcaseepisodes)</onclick>
+      <visible>Control.IsVisible(57) + Container.Content(episodes)</visible>
+    </control>
     <control type="radiobutton" id="700004">
       <label>31061</label>
       <selected>!Skin.HasSetting(flattenshowcasetvshows)</selected>
@@ -117,14 +124,14 @@
       <selected>!Skin.HasSetting(flattenshowcaseseasons)</selected>
       <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(flattenshowcaseseasons)</onclick>
-      <visible>Control.IsVisible(57) + Container.Content(seasons) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
+      <visible>Control.IsVisible(57) + Container.Content(seasons)</visible>
     </control>
     <control type="radiobutton" id="700003">
       <label>31061</label>
       <selected>!Skin.HasSetting(flattenshowcasemusic)</selected>
       <include>MediaMenuRadioButton</include>
       <onclick>Skin.ToggleSetting(flattenshowcasemusic)</onclick>
-      <visible>Control.IsVisible(57) + ![Window.IsActive(videolibrary) | Window.IsActive(videofiles)]</visible>
+      <visible>Control.IsVisible(57) + [Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(pictures)]</visible>
     </control>
     <control type="radiobutton" id="7000212">
       <include>MediaMenuRadioButton</include>
@@ -479,7 +486,7 @@
   <include name="MediaMenuButton_Files">
     <control type="radiobutton" id="11">
       <label>29800</label>
-      <onclick>ReplaceWindow(VideoFiles,return)</onclick>
+      <onclick>ReplaceWindow(VideoFiles)</onclick>
       <selected>Window.IsVisible(VideoLibrary)</selected>
       <include>MediaMenuRadioButton</include>
       <visible>Window.IsActive(videolibrary)</visible>
@@ -487,8 +494,8 @@
     <control type="radiobutton" id="700051">
       <label>29800</label>
       <include>MediaMenuRadioButton</include>
-      <onclick>ReplaceWindow(videolibrary,return)</onclick>
-      <visible>Window.IsActive(videofiles)</visible>
+      <onclick>ReplaceWindow(videolibrary,movietitles,return)</onclick>
+      <visible>Window.IsActive(videofiles) + Library.HasContent(movies)</visible>
     </control>
     <control type="radiobutton" id="700049">
       <label>29800</label>
@@ -717,6 +724,15 @@
       <selected>Skin.HasSetting(transparentlist)</selected>
       <onclick>Skin.ToggleSetting(transparentlist)</onclick>
       <visible>Control.IsVisible(560)</visible>
+    </control>
+  </include>
+  <include name="MediaMenuButton_Shelf">
+    <control type="radiobutton" id="700119">
+      <include>MediaMenuRadioButton</include>
+      <label>31052</label>
+      <onclick>Skin.ToggleSetting(shelfpanelthin)</onclick>
+      <visible>Control.IsVisible(59) + [Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)]</visible>
+      <selected>Skin.HasSetting(shelfpanelthin)</selected>
     </control>
   </include>
   <include name="ViewSelect">
@@ -1073,6 +1089,7 @@
         <include>MediaMenuButton_Wall</include>
         <include>MediaMenuButton_FullScreenWall</include>
         <include>MediaMenuButton_LargeList</include>
+        <include>MediaMenuButton_Shelf</include>
       </control>
     </control>
   </include>

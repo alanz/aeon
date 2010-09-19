@@ -6,7 +6,7 @@
     <posx>0</posx>
     <posy>0</posy>
   </coordinates>
-  <include>Animation_DialogPopup</include>
+  <include>Animation_OpenCloseZoom</include>
   <controls>
     <control type="image">
       <description>background image</description>
@@ -22,24 +22,7 @@
       <posy>0</posy>
       <width>1280</width>
       <height>720</height>
-      <texture>dialogs/textviewer_back.png</texture>
-    </control>
-    <control type="button">
-      <description>Close Window button</description>
-      <posx>200</posx>
-      <posy>0</posy>
-      <width>64</width>
-      <height>32</height>
-      <label>-</label>
-      <font>-</font>
-      <onclick>PreviousMenu</onclick>
-      <texturefocus>DialogCloseButton-focus.png</texturefocus>
-      <texturenofocus>DialogCloseButton.png</texturenofocus>
-      <onleft>61</onleft>
-      <onright>61</onright>
-      <onup>61</onup>
-      <ondown>61</ondown>
-      <visible>system.getbool(input.enablemouse)</visible>
+      <texture>list/listpanel_back.png</texture>
     </control>
     <control type="group">
       <animation effect="fade" delay="400" start="0" end="100" time="200">WindowOpen</animation>
@@ -58,27 +41,27 @@
         <posx>140</posx>
         <posy>150</posy>
         <width>1000</width>
-        <height>510</height>
+        <height>478</height>
         <label>-</label>
         <align>justify</align>
         <pagecontrol>61</pagecontrol>
       </control>
       <control type="scrollbar" id="61">
-        <posx>-16</posx>
-        <posy>150</posy>
+        <posx>26</posx>
+        <posy>170</posy>
         <width>65</width>
-        <height>510</height>
+        <height>400</height>
         <visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
         <texturesliderbackground>windows/scrollbarbacklist.png</texturesliderbackground>
         <texturesliderbar>-</texturesliderbar>
         <texturesliderbarfocus>-</texturesliderbarfocus>
         <textureslidernib>windows/scrollbarnub-nofocus.png</textureslidernib>
         <textureslidernibfocus>windows/scrollbarnub-focus.png</textureslidernibfocus>
-        <onleft>61</onleft>
-        <onright>61</onright>
+        <onleft>Dialog.Close(TextViewer)</onleft>
+        <onright>Dialog.Close(TextViewer)</onright>
         <ondown>61</ondown>
         <onup>61</onup>
-        <showonepage>true</showonepage>
+        <showonepage>false</showonepage>
         <orientation>vertical</orientation>
       </control>
     </control>

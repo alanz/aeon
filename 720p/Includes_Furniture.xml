@@ -371,7 +371,7 @@
         <visible>Container.Content(songs)</visible>
       </control>
       <control type="label" id="72">
-        <label>$LOCALIZE[21898]: [COLOR headline]$INFO[ListItem.Property(Artist_YearsActive)][/COLOR]</label>
+        <label>$LOCALIZE[21898]: [COLOR d0FFFFFF]$INFO[ListItem.Property(Artist_YearsActive)][/COLOR]</label>
         <include>FloorTextDetailLabel</include>
         <visible>Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
       </control>
@@ -697,6 +697,9 @@
       <posy>600</posy>
       <width>1280</width>
       <height>159</height>
+      <animation type="Conditional" condition="Window.IsVisible(fullscreeninfo)">
+        <effect type="slide" time="400" start="0,0" end="0,-130" easing="out" tween="cubic"/>
+      </animation>
       <animation type="Visible">
         <effect type="fade" time="400" start="0" end="100"/>
         <effect type="slide" time="400" start="0,159" end="0,0" easing="out" tween="cubic"/>
@@ -713,7 +716,6 @@
         <effect type="fade" time="400" start="100" end="0"/>
         <effect type="slide" time="400" start="0,0" end="0,159" easing="in" tween="cubic"/>
       </animation>
-      <include>Animation_CommonFade</include>
       <control type="image">
         <description>Panel</description>
         <posx>0</posx>
@@ -836,7 +838,7 @@
         <font>Font_Home19</font>
         <align>left</align>
         <textcolor>default</textcolor>
-        <label>$LOCALIZE[31720]: [COLOR headline]$INFO[System.Time][/COLOR]</label>
+        <label>$LOCALIZE[31720]: [COLOR d0FFFFFF]$INFO[System.Time][/COLOR]</label>
       </control>
       <control type="label">
         <posx>1020</posx>
@@ -856,7 +858,7 @@
         <font>Font_Home19</font>
         <textcolor>default</textcolor>
         <align>right</align>
-        <label>$LOCALIZE[31710]: [COLOR headline]$INFO[Player.FinishTime][/COLOR]</label>
+        <label>$LOCALIZE[31710]: [COLOR d0FFFFFF]$INFO[Player.FinishTime][/COLOR]</label>
       </control>
 
       <control type="label">
@@ -1033,6 +1035,24 @@
         </control>
       </control>
       <!-- right column -->
+      <control type="image">
+        <description>Glow</description>
+        <posx>955</posx>
+        <posy>-220</posy>
+        <width>390</width>
+        <height>360</height>
+        <texture>showcase/showcase_glow2.png</texture>
+        <animation type="WindowOpen" reversible="false">
+          <effect type="fade" start="0" end="100" time="1000" pulse="true" delay="1000"/>
+        </animation>
+        <animation type="WindowClose">
+          <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
+          <effect type="fade" start="100" end="0" time="600"/>
+        </animation>
+        <animation effect="fade" start="40" time="700" condition="true" pulse="true">Conditional</animation>
+        <aspectratio>stretch</aspectratio>
+        <visible>true</visible>
+      </control>
       <control type="image">
         <visible>!VideoPlayer.Content(episodes) + !VideoPlayer.Content(musicvideos)</visible>
         <description>Cover Image</description>
