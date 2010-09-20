@@ -10,7 +10,7 @@
     <animation effect="slide" start="0,0" end="40,0" time="0" condition="Container.Content(songs)">Conditional</animation>
   </include>
   <include name="Animation_HighListSlide">
-    <animation effect="slide" start="0,0" end="0,-110" time="150" condition="Skin.HasSetting(highlist)">Conditional</animation>
+    <animation effect="slide" start="0,0" end="0,-110" time="150" condition="Skin.HasSetting(longerlowlist)">Conditional</animation>
   </include>
   <!-- LOW LIST MEDIA ICONS -->
   <!-- Poster icon variables -->
@@ -35,7 +35,7 @@
   </include>
   <include name="LowList_PosterIconReflect">
     <posy>405</posy>
-    <colordiffuse>ccFFFFFF</colordiffuse>
+    <colordiffuse>whiteD0</colordiffuse>
     <include>LowList_PosterIconVars</include>
   </include>
   <include name="LowList_PosterIconInCaseReflect">
@@ -333,7 +333,7 @@
     <width>319</width>
     <height>223</height>
     <!-- I'm not using Animation_HighListSlide because the image is shifted with a smaller offset -->
-    <animation effect="slide" start="0,0" end="0,-70" time="150" condition="Skin.HasSetting(highlist)">Conditional</animation>
+    <animation effect="slide" start="0,0" end="0,-70" time="150" condition="Skin.HasSetting(longerlowlist)">Conditional</animation>
   </include>
   <!-- Episode Media Icons -->
   <include name="LowList_EpisodeMediaIcons">
@@ -461,7 +461,7 @@
       <posy>-55</posy>
       <width>360</width>
       <height>200</height>
-      <visible>![!Skin.HasSetting(highlist) + [Control.IsVisible(7850) | Control.IsVisible(7814)]]</visible>
+      <visible>![!Skin.HasSetting(longerlowlist) + [Control.IsVisible(7850) | Control.IsVisible(7814)]]</visible>
       <control type="label">
         <description>NUM ARTISTS info label</description>
         <include>LowList_DetailInfoLabelPosXX</include>
@@ -489,8 +489,8 @@
       <posy>-55</posy>
       <width>360</width>
       <height>200</height>
-      <visible>Skin.HasSetting(highlist)</visible>
-      <animation effect="slide" start="0,0" end="0,-52" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
+      <visible>Skin.HasSetting(longerlowlist)</visible>
+      <animation effect="slide" start="0,0" end="0,-52" time="200" condition="Skin.HasSetting(longerlowlist)">Conditional</animation>
       <control type="label">
         <description>TAGLINE label</description>
         <posx>0</posx>
@@ -769,16 +769,21 @@
       </control>
       <!-- Wide Music Info Panel Fanart/Slideshow -->
       <control type="largeimage">
-        <texture diffuse="thumbs/list_episodeicon_mask.png">$INFO[Container(551).ListItem.property(fanart_image)]</texture>
+        <texture diffuse="thumbs/list_episodeicon_mask.png">$INFO[ListItem.property(fanart_image)]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>!IsEmpty(Container(551).ListItem.property(fanart_image))</visible>
+        <visible>!IsEmpty(ListItem.property(fanart_image))</visible>
         <include>LowList_WideImageVarsBig</include>
         <include>Animation_BackgroundFade</include>
       </control>
-      <control type="largeimage">
-        <texture diffuse="thumbs/list_episodeicon_mask.png">$INFO[Container.Property(fanart_image)]</texture>
-        <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>!IsEmpty(Container.Property(fanart_image))</visible>
+      <control type="image">
+        <posx>193</posx>
+        <posy>-143</posy>
+        <width>501</width>
+        <height>287</height>
+        <fadetime>400</fadetime>
+        <aspectratio>stretch</aspectratio>
+        <texture>thumbs/episode_poster_shadow.png</texture>
+        <visible>!IsEmpty(ListItem.property(fanart_image))</visible>
         <include>LowList_WideImageVarsBig</include>
         <include>Animation_BackgroundFade</include>
       </control>
@@ -872,38 +877,38 @@
         <description>BIOGROPHY: (Short)</description>
         <include>LowList_ShortTextBox</include>
         <textcolor>whiteD0</textcolor>
-        <label fallback="-">$INFO[ListItem.Property(artist_description),[COLOR FFFFFFFFA0]$LOCALIZE[21887]:[/COLOR] ]</label>
-        <visible>!Skin.HasSetting(highlist) + Container.Content(artists)</visible>
+        <label fallback="-">$INFO[ListItem.Property(artist_description),[COLOR=white]$LOCALIZE[21887]:[/COLOR] ]</label>
+        <visible>!Skin.HasSetting(longerlowlist) + Container.Content(artists)</visible>
       </control>
       <control type="textbox">
         <description>DESCRIPTION: (Short)</description>
         <include>LowList_ShortTextBox</include>
-        <label fallback="-">$INFO[ListItem.Property(album_description),[COLOR FFFFFFFFA0]$LOCALIZE[183]:[/COLOR] ]</label>
-        <visible>!Skin.HasSetting(highlist) + Container.Content(albums)</visible>
+        <label fallback="-">$INFO[ListItem.Property(album_description),[COLOR=white]$LOCALIZE[183]:[/COLOR] ]</label>
+        <visible>!Skin.HasSetting(longerlowlist) + Container.Content(albums)</visible>
       </control>
       <control type="textbox">
         <description>COMMENT: (Short)</description>
         <include>LowList_ShortTextBox</include>
-        <label fallback="-">$INFO[ListItem.comment,[COLOR FFFFFFFFA0]$LOCALIZE[569]:[/COLOR] ]</label>
-        <visible>!Skin.HasSetting(highlist) + Container.Content(songs)</visible>
+        <label fallback="-">$INFO[ListItem.comment,[COLOR=white]$LOCALIZE[569]:[/COLOR] ]</label>
+        <visible>!Skin.HasSetting(longerlowlist) + Container.Content(songs)</visible>
       </control>
       <control type="textbox">
         <description>DESCRIPTION: (Tall)</description>
         <include>LowList_TallTextBox</include>
         <label>$INFO[ListItem.Property(album_description),[COLOR 66ffffff]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
-        <visible>Skin.HasSetting(highlist) + !IsEmpty(ListItem.Property(album_description)) + [Container.Content(albums) | Container.Content(songs)]</visible>
+        <visible>Skin.HasSetting(longerlowlist) + !IsEmpty(ListItem.Property(album_description)) + [Container.Content(albums) | Container.Content(songs)]</visible>
       </control>
       <control type="textbox">
         <description>DESCRIPTION: (Tall)</description>
         <include>LowList_TallTextBox</include>
         <label>$INFO[ListItem.Property(artist_description),[COLOR 66ffffff]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
-        <visible>Skin.HasSetting(highlist) + [[!IsEmpty(ListItem.Property(artist_description)) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
+        <visible>Skin.HasSetting(longerlowlist) + [[!IsEmpty(ListItem.Property(artist_description)) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
       </control>
       <control type="textbox">
         <description>DESCRIPTION: (Tall)</description>
         <include>LowList_TallTextBox</include>
         <label>$INFO[ListItem.Comment,[COLOR 66ffffff]$LOCALIZE[569]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
-        <visible>Skin.HasSetting(highlist) + [[!IsEmpty(ListItem.Comment) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
+        <visible>Skin.HasSetting(longerlowlist) + [[!IsEmpty(ListItem.Comment) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
       </control>
       <!-- Artist labels -->
       <control type="label">
@@ -1154,18 +1159,18 @@
       <control type="textbox">
         <include>LowList_ShortTextBox</include>
         <textcolor>whiteD0</textcolor>
-        <label fallback="-">$INFO[ListItem.Property(Artist_Description),[COLOR FFFFFFFFA0]$LOCALIZE[21887]:[/COLOR] ]</label>
-        <visible>Skin.HasSetting(highlist) + Container.Content(artists)</visible>
+        <label fallback="-">$INFO[ListItem.Property(Artist_Description),[COLOR=white]$LOCALIZE[21887]:[/COLOR] ]</label>
+        <visible>Skin.HasSetting(longerlowlist) + Container.Content(artists)</visible>
       </control>
       <control type="textbox">
         <include>LowList_ShortTextBox</include>
-        <label fallback="-">$INFO[ListItem.Property(Album_Description),[COLOR FFFFFFFFA0]$LOCALIZE[183]:[/COLOR] ]</label>
-        <visible>Skin.HasSetting(highlist) + Container.Content(albums)</visible>
+        <label fallback="-">$INFO[ListItem.Property(Album_Description),[COLOR=white]$LOCALIZE[183]:[/COLOR] ]</label>
+        <visible>Skin.HasSetting(longerlowlist) + Container.Content(albums)</visible>
       </control>
       <control type="textbox">
         <include>LowList_ShortTextBox</include>
-        <label fallback="-">$INFO[ListItem.comment,[COLOR FFFFFFFFA0]$LOCALIZE[569]:[/COLOR] ]</label>
-        <visible>Skin.HasSetting(highlist) + Container.Content(songs)</visible>
+        <label fallback="-">$INFO[ListItem.comment,[COLOR=white]$LOCALIZE[569]:[/COLOR] ]</label>
+        <visible>Skin.HasSetting(longerlowlist) + Container.Content(songs)</visible>
       </control>
       <include>LowList_ItemCountLabel</include>
       <include>ListDetail_Stars</include>
@@ -1374,6 +1379,7 @@
         <visible>!Skin.HasSetting(widepanelthumbon)</visible>
         <visible>!Player.HasVideo</visible>
       </control>
+
       <control type="multiimage">
         <include>LowList_WideImageVars</include>
         <timeperimage>5500</timeperimage>
@@ -1492,14 +1498,14 @@
       <control type="textbox">
         <description>PLOT OUTLINE: (Short)</description>
         <include>LowList_ShortTextBox</include>
-        <label fallback="31414">$INFO[Control.GetLabel(900004),[COLOR FFFFFFFFA0]$LOCALIZE[203]:[/COLOR] ]</label>
-        <visible>!Skin.HasSetting(highlist)</visible>
+        <label fallback="31414">$INFO[Control.GetLabel(900004),[COLOR=white]$LOCALIZE[203]:[/COLOR] ]</label>
+        <visible>!Skin.HasSetting(longerlowlist)</visible>
       </control>
       <control type="textbox">
         <description>MOVIE PLOT: (Tall)</description>
         <include>LowList_TallTextBox</include>
-        <label fallback="31414">$INFO[Control.GetLabel(900004),[COLOR FFFFFFFFA0]$LOCALIZE[203]:[/COLOR] ]</label>
-        <visible>Skin.HasSetting(highlist)</visible>
+        <label fallback="31414">$INFO[Control.GetLabel(900004),[COLOR=white]$LOCALIZE[203]:[/COLOR] ]</label>
+        <visible>Skin.HasSetting(longerlowlist)</visible>
       </control>
       <control type="label">
         <description>DIRECTOR: info label</description>
@@ -1555,8 +1561,8 @@
       <control type="textbox">
         <description>PLOT OUTLINE: (Short)</description>
         <include>LowList_ShortTextBox</include>
-        <label fallback="-">$INFO[Control.GetLabel(900004),[COLOR FFFFFFFFA0]$LOCALIZE[203]:[/COLOR] ]</label>
-        <visible>Skin.HasSetting(highlist)</visible>
+        <label fallback="-">$INFO[Control.GetLabel(900004),[COLOR=white]$LOCALIZE[203]:[/COLOR] ]</label>
+        <visible>Skin.HasSetting(longerlowlist)</visible>
       </control>
     </control>
     <!-- Movie Gallery/Slideshow detail panel -->
@@ -1574,7 +1580,7 @@
         <timeperimage>4500</timeperimage>
         <imagepath fallback="common/black.png" background="true" diffuse="thumbs/list_episodeicon_mask.png">$INFO[Container(551).ListItem.Path,,extrathumbs]</imagepath>
         <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-        <animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(longerlowlist)">Conditional</animation>
         <include>Animation_BackgroundFade</include>
       </control>
       <control type="image">
@@ -1585,7 +1591,7 @@
         <aspectratio scalediffuse="false">stretch</aspectratio>
         <texture>common/black.png</texture>
         <animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
-        <visible>!Skin.HasSetting(highlist)</visible>
+        <visible>!Skin.HasSetting(longerlowlist)</visible>
       </control>
       <include>LowList_TaglineLabel</include>
     </control>
@@ -1878,13 +1884,13 @@
       <control type="textbox">
         <description>DESCRIPTION: (Short - TV Shows and Episodes and Seasons)</description>
         <label fallback="161">$INFO[Control.GetLabel(900004),[COLOR 66ffffff]$LOCALIZE[21821]: [/COLOR]]</label>
-        <visible>!Skin.HasSetting(highlist) + ![Skin.HasSetting(tvdescpaneloff) + IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(Container.Property(fanart_image))]</visible>
+        <visible>!Skin.HasSetting(longerlowlist) + ![Skin.HasSetting(tvdescpaneloff) + IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(Container.Property(fanart_image))]</visible>
         <include>LowList_ShortTextBox</include>
       </control>
       <control type="textbox">
         <description>PLOT (Tall - TV Shows and Episodes)</description>
         <label fallback="161">$INFO[Control.GetLabel(900004)]</label>
-        <visible>Skin.HasSetting(highlist)]</visible>
+        <visible>Skin.HasSetting(longerlowlist)]</visible>
         <include>LowList_TallTextBox</include>
       </control>
       <!-- Left aligned labels -->

@@ -47,27 +47,43 @@
             </control>
             <control type="label">
               <posx>30</posx>
-              <posy>18</posy>
+              <posy>0</posy>
               <width>450</width>
               <height>30</height>
-              <font>Font_Normal24</font>
-              <textcolor>ccffffff</textcolor>
+              <font>Font_Home40</font>
+              <textcolor>whiteD0</textcolor>
               <aligny>center</aligny>
-              <label fallback="-">[B]$INFO[Container(510).ListItem.Label][/B] [COLOR FF999999]($INFO[Container(510).ListItem.Property(Year)])[/COLOR]</label>
+              <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
             </control>
-            <control type="group">
+            <control type="label">
+              <posx>30</posx>
+              <posy>0</posy>
+              <width>450</width>
+              <height>30</height>
+              <font>Font_Home40</font>
+              <textcolor>whiteD0</textcolor>
+              <aligny>center</aligny>
+              <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <posy>0</posy>
+              <width>450</width>
+              <height>30</height>
+              <font>Font_Home40</font>
+              <textcolor>whiteD0</textcolor>
+              <aligny>center</aligny>
+              <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
+            </control>
+            <control type="textbox">
+              <font>Font_Normal16_ls08</font>
               <posx>20</posx>
               <posy>70</posy>
-              <control type="textbox">
-                <font>Font_Normal16_ls08</font>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>450</width>
-                <height>160</height>
-                <autoscroll time="2000" delay="8000" repeat="5000">true</autoscroll>
-                <textcolor>c0FFFFFF</textcolor>
-                <label fallback="31414">$INFO[Container(510).ListItem.Label2]</label>
-              </control>
+              <width>450</width>
+              <height>160</height>
+              <autoscroll time="2000" delay="8000" repeat="5000">true</autoscroll>
+              <textcolor>whiteD0</textcolor>
+              <label fallback="31414">$INFO[Container(510).ListItem.Label2]</label>
             </control>
           </control>
           <!-- Movies Thumb -->
@@ -131,7 +147,7 @@
               <width>450</width>
               <height>30</height>
               <font>Font_Normal24</font>
-              <textcolor>ccffffff</textcolor>
+              <textcolor>whiteD0</textcolor>
               <aligny>center</aligny>
               <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
               <visible>Container(300).HasFocus(7)</visible>
@@ -142,7 +158,7 @@
               <width>450</width>
               <height>20</height>
               <font>Font_Normal16</font>
-              <textcolor>ccFFFFFF</textcolor>
+              <textcolor>whiteD0</textcolor>
               <aligny>center</aligny>
               <label fallback="-">$INFO[Container(510).ListItem.Label2]</label>
               <visible>Container(300).HasFocus(7)</visible>
@@ -158,7 +174,7 @@
                 <width>450</width>
                 <height>115</height>
                 <autoscroll time="2000" delay="5000" repeat="5000">true</autoscroll>
-                <textcolor>c0FFFFFF</textcolor>
+                <textcolor>whiteD0</textcolor>
                 <visible>Container(300).HasFocus(7)</visible>
               </control>
             </control>
@@ -182,22 +198,6 @@
               <width>321</width>
               <height>180</height>
               <fadetime>1000</fadetime>
-            </control>
-            <control type="image">
-              <texture diffuse="multiplex/multiplex_tvmask.png">multiplex/multiplex_tvglass.png</texture>
-              <aspectratio scalediffuse="false">scale</aspectratio>
-              <posx>0</posx>
-              <posy>57</posy>
-              <width>321</width>
-              <height>180</height>
-            </control>
-            <control type="image">
-              <texture diffuse="multiplex/multiplex_tvmask.png">home/list_episodeicon_glass.png</texture>
-              <aspectratio scalediffuse="false">scale</aspectratio>
-              <posx>0</posx>
-              <posy>57</posy>
-              <width>321</width>
-              <height>180</height>
             </control>
             <control type="image">
               <posx>-11</posx>
@@ -270,7 +270,7 @@
         <control type="group">
           <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
           <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(20)</visible>
+          <visible>Container(300).HasFocus(1)</visible>
           <control type="label">
             <posx>296</posx>
             <width>533</width>
@@ -278,7 +278,7 @@
             <aligny>left</aligny>
             <posy>529</posy>
             <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.1.Year)][/COLOR]</label>
+            <label>$LOCALIZE[562]: [COLOR=white]$INFO[Container(510).ListItem.Property(Year)][/COLOR]</label>
             <font>Font_Normal16</font>
           </control>
           <control type="label">
@@ -288,7 +288,7 @@
             <aligny>left</aligny>
             <posy>544</posy>
             <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.1.Genre)][/COLOR]</label>
+            <label>$LOCALIZE[515]: [COLOR=white]$INFO[Container(510).ListItem.Property(Genre)][/COLOR]</label>
             <font>Font_Normal16</font>
           </control>
           <control type="label">
@@ -306,323 +306,8 @@
             <posy>574</posy>
             <width>533</width>
             <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.1.Review)]</label>
-            <posx>296</posx>
-            <aligny>left</aligny>
-          </control>
-        </control>
-        <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(21)</visible>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.2.Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>544</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.2.Genre)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="textbox">
-            <font>Font_Normal16</font>
-            <posy>574</posy>
-            <width>533</width>
-            <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.2.Review)]</label>
-            <posx>296</posx>
-            <aligny>left</aligny>
-          </control>
-        </control>
-        <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(22)</visible>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.3.Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>544</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.3.Genre)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="textbox">
-            <font>Font_Normal16</font>
-            <posy>574</posy>
-            <width>533</width>
-            <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.3.Review)]</label>
-            <posx>296</posx>
-            <aligny>left</aligny>
-          </control>
-        </control>
-        <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(23)</visible>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.4.Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>544</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.4.Genre)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="textbox">
-            <font>Font_Normal16</font>
-            <posy>574</posy>
-            <width>533</width>
-            <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.4.Review)]</label>
-            <posx>296</posx>
-            <aligny>left</aligny>
-          </control>
-        </control>
-        <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(24)</visible>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.5.Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>544</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.5.Genre)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="textbox">
-            <font>Font_Normal16</font>
-            <posy>574</posy>
-            <width>533</width>
-            <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.5.Review)]</label>
-            <posx>296</posx>
-            <aligny>left</aligny>
-          </control>
-        </control>
-        <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(25)</visible>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.6.Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>544</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.6.Genre)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="textbox">
-            <font>Font_Normal16</font>
-            <posy>574</posy>
-            <width>533</width>
-            <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.6.Review)]</label>
-            <posx>296</posx>
-            <aligny>left</aligny>
-          </control>
-        </control>
-        <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(26)</visible>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.7.Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>544</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.7.Genre)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="textbox">
-            <font>Font_Normal16</font>
-            <posy>574</posy>
-            <width>533</width>
-            <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.7.Review)]</label>
-            <posx>296</posx>
-            <aligny>left</aligny>
-          </control>
-        </control>
-        <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(510).HasFocus(27)</visible>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.8.Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>544</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR FFFFFFFFA0]$INFO[Window.Property(LatestSong.8.Genre)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>greenlabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="textbox">
-            <font>Font_Normal16</font>
-            <posy>574</posy>
-            <width>533</width>
-            <height>117</height>
-            <textcolor>c0FFFFFF</textcolor>
-            <label fallback="31424">$INFO[Window.Property(LatestSong.8.Review)]</label>
+            <textcolor>whiteD0</textcolor>
+            <label fallback="31424">$INFO[Container(510).ListItem.Property(Review)]</label>
             <posx>296</posx>
             <aligny>left</aligny>
           </control>
@@ -652,7 +337,7 @@
             <align>center</align>
             <aligny>center</aligny>
             <font>Font_Normal24</font>
-            <textcolor>c0FFFFFF</textcolor>
+            <textcolor>whiteD0</textcolor>
             <label>[B]$LOCALIZE[31879][/B]</label>
             <animation effect="fade" start="0" end="100" time="200">Visible</animation>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -683,7 +368,7 @@
                 <width>280</width>
                 <height>30</height>
                 <font>Font_Normal15</font>
-                <textcolor>c0FFFFFF</textcolor>
+                <textcolor>whiteD0</textcolor>
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>$INFO[ListItem.Label]</label>
@@ -716,7 +401,7 @@
                 <width>280</width>
                 <height>30</height>
                 <font>Font_Normal15</font>
-                <textcolor>c0FFFFFF</textcolor>
+                <textcolor>whiteD0</textcolor>
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>$INFO[ListItem.Label]</label>
@@ -1057,7 +742,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_Normal24</font>
-          <textcolor>c0FFFFFF</textcolor>
+          <textcolor>whiteD0</textcolor>
           <label>[B]$LOCALIZE[31879][/B]</label>
           <animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
           <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
@@ -1091,7 +776,7 @@
             <width>220</width>
             <height>20</height>
             <font>Font_Normal18</font>
-            <textcolor>c0FFFFFF</textcolor>
+            <textcolor>whiteD0</textcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
@@ -1128,7 +813,7 @@
             <width>220</width>
             <height>10</height>
             <font>Font_Normal16</font>
-            <textcolor>c0FFFFFF</textcolor>
+            <textcolor>whiteD0</textcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>[COLOR FFBBBBBB]$INFO[Window.Property(LatestEpisode.1.ShowTitle)] - $INFO[Window.Property(LatestEpisode.1.EpisodeNo)][/COLOR]</label>
@@ -1139,7 +824,7 @@
             <width>220</width>
             <height>20</height>
             <font>Font_Normal18</font>
-            <textcolor>c0FFFFFF</textcolor>
+            <textcolor>whiteD0</textcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[Window.Property(LatestEpisode.1.Title)]</label>
@@ -1179,7 +864,7 @@
             <width>220</width>
             <height>20</height>
             <font>Font_Normal16</font>
-            <textcolor>c0FFFFFF</textcolor>
+            <textcolor>whiteD0</textcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[Window.Property(LatestSong.1.Artist)]</label>
@@ -1190,7 +875,7 @@
             <width>220</width>
             <height>20</height>
             <font>Font_Normal16</font>
-            <textcolor>c0FFFFFF</textcolor>
+            <textcolor>whiteD0</textcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[Window.Property(LatestSong.1.Album)]</label>

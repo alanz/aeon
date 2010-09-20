@@ -198,8 +198,8 @@
           <include>Animation_CommonFade</include>
           <include>Animation_HideShowcase</include>
           <include>Animation_HighListSlide</include>
-          <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(highlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
-          <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(highlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
           <visible>Control.IsVisible(551)</visible>
           <animation effect="fade" start="100" end="55" time="50" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
           <animation effect="fade" start="100" end="30" time="50" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
@@ -215,8 +215,8 @@
           <visible>Control.IsVisible(551)</visible>
           <include>Animation_CommonFade</include>
           <include>Animation_HighListSlide</include>
-          <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(highlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
-          <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(highlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
           <animation effect="fade" start="100" end="80" time="50" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
           <animation effect="fade" start="100" end="35" time="50" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
         </control>
@@ -920,7 +920,7 @@
             <posy>8</posy>
             <width>360</width>
             <height>16</height>
-            <visible>Skin.HasSetting(highlist)</visible>
+            <visible>Skin.HasSetting(longerlowlist)</visible>
             <include>Animation_HighListSlide</include>
             <!-- Artist page -->
             <control type="label">
@@ -976,7 +976,7 @@
             <texture diffuse="thumbs/list_episodeicon_mask.png">$INFO[Container(551).ListItem.property(fanart_image)]</texture>
             <visible>!IsEmpty(Container(551).ListItem.property(fanart_image)) + [Container.Content(artists) | Container.Content(movies)]</visible>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-            <animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(longerlowlist)">Conditional</animation>
             <include>Animation_BackgroundFade</include>
           </control>
           <control type="largeimage">
@@ -989,7 +989,7 @@
             <texture diffuse="thumbs/list_episodeicon_mask.png">$INFO[Container.Property(fanart_image)]</texture>
             <visible>!IsEmpty(Container.Property(fanart_image)) + [Container.Content(albums) | Container.Content(songs)]</visible>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-            <animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(highlist)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="0,-65" time="200" condition="Skin.HasSetting(longerlowlist)">Conditional</animation>
             <include>Animation_BackgroundFade</include>
           </control>
           <include condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)">LowList_ItemCountLabel</include>
@@ -1124,12 +1124,12 @@
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>-75</posy>
-            <visible>Skin.HasSetting(highlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
+            <visible>Skin.HasSetting(longerlowlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
           </control>
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>-65</posy>
-            <visible>Skin.HasSetting(highlist) + [Control.IsVisible(7814) | Control.IsVisible(7850)]</visible>
+            <visible>Skin.HasSetting(longerlowlist) + [Control.IsVisible(7814) | Control.IsVisible(7850)]</visible>
           </control>
           <control type="image">
             <include>LowList_Detail_Separator</include>
@@ -1139,7 +1139,7 @@
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>-35</posy>
-            <visible>Skin.HasSetting(highlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
+            <visible>Skin.HasSetting(longerlowlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
           </control>
           <control type="image">
             <include>LowList_Detail_Separator</include>
@@ -1149,7 +1149,7 @@
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>5</posy>
-            <visible>Skin.HasSetting(highlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
+            <visible>Skin.HasSetting(longerlowlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
           </control>
           <control type="image">
             <include>LowList_Detail_Separator</include>
@@ -1159,7 +1159,7 @@
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>115</posy>
-            <visible>Skin.HasSetting(highlist) + [Control.IsVisible(7801) | Control.IsVisible(7802) | Control.IsVisible(7811) | Control.IsVisible(7812) | Control.IsVisible(7831)] + ![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
+            <visible>Skin.HasSetting(longerlowlist) + [Control.IsVisible(7801) | Control.IsVisible(7802) | Control.IsVisible(7811) | Control.IsVisible(7812) | Control.IsVisible(7831)] + ![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]</visible>
           </control>
           <control type="image">
             <include>LowList_Detail_Separator</include>
@@ -1170,23 +1170,23 @@
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>35</posy>
-            <visible>!Skin.HasSetting(highlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
+            <visible>!Skin.HasSetting(longerlowlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
           </control>
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>75</posy>
-            <visible>!Skin.HasSetting(highlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
+            <visible>!Skin.HasSetting(longerlowlist) + [Control.IsVisible(7802) | Control.IsVisible(7812)]</visible>
           </control>
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>115</posy>
-            <visible>!Skin.HasSetting(highlist) + [Control.IsVisible(7802) | Control.IsVisible(7812) | Control.IsVisible(7831) | Control.IsVisible(7811)]</visible>
+            <visible>!Skin.HasSetting(longerlowlist) + [Control.IsVisible(7802) | Control.IsVisible(7812) | Control.IsVisible(7831) | Control.IsVisible(7811)]</visible>
           </control>
           <!-- Bottom separator -->
           <control type="image">
             <include>LowList_Detail_Separator</include>
             <posy>155</posy>
-            <visible>![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112) | [!Skin.HasSetting(highlist) + [Control.IsVisible(7814) | Control.IsVisible(7820) | Control.IsVisible(7850)]]]</visible>
+            <visible>![Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112) | [!Skin.HasSetting(longerlowlist) + [Control.IsVisible(7814) | Control.IsVisible(7820) | Control.IsVisible(7850)]]]</visible>
             <include>Animation_HideList</include>
           </control>
         </control>
@@ -1248,7 +1248,7 @@
         <onleft>SetFocus(7000)</onleft>
         <onright>50</onright>
         <visible allowhiddenfocus="true">Control.IsVisible(551) + Control.HasFocus(65)</visible>
-        <visible>!Skin.HasSetting(highlist)</visible>
+        <visible>!Skin.HasSetting(longerlowlist)</visible>
       </control>
       <control type="scrollbar" id="65">
         <description>Tall scroll bar</description>
@@ -1273,7 +1273,7 @@
         <onleft>SetFocus(7000)</onleft>
         <onright>50</onright>
         <visible allowhiddenfocus="true">Control.IsVisible(551) + Control.HasFocus(65)</visible>
-        <visible>Skin.HasSetting(highlist)</visible>
+        <visible>Skin.HasSetting(longerlowlist)</visible>
       </control>
     </control>
   </include>
