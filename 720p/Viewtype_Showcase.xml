@@ -278,13 +278,17 @@
     </focusedlayout>
     <itemlayout height="350" width="250" condition="[Container.Content(episodes) + Skin.HasSetting(flattenshowcaseepisodes)] | [Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(showcasefanart) + Container.Content(movies)]">
       <control type="image">
-        <include>EpisodeShowcaseThumbMain</include>
-        <info>ListItem.Icon</info>
+        <include>EpisodeShowcaseThumbDimensions</include>
+        <texture background="true" diffuse="thumbs/multiplex_tvmask.png">$INFO[ListItem.Icon]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
         <visible>[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Container.Content(episodes) + Skin.HasSetting(flattenshowcaseepisodes)]] + !Control.IsVisible(970)</visible>   
      </control>
       <control type="image">
-        <include>EpisodeShowcaseThumbMain</include>
-        <info>ListItem.property(fanart_image)</info>
+        <include>EpisodeShowcaseThumbDimensions</include>
+        <texture background="true" diffuse="thumbs/multiplex_tvmask.png">$INFO[ListItem.property(fanart_image)]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
         <visible>[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)]</visible>
       </control>
       <control type="image">
@@ -311,12 +315,17 @@
         <animation effect="zoom" start="100" end="140" center="-15,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
         <animation effect="zoom" start="140" end="100" center="-15,180" time="400" easing="out" reversible="false" tween="cubic" condition="!Control.HasFocus(57) + [[[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  [Container.Content(episodes) + Skin.HasSetting(flattenshowcaseepisodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] | [Container.Content(episodes) + Skin.HasSetting(flattenshowcaseepisodes)]]">Unfocus</animation>
         <control type="image">
-          <include>EpisodeShowcaseThumbMain</include>
-          <info>ListItem.Icon</info>
+          <include>EpisodeShowcaseThumbDimensions</include>
+          <texture background="true" diffuse="thumbs/multiplex_tvmask.png">$INFO[ListItem.Icon]</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
           <visible>[[[[Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  [Container.Content(episodes) + Skin.HasSetting(flattenshowcaseepisodes)] | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]] + !Control.IsVisible(970)]]</visible>
         </control>
         <control type="image">
-          <include>EpisodeShowcaseThumbMain</include>
+          <include>EpisodeShowcaseThumbDimensions</include>
+          <texture background="true" diffuse="thumbs/multiplex_tvmask.png">$INFO[ListItem.property(fanart_image)]</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
           <info>ListItem.property(fanart_image)</info>
           <visible>[Skin.HasSetting(flattenshowcasemovies) + Container.Content(movies)]</visible>
         </control>
@@ -776,12 +785,6 @@
     <include condition="!Skin.HasSetting(dvdcase)">MusicCoverMaskNormal</include>
     <include condition="Skin.HasSetting(dvdcase)">MusicCoverMaskCD</include>
     <include>MusicShowcaseThumbAspectRatio</include>
-    <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
-  </include>
-  <include name="EpisodeShowcaseThumbMain">
-    <include>EpisodeShowcaseThumbDimensions</include>
-    <texture background="true" diffuse="thumbs/multiplex_tvmask.png">DefaultVideo.png</texture>
-    <aspectratio scalediffuse="false">scale</aspectratio>
     <visible>!Container.Content(genres) | Skin.HasSetting(MusicGenreOff)</visible>
   </include>
   <include name="MusicShowcaseThumbReflection">
