@@ -500,7 +500,6 @@
   </include>
   <include name="Furniture_HomeNowPlayingMetricsCDArt">
     <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
-    <width>483</width>
     <height>65</height>
     <aligny>left</aligny>
     <visible>Player.HasAudio + !Control.HasFocus(93)</visible>
@@ -516,14 +515,16 @@
     <control type="label">
       <posx>360</posx>
       <posy>468</posy>
-      <label>$INFO[MusicPlayer.Artist]</label>
+      <width>483</width>
+      <label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
       <font>Font_Home36</font>
-      <textcolor>white</textcolor>
+      <textcolor>whiteD0</textcolor>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
     </control>
     <control type="label">
       <posx>377</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
+      <width>483</width>
       <posy>524</posy>
       <textcolor>greenlabel</textcolor>
       <label>Album:</label>
@@ -532,10 +533,11 @@
     <control type="label">
       <posx>380</posx>
       <posy>540</posy>
+      <width>443</width>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
-      <textcolor>whiteA0</textcolor>
-      <label>$INFO[MusicPlayer.Album]</label>
-      <font>Font_Home30</font>
+      <textcolor>whiteD0</textcolor>
+      <label>[UPPERCASE]$INFO[MusicPlayer.Album][/UPPERCASE]</label>
+      <font>Font_Home30_ls07</font>
       <wrapmultiline>true</wrapmultiline>
     </control>
     <control type="label">
@@ -544,6 +546,7 @@
       <posy>594</posy>
       <textcolor>greenlabel</textcolor>
       <label>31006</label>
+      <width>483</width>
       <font>Font_Normal16</font>
       <visible>!Player.Paused</visible>
     </control>
@@ -551,6 +554,7 @@
       <posx>377</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
       <posy>594</posy>
+      <width>483</width>
       <textcolor>greenlabel</textcolor>
       <label>112</label>
       <font>Font_Normal16</font>
@@ -560,8 +564,9 @@
       <posx>365</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
       <posy>615</posy>
-      <textcolor>white</textcolor>
-      <label>$INFO[MusicPlayer.Title]</label>
+      <width>483</width>
+      <textcolor>whiteD0</textcolor>
+      <label>[UPPERCASE]$INFO[MusicPlayer.Title][/UPPERCASE]</label>
       <font>Font_Home36</font>
       <wrapmultiline>true</wrapmultiline>
     </control>
@@ -576,8 +581,8 @@
         <posx>360</posx>
         <include>Furniture_HomeNowPlayingMetricsCDArt</include>
         <posy>-25</posy>
-        <label>[COLOR CB94AFAF]NEXT TRACKS:[/COLOR]</label>
-        <font>Font_Home22</font>
+        <label>[COLOR=greenlabel]NEXT TRACKS:[/COLOR]</label>
+        <font>Font_Home24</font>
         <visible>!IsEmpty(MusicPlayer.offset(1).Artist)</visible>
       </control>
       <control type="group">
@@ -586,7 +591,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>0</posy>
-          <label>[COLOR CB94AFAF]1:[/COLOR] $INFO[MusicPlayer.offset(1).Artist]: $INFO[MusicPlayer.offset(1).Title]</label>
+          <label>[COLOR=greenlabel]1:[/COLOR] $INFO[MusicPlayer.offset(1).Artist]: $INFO[MusicPlayer.offset(1).Title]</label>
           <font>Font_Normal16</font>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2000">WindowOpen</animation>
         </control>
@@ -595,7 +600,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>15</posy>
-          <label>[COLOR CB94AFAF]2:[/COLOR] $INFO[MusicPlayer.offset(2).Artist]: $INFO[MusicPlayer.offset(2).Title]</label>
+          <label>[COLOR=greenlabel]2:[/COLOR] $INFO[MusicPlayer.offset(2).Artist]: $INFO[MusicPlayer.offset(2).Title]</label>
           <font>Font_Normal16</font>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2100">WindowOpen</animation>
         </control>
@@ -604,7 +609,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>30</posy>
-          <label>[COLOR CB94AFAF]3:[/COLOR] $INFO[MusicPlayer.offset(3).Artist]: $INFO[MusicPlayer.offset(3).Title]</label>
+          <label>[COLOR=greenlabel]3:[/COLOR] $INFO[MusicPlayer.offset(3).Artist]: $INFO[MusicPlayer.offset(3).Title]</label>
           <font>Font_Normal16</font>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2200">WindowOpen</animation>
         </control>
@@ -613,7 +618,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>45</posy>
-          <label>[COLOR CB94AFAF]4:[/COLOR] $INFO[MusicPlayer.offset(4).Artist]: $INFO[MusicPlayer.offset(4).Title]</label>
+          <label>[COLOR=greenlabel]4:[/COLOR] $INFO[MusicPlayer.offset(4).Artist]: $INFO[MusicPlayer.offset(4).Title]</label>
           <font>Font_Normal16</font>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2300">WindowOpen</animation>
         </control>
@@ -623,7 +628,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>60</posy>
-          <label>[COLOR CB94AFAF]5:[/COLOR] $INFO[MusicPlayer.offset(5).Artist]: $INFO[MusicPlayer.offset(5).Title]</label>
+          <label>[COLOR=greenlabel]5:[/COLOR] $INFO[MusicPlayer.offset(5).Artist]: $INFO[MusicPlayer.offset(5).Title]</label>
           <font>Font_Normal16</font>
         </control>
         <control type="label">
@@ -632,7 +637,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>75</posy>
-          <label>[COLOR CB94AFAF]6:[/COLOR] $INFO[MusicPlayer.offset(6).Artist]: $INFO[MusicPlayer.offset(6).Title]</label>
+          <label>[COLOR=greenlabel]6:[/COLOR] $INFO[MusicPlayer.offset(6).Artist]: $INFO[MusicPlayer.offset(6).Title]</label>
           <font>Font_Normal16</font>
         </control>
         <control type="label">
@@ -641,7 +646,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>90</posy>
-          <label>[COLOR CB94AFAF]7:[/COLOR] $INFO[MusicPlayer.offset(7).Artist]: $INFO[MusicPlayer.offset(7).Title]</label>
+          <label>[COLOR=greenlabel]7:[/COLOR] $INFO[MusicPlayer.offset(7).Artist]: $INFO[MusicPlayer.offset(7).Title]</label>
           <font>Font_Normal16</font>
         </control>
         <control type="label">
@@ -650,7 +655,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>105</posy>
-          <label>[COLOR CB94AFAF]8:[/COLOR] $INFO[MusicPlayer.offset(8).Artist]: $INFO[MusicPlayer.offset(8).Title]</label>
+          <label>[COLOR=greenlabel]8:[/COLOR] $INFO[MusicPlayer.offset(8).Artist]: $INFO[MusicPlayer.offset(8).Title]</label>
           <font>Font_Normal16</font>
         </control>
         <control type="label">
@@ -659,7 +664,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>120</posy>
-          <label>[COLOR CB94AFAF]9:[/COLOR] $INFO[MusicPlayer.offset(9).Artist]: $INFO[MusicPlayer.offset(9).Title]</label>
+          <label>[COLOR=greenlabel]9:[/COLOR] $INFO[MusicPlayer.offset(9).Artist]: $INFO[MusicPlayer.offset(9).Title]</label>
           <font>Font_Normal16</font>
         </control>
         <control type="label">
@@ -668,7 +673,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>135</posy>
-          <label>[COLOR CB94AFAF]10:[/COLOR] $INFO[MusicPlayer.offset(10).Artist]: $INFO[MusicPlayer.offset(10).Title]</label>
+          <label>[COLOR=greenlabel]10:[/COLOR] $INFO[MusicPlayer.offset(10).Artist]: $INFO[MusicPlayer.offset(10).Title]</label>
           <font>Font_Normal16</font>
         </control>
       </control>

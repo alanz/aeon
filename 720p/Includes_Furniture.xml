@@ -29,19 +29,19 @@
     </control>
     <control type="label">
       <posx>370</posx>
-      <posy>2</posy>
+      <posy>1</posy>
       <width>400</width>
-      <font>Font_Normal16</font>
+      <font>Font_Normal18</font>
       <align>right</align>
       <include>Colour_WhiteAlpha80</include>
       <visible>!Skin.HasSetting(bighome)</visible>
-      <label>[COLOR FFe5e5e5]$INFO[System.Date]  [/COLOR][COLOR=greenlabel]|  $INFO[System.Time][/COLOR]</label>
+      <label>[COLOR FFe5e5e5]$INFO[System.Date]   [/COLOR][COLOR=greenlabel]$INFO[System.Time][/COLOR]</label>
     </control>
     <control type="label">
       <posx>-20</posx>
-      <posy>2</posy>
+      <posy>1</posy>
       <width>400</width>
-      <font>Font_Normal16</font>
+      <font>Font_Normal18</font>
       <align>left</align>
       <textcolor>greenlabel</textcolor>
       <visible>!Skin.HasSetting(bighome)</visible>
@@ -70,7 +70,7 @@
   </include>
   <include name="Furniture_TimePanelHigh">
     <control type="image">
-      <posx>-60</posx>
+      <posx>-70</posx>
       <posy>0</posy>
       <width>451</width>
       <height>27</height>
@@ -86,7 +86,7 @@
         <effect type="slide" end="-30,2" time="0"/>
         <effect type="zoom" end="120" time="0"/>
       </animation>
-      <posx>-45</posx>
+      <posx>-52</posx>
       <posy>1</posy>
       <width>23</width>
       <height>23</height>
@@ -96,19 +96,19 @@
     </control>
     <control type="label">
       <posx>370</posx>
-      <posy>2</posy>
+      <posy>0</posy>
       <width>400</width>
-      <font>Font_Normal15</font>
+      <font>Font_Normal18</font>
       <align>right</align>
       <include>Colour_WhiteAlpha80</include>
       <visible>!Skin.HasSetting(bighome)</visible>
-      <label>[COLOR FFe5e5e5]$INFO[System.Date]  [/COLOR][COLOR=greenlabel]|  $INFO[System.Time][/COLOR]</label>
+      <label>[COLOR FFe5e5e5]$INFO[System.Date]   [/COLOR][COLOR=greenlabel]$INFO[System.Time][/COLOR]</label>
     </control>
     <control type="label">
-      <posx>-20</posx>
-      <posy>2</posy>
+      <posx>-25</posx>
+      <posy>0</posy>
       <width>400</width>
-      <font>Font_Normal15</font>
+      <font>Font_Normal18</font>
       <align>left</align>
       <include>Colour_WhiteAlpha80</include>
       <visible>!Skin.HasSetting(bighome)</visible>
@@ -138,42 +138,12 @@
   <include name="Furniture_Time">
     <control type="group">
       <posx>900</posx>
-      <posy>316</posy>
-      <width>451</width>
-      <height>27</height>
-      <visible>!Skin.HasSetting(highertime) + Window.IsActive(Home)</visible>
-      <animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-      <include>Animation_OpenCloseZoom</include>
-      <include>Furniture_TimePanel</include>
-    </control>
-    <control type="group">
-      <posx>900</posx>
       <posy>0</posy>
       <width>451</width>
       <height>27</height>
       <animation effect="slide" start="0,0" end="0,-37" time="200" condition="[Control.IsVisible(57) + Control.HasFocus(70197)]">Conditional</animation>
-      <visible>[Skin.HasSetting(highertime) + Window.IsActive(Home)] | Window.IsActive(FileManager) | [[Control.IsVisible(553) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(52) | Control.IsVisible(556) |  Control.IsVisible(556) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(51) | Control.IsVisible(53)] + !Window.IsVisible(112) + !Window.IsVisible(133)]</visible>
+      <visible>Window.IsActive(FileManager) | [[Control.IsVisible(553) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(52) | Control.IsVisible(556) |  Control.IsVisible(556) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(51) | Control.IsVisible(53)] + !Window.IsVisible(112) + !Window.IsVisible(133)]</visible>
       <include>Furniture_TimePanelHigh</include>
-      <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
-        <effect type="zoom" start="180" end="100" center="640,360" time="2500" tween="cubic" easing="out"/>
-        <effect type="fade" start="0" end="100" time="2000"/>
-      </animation>
-      <animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
-        <effect type="zoom" start="150" end="100" center="640,360" time="900" tween="cubic" easing="out"/>
-        <effect type="fade" start="0" end="100" time="900"/>
-      </animation>
-      <animation type="WindowClose" reversible="false">
-        <effect type="fade" start="100" end="0" time="300"/>
-        <effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in"/>
-      </animation>
-    </control>
-    <control type="group">
-      <posx>900</posx>
-      <posy>45</posy>
-      <width>451</width>
-      <height>27</height>
-      <visible>!Window.IsActive(FileManager) + !Window.IsActive(Home) + !Control.IsVisible(553) + !Control.IsVisible(51) + !Control.IsVisible(59) + !Control.IsVisible(52) + !Control.IsVisible(55) + !Control.IsVisible(552) + !Control.IsVisible(57) + !Control.IsVisible(50) + !Control.IsVisible(550) + !Control.IsVisible(551) + !Control.IsVisible(53) + !Control.IsVisible(556) + !Control.IsVisible(557) + !Control.isVisible(560) + !Control.IsVisible(54)</visible>
-      <include>Furniture_TimePanel</include>
       <include>Animation_OpenCloseZoom</include>
     </control>
   </include>
@@ -444,7 +414,7 @@
       <control type="progress" id="20">
         <description>Progressbar</description>
         <posx>340</posx>
-        <posy>1</posy>
+        <posy>3</posy>
         <width>120</width>
         <height>10</height>
         <texturebg>dialogs/progress-back.png</texturebg>
@@ -459,20 +429,20 @@
         <posy>-3</posy>
         <width>240</width>
         <height>18</height>
-        <font>Font_Normal13</font>
+        <font>Font_Normal15</font>
         <textcolor>greenlabel</textcolor>
         <scroll>true</scroll>
-        <label>$INFO[MusicPlayer.Artist]</label>
+        <label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
       </control>
       <control type="label">
         <posx>92</posx>
-        <posy>10</posy>
+        <posy>11</posy>
         <width>240</width>
         <height>18</height>
-        <font>Font_Normal13</font>
+        <font>Font_Normal14</font>
         <textcolor>whiteD0</textcolor>
         <scroll>true</scroll>
-        <label>[COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
+        <label>[UPPERCASE][COLOR=white]$INFO[MusicPlayer.Title][/COLOR][/UPPERCASE]</label>
       </control>
       <control type="label">
         <posx>92</posx>
@@ -511,11 +481,11 @@
       <control type="label">
         <description>Current time</description>
         <posx>300</posx>
-        <posy>9</posy>
+        <posy>10</posy>
         <width>200</width>
         <height>20</height>
-        <font>Font_Normal13</font>
-        <textcolor>whiteD0</textcolor>
+        <font>Font_Normal15</font>
+        <textcolor>greenlabel</textcolor>
         <label>$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration]</label>
         <align>center</align>
       </control>

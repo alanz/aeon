@@ -628,8 +628,8 @@
     <control type="radiobutton" id="700131">
       <include>MediaMenuRadioButton</include>
       <label>310800</label>
-      <onclick>Skin.ToggleSetting(highlist)</onclick>
-      <selected>Skin.HasSetting(highlist)</selected>
+      <onclick>Skin.ToggleSetting(longerlowlist)</onclick>
+      <selected>Skin.HasSetting(longerlowlist)</selected>
       <visible>Control.IsVisible(551)</visible>
     </control>
     <control type="radiobutton" id="700135">
@@ -710,19 +710,11 @@
     </control>
   </include>
   <include name="MediaMenuButton_LargeList">
-    <control type="togglebutton" id="700117">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[535]: $LOCALIZE[310797]</label>
-      <altlabel>$LOCALIZE[535]: $LOCALIZE[310798]</altlabel>
-      <usealttexture>!Skin.HasSetting(largelistlight)</usealttexture>
-      <onclick>Skin.ToggleSetting(largelistlight)</onclick>
-      <visible>Control.IsVisible(560)</visible>
-    </control>
     <control type="radiobutton" id="700118">
       <include>MediaMenuRadioButton</include>
       <label>$LOCALIZE[31052]</label>
-      <selected>Skin.HasSetting(transparentlist)</selected>
-      <onclick>Skin.ToggleSetting(transparentlist)</onclick>
+      <selected>Skin.HasSetting(transparentlargelist)</selected>
+      <onclick>Skin.ToggleSetting(transparentlargelist)</onclick>
       <visible>Control.IsVisible(560)</visible>
     </control>
   </include>
@@ -765,6 +757,7 @@
         <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7011">
+        <visible allowhiddenfocus="true">[ControlGroup(7100).HasFocus(700018) + ControlGroup(7100).HasFocus] | ControlGroup(7011).HasFocus</visible>
         <posx>563</posx>
         <posy>18</posy>
         <height>5800</height>
@@ -1052,6 +1045,7 @@
         <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7100">
+        <visible allowhiddenfocus="true">[ControlGroup(7100).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() ] + ![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
         <posx>-23</posx>
         <posy>103</posy>
         <width>260</width>
@@ -1064,7 +1058,6 @@
         <onup>7100</onup>
         <ondown>7100</ondown>
         <scrolltime>300</scrolltime>
-        <include>Animation_CommonFade</include>
         <control type="label">
           <posx>0</posx>
           <posy>80</posy>
@@ -1102,7 +1095,7 @@
         <effect type="rotatey" start="0" end="-130" time="800" center="-20,0" tween="cubic" easing="in"/>
       </animation>
       <posx>585</posx>
-      <visible allowhiddenfocus="true">ControlGroup(7020).HasFocus</visible>
+      <visible allowhiddenfocus="true">ControlGroup(7020).HasFocus | [ControlGroup(7100).HasFocus(700060) + ControlGroup(7100).HasFocus]</visible>
       <include>Animation_MediaMenuSlide</include>
       <animation type="Conditional" condition="!Control.IsVisible(7777)">
         <effect type="fade" start="100" end="0" time="400" reversible="false"/>
@@ -1122,6 +1115,7 @@
         <texture>list/listpanel_back.png</texture>
       </control>
       <control type="grouplist" id="7020">
+        <visible allowhiddenfocus="true">ControlGroup(7020).HasFocus | [ControlGroup(7100).HasFocus(700060) + ControlGroup(7100).HasFocus]</visible>
         <posx>-25</posx>
         <posy>145</posy>
         <width>165</width>
@@ -1133,7 +1127,6 @@
         <onright>50</onright>
         <onup>7020</onup>
         <ondown>7020</ondown>
-        <include>Animation_CommonFade</include>
         <scrolltime>300</scrolltime>
         <control type="button" id="702003">
           <!--multiplex-->

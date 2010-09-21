@@ -1810,6 +1810,28 @@
       </control>
     </control>
   </include>
+  <include name="HomeTime">
+    <control type="group">
+      <posx>900</posx>
+      <posy>316</posy>
+      <width>451</width>
+      <height>27</height>
+      <visible>!Skin.HasSetting(highertime)</visible>
+      <animation effect="slide" start="0,0" end="0,225" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+      <include>Animation_OpenCloseZoom</include>
+      <include>Furniture_TimePanel</include>
+    </control>
+    <control type="group">
+      <posx>900</posx>
+      <posy>0</posy>
+      <width>451</width>
+      <height>27</height>
+      <animation effect="slide" start="0,0" end="0,-37" time="200" condition="[Control.IsVisible(57) + Control.HasFocus(70197)]">Conditional</animation>
+      <visible>Skin.HasSetting(highertime)</visible>
+      <include>Furniture_TimePanelHigh</include>
+      <include>Animation_OpenCloseZoom</include>
+    </control>
+  </include>
   <!-- Library Totals -->
   <include name="Library_Vars">
     <visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
@@ -1820,9 +1842,9 @@
     <height>27</height>
     <control type="label" id="71">
       <posx>10</posx>
-      <posy>3</posy>
+      <posy>1</posy>
       <width>440</width>
-      <font>Font_Normal16</font>
+      <font>Font_Normal18</font>
       <include>Colour_WhiteAlpha80</include>
       <visible>!Skin.HasSetting(bighome)</visible>
       <scroll>true</scroll>
@@ -1843,9 +1865,9 @@
     </control>
     <control type="label" id="71">
       <posx>5</posx>
-      <posy>3</posy>
+      <posy>1</posy>
       <width>460</width>
-      <font>Font_Normal16</font>
+      <font>Font_Normal18</font>
       <include>Colour_WhiteAlpha80</include>
       <visible>!Skin.HasSetting(bighome)</visible>
       <scroll>true</scroll>
@@ -1866,9 +1888,9 @@
     </control>
     <control type="label" id="71">
       <posx>10</posx>
-      <posy>3</posy>
+      <posy>1</posy>
       <width>400</width>
-      <font>Font_Normal16</font>
+      <font>Font_Normal18</font>
       <include>Colour_WhiteAlpha80</include>
       <visible>!Skin.HasSetting(bighome)</visible>
       <scroll>true</scroll>
