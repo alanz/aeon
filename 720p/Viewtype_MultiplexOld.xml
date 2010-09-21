@@ -46,11 +46,11 @@
   </include>
   <include name="OldMultiplexInfoLabel">
     <posx>0</posx>
-    <posy>0</posy>
+    <posy>-3</posy>
     <include condition="!Skin.HasSetting(posterlayout) + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth</include>
     <include condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
     <height>13</height>
-    <font>Font_Normal15</font>
+    <font>Font_Normal17</font>
     <textcolor>greenlabel</textcolor>
   </include>
   <include name="OldMultiplexInfoValue">
@@ -59,7 +59,7 @@
     <include condition="!Skin.HasSetting(posterlayout) + !Skin.HasSetting(videotv)">OldMultiplexPlotWidth</include>
     <include condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
     <height>13</height>
-    <font>Font_Normal15</font>
+    <font>Font_Normal17</font>
     <textcolor>white</textcolor>
   </include>
   <include name="OldMultiplexFocusMovies">
@@ -127,7 +127,7 @@
           <posy>22</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31402]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31402]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -138,7 +138,7 @@
           <posy>72</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31401]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31401]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -149,7 +149,7 @@
           <posy>122</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[345]:</label>
+            <label>[UPPERCASE]$LOCALIZE[345]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -161,7 +161,7 @@
           <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31709]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31709]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -173,7 +173,7 @@
           <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[135]:</label>
+            <label>[UPPERCASE]$LOCALIZE[135]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -185,7 +185,7 @@
           <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31417]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31417]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -197,7 +197,7 @@
           <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[368]:</label>
+            <label>[UPPERCASE]$LOCALIZE[368]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -210,7 +210,7 @@
           <visible>Skin.HasSetting(fanartlayout)</visible>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31709]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31709]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -223,7 +223,7 @@
           <visible>Skin.HasSetting(fanartlayout)</visible>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31417]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31417]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -236,7 +236,7 @@
           <visible>Skin.HasSetting(fanartlayout)</visible>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[368]:</label>
+            <label>[UPPERCASE]$LOCALIZE[368]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -247,15 +247,28 @@
       <control type="textbox">
         <!--plot / poster-->
         <posx>396</posx>
-        <posy>22</posy>
+        <posy>10</posy>
         <width>491</width>
-        <height>320</height>
-        <font>Font_Normal19</font>
+        <height>334</height>
+        <font>Font_Normal19_ls08</font>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <textcolor>whiteD0</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
         <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
-        <visible>!Player.HasVideo</visible>
+        <visible>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</visible>
+      </control>
+      <control type="textbox">
+        <!--plot / poster-->
+        <posx>396</posx>
+        <posy>10</posy>
+        <width>491</width>
+        <height>360</height>
+        <font>Font_Normal19_ls08</font>
+        <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
+        <textcolor>whiteD0</textcolor>
+        <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
+        <visible>Skin.HasSetting(plotlayout) | Skin.HasSetting(posterlayout)</visible>
+        <visible>!Player.HasVideo + IsEmpty(ListItem.Trailer)</visible>
       </control>
       <control type="videowindow">
         <posx>396</posx>
@@ -338,7 +351,7 @@
           <posy>152</posy>
           <width>530</width>
           <height>200</height>
-          <font>Font_Normal19</font>
+          <font>Font_Normal19_ls08</font>
           <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
           <textcolor>whiteD0</textcolor>
           <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -407,7 +420,7 @@
           <label>312573</label>
           <scroll>true</scroll>
           <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + !Control.HasFocus(110) + [Control.IsVisible(109) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
-          <colordiffuse>whiteD0</colordiffuse>
+          <textcolor>greenlabel</textcolor>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
         <control type="label">
@@ -422,7 +435,7 @@
           <scroll>true</scroll>
           <label>312575</label>
           <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + Control.HasFocus(110)</visible>
-          <colordiffuse>whiteD0</colordiffuse>
+          <textcolor>greenlabel</textcolor>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
           <animation effect="fade" start="40" time="600" condition="Control.HasFocus(110)" pulse="true">Conditional</animation>
         </control>
@@ -437,7 +450,7 @@
           <scroll>true</scroll>
           <label>312574</label>
           <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
-          <colordiffuse>whiteD0</colordiffuse>
+          <textcolor>greenlabel</textcolor>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
@@ -510,7 +523,7 @@
           <posy>72</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31402]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31402]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -521,7 +534,7 @@
           <posy>122</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[31401]:</label>
+            <label>[UPPERCASE]$LOCALIZE[31401]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -532,7 +545,7 @@
           <posy>172</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[20416]:</label>
+            <label>[UPPERCASE]$LOCALIZE[20416]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -548,7 +561,7 @@
           <posy>72</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[135]:</label>
+            <label>[UPPERCASE]$LOCALIZE[135]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -559,7 +572,7 @@
           <posy>122</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[20360]:</label>
+            <label>[UPPERCASE]$LOCALIZE[20360]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -570,7 +583,7 @@
           <posy>172</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[20416]:</label>
+            <label>[UPPERCASE]$LOCALIZE[20416]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -597,7 +610,7 @@
           <posy>122</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[16102]:</label>
+            <label>[UPPERCASE]$LOCALIZE[16102]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -608,7 +621,7 @@
           <posy>172</posy>
           <control type="label">
             <include>OldMultiplexInfoLabel</include>
-            <label>$LOCALIZE[16101]:</label>
+            <label>[UPPERCASE]$LOCALIZE[16101]:[/UPPERCASE]</label>
           </control>
           <control type="label">
             <include>OldMultiplexInfoValue</include>
@@ -621,7 +634,7 @@
         <posy>245</posy>
         <width>570</width>
         <height>197</height>
-        <font>Font_Normal19</font>
+        <font>Font_Normal19_ls08</font>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <textcolor>whiteD0</textcolor>
         <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -1003,10 +1016,12 @@
         <align>center</align>
         <scroll>true</scroll>
         <font>Font_Home55</font>
-        <fontcolor>whiteD0</fontcolor>
-        <label>$INFO[Container(553).ListItem.Label]</label>
+        <textcolor>whiteD0</textcolor>
+        <label>$INFO[ListItem.Label]</label>
         <include>Animation_HideMultiplex</include>
+        <visible>!StringCompare(ListItem.Label,..)</visible>
       </control>
+      <include>Furniture_OldMultiplexMediaFlags</include>
       <control type="image">
         <posx>0</posx>
         <posy>462</posy>
@@ -1016,7 +1031,6 @@
         <include>Animation_HideMultiplex</include>
         <visible>Control.IsVisible(553)</visible>
       </control>
-      <include>Furniture_OldMultiplexMediaFlags</include>
     </control>
     <control type="scrollbar" id="60">
       <posx>67</posx>
