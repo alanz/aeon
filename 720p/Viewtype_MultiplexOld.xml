@@ -290,6 +290,7 @@
           <height>169</height>
           <texture>common/black.png</texture>
           <colordiffuse>94FFFFFF</colordiffuse>
+          <bordertexture border="-30">multiplex/old/multiplex_iconframetv.png</bordertexture>
         </control>
         <control type="largeimage">
           <posx>2</posx>
@@ -307,6 +308,7 @@
           <height>169</height>
           <texture>common/black.png</texture>
           <colordiffuse>94FFFFFF</colordiffuse>
+          <bordertexture border="-30">multiplex/old/multiplex_iconframetv.png</bordertexture>
         </control>
         <control type="largeimage">
           <posx>2</posx>
@@ -861,7 +863,7 @@
           </control>
         </control>
       </focusedlayout>
-      <itemlayout width="229" height="129" condition="Skin.HasSetting(videotv)">
+      <itemlayout width="229" height="129" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">
         <control type="image">
           <include>OldMultiplexIconDimensionsTVWrap</include>
           <texture>common/black.png</texture>
@@ -871,10 +873,10 @@
           <texture background="true">$INFO[ListItem.Icon]</texture>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
-        <control type="image">
+        <control type="largeimage">
           <include>OldMultiplexIconDimensionsTVWrap</include>
           <aspectratio scalediffuse="false">scale</aspectratio>
-          <texture>$INFO[ListItem.Path,,folder.jpg]</texture>
+          <texture background="true">$INFO[ListItem.Path,,folder.jpg]</texture>
           <visible>Skin.HasSetting(use_folder_jpg) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
         </control>
         <control type="image">
@@ -934,7 +936,7 @@
           <include>Animation_VisibleChange200</include>
         </control>
       </itemlayout>
-      <focusedlayout width="229" height="129" condition="Skin.HasSetting(videotv)">
+      <focusedlayout width="229" height="129" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">
         <control type="group">
           <animation effect="zoom" center="auto" start="100" end="120" time="400" easing="out" tween="cubic" reversible="true">Focus</animation>
           <control type="image">
@@ -946,10 +948,10 @@
             <texture background="true">$INFO[ListItem.Icon]</texture>
             <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
-          <control type="image">
+          <control type="largeimage">
             <include>OldMultiplexIconDimensionsTVWrap</include>
             <aspectratio scalediffuse="false">scale</aspectratio>
-            <texture>$INFO[ListItem.Path,,folder.jpg]</texture>
+            <texture background="true">$INFO[ListItem.Path,,folder.jpg]</texture>
             <visible>Skin.HasSetting(use_folder_jpg) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
           </control>
           <control type="image">
