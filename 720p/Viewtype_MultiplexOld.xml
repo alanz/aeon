@@ -36,6 +36,7 @@
     <height>85</height>
     <aligny>center</aligny>
     <font>Font_Home55</font>
+    <fontcolor>whiteD0</fontcolor>
   </include>
   <include name="OldMultiplexPlotWidth">
     <width>255</width>
@@ -50,7 +51,7 @@
     <include condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(videotv)">OldMultiplexNoPlotWidth</include>
     <height>13</height>
     <font>Font_Normal15</font>
-    <textcolor>whiteA0</textcolor>
+    <textcolor>greenlabel</textcolor>
   </include>
   <include name="OldMultiplexInfoValue">
     <posx>0</posx>
@@ -284,7 +285,7 @@
           <height>165</height>
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
-          <texture fallback="DefaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
+          <texture background="true" fallback="DefaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb1.jpg]</texture>
         </control>
         <control type="image">
           <posx>0</posx>
@@ -301,7 +302,7 @@
           <height>165</height>
           <aspectratio>scale</aspectratio>
           <fadetime>400</fadetime>
-          <texture fallback="DefaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
+          <texture background="true" fallback="DefaultVideo.png">$INFO[Container(553).ListItem.Path,,extrathumbs/thumb2.jpg]</texture>
         </control>
       </control>
       <control type="group">
@@ -688,7 +689,7 @@
           <width>1000</width>
           <include>OldMultiplexTVLabel</include>
           <visible>Container.Content(episodes)</visible>
-          <label>$INFO[Container(553).ListItem.Season].$INFO[Container(553).ListItem.Episode] $INFO[Container(553).ListItem.Title]</label>
+          <label>$INFO[Container(553).ListItem.Season].$INFO[Container(553).ListItem.Episode] $INFO[Container(553).ListItem]</label>
         </control>
         <control type="label">
           <posx>1216</posx>
@@ -698,6 +699,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <font>Font_Home55</font>
+          <fontcolor>whiteD0</fontcolor>
           <label>$INFO[Container(553).ListItem.TVShowTitle]</label>
           <visible>Container.Content(seasons)</visible>
         </control>
@@ -747,33 +749,6 @@
         <visible>!Control.IsVisible(105)</visible>
         <include>Animation_CommonFade</include>
       </control>
-    </control>
-  </include>
-  <include name="OldMultiplexLabelsMovies">
-    <control type="group">
-      <visible>Container.Content(movies)</visible>
-      <control type="label">
-        <posx>275</posx>
-        <posy>447</posy>
-        <width>730</width>
-        <height>71</height>
-        <aligny>center</aligny>
-        <align>center</align>
-        <scroll>true</scroll>
-        <font>Font_Home55</font>
-        <label>$INFO[Container(553).ListItem.Label]</label>
-        <include>Animation_HideMultiplex</include>
-      </control>
-      <control type="image">
-        <posx>0</posx>
-        <posy>462</posy>
-        <width>1280</width>
-        <height>56</height>
-        <texture>multiplex/old/multiplex_gradient.png</texture>
-        <include>Animation_HideMultiplex</include>
-        <visible>Control.IsVisible(553)</visible>
-      </control>
-      <include>Furniture_OldMultiplexMediaFlags</include>
     </control>
   </include>
   <include name="Viewtype_MultiplexOld">
@@ -904,6 +879,7 @@
           <aligny>center</aligny>
           <font>Font_Home30</font>
           <label>$INFO[ListItem.Label]</label>
+          <fontcolor>whiteD0</fontcolor>
           <visible>Container.Content(seasons)  + !StringCompare(Container.ListItem.Label,..)</visible>
         </control>
         <control type="label">
@@ -914,6 +890,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>Font_Home30</font>
+          <font>whiteD0</font>
           <label>$LOCALIZE[20359] $INFO[ListItem.Episode]</label>
           <visible>Container.Content(episodes) + !StringCompare(ListItem.label,..)</visible>
         </control>
@@ -977,6 +954,7 @@
             <aligny>center</aligny>
             <font>Font_Home30</font>
             <label>$INFO[ListItem.Label]</label>
+            <fontcolor>whiteD0</fontcolor>
             <visible>Container.Content(seasons) + !StringCompare(ListItem.label,..)</visible>
           </control>
           <control type="label">
@@ -987,6 +965,7 @@
             <align>center</align>
             <aligny>center</aligny>
             <font>Font_Home30</font>
+            <fontcolor>whiteD0</fontcolor>
             <label>$LOCALIZE[20359] $INFO[ListItem.Episode]</label>
             <visible>Container.Content(episodes) + !StringCompare(ListItem.label,..)</visible>
           </control>
@@ -1013,7 +992,32 @@
         </control>
       </focusedlayout>
     </control>
-    <include condition="Skin.HasSetting(videomovies)">OldMultiplexLabelsMovies</include>
+    <control type="group"><!--title and mediaflags-->
+      <visible>Container.Content(movies)</visible>
+      <control type="label">
+        <posx>275</posx>
+        <posy>447</posy>
+        <width>730</width>
+        <height>71</height>
+        <aligny>center</aligny>
+        <align>center</align>
+        <scroll>true</scroll>
+        <font>Font_Home55</font>
+        <fontcolor>whiteD0</fontcolor>
+        <label>$INFO[Container(553).ListItem.Label]</label>
+        <include>Animation_HideMultiplex</include>
+      </control>
+      <control type="image">
+        <posx>0</posx>
+        <posy>462</posy>
+        <width>1280</width>
+        <height>56</height>
+        <texture>multiplex/old/multiplex_gradient.png</texture>
+        <include>Animation_HideMultiplex</include>
+        <visible>Control.IsVisible(553)</visible>
+      </control>
+      <include>Furniture_OldMultiplexMediaFlags</include>
+    </control>
     <control type="scrollbar" id="60">
       <posx>67</posx>
       <posy>673</posy>
