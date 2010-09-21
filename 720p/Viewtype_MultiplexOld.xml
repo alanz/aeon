@@ -837,6 +837,7 @@
       <focusedlayout width="89" height="129" condition="Container.Content(movies)">
         <control type="group">
           <animation effect="zoom" center="45,75" start="100" end="130" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
+          <animation effect="zoom" center="45,75" start="130" end="100" time="200" easing="out" tween="cubic" reversible="false">UnFocus</animation>
           <control type="image">
             <include>OldMultiplexIconDimensionsWrap</include>
             <texture>common/black.png</texture>
@@ -851,6 +852,14 @@
             <bordertexture border="-30">multiplex/old/multiplex_iconframe.png</bordertexture>
             <texture>common/blank.png</texture>
             <visible>!Container(553).Column(12)</visible>
+            <animation effect="fade" center="auto" start="100" end="0" time="200" reversible="true">UnFocus</animation>
+          </control>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsWrap</include>
+            <texture>common/black.png</texture>
+            <colordiffuse>58FFFFFF</colordiffuse>
+            <animation effect="fade" center="auto" start="0" end="100" time="300" reversible="true">UnFocus</animation>
+            <animation effect="fade" center="auto" start="0" end="0" time="300" reversible="true">Focus</animation>
           </control>
           <control type="image">
             <posx>44</posx>
@@ -938,6 +947,7 @@
       <focusedlayout width="229" height="129" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">
         <control type="group">
           <animation effect="zoom" center="auto" start="100" end="120" time="400" easing="out" tween="cubic" reversible="true">Focus</animation>
+          <animation effect="zoom" center="auto" start="120" end="100" time="200" easing="out" tween="cubic" reversible="true">UnFocus</animation>
           <control type="image">
             <include>OldMultiplexIconDimensionsTVWrap</include>
             <texture>common/black.png</texture>
@@ -993,6 +1003,15 @@
             <bordertexture border="-30">multiplex/old/multiplex_iconframetv.png</bordertexture>
             <texture>common/blank.png</texture>
             <visible>!Container(553).Column(4)</visible>
+            <animation effect="fade" center="auto" start="100" end="0" time="200" reversible="true">UnFocus</animation>
+          </control>
+          <control type="image">
+            <include>OldMultiplexIconDimensionsTVWrap</include>
+            <texture>common/black.png</texture>
+            <colordiffuse>58FFFFFF</colordiffuse>
+            <visible>!StringCompare(ListItem.label,..)</visible>
+            <animation effect="fade" center="auto" start="0" end="100" time="300" reversible="true">UnFocus</animation>
+            <animation effect="fade" center="auto" start="0" end="0" time="300" reversible="true">Focus</animation>  
           </control>
           <control type="image">
             <posx>175</posx>
