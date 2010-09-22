@@ -24,7 +24,7 @@
           <posx>120</posx>
           <posy>0</posy>
           <control type="group">
-            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(510) + Container(300).HasFocus(6)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="[Control.HasFocus(510) | Control.HasFocus(511)] + Container(300).HasFocus(6)">Conditional</animation>
             <posx>159</posx>
             <animation effect="slide" start="0,0" end="150,50" time="0" condition="!Container(300).HasFocus(6)">Conditional</animation>
             <control type="image">
@@ -63,6 +63,18 @@
               <textcolor>whiteD0</textcolor>
               <aligny>center</aligny>
               <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
+              <visible>Control.HasFocus(510)</visible>
+            </control>
+            <control type="label">
+              <posx>25</posx>
+              <posy>0</posy>
+              <width>450</width>
+              <height>30</height>
+              <font>Font_Home40</font>
+              <textcolor>whiteD0</textcolor>
+              <aligny>center</aligny>
+              <label fallback="-">$INFO[Container(511).ListItem.Label]</label>
+              <visible>Control.HasFocus(511)</visible>
             </control>
             <control type="label">
               <posx>25</posx>
@@ -73,6 +85,18 @@
               <textcolor>bluelabel</textcolor>
               <label>$LOCALIZE[345]: [COLOR=white]$INFO[Container(510).ListItem.Property(Year)][/COLOR]</label>
               <font>Font_Normal16</font>
+              <visible>Control.HasFocus(510)</visible>
+            </control>
+            <control type="label">
+              <posx>25</posx>
+              <width>533</width>
+              <height>25</height>
+              <aligny>left</aligny>
+              <posy>37</posy>
+              <textcolor>bluelabel</textcolor>
+              <label>$LOCALIZE[345]: [COLOR=white]$INFO[Container(511).ListItem.Property(Year)][/COLOR]</label>
+              <font>Font_Normal16</font>
+              <visible>Control.HasFocus(511)</visible>
             </control>
             <control type="label">
               <posx>200</posx>
@@ -83,6 +107,18 @@
               <textcolor>bluelabel</textcolor>
               <label>$LOCALIZE[31709]: [COLOR=white]$INFO[Container(510).ListItem.Property(RunningTime)][/COLOR]</label>
               <font>Font_Normal16</font>
+              <visible>Control.HasFocus(510)</visible>
+            </control>
+            <control type="label">
+              <posx>200</posx>
+              <width>533</width>
+              <height>25</height>
+              <aligny>left</aligny>
+              <posy>37</posy>
+              <textcolor>bluelabel</textcolor>
+              <label>$LOCALIZE[31709]: [COLOR=white]$INFO[Container(511).ListItem.Property(RunningTime)][/COLOR]</label>
+              <font>Font_Normal16</font>
+              <visible>Control.HasFocus(511)</visible>
             </control>
             <control type="label">
               <posx>25</posx>
@@ -93,26 +129,18 @@
               <textcolor>bluelabel</textcolor>
               <label>$LOCALIZE[368]: [COLOR=white]$INFO[Container(510).ListItem.Property(Rating)][/COLOR]</label>
               <font>Font_Normal16</font>
+              <visible>Control.HasFocus(510)</visible>
             </control>
             <control type="label">
               <posx>25</posx>
-              <posy>0</posy>
-              <width>450</width>
-              <height>30</height>
-              <font>Font_Home40</font>
-              <textcolor>whiteD0</textcolor>
-              <aligny>center</aligny>
-              <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
-            </control>
-            <control type="label">
-              <posx>25</posx>
-              <posy>0</posy>
-              <width>450</width>
-              <height>30</height>
-              <font>Font_Home40</font>
-              <textcolor>whiteD0</textcolor>
-              <aligny>center</aligny>
-              <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
+              <width>533</width>
+              <height>25</height>
+              <aligny>left</aligny>
+              <posy>53</posy>
+              <textcolor>bluelabel</textcolor>
+              <label>$LOCALIZE[368]: [COLOR=white]$INFO[Container(511).ListItem.Property(Rating)][/COLOR]</label>
+              <font>Font_Normal16</font>
+              <visible>Control.HasFocus(511)</visible>
             </control>
             <control type="textbox">
               <font>Font_Normal16_ls08</font>
@@ -123,11 +151,23 @@
               <autoscroll time="2000" delay="8000" repeat="5000">true</autoscroll>
               <textcolor>whiteD0</textcolor>
               <label fallback="31414">$INFO[Container(510).ListItem.Label2,[COLOR=bluelabel]$LOCALIZE[207]: [/COLOR],]</label>
+              <visible>Control.HasFocus(510)</visible>
+            </control>
+            <control type="textbox">
+              <font>Font_Normal16_ls08</font>
+              <posx>25</posx>
+              <posy>80</posy>
+              <width>450</width>
+              <height>174</height>
+              <autoscroll time="2000" delay="8000" repeat="5000">true</autoscroll>
+              <textcolor>whiteD0</textcolor>
+              <label fallback="31414">$INFO[Container(511).ListItem.Label2,[COLOR=bluelabel]$LOCALIZE[207]: [/COLOR],]</label>
+              <visible>Control.HasFocus(511)</visible>
             </control>
           </control>
           <!-- Movies Thumb -->
           <control type="group">
-            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(510) + Container(300).HasFocus(6)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="[Control.HasFocus(510) | Control.HasFocus(511)] + Container(300).HasFocus(6)">Conditional</animation>
             <control type="image">
               <posx>-14</posx>
               <posy>-14</posy>
@@ -142,7 +182,18 @@
               <height>260</height>
               <timeperimage>20000</timeperimage>
               <randomize>true</randomize>
-              <fadetime>1000</fadetime>
+              <fadetime>500</fadetime>
+              <visible>Control.HasFocus(510)</visible>
+            </control>
+            <control type="image">
+              <texture diffuse="thumbs/movieposter_mask.png" background="true" fallback="DefaultVideo.png">$INFO[Container(511).ListItem.thumb]</texture>
+              <aspectratio scalediffuse="false">stretch</aspectratio>
+              <width>169</width>
+              <height>260</height>
+              <timeperimage>20000</timeperimage>
+              <randomize>true</randomize>
+              <fadetime>500</fadetime>
+              <visible>Control.HasFocus(511)</visible>
             </control>
             <control type="image">
               <texture diffuse="thumbs/movieposter_mask.png">thumbs/poster_glass.png</texture>
@@ -169,7 +220,7 @@
           <posx>120</posx>
           <posy>0</posy>
           <control type="group">
-            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(510) + Container(300).HasFocus(7)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="[Control.HasFocus(510) | Control.HasFocus(511)] + Container(300).HasFocus(7)">Conditional</animation>
             <posx>159</posx>
             <animation effect="slide" start="0,0" end="150,50" time="0" condition="Container(300).HasFocus(7)| Container(300).HasFocus(1)">Conditional</animation>
             <control type="image">
@@ -224,7 +275,7 @@
           </control>
           <!-- TV Thumb -->
           <control type="group">
-            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(510) + Container(300).HasFocus(7)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="[Control.HasFocus(510) | Control.HasFocus(511)] + Container(300).HasFocus(7)">Conditional</animation>
             <posx>0</posx>
             <control type="image">
               <posx>-14</posx>
@@ -240,7 +291,7 @@
               <posy>57</posy>
               <width>321</width>
               <height>180</height>
-              <fadetime>1000</fadetime>
+              <fadetime>500</fadetime>
             </control>
             <control type="image">
               <posx>-11</posx>
@@ -255,7 +306,7 @@
       <!-- Music -->
       <control type="group">
         <animation effect="slide" start="0,-30" end="0,-410" time="0" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(510) + Container(300).HasFocus(1)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="1020,0" time="500" easing="inout" tween="cubic" condition="[Control.HasFocus(510) | Control.HasFocus(511)] + Container(300).HasFocus(1)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,380" time="0" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,25" time="500" easing="inout" tween="cubic" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowermainmenu) + [ControlGroup(940).HasFocus() | ControlGroup(941).HasFocus() | ControlGroup(942).HasFocus() | ControlGroup(943).HasFocus()] + Skin.HasSetting(lowerrss)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,25" time="500" easing="inout" tween="cubic" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowermainmenu)] + !Skin.HasSetting(lowerrss)">Conditional</animation>
@@ -284,45 +335,100 @@
           <texture>thumbs/cd_shadow2.png</texture>
           <aspectratio>stretch</aspectratio>
         </control>
-        <control type="image">
-          <posx>28</posx>
-          <posy>456</posy>
-          <height>242</height>
-          <width>242</width>
-          <texture fallback="DefaultAlbumCover.png" diffuse="home/nowplaying_mask.png">$INFO[Container(510).ListItem.Thumb]</texture>
-          <fadetime>1000</fadetime>
-        </control>
-        <control type="image">
-          <posx>28</posx>
-          <posy>456</posy>
-          <height>242</height>
-          <width>242</width>
-          <texture>home/nowplaying_overlay.png</texture>
-        </control>
-        <control type="label">
-          <posy>478</posy>
-          <label>$INFO[Container(510).ListItem.Label]</label>
-          <font>Font_Home36</font>
-          <textcolor>whiteD0</textcolor>
-          <posx>296</posx>
-          <width>533</width>
-          <height>25</height>
-          <aligny>left</aligny>
-        </control>
-        <control type="label">
-          <posy>510</posy>
-          <posx>296</posx>
-          <width>533</width>
-          <height>25</height>
-          <aligny>left</aligny>
-          <textcolor>whiteA0</textcolor>
-          <label>$INFO[Container(510).ListItem.Label2]</label>
-          <font>Font_Normal16</font>
+ 
+        <control type="group">
+          <visible>Control.HasFocus(511)</visible>
+          <include>Animation_VisibleChange400</include>
+          <control type="image">
+            <posx>28</posx>
+            <posy>456</posy>
+            <height>242</height>
+            <width>242</width>
+            <texture fallback="DefaultAlbumCover.png" diffuse="home/nowplaying_mask.png">$INFO[Container(511).ListItem.Thumb]</texture>
+            <fadetime>500</fadetime>
+          </control>  
+          <control type="label">
+            <posy>478</posy>
+            <label>$INFO[Container(511).ListItem.Label]</label>
+            <font>Font_Home36</font>
+            <textcolor>whiteD0</textcolor>
+            <posx>296</posx>
+            <width>533</width>
+            <height>25</height>
+            <aligny>left</aligny>
+          </control>
+          <control type="label">
+            <posy>510</posy>
+            <posx>296</posx>
+            <width>533</width>
+            <height>25</height>
+            <aligny>left</aligny>
+            <textcolor>whiteA0</textcolor>
+            <label>$INFO[Container(511).ListItem.Label2]</label>
+            <font>Font_Normal16</font>
+          </control>
+          <control type="label">
+            <posx>296</posx>
+            <width>533</width>
+            <height>25</height>
+            <aligny>left</aligny>
+            <posy>529</posy>
+            <textcolor>bluelabel</textcolor>
+            <label>$LOCALIZE[562]: [COLOR=white]$INFO[Container(511).ListItem.Property(Year)][/COLOR]</label>
+            <font>Font_Normal16</font>
+          </control>
+          <control type="label">
+            <posx>296</posx>
+            <width>533</width>
+            <height>25</height>
+            <aligny>left</aligny>
+            <posy>544</posy>
+            <textcolor>bluelabel</textcolor>
+            <label>$LOCALIZE[515]: [COLOR=white]$INFO[Container(511).ListItem.Property(Genre)][/COLOR]</label>
+            <font>Font_Normal16</font>
+          </control>
+          <control type="textbox">
+            <font>Font_Normal16</font>
+            <posy>574</posy>
+            <width>533</width>
+            <height>117</height>
+            <textcolor>whiteD0</textcolor>
+            <label fallback="31424">$INFO[Container(511).ListItem.Property(Review)]</label>
+            <posx>296</posx>
+            <aligny>left</aligny>
+          </control>
         </control>
         <control type="group">
-          <animation effect="fade" start="0" end="100" time="200" delay="200">Visible</animation>
-          <animation effect="fade" start="100" end="0" time="200" delay="200">Hidden</animation>
-          <visible>Container(300).HasFocus(1)</visible>
+          <visible>Control.HasFocus(510)</visible>
+          <include>Animation_VisibleChange400</include>
+          <control type="image">
+            <posx>28</posx>
+            <posy>456</posy>
+            <height>242</height>
+            <width>242</width>
+            <texture fallback="DefaultAlbumCover.png" diffuse="home/nowplaying_mask.png">$INFO[Container(510).ListItem.Thumb]</texture>
+            <fadetime>500</fadetime>
+          </control>  
+          <control type="label">
+            <posy>478</posy>
+            <label>$INFO[Container(510).ListItem.Label]</label>
+            <font>Font_Home36</font>
+            <textcolor>whiteD0</textcolor>
+            <posx>296</posx>
+            <width>533</width>
+            <height>25</height>
+            <aligny>left</aligny>
+          </control>
+          <control type="label">
+            <posy>510</posy>
+            <posx>296</posx>
+            <width>533</width>
+            <height>25</height>
+            <aligny>left</aligny>
+            <textcolor>whiteA0</textcolor>
+            <label>$INFO[Container(510).ListItem.Label2]</label>
+            <font>Font_Normal16</font>
+          </control>
           <control type="label">
             <posx>296</posx>
             <width>533</width>
@@ -343,16 +449,6 @@
             <label>$LOCALIZE[515]: [COLOR=white]$INFO[Container(510).ListItem.Property(Genre)][/COLOR]</label>
             <font>Font_Normal16</font>
           </control>
-          <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>559</posy>
-            <textcolor>bluelabel</textcolor>
-            <label>$LOCALIZE[31866]:</label>
-            <font>Font_Normal16</font>
-          </control>
           <control type="textbox">
             <font>Font_Normal16</font>
             <posy>574</posy>
@@ -364,43 +460,59 @@
             <aligny>left</aligny>
           </control>
         </control>
+        <control type="image">
+          <posx>28</posx>
+          <posy>456</posy>
+          <height>242</height>
+          <width>242</width>
+          <texture>home/nowplaying_overlay.png</texture>
+        </control>
+        <control type="label">
+          <posx>296</posx>
+          <width>533</width>
+          <height>25</height>
+          <aligny>left</aligny>
+          <posy>559</posy>
+          <textcolor>bluelabel</textcolor>
+          <label>$LOCALIZE[31866]:</label>
+          <font>Font_Normal16</font>
+        </control>
       </control>
-      <!-- List -->
       <control type="group">
         <posx>1340</posx>
         <posy>390</posy>
         <animation effect="slide" start="0,-10" end="0,-375" time="0" condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="-380,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(510)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="-580,0" time="700" easing="inout" tween="cubic" condition="[Control.HasFocus(510) | Control.HasFocus(511)]">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,40" time="0" condition="!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,23" time="0" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
 	      <animation effect="slide" start="0,0" end="0,28" time="0" condition="Skin.HasSetting(highertime) + ![Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowermainmenu)]">Conditional</animation>
         <control type="image">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>300</width>
-            <height>280</height>
-            <texture border="20">home/home_weather_big.png</texture>
-          </control>
+          <posx>260</posx>
+          <posy>0</posy>
+          <width>250</width>
+          <height>280</height>
+          <texture border="20">home/home_weather_big.png</texture>
+        </control>
         <control type="label">
-            <posx>10</posx>
-            <posy>14</posy>
-            <width>280</width>
-            <height>40</height>
-            <align>center</align>
-            <aligny>center</aligny>
-            <font>Font_Home40</font>
-            <textcolor>whiteD0</textcolor>
-            <label>[UPPERCASE]$LOCALIZE[31879][/UPPERCASE]</label>
-            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-          </control>
+          <posx>270</posx>
+          <posy>14</posy>
+          <width>240</width>
+          <height>40</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>Font_Home40</font>
+          <textcolor>whiteD0</textcolor>
+          <label>[UPPERCASE]$LOCALIZE[31879][/UPPERCASE]</label>
+          <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+          <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+        </control>
         <control type="list" id="510">
             <visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
-            <posx>0</posx>
+            <posx>260</posx>
             <posy>69</posy>
-            <width>300</width>
+            <width>250</width>
             <height>210</height>
-            <onleft>300</onleft>
+            <onleft>511</onleft>
             <onright>300</onright>
             <onup>510</onup>
             <ondown>510</ondown>
@@ -445,7 +557,7 @@
                 <animation effect="slide" start="0,-24" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(510).OnNext">focus</animation>
                 <animation effect="fade" start="0" end="100" time="200">Focus</animation>
                 <animation effect="fade" start="100" end="0" time="200">Unfocus</animation>
-                <visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+                <visible>Control.HasFocus(510)</visible>
               </control>
               <control type="label">
                 <posx>10</posx>
@@ -765,6 +877,402 @@
               </item>
             </content>
         </control>
+        <control type="group">
+          <animation effect="slide" start="0,0" end="260,0" time="0" condition="!Skin.HasSetting(homelatest)">Conditional</animation>
+          <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>250</width>
+            <height>280</height>
+            <texture border="20">home/home_weather_big.png</texture>
+          </control>
+          <control type="label">
+            <posx>10</posx>
+            <posy>14</posy>
+            <width>240</width>
+            <height>40</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>Font_Home40</font>
+            <textcolor>whiteD0</textcolor>
+            <label>[UPPERCASE]$LOCALIZE[31880][/UPPERCASE]</label>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+           </control>
+          <control type="list" id="511">
+              <visible>Container(300).HasFocus(6) | Container(300).HasFocus(7) | Container(300).HasFocus(1)</visible>
+              <posx>0</posx>
+              <posy>69</posy>
+              <width>250</width>
+              <height>210</height>
+              <onleft>300</onleft>
+              <onright>510</onright>
+              <onup>511</onup>
+              <ondown>511</ondown>
+              <pagecontrol>-</pagecontrol>
+              <itemlayout height="24" width="300">
+                <control type="image">
+                  <posx>-6</posx>
+                  <posy>-10</posy>
+                  <height>40</height>
+                  <width>311</width>
+                  <texture>osd/osd_settings_buttonnf.png</texture>
+                  <colordiffuse>88ffffff</colordiffuse>
+                </control>
+                <control type="label">
+                  <posx>10</posx>
+                  <posy>2</posy>
+                  <width>280</width>
+                  <height>30</height>
+                  <font>Font_Normal15</font>
+                  <textcolor>whiteD0</textcolor>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[ListItem.Label]</label>
+                </control>
+              </itemlayout>
+              <focusedlayout height="24" width="300">
+                <control type="image">
+                  <posx>-6</posx>
+                  <posy>-10</posy>
+                  <height>40</height>
+                  <width>311</width>
+                  <texture>osd/osd_settings_buttonnf.png</texture>
+                  <colordiffuse>88ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                  <posx>3</posx>
+                  <posy>5</posy>
+                  <width>305</width>
+                  <height>24</height>
+                  <texture fallback="dialogs/browser_focus.png">windows/listselect.png</texture>
+                  <animation effect="slide" start="0,24" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(511).OnPrevious">focus</animation>
+                  <animation effect="slide" start="0,-24" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(511).OnNext">focus</animation>
+                  <animation effect="fade" start="0" end="100" time="200">Focus</animation>
+                  <animation effect="fade" start="100" end="0" time="200">Unfocus</animation>
+                  <visible>Control.HasFocus(511)</visible>
+                </control>
+                <control type="label">
+                  <posx>10</posx>
+                  <posy>2</posy>
+                  <width>280</width>
+                  <height>30</height>
+                  <font>Font_Normal15</font>
+                  <textcolor>whiteD0</textcolor>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[ListItem.Label]</label>
+                  <animation effect="fade" start="100" end="0" time="200">Focus</animation>
+                  <animation effect="fade" start="0" end="100" time="200">Unfocus</animation>
+                </control>
+                <control type="label">
+                  <posx>10</posx>
+                  <posy>2</posy>
+                  <width>280</width>
+                  <height>30</height>
+                  <font>Font_Normal15</font>
+                  <textcolor>white</textcolor>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[ListItem.Label]</label>
+                  <animation effect="fade" start="0" end="100" time="200">Focus</animation>
+                  <animation effect="fade" start="100" end="0" time="200">Unfocus</animation>
+                </control>
+              </focusedlayout>
+              <content>
+                <item id="1">
+                  <label>$INFO[Window.Property(RandomEpisode.1.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.1.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.1.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.1.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.1.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.1.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.1.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.1.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.1.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="2">
+                  <label>$INFO[Window.Property(RandomEpisode.2.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.2.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.2.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.2.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.2.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.2.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.2.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.2.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.2.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="3">
+                  <label>$INFO[Window.Property(RandomEpisode.3.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.3.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.3.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.3.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.3.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.3.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.3.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.3.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.3.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="4">
+                  <label>$INFO[Window.Property(RandomEpisode.4.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.4.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.4.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.4.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.4.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.4.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.4.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.4.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.4.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="5">
+                  <label>$INFO[Window.Property(RandomEpisode.5.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.5.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.5.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.5.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.5.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.5.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.5.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.5.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.5.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="6">
+                  <label>$INFO[Window.Property(RandomEpisode.6.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.6.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.6.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.6.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.6.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.6.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.6.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.6.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.6.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="7">
+                  <label>$INFO[Window.Property(RandomEpisode.7.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.7.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.7.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.7.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.7.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.7.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.7.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.7.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.7.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="8">
+                  <label>$INFO[Window.Property(RandomEpisode.8.EpisodeTitle)]</label>
+                  <label2>$INFO[Window.Property(RandomEpisode.8.ShowTitle)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomEpisode.8.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomEpisode.8.Thumb)]</icon>
+                  <thumb>$INFO[Window.Property(RandomEpisode.8.Fanart)]</thumb>
+                  <property name="Plot">$INFO[Window.Property(RandomEpisode.8.Plot)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomEpisode.8.Rating)]</property>
+                  <property name="EpisodeNumber">$INFO[Window.Property(RandomEpisode.8.EpisodeNo)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomEpisode.1.Path))</visible>
+                  <visible>Container(300).HasFocus(7)</visible>
+                </item>
+                <item id="10">
+                  <label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.1.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.1.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.1.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.1.Thumb)]</thumb>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.1.Path))</visible>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.1.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.1.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.1.RunningTime)]</property>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="11">
+                  <label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.2.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.2.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.2.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.2.Thumb)]</thumb>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.2.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.2.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.2.RunningTime)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.2.Path))</visible>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="12">
+                  <label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.3.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.3.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.3.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.3.Thumb)]</thumb>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.3.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.3.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.3.RunningTime)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.3.Path))</visible>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="13">
+                  <label>$INFO[Window.Property(RandomMovie.4.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.4.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.4.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.4.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.4.Thumb)]</thumb>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.4.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.4.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.4.RunningTime)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.4.Path))</visible>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="14">
+                  <label>$INFO[Window.Property(RandomMovie.5.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.5.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.5.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.5.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.5.Thumb)]</thumb>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.5.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.5.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.5.RunningTime)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.5.Path))</visible>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="15">
+                  <label>$INFO[Window.Property(RandomMovie.6.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.6.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.6.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.6.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.6.Thumb)]</thumb>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.6.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.6.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.6.RunningTime)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.6.Path))</visible>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="16">
+                  <label>$INFO[Window.Property(RandomMovie.7.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.7.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.7.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.7.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.7.Thumb)]</thumb>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.7.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.7.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.7.RunningTime)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.7.Path))</visible>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="17">
+                  <label>$INFO[Window.Property(RandomMovie.8.Title)]</label>
+                  <label2>$INFO[Window.Property(RandomMovie.8.Plot)]</label2>
+                  <onclick>PlayMedia($INFO[Window.Property(RandomMovie.8.Path)])</onclick>
+                  <icon>$INFO[Window.Property(RandomMovie.8.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomMovie.8.Thumb)]</thumb>
+                  <property name="Rating">$INFO[Window.Property(RandomMovie.8.Rating)]</property>
+                  <property name="Year">$INFO[Window.Property(RandomMovie.8.Year)]</property>
+                  <property name="RunningTime">$INFO[Window.Property(RandomMovie.8.RunningTime)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomMovie.8.Path))</visible>
+                  <visible>Container(300).HasFocus(6)</visible>
+                </item>
+                <item id="20">
+                  <label>$INFO[Window.Property(RandomSong.1.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.1.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.1.Path)]</onclick>
+                  <onclick>SetFocus(300)</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.1.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.1.Thumb)]</thumb>
+                  <property name="Year">$INFO[Window.Property(RandomSong.1.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.1.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.1.Rating)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomSong.1.Path))</visible>
+                  <visible>Container(300).HasFocus(1)</visible>
+                </item>
+                <item id="21">
+                  <label>$INFO[Window.Property(RandomSong.2.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.2.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.2.Path)]</onclick>
+                  <onclick>SetFocus(300)</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.2.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.2.Thumb)]</thumb>
+                  <property name="Year">$INFO[Window.Property(RandomSong.2.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.2.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.2.Rating)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomSong.2.Path))</visible>
+                  <visible>Container(300).HasFocus(1)</visible>
+                </item>
+                <item id="22">
+                  <label>$INFO[Window.Property(RandomSong.3.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.3.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.3.Path)]</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.3.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.3.Thumb)]</thumb>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomSong.3.Path))</visible>
+                  <visible>Container(300).HasFocus(1)</visible>
+                  <property name="Year">$INFO[Window.Property(RandomSong.3.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.3.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.3.Rating)]</property>
+                </item>
+                <item id="23">
+                  <label>$INFO[Window.Property(RandomSong.4.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.4.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.4.Path)]</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.4.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.4.Thumb)]</thumb>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomSong.4.Path))</visible>
+                  <property name="Year">$INFO[Window.Property(RandomSong.4.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.4.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.4.Rating)]</property>
+                  <visible>Container(300).HasFocus(1)</visible>
+                </item>
+                <item id="24">
+                  <label>$INFO[Window.Property(RandomSong.5.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.5.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.5.Path)]</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.5.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.5.Thumb)]</thumb>
+                  <property name="Year">$INFO[Window.Property(RandomSong.5.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.5.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.5.Rating)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomSong.5.Path))</visible>
+                  <visible>Container(300).HasFocus(1)</visible>
+                </item>
+                <item id="25">
+                  <label>$INFO[Window.Property(RandomSong.6.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.6.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.6.Path)]</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.6.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.6.Thumb)]</thumb>
+                  <property name="Year">$INFO[Window.Property(RandomSong.6.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.6.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.6.Rating)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomSong.6.Path))</visible>
+                  <visible>Container(300).HasFocus(1)</visible>
+                </item>
+                <item id="26">
+                  <label>$INFO[Window.Property(RandomSong.7.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.7.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.7.Path)]</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.7.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.7.Thumb)]</thumb>
+                  <property name="Year">$INFO[Window.Property(RandomSong.7.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.7.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.7.Rating)]</property>
+                  <visible>!Control.IsVisible(87)+ !IsEmpty(Window.Property(RandomSong.7.Path))</visible>
+                  <visible>Container(300).HasFocus(1)</visible>
+                </item>
+                <item id="27">
+                  <label>$INFO[Window.Property(RandomSong.8.Album)]</label>
+                  <label2>$INFO[Window.Property(RandomSong.8.Artist)]</label2>
+                  <onclick>$INFO[Window.Property(RandomSong.8.Path)]</onclick>
+                  <icon>$INFO[Window.Property(RandomSong.8.Fanart)]</icon>
+                  <thumb>$INFO[Window.Property(RandomSong.8.Thumb)]</thumb>
+                  <property name="Year">$INFO[Window.Property(RandomSong.8.Year)]</property>
+                  <property name="Title">$INFO[Window.Property(RandomSong.8.Title)]</property>
+                  <property name="Rating">$INFO[Window.Property(RandomSong.8.Rating)]</property>
+                  <visible>!Control.IsVisible(87) + !IsEmpty(Window.Property(RandomSong.8.Path))</visible>
+                  <visible>Container(300).HasFocus(1)</visible>
+                </item>
+              </content>
+          </control>
+        </control>
       </control>
     </control>
     <control type="group">
@@ -782,7 +1290,7 @@
       <include condition="Skin.HasSetting(lowermainmenu) | [!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)]">Animation_OpenCloseZoom2</include>
       <animation effect="slide" start="400,0" end="0,0" easing="inout" tween="cubic" time="500" delay="100">VisibleChange</animation>
       <animation effect="slide" start="0,-10" end="0,-375" time="0" condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="-372,0" time="500" easing="inout" tween="cubic" condition="!control.HasFocus(510)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-372,0" time="500" easing="inout" tween="cubic" condition="![Control.HasFocus(510) | Control.HasFocus(511)]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,-25" time="0" easing="inout" tween="cubic" condition="!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Skin.HasSetting(lowerrss)">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,-142" time="0" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,22" time="0" delay="0" easing="inout" tween="cubic" reversible="false" condition="Skin.HasSetting(lowerwidgets) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>

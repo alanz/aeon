@@ -583,7 +583,7 @@
     <control type="group">
       <posx>470</posx>
       <posy>500</posy>
-      <visible>Skin.HasSetting(homeplaylist) + [[[Container(300).HasFocus(1) | Container(300).HasFocus(6) | Container(300).HasFocus(7)] + Skin.HasSetting(preferplaylist)] | ![Container(300).HasFocus(1) | Container(300).HasFocus(6) | Container(300).HasFocus(7)] | !Skin.HasSetting(homelatest) | Control.HasFocus(510)]</visible>
+      <visible>Skin.HasSetting(homeplaylist) + [[[Container(300).HasFocus(1) | Container(300).HasFocus(6) | Container(300).HasFocus(7)] + Skin.HasSetting(preferplaylist)] | ![Container(300).HasFocus(1) | Container(300).HasFocus(6) | Container(300).HasFocus(7)] | !Skin.HasSetting(homelatest) | [Control.HasFocus(510) | Control.HasFocus(511)]]</visible>
       <include>Animation_VisibleHiddenZoom</include>
       <control type="label">
         <posx>360</posx>
@@ -726,10 +726,10 @@
       <animation type="fade" start="0" end="100" delay="0" time="700" condition="Player.HasAudio">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-140" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" condition="Skin.HasSetting(lowermainmenu) + Skin.HasSetting(highertotals)">Conditional</animation>
-      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" delay="700" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(1) + Control.HasFocus(510)">Conditional</animation>
-      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-280" condition="Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest)">Conditional</animation>
-      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + Control.HasFocus(510) + Skin.HasSetting(homelatest) + Skin.HasSetting(lowerwidgets)">Conditional</animation>
-      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + !Control.HasFocus(510) + Skin.HasSetting(homelatest) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
+      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" delay="700" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(1) + [Control.HasFocus(510) | Control.HasFocus(511)]">Conditional</animation>
+      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-280" condition="Skin.HasSetting(lowermainmenu) + [Control.HasFocus(510) | Control.HasFocus(511)] + Skin.HasSetting(homelatest)">Conditional</animation>
+      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + [Control.HasFocus(510) | Control.HasFocus(511)] + Skin.HasSetting(homelatest) + Skin.HasSetting(lowerwidgets)">Conditional</animation>
+      <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-380" condition="!Skin.HasSetting(lowermainmenu) + ![Control.HasFocus(510) | Control.HasFocus(511)] + Skin.HasSetting(homelatest) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,385" condition="!Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(10) + !Skin.HasSetting(lowerwidgets)">Conditional</animation>
       <control type="group">
         <visible>Player.HasAudio</visible>

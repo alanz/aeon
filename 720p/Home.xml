@@ -4,8 +4,25 @@
   <allowoverlay>yes</allowoverlay>
   <controls>
     <control type="button" id="5043">
-      <include>HiddenObject</include>      
+      <include>HiddenObject</include>
+      <visible>!Skin.HasSetting(homelatest)</visible>
+      <onfocus>Control.SetFocus(5044)</onfocus>
+    </control>
+    <control type="button" id="5043">
+      <include>HiddenObject</include>
+      <visible>Skin.HasSetting(homelatest)</visible>      
       <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
+      <onfocus>Control.SetFocus(5044)</onfocus>
+    </control>
+    <control type="button" id="5044">
+      <include>HiddenObject</include>    
+      <visible>!Skin.HasSetting(random_items)</visible>            
+      <onfocus>Control.SetFocus(300)</onfocus>
+    </control>
+    <control type="button" id="5044">
+      <include>HiddenObject</include>
+      <visible>Skin.HasSetting(random_items)</visible>
+      <onfocus>RunScript(script.randomitems,limit=8&amp;unplayed=True&amp;random=True)</onfocus>
       <onfocus>Control.SetFocus(300)</onfocus>
     </control>
     <control type="label">
@@ -32,7 +49,7 @@
     </control>
     <control type="image">
       <!--Audio unten-->
-      <visible>[Player.HasAudio | [Player.HasVideo + Skin.HasSetting(homevideowindow)]] + !Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Container(300).HasFocus(10)]]]</visible>
+      <visible>[Player.HasAudio | [Player.HasVideo + Skin.HasSetting(homevideowindow)]] + !Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + ![Control.HasFocus(510) | Control.HasFocus(511)]] | [!Skin.HasSetting(lowerwidgets) + [[Control.HasFocus(510) | Control.HasFocus(511)] | Container(300).HasFocus(10)]]]</visible>
       <posx>0</posx>
       <posy>360</posy>
       <width>1280</width>
@@ -44,7 +61,7 @@
     </control>
     <control type="image">
       <!--Audio unten lowermainmenu-->
-      <visible>[Player.HasAudio | [Player.HasVideo + Skin.HasSetting(homevideowindow)]] + Skin.HasSetting(lowermainmenu) + !Control.HasFocus(510)</visible>
+      <visible>[Player.HasAudio | [Player.HasVideo + Skin.HasSetting(homevideowindow)]] + Skin.HasSetting(lowermainmenu) + ![Control.HasFocus(510) | Control.HasFocus(511)]</visible>
       <posx>0</posx>
       <posy>180</posy>
       <width>1280</width>
@@ -55,7 +72,7 @@
     </control>
     <control type="image">
       <!--Audio oben-->
-      <visible>[Player.HasAudio | [Player.HasVideo + Skin.HasSetting(homevideowindow)]] + !Container(300).HasFocus(10) + [[!Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)] | [!Skin.HasSetting(lowerwidgets) + !Control.HasFocus(510)]]] | [Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)]]</visible>
+      <visible>[Player.HasAudio | [Player.HasVideo + Skin.HasSetting(homevideowindow)]] + !Container(300).HasFocus(10) + [[!Skin.HasSetting(lowermainmenu) +[[Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Control.HasFocus(511)]] | [!Skin.HasSetting(lowerwidgets) + ![Control.HasFocus(510) | Control.HasFocus(511)]]]] | [Skin.HasSetting(lowermainmenu) + [Control.HasFocus(510) | Control.HasFocus(511)]]]</visible>
       <posx>0</posx>
       <posy>-4</posy>
       <width>1280</width>
@@ -67,7 +84,7 @@
     </control>
     <control type="image">
       <!--RecentlyAdded oben-->
-      <visible>!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>
+      <visible>!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Control.HasFocus(511)]</visible>
       <posx>0</posx>
       <posy>-4</posy>
       <width>1280</width>
@@ -79,7 +96,7 @@
     </control>
     <control type="image">
       <!--RecentlyAdded unten-->
-      <visible>!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + Control.HasFocus(510)</visible>
+      <visible>!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Control.HasFocus(511)]</visible>
       <posx>0</posx>
       <posy>360</posy>
       <width>1280</width>
@@ -91,7 +108,7 @@
     </control>
     <control type="image">
       <!--RecentlyAdded unten lowermainmenu-->
-      <visible>Skin.HasSetting(lowermainmenu) + Control.HasFocus(510)</visible>
+      <visible>Skin.HasSetting(lowermainmenu) + [Control.HasFocus(510) | Control.HasFocus(511)]</visible>
       <posx>0</posx>
       <posy>180</posy>
       <width>1280</width>
@@ -103,7 +120,7 @@
     <include condition="!StringCompare(Weather.Plugin,weather.com plus)">Objects_WeatherPopup</include>
     <include condition="StringCompare(Weather.Plugin,weather.com plus)">Widget_Weather</include>
     <include>Furniture_HomeNowPlaying</include>
-    <include condition="Skin.HasSetting(homelatest)">latest_added</include>
+    <include condition="Skin.HasSetting(homelatest) | Skin.HasSetting(random_items)">latest_added</include>
     <include condition="!Skin.HasSetting(hometimeoff)">HomeTime</include>
     <include condition="!Skin.HasSetting(TotalsOff) + !Skin.HasSetting(highertotals)">Furniture_LibraryLow</include>
     <include condition="!Skin.HasSetting(TotalsOff) + Skin.HasSetting(highertotals)">Furniture_LibraryHigh</include>
