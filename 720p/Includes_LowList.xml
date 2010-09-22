@@ -376,7 +376,7 @@
     <height>16</height>
     <width>450</width>
     <font>Font_Normal18</font>
-    <textcolor>whiteA0</textcolor>
+    <textcolor>whiteD0</textcolor>
     <scroll>true</scroll>
   </include>
   <include name="LowList_WideInfoLabelSmallVars">
@@ -504,12 +504,6 @@
         <visible>Container.Content(movies) + !IsEmpty(ListItem.tagline)</visible>
       </control>
     </control>
-  </include>
-  <!-- MPAA Labels -->
-  <include name="LowList_MpaaLabelVars">
-    <width>100</width>
-    <include>LowList_WideInfoLabelVars</include>
-    <posy>125</posy>
   </include>
   <include name="LowList_ShortTextBox">
     <posy>8</posy>
@@ -828,6 +822,7 @@
         <align>left</align>
         <font>Font_Home55</font>
         <label fallback="...">$INFO[Container(551).ListItem.Label]</label>
+        <textcolor>whiteD0</textcolor>
         <visible>Container.Content(artists)</visible>
       </control>
       <control type="label">
@@ -838,6 +833,7 @@
         <aligny>center</aligny>
         <align>left</align>
         <font>Font_Home55</font>
+        <textcolor>whiteD0</textcolor>
         <label fallback="...">$INFO[Container(551).ListItem.Artist,, / ]$INFO[Container(551).ListItem.Label]</label>
         <visible>Container.Content(albums)</visible>
         <scroll>true</scroll>
@@ -1340,35 +1336,15 @@
           <label>$INFO[ListItem.Duration] $LOCALIZE[12391]</label>
         </control>
       </control>
-      <!-- MPAA Labels -->
-      <control type="group">
-        <posx>-35</posx>
-        <control type="label">
-          <include>LowList_MpaaLabelVars</include>
-          <label>Rated [COLOR d0FFFFFF]R[/COLOR]</label>
-          <visible>substring(ListItem.mpaa,Rated R)</visible>
+        <control type="image">
+          <width>280</width>
+          <aspectratio>keep</aspectratio>
+          <posx>-105</posx>
+          <height>22</height>
+          <width>450</width>
+          <posy>125</posy>
+          <texture>$INFO[ListItem.Rating,flags/starrating/,.png]</texture> 
         </control>
-        <control type="label">
-          <include>LowList_MpaaLabelVars</include>
-          <label>Rated [COLOR d0FFFFFF]PG-13[/COLOR]</label>
-          <visible>substring(ListItem.mpaa,Rated PG-13)</visible>
-        </control>
-        <control type="label">
-          <include>LowList_MpaaLabelVars</include>
-          <label>Rated [COLOR d0FFFFFF]PG[/COLOR]</label>
-          <visible>substring(ListItem.mpaa,Rated PG f)</visible>
-        </control>
-        <control type="label">
-          <include>LowList_MpaaLabelVars</include>
-          <label>Rated [COLOR d0FFFFFF]NC-17[/COLOR]</label>
-          <visible>substring(ListItem.mpaa,Rated NC)</visible>
-        </control>
-        <control type="label">
-          <include>LowList_MpaaLabelVars</include>
-          <label>Rated [COLOR d0FFFFFF]G[/COLOR]</label>
-          <visible>substring(ListItem.mpaa,Rated G)</visible>
-        </control>
-      </control>
       <!-- Wide Info Panel Fanart/Slideshow -->
       <control type="largeimage">
         <include>LowList_WideImageVars</include>
@@ -1420,11 +1396,11 @@
         <align>center</align>
         <font>Font_Home21_ls11</font>
         <shadowcolor>ff000000</shadowcolor>
+        <textcolor>bluelabel</textcolor>
         <label>312575</label>
         <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Skin.HasSetting(lowlistinfoauto)</visible>
-        <colordiffuse>whiteD0</colordiffuse>
         <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-        <animation effect="fade" start="40" time="600" condition="Control.HasFocus(55110)" pulse="true">Conditional</animation>
+        <animation effect="fade" start="60" time="700" condition="Control.HasFocus(55110)" pulse="true">Conditional</animation>
       </control>
       <control type="label">
         <posx>257</posx>
@@ -1435,8 +1411,8 @@
         <font>Font_Home21_ls11</font>
         <shadowcolor>ff000000</shadowcolor>
         <label>312576</label>
+        <textcolor>bluelabel</textcolor>
         <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Skin.HasSetting(lowlistinfoauto)</visible>
-        <colordiffuse>whiteD0</colordiffuse>
         <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
       </control>
       <control type="label">
@@ -1449,7 +1425,7 @@
         <shadowcolor>ff000000</shadowcolor>
         <label>312574</label>
         <visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo</visible>
-        <colordiffuse>whiteD0</colordiffuse>
+        <textcolor>bluelabel</textcolor>
         <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         <animation effect="fade" start="100" end="0" time="400" delay="3000" condition="Player.HasVideo">Conditional</animation>
       </control>
@@ -1473,6 +1449,7 @@
         <aligny>center</aligny>
         <align>left</align>
         <font>Font_Home55</font>
+        <textcolor>whiteD0</textcolor>
         <label fallback="...">$INFO[Container(551).ListItem.Label]</label>
       </control>
       <!-- Separators -->
@@ -1525,28 +1502,28 @@
       <control type="label">
         <description>DIRECTED BY: info label</description>
         <include>LowList_DetailInfoLabelPos1</include>
-        <label>[COLOR d0FFFFFF]$INFO[ListItem.director,$LOCALIZE[31402]: ,][/COLOR]</label>
+        <label>$INFO[ListItem.director,[COLOR=bluelabel]$LOCALIZE[20339]:[/COLOR] ,]</label>
         <visible>Window.IsActive(videolibrary)</visible>
         <include>Animation_HighListSlide</include>
       </control>
       <control type="label">
         <description>DIRECTOR: info label</description>
         <include>LowList_DetailInfoLabelPos2</include>
-        <label>[COLOR d0FFFFFF]$INFO[ListItem.Writer,$LOCALIZE[31401]: ,][/COLOR]</label>
+        <label>$INFO[ListItem.Writer,[COLOR=bluelabel]$LOCALIZE[31401]:[/COLOR] ,]</label>
         <visible>Window.IsActive(videolibrary)</visible>
         <include>Animation_HighListSlide</include>
       </control>
       <control type="label">
         <description>MPAA: info label</description>
         <include>LowList_DetailInfoLabelPos3</include>
-        <label>$LOCALIZE[20074]: [COLOR d0FFFFFF]$INFO[ListItem.mpaa][/COLOR]</label>
+        <label>[COLOR=bluelabel]$LOCALIZE[20074]:[/COLOR] $INFO[ListItem.mpaa]</label>
         <visible>Window.IsActive(videolibrary)</visible>
         <include>Animation_HighListSlide</include>
       </control>
       <control type="label">
         <description>IMDB</description>
         <include>LowList_DetailInfoLabelPos4</include>
-        <label>IMDB: [COLOR d0FFFFFF]$INFO[ListItem.RatingAndVotes][/COLOR]</label>
+        <label>[COLOR=bluelabel]IMDB:[/COLOR] $INFO[ListItem.RatingAndVotes]</label>
         <visible>Window.IsActive(videolibrary)</visible>
       </control>
       <control type="image">
@@ -1561,7 +1538,7 @@
       <control type="textbox">
         <description>PLOT OUTLINE: (Short)</description>
         <include>LowList_ShortTextBox</include>
-        <label fallback="-">$INFO[Control.GetLabel(900004),[COLOR=white]$LOCALIZE[203]:[/COLOR] ]</label>
+        <label fallback="-">$INFO[Control.GetLabel(900004),[COLOR=bluelabel]$LOCALIZE[207]:[/COLOR] ]</label>
         <visible>Skin.HasSetting(longerlowlist)</visible>
       </control>
     </control>
@@ -1847,6 +1824,7 @@
         <aligny>center</aligny>
         <align>left</align>
         <font>Font_Home55</font>
+        <textcolor>whiteD0</textcolor>
         <label fallback="...">$INFO[Container(551).ListItem.Label]</label>
         <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
       </control>
