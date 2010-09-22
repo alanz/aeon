@@ -186,39 +186,41 @@
       <animation effect="fade" time="200" start="100" end="0">Hidden</animation>
       <visible>Control.IsVisible(551)</visible>
       <control type="group">
- 
-        <control type="image">
-          <description>Tagline Bar</description>
-          <posx>297</posx>
-          <posy>425</posy>
-          <width>880</width>
-          <height>60</height>
-          <aspectratio scalediffuse="false">stretch</aspectratio>
-          <texture flipx="true">lowlist/detailpanel_tab.png</texture>
-          <visible>Control.IsVisible(551) + Container.Content(movies)</visible>
-          <include>Animation_CommonFade</include>
-          <include>Animation_HighListSlide</include>
+        <control type="group">
+          <animation type="Visible">
+            <effect type="fade" start="0" end="100" time="300"/>
+            <effect type="slide" start="0,50" end="0,0" time="300" tween="cubic" easing="out"/>
+          </animation>
+          <animation type="Hidden">
+            <effect type="fade" start="100" end="0" time="75"/>
+            <effect type="slide" start="0,0" end="0,50" time="300" tween="cubic" easing="out"/>
+          </animation>
           <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
           <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
           <animation effect="fade" start="100" end="80" time="150" condition="Skin.HasSetting(thin_lowlist)">Conditional</animation>
-        </control>
-        <control type="label">
-          <description>Tagline</description>
-          <posx>305</posx>
-          <posy>457</posy>
-          <width>750</width>
-          <scroll>true</scroll>
-          <font>Font_Home24</font>
-          <shadowcolor>ff000000</shadowcolor>
-          <align>left</align>
-          <label>[UPPERCASE]$INFO[ListItem.Tagline][/UPPERCASE]</label>
-          <textcolor>bluelabel</textcolor>
-            <include>Animation_CommonFade</include>
-          <include>Animation_HighListSlide</include>
-          <visible>Control.IsVisible(551) + Container.Content(movies)</visible>
-          <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
-          <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
-          <animation effect="fade" start="100" end="80" time="150" condition="Skin.HasSetting(thin_lowlist)">Conditional</animation>
+          <visible>Control.IsVisible(551) + Container.Content(movies) + !IsEmpty(ListItem.TagLine)</visible>
+          <include>Animation_HighListSlide</include> 
+          <control type="image">
+            <description>Tagline Bar</description>
+            <posx>297</posx>
+            <posy>425</posy>
+            <width>880</width>
+            <height>60</height>
+            <aspectratio scalediffuse="false">stretch</aspectratio>
+            <texture flipx="true">lowlist/detailpanel_tab.png</texture>
+          </control>
+          <control type="label">
+            <description>Tagline</description>
+            <posx>305</posx>
+            <posy>457</posy>
+            <width>750</width>
+            <scroll>true</scroll>
+            <font>Font_Home24</font>
+            <shadowcolor>ff000000</shadowcolor>
+            <align>left</align>
+            <label>[UPPERCASE]$INFO[ListItem.Tagline][/UPPERCASE]</label>
+            <textcolor>bluelabel</textcolor>
+          </control>
         </control>
         <!-- Low list backgroud panel and detail -->
         <control type="image">
@@ -419,7 +421,7 @@
               <posy>0</posy>
               <width>405</width>
               <height>39</height>
-              <font>Font_Normal22</font>
+              <font>Font_Home30</font>
               <aligny>center</aligny>
               <include>lowlistcolorfocus</include>
               <label>$INFO[ListItem.Label]</label>
@@ -431,12 +433,12 @@
               <width>420</width>
               <font>Font_Normal15</font>
               <aligny>center</aligny>
-              <textcolor>bluelabel</textcolor>
+              <include>lowlistcolorfocus</include>
               <label>$INFO[ListItem.duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, - ,]</label>
             </control>
             <control type="label">
               <include>ListLabel_Detail_LowSmall_Low</include>
-              <include>lowlistcolorfocus</include>
+              <textcolor>bluelabel</textcolor>
               <label fallback="-">$INFO[ListItem.Year]</label>
               <visible>[!Control.IsVisible(76) + Container.Content(movies)]</visible>
             </control>
@@ -767,7 +769,7 @@
             <control type="label">
               <font>Font_Normal15</font>
               <include>ListLabel_Detail_LowSmall_Low</include>
-              <include>listcolornofocus</include>
+              <include>lowlistdetailcolornofocus</include>
               <label>$INFO[ListItem.Year]</label>
               <visible>Container.Content(tvshows)</visible>
             </control>

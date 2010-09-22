@@ -1519,29 +1519,29 @@
         </control>
       </control>
       <control type="group"><!--trailer label showcase-->
-        <posx>495</posx>
-        <posy>325</posy>
+        <posx>518</posx>
+        <posy>328</posy>
         <visible>Control.IsVisible(57)</visible>
         <!-- Flat Showcase => Trailer at top -->
         <animation effect="slide" start="0,0" end="0,-275" time="400" easing="inout" tween="cubic" condition="
-          [Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies)] + ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
+          [Skin.HasSetting(flattenshowcasemovies)] + ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
 
         <!-- posterlayout, plotlayout, extrathumbslayout => Trailer on the right -->
         <animation effect="slide" start="0,0" end="230,0" time="400" easing="inout" tween="cubic" condition="
           ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
 
         <!-- flattenshowcase Focus => slide up -->
-        <animation effect="slide" start="0,0" end="0,-40" time="300" easing="inout" tween="cubic" condition="[
-          [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies)] + Skin.HasSetting(videomovies)] |
-          [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcasetvshows)] + Container.Content(tvshows)] |
-          [[Control.IsVisible(57) + Skin.HasSetting(flattenshowcaseseasons)] + Container.Content(seasons)] |
+        <animation effect="slide" start="0,0" end="410,0" time="400" easing="inout" tween="cubic" condition="[
+          [Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] |
+          [Skin.HasSetting(flattenshowcasetvshows)] + Container.Content(tvshows)] |
+          [Skin.HasSetting(flattenshowcaseseasons)] + Container.Content(seasons)] |
           Container.Content(episodes) |
           [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]
-        ] + Control.HasFocus(57) + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
+        ] + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
 
         <!-- flattenshowcase + showcasefanart => slide down -->
               <animation effect="slide" start="0,0" end="0,75" time="300" easing="inout" tween="cubic" condition="
-          Skin.HasSetting(showcasefanart) + Control.IsVisible(57) + Skin.HasSetting(flattenshowcasemovies) +
+          Skin.HasSetting(showcasefanart) + Skin.HasSetting(flattenshowcasemovies) +
           [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
 
         <control type="image">
@@ -1549,7 +1549,7 @@
           <posy>0</posy>
           <align>center</align>
           <aligny>center</aligny>
-          <width>290</width>
+          <width>240</width>
           <height>32</height>
           <texture>multiplex/multiplex_trailer_label.png</texture>
           <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
@@ -1559,7 +1559,6 @@
           <include>InfoPaneTrailerLabelVars</include>
           <label>312573</label>
           <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(70197) + !Control.HasFocus(70110) + [Control.IsVisible(109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
-          <textcolor>whiteD0</textcolor>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
         <control type="label">
@@ -2021,7 +2020,7 @@
     <width>240</width>
     <height>32</height>
     <font>Font_Normal16</font>
-    <textcolor>white</textcolor>
+    <textcolor>bluelabel</textcolor>
   </include>
   <include name="InfoPaneInfoValueBigThumb">
     <posx>235</posx>
