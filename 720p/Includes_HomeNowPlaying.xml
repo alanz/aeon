@@ -415,16 +415,16 @@
   </include>
   <include name="Furniture_HomeNowPlayingObjectsCDArt">
     <control type="image">
-      <posx>200</posx>
-      <posy>505</posy>
+      <posx>300</posx>
+      <posy>515</posy>
       <width>309</width>
       <aspectratio>stretch</aspectratio>
       <texture>home/nowplaying_line.png</texture>
       <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
     </control>
     <control type="image">
-      <posx>200</posx>
-      <posy>615</posy>
+      <posx>300</posx>
+      <posy>590</posy>
       <width>309</width>
       <aspectratio>stretch</aspectratio>
       <texture>home/nowplaying_line.png</texture>
@@ -443,7 +443,6 @@
         <width>270</width>
         <texture>thumbs/cd_shadow2.png</texture>
         <aspectratio>stretch</aspectratio>
-  <!--      <bordertexture border="-37,-23,-37,-23">thumbs/cd_shadow2.png</bordertexture>  -->
       </control>
     <control type="image">
       <description>Cd overlay</description>
@@ -513,6 +512,15 @@
   </include>
   <include name="Furniture_HomeNowPlayingInfoCDArt">
     <control type="label">
+      <posx>357</posx>
+      <include>Furniture_HomeNowPlayingMetricsCDArt</include>
+      <width>483</width>
+      <posy>453</posy>
+      <textcolor>bluelabel</textcolor>
+      <label>Artist:</label>
+      <font>Font_Normal16</font>
+    </control>
+    <control type="label">
       <posx>360</posx>
       <posy>468</posy>
       <width>483</width>
@@ -543,7 +551,7 @@
     <control type="label">
       <posx>377</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
-      <posy>594</posy>
+      <posy>599</posy>
       <textcolor>bluelabel</textcolor>
       <label>31006</label>
       <width>483</width>
@@ -553,7 +561,7 @@
     <control type="label">
       <posx>377</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
-      <posy>594</posy>
+      <posy>599</posy>
       <width>483</width>
       <textcolor>bluelabel</textcolor>
       <label>112</label>
@@ -561,7 +569,7 @@
       <visible>Player.Paused</visible>
     </control>
     <control type="label">
-      <posx>365</posx>
+      <posx>370</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
       <posy>615</posy>
       <width>483</width>
@@ -716,7 +724,6 @@
       <width>1280</width>
       <animation effect="slide" tween="cubic" easing="inout" time="800" end="500,0" condition="Player.HasAudio">Conditional</animation>
       <animation type="fade" start="0" end="100" delay="0" time="700" condition="Player.HasAudio">Conditional</animation>
-      <!-- <animation effect="slide" time="800" tween="cubic" easing="inout" end="1000,0">Visible</animation> -->
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,-140" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" condition="Skin.HasSetting(lowermainmenu) + Skin.HasSetting(highertotals)">Conditional</animation>
       <animation effect="slide" time="400" tween="cubic" easing="inout" end="0,20" delay="700" condition="Skin.HasSetting(lowermainmenu) + Container(300).HasFocus(1) + Control.HasFocus(510)">Conditional</animation>
