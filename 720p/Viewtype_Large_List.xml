@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <includes>
-  <include name="Furniture_LargeListMediaFlagsVars">
+  <include name="Furniture_LargeList_MediaFlagsVars">
     <posy>658</posy>
     <width>90</width>
     <height>59</height>
@@ -150,7 +150,7 @@
             </control>
             <control type="image">
               <include>LargeListWatchedOverlay_Slim</include>
-              <visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays)]]+ !IsEmpty(ListItem.Overlay)</visible>
+              <visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(no_overlays)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(no_overlays)]]+ !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
             <control type="image">
@@ -228,7 +228,7 @@
             </control>
             <control type="image">
               <include>LargeListWatchedOverlay_Slim</include>
-              <visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(nomovieoverlays)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(notvoverlays)]]+ !IsEmpty(ListItem.Overlay)</visible>
+              <visible>[[Skin.HasSetting(videomovies) + !Skin.HasSetting(no_overlays)] | [Skin.HasSetting(videotv) + !Skin.HasSetting(no_overlays)]]+ !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </focusedlayout>
@@ -441,13 +441,13 @@
       <control type="group">
         <posx>1068</posx>
         <control type="image" id="187">
-          <include>Furniture_LargeListMediaFlagsVars</include>
+          <include>Furniture_LargeList_MediaFlagsVars</include>
           <texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
           <visible>Container.Content(movies) | Container.Content(episodes)</visible>
           <visible>!substring(ListItem.filename,.iso,Right)</visible>
         </control>
         <control type="image" id="187">
-          <include>Furniture_LargeListMediaFlagsVars</include>
+          <include>Furniture_LargeList_MediaFlagsVars</include>
           <texture>flags/resolution/480.png</texture>
           <visible>substring(ListItem.filename,.iso,Right)</visible>
         </control>
@@ -455,12 +455,12 @@
       <control type="group">
         <posx>1165</posx>
         <control type="image">
-          <include>Furniture_LargeListMediaFlagsVars</include>
+          <include>Furniture_LargeList_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900006)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
         <control type="image">
-          <include>Furniture_LargeListMediaFlagsVars</include>
+          <include>Furniture_LargeList_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900005)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
@@ -468,21 +468,21 @@
       <control type="group">
         <posx>965</posx>
         <control type="image">
-          <include>Furniture_LargeListMediaFlagsVars</include>
+          <include>Furniture_LargeList_MediaFlagsVars</include>
           <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
         </control>
       </control>
       <control type="group">
         <posx>735</posx>
         <control type="image">
-          <include>Furniture_LargeListMediaFlagsVars</include>
+          <include>Furniture_LargeList_MediaFlagsVars</include>
           <texture fallback="flags/studios/default-studio.png">$INFO[Control.GetLabel(900009)]</texture>
         </control>
       </control>
       <control type="group">
         <posx>846</posx>
         <control type="image">
-          <include>Furniture_LargeListMediaFlagsVars</include>
+          <include>Furniture_LargeList_MediaFlagsVars</include>
           <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
         </control>
       </control>

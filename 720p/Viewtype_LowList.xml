@@ -3,9 +3,9 @@
   <include name="ListLabel_Main_Low">
     <posx>45</posx>
     <posy>0</posy>
-    <width>354</width>
+    <width>374</width>
     <height>41</height>
-    <font>Font_Normal20</font>
+    <font>Font_Home30</font>
     <aligny>center</aligny>
     <animation effect="slide" start="60,0" end="60,0" time="0" condition="[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(videolibrary)]">Conditional</animation>
     <animation effect="slide" start="0,10" end="0,10" time="0" condition="[[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + IsEmpty(ListItem.Artist)] | [Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + !Container.Content(movies)] | [Window.IsActive(pictures) + IsEmpty(ListItem.PictureDateTime)] | [Container.Content(seasons) + !IsEmpty(ListItem.Episode)] | [Container.Content(episodes) + [[IsEmpty(ListItem.Writer) + !IsEmpty(ListItem.Plot)] | [!IsEmpty(ListItem.Writer) + IsEmpty(ListItem.Plot)]]]">Conditional</animation>
@@ -33,7 +33,7 @@
   <include name="ListLabel_Main_LowMusic_Low">
     <posx>105</posx>
     <posy>0</posy>
-    <width>354</width>
+    <width>374</width>
     <height>41</height>
     <font>Font_Normal15</font>
     <aligny>center</aligny>
@@ -42,7 +42,7 @@
   <include name="ListLabel_Sub_LowMusic_Low">
     <posx>105</posx>
     <posy>20</posy>
-    <width>354</width>
+    <width>374</width>
     <height>41</height>
     <font>Font_Normal15</font>
     <align>left</align>
@@ -186,23 +186,55 @@
       <animation effect="fade" time="200" start="100" end="0">Hidden</animation>
       <visible>Control.IsVisible(551)</visible>
       <control type="group">
-      
+ 
+        <control type="image">
+          <description>Tagline Bar</description>
+          <posx>297</posx>
+          <posy>425</posy>
+          <width>880</width>
+          <height>60</height>
+          <aspectratio scalediffuse="false">stretch</aspectratio>
+          <texture flipx="true">lowlist/detailpanel_tab.png</texture>
+          <visible>Control.IsVisible(551) + Container.Content(movies)</visible>
+          <include>Animation_CommonFade</include>
+          <include>Animation_HighListSlide</include>
+          <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
+          <animation effect="fade" start="100" end="80" time="150" condition="Skin.HasSetting(thin_lowlist)">Conditional</animation>
+        </control>
+        <control type="label">
+          <description>Tagline</description>
+          <posx>305</posx>
+          <posy>457</posy>
+          <width>750</width>
+          <scroll>true</scroll>
+          <font>Font_Home24</font>
+          <shadowcolor>ff000000</shadowcolor>
+          <align>left</align>
+          <label>[UPPERCASE]$INFO[ListItem.Tagline][/UPPERCASE]</label>
+          <textcolor>bluelabel</textcolor>
+            <include>Animation_CommonFade</include>
+          <include>Animation_HighListSlide</include>
+          <visible>Control.IsVisible(551) + Container.Content(movies)</visible>
+          <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
+          <animation effect="fade" start="100" end="80" time="150" condition="Skin.HasSetting(thin_lowlist)">Conditional</animation>
+        </control>
         <!-- Low list backgroud panel and detail -->
         <control type="image">
           <description>Low List Background Panel</description>
           <posx>0</posx>
-          <posy>503</posy>
+          <posy>480</posy>
           <width>1280</width>
-          <height>404</height>
+          <height>454</height>
           <aspectratio scalediffuse="false">stretch</aspectratio>
-          <texture>lowlist/lowlist_panelback.png</texture>
+          <texture>list/listpanel_back.png</texture>
           <visible>Control.IsVisible(551)</visible>
           <include>Animation_CommonFade</include>
           <include>Animation_HighListSlide</include>
           <animation effect="slide" start="0,0" end="0,-50" time="200" condition="[Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]] | ControlGroup(55103).HasFocus()">Conditional</animation>
           <animation effect="slide" start="0,0" end="0,-160" time="150" condition="!Skin.HasSetting(longerlowlist) + [Control.HasFocus(55110) | Control.IsVisible(55111) | Control.IsVisible(55112)]">Conditional</animation>
-          <animation effect="fade" start="100" end="80" time="50" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
-          <animation effect="fade" start="100" end="35" time="50" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
+          <animation effect="fade" start="100" end="80" time="150" condition="Skin.HasSetting(thin_lowlist)">Conditional</animation>
         </control>
         <control type="image">
           <description>Left Background Bar</description>
@@ -315,7 +347,7 @@
             <control type="image">
               <include>WatchedOverlaySlim_Low</include>
               <include>detailcolornofocus</include>
-              <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+              <visible>!Skin.HasSetting(no_overlays) + !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </itemlayout>
@@ -370,7 +402,7 @@
             <control type="image">
               <include>WatchedOverlaySlim_Low</include>
               <include>detailcolorfocus</include>
-              <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+              <visible>!Skin.HasSetting(no_overlays) + !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </focusedlayout>
@@ -411,7 +443,7 @@
             <control type="image" id="5511">
               <include>WatchedOverlaySlim_Low</include>
               <include>detailcolorfocus</include>
-              <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+              <visible>!Skin.HasSetting(no_overlays) + !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </focusedlayout>
@@ -441,7 +473,7 @@
             <control type="label" id="623">
               <include>ListLabel_Sub_LowMusic_Low</include>
               <include>lowlistcolornofocus</include>
-              <label>DIRECTOR: $INFO[ListItem.Director] - $INFO[ListItem.Duration] $LOCALIZE[12391]</label>
+              <label>[COLOR=bluelabel]$LOCALIZE[20339]:[/COLOR] $INFO[ListItem.Director] [COLOR=bluelabel]   $LOCALIZE[180]:[/COLOR] $INFO[ListItem.Duration] $LOCALIZE[12391]</label>
               <visible>!IsEmpty(ListItem.Director) + Container.Content(movies)</visible>
             </control>
             <control type="label" id="623">
@@ -527,7 +559,7 @@
             <control type="image">
               <include>WatchedOverlayFull_Low</include>
               <include>detailcolornofocus</include>
-              <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+              <visible>!Skin.HasSetting(no_overlays) + !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </itemlayout>
@@ -566,7 +598,7 @@
             <control type="label" id="623">
               <include>ListLabel_Sub_LowMusic_Low</include>
               <include>lowlistcolorfocus</include>
-              <label>DIRECTOR: $INFO[ListItem.Director] - $INFO[ListItem.Duration] $LOCALIZE[12391]</label>
+              <label>[COLOR=bluelabel]$LOCALIZE[20339]:[/COLOR] $INFO[ListItem.Director] [COLOR=bluelabel]   $LOCALIZE[180]:[/COLOR] $INFO[ListItem.Duration] $LOCALIZE[12391]</label>
               <visible>!IsEmpty(ListItem.Director) + Container.Content(movies)</visible>
             </control>
             <control type="label" id="623">
@@ -654,7 +686,7 @@
             <control type="image">
               <include>WatchedOverlayFull_Low</include>
               <include>detailcolorfocus</include>
-              <visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+              <visible>!Skin.HasSetting(no_overlays) + !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </focusedlayout>
@@ -703,7 +735,7 @@
             <control type="image">
               <include>WatchedOverlaySlim_Low</include>
               <include>detailcolornofocus</include>
-              <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+              <visible>!Skin.HasSetting(no_overlays) + !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </itemlayout>
@@ -755,7 +787,7 @@
             <control type="image">
               <include>WatchedOverlaySlim_Low</include>
               <include>detailcolorfocus</include>
-              <visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay)</visible>
+              <visible>!Skin.HasSetting(no_overlays) + !IsEmpty(ListItem.Overlay)</visible>
               <info>ListItem.Overlay</info>
             </control>
           </focusedlayout>

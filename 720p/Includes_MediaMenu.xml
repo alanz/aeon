@@ -290,9 +290,9 @@
     <control type="radiobutton" id="700021">
       <include>MediaMenuRadioButton</include>
       <label>31052</label>
-      <selected>Skin.HasSetting(listpanelthin)</selected>
-      <onclick>Skin.ToggleSetting(listpanelthin)</onclick>
-      <visible>Control.IsVisible(50)| Control.IsVisible(551)</visible>
+      <selected>Skin.HasSetting(thin_list)</selected>
+      <onclick>Skin.ToggleSetting(thin_list)</onclick>
+      <visible>Control.IsVisible(50)</visible>
     </control>
     <control type="radiobutton" id="700023">
       <include>MediaMenuRadioButton</include>
@@ -443,16 +443,8 @@
     <control type="radiobutton" id="700038">
       <include>MediaMenuRadioButton</include>
       <label>31066</label>
-      <onclick>Skin.ToggleSetting(nomovieoverlays)</onclick>
-      <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)</visible>
-      <selected>!Skin.HasSetting(nomovieoverlays)</selected>
-    </control>
-    <control type="radiobutton" id="700039">
-      <include>MediaMenuRadioButton</include>
-      <label>31066</label>
-      <onclick>Skin.ToggleSetting(notvoverlays)</onclick>
-      <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
-      <selected>!Skin.HasSetting(notvoverlays)</selected>
+      <onclick>Skin.ToggleSetting(no_overlays)</onclick>
+      <selected>!Skin.HasSetting(no_overlays)</selected>
     </control>
   </include>
   <include name="MediaMenuButton_Watched">
@@ -610,7 +602,7 @@
     </control>
   </include>
   <include name="MediaMenuButton_LowList">
-    <control type="togglebutton" id="700132">
+    <control type="togglebutton" id="700131">
       <include>MediaMenuButton</include>
       <label>$LOCALIZE[31070]: $LOCALIZE[20445]</label>
       <altlabel>$LOCALIZE[31070]: $LOCALIZE[31045]</altlabel>
@@ -619,18 +611,19 @@
       <selected>Skin.HasSetting(widepanelthumbon)</selected>
       <visible>Control.IsVisible(551) + Window.IsActive(videolibrary) + !Skin.HasSetting(videotv)</visible>
     </control>
-    <control type="button" id="700134">
-      <include>MediaMenuButton</include>
-      <label>$LOCALIZE[31246]</label>
-      <onclick>SetFocus(55103)</onclick>
-      <visible>Control.IsVisible(551) + [Container.Content(movies) | Window.IsActive(musiclibrary)]</visible>
-    </control>
-    <control type="radiobutton" id="700131">
+    <control type="radiobutton" id="700132">
       <include>MediaMenuRadioButton</include>
       <label>310800</label>
       <onclick>Skin.ToggleSetting(longerlowlist)</onclick>
       <selected>Skin.HasSetting(longerlowlist)</selected>
       <visible>Control.IsVisible(551)</visible>
+    </control>
+    <control type="radiobutton" id="700133">
+      <include>MediaMenuRadioButton</include>
+      <label>Tagline Bar</label>
+      <onclick>Skin.ToggleSetting(lowlist_tagline)</onclick>
+      <selected>Skin.HasSetting(lowlist_tagline)</selected>
+      <visible>Control.IsVisible(551) + Container.Content(movies)</visible>
     </control>
     <control type="radiobutton" id="700135">
       <include>MediaMenuRadioButton</include>
@@ -680,6 +673,19 @@
       <selected>Skin.HasSetting(dvdcaselowlist)</selected>
       <onclick>Skin.ToggleSetting(dvdcaselowlist)</onclick>
       <visible>Control.IsVisible(551)</visible>
+    </control>
+    <control type="radiobutton" id="700024">
+      <include>MediaMenuRadioButton</include>
+      <label>31052</label>
+      <selected>Skin.HasSetting(thin_lowlist)</selected>
+      <onclick>Skin.ToggleSetting(thin_lowlist)</onclick>
+      <visible>Control.IsVisible(551)</visible>
+    </control>
+    <control type="button" id="700134">
+      <include>MediaMenuButton</include>
+      <label>$LOCALIZE[31246]</label>
+      <onclick>SetFocus(55103)</onclick>
+      <visible>Control.IsVisible(551) + [Container.Content(movies) | Window.IsActive(musiclibrary)]</visible>
     </control>
   </include>
   <include name="MediaMenuButton_InfoTrigger">
@@ -982,7 +988,6 @@
         <include>MediaMenuButton_Sort</include>
         <include>MediaMenuButton_Search</include>
         <include>MediaMenuButton_Random</include>
-        <include>MediaMenuButton_Overlay</include>
         <include>MediaMenuButton_StackButton</include>
         <include>MediaMenuButton_Files</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Party</include>
@@ -1058,7 +1063,7 @@
         <onup>7100</onup>
         <ondown>7100</ondown>
         <scrolltime>300</scrolltime>
-        <control type="label">
+        <control type="label">  
           <posx>0</posx>
           <posy>80</posy>
           <font>Font_Normal22</font>
@@ -1069,6 +1074,8 @@
           <textcolor>A0FFFFFF</textcolor>
           <label>310802</label>
         </control>
+        <include>MediaMenuButton_Overlay</include>
+        <include>MediaMenuButton_Background</include>
         <include>MediaMenuButton_Showcase</include>
         <include>MediaMenuButton_InfoTrigger</include>
         <include>MediaMenuButton_LowList</include>
@@ -1078,7 +1085,6 @@
         <include>MediaMenuButton_Multiplex</include>
         <include>MediaMenuButton_List</include>
         <include>MediaMenuButton_Stripshow</include>
-        <include>MediaMenuButton_Background</include>
         <include>MediaMenuButton_Wall</include>
         <include>MediaMenuButton_FullScreenWall</include>
         <include>MediaMenuButton_LargeList</include>

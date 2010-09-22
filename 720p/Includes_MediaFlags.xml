@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <includes>
-  <include name="Furniture_FloorMediaFlagsVars">
+  <include name="Floor_MediaFlagsVars">
     <posy>658</posy>
     <width>90</width>
     <height>60</height>
@@ -12,7 +12,7 @@
     <colordiffuse>FFe1e1e1</colordiffuse>
     <fadetime>400</fadetime>
   </include>
-  <include name="Furniture_ListMediaFlagsVars">
+  <include name="List_MediaFlagsVars">
     <animation effect="slide" start="0,0" end="33,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
     <posy>630</posy>
     <width>90</width>
@@ -53,7 +53,7 @@
     <height>47</height>
     <texture>info/info_flagupright.png</texture>
   </include>
-  <include name="Furniture_MovieInfoMediaFlags">
+  <include name="MovieInfo_MediaFlags">
     <control type="group">
       <control type="image">
         <posx>104</posx>
@@ -154,7 +154,7 @@
       </control>
     </control>
   </include>
-  <include name="Furniture_ListMediaFlags">
+  <include name="List_MediaFlags">
     <control type="group">
       <animation effect="fade" delay="500" start="0" end="100" time="1000" condition="Control.IsVisible(50)">Conditional</animation>
       <visible>[Control.IsVisible(50)] + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
@@ -163,26 +163,26 @@
       <control type="group">
         <posx>1125</posx>
         <control type="image">
-          <include>Furniture_ListMediaFlagsVars</include>
+          <include>List_MediaFlagsVars</include>
           <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
         </control>
       </control>
       <control type="group">
         <posx>1035</posx>
         <control type="image" id="187">
-          <include>Furniture_ListMediaFlagsVars</include>
+          <include>List_MediaFlagsVars</include>
           <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
         </control>
       </control>
       <control type="group">
         <posx>945</posx>
         <control type="image">
-	  <include>Furniture_ListMediaFlagsVars</include>
+	  <include>List_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900006)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
         <control type="image">
-	  <include>Furniture_ListMediaFlagsVars</include>
+	  <include>List_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900005)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
@@ -190,7 +190,7 @@
       <control type="group">
 	<posx>845</posx>
 	<control type="image" id="189">
-	  <include>Furniture_ListMediaFlagsVars</include>
+	  <include>List_MediaFlagsVars</include>
 	  <texture>$INFO[Control.GetLabel(900012)]</texture>
 	  <visible>!IsEmpty(Control.GetLabel(900012))</visible>
 	</control>
@@ -213,7 +213,7 @@
     </control>
     <!-- Browsing flags -->
     <control type="group">
-      <posx>900</posx>
+      <posx>885</posx>
       <posy>665</posy>
       <width>360</width>
       <height>59</height>
@@ -283,7 +283,7 @@
     <fadetime>300</fadetime>
     <visible>Control.IsVisible(551) + Window.IsActive(videolibrary)</visible>
   </include>
-  <include name="Furniture_FloorMediaFlags">
+  <include name="Floor_MediaFlags">
     <control type="group">
       <visible>[Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + [Container.Content(movies) | Container.Content(musicvideos)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
       <include>Animation_CommonFade</include>
@@ -305,49 +305,49 @@
       </control>     
       <control type="image">
         <posx>210</posx>
-        <include>Furniture_FloorMediaFlagsVars</include>
+        <include>Floor_MediaFlagsVars</include>
         <texture>$INFO[Control.GetLabel(900012)]</texture>
         <visible>!IsEmpty(Control.GetLabel(900012))</visible>
       </control>
       <control type="image">
         <posx>107</posx>
-        <include>Furniture_FloorMediaFlagsVars</include>
+        <include>Floor_MediaFlagsVars</include>
         <texture fallback="flags/studios/default-studio.png">$INFO[Control.GetLabel(900009)]</texture>
         <visible>!StringCompare(ListItem.Label,..)</visible>
       </control>
       <control type="image">
         <posx>10</posx>
-        <include>Furniture_FloorMediaFlagsVars</include>
+        <include>Floor_MediaFlagsVars</include>
         <texture>$INFO[Control.GetLabel(900010)]</texture>
         <visible>!IsEmpty(Control.GetLabel(900010))</visible>
         <aspectratio>keep</aspectratio>
       </control>
       <control type="image" id="81">
         <posx>980</posx>
-        <include>Furniture_FloorMediaFlagsVars</include>
+        <include>Floor_MediaFlagsVars</include>
         <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
       </control>
       <control type="image">
         <posx>1080</posx>
-        <include>Furniture_FloorMediaFlagsVars</include>
+        <include>Floor_MediaFlagsVars</include>
         <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
       </control>
       <control type="group">
         <posx>1180</posx>
         <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900006)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
         <control type="image" id="92">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900005)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
       </control>
     </control>
   </include>
-  <include name="Furniture_FloorTVMediaFlags">
+  <include name="FloorTV_MediaFlags">
     <control type="group">
       <visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
       <include>Animation_CommonFade</include>
@@ -374,7 +374,7 @@
       <control type="group">
         <posx>110</posx>
         <control type="image" id="81">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture fallback="flags/studios/default-studio.png">$INFO[Control.GetLabel(900009)]</texture>
 	  <visible>!StringCompare(ListItem.Label,..)</visible>
           <visible>Container.Content(tvshows)</visible>
@@ -384,7 +384,7 @@
         <posx>10</posx>
         <animation effect="slide" end="100" time="0" condition="!Control.IsVisible(81)">Conditional</animation>
         <control type="image" id="82">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900011)]</texture>
           <visible>!IsEmpty(Control.GetLabel(900011))</visible>
         </control>
@@ -392,26 +392,26 @@
       <control type="group">
         <posx>210</posx>
         <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
         </control>
       </control>
       <control type="group">
         <posx>965</posx>
         <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
         </control>
       </control>
       <control type="group">
         <posx>1070</posx>
         <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900006)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
         <control type="image">
-          <include>Furniture_FloorMediaFlagsVars</include>
+          <include>Floor_MediaFlagsVars</include>
           <texture>$INFO[Control.GetLabel(900005)]</texture>
           <aspectratio>keep</aspectratio>
         </control>
@@ -434,7 +434,7 @@
       </control>
     </control>
   </include>
-  <include name="Furniture_MultiWallMediaFlags">
+  <include name="MultiWall_MediaFlags">
     <control type="group">
       <visible>Control.IsVisible(556)</visible>
       <control type="group">
