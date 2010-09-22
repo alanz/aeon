@@ -531,6 +531,17 @@
             <include>OldMultiplexInfoValue</include>
             <label fallback="161">$INFO[Container(553).ListItem.Director]</label>
           </control>
+          <control type="group">
+            <posx>310</posx>
+            <control type="label">
+              <include>OldMultiplexInfoLabel</include>
+              <label>[UPPERCASE]$LOCALIZE[20416]:[/UPPERCASE]</label>
+            </control>
+            <control type="label">
+              <include>OldMultiplexInfoValue</include>
+              <label fallback="161">$INFO[Container(553).ListItem.Date]</label>
+            </control>
+          </control>
         </control>
         <control type="group">
           <posy>122</posy>
@@ -542,16 +553,16 @@
             <include>OldMultiplexInfoValue</include>
             <label fallback="161">$INFO[Container(553).ListItem.Writer]</label>
           </control>
-        </control>
-        <control type="group">
-          <posy>172</posy>
-          <control type="label">
-            <include>OldMultiplexInfoLabel</include>
-            <label>[UPPERCASE]$LOCALIZE[20416]:[/UPPERCASE]</label>
-          </control>
-          <control type="label">
-            <include>OldMultiplexInfoValue</include>
-            <label fallback="161">$INFO[Container(553).ListItem.Date]</label>
+          <control type="group">
+            <posx>310</posx>
+            <control type="label">
+              <include>OldMultiplexInfoLabel</include>
+              <label>[UPPERCASE]$LOCALIZE[572]:[/UPPERCASE]</label>
+            </control>
+            <control type="label">
+              <include>OldMultiplexInfoValue</include>
+              <label fallback="161">$INFO[Container(553).ListItem.Studio]</label>
+            </control>
           </control>
         </control>
       </control>
@@ -687,7 +698,6 @@
         </control>
       </control>
       <control type="group">
-        <include>Furniture_OldMultiplexMediaFlagsTv</include>
         <control type="label">
           <width>300</width>
           <include>OldMultiplexTVLabel</include>
@@ -697,28 +707,45 @@
         <control type="label">
           <width>800</width>
           <include>OldMultiplexTVLabel</include>
-          <visible>Container.Content(tvshows)</visible>
+          <visible>Container.Content(tvshows) + IsEmpty(Control.GetLabel(5530)) + IsEmpty(Control.GetLabel(5531)) + !Container(553).OnNext + !Container(553).OnPrevious</visible>
           <label>$INFO[Container(553).ListItem.Label]</label>
         </control>
         <control type="label">
-          <width>1000</width>
+          <width>600</width>
           <include>OldMultiplexTVLabel</include>
           <visible>Container.Content(episodes)</visible>
-          <label>$INFO[Container(553).ListItem.Season].$INFO[Container(553).ListItem.Episode] $INFO[Container(553).ListItem]</label>
+          <label>$INFO[Container(553).ListItem.Season].$INFO[Container(553).ListItem.Episode] $INFO[Container(553).ListItem.Title]</label>
+        </control>   
+        <control type="largeimage" id="5530">
+          <posx>1000</posx>
+          <posy>-10</posy>
+          <width>230</width>
+          <height>89</height>
+          <texture background="true">$INFO[ListItem.path]logo.png</texture>
+          <fadetime>300</fadetime>
+          <aspectratio scalediffuse="false">stretch</aspectratio>
+          <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+          <animation effect="slide" start="0,0" end="-950,0" time="0" condition="Container.Content(tvshows)">Conditional</animation>
         </control>
-        <control type="label">
-          <posx>1216</posx>
-          <posy>2</posy>
-          <width>550</width>
-          <height>85</height>
-          <align>right</align>
-          <aligny>center</aligny>
-          <font>Font_Home55</font>
-          <textcolor>whiteD0</textcolor>
-          <label>$INFO[Container(553).ListItem.TVShowTitle]</label>
-          <visible>Container.Content(seasons)</visible>
+        <control type="largeimage" id="5531">
+          <posx>1000</posx>
+          <posy>-10</posy>
+          <width>230</width>
+          <height>89</height>
+          <texture background="true">$INFO[ListItem.path]../logo.png</texture>
+          <fadetime>300</fadetime>
+          <include>Animation_VisibleChange400</include>
+          <aspectratio scalediffuse="false">stretch</aspectratio>
+          <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+          <visible>IsEmpty(Control.GetLabel(5530))</visible>
+          <include>Animation_VisibleChange400</include>
+          <animation effect="slide" start="0,0" end="0,-750" time="0" condition="Control.HasFocus(30)">Conditional</animation>
         </control>
-        <!--				<control type="image"><posx>0</posx><posy>1</posy><width>1280</width><height>35</height><texture>multiplex/old/multiplex_gradienttv.png</texture><visible>Control.IsVisible(553)</visible></control>-->
+      </control>
+      <control type="group">
+        <posx>0</posx>
+        <posy>183</posy>
+        <include>OldMultiplex_MediaFlagsTv</include>
       </control>
     </control>
     <control type="group">
@@ -887,6 +914,12 @@
           <texture background="true">$INFO[ListItem.Path,,folder.jpg]</texture>
           <visible>Skin.HasSetting(use_folder_jpg) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
         </control>
+        <control type="image">
+          <include>OldMultiplexSeasonOverlayWrap</include>
+          <texture>common/black.png</texture>
+          <colordiffuse>b6FFFFFF</colordiffuse>
+          <visible>[Container.Content(seasons) | Container.Content(episodes)] + !StringCompare(ListItem.label,..)</visible>
+        </control>
         <control type="label">
           <posx>115</posx>
           <posy>117</posy>
@@ -1014,9 +1047,9 @@
     <control type="group"><!--title and mediaflags-->
       <visible>Container.Content(movies)</visible>
       <control type="label">
-        <posx>275</posx>
+        <posx>315</posx>
         <posy>447</posy>
-        <width>730</width>
+        <width>650</width>
         <height>71</height>
         <aligny>center</aligny>
         <align>center</align>
@@ -1027,7 +1060,6 @@
         <include>Animation_HideMultiplex</include>
         <visible>!StringCompare(ListItem.Label,..)</visible>
       </control>
-      <include>Furniture_OldMultiplexMediaFlags</include>
       <control type="image">
         <posx>0</posx>
         <posy>462</posy>
