@@ -29,21 +29,30 @@
             <animation effect="slide" start="0,0" end="150,50" time="0" condition="!Container(300).HasFocus(6)">Conditional</animation>
             <control type="image">
               <!--	<visible>Container(300).HasFocus(6)</visible>-->
-              <texture flipy="true">home/nowplaying_info.png</texture>
+              <texture>home/nowplaying_line.png</texture>
               <aspectratio scalediffuse="false">scale</aspectratio>
               <posx>9</posx>
-              <posy>12</posy>
+              <posy>35</posy>
               <width>324</width>
-              <height>220</height>
+              <height>1</height>
             </control>
             <control type="image">
               <!--	<visible>Container(300).HasFocus(6)</visible>-->
-              <texture flipy="true">home/nowplaying_info.png</texture>
+              <texture>home/nowplaying_line.png</texture>
               <aspectratio scalediffuse="false">scale</aspectratio>
               <posx>9</posx>
-              <posy>-150</posy>
+              <posy>77</posy>
               <width>324</width>
-              <height>220</height>
+              <height>1</height>
+            </control>
+            <control type="image">
+              <!--	<visible>Container(300).HasFocus(6)</visible>-->
+              <texture>home/nowplaying_line.png</texture>
+              <aspectratio scalediffuse="false">scale</aspectratio>
+              <posx>9</posx>
+              <posy>254 </posy>
+              <width>324</width>
+              <height>1</height>
             </control>
             <control type="label">
               <posx>30</posx>
@@ -54,6 +63,36 @@
               <textcolor>whiteD0</textcolor>
               <aligny>center</aligny>
               <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <width>533</width>
+              <height>25</height>
+              <aligny>left</aligny>
+              <posy>37</posy>
+              <textcolor>bluelabel</textcolor>
+              <label>$LOCALIZE[345]: [COLOR=white]$INFO[Container(510).ListItem.Property(Year)][/COLOR]</label>
+              <font>Font_Normal16</font>
+            </control>
+            <control type="label">
+              <posx>200</posx>
+              <width>533</width>
+              <height>25</height>
+              <aligny>left</aligny>
+              <posy>37</posy>
+              <textcolor>bluelabel</textcolor>
+              <label>$LOCALIZE[31709]: [COLOR=white]$INFO[Container(510).ListItem.Property(RunningTime)][/COLOR]</label>
+              <font>Font_Normal16</font>
+            </control>
+            <control type="label">
+              <posx>30</posx>
+              <width>533</width>
+              <height>25</height>
+              <aligny>left</aligny>
+              <posy>53</posy>
+              <textcolor>bluelabel</textcolor>
+              <label>$LOCALIZE[368]: [COLOR=white]$INFO[Container(510).ListItem.Property(Rating)][/COLOR]</label>
+              <font>Font_Normal16</font>
             </control>
             <control type="label">
               <posx>30</posx>
@@ -78,9 +117,9 @@
             <control type="textbox">
               <font>Font_Normal16_ls08</font>
               <posx>20</posx>
-              <posy>70</posy>
+              <posy>80</posy>
               <width>450</width>
-              <height>160</height>
+              <height>174</height>
               <autoscroll time="2000" delay="8000" repeat="5000">true</autoscroll>
               <textcolor>whiteD0</textcolor>
               <label fallback="31414">$INFO[Container(510).ListItem.Label2]</label>
@@ -147,7 +186,7 @@
               <posy>8</posy>
               <width>450</width>
               <height>30</height>
-              <font>Font_Normal24</font>
+              <font>Font_Home36</font>
               <textcolor>whiteD0</textcolor>
               <aligny>center</aligny>
               <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
@@ -220,9 +259,9 @@
         <control type="image">
           <posx>261</posx>
           <posy>506</posy>
-          <height>176</height>
+          <height>1</height>
           <width>259</width>
-          <texture>home/nowplaying_info.png</texture>
+          <texture>home/nowplaying_line.png</texture>
         </control>
         <control type="image">
           <posx>18</posx>
@@ -334,9 +373,9 @@
             <height>40</height>
             <align>center</align>
             <aligny>center</aligny>
-            <font>Font_Normal26</font>
+            <font>Font_Home40</font>
             <textcolor>whiteD0</textcolor>
-            <label>[UPPERCASE][B]$LOCALIZE[31879][/B][/UPPERCASE]</label>
+            <label>[UPPERCASE]$LOCALIZE[31879][/UPPERCASE]</label>
             <animation effect="fade" start="0" end="100" time="200">Visible</animation>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
           </control>
@@ -739,9 +778,9 @@
           <height>40</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>Font_Normal24</font>
+          <font>Font_Home40</font>
           <textcolor>whiteD0</textcolor>
-          <label>[UPPERCASE][B]$LOCALIZE[31879][/B][/UPPERCASE]</label>
+          <label>[UPPERCASE]$LOCALIZE[31879][/UPPERCASE]</label>
           <animation effect="fade" start="0" end="100" delay="1000" time="500">WindowOpen</animation>
           <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
           <animation effect="fade" start="0" end="100" delay="500" time="800">Visible</animation>
