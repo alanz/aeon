@@ -78,9 +78,9 @@
         <width>600</width>
         <height>48</height>
         <aligny>center</aligny>
-        <font>Font_Home30</font>
+        <font>Font_Home24</font>
         <textcolor>whiteA0</textcolor>
-        <label>[COLOR=bluelabel]$LOCALIZE[31713]:[/COLOR]   $INFO[MusicPlayer.PlayListLength]</label>
+        <label>[UPPERCASE][COLOR=bluelabel]$LOCALIZE[31713]:[/COLOR]   $INFO[MusicPlayer.PlayListLength][/UPPERCASE]</label>
       </control>
       <control type="label">
         <posx>1260</posx>
@@ -89,9 +89,9 @@
         <height>48</height>
         <align>right</align>
         <aligny>center</aligny>
-        <font>Font_Home30</font>
+        <font>Font_Home24</font>
         <textcolor>whiteA0</textcolor>
-        <label>[COLOR=bluelabel]$LOCALIZE[31714]:[/COLOR]   $INFO[MusicPlayer.PlayListPosition]</label>
+        <label>[UPPERCASE][COLOR=bluelabel]$LOCALIZE[31714]:[/COLOR]   $INFO[MusicPlayer.PlayListPosition][/UPPERCASE]</label>
       </control>
     </control>
     <control type="group">
@@ -111,10 +111,10 @@
       <control type="image">
         <description>black background shadow</description>
         <posx>0</posx>
-        <posy>-569</posy>
+        <posy>-369</posy>
         <width>1280</width>
-        <height>720</height>
-        <texture>home/nowplaying_shade.png</texture>
+        <height>520</height>
+        <texture>home/nowplaying_shadow.png</texture>
       </control>	  
       <control type="group">
         <posx>5</posx>
@@ -262,85 +262,89 @@
             <label>[COLOR 80c2c4c3]$INFO[MusicPlayer.TrackNumber]: [/COLOR][COLOR A0FFFFFF]$INFO[MusicPlayer.Title][/COLOR]</label>
           </control>
         </control>
-        <control type="image">
-          <description>Codec</description>
-          <posx>615</posx>
-          <posy>34</posy>
-          <width>100</width>
-          <height>84</height>
-          <colordiffuse>white</colordiffuse>
-          <texture>$INFO[MusicPlayer.Codec,flags/music/audiocodec/,.png]</texture>
-        </control>
-        <control type="image">
-          <colordiffuse>FFe1e1e1</colordiffuse>
-          <posx>398</posx>
-          <posy>40</posy>
-          <width>170</width>
-          <height>59</height>
-          <texture>flags/music/year/year.png</texture>
-          <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
-        </control>
-        <control type="label">
-          <posx>413</posx>
-          <posy>57</posy>
-          <width>145</width>
-          <height>24</height>
-          <align>center</align>
-          <aligny>-</aligny>
-          <scroll>true</scroll>
-          <font>Font_Home22</font>
-          <label>[COLOR=bluelabel]$INFO[MusicPlayer.Genre][/COLOR]</label>
-          <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
-        </control>
-        <control type="label">
-          <posx>725</posx>
-          <posy>68</posy>
-          <width>1280</width>
-          <height>24</height>
-          <align>left</align>
-          <aligny>-</aligny>
-          <font>Font_Normal18</font>
-          <label>$INFO[MusicPlayer.BitRate,,Kbps]</label>
-          <textcolor>bluelabel</textcolor>
-        </control>
-        <control type="label">
-          <posx>725</posx>
-          <posy>48</posy>
-          <width>1280</width>
-          <height>24</height>
-          <align>left</align>
-          <aligny>-</aligny>
-          <font>Font_Normal18</font>
-          <label>$INFO[MusicPlayer.SampleRate,,KHZ]</label>
-          <textcolor>bluelabel</textcolor>
-        </control>
-        <control type="label">
-          <description>Current time</description>
-          <posx>1250</posx>
-          <posy>20</posy>
-          <width>500</width>
-          <height>500</height>
-          <font>Font_Home85</font>
-          <label>[COLOR d0FFFFFF]$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ][/COLOR]</label>
-          <align>right</align>
-        </control>
-        <control type="fadelabel">
-          <description>Previous / Next Fadelabel</description>
-          <posx>345</posx>
-          <posy>105</posy>
-          <width>900</width>
-          <visible>true</visible>
-          <scroll>false</scroll>
-          <scrollout>false</scrollout>
-          <scrollspeed>70</scrollspeed>
-          <pauseatend>7000</pauseatend>
-          <label>[UPPERCASE][COLOR=bluelabel]Previous:[CR]$INFO[MusicPlayer.offset(-1).Artist]: [/COLOR]$INFO[MusicPlayer.offset(-1).Title][/UPPERCASE]</label>
-          <label>[UPPERCASE][COLOR=bluelabel]Next:[CR]$INFO[MusicPlayer.offset(1).Artist]: [/COLOR]$INFO[MusicPlayer.offset(1).Title][/UPPERCASE]</label>
-          <font>Font_Normal16_ls075</font>
-          <textcolor>whiteA0</textcolor>
-          <textoffsetx>20</textoffsetx>
-          <align>right</align>
-          <visible>![IsEmpty(MusicPlayer.offset(1).Title) + IsEmpty(MusicPlayer.offset(-1).Title) + IsEmpty(MusicPlayer.offset(1).Artist) + IsEmpty(MusicPlayer.offset(-1).Artist)]</visible>
+        <control type="group">
+          <visible>!Window.IsVisible(musicosd)</visible>
+          <include>Animation_VisibleChange400</include>
+          <control type="image">
+            <description>Codec</description>
+            <posx>615</posx>
+            <posy>34</posy>
+            <width>100</width>
+            <height>84</height>
+            <colordiffuse>white</colordiffuse>
+            <texture>$INFO[MusicPlayer.Codec,flags/music/audiocodec/,.png]</texture>
+          </control>
+          <control type="image">
+            <colordiffuse>FFe1e1e1</colordiffuse>
+            <posx>398</posx>
+            <posy>40</posy>
+            <width>170</width>
+            <height>59</height>
+            <texture>flags/music/year/year.png</texture>
+            <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
+          </control>
+          <control type="label">
+            <posx>413</posx>
+            <posy>57</posy>
+            <width>145</width>
+            <height>24</height>
+            <align>center</align>
+            <aligny>-</aligny>
+            <scroll>true</scroll>
+            <font>Font_Home22</font>
+            <label>[COLOR=bluelabel]$INFO[MusicPlayer.Genre][/COLOR]</label>
+            <visible>!IsEmpty(MusicPlayer.Genre) + !substring(MusicPlayer.Genre,Unknown)</visible>
+          </control>
+          <control type="label">
+            <posx>725</posx>
+            <posy>68</posy>
+            <width>1280</width>
+            <height>24</height>
+            <align>left</align>
+            <aligny>-</aligny>
+            <font>Font_Normal18</font>
+            <label>$INFO[MusicPlayer.BitRate,,Kbps]</label>
+            <textcolor>bluelabel</textcolor>
+          </control>
+          <control type="label">
+            <posx>725</posx>
+            <posy>48</posy>
+            <width>1280</width>
+            <height>24</height>
+            <align>left</align>
+            <aligny>-</aligny>
+            <font>Font_Normal18</font>
+            <label>$INFO[MusicPlayer.SampleRate,,KHZ]</label>
+            <textcolor>bluelabel</textcolor>
+          </control>
+          <control type="label">
+            <description>Current time</description>
+            <posx>1250</posx>
+            <posy>20</posy>
+            <width>500</width>
+            <height>500</height>
+            <font>Font_Home85</font>
+            <label>[COLOR d0FFFFFF]$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ][/COLOR]</label>
+            <align>right</align>
+          </control>
+          <control type="fadelabel">
+            <description>Previous / Next Fadelabel</description>
+            <posx>345</posx>
+            <posy>105</posy>
+            <width>900</width>
+            <visible>true</visible>
+            <scroll>false</scroll>
+            <scrollout>false</scrollout>
+            <scrollspeed>70</scrollspeed>
+            <pauseatend>7000</pauseatend>
+            <label>[UPPERCASE][COLOR=bluelabel]Previous:[CR]$INFO[MusicPlayer.offset(-1).Artist]: [/COLOR]$INFO[MusicPlayer.offset(-1).Title][/UPPERCASE]</label>
+            <label>[UPPERCASE][COLOR=bluelabel]Next:[CR]$INFO[MusicPlayer.offset(1).Artist]: [/COLOR]$INFO[MusicPlayer.offset(1).Title][/UPPERCASE]</label>
+            <font>Font_Normal16_ls075</font>
+            <textcolor>whiteA0</textcolor>
+            <textoffsetx>20</textoffsetx>
+            <align>right</align>
+            <visible>![IsEmpty(MusicPlayer.offset(1).Title) + IsEmpty(MusicPlayer.offset(-1).Title) + IsEmpty(MusicPlayer.offset(1).Artist) + IsEmpty(MusicPlayer.offset(-1).Artist)]</visible>
+          </control>
         </control>
       </control>
     </control>

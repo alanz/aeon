@@ -31,39 +31,51 @@
           <label>$LOCALIZE[15200] $LOCALIZE[31001]</label>
           <onclick>LastFM.Love</onclick>
           <visible>LastFM.CanLove</visible>
+          <onup>Control.SetFocus(11)</onup>
+          <ondown>Control.SetFocus(11)</ondown>
         </control>
         <control type="button" id="923">
           <include>Objects_OSDButton</include>
           <label>$LOCALIZE[15200] $LOCALIZE[31002]</label>
           <onclick>LastFM.Ban</onclick>
           <visible>LastFM.CanBan</visible>
+          <onup>Control.SetFocus(12)</onup>
+          <ondown>Control.SetFocus(12)</ondown>
         </control>
         <control type="button" id="921">
           <include>Objects_OSDButton</include>
           <onclick>Dialog.Close(MusicOSD)</onclick>
           <onclick>RunScript(script.cu.lyrics,1)</onclick>
           <label>31128</label>
-          <onup>Control.SetFocus(11)</onup>
-          <ondown>Control.SetFocus(11)</ondown>
+          <onup>Control.SetFocus(12)</onup>
+          <ondown>Control.SetFocus(12)</ondown>
         </control>       
         <control type="button" id="9">
           <include>Objects_OSDButton</include>
           <onclick>ActivateWindow(musicplaylist)</onclick>
           <label>10517</label>
+          <onup>Control.SetFocus(13)</onup>
+          <ondown>Control.SetFocus(13)</ondown>
         </control>
         <control type="button" id="500">
           <include>Objects_OSDButton</include>
           <label>12006</label>
+          <onup>Control.SetFocus(18)</onup>
+          <ondown>Control.SetFocus(18)</ondown>
         </control>
         <control type="button" id="701">
           <include>Objects_OSDButton</include>
           <onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
           <label>$LOCALIZE[250] $LOCALIZE[21417]</label>
+          <onup>Control.SetFocus(15)</onup>
+          <ondown>Control.SetFocus(15)</ondown>
         </control>
         <control type="button" id="920">
           <include>Objects_OSDButton</include>
           <onclick>ActivateWindow(visualisationpresetlist)</onclick>
           <label>31048</label>
+          <onup>Control.SetFocus(16)</onup>
+          <ondown>Control.SetFocus(16)</ondown>
         </control>
       </control>
       <control type="grouplist" id="215">
@@ -73,18 +85,21 @@
         <height>96</height>
         <align>center</align>
         <itemgap>-15</itemgap>
-        <onup>Control.SetFocus(922)</onup>
         <ondown>-</ondown>
         <orientation>horizontal</orientation>
         <control type="button" id="11">
           <include>Objects_OSDButton</include>
           <onclick>PlayerControl(Previous)</onclick>
+          <onup>Control.SetFocus(922)</onup>
+          <ondown>Control.SetFocus(922)</ondown>
           <label>210</label>
         </control>
         <control type="button" id="12">
           <include>Objects_OSDButton</include>
           <onclick>PlayerControl(Rewind)</onclick>
           <label>31354</label>
+          <onup>Control.SetFocus(921)</onup>
+          <ondown>Control.SetFocus(921)</ondown>
         </control>
         <control type="togglebutton" id="13">
           <include>Objects_OSDButton</include>
@@ -94,26 +109,36 @@
           <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
           <alttexturefocus>osd/osd_button_focus.png</alttexturefocus>
           <alttexturenofocus>osd/osd_button_nofocus.png</alttexturenofocus>
+          <onup>Control.SetFocus(9)</onup>
+          <ondown>Control.SetFocus(9)</ondown>
         </control>
         <control type="button" id="18">
           <include>Objects_OSDButton</include>
           <onclick>PlayerControl(Stop)</onclick>
           <label>31352</label>
+          <onup>Control.SetFocus(500)</onup>
+          <ondown>Control.SetFocus(500)</ondown>
         </control>
         <control type="button" id="15">
           <include>Objects_OSDButton</include>
           <onclick>PlayerControl(Forward)</onclick>
           <label>31353</label>
+          <onup>Control.SetFocus(701)</onup>
+          <ondown>Control.SetFocus(701)</ondown>
         </control>
         <control type="button" id="16">
           <include>Objects_OSDButton</include>
           <onclick>PlayerControl(Next)</onclick>
           <label>209</label>
+          <onup>Control.SetFocus(920)</onup>
+          <ondown>Control.SetFocus(920)</ondown>
         </control>
         <control type="button" id="111">
           <include>Objects_OSDButton</include>
           <onclick>XBMC.PlayerControl(Random)</onclick>
           <label>$LOCALIZE[590]$INFO[Playlist.Random, : ]</label>
+          <onup>Control.SetFocus(920)</onup>
+          <ondown>Control.SetFocus(920)</ondown>
         </control>
       </control>
       <control type="grouplist" id="216">
@@ -341,25 +366,25 @@
       </control>
       <control type="label">
         <posx>112</posx>
-        <posy>60</posy>
+        <posy>50</posy>
         <width>300</width>
         <height>25</height>
-        <font>Font_Home19</font>
+        <font>Font_Home30</font>
         <colordiffuse>whiteD0</colordiffuse>
         <label>$INFO[MusicPlayer.Time]</label>
       </control>
       <control type="label">
         <posx>1168</posx>
-        <posy>60</posy>
+        <posy>50</posy>
         <width>300</width>
         <height>25</height>
-        <font>Font_Home19</font>
+        <font>Font_Home30</font>
         <align>right</align>
         <colordiffuse>whiteD0</colordiffuse>
         <label>$INFO[MusicPlayer.Duration]</label>
       </control>
       <control type="label">
-				<posx>900</posx>
+				<posx>930</posx>
 				<posy>100</posy>
 				<width>1280</width>
 				<height>25</height>
