@@ -228,49 +228,104 @@
               <texture>home/nowplaying_line.png</texture>
               <aspectratio aligny="top" alignx="left">scale</aspectratio>
               <posx>5</posx>
-              <posy>32</posy>
+              <posy>34</posy>
               <width>324</width>
               <height>1</height>
             </control>
-            <control type="label">
-              <posx>35</posx>
-              <posy>0</posy>
-              <width>450</width>
-              <height>30</height>
-              <font>Font_Home36</font>
-              <textcolor>whiteD0</textcolor>
-              <aligny>center</aligny>
-              <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
+            <control type="image">
+              <visible>Container(300).HasFocus(7)</visible>
+              <texture>home/nowplaying_line.png</texture>
+              <aspectratio aligny="top" alignx="left">scale</aspectratio>
+              <posx>5</posx>
+              <posy>59</posy>
+              <width>324</width>
+              <height>1</height>
             </control>
-            <control type="label">
-              <posx>35</posx>
-              <posy>35</posy>
-              <width>450</width>
-              <height>20</height>
-              <font>Font_Normal16</font>
-              <textcolor>whiteD0</textcolor>
-              <aligny>center</aligny>
-              <label fallback="-">$INFO[Container(510).ListItem.Label2]</label>
+            <control type="group">
+              <visible>Control.HasFocus(510)</visible>
+              <control type="label">
+                <posx>-305</posx>
+                <posy>-32</posy>
+                <width>550</width>
+                <height>30</height>
+                <font>Font_Home36</font>
+                <textcolor>whiteD0</textcolor>
+                <aligny>center</aligny>
+                <label fallback="-">$INFO[Container(510).ListItem.Label]</label>
+              </control>
+              <control type="label">
+                <posx>24</posx>
+                <posy>8</posy>
+                <width>450</width>
+                <height>20</height>
+                <font>Font_Home30</font>
+                <textcolor>whiteD0</textcolor>
+                <aligny>center</aligny>
+                <label fallback="-">$INFO[Container(510).ListItem.Label2] [COLOR=bluelabel]($INFO[Container(510).ListItem.Property(EpisodeNumber)])[/COLOR]</label>
+              </control>
+              <control type="label">
+                <posx>25</posx>
+                <width>533</width>
+                <height>25</height>
+                <aligny>left</aligny>
+                <posy>35</posy>
+                <textcolor>bluelabel</textcolor>
+                <label>$LOCALIZE[368]: [COLOR=white]$INFO[Container(510).ListItem.Property(Rating)][/COLOR]</label>
+                <font>Font_Normal16</font>
+              </control>
+              <control type="textbox">
+                <label fallback="31414">$INFO[Container(510).ListItem.Property(Plot)]</label>
+                <font>Font_Normal16_ls075</font>
+                <posx>24</posx>
+                <posy>60</posy>
+                <width>400</width>
+                <height>136</height>
+                <autoscroll time="2000" delay="5000" repeat="5000">true</autoscroll>
+                <textcolor>whiteD0</textcolor>
+              </control>
             </control>
-            <control type="label">
-              <posx>25</posx>
-              <width>533</width>
-              <height>25</height>
-              <aligny>left</aligny>
-              <posy>53</posy>
-              <textcolor>bluelabel</textcolor>
-              <label>$LOCALIZE[368]: [COLOR=white]$INFO[Container(510).ListItem.Property(Rating)][/COLOR]</label>
-              <font>Font_Normal16</font>
-            </control>
-            <control type="textbox">
-              <label fallback="31414">$INFO[Container(510).ListItem.Property(Plot)]</label>
-              <font>Font_Normal16</font>
-              <posx>24</posx>
-              <posy>74</posy>
-              <width>450</width>
-              <height>115</height>
-              <autoscroll time="2000" delay="5000" repeat="5000">true</autoscroll>
-              <textcolor>whiteD0</textcolor>
+           <control type="group">
+              <visible>Control.HasFocus(511)</visible>
+              <control type="label">
+                <posx>-305</posx>
+                <posy>-32</posy>
+                <width>550</width>
+                <height>30</height>
+                <font>Font_Home36</font>
+                <textcolor>whiteD0</textcolor>
+                <aligny>center</aligny>
+                <label fallback="-">$INFO[Container(511).ListItem.Label]</label>
+              </control>
+              <control type="label">
+                <posx>24</posx>
+                <posy>8</posy>
+                <width>450</width>
+                <height>20</height>
+                <font>Font_Home30</font>
+                <textcolor>whiteD0</textcolor>
+                <aligny>center</aligny>
+                <label fallback="-">$INFO[Container(511).ListItem.Label2] [COLOR=bluelabel]($INFO[Container(511).ListItem.Property(EpisodeNumber)])[/COLOR]</label>
+              </control>
+              <control type="label">
+                <posx>25</posx>
+                <width>533</width>
+                <height>25</height>
+                <aligny>left</aligny>
+                <posy>35</posy>
+                <textcolor>bluelabel</textcolor>
+                <label>$LOCALIZE[368]: [COLOR=white]$INFO[Container(511).ListItem.Property(Rating)][/COLOR]</label>
+                <font>Font_Normal16</font>
+              </control>
+              <control type="textbox">
+                <label fallback="31414">$INFO[Container(511).ListItem.Property(Plot)]</label>
+                <font>Font_Normal16_ls075</font>
+                <posx>24</posx>
+                <posy>60</posy>
+                <width>400</width>
+                <height>136</height>
+                <autoscroll time="2000" delay="5000" repeat="5000">true</autoscroll>
+                <textcolor>whiteD0</textcolor>
+              </control>
             </control>
           </control>
           <!-- TV Thumb -->
@@ -292,6 +347,19 @@
               <width>321</width>
               <height>180</height>
               <fadetime>500</fadetime>
+              <include>Animation_VisibleChange400</include>
+              <visible>Control.HasFocus(510)</visible>
+            </control>
+            <control type="largeimage">
+              <texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="DefaultVideo.png">$INFO[Container(511).ListItem.ActualIcon]</texture>
+              <aspectratio scalediffuse="false">scale</aspectratio>
+              <posx>0</posx>
+              <posy>57</posy>
+              <width>321</width>
+              <height>180</height>
+              <fadetime>500</fadetime>
+              <include>Animation_VisibleChange400</include>
+              <visible>Control.HasFocus(511)</visible>
             </control>
             <control type="image">
               <posx>-11</posx>
