@@ -192,6 +192,19 @@
     <animation effect="slide" start="0,-11" end="0,-11" time="0" condition="Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv)]">Conditional</animation>
   </include>
   <include name="Viewtype_List">
+    <control type="image">
+      <include>Animation_CommonFade</include>
+      <posx>0</posx>
+      <posy>-30</posy>
+      <width>1280</width>
+      <height>633</height>
+      <texture>home/nowplaying_shadow.png</texture>
+      <visible>Control.IsVisible(50)</visible>
+      <animation effect="fade" time="1000" start="0" end="100" tween="cubic" easing="out">WindowOpen</animation>
+      <animation effect="fade" time="300" start="100" end="0" tween="cubic" easing="out">WindowClose</animation>
+      <animation effect="fade" time="1000" start="0" end="100" tween="cubic" easing="out">Visible</animation>
+      <animation effect="fade" time="300" start="100" end="0" tween="cubic" easing="out">Hidden</animation>
+    </control>
     <control type="group">
       <animation effect="slide" time="1000" start="-800,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
       <animation effect="slide" time="700" start="0,0" end="-800,0" tween="cubic" easing="out">WindowClose</animation>
@@ -1106,7 +1119,7 @@
         <posy>493</posy>
         <texture>list/list_spot.png</texture>
       </control>
-      <control type="largeimage">
+      <control type="largeimage"><!--icon for videofiles-->
         <posy>-482</posy>
         <width>366</width>
         <height>1000</height>
@@ -1128,15 +1141,35 @@
         <visible>Window.IsActive(videofiles)</visible>
       </control>
       <control type="image">
+        <description>Glow</description>
+        <posx>-161</posx>
+        <posy>-120</posy>
+        <width>670</width>
+        <height>690</height>
+        <texture>showcase/showcase_glow2.png</texture>
+        <animation effect="fade" start="70" time="700" condition="true" pulse="true">Conditional</animation>
+        <aspectratio>stretch</aspectratio>
+        <visible>!StringCompare(ListItem.Label,..)</visible>
+        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+        <include>Animation_VisibleChange400</include>
+        <visible>true</visible>
+      </control>  
+      <control type="largeimage">
         <include>MovieIconDimensionsNormal</include>
         <fadetime>400</fadetime>
-        <texture diffuse="list/list_movieicon_mask.png">defaultVideo.png</texture>
+        <texture background ="true" diffuse="list/list_movieicon_mask.png">$INFO[ListItem.Icon]</texture>
         <bordertexture border="-28">list/list_movieicon_frame.png</bordertexture>
-        <aspectratio scalediffuse="true" aligny="bottom">keep</aspectratio>
-        <info>ListItem.Icon</info>
+        <aspectratio scalediffuse="false" aligny="bottom">scale</aspectratio>
         <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes)] + !Container.Content(genres)] + !Skin.HasSetting(listdvdcase)</visible>
       </control>
-      <control type="image">
+      <control type="largeimage"><!--poster.jpg-->
+        <include>MovieIconDimensionsNormal</include>
+        <fadetime>400</fadetime>
+        <texture background="true" diffuse="list/list_movieicon_mask.png">$INFO[ListItem.path,,poster.jpg]</texture>
+        <aspectratio scalediffuse="false" aligny="bottom">scale</aspectratio>
+        <visible>!Skin.HasSetting(listdvdcase)</visible>
+      </control>
+      <control type="image"><!--reflection-->
         <posy>510</posy>
         <width>346</width>
         <height>511</height>
@@ -1197,14 +1230,13 @@
         <fadetime>400</fadetime>
         <texture flipy="true" diffuse="list/list_movieicon_flipmask.png">flags/studios/$INFO[ListItem(0).Label].png</texture>
       </control>
-      <!-- <<<<<< Add this -->
-      <control type="largeimage">
+      <control type="largeimage"><!--dvd-->
         <include>MovieIconDimensionsDVDCover</include>
         <fadetime>400</fadetime>
         <texture background="true" diffuse="list/boxes/list_movieicon_mask.png">$INFO[ListItem.path,,poster.jpg]</texture>
         <visible>Skin.HasSetting(listdvdcase)</visible>
       </control>
-      <control type="image">
+      <control type="image"><!--dvd-->
         <posx>-15</posx>
         <posy>10</posy>
         <width>398</width>
@@ -1223,12 +1255,6 @@
         <fadetime>400</fadetime>
         <texture>list/boxes/list_movieicon_glass_reflect.png</texture>
         <visible>[[Window.IsActive(programs) + !Skin.HasSetting(listgamessquare)] | [Window.IsActive(videolibrary) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios) + !Container.Content(years)]] + Skin.HasSetting(listdvdcase)</visible>
-      </control>
-      <control type="largeimage">
-        <include>MovieIconDimensionsNormal</include>
-        <fadetime>400</fadetime>
-        <texture background="true" diffuse="list/list_movieicon_mask.png">$INFO[ListItem.path,,poster.jpg]</texture>
-        <visible>!Skin.HasSetting(listdvdcase)</visible>
       </control>
       <control type="image">
         <!--genre-->
