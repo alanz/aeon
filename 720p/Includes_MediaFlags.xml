@@ -13,7 +13,7 @@
   </include>
   <include name="List_MediaFlagsVars">
     <animation effect="slide" start="0,0" end="33,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
-    <posy>630</posy>
+    <posy>640</posy>
     <width>90</width>
     <height>59</height>
     <include>Animation_CommonFade</include>
@@ -284,27 +284,10 @@
   </include>
   <include name="Floor_MediaFlags">
     <control type="group">
-      <visible>[Control.IsVisible(553) | Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(52) | Control.IsVisible(552)] + [Container.Content(movies) | Container.Content(musicvideos)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
-      <include>Animation_CommonFade</include>
-      <animation effect="slide" start="0,0" end="0,-207" time="0" condition="Control.isVisible(553)">Conditional</animation>
-      <control type="image"><!--flagshade-->
-        <posx>0</posx>
-        <posy>569</posy>
-        <width>298</width>
-        <height>151</height>
-        <texture>showcase/flagshade.png</texture>
-        <include>Animation_HideShowcase</include>
-        <visible>!Control.IsVisible(553)</visible>
-      </control>
-      <control type="image"><!--flagshade-->
-        <posx>982</posx>
-        <posy>569</posy>
-        <width>298</width>
-        <height>151</height>
-        <texture flipx="true">showcase/flagshade.png</texture>
-        <include>Animation_HideShowcase</include>
-        <visible>!Control.IsVisible(553)</visible>
-      </control>     
+      <visible>[Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(57) | Control.IsVisible(553) | Control.IsVisible(552)] + [Container.Content(movies) | Container.Content(musicvideos)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
+      <include>Animation_OpenCloseZoom</include>
+      <include>Animation_VisibleHiddenZoom</include>
+      <animation effect="slide" start="0,0" end="0,-207" time="0" condition="Control.isVisible(553)">Conditional</animation>   
       <control type="image">
         <posx>210</posx>
         <include>Floor_MediaFlagsVars</include>
@@ -350,26 +333,6 @@
     </control>
   </include>
   <include name="FloorTV_MediaFlags">
-    <control type="group">
-      <visible>Window.IsActive(videolibrary) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
-      <include>Animation_CommonFade</include>
-      <control type="image">
-        <posx>0</posx>
-        <posy>569</posy>
-        <width>298</width>
-        <height>151</height>
-        <texture>showcase/flagshade.png</texture>
-        <include>Animation_HideShowcase</include>
-      </control>
-      <control type="image">
-        <posx>982</posx>
-        <posy>569</posy>
-        <width>298</width>
-        <height>151</height>
-        <texture flipx="true">showcase/flagshade.png</texture>
-        <include>Animation_HideShowcase</include>
-      </control>
-    </control>
     <control type="group">
       <visible>[Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(552)] + [Container.Content(episodes) | Container.Content(tvshows)] + ![Control.HasFocus(60) | Control.HasFocus(94)]</visible>
       <include>Animation_CommonFade</include>

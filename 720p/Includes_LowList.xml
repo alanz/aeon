@@ -510,7 +510,7 @@
     <posx>10</posx>
     <height>99</height>
     <width>430</width>
-    <font>Font_Normal16_ls075</font>
+    <font>Font_Normal16_ls08</font>
     <textcolor>whiteD0</textcolor>
     <autoscroll delay="6000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
     <include>Animation_VisibleChange200</include>
@@ -520,7 +520,7 @@
     <posx>10</posx>
     <height>200</height>
     <width>430</width>
-    <font>Font_Normal16_ls075</font>
+    <font>Font_Normal16_ls08</font>
     <textcolor>whiteD0</textcolor>
     <animation effect="fade" start="0" end="100" time="200">Visible</animation>
     <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
@@ -891,19 +891,19 @@
       <control type="textbox">
         <description>DESCRIPTION: (Tall)</description>
         <include>LowList_TallTextBox</include>
-        <label>$INFO[ListItem.Property(album_description),[COLOR 66ffffff]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
+        <label>$INFO[ListItem.Property(album_description),[COLOR=altlabel]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
         <visible>Skin.HasSetting(longerlowlist) + !IsEmpty(ListItem.Property(album_description)) + [Container.Content(albums) | Container.Content(songs)]</visible>
       </control>
       <control type="textbox">
         <description>DESCRIPTION: (Tall)</description>
         <include>LowList_TallTextBox</include>
-        <label>$INFO[ListItem.Property(artist_description),[COLOR 66ffffff]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
+        <label>$INFO[ListItem.Property(artist_description),[COLOR=altlabel]$LOCALIZE[21887]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
         <visible>Skin.HasSetting(longerlowlist) + [[!IsEmpty(ListItem.Property(artist_description)) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
       </control>
       <control type="textbox">
         <description>DESCRIPTION: (Tall)</description>
         <include>LowList_TallTextBox</include>
-        <label>$INFO[ListItem.Comment,[COLOR 66ffffff]$LOCALIZE[569]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
+        <label>$INFO[ListItem.Comment,[COLOR=altlabel]$LOCALIZE[569]/$LOCALIZE[21821]:[/COLOR][CR]]</label>
         <visible>Skin.HasSetting(longerlowlist) + [[!IsEmpty(ListItem.Comment) + Container.Content(artists)] | IsEmpty(ListItem.Property(album_description))]</visible>
       </control>
       <!-- Artist labels -->
@@ -1436,7 +1436,7 @@
         <posy>-104</posy>
         <width>215</width>
         <height>243</height>
-        <font>Font_Normal16_ls075</font>
+        <font>Font_Normal16_ls08</font>
         <include>LowList_ShortTextBox</include>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
       </control>
@@ -1861,7 +1861,7 @@
       <include>Animation_HideList</include>
       <control type="textbox">
         <description>DESCRIPTION: (Short - TV Shows and Episodes and Seasons)</description>
-        <label fallback="161">$INFO[Control.GetLabel(900004),[COLOR 66ffffff]$LOCALIZE[21821]: [/COLOR]]</label>
+        <label fallback="161">$INFO[Control.GetLabel(900004),[COLOR=altlabel]$LOCALIZE[21821]: [/COLOR]]</label>
         <visible>!Skin.HasSetting(longerlowlist) + ![Skin.HasSetting(tvdescpaneloff) + IsEmpty(ListItem.Property(Fanart_Image)) + IsEmpty(Container.Property(fanart_image))]</visible>
         <include>LowList_ShortTextBox</include>
       </control>
@@ -1877,13 +1877,13 @@
         <posy>125</posy>
         <width>450</width>
         <include>LowList_DetailInfoLabelVars</include>
-        <label>[COLOR 66ffffff]$LOCALIZE[515]:[/COLOR] [COLOR d0FFFFFF]$INFO[ListItem.genre][/COLOR]</label>
+        <label>[COLOR=altlabel]$LOCALIZE[515]:[/COLOR] [COLOR d0FFFFFF]$INFO[ListItem.genre][/COLOR]</label>
         <visible>!IsEmpty(ListItem.genre)</visible>
         <visible>!Container.Content(episodes)</visible>
       </control>
       <control type="label">
         <include>LowList_DetailInfoLabelPos4L</include>
-        <label>[COLOR 66ffffff]$LOCALIZE[515]:[/COLOR] [COLOR d0FFFFFF]-[/COLOR]</label>
+        <label>[COLOR=altlabel]$LOCALIZE[515]:[/COLOR] [COLOR d0FFFFFF]-[/COLOR]</label>
         <visible>IsEmpty(ListItem.genre)</visible>
         <visible>!Container.Content(episodes)</visible>
       </control>
@@ -1897,12 +1897,12 @@
       <control type="label">
         <description>WATCHED:</description>
         <include>LowList_DetailInfoLabelPos5L</include>
-        <label>[COLOR 66ffffff]$LOCALIZE[16102]:[/COLOR] [COLOR d0FFFFFF]$INFO[ListItem.Property(WatchedEpisodes)] / $INFO[ListItem.Property(UnwatchedEpisodes)] $LOCALIZE[20360][/COLOR]</label>
+        <label>[COLOR=altlabel]$LOCALIZE[16102]:[/COLOR] [COLOR d0FFFFFF]$INFO[ListItem.Property(WatchedEpisodes)] / $INFO[ListItem.Property(UnwatchedEpisodes)] $LOCALIZE[20360][/COLOR]</label>
         <visible>Container.Content(seasons) | Container.Content(tvshows)</visible>
       </control>
       <control type="label">
         <include>LowList_DetailInfoLabelPos4R</include>
-        <label>[COLOR 66ffffff]$LOCALIZE[16102]:[/COLOR] [COLOR d0FFFFFF]-[/COLOR]</label>
+        <label>[COLOR=altlabel]$LOCALIZE[16102]:[/COLOR] [COLOR d0FFFFFF]-[/COLOR]</label>
         <visible>IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
         <visible>Container.Content(seasons)</visible>
       </control>

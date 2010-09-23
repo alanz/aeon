@@ -236,11 +236,11 @@
       <posy>0</posy>
       <width>670</width>
       <height>374</height>
-      <visible>!Skin.HasSetting(multiwallinfooff)</visible>
+      <visible>!Skin.HasSetting(infopanel_off_movies)</visible>
       <visible>!StringCompare(ListItem.Label,..)</visible>
-      <include condition="!Skin.HasSetting(multiwallinfooff) + !Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoFlipAnimationInfo</include>
-      <include condition="Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoFlipAnimationInfoTrigger</include>
-      <include condition="!Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoSlideAnimationMovies</include>
+      <include condition="!Skin.HasSetting(infopanel_off_movies) + !Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoFlipAnimationInfo</include>
+      <include condition="Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoFlipAnimationInfoTrigger</include>
+      <include condition="!Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoSlideAnimationMovies</include>
       <control type="image">
         <posy>-10</posy>
         <width>670</width>
@@ -373,10 +373,10 @@
     <control type="group">
       <width>670</width>
       <height>374</height>
-      <include condition="![Skin.HasSetting(multiwallinfotrigger) | Skin.HasSetting(multiwallinfooff) | Skin.HasSetting(multiwallinfoon)]">MultiWallInfoAnimation</include>
-      <include condition="Skin.HasSetting(multiwallinfoon)">MultiWallInfoOpenAnimationOn</include>
-      <include condition="Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoAnimationTriggerMovies</include>
-      <include condition="!Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoHideAnimation</include>
+      <include condition="![Skin.HasSetting(infopanel_trigger_movies) | Skin.HasSetting(infopanel_off_movies) | Skin.HasSetting(infopanel_on_movies)]">MultiWallInfoAnimation</include>
+      <include condition="Skin.HasSetting(infopanel_on_movies)">MultiWallInfoOpenAnimationOn</include>
+      <include condition="Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoAnimationTriggerMovies</include>
+      <include condition="!Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoHideAnimation</include>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <posx>305</posx>
       <posy>122</posy>
@@ -386,10 +386,10 @@
         <posy>0</posy>
         <width>670</width>
         <height>374</height>
-        <include condition="!Skin.HasSetting(multiwallinfooff) + !Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoFlipAnimationTrailer</include>
-        <include condition="Skin.HasSetting(multiwallinfooff)">MultiWallInfoShowAnimationTrailer</include>
-        <include condition="!Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoSlideAnimationMovies</include>
-        <include condition="Skin.HasSetting(multiwallinfotrigger)">MultiWallInfoAnimationTrailerTrigger</include>
+        <include condition="!Skin.HasSetting(infopanel_off_movies) + !Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoFlipAnimationTrailer</include>
+        <include condition="Skin.HasSetting(infopanel_off_movies)">MultiWallInfoShowAnimationTrailer</include>
+        <include condition="!Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoSlideAnimationMovies</include>
+        <include condition="Skin.HasSetting(infopanel_trigger_movies)">MultiWallInfoAnimationTrailerTrigger</include>
         <control type="image">
           <posy>-10</posy>
           <width>670</width>
@@ -416,7 +416,7 @@
           <visible>Container.Content(movies) + Player.HasVideo + [Control.IsVisible(556) | [Control.IsVisible(556) + Control.IsVisible(209)]]</visible>
         </control>
       </control>
-      <visible>Skin.HasSetting(videomovies) + Control.IsVisible(556) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwallinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwallinfotrigger)] | [[Skin.HasSetting(multiwallinfooff) | Skin.HasSetting(multiwallinfotrigger)] + Player.HasVideo]]</visible>
+      <visible>Skin.HasSetting(videomovies) + Control.IsVisible(556) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(infopanel_trigger_movies)] | [[Skin.HasSetting(infopanel_off_movies) | Skin.HasSetting(infopanel_trigger_movies)] + Player.HasVideo]]</visible>
     </control>
   </include>
   <!-- Pane TV -->
@@ -425,10 +425,10 @@
       <width>670</width>
       <height>374</height>
       <animation effect="slide" start="0,0" end="0,-60" condition="Skin.HasSetting(tvposter) + [Container.Content(seasons) | Container.Content(tvshows)]">Conditional</animation>
-      <include condition="![Skin.HasSetting(multiwalltvinfotrigger) | Skin.HasSetting(multiwalltvinfooff) | Skin.HasSetting(multiwalltvinfoon)]">MultiWallInfoAnimation</include>
-      <include condition="Skin.HasSetting(multiwalltvinfoon)">MultiWallInfoOpenAnimationOn</include>
-      <include condition="Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoAnimationTriggerTV</include>
-      <include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoHideAnimation</include>
+      <include condition="![Skin.HasSetting(infopanel_trigger_tvshows) | Skin.HasSetting(infopanel_off_tvshows) | Skin.HasSetting(infopanel_on_tvshows)]">MultiWallInfoAnimation</include>
+      <include condition="Skin.HasSetting(infopanel_on_tvshows)">MultiWallInfoOpenAnimationOn</include>
+      <include condition="Skin.HasSetting(infopanel_trigger_tvshows)">MultiWallInfoAnimationTriggerTV</include>
+      <include condition="!Skin.HasSetting(infopanel_trigger_tvshows)">MultiWallInfoHideAnimation</include>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <visible>!StringCompare(ListItem.Label,..)</visible>
       <posx>304</posx>
@@ -439,7 +439,7 @@
         <height>374</height>
         <texture>multiwall/info_pane_tvshows_title.png</texture>
         <include>MultiWallInfoFlipAnimationTVShowsFanart</include>
-        <include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
+        <include condition="!Skin.HasSetting(infopanel_trigger_tvshows)">MultiWallInfoSlideAnimationTVShows</include>
       </control>
       <control type="image">
         <posy>-10</posy>
@@ -447,7 +447,7 @@
         <height>374</height>
         <texture>multiwall/info_pane_tvshows_poster_title.png</texture>
         <include>MultiWallInfoFlipAnimationTVShowsPoster</include>
-        <include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
+        <include condition="!Skin.HasSetting(infopanel_trigger_tvshows)">MultiWallInfoSlideAnimationTVShows</include>
       </control>
       <control type="group">
         <animation type="Conditional" condition="Skin.HasSetting(multiwallposterlayout)" reversible="false">
@@ -462,7 +462,7 @@
         </animation>
         <width>670</width>
         <height>374</height>
-        <include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
+        <include condition="!Skin.HasSetting(infopanel_trigger_tvshows)">MultiWallInfoSlideAnimationTVShows</include>
         <!-- Title -->
         <control type="group">
           <control type="label">
@@ -569,7 +569,7 @@
       </control>
       <control type="group">
         <include>MultiWallInfoFlipAnimationTVShowsFanart</include>
-        <include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
+        <include condition="!Skin.HasSetting(infopanel_trigger_tvshows)">MultiWallInfoSlideAnimationTVShows</include>
         <width>670</width>
         <height>374</height>
         <control type="group">
@@ -674,7 +674,7 @@
       </control>
       <control type="group">
         <include>MultiWallInfoFlipAnimationTVShowsPoster</include>
-        <include condition="!Skin.HasSetting(multiwalltvinfotrigger)">MultiWallInfoSlideAnimationTVShows</include>
+        <include condition="!Skin.HasSetting(infopanel_trigger_tvshows)">MultiWallInfoSlideAnimationTVShows</include>
         <width>670</width>
         <height>374</height>
         <control type="group">
@@ -800,7 +800,7 @@
           </control>
         </control>
       </control>
-      <visible>Skin.HasSetting(videotv) + Control.IsVisible(556) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwalltvinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwalltvinfotrigger)]]</visible>
+      <visible>Skin.HasSetting(videotv) + Control.IsVisible(556) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(infopanel_on_tvshows) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(infopanel_trigger_tvshows)]]</visible>
     </control>
   </include>
   <!-- Pane Music -->
@@ -808,10 +808,10 @@
     <control type="group">
       <width>432</width>
       <height>424</height>
-      <include condition="![Skin.HasSetting(multiwallmusicinfotrigger) | Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfoon)]">MultiWallInfoAnimation</include>
-      <include condition="Skin.HasSetting(multiwallmusicinfoon)">MultiWallInfoOpenAnimationOn</include>
-      <include condition="!Skin.HasSetting(multiwallmusicinfotrigger)">MultiWallInfoHideAnimation</include>
-      <include condition="Skin.HasSetting(multiwallmusicinfotrigger)">MultiWallInfoAnimationTriggerMusic</include>
+      <include condition="![Skin.HasSetting(infopanel_trigger_music) | Skin.HasSetting(infopanel_off_music) | Skin.HasSetting(infopanel_on_music)]">MultiWallInfoAnimation</include>
+      <include condition="Skin.HasSetting(infopanel_on_music)">MultiWallInfoOpenAnimationOn</include>
+      <include condition="!Skin.HasSetting(infopanel_trigger_music)">MultiWallInfoHideAnimation</include>
+      <include condition="Skin.HasSetting(infopanel_trigger_music)">MultiWallInfoAnimationTriggerMusic</include>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <visible>!StringCompare(ListItem.Label,..)</visible>
       <posx>424</posx>
@@ -821,20 +821,20 @@
         <posy>0</posy>
         <width>432</width>
         <height>424</height>
-        <animation type="Conditional" condition="Container.Content(songs) + Control.IsVisible(208) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
+        <animation type="Conditional" condition="Container.Content(songs) + Control.IsVisible(208) + [Skin.HasSetting(infopanel_on_music) | [Skin.HasSetting(infopanel_auto_music) + Control.IsVisible(209)]]" reversible="false">
           <effect type="rotatey" center="216" start="0" end="-90" time="450" tween="cubic" easing="in"/>
           <effect type="rotatey" center="216" start="-90" end="90" time="0" delay="450"/>
           <effect type="fade" start="100" end="0" time="0" delay="450"/>
           <effect type="rotatey" center="216" start="90" end="0" time="450" delay="450" tween="cubic" easing="out"/>
         </animation>
-        <animation type="Conditional" condition="Container.Content(albums) + Control.IsVisible(207) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
+        <animation type="Conditional" condition="Container.Content(albums) + Control.IsVisible(207) + [Skin.HasSetting(infopanel_on_music) | [Skin.HasSetting(infopanel_auto_music) + Control.IsVisible(209)]]" reversible="false">
           <effect type="rotatey" center="216" start="0" end="90" time="450" tween="cubic" easing="in"/>
           <effect type="rotatey" center="216" start="90" end="-90" time="0" delay="450"/>
           <effect type="fade" start="0" end="100" time="0" delay="450"/>
           <effect type="rotatey" center="216" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out"/>
         </animation>
-        <animation effect="fade" start="100" end="0" condition="Container.Content(songs) + [[Control.IsVisible(209) + !Control.IsVisible(208)] | [Skin.HasSetting(multiwallmusicinfoon) + !Control.IsVisible(208)]]">Conditional</animation>
-        <include condition="!Skin.HasSetting(multiwallmusicinfotrigger)">MultiWallInfoSlideAnimationMusic</include>
+        <animation effect="fade" start="100" end="0" condition="Container.Content(songs) + [[Control.IsVisible(209) + !Control.IsVisible(208)] | [Skin.HasSetting(infopanel_on_music) + !Control.IsVisible(208)]]">Conditional</animation>
+        <include condition="!Skin.HasSetting(infopanel_trigger_music)">MultiWallInfoSlideAnimationMusic</include>
         <control type="image">
           <description>background</description>
           <width>432</width>
@@ -981,7 +981,7 @@
           </control>
         </control>
       </control>
-      <visible>[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)] + Control.IsVisible(556) + Control.IsVisible(208) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(multiwallmusicinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(multiwallmusicinfotrigger) + !Container.Content(songs)]]</visible>
+      <visible>[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)] + Control.IsVisible(556) + Control.IsVisible(208) + [Control.IsVisible(209) | Control.HasFocus(208) | Skin.HasSetting(infopanel_on_music) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(infopanel_trigger_music) + !Container.Content(songs)]]</visible>
     </control>
   </include>
 
@@ -1647,26 +1647,26 @@
         <posy>112</posy>
         <width>432</width>
         <height>424</height>
-        <animation type="Conditional" reversible="false" condition="Window.IsActive(musicplaylist) | [Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]]">
+        <animation type="Conditional" reversible="false" condition="Window.IsActive(musicplaylist) | [Container.Content(songs) + [Skin.HasSetting(infopanel_off_music) | Skin.HasSetting(infopanel_trigger_music) | [Skin.HasSetting(infopanel_auto_music) + !Control.IsVisible(209)]]]">
           <effect type="fade" start="0" end="100" time="400" delay="85"/>
           <effect type="zoom" center="auto" start="0" end="100" time="550" tween="back" acceleration="-2"/>
         </animation>
-        <animation type="Conditional" reversible="false" condition="!Window.IsActive(musicplaylist) + !Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]">
+        <animation type="Conditional" reversible="false" condition="!Window.IsActive(musicplaylist) + !Container.Content(songs) + [Skin.HasSetting(infopanel_off_music) | Skin.HasSetting(infopanel_trigger_music) | [Skin.HasSetting(infopanel_auto_music) + !Control.IsVisible(209)]]">
           <effect type="fade" start="100" end="0" time="400"/>
         </animation>
-        <animation type="Conditional" condition="Container.Content(songs) + Control.IsVisible(208) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
+        <animation type="Conditional" condition="Container.Content(songs) + Control.IsVisible(208) + [Skin.HasSetting(infopanel_on_music) | [Skin.HasSetting(infopanel_auto_music) + Control.IsVisible(209)]]" reversible="false">
           <effect type="rotatey" center="640" start="0" end="-90" time="450" tween="cubic" easing="in"/>
           <effect type="rotatey" center="640" start="-90" end="90" time="0" delay="450"/>
           <effect type="fade" start="0" end="100" time="0" delay="450"/>
           <effect type="rotatey" center="640" start="90" end="0" time="450" delay="450" tween="cubic" easing="out"/>
         </animation>
-        <animation type="Conditional" condition="Container.Content(albums) + Control.IsVisible(207) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]" reversible="false">
+        <animation type="Conditional" condition="Container.Content(albums) + Control.IsVisible(207) + [Skin.HasSetting(infopanel_on_music) | [Skin.HasSetting(infopanel_auto_music) + Control.IsVisible(209)]]" reversible="false">
           <effect type="rotatey" center="640" start="0" end="90" time="450" tween="cubic" easing="in"/>
           <effect type="rotatey" center="640" start="90" end="-90" time="0" delay="450"/>
           <effect type="fade" start="100" end="0" time="0" delay="450"/>
           <effect type="rotatey" center="640" start="-90" end="0" time="450" delay="450" tween="cubic" easing="out"/>
         </animation>
-        <animation effect="fade" start="100" end="0" condition="Container.Content(albums) + !Control.IsVisible(207) + ![Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger) | [Skin.HasSetting(multiwallmusicinfoauto) + !Control.IsVisible(209)]]">Conditional</animation>
+        <animation effect="fade" start="100" end="0" condition="Container.Content(albums) + !Control.IsVisible(207) + ![Skin.HasSetting(infopanel_off_music) | Skin.HasSetting(infopanel_trigger_music) | [Skin.HasSetting(infopanel_auto_music) + !Control.IsVisible(209)]]">Conditional</animation>
         <visible>Window.IsActive(musicplaylist) | [[Container.Content(songs) | Container.Content(albums)] + Window.IsActive(musiclibrary)]</visible>
         <include>Animation_HideMultiplex</include>
         <control type="image">
@@ -1815,7 +1815,7 @@
       <height>0</height>
       <texturefocus>-</texturefocus>
       <texturenofocus>-</texturenofocus>
-      <visible>Container.Content(songs) + [Skin.HasSetting(multiwallmusicinfoon) | [Skin.HasSetting(multiwallmusicinfoauto) + Control.IsVisible(209)]]</visible>
+      <visible>Container.Content(songs) + [Skin.HasSetting(infopanel_on_music) | [Skin.HasSetting(infopanel_auto_music) + Control.IsVisible(209)]]</visible>
       <animation effect="fade" start="100" end="0" delay="900" reversible="false">Hidden</animation>
       <animation effect="fade" start="0" end="100">Visible</animation>
     </control>
@@ -1830,7 +1830,7 @@
       <onright>556</onright>
       <onup>7000</onup>
       <ondown>556</ondown>
-      <visible>[Skin.HasSetting(multiwallinfotrigger) + Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)] | [Skin.HasSetting(multiwalltvinfotrigger) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)] | [Skin.HasSetting(multiwallmusicinfotrigger) +Window.IsActive(musiclibrary)]</visible>
+      <visible>[Skin.HasSetting(infopanel_trigger_movies) + Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)] | [Skin.HasSetting(infopanel_trigger_tvshows) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)] | [Skin.HasSetting(infopanel_trigger_music) +Window.IsActive(musiclibrary)]</visible>
       <animation effect="fade" reversible="false" type="fade" start="100" end="0" delay="900">Hidden</animation>
       <animation effect="fade" reversible="false" type="fade" start="0" end="100">Visible</animation>
     </control>
@@ -1842,7 +1842,7 @@
       <texturefocus>-</texturefocus>
       <texturenofocus>-</texturenofocus>
       <onfocus>SetFocus(7000)</onfocus>
-      <visible>[!Skin.HasSetting(multiwallinfotrigger) + Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)] | [!Skin.HasSetting(multiwalltvinfotrigger) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)] | [!Skin.HasSetting(multiwallmusicinfotrigger) +Window.IsActive(musiclibrary)]</visible>
+      <visible>[!Skin.HasSetting(infopanel_trigger_movies) + Skin.HasSetting(videomovies) + Window.IsActive(videolibrary)] | [!Skin.HasSetting(infopanel_trigger_tvshows) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)] | [!Skin.HasSetting(infopanel_trigger_music) +Window.IsActive(musiclibrary)]</visible>
       <animation effect="fade" reversible="false" type="fade" start="100" end="0" delay="900">Hidden</animation>
       <animation effect="fade" reversible="false" type="fade" start="0" end="100">Visible</animation>
     </control>
@@ -1856,7 +1856,7 @@
       <ondown>556</ondown>
       <onleft>-</onleft>
       <onright>-</onright>
-      <visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + ![Skin.HasSetting(multiwallinfooff) | Skin.HasSetting(multiwallinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + ![Skin.HasSetting(multiwalltvinfooff) | Skin.HasSetting(multiwalltvinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[[Container.Content(artists) | Container.Content(albums)] + [!Container(556).OnNext + !Container(556).OnPrevious]] | Container.Content(songs)] + ![Skin.HasSetting(multiwallmusicinfooff) | Skin.HasSetting(multiwallmusicinfotrigger)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()]]</visible>
+      <visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies) + ![Skin.HasSetting(infopanel_off_movies) | Skin.HasSetting(infopanel_trigger_movies)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [Window.IsActive(videolibrary) + Skin.HasSetting(videotv) + ![Skin.HasSetting(infopanel_off_tvshows) | Skin.HasSetting(infopanel_trigger_tvshows)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()] + [!Container(556).OnNext + !Container(556).OnPrevious]] | [[Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary)] + [[[Container.Content(artists) | Container.Content(albums)] + [!Container(556).OnNext + !Container(556).OnPrevious]] | Container.Content(songs)] + ![Skin.HasSetting(infopanel_off_music) | Skin.HasSetting(infopanel_trigger_music)] + [Control.HasFocus(556) | Control.HasFocus(71) | ControlGroup(7000).HasFocus()]]</visible>
       <animation effect="fade" reversible="false" type="fade" start="0" end="100" delay="3000">Visible</animation>
     </control>
     <control type="image">

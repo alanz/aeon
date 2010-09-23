@@ -275,7 +275,7 @@
               </control>
               <control type="textbox">
                 <label fallback="31414">$INFO[Container(510).ListItem.Property(Plot)]</label>
-                <font>Font_Normal16_ls075</font>
+                <font>Font_Normal18_ls075</font>
                 <posx>24</posx>
                 <posy>60</posy>
                 <width>400</width>
@@ -318,7 +318,7 @@
               </control>
               <control type="textbox">
                 <label fallback="31414">$INFO[Container(511).ListItem.Property(Plot)]</label>
-                <font>Font_Normal16_ls075</font>
+                <font>Font_Normal18_ls075</font>
                 <posx>24</posx>
                 <posy>60</posy>
                 <width>400</width>
@@ -385,7 +385,21 @@
           <posx>261</posx>
           <posy>506</posy>
           <height>1</height>
-          <width>259</width>
+          <width>279</width>
+          <texture>home/nowplaying_line.png</texture>
+        </control>
+        <control type="image">
+          <posx>261</posx>
+          <posy>573</posy>
+          <height>1</height>
+          <width>279</width>
+          <texture>home/nowplaying_line.png</texture>
+        </control>
+        <control type="image">
+          <posx>261</posx>
+          <posy>685</posy>
+          <height>1</height>
+          <width>279</width>
           <texture>home/nowplaying_line.png</texture>
         </control>
         <control type="image">
@@ -478,43 +492,43 @@
             <fadetime>500</fadetime>
           </control>  
           <control type="label">
-            <posy>478</posy>
+            <posy>460</posy>
             <label>$INFO[Container(510).ListItem.Label]</label>
-            <font>Font_Home36</font>
-            <textcolor>whiteD0</textcolor>
-            <posx>296</posx>
+            <font>Font_Home40</font>
+            <textcolor>white</textcolor>
+            <posx>286</posx>
             <width>533</width>
             <height>25</height>
             <aligny>left</aligny>
           </control>
           <control type="label">
             <posy>510</posy>
-            <posx>296</posx>
+            <posx>286</posx>
             <width>533</width>
             <height>25</height>
             <aligny>left</aligny>
-            <textcolor>whiteA0</textcolor>
+            <textcolor>whiteD0</textcolor>
             <label>$INFO[Container(510).ListItem.Label2]</label>
-            <font>Font_Normal16</font>
+            <font>Font_Home30</font>
           </control>
           <control type="label">
-            <posx>296</posx>
-            <width>533</width>
-            <height>25</height>
-            <aligny>left</aligny>
-            <posy>529</posy>
-            <textcolor>altlabel</textcolor>
-            <label>$LOCALIZE[562]: [COLOR=white]$INFO[Container(510).ListItem.Property(Year)][/COLOR]</label>
-            <font>Font_Normal16</font>
-          </control>
-          <control type="label">
-            <posx>296</posx>
+            <posx>286</posx>
             <width>533</width>
             <height>25</height>
             <aligny>left</aligny>
             <posy>544</posy>
             <textcolor>altlabel</textcolor>
-            <label>$LOCALIZE[515]: [COLOR=white]$INFO[Container(510).ListItem.Property(Genre)][/COLOR]</label>
+            <label>$LOCALIZE[562]: [COLOR=white]$INFO[Container(510).ListItem.Property(Year)][/COLOR]</label>
+            <font>Font_Normal16</font>
+          </control>
+          <control type="label">
+            <posx>386</posx>
+            <width>533</width>
+            <height>25</height>
+            <aligny>left</aligny>
+            <posy>544</posy>
+            <textcolor>altlabel</textcolor>
+            <label>$LOCALIZE[515]: [COLOR=white]$INFO[Container(510).ListItem.Property(Rating)][/COLOR]</label>
             <font>Font_Normal16</font>
           </control>
           <control type="textbox">
@@ -523,8 +537,8 @@
             <width>533</width>
             <height>117</height>
             <textcolor>whiteD0</textcolor>
-            <label fallback="31424">$INFO[Container(510).ListItem.Property(Review)]</label>
-            <posx>296</posx>
+            <label fallback="31424">$INFO[Container(510).ListItem.Property(Review),$LOCALIZE[31866]:,]</label>
+            <posx>286</posx>
             <aligny>left</aligny>
           </control>
         </control>
@@ -534,16 +548,6 @@
           <height>242</height>
           <width>242</width>
           <texture>home/nowplaying_overlay.png</texture>
-        </control>
-        <control type="label">
-          <posx>296</posx>
-          <width>533</width>
-          <height>25</height>
-          <aligny>left</aligny>
-          <posy>559</posy>
-          <textcolor>altlabel</textcolor>
-          <label>$LOCALIZE[31866]:</label>
-          <font>Font_Normal16</font>
         </control>
       </control>
       <control type="group">
@@ -621,24 +625,7 @@
                 <width>305</width>
                 <height>24</height>
                 <texture fallback="dialogs/browser_focus.png">windows/listselect.png</texture>
-                <animation effect="slide" start="0,24" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(510).OnPrevious">focus</animation>
-                <animation effect="slide" start="0,-24" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(510).OnNext">focus</animation>
-                <animation effect="fade" start="0" end="100" time="200">Focus</animation>
-                <animation effect="fade" start="100" end="0" time="200">Unfocus</animation>
                 <visible>Control.HasFocus(510)</visible>
-              </control>
-              <control type="label">
-                <posx>10</posx>
-                <posy>2</posy>
-                <width>280</width>
-                <height>30</height>
-                <font>Font_Normal15</font>
-                <textcolor>whiteD0</textcolor>
-                <align>left</align>
-                <aligny>center</aligny>
-                <label>$INFO[ListItem.Label]</label>
-                <animation effect="fade" start="100" end="0" time="200">Focus</animation>
-                <animation effect="fade" start="0" end="100" time="200">Unfocus</animation>
               </control>
               <control type="label">
                 <posx>10</posx>
@@ -650,8 +637,6 @@
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>$INFO[ListItem.Label]</label>
-                <animation effect="fade" start="0" end="100" time="200">Focus</animation>
-                <animation effect="fade" start="100" end="0" time="200">Unfocus</animation>
               </control>
             </focusedlayout>
             <content>
@@ -1014,10 +999,6 @@
                   <width>305</width>
                   <height>24</height>
                   <texture fallback="dialogs/browser_focus.png">windows/listselect.png</texture>
-                  <animation effect="slide" start="0,24" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(511).OnPrevious">focus</animation>
-                  <animation effect="slide" start="0,-24" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(511).OnNext">focus</animation>
-                  <animation effect="fade" start="0" end="100" time="200">Focus</animation>
-                  <animation effect="fade" start="100" end="0" time="200">Unfocus</animation>
                   <visible>Control.HasFocus(511)</visible>
                 </control>
                 <control type="label">
@@ -1030,8 +1011,6 @@
                   <align>left</align>
                   <aligny>center</aligny>
                   <label>$INFO[ListItem.Label]</label>
-                  <animation effect="fade" start="100" end="0" time="200">Focus</animation>
-                  <animation effect="fade" start="0" end="100" time="200">Unfocus</animation>
                 </control>
                 <control type="label">
                   <posx>10</posx>
@@ -1043,8 +1022,6 @@
                   <align>left</align>
                   <aligny>center</aligny>
                   <label>$INFO[ListItem.Label]</label>
-                  <animation effect="fade" start="0" end="100" time="200">Focus</animation>
-                  <animation effect="fade" start="100" end="0" time="200">Unfocus</animation>
                 </control>
               </focusedlayout>
               <content>

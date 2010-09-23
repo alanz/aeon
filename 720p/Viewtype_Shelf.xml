@@ -28,12 +28,15 @@
         <aspectratio>stretch</aspectratio>
       </control>
       <control type="group"><!-- plot poster fanart-->
-        <posx>-30</posx>
-        <posy>35</posy>
+        <animation type="Conditional" condition="true" reversible="false">
+          <effect type="zoom" start="100" end="88" time="0"/>
+        </animation>
+        <posx>50</posx>
+        <posy>75</posy>
         <width>1280</width>
         <height>381</height>
-        <visible>Container.Content(movies) + Control.IsVisible(59) + !StringCompare(Container.ListItem.Label,..) + [Control.IsVisible(109) | Control.HasFocus(112) | Skin.HasSetting(shelfinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(shelfinfotrigger) | Skin.HasSetting(shelfinfoauto)]]] </visible>
-        <camera x="1340" y="380" />
+        <visible>Container.Content(movies) + Control.IsVisible(59) + !StringCompare(Container.ListItem.Label,..) + [Control.IsVisible(109) | Control.HasFocus(112) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + [Skin.HasSetting(infopanel_trigger_movies) | Skin.HasSetting(infopanel_auto_movies)]]] </visible>
+        <camera x="1000" y="380" />
         <animation effect="rotatey" center="50" start="12" end="8" time="0" condition="true">Conditional</animation>
         <animation type="Conditional" condition="Player.HasVideo" reversible="false">
           <effect type="rotatey" center="640" start="0" end="-90" time="550" tween="cubic" easing="in"/>
@@ -50,15 +53,15 @@
           <effect type="zoom" start="70" end="100" center="auto" easing="in" tween="back" time="450" delay="550"/>
         </animation>
         <animation effect="slide" end="0,-160"  time="550" easing="out" tween="cubic" condition="Player.HasVideo">Conditional</animation>
-        <animation effect="slide" start="0,-600" end="0,0" time="900" tween="cubic" easing="out" delay="3000" condition="!Skin.HasSetting(shelfinfoon)">WindowOpen</animation>
+        <animation effect="slide" start="0,-600" end="0,0" time="900" tween="cubic" easing="out" delay="3000" condition="!Skin.HasSetting(infopanel_on_movies)">WindowOpen</animation>
         <animation effect="fade" end="0" time="200">WindowClose</animation>
         <include>Animation_InfoPanelSlide</include>
         <control type="image">
           <!-- backgrounds-->
           <posx>75</posx>
           <width>1130</width>
-          <height>564</height>
-          <texture>multiplex/multiplex_back.png</texture>
+          <height>590</height>
+          <texture border="0,0,0,204">multiplex/multiplex_back.png</texture>
           <visible>!Skin.HasSetting(shelfpanelthin)</visible>
           <include>Animation_CommonFade</include>
         </control>
@@ -66,22 +69,19 @@
           <animation effect="fade" start="85" end="85" time="300" delay="0" condition="Skin.HasSetting(shelfpanelthin)">Conditional</animation>
           <posx>75</posx>
           <width>1130</width>
-          <height>564</height>
-          <texture>multiplex/multiplex_tablet.png</texture>
+          <height>590</height>
+          <texture border="0,0,0,204">multiplex/multiplex_tablet.png</texture>
           <visible>Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)</visible>
         </control>
         <control type="image">
           <animation effect="fade" start="85" end="85" time="300" delay="0" condition="Skin.HasSetting(shelfpanelthin)">Conditional</animation>
           <posx>75</posx>
           <width>1130</width>
-          <height>564</height>
-          <texture>multiplex/multiplex_tablet_bigthumb.png</texture>
+          <height>590</height>
+          <texture border="0,0,0,204">multiplex/multiplex_tablet_bigthumb.png</texture>
           <visible>Skin.HasSetting(fanartlayout)</visible>
         </control>
-        <control type="group">
-          <posy>9</posy>
-          <include>InfoPaneContent</include>
-        </control>
+        <include>InfoPaneContent</include>
       </control>
       <control type="fixedlist" id="59">
         <posx>-30</posx>
@@ -209,7 +209,6 @@
               <aspectratio scalediffuse="false">stretch</aspectratio>
               <animation type="Focus" reversible="false">
                 <effect type="zoom" center="60,238" start="80" end="100" time="600" tween="back" easing="out" />
-                <effect type="fade" start="0" end="100" time="600" />
               </animation>
             </control>
             <control type="image">
@@ -221,7 +220,6 @@
               <aspectratio scalediffuse="false">stretch</aspectratio>
               <animation type="Focus" reversible="false">
                 <effect type="zoom" center="60,238" start="80" end="100" time="600" tween="back" easing="out" />
-                <effect type="fade" start="0" end="800" time="800" />
               </animation>
             </control>
             <control type="image">
@@ -298,7 +296,6 @@
               <aspectratio scalediffuse="false">stretch</aspectratio>
               <animation type="Focus" reversible="false">
                 <effect type="zoom" center="60,238" start="80" end="100" time="600" tween="back" easing="out" />
-                <effect type="fade" start="0" end="30" time="600" />
               </animation>
               <visible>!Container.Content(Genres)</visible>
             </control>
@@ -509,13 +506,13 @@
         <onup>SetFocus(7000)</onup>
         <ondown>SetFocus(59)</ondown>
         <onclick>PlayMedia($INFO[ListItem.Trailer],1,noresume)</onclick>
-        <visible>[[[Skin.HasSetting(shelfinfotrigger) | [Skin.HasSetting(shelfinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(shelfinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(shelftvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(shelfseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(dvdcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(shelfseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(shelfmusicinfotrigger) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..) </visible>
+        <visible>[[[Skin.HasSetting(infopanel_trigger_movies) | [Skin.HasSetting(infopanel_auto_movies) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(infopanel_on_movies) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(infopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_trigger_seasons) + Container.Content(seasons)]] | [[Skin.HasSetting(dvdcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(shelfseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(shelfmusicinfotrigger) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..) </visible>
       </control>
       <control type="button" id="112">
         <texturefocus>-</texturefocus>
         <texturenofocus>-</texturenofocus>
         <onfocus>SetFocus(7000)</onfocus>
-        <visible>![[[[Skin.HasSetting(shelfinfotrigger) | [Skin.HasSetting(shelfinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(shelfinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(shelftvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(shelfseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(dvdcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(shelfseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(shelfmusicinfotrigger) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..)] </visible>
+        <visible>![[[[Skin.HasSetting(infopanel_trigger_movies) | [Skin.HasSetting(infopanel_auto_movies) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(infopanel_on_movies) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(infopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_trigger_seasons) + Container.Content(seasons)]] | [[Skin.HasSetting(dvdcasetvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(shelfseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(shelfmusicinfotrigger) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..)] </visible>
       </control>
     </control>
     <control type="image">
@@ -539,6 +536,8 @@
       <!-- Browser label and flags -->
       <control type="group">
         <visible>Control.IsVisible(59)</visible>
+        <include>Animation_OpenCloseZoom</include>
+        <include>Animation_VisibleHiddenZoom</include>
         <posx>0</posx>
         <posy>0</posy>
         <control type="image">
@@ -551,7 +550,7 @@
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
         </control>
-        <control type="image" id="9015">
+        <control type="image">
           <posx>20</posx>
           <posy>0</posy>
           <width>230</width>
@@ -561,6 +560,24 @@
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
         </control>
+        <control type="image">
+          <posx>10</posx>
+          <include>Floor_MediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+        </control>
+        <control type="group">
+          <posx>110</posx>
+          <control type="image">
+            <include>Floor_MediaFlagsVars</include>
+            <texture>$INFO[Control.GetLabel(900006)]</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="image" id="92">
+            <include>Floor_MediaFlagsVars</include>
+            <texture>$INFO[Control.GetLabel(900005)]</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+      </control>
       </control>
 	</include>
 </includes>

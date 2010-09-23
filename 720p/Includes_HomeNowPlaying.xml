@@ -6,7 +6,7 @@
     <control type="group">
       <posx>500</posx>
       <posy>-15</posy>
-      <visible>Skin.HasSetting(homevideowindow) + Player.Hasvideo</visible>
+      <visible>Skin.HasSetting(homevideowindow) + Player.Hasvideo + !Skin.HasSetting(homevisvideo)</visible>
       <animation effect="slide" tween="cubic" easing="inout" time="1300" start="-800,0" end="0,0" delay="1000">Visible</animation>
        <animation effect="slide" tween="cubic" easing="inout" time="1300" start="-800,0" end="0,0" delay="1000">WindowOpen</animation>
       <include>Animation_CommonFade</include>
@@ -366,16 +366,6 @@
       <aspectratio>stretch</aspectratio>
       <texture>home/nowplaying_overlay.png</texture>
     </control>
-  </include>
-  <include name="Furniture_HomeNowPlayingMetrics">
-    <posx>296</posx>
-    <width>533</width>
-    <height>25</height>
-    <align>left</align>
-    <align>bottom</align>
-    <visible>!Control.HasFocus(93)</visible>
-  </include>
-  <include name="Furniture_HomeNowPlayingInfo">
     <control type="label">
       <posy>478</posy>
       <label>$INFO[MusicPlayer.Artist]</label>
@@ -413,6 +403,14 @@
       <font>Font_Normal21</font>
     </control>
   </include>
+  <include name="Furniture_HomeNowPlayingMetrics">
+    <posx>296</posx>
+    <width>533</width>
+    <height>25</height>
+    <align>left</align>
+    <align>bottom</align>
+    <visible>!Control.HasFocus(93)</visible>
+  </include>
   <include name="Furniture_HomeNowPlayingObjectsCDArt">
     <control type="image">
       <posx>300</posx>
@@ -430,7 +428,7 @@
       <texture>home/nowplaying_line.png</texture>
       <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
     </control>
-     <control type="image">
+    <control type="image">
            <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
         <effect type="zoom" start="180" end="100" center="640,600" time="2500" tween="cubic" easing="out"/>
       </animation>
@@ -479,7 +477,7 @@
       <animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
         <effect type="zoom" start="150" end="100" center="640,600" time="900" tween="cubic" easing="out"/>
       </animation>
-     <control type="image">
+      <control type="image">
         <posx>28</posx>
         <posy>455</posy>
         <height>230</height>
@@ -496,21 +494,6 @@
         <aspectratio align="bottom">stretch</aspectratio>
       </control>
     </control>
-  </include>
-  <include name="Furniture_HomeNowPlayingMetricsCDArt">
-    <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
-    <height>65</height>
-    <aligny>left</aligny>
-    <visible>Player.HasAudio + !Control.HasFocus(93)</visible>
-  </include>
-  <include name="Furniture_HomeNowPlayingMetricsPlaylist">
-    <width>463</width>
-    <height>25</height>
-    <aligny>left</aligny>
-    <visible>Player.HasAudio + !Control.HasFocus(93)</visible>
-    <textcolor>white</textcolor>
-  </include>
-  <include name="Furniture_HomeNowPlayingInfoCDArt">
     <control type="label">
       <posx>357</posx>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
@@ -523,7 +506,7 @@
     <control type="label">
       <posx>360</posx>
       <posy>468</posy>
-      <width>483</width>
+      <width>443</width>
       <label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
       <font>Font_Home36</font>
       <textcolor>whiteD0</textcolor>
@@ -541,7 +524,7 @@
     <control type="label">
       <posx>380</posx>
       <posy>540</posy>
-      <width>443</width>
+      <width>433</width>
       <include>Furniture_HomeNowPlayingMetricsCDArt</include>
       <textcolor>whiteD0</textcolor>
       <label>[UPPERCASE]$INFO[MusicPlayer.Album][/UPPERCASE]</label>
@@ -579,6 +562,20 @@
       <wrapmultiline>true</wrapmultiline>
     </control>
   </include>
+  <include name="Furniture_HomeNowPlayingMetricsCDArt">
+    <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="1700">WindowOpen</animation>
+    <height>65</height>
+    <aligny>left</aligny>
+    <visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+  </include>
+  <include name="Furniture_HomeNowPlayingMetricsPlaylist">
+    <width>463</width>
+    <height>25</height>
+    <aligny>left</aligny>
+    <visible>Player.HasAudio + !Control.HasFocus(93)</visible>
+    <textcolor>white</textcolor>
+    <font>Font_Normal15</font>
+  </include>
   <include name="Furniture_HomePlaylist">
     <control type="group">
       <posx>470</posx>
@@ -599,8 +596,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>0</posy>
-          <label>[COLOR=altlabel]1:[/COLOR] $INFO[MusicPlayer.offset(1).Artist]: $INFO[MusicPlayer.offset(1).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]1:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(1).Artist]:[/COLOR] $INFO[MusicPlayer.offset(1).Title]</label>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2000">WindowOpen</animation>
         </control>
         <control type="label">
@@ -608,8 +604,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>15</posy>
-          <label>[COLOR=altlabel]2:[/COLOR] $INFO[MusicPlayer.offset(2).Artist]: $INFO[MusicPlayer.offset(2).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]2:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(2).Artist]:[/COLOR] $INFO[MusicPlayer.offset(2).Title]</label>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2100">WindowOpen</animation>
         </control>
         <control type="label">
@@ -617,7 +612,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>30</posy>
-          <label>[COLOR=altlabel]3:[/COLOR] $INFO[MusicPlayer.offset(3).Artist]: $INFO[MusicPlayer.offset(3).Title]</label>
+          <label>[COLOR=altlabel]3:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(3).Artist]:[/COLOR] $INFO[MusicPlayer.offset(3).Title]</label>
           <font>Font_Normal16</font>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2200">WindowOpen</animation>
         </control>
@@ -626,8 +621,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>45</posy>
-          <label>[COLOR=altlabel]4:[/COLOR] $INFO[MusicPlayer.offset(4).Artist]: $INFO[MusicPlayer.offset(4).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]4:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(4).Artist]:[/COLOR] $INFO[MusicPlayer.offset(4).Title]</label>
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2300">WindowOpen</animation>
         </control>
         <control type="label">
@@ -636,8 +630,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>60</posy>
-          <label>[COLOR=altlabel]5:[/COLOR] $INFO[MusicPlayer.offset(5).Artist]: $INFO[MusicPlayer.offset(5).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]5:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(5).Artist]:[/COLOR] $INFO[MusicPlayer.offset(5).Title]</label>
         </control>
         <control type="label">
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2490">WindowOpen</animation>
@@ -645,8 +638,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>75</posy>
-          <label>[COLOR=altlabel]6:[/COLOR] $INFO[MusicPlayer.offset(6).Artist]: $INFO[MusicPlayer.offset(6).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]6:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(6).Artist]:[/COLOR] $INFO[MusicPlayer.offset(6).Title]</label>
         </control>
         <control type="label">
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2570">WindowOpen</animation>
@@ -654,8 +646,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>90</posy>
-          <label>[COLOR=altlabel]7:[/COLOR] $INFO[MusicPlayer.offset(7).Artist]: $INFO[MusicPlayer.offset(7).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]7:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(7).Artist]:[/COLOR] $INFO[MusicPlayer.offset(7).Title]</label>
         </control>
         <control type="label">
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2640">WindowOpen</animation>
@@ -663,8 +654,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>105</posy>
-          <label>[COLOR=altlabel]8:[/COLOR] $INFO[MusicPlayer.offset(8).Artist]: $INFO[MusicPlayer.offset(8).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]8:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(8).Artist]:[/COLOR] $INFO[MusicPlayer.offset(8).Title]</label>
         </control>
         <control type="label">
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2700">WindowOpen</animation>
@@ -672,8 +662,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>120</posy>
-          <label>[COLOR=altlabel]9:[/COLOR] $INFO[MusicPlayer.offset(9).Artist]: $INFO[MusicPlayer.offset(9).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]9:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(9).Artist]:[/COLOR] $INFO[MusicPlayer.offset(9).Title]</label>
         </control>
         <control type="label">
           <animation effect="slide" start="1280" end="0" time="800" tween="cubic" easing="out" delay="2750">WindowOpen</animation>
@@ -681,8 +670,7 @@
           <posx>360</posx>
           <include>Furniture_HomeNowPlayingMetricsPlaylist</include>
           <posy>135</posy>
-          <label>[COLOR=altlabel]10:[/COLOR] $INFO[MusicPlayer.offset(10).Artist]: $INFO[MusicPlayer.offset(10).Title]</label>
-          <font>Font_Normal16</font>
+          <label>[COLOR=altlabel]10:[/COLOR][COLOR=FFAAAAAA] $INFO[MusicPlayer.offset(10).Artist]:[/COLOR] $INFO[MusicPlayer.offset(10).Title]</label>
         </control>
       </control>
     </control>
@@ -735,8 +723,6 @@
         <visible>Player.HasAudio</visible>
         <include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjectsCDArt</include>
         <include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingObjects</include>
-        <include condition="Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfoCDArt</include>
-        <include condition="!Skin.HasSetting(homecdart)">Furniture_HomeNowPlayingInfo</include>
       </control>
       <include>Furniture_HomeNowPlayingVideo</include>
       <include>Furniture_HomePlaylist</include>

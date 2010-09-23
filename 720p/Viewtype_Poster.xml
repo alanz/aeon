@@ -2096,13 +2096,28 @@
       </control>
     </control>
     <control type="group">
-      <visible>Control.IsVisible(55)</visible>
-      <control type="image">
-        <posx>8</posx>
-        <posy>0</posy>
-        <width>500</width>
-        <height>279</height>
-        <texture>multiwall/info_pane_music.png</texture>
+      <visible>Control.IsVisible(55)</visible><!--place for infopanel-->
+      <include>Animation_OpenCloseZoom</include>
+      <include>Animation_VisibleHiddenZoom</include>
+      <control type="group">
+        <control type="image">
+          <posx>1180</posx>
+          <include>Floor_MediaFlagsVars</include>
+          <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+        </control>
+        <control type="group">
+          <posx>1080</posx>
+          <control type="image">
+            <include>Floor_MediaFlagsVars</include>
+            <texture>$INFO[Control.GetLabel(900006)]</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="image" id="92">
+            <include>Floor_MediaFlagsVars</include>
+            <texture>$INFO[Control.GetLabel(900005)]</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+        </control>
       </control>
     </control>
     <control type="list" id="55">

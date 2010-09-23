@@ -74,8 +74,8 @@
       <posy>65</posy>
       <width>1280</width>
       <height>381</height>
-      <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(oldmultiplexinfotrigger)]]</visible>
-      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(oldmultiplexinfoon)">WindowOpen</animation>
+      <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(infopanel_trigger_movies)]]</visible>
+      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(infopanel_on_movies)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
       <control type="image">
@@ -101,10 +101,10 @@
       <!-- extra thumbs layout -->
       <control type="group">
         <posy>240</posy>
-        <visible>Skin.HasSetting(extrathumbslayout) + !Skin.HasSetting(oldmultiplexinfooff) + Control.IsVisible(553)</visible>
+        <visible>Skin.HasSetting(extrathumbslayout) + !Skin.HasSetting(infopanel_off_movies) + Control.IsVisible(553)</visible>
         <control type="group">
           <!--thumbs right-->
-          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(oldmultiplexinfotrigger) | Skin.HasSetting(oldmultiplexinfoauto)]]]</visible>
+          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + [Skin.HasSetting(infopanel_trigger_movies) | Skin.HasSetting(infopanel_auto_movies)]]]</visible>
           <include>Object_ExtraThumbsRight</include>
         </control>
         <control type="group">
@@ -113,7 +113,7 @@
         </control>
         <control type="group">
           <!--thumbs left-->
-          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(oldmultiplexinfotrigger) | Skin.HasSetting(oldmultiplexinfoauto)]]]</visible>
+          <visible>Container.Content(movies) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + [Skin.HasSetting(infopanel_trigger_movies) | Skin.HasSetting(infopanel_auto_movies)]]]</visible>
           <include>Object_ExtraThumbsLeft</include>
         </control>
       </control>
@@ -250,7 +250,7 @@
         <posy>10</posy>
         <width>491</width>
         <height>334</height>
-        <font>Font_Normal16_ls075</font>
+        <font>Font_Normal18_ls075</font>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <textcolor>whiteD0</textcolor>
         <autoscroll delay="10000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -263,7 +263,7 @@
         <posy>10</posy>
         <width>491</width>
         <height>360</height>
-        <font>Font_Normal16_ls075</font>
+        <font>Font_Normal18_ls075</font>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <textcolor>whiteD0</textcolor>
         <autoscroll delay="10000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -353,7 +353,7 @@
           <posy>152</posy>
           <width>530</width>
           <height>200</height>
-          <font>Font_Normal16_ls075</font>
+          <font>Font_Normal18_ls075</font>
           <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
           <textcolor>whiteD0</textcolor>
           <autoscroll delay="10000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -371,7 +371,7 @@
           <posy>2</posy>
           <width>613</width>
           <height>347</height>
-          <visible>[Control.IsVisible(553) + Skin.HasSetting(fanartlayout) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(oldmultiplexinfotrigger)]]] | VideoPlayer.Content(movies)</visible>
+          <visible>[Control.IsVisible(553) + Skin.HasSetting(fanartlayout) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(infopanel_trigger_movies)]]] | VideoPlayer.Content(movies)</visible>
         </control>
         <control type="largeimage">
           <posx>2</posx>
@@ -408,7 +408,7 @@
           <width>280</width>
           <height>32</height>
           <texture>multiplex/multiplex_trailer_label.png</texture>
-          <visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_movies)]]</visible>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
         <control type="label">
@@ -421,7 +421,7 @@
           <font>Font_Normal19</font>
           <label>312573</label>
           <scroll>true</scroll>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + !Control.HasFocus(110) + [Control.IsVisible(109) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + !Control.HasFocus(110) + [Control.IsVisible(109) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_movies)]]</visible>
           <textcolor>altlabel</textcolor>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
@@ -451,7 +451,7 @@
           <font>Font_Normal19</font>
           <scroll>true</scroll>
           <label>312574</label>
-          <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplexinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplexinfooff)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(fanartlayout) + Player.HasVideo + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_movies)]]</visible>
           <textcolor>altlabel</textcolor>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
@@ -508,8 +508,8 @@
       <posy>65</posy>
       <width>1280</width>
       <height>453</height>
-      <visible>Skin.HasSetting(videotv) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(oldmultiplextvinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(oldmultiplextvinfooff)]]</visible>
-      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(oldmultiplextvinfoon)">WindowOpen</animation>
+      <visible>Skin.HasSetting(videotv) + Control.IsVisible(553) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(110) | Skin.HasSetting(infopanel_on_tvshows) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_tvshows)]]</visible>
+      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(infopanel_on_tvshows)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
       <control type="image">
@@ -647,7 +647,7 @@
         <posy>245</posy>
         <width>570</width>
         <height>197</height>
-        <font>Font_Normal16_ls075</font>
+        <font>Font_Normal18_ls075</font>
         <label fallback="31414">$INFO[Control.GetLabel(900004)]</label>
         <textcolor>whiteD0</textcolor>
         <autoscroll delay="10000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -802,13 +802,13 @@
       <onup>SetFocus(7000)</onup>
       <ondown>SetFocus(553)</ondown>
       <onclick>PlayMedia($INFO[ListItem.Trailer],1,noresume)</onclick>
-      <visible>[[Skin.HasSetting(oldmultiplexinfotrigger) | [Skin.HasSetting(oldmultiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(oldmultiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(oldmultiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(oldmultiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(oldmultiplexmusicinfotrigger) + Window.IsActive(musiclibrary)]</visible>
+      <visible>[[Skin.HasSetting(infopanel_trigger_movies) | [Skin.HasSetting(infopanel_auto_movies) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(infopanel_on_movies) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(oldinfopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(oldinfopanel_trigger_seasons) + Container.Content(seasons)]] | [[Skin.HasSetting(oldinfopanel_auto_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(oldinfopanel_auto_seasons) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(oldinfopanel_trigger_music) + Window.IsActive(musiclibrary)]</visible>
     </control>
     <control type="button" id="110">
       <texturefocus>-</texturefocus>
       <texturenofocus>-</texturenofocus>
       <onfocus>SetFocus(7000)</onfocus>
-      <visible>[![Skin.HasSetting(oldmultiplexinfotrigger) | [Skin.HasSetting(oldmultiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(oldmultiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(oldmultiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(oldmultiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(oldmultiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(oldmultiplexmusicinfotrigger) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]</visible>
+      <visible>[![Skin.HasSetting(infopanel_trigger_movies) | [Skin.HasSetting(infopanel_auto_movies) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(infopanel_on_movies) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [![[[Skin.HasSetting(oldinfopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(oldinfopanel_trigger_seasons) + Container.Content(seasons)]] | [[Skin.HasSetting(oldinfopanel_auto_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(oldinfopanel_auto_seasons) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(oldinfopanel_trigger_music) + Window.IsActive(musiclibrary)] | [!Window.IsActive(musiclibrary) + !Window.IsActive(videolibrary)]</visible>
     </control>
     <include condition="Skin.HasSetting(videotv)">OldMultiplexTV</include>
     <include condition="Skin.HasSetting(videomovies)">OldMultiplexMovies</include>
@@ -946,7 +946,7 @@
         </control>
         <control type="image">
           <include>OldMultiplexSeasonOverlayWrap</include>
-          <texture>multiplex/old/multiplex_seasongradient.png</texture>
+          <texture>multiplex/old/multiplex_seasonsgradient.png</texture>
           <visible>[Container.Content(seasons) | Container.Content(episodes)]  + !StringCompare(Container.ListItem.Label,..)</visible>
         </control>
         <control type="image">
@@ -1022,7 +1022,7 @@
           </control>
           <control type="image">
             <include>OldMultiplexSeasonOverlayWrap</include>
-            <texture>multiplex/old/multiplex_seasongradient.png</texture>
+            <texture>multiplex/old/multiplex_seasonsgradient.png</texture>
             <visible>Container.Content(seasons) | Container.Content(episodes)</visible>
           </control>
           <control type="image">

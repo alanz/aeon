@@ -154,7 +154,7 @@
       <posy>0</posy>
       <width>1280</width>
       <height>57</height>
-      <visible>!Control.IsVisible(560) + !Control.IsVisible(54) + !Player.HasMedia</visible>
+      <visible>!Control.IsVisible(54) + !Player.HasMedia</visible>
       <animation effect="slide" start="0,0" end="0,-37" time="300" condition="[Control.IsVisible(53) + !Control.HasFocus(53) + !Control.HasFocus(71)] | [Control.IsVisible(57) + Control.HasFocus(70197)] | Control.IsVisible(7777)">Conditional</animation>
       <include>Animation_WidgetZoom</include>
       <control type="image">
@@ -390,7 +390,7 @@
     <control type="group">
       <include>Animation_WidgetZoom</include>
       <animation effect="slide" time="800" start="0,0" end="0,-200" tween="cubic" easing="inout" condition="[Control.IsVisible(53) + !Control.HasFocus(53) + !Control.HasFocus(71)] | [Control.IsVisible(57) + Control.HasFocus(70197)] | Control.IsVisible(7777)">Conditional</animation>
-      <visible>Player.HasMedia + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
+      <visible>Player.HasMedia + !Control.IsVisible(54)</visible>
       <posx>0</posx>
       <posy>0</posy>
       <control type="image">
@@ -427,30 +427,29 @@
         <width>240</width>
         <height>18</height>
         <font>Font_Normal14</font>
-        <textcolor>whiteD0</textcolor>
+        <textcolor>white</textcolor>
         <scroll>true</scroll>
         <label>[UPPERCASE][COLOR=white]$INFO[MusicPlayer.Title][/COLOR][/UPPERCASE]</label>
       </control>
       <control type="label">
-        <posx>92</posx>
-        <posy>-2</posy>
+        <posx>90</posx>
+        <posy>-3</posy>
         <width>180</width>
         <height>18</height>
         <font>Font_Normal13</font>
-        <textcolor>WhiteD0</textcolor>
+        <textcolor>White</textcolor>
         <scroll>true</scroll>
         <label>[COLOR=white]$INFO[Videoplayer.TVShowTitle][/COLOR]</label>
       </control>
       <control type="label">
-        <posx>88</posx>
+        <posx>90</posx>
         <posy>4</posy>
         <width>240</width>
         <height>18</height>
         <font>Font_Normal13</font>
-        <textcolor>whiteD0</textcolor>
+        <textcolor>white</textcolor>
         <scroll>true</scroll>
         <label>[COLOR=white]$INFO[Videoplayer.Title][/COLOR]</label>
-        <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
         <visible>VideoPlayer.Content(movies)</visible>
       </control>
       <control type="label">
@@ -459,12 +458,13 @@
         <width>310</width>
         <height>18</height>
         <font>Font_Normal13</font>
-        <textcolor>whiteD0</textcolor>
+        <textcolor>white</textcolor>
         <scroll>true</scroll>
         <label>[COLOR=white]$INFO[Videoplayer.Title][/COLOR]</label>
         <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
         <visible>!VideoPlayer.Content(movies)</visible>
       </control>
+
       <control type="label">
         <description>Current time</description>
         <posx>300</posx>
@@ -500,7 +500,7 @@
         <height>60</height>
         <posx>4</posx>
         <posy>2</posy>
-        <visible>Player.HasAudio + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
+        <visible>Player.HasAudio + !Control.IsVisible(54)</visible>
         <animation effect="fade" time="800">Hidden</animation>
         <texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
       </control>
@@ -511,7 +511,7 @@
         <height>75</height>
         <posx>4</posx>
         <posy>2</posy>
-        <visible>VideoPlayer.Content(movies) + !Control.IsVisible(560) + !Control.IsVisible(54)</visible>
+        <visible>VideoPlayer.Content(movies) + !Control.IsVisible(54)</visible>
         <animation effect="fade" time="800">Hidden</animation>
         <texture fallback="DefaultVideo.png" diffuse="thumbs/cdcover_mask2.png">$INFO[VideoPlayer.Cover]</texture>
       </control>
@@ -988,7 +988,7 @@
         <posy>-220</posy>
         <width>390</width>
         <height>360</height>
-        <texture>showcase/showcase_glow2.png</texture>
+        <texture>thumbs/showcase_glow2.png</texture>
         <animation type="WindowOpen" reversible="false">
           <effect type="fade" start="0" end="100" time="1000" pulse="true" delay="1000"/>
         </animation>
@@ -1178,10 +1178,10 @@
           </control>
           <control type="textbox">
             <posx>311</posx>
-            <posy>24</posy>
+            <posy>21</posy>
             <width>455</width>
             <height>312</height>
-            <font>Font_Normal19</font>
+            <font>Font_Normal16_ls075</font>
             <info>Control.GetLabel(900004)</info>
             <textcolor>whiteD0</textcolor>
             <autoscroll delay="8000" time="2000" repeat="8000">Skin.HasSetting(allowscroll)</autoscroll>
@@ -1552,13 +1552,13 @@
           <width>240</width>
           <height>32</height>
           <texture>multiplex/multiplex_trailer_label.png</texture>
-          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_movies)]]</visible>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
         <control type="label">
           <include>InfoPaneTrailerLabelVars</include>
           <label>312573</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(70197) + !Control.HasFocus(70110) + [Control.IsVisible(109) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(showcaseinfooff)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(70197) + !Control.HasFocus(70110) + [Control.IsVisible(109) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_movies)]]</visible>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
         <control type="label">
@@ -1571,7 +1571,7 @@
         <control type="label">
           <include>InfoPaneTrailerLabelVars</include>
           <label>312574</label>
-          <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(showcaseinfoon) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(showcaseinfotrigger)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(infopanel_trigger_movies)]]</visible>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
@@ -1588,7 +1588,7 @@
           <width>240</width>
           <height>32</height>
           <texture>multiplex/multiplex_trailer_label.png</texture>
-          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + !Skin.HasSetting(infopanel_off_movies)]]</visible>
           <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
         </control>
         <control type="label">
@@ -1602,20 +1602,20 @@
         <control type="label">
           <include>InfoPaneTrailerLabelVars</include>
           <label>312573</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(197) + !Control.HasFocus(111) + [Control.IsVisible(109) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + !Skin.HasSetting(multiplexinfooff)]]</visible>
+          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(197) + !Control.HasFocus(111) + [Control.IsVisible(109) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + !Skin.HasSetting(infopanel_off_movies)]]</visible>
           <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
       </control>
       <control type="label">
         <description>Tagline</description>
         <posx>100</posx>
-        <posy>12</posy>
+        <posy>7</posy>
         <width>1080</width>
         <scroll>true</scroll>
-        <font>11</font>
+        <font>Font_Normal19</font>
         <align>center</align>
         <label>[UPPERCASE]$INFO[ListItem.Tagline][/UPPERCASE]</label>
-        <textcolor>whiteA0</textcolor>
+        <textcolor>altlabel</textcolor>
       </control>
   </include>
   <include name="InfoPaneContentTV">

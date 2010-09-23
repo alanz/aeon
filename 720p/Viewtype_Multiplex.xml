@@ -58,15 +58,15 @@
   <include name="MultiplexInfoPaneMovies">
     <control type="image"><!-- black overlay-->
       <include>BlackOverlayCommon</include>
-      <animation effect="fade" start="0" end="100" time="600" delay="3000" condition="!Skin.HasSetting(multiplexinfoon)">WindowOpen</animation>
-      <visible>[Container.Content(movies) + Control.IsVisible(52) + !StringCompare(Container.ListItem.Label,..) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]]]</visible>
+      <animation effect="fade" start="0" end="100" time="600" delay="3000" condition="!Skin.HasSetting(infopanel_on_movies)">WindowOpen</animation>
+      <visible>[Container.Content(movies) + Control.IsVisible(52) + !StringCompare(Container.ListItem.Label,..) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + [Skin.HasSetting(infopanel_trigger_movies) | Skin.HasSetting(infopanel_auto_movies)]]]]</visible>
     </control>
     <control type="group"><!-- plot poster fanart-->
       <posx>0</posx>
       <posy>65</posy>
       <width>1280</width>
       <height>381</height>
-      <visible>Container.Content(movies) + Control.IsVisible(52) + !StringCompare(Container.ListItem.Label,..) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(multiplexinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(multiplexinfotrigger) | Skin.HasSetting(multiplexinfoauto)]]] </visible>
+      <visible>Container.Content(movies) + Control.IsVisible(52) + !StringCompare(Container.ListItem.Label,..) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + [Skin.HasSetting(infopanel_trigger_movies) | Skin.HasSetting(infopanel_auto_movies)]]] </visible>
       <animation type="Conditional" condition="Player.HasVideo" reversible="false">
         <effect type="rotatey" center="640" start="0" end="-90" time="550" tween="cubic" easing="in"/>
         <effect type="rotatey" center="640" start="-90" end="90" time="0" delay="550"/>
@@ -82,7 +82,7 @@
         <effect type="zoom" start="70" end="100" center="auto" easing="in" tween="back" time="450" delay="550"/>
       </animation>
       <animation effect="slide" end="0,-160"  time="550" easing="out" tween="cubic" condition="Player.HasVideo">Conditional</animation>
-      <animation effect="rotatex" start="-90" end="0" time="900" tween="cubic" easing="out" center="0,-300" delay="3000" condition="!Skin.HasSetting(multiplexinfoon)">WindowOpen</animation>
+      <animation effect="rotatex" start="-90" end="0" time="900" tween="cubic" easing="out" center="0,-300" delay="3000" condition="!Skin.HasSetting(infopanel_on_movies)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <include>Animation_InfoPanelSlide</include>
       <control type="image">
@@ -119,8 +119,8 @@
       <posy>0</posy>
       <width>1280</width>
       <height>500</height>
-      <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(showcaseinfoon) | [Control.IsVisible(7777) + [Skin.HasSetting(showcaseinfotrigger) | Skin.HasSetting(showcaseinfoauto)]]]</visible>
-      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(showcaseinfoon)">WindowOpen</animation>
+      <visible>Container.Content(movies) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + [Skin.HasSetting(infopanel_trigger_movies) | Skin.HasSetting(infopanel_auto_movies)]]]</visible>
+      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="!Skin.HasSetting(infopanel_on_movies)">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <include>Animation_InfoPanelSlide</include>
       <animation type="Conditional" condition="Player.HasVideo" reversible="false">
@@ -187,16 +187,16 @@
   <include name="MultiplexInfoPaneTV">
     <control type="image"><!-- black overlay-->
       <include>BlackOverlayCommon</include>
-      <animation effect="fade" start="0" end="100" time="600" delay="3000" condition="![[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]]">WindowOpen</animation>
-      <visible>Skin.HasSetting(videotv) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [Control.IsVisible(7777) + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
+      <animation effect="fade" start="0" end="100" time="600" delay="3000" condition="![[Skin.HasSetting(infopanel_on_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_on_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_on_episodes) + Container.Content(episodes)]]">WindowOpen</animation>
+      <visible>Skin.HasSetting(videotv) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(infopanel_on_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_on_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_on_episodes) + Container.Content(episodes)]] | [Control.IsVisible(7777) + [[[Skin.HasSetting(infopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_trigger_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_trigger_episodes) + Container.Content(episodes)]] | [[Skin.HasSetting(infopanel_auto_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_auto_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_auto_episodes) + Container.Content(episodes)]]]]]</visible>
     </control>
     <control type="group">
       <posx>0</posx>
       <posy>50</posy>
       <width>1280</width>
       <height>381</height>
-      <visible>Skin.HasSetting(videotv) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]] | [Control.IsVisible(7777) + [[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoauto) + Container.Content(episodes)]]]]]</visible>
-      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="![[Skin.HasSetting(multiplextvshowinfoon) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoon) + Container.Content(seasons)] | [Skin.HasSetting(multiplexepisodeinfoon) + Container.Content(episodes)]]">WindowOpen</animation>
+      <visible>Skin.HasSetting(videotv) + Control.IsVisible(52) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | [[Skin.HasSetting(infopanel_on_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_on_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_on_episodes) + Container.Content(episodes)]] | [Control.IsVisible(7777) + [[[Skin.HasSetting(infopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_trigger_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_trigger_episodes) + Container.Content(episodes)]] | [[Skin.HasSetting(infopanel_auto_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_auto_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_auto_episodes) + Container.Content(episodes)]]]]]</visible>
+      <animation effect="fade" start="0" end="100" time="400" delay="3000" condition="![[Skin.HasSetting(infopanel_on_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_on_seasons) + Container.Content(seasons)] | [Skin.HasSetting(infopanel_on_episodes) + Container.Content(episodes)]]">WindowOpen</animation>
       <animation effect="fade" end="0" time="200">WindowClose</animation>
       <include>Animation_InfoPanelSlide</include>
       <control type="image">
@@ -406,13 +406,13 @@
       <onup>SetFocus(7000)</onup>
       <ondown>SetFocus(52)</ondown>
       <onclick>PlayMedia($INFO[ListItem.Trailer],1,noresume)</onclick>
-      <visible>[[[Skin.HasSetting(multiplexinfotrigger) | [Skin.HasSetting(multiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(multiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(multiplexmusicinfotrigger) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..) </visible>
+      <visible>[[[Skin.HasSetting(infopanel_trigger_movies) | [Skin.HasSetting(infopanel_auto_movies) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(infopanel_on_movies) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(infopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_trigger_seasons) + Container.Content(seasons)]] | [[Skin.HasSetting(infopanel_auto_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_auto_seasons) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(infopanel_trigger_music) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..) </visible>
     </control>
     <control type="button" id="111">
       <texturefocus>-</texturefocus>
       <texturenofocus>-</texturenofocus>
       <onfocus>SetFocus(7000)</onfocus>
-      <visible>![[[[Skin.HasSetting(multiplexinfotrigger) | [Skin.HasSetting(multiplexinfoauto) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(multiplexinfoon) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)]] | [[Skin.HasSetting(multiplextvshowinfoauto) + Container.Content(tvshows)] | [Skin.HasSetting(multiplexseasoninfoauto) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(multiplexmusicinfotrigger) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..)] </visible>
+      <visible>![[[[Skin.HasSetting(infopanel_trigger_movies) | [Skin.HasSetting(infopanel_auto_movies) + !IsEmpty(ListItem.Trailer)] | [Skin.HasSetting(infopanel_on_movies) + !IsEmpty(ListItem.Trailer)]] + Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | [[[[Skin.HasSetting(infopanel_trigger_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_trigger_seasons) + Container.Content(seasons)]] | [[Skin.HasSetting(infopanel_auto_tvshows) + Container.Content(tvshows)] | [Skin.HasSetting(infopanel_auto_seasons) + Container.Content(seasons)]]] + Window.IsActive(videolibrary) + Skin.HasSetting(videotv)] | [Skin.HasSetting(infopanel_trigger_music) + Window.IsActive(musiclibrary)]] +!StringCompare(Container.ListItem.Label,..)] </visible>
     </control>
     <include condition="Skin.HasSetting(videomovies)">MultiplexInfoPaneMovies</include>
     <include condition="Skin.HasSetting(videotv)">MultiplexInfoPaneTV</include>

@@ -4,34 +4,7 @@
   <allowoverlay>yes</allowoverlay>
   <views>50,551,52,56,556,560,552,553,53,54,57,55,59</views>
   <controls>
-    <control type="image" id="109"><!--MultiplexOld-->
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>0</width>
-      <height>0</height>
-      <texture>-</texture>
-      <visible>
-	[
-		Skin.HasSetting(videomovies) +
-		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-		![Skin.HasSetting(oldmultiplexinfooff) | Skin.HasSetting(oldmultiplexinfotrigger)] +
-		[Control.HasFocus(553) | Control.IsVisible(7777)] +
-		[!Container(553).OnNext + !Container(553).OnPrevious]
-	] | [
-		Skin.HasSetting(videotv) +
-		[Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-		![Skin.HasSetting(oldmultiplextvinfooff) | Skin.HasSetting(oldmultiplextvinfotrigger)] +
-		[Control.HasFocus(553) | Control.IsVisible(7777)] +
-		[!Container(553).OnNext + !Container(553).OnPrevious]
-	]
-      </visible>
-      <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
-    </control>
-    <control type="image" id="109"><!--Showcase-->
+    <control type="image" id="109"><!--Delay Trigger Button-->
       <posx>0</posx>
       <posy>0</posy>
       <width>0</width>
@@ -41,66 +14,27 @@
         Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
         ![
           [
-            [Skin.HasSetting(showcasetvshowinfooff) + Container.Content(tvshows)] |
-            [Skin.HasSetting(showcaseseasoninfooff) + Container.Content(seasons)]
+            [Skin.HasSetting(infopanel_off_tvshows) + Container.Content(tvshows)] |
+            [Skin.HasSetting(infopanel_off_seasons) + Container.Content(seasons)]
           ] | [
-            [Skin.HasSetting(showcasetvshowinfotrigger) + Container.Content(tvshows)] |
-            [Skin.HasSetting(showcaseseasoninfotrigger) + Container.Content(seasons)]
+            [Skin.HasSetting(infopanel_trigger_tvshows) + Container.Content(tvshows)] |
+            [Skin.HasSetting(infopanel_trigger_seasons) + Container.Content(seasons)]
           ]
         ] +
-        [Control.HasFocus(57) | Control.IsVisible(7777)] +
-        [!Container(57).OnNext + !Container(57).OnPrevious]
+        [!Container.OnNext + !Container.OnPrevious]
       ] | [
-        Skin.HasSetting(videomovies) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-        ![Skin.HasSetting(showcaseinfooff) | Skin.HasSetting(showcaseinfotrigger)] +
-        [Control.HasFocus(57) | Control.IsVisible(7777)] +
-        [!Container(57).OnNext + !Container(57).OnPrevious]
-      ]
-      </visible>
-      <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
-      <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
-    </control>
-    <control type="image" id="109"><!--Multiplex-->
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>0</width>
-      <height>0</height>
-      <texture>-</texture>
-      <visible>
-      [
         Skin.HasSetting(videomovies) +
         [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-        ![Skin.HasSetting(multiplexinfooff) | Skin.HasSetting(multiplexinfotrigger)] +
-        [Control.HasFocus(52) | Control.IsVisible(7777)] +
-        [!Container(52).OnNext + !Container(52).OnPrevious]
-      ] | [
-        Skin.HasSetting(videotv) + [Window.IsActive(videolibrary) | Window.IsActive(videofiles)] +
-        ![
-          [
-            [Skin.HasSetting(multiplextvshowinfooff) + Container.Content(tvshows)] |
-            [Skin.HasSetting(multiplexseasoninfooff) + Container.Content(seasons)] |
-            [Skin.HasSetting(multiplexepisodeinfooff) + Container.Content(episodes)]
-          ] | [
-            [Skin.HasSetting(multiplextvshowinfotrigger) + Container.Content(tvshows)] |
-            [Skin.HasSetting(multiplexseasoninfotrigger) + Container.Content(seasons)] |
-            [Skin.HasSetting(multiplexepisodeinfotrigger) + Container.Content(episodes)]
-          ]
-        ] +
-        [Control.HasFocus(52) | Control.HasFocus(552) | Control.IsVisible(7777)] +
-        [!Container(52).OnNext + !Container(52).OnPrevious + !Container(552).OnNext + !Container(552).OnPrevious]
+        ![Skin.HasSetting(infopanel_off_movies) | Skin.HasSetting(infopanel_trigger_movies)] +
+        [!Container.OnNext + !Container.OnPrevious]
       ]
       </visible>
-      <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="!Skin.HasSetting(twoseconds) + !Skin.HasSetting(fourseconds) + !Skin.HasSetting(onesecond) + !Skin.HasSetting(fiveseconds)">Visible</animation>
+      <animation effect="fade" start="0" end="100" time="150" delay="3000" condition="Skin.HasSetting(threeseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="2000" condition="Skin.HasSetting(twoseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="4000" condition="Skin.HasSetting(fourseconds)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="1000" condition="Skin.HasSetting(onesecond)">Visible</animation>
       <animation effect="fade" start="0" end="100" time="150" delay="5000" condition="Skin.HasSetting(fiveseconds)">Visible</animation>
     </control>
-    <include>MediaBackdropsVideo</include>
-
     <control type="largeimage">
       <!-- genre fanart -->
       <include>FullscreenDimensions</include>
@@ -117,7 +51,6 @@
 		Control.IsVisible(553) |
 		Control.IsVisible(55) |
 		Control.IsVisible(556) |
-		[Control.IsVisible(560) + Skin.HasSetting(transparentlargelist)] |
 		Control.IsVisible(50) |
 		Control.IsVisible(57) |
 		Control.IsVisible(53) |
@@ -145,7 +78,6 @@
 		Control.IsVisible(553) |
 		Control.IsVisible(556) |
 		Control.IsVisible(55) |
-		[Control.IsVisible(560) + Skin.HasSetting(transparentlargelist)] |
 		Control.IsVisible(50) |
 		Control.IsVisible(57) |
 		Control.IsVisible(53) |
@@ -173,7 +105,6 @@
       Control.IsVisible(553) |
       Control.IsVisible(556) |
       Control.IsVisible(55) |
-      [Control.IsVisible(560) + Skin.HasSetting(transparentlargelist)] |
       Control.IsVisible(50) |
       Control.IsVisible(57) |
       Control.IsVisible(53) |
@@ -238,7 +169,6 @@
         <include condition="[!Skin.HasSetting(MultiplexOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiplexTVOff) + Skin.HasSetting(videotv)]">Viewtype_Multiplex</include>
         <include condition="[!Skin.HasSetting(MultiplexTVOff) + Skin.HasSetting(videotv)]">Viewtype_MultiplexLandscape</include>
         <include condition="[!Skin.HasSetting(MultiplexOldOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(MultiplexOldTVOff) + Skin.HasSetting(videotv)]">Viewtype_MultiplexOld</include>
-        <include condition="[!Skin.HasSetting(LargeListOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(LargeListTVOff) + Skin.HasSetting(videotv)]">Viewtype_Large_List</include>
         <include condition="[!Skin.HasSetting(PosterViewOff) + Skin.HasSetting(videomovies)] | [!Skin.HasSetting(PosterViewTVOff) + Skin.HasSetting(videotv)]">Viewtype_Poster</include>
         <include condition="Skin.HasSetting(videomovies) | Skin.HasSetting(musicvideos)">Floor_MediaFlags</include>
         <include condition="Skin.HasSetting(videotv)">FloorTV_MediaFlags</include>

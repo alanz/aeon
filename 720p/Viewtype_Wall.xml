@@ -423,27 +423,36 @@
       <include>WallInfoPaneMovieInfo</include>
     </control>
   </include>
-  <include name="WallInfoOpenAnimationOn">
-    <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-    <animation type="Visible" reversible="false">
-      <effect type="fade" start="0" end="100" time="400" delay="200"/>
-    </animation>
-  </include>
   <include name="WallInfoOpenAnimationAuto">
     <animation type="WindowOpen" reversible="false">
       <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="3085"/>
       <effect type="fade" start="0" end="100" time="800" delay="3085"/>
     </animation>
-    <animation type="Visible" reversible="false">
-      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="3085"/>
-      <effect type="fade" start="0" end="100" time="800" delay="3085"/>
+    <animation type="Visible" reversible="false" condition="Skin.HasSetting(onesecond)">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="1000"/>
+      <effect type="fade" start="0" end="100" time="800" delay="1000"/>
+    </animation>
+    <animation type="Visible" reversible="false" condition="Skin.HasSetting(twoseconds)">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="2000"/>
+      <effect type="fade" start="0" end="100" time="800" delay="2000"/>
+    </animation>
+    <animation type="Visible" reversible="false" condition="Skin.HasSetting(threeseconds)">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="3000"/>
+      <effect type="fade" start="0" end="100" time="800" delay="3000"/>
+    </animation>
+    <animation type="Visible" reversible="false" condition="Skin.HasSetting(fourseconds)">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="4000"/>
+      <effect type="fade" start="0" end="100" time="800" delay="4000"/>
+    </animation>
+    <animation type="Visible" reversible="false" condition="Skin.HasSetting(fiveseconds)">
+      <effect type="zoom" start="150" end="100" center="640,360" time="800" tween="cubic" easing="inout" delay="5000"/>
+      <effect type="fade" start="0" end="100" time="800" delay="5000"/>
     </animation>
   </include>
   <include name="WallInfoPaneMoviesVars">
     <width>442</width>
     <height>432</height>
     <include condition="Skin.HasSetting(wallinfoauto)">WallInfoOpenAnimationAuto</include>
-    <include condition="Skin.HasSetting(wallinfoon)">WallInfoOpenAnimationOn</include>
     <animation effect="fade" end="0" time="200">WindowClose</animation>
     <visible>Container.Content(movies) + Control.IsVisible(53) + Control.HasFocus(53) + [Window.IsActive(videofiles) | Window.IsActive(videolibrary) | Window.IsActive(programs)] + !Container.OnPrevious + !Container.OnNext</visible>
   </include>
@@ -1102,8 +1111,8 @@
       <include condition="Window.IsActive(pictures) | Window.IsActive(musicplaylist) | Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | [Window.IsActive(videolibrary) + Skin.HasSetting(musicvideos)]">MusicWall</include>
       <include condition="[Window.IsActive(scripts) | Window.IsActive(videoplaylist) | Window.IsActive(programs) | Window.IsActive(videofiles) | [Window.IsActive(videolibrary) + !Skin.HasSetting(musicvideos)]]">MovieWall</include>
       <include>Furniture_FloorText</include>
-      <include condition="!Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesBig</include>
-      <include condition="Skin.HasSetting(smallmoviewall) + !Skin.HasSetting(wallinfooff)">WallInfoPaneMoviesSmall</include>
+      <include condition="!Skin.HasSetting(smallmoviewall) + Skin.HasSetting(wallinfoauto)">WallInfoPaneMoviesBig</include>
+      <include condition="Skin.HasSetting(smallmoviewall) + Skin.HasSetting(wallinfoauto)">WallInfoPaneMoviesSmall</include>
       <control type="scrollbar" id="60">
         <description>For Scrolling</description>
         <posx>67</posx>
