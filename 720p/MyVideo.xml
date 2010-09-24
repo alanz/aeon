@@ -26,7 +26,7 @@
     <control type="multiimage">
       <include>BackgroundVarsGlobal</include>
       <include>BackgroundVarsVideo</include>
-      <visible>IsEmpty(ListItem.property(fanart_image)) | !Skin.HasSetting(moviefanart)</visible>
+      <visible>[IsEmpty(ListItem.property(fanart_image)) | !Skin.HasSetting(moviefanart)] + !Skin.HasSetting(fallbackimage)</visible>
     </control>
     <control type="largeimage">
       <include>FullscreenDimensions</include>

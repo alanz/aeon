@@ -1,0 +1,96 @@
+<includes>
+	<include name="Animation_BannerplexTVFocusZoomBanner">
+		<animation effect="zoom" center="207,46.5" start="100" end="115" time="200" tween="cubic" easing="inout">Focus</animation>
+	</include>
+	<include name="BannerTVDimensions">
+		<posx>35</posx>
+		<posy>11.5</posy>
+		<width>379</width>
+		<height>70</height> 
+	</include>
+	<include name="BannerTVDimensionsOverlay">
+		<posx>344</posx>
+		<posy>13</posy>
+		<width>70</width>
+		<height>70</height>
+		<visible>!Skin.HasSetting(notvoverlays) + !IsEmpty(ListItem.Overlay) + StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
+		<texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
+	</include>
+	<include name="Viewtype_Bannerplex">
+		<control type="largeimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<fadetime>400</fadetime>
+			<texture>$INFO[Container(554).ListItem.property(fanart_image)]</texture>
+		</control>
+		<control type="panel" id="554">
+			<viewtype label="BANNERPLEX">icon</viewtype>
+			<posx>1.5</posx>
+			<posy>57.5</posy>
+			<width>1278</width>
+			<height>651</height>
+			<onleft>SetFocus(7000)</onleft>
+			<onright>SetFocus(7000)</onright>
+			<onup>554</onup>
+			<ondown>554</ondown>
+			<orientation>vertical</orientation>
+			<scrolltime>200</scrolltime>
+			<visible>Container.Content(tvshows)</visible>
+			<itemlayout width="414" height="93">
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Path,,banner.jpg</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Icon</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>24</posx>
+					<posy>0.5</posy>
+					<width>403</width>
+					<height>94</height>
+					<texture>thumbs/banner_shadow.png</texture>
+				</control>
+				<control type="image">
+					<include>BannerTVDimensionsOverlay</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="414" height="93">
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Path,,banner.jpg</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<include>Animation_MultiplexTVFocusZoomBanner</include>
+				</control>
+				<control type="image">
+					<include>BannerTVDimensions</include>
+					<texture diffuse="thumbs/banner_mask.png">defaultbannervideo.png</texture>
+					<info>ListItem.Icon</info>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<include>Animation_BannerplexTVFocusZoomBanner</include>
+				</control>
+				<control type="image">
+					<posx>24</posx>
+					<posy>0.5</posy>
+					<width>403</width>
+					<height>94</height>
+					<texture>thumbs/banner_shadow.png</texture>
+					<include>Animation_BannerplexTVFocusZoomBanner</include>
+				</control>
+				<control type="image">
+					<include>BannerTVDimensionsOverlay</include>
+					<include>Animation_BannerplexTVFocusZoomBanner</include>
+				</control>
+			</focusedlayout>
+		</control> 
+
+	</include>
+</includes>
