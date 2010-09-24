@@ -1,19 +1,5 @@
 <?xml version="1.0"?>
 <includes>
-  <include name="FullscreenWallIconMovieDimensionsDVD">
-    <posx>51</posx>
-    <posy>3</posy>
-    <width>122</width>
-    <height>180</height>
-  </include>
-  <include name="FullscreenWallIconMovieDimensionsDVDSmall">
-    <posx>32</posx>
-    <posy>3</posy>
-    <width>99</width>
-    <height>152</height>
-  </include>
-  <!-- Animations -->
-  <!-- Normal -->
   <include name="MovieFullscreenWallIconZoomAnimation">
     <animation type="Focus" condition="Container(54).Row(3)" reversible="false">
       <effect type="zoom" center="100,180" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
@@ -58,22 +44,6 @@
       <effect type="zoom" center="101,95" start="100" end="190" time="400" easing="out" tween="cubic" reversible="false"/>
     </animation>
   </include>
-  <!-- DVD -->
-  <include name="FullscreenWallIconZoomAnimationDVD">
-    <animation type="Focus" condition="Container(54).Row(2)" reversible="false">
-      <effect type="zoom" center="112,155" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
-    </animation>
-    <animation type="Focus" condition="Container(54).Row(1)" reversible="false">
-      <effect type="zoom" center="112,135" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
-    </animation>
-    <animation type="Focus" condition="Container(54).Row(0)" reversible="false">
-      <effect type="zoom" center="112,105" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false"/>
-    </animation>
-  </include>
-  <include name="FullscreenWallIconZoomAnimationDVDSmall">
-    <animation effect="zoom" center="81,132" start="100" end="168" time="400" easing="out" tween="cubic" reversible="false">Focus</animation>
-  </include>
-  <!-- Border -->
   <include name="FullscreenWallIconMovieBorderSmall">
     <bordertexture border="-4">Wall/Wall_movie_nfborder.png</bordertexture>
   </include>
@@ -124,58 +94,6 @@
       <aspectratio scalediffuse="false">scale</aspectratio>
       <info>ListItem.Icon</info>
       <fadetime>500</fadetime>
-    </control>
-  </include>
-  <!-- Movie DVD -->
-  <include name="FullscreenWallIconDVD">
-    <control type="image">
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
-      <texture>Wall/boxes/FullscreenWall_movie_nfborder.png</texture>
-      <aspectratio scalediffuse="false">stretch</aspectratio>
-    </control>
-    <control type="largeimage">
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
-      <texture background="true" diffuse="Wall/boxes/FullscreenWall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">stretch</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-    </control>
-    <control type="image">
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
-      <texture>Wall/boxes/FullscreenWall_nfoverlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-    </control>
-  </include>
-  <include name="FullscreenWallIconDVDFocus">
-    <!--########################################################-->
-    <control type="image">
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
-      <texture>Wall/boxes/FullscreenWall_movie_nfborder.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVDSmall</include>
-    </control>
-    <control type="largeimage">
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
-      <texture background="true" diffuse="Wall/boxes/FullscreenWall_movie_mask.png">DefaultVideo.png</texture>
-      <aspectratio scalediffuse="false">stretch</aspectratio>
-      <info>ListItem.Icon</info>
-      <fadetime>500</fadetime>
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVDSmall</include>
-    </control>
-    <control type="image">
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconMovieDimensionsDVDSmall</include>
-      <texture>Wall/boxes/FullscreenWall_nfoverlay.png</texture>
-      <aspectratio scalediffuse="false">scale</aspectratio>
-      <include condition="!Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVD</include>
-      <include condition="Skin.HasSetting(smallmovieFullscreenWall)">FullscreenWallIconZoomAnimationDVDSmall</include>
     </control>
   </include>
   <include name="FullscreenWallInfoPaneTopLeft">
@@ -652,7 +570,7 @@
         <control type="image">
           <include>MusicFullscreenWallIconDimensions</include>
           <texture>common/black.png</texture>
-          <colordiffuse>whiteD0</colordiffuse>
+          <colordiffuse>D0FFFFFF</colordiffuse>
           <visible>!Skin.HasSetting(nodarkfullscreenwall)</visible>
           <include>Animation_VisibleChange400</include>
         </control> 
@@ -709,10 +627,10 @@
         <control type="image">
           <include>MusicFullscreenWallIconDimensionsSmall</include>
           <texture>common/black.png</texture>
-          <colordiffuse>whiteD0</colordiffuse>
+          <colordiffuse>D0FFFFFF</colordiffuse>
           <visible>!Skin.HasSetting(nodarkfullscreenwall)</visible>
           <include>Animation_VisibleChange400</include>
-        </control> 
+        </control>  
       </itemlayout>
       <focusedlayout width="146" height="144" condition="Skin.HasSetting(smallmusicFullscreenWall)">
         <control type="largeimage">
@@ -769,8 +687,7 @@
       <visible>!Container.Content(episodes) + !Container.Content(studios) + !Container.Content(genres)</visible>
       <animation effect="slide" start="0,0" end="0,50" time="0" condition="!Skin.HasSetting(smallmovieFullscreenWall)">Conditional</animation>
       <itemlayout width="121" height="179" condition="!Skin.HasSetting(smallmovieFullscreenWall)">
-        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <include>FullscreenWallIconNormal</include>
         <control type="image">
           <posx>128</posx>
           <posy>3</posy>
@@ -802,8 +719,7 @@
           </animation>
           <aspectratio>stretch</aspectratio>
         </control>
-        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormalFocus</include>
-        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <include>FullscreenWallIconNormalFocus</include>>
         <control type="image">
           <posx>128</posx>
           <posy>3</posy>
@@ -812,25 +728,22 @@
           <include>detailcolornofocus</include>
           <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(no_overlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(no_overlays) + Skin.HasSetting(videomovies)]]</visible>
           <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
-          <include condition="!Skin.HasSetting(dvdcase)">MovieFullscreenWallIconZoomAnimation</include>
-          <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconZoomAnimationDVD</include>
+          <include>MovieFullscreenWallIconZoomAnimation</include>
         </control>
       </focusedlayout>
       <itemlayout width="101" height="145" condition="Skin.HasSetting(smallmovieFullscreenWall)">
-        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <include>FullscreenWallIconNormal</include>
         <control type="image">
           <posx>117</posx>
           <posy>50</posy>
           <width>35</width>
           <height>35</height>
           <include>detailcolornofocus</include>
-          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
           <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(no_overlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(no_overlays) + Skin.HasSetting(videomovies)]]</visible>
           <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
         </control>
         <control type="image">
-          <include>FullscreenWallIconMovieDimensionsSmall</include>
+          <include>FullscreenWallIconMovieDimensions</include>
           <texture>common/black.png</texture>
           <visible>!Skin.HasSetting(nodarkfullscreenwall)</visible>
           <colordiffuse>whiteD0</colordiffuse>
@@ -838,8 +751,7 @@
         </control>  
       </itemlayout>
       <focusedlayout width="101" height="145" condition="Skin.HasSetting(smallmovieFullscreenWall)">
-        <include condition="!Skin.HasSetting(dvdcase)">FullscreenWallIconNormalFocus</include>
-        <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconDVDFocus</include>
+        <include>FullscreenWallIconNormalFocus</include>
         <control type="image">
           <posx>117</posx>
           <posy>50</posy>
@@ -848,9 +760,7 @@
           <include>detailcolornofocus</include>
           <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(no_overlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(no_overlays) + Skin.HasSetting(videomovies)]]</visible>
           <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
-          <include condition="!Skin.HasSetting(dvdcase)">MovieFullscreenWallIconZoomAnimationSmall</include>
-          <include condition="Skin.HasSetting(dvdcase)">FullscreenWallIconZoomAnimationDVDSmall</include>
-          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+          <include>MovieFullscreenWallIconZoomAnimationSmall</include>
         </control>
       </focusedlayout>
     </control>

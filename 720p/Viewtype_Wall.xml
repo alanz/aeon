@@ -878,8 +878,8 @@
       <pagecontrol>60</pagecontrol>
       <animation effect="slide" start="0,0" end="0,50" time="0" condition="!Skin.HasSetting(smallmoviewall)">Conditional</animation>
       <itemlayout width="121" height="179" condition="!Skin.HasSetting(smallmoviewall)">
-        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <include condition="!Skin.HasSetting(dvdcase_wall)">WallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase_wall)">WallIconDVDFocus</include>
         <control type="image">
           <visible>Container.Content(genres)</visible>
           <include>WallIconMovieDimensions</include>
@@ -903,7 +903,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>!Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>!Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>57</posx>
@@ -913,7 +913,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>	        
         <control type="largeimage">
           <posx>53</posx>
@@ -926,8 +926,8 @@
         </control>
       </itemlayout>
       <focusedlayout width="121" height="179" condition="!Skin.HasSetting(smallmoviewall)">
-        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
-        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <include condition="!Skin.HasSetting(dvdcase_wall)">WallIconNormalFocus</include>
+        <include condition="Skin.HasSetting(dvdcase_wall)">WallIconDVDFocus</include>
         <control type="image">
           <posx>124</posx>
           <posy>2</posy>
@@ -936,8 +936,8 @@
           <include>detailcolornofocus</include>
           <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(no_overlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(no_overlays) + Skin.HasSetting(videomovies)]]</visible>
           <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
-          <include condition="!Skin.HasSetting(dvdcase)">MovieWallIconZoomAnimation</include>
-          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVD</include>
+          <include condition="!Skin.HasSetting(dvdcase_wall)">MovieWallIconZoomAnimation</include>
+          <include condition="Skin.HasSetting(dvdcase_wall)">WallIconZoomAnimationDVD</include>
         </control>
         <control type="image">
           <visible>Container.Content(genres)</visible>
@@ -958,7 +958,7 @@
             <effect type="zoom" center="117,155" start="100" end="153" time="400" easing="out" tween="cubic" reversible="false" />
   				  <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(2) + !Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>Container(53).Row(2) + !Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>57</posx>
@@ -972,7 +972,7 @@
             <effect type="zoom" center="112,155" start="100" end="155" time="400" easing="out" tween="cubic" reversible="false" />
   				  <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(2) + Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>Container(53).Row(2) + Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>53</posx>
@@ -989,8 +989,8 @@
         </control>
       </focusedlayout>
       <itemlayout width="101" height="148" condition="Skin.HasSetting(smallmoviewall)">
-        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <include condition="!Skin.HasSetting(dvdcase_wall)">WallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase_wall)">WallIconDVDFocus</include>
         <control type="image">
           <visible>Container.Content(genres)</visible>
           <include>WallIconMovieDimensionsSmall</include>
@@ -1003,7 +1003,7 @@
           <width>35</width>
           <height>35</height>
           <include>detailcolornofocus</include>
-          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase_wall)">Conditional</animation>
           <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(no_overlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(no_overlays) + Skin.HasSetting(videomovies)]]</visible>
           <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
         </control>
@@ -1015,7 +1015,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>!Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>!Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>36</posx>
@@ -1025,7 +1025,7 @@
           <texture background="true" flipy="true" diffuse="multiplex/multiplex_maskreflect.png">defaultvideo.png</texture>
           <aspectratio scalediffuse="false">stretch</aspectratio>
           <info>ListItem.Icon</info>
-          <visible>Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>53</posx>
@@ -1038,8 +1038,8 @@
         </control>
       </itemlayout>
       <focusedlayout width="101" height="148" condition="Skin.HasSetting(smallmoviewall)">
-        <include condition="!Skin.HasSetting(dvdcase)">WallIconNormalFocus</include>
-        <include condition="Skin.HasSetting(dvdcase)">WallIconDVDFocus</include>
+        <include condition="!Skin.HasSetting(dvdcase_wall)">WallIconNormalFocus</include>
+        <include condition="Skin.HasSetting(dvdcase_wall)">WallIconDVDFocus</include>
         <control type="image">
           <visible>Container.Content(genres)</visible>
           <include>WallIconMovieDimensionsSmall</include>
@@ -1055,9 +1055,9 @@
           <include>detailcolornofocus</include>
           <visible>StringCompare(ListItem(0).Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [[!Skin.HasSetting(no_overlays) + Skin.HasSetting(videotv)] | [!Skin.HasSetting(no_overlays) + Skin.HasSetting(videomovies)]]</visible>
           <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem(0).Overlay]</texture>
-          <include condition="!Skin.HasSetting(dvdcase)">MovieWallIconZoomAnimationSmall</include>
-          <include condition="Skin.HasSetting(dvdcase)">WallIconZoomAnimationDVDSmall</include>
-          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+          <include condition="!Skin.HasSetting(dvdcase_wall)">MovieWallIconZoomAnimationSmall</include>
+          <include condition="Skin.HasSetting(dvdcase_wall)">WallIconZoomAnimationDVDSmall</include>
+          <animation effect="slide" start="0,0" end="-22,0" time="0" condition="Skin.HasSetting(dvdcase_wall)">Conditional</animation>
         </control>
         <control type="largeimage">
           <posx>53</posx>
@@ -1071,7 +1071,7 @@
             <effect type="zoom" center="100,128" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
    	        <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(3) + !Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>Container(53).Row(3) + !Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>
         <control type="largeimage">
           <posx>40</posx>
@@ -1085,7 +1085,7 @@
             <effect type="zoom" center="100,128" start="100" end="160" time="400" easing="out" tween="cubic" reversible="false" />
    	        <effect type="fade" start="30" end="100" time="400" reversible="false" />
           </animation>
-          <visible>Container(53).Row(3) + Skin.HasSetting(dvdcase) + !Container.Content(genres)</visible>
+          <visible>Container(53).Row(3) + Skin.HasSetting(dvdcase_wall) + !Container.Content(genres)</visible>
         </control>	
         <control type="largeimage">
           <posx>53</posx>

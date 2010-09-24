@@ -162,6 +162,14 @@
       <onclick>Skin.ToggleSetting(showcasefanart)</onclick>
       <visible>Control.IsVisible(57) + Skin.HasSetting(videomovies) + Container.Content(movies) + Skin.HasSetting(flattenshowcasemovies)</visible>
     </control>
+    <control type="radiobutton" id="700028">
+      <include>MediaMenuRadioButton</include>
+      <label>32006</label>
+      <onclick>Skin.ToggleSetting(dvdcase_showcase)</onclick>
+      <onclick>ReloadSkin</onclick>
+      <selected>Skin.HasSetting(dvdcase_showcase)</selected>
+      <visible>Control.IsVisible(57) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows) | Window.IsActive(musiclibrary)]</visible>
+    </control>
   </include>
   <include name="MediaMenuButton_Sort">
     <control type="button" id="3">
@@ -218,8 +226,7 @@
       <onright>SetFocus(7100)</onright>
     </control>
   </include>
-  <include name="MediaMenuButton_style">
-    <!-- 700014 700020 -->
+  <include name="MediaMenuButton_Style">
     <control type="radiobutton" id="700018"><!--viewselect-->
       <posx>0</posx>
       <posy>0</posy>
@@ -274,22 +281,29 @@
             [Skin.HasSetting(infopanel_auto_music) + Window.IsActive(musiclibrary)]]] |
             [Control.IsVisible(53) + Skin.HasSetting(wallinfoauto)]</visible>
     </control>
-    <control type="radiobutton" id="7000222">
+    <control type="radiobutton" id="700019">
       <include>MediaMenuRadioButton</include>
-      <label>310805</label>
-      <onclick>Skin.ToggleSetting(multiwallposterlayout)</onclick>
-      <visible>Control.IsVisible(556) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)</visible>
-      <selected>Skin.HasSetting(multiwallposterlayout)</selected>
+      <label>Show Year as Detail</label>
+      <onclick>Skin.ToggleSetting(detaillabel_year)</onclick>
+      <visible>[Control.IsVisible(52) + !Window.IsActive(musiclibrary)] | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(53)</visible>
+      <selected>Skin.HasSetting(detaillabel_year)</selected>
     </control>
   </include>
   <include name="MediaMenuButton_Multiplex">
-    <!-- 700021 700022 -->
     <control type="radiobutton" id="700022">
       <include>MediaMenuRadioButton</include>
       <label>31052</label>
       <selected>Skin.HasSetting(multiplexthin)</selected>
       <onclick>Skin.ToggleSetting(multiplexthin)</onclick>
       <visible>[Control.IsVisible(52) | Control.IsVisible(552)] + Window.IsActive(videolibrary)</visible>
+    </control>
+    <control type="radiobutton" id="700027">
+      <include>MediaMenuRadioButton</include>
+      <label>32006</label>
+      <onclick>Skin.ToggleSetting(dvdcase_multiplex)</onclick>
+      <onclick>ReloadSkin</onclick>
+      <selected>Skin.HasSetting(dvdcase_multiplex)</selected>
+      <visible>[Control.IsVisible(52) | Control.IsVisible(552)] + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows) | Window.IsActive(musiclibrary)]</visible>
     </control>
   </include>
   <include name="MediaMenuButton_List">
@@ -430,6 +444,31 @@
       <onclick>Skin.ToggleSetting(wallinfoauto)</onclick>
       <selected>Skin.HasSetting(wallinfoauto)</selected>
       <visible>Control.IsVisible(53) + Container.Content(movies)</visible>
+    </control>
+    <control type="radiobutton" id="700029">
+      <include>MediaMenuRadioButton</include>
+      <label>32006</label>
+      <onclick>Skin.ToggleSetting(dvdcase_wall)</onclick>
+      <onclick>ReloadSkin</onclick>
+      <selected>Skin.HasSetting(dvdcase_wall)</selected>
+      <visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows) | Window.IsActive(musiclibrary)]</visible>
+    </control>
+  </include>
+  <include name="MediaMenuButton_Multiwall">
+    <control type="radiobutton" id="700033">
+      <include>MediaMenuRadioButton</include>
+      <label>32006</label>
+      <onclick>Skin.ToggleSetting(dvdcase_multiwall)</onclick>
+      <onclick>ReloadSkin</onclick>
+      <selected>Skin.HasSetting(dvdcase_multiwall)</selected>
+      <visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows) | Window.IsActive(musiclibrary)]</visible>
+    </control>  
+    <control type="radiobutton" id="7000222">
+      <include>MediaMenuRadioButton</include>
+      <label>310805</label>
+      <onclick>Skin.ToggleSetting(multiwallposterlayout)</onclick>
+      <visible>Control.IsVisible(556) + Skin.HasSetting(videotv) + Window.IsActive(videolibrary)</visible>
+      <selected>Skin.HasSetting(multiwallposterlayout)</selected>
     </control>
   </include>
   <include name="MediaMenuButton_FullScreenWall">
@@ -994,17 +1033,17 @@
         <include>MediaMenuButton_Overlay</include>
         <include>MediaMenuButton_Background</include>
         <include>MediaMenuButton_Showcase</include>
-        <include>MediaMenuButton_InfoTrigger</include>
-        <include>MediaMenuButton_LowList</include>
-        <include>MediaMenuButton_GamesPoster</include>
-        <include>MediaMenuButton_style</include>
-        <include>MediaMenuButton_OldMultiplexStyle</include>
         <include>MediaMenuButton_Multiplex</include>
         <include>MediaMenuButton_List</include>
         <include>MediaMenuButton_Stripshow</include>
         <include>MediaMenuButton_Wall</include>
         <include>MediaMenuButton_FullScreenWall</include>
+        <include>MediaMenuButton_Multiwall</include>
         <include>MediaMenuButton_Shelf</include>
+        <include>MediaMenuButton_InfoTrigger</include>
+        <include>MediaMenuButton_LowList</include>
+        <include>MediaMenuButton_GamesPoster</include>
+        <include>MediaMenuButton_Style</include>
       </control>
     </control>
   </include>

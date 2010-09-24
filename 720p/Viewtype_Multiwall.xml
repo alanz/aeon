@@ -996,7 +996,7 @@
       <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
       <include>MultiWallIconZoomAnimationDVD</include>
       <texture>$INFO[ListItem.Overlay,showcase/,]</texture>
-      <animation effect="slide" start="0,0" end="-3,3" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-3,3" condition="Skin.HasSetting(dvdcase_multiwall)">Conditional</animation>
     </control>
   </include>
   <include name="WatchedOverlayMultiWallTV">
@@ -1009,7 +1009,7 @@
       <visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + [!Skin.HasSetting(no_overlays) + Skin.HasSetting(videotv)]</visible>
       <texture fallback="overlays/English/OverlayWatched.png">overlays/$INFO[System.Language]/$INFO[ListItem.Overlay]</texture>
       <include>MultiWallTVIconZoomAnimationDVD</include>
-      <animation effect="slide" start="0,0" end="-3,2" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-3,2" condition="Skin.HasSetting(dvdcase_multiwall)">Conditional</animation>
     </control>
   </include>
   <!-- Multiwall -->
@@ -1433,15 +1433,15 @@
       <include>Animation_HideMultiplex</include>
       <preloaditems>2</preloaditems>
       <itemlayout width="101" height="146">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
+        <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallIconDVD</include>
         <include>WatchedOverlayMultiWallPoster</include>
       </itemlayout>
       <focusedlayout width="101" height="146">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormalTrailerIcon</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVDTrailerIcon</include>
+        <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallIconNormal</include>
+        <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallIconNormalTrailerIcon</include>
+        <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallIconDVD</include>
+        <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallIconDVDTrailerIcon</include>
         <include>WatchedOverlayMultiWallPoster</include>
       </focusedlayout>
     </control>
@@ -1498,24 +1498,24 @@
       <preloaditems>2</preloaditems>
 
       <itemlayout width="159" height="93" condition="!Skin.HasSetting(tvposter) | Container.Content(episodes)">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallTVIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallTVIconDVD</include>
+        <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallTVIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallTVIconDVD</include>
         <include>WatchedOverlayMultiWallTV</include>
       </itemlayout>
       <focusedlayout width="159" height="93" condition="!Skin.HasSetting(tvposter) | Container.Content(episodes)">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallTVIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallTVIconDVD</include>
+        <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallTVIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallTVIconDVD</include>
         <include>WatchedOverlayMultiWallTV</include>
       </focusedlayout>
 
       <itemlayout width="159" height="146" condition="Skin.HasSetting(tvposter) + !Container.Content(episodes)">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
+        <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallIconDVD</include>
         <include>WatchedOverlayMultiWallPoster</include>
       </itemlayout>
       <focusedlayout width="159" height="146" condition="Skin.HasSetting(tvposter) + !Container.Content(episodes)">
-        <include condition="!Skin.HasSetting(dvdcase)">MultiWallIconNormal</include>
-        <include condition="Skin.HasSetting(dvdcase)">MultiWallIconDVD</include>
+        <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallIconNormal</include>
+        <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallIconDVD</include>
         <include>WatchedOverlayMultiWallPoster</include>
       </focusedlayout>
     </control>
@@ -1587,12 +1587,12 @@
         <include>Animation_HideMultiplex</include>
         <preloaditems>2</preloaditems>
         <itemlayout width="102" height="104">
-          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormal</include>
-          <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
+          <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallMusicIconNormal</include>
+          <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallMusicIconDVD</include>
         </itemlayout>
         <focusedlayout width="102" height="104">
-          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormal</include>
-          <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
+          <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallMusicIconNormal</include>
+          <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallMusicIconDVD</include>
         </focusedlayout>
       </control>
       <control type="group">
@@ -1606,10 +1606,10 @@
           <posx>510</posx>
           <width>102</width>
           <height>104</height>
-          <include condition="!Skin.HasSetting(dvdcase)">MultiWallMusicIconNormal</include>
-          <include condition="Skin.HasSetting(dvdcase)">MultiWallMusicIconDVD</include>
-          <animation effect="zoom" center="558,48" start="170" end="170" condition="!Skin.HasSetting(dvdcase)">Conditional</animation>
-          <animation effect="zoom" center="561,51" start="165" end="165" condition="Skin.HasSetting(dvdcase)">Conditional</animation>
+          <include condition="!Skin.HasSetting(dvdcase_multiwall)">MultiWallMusicIconNormal</include>
+          <include condition="Skin.HasSetting(dvdcase_multiwall)">MultiWallMusicIconDVD</include>
+          <animation effect="zoom" center="558,48" start="170" end="170" condition="!Skin.HasSetting(dvdcase_multiwall)">Conditional</animation>
+          <animation effect="zoom" center="561,51" start="165" end="165" condition="Skin.HasSetting(dvdcase_multiwall)">Conditional</animation>
         </control>
       </control>
       <control type="scrollbar" id="71">

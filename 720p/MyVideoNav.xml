@@ -4,7 +4,7 @@
   <allowoverlay>yes</allowoverlay>
   <views>50,551,52,56,556,560,552,553,53,54,57,55,59,554</views>
   <controls>
-    <control type="image" id="109"><!--Delay Trigger Button-->
+    <control type="button" id="109"><!--Delay Trigger Button-->
       <posx>0</posx>
       <posy>0</posy>
       <width>0</width>
@@ -41,28 +41,28 @@
       <texture background="true">special://skin/extras/movie/genrefanart/$INFO[ListItem.Label].jpg</texture>
       <visible>Skin.HasSetting(GenreFanartOn) + Container.Content(genres)</visible>
     </control>
-    <control type="largeimage">
+    <control type="largeimage"><!--fallbackimage-->
       <include>FullscreenDimensions</include>
       <visible>
-	Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) +
-	[
-		Control.IsVisible(553) |
-		Control.IsVisible(55) |
-		Control.IsVisible(556) |
-		Control.IsVisible(50) |
-		Control.IsVisible(57) |
-		Control.IsVisible(53) |
-		Control.IsVisible(52) |
-		Control.IsVisible(552) |
-		Control.IsVisible(550) |
-		Control.IsVisible(551) |
-    Control.IsVisible(59)
-	] + [
-		[Container.Content(movies) + Skin.HasSetting(moviefanart)] |
-		[Container.Content(tvshows) + Skin.HasSetting(tvshowfanart)] |
-		[Container.Content(seasons) + Skin.HasSetting(seasonsfanart)] |
-		[Container.Content(episodes) + Skin.HasSetting(episodesfanart)]
-	]
+        Skin.HasSetting(fallbackimage) + IsEmpty(ListItem.property(fanart_image)) +
+        [
+          Control.IsVisible(553) |
+          Control.IsVisible(55) |
+          Control.IsVisible(556) |
+          Control.IsVisible(50) |
+          Control.IsVisible(57) |
+          Control.IsVisible(53) |
+          Control.IsVisible(52) |
+          Control.IsVisible(552) |
+          Control.IsVisible(550) |
+          Control.IsVisible(551) |
+          Control.IsVisible(59)
+        ] + [
+          [Container.Content(movies) + Skin.HasSetting(moviefanart)] |
+          [Container.Content(tvshows) + Skin.HasSetting(tvshowfanart)] |
+          [Container.Content(seasons) + Skin.HasSetting(seasonsfanart)] |
+          [Container.Content(episodes) + Skin.HasSetting(episodesfanart)]
+        ]
       </visible>
       <fadetime>400</fadetime>
       <texture>$INFO[Skin.String(fallbackimagepath)]</texture>
