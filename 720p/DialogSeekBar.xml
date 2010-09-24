@@ -361,6 +361,7 @@
         <animation effect="fade" start="40" time="700" condition="true" pulse="true">Conditional</animation>
         <aspectratio>stretch</aspectratio>
         <visible>true</visible>
+        <visible>Container.Content(movies)</visible>
       </control>
       <control type="image">
         <visible>!VideoPlayer.Content(episodes) + !VideoPlayer.Content(musicvideos)</visible>
@@ -380,41 +381,41 @@
           <effect type="fade" start="100" end="0" time="600"/>
         </animation>
       </control>
-      <control type="image">
       <control type="group">
-        <animation type="WindowOpen">
-          <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="0" end="100" time="600"/>
-        </animation>
-        <animation type="WindowClose">
-          <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="100" end="0" time="600"/>
-        </animation>
-        <animation type="Visible">
-          <effect type="slide" start="-300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="0" end="100" time="600"/>
-        </animation>
-        <animation type="Hidden">
-          <effect type="slide" start="0,0" end="-300,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="100" end="0" time="600"/>
-        </animation>
-        <visible>VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)</visible>
-        <description>Cover Image</description>
-        <posx>1045</posx>
-        <posy>-40</posy>
-        <width>210</width>
-        <height>144</height>
-        <texture diffuse="thumbs/multiplex_tvmask.png" background="true">$INFO[VideoPlayer.Cover]</texture>
-        <aspectratio scalediffuse="false">scale</aspectratio>
-        <bordertexture border="-26">thumbs/episode_poster_shadow.png</bordertexture>
-        <animation type="WindowOpen">
-          <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
-        </animation>
-        <animation type="WindowClose">
-          <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
-          <effect type="fade" start="100" end="0" time="600"/>
-        </animation>
-      </control>
+        <control type="image">
+          <animation type="WindowOpen">
+            <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+            <effect type="fade" start="0" end="100" time="600"/>
+          </animation>
+          <animation type="WindowClose">
+            <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
+            <effect type="fade" start="100" end="0" time="600"/>
+          </animation>
+          <animation type="Visible">
+            <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+            <effect type="fade" start="0" end="100" time="600"/>
+          </animation>
+          <animation type="Hidden">
+            <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
+            <effect type="fade" start="100" end="0" time="600"/>
+          </animation>
+          <visible>VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)</visible>
+          <description>Cover Image</description>
+          <posx>1045</posx>
+          <posy>-40</posy>
+          <width>210</width>
+          <height>144</height>
+          <texture diffuse="thumbs/multiplex_tvmask.png" background="true">$INFO[VideoPlayer.Cover]</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <bordertexture border="-26">thumbs/episode_poster_shadow.png</bordertexture>
+          <animation type="WindowOpen">
+            <effect type="slide" start="300,0" end="0,0" time="600" tween="cubic" easing="out"/>
+          </animation>
+          <animation type="WindowClose">
+            <effect type="slide" start="0,0" end="300,0" time="600" tween="cubic" easing="out"/>
+            <effect type="fade" start="100" end="0" time="600"/>
+          </animation>
+        </control>
         <control type="image">
           <description>Pause button</description>
           <posx>920</posx>
