@@ -77,7 +77,7 @@
     <control type="wraplist" id="300">
       <description>Home Menu</description>
       <posx>-50</posx>
-      <posy>0</posy>
+      <posy>-2</posy>
       <width>1400</width>
       <aligny>center</aligny>
       <height>65</height>
@@ -1263,7 +1263,7 @@
           </item>
           <item id="28">
             <description>Movietitles</description>
-            <label>134</label>
+            <label>31044</label>
             <include>Movie_Link</include>
             <onclick>ActivateWindow(MyVideoLibrary,movietitles,return)</onclick>
             <visible>!Skin.HasSetting(sub_movies_Title)</visible>
@@ -1734,10 +1734,6 @@
         <width>1253</width>
         <height>57</height>
         <texture>common/rssbar_mid.png</texture>
-        <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-          <effect type="slide" start="0,1" end="0,1" time="0"/>
-          <effect type="zoom" start="125" end="125" time="0"/>
-        </animation>
       </control>
       <control type="rss" id="1">
         <posx>110</posx>
@@ -1746,16 +1742,6 @@
         <font>Font_Normal16</font>
         <include>Colour_RSS</include>
         <urlset>1</urlset>
-        <visible>!Skin.HasSetting(bighome)</visible>
-      </control>
-      <control type="rss" id="1">
-        <posx>110</posx>
-        <posy>3</posy>
-        <width>1170</width>
-        <font>Font_Normal21</font>
-        <include>Colour_RSS</include>
-        <urlset>1</urlset>
-        <visible>Skin.HasSetting(bighome)</visible>
       </control>
       <control type="image">
         <posx>77</posx>
@@ -1764,10 +1750,6 @@
         <height>27</height>
         <texture>common/rssbar_mid_fade.png</texture>
         <colordiffuse>whiteD0</colordiffuse>
-        <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-          <effect type="slide" start="0,1" end="0,1" time="0"/>
-          <effect type="zoom" start="125" end="125" time="0"/>
-        </animation>
       </control>
     </control>
     <control type="group">
@@ -1778,10 +1760,6 @@
       <visible>Skin.HasSetting(lowerrss) + system.getbool(lookandfeel.enablerssfeeds) + ![!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(lowerwidgets) + [Control.HasFocus(510) | Control.HasFocus(511)]]</visible>
       <include>Animation_VisibleHiddenZoom</include>
       <include>Animation_OpenCloseZoom</include>
-      <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-        <effect type="slide" start="0,-181" end="0,-181" time="0"/>
-        <effect type="zoom" start="125" end="125" time="0"/>
-      </animation>
       <control type="image">
         <posx>54</posx>
         <posy>0</posy>
@@ -1822,9 +1800,9 @@
       <include>Furniture_TimePanel</include>
     </control>
     <control type="group">
-      <posx>900</posx>
+      <posx>0</posx>
       <posy>0</posy>
-      <width>451</width>
+      <width>1280</width>
       <height>27</height>
       <animation effect="slide" start="0,0" end="0,-37" time="200" condition="[Control.IsVisible(57) + Control.HasFocus(70197)]">Conditional</animation>
       <visible>Skin.HasSetting(highertime)</visible>
@@ -1846,19 +1824,6 @@
       <width>440</width>
       <font>Font_Normal18</font>
       <include>Colour_WhiteAlpha80</include>
-      <visible>!Skin.HasSetting(bighome)</visible>
-      <scroll>true</scroll>
-      <label>[COLOR=altlabel]$LOCALIZE[20342]:[/COLOR] $INFO[Window.Property(Movies.Count)]   [COLOR=altlabel]|   $LOCALIZE[16102]:[/COLOR] $INFO[Window.Property(Movies.Watched)]   [COLOR=altlabel]|   $LOCALIZE[16101]:[/COLOR] $INFO[Window.Property(Movies.UnWatched)]</label>
-      <visible>Container(300).HasFocus(6)</visible>
-    </control>
-    <control type="label" id="71">
-      <posx>10</posx>
-      <posy>-4</posy>
-      <width>520</width>
-      <animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertotals)">Conditional</animation>
-      <font>Font_Home22</font>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>Skin.HasSetting(bighome)</visible>
       <scroll>true</scroll>
       <label>[COLOR=altlabel]$LOCALIZE[20342]:[/COLOR] $INFO[Window.Property(Movies.Count)]   [COLOR=altlabel]|   $LOCALIZE[16102]:[/COLOR] $INFO[Window.Property(Movies.Watched)]   [COLOR=altlabel]|   $LOCALIZE[16101]:[/COLOR] $INFO[Window.Property(Movies.UnWatched)]</label>
       <visible>Container(300).HasFocus(6)</visible>
@@ -1869,19 +1834,6 @@
       <width>460</width>
       <font>Font_Normal18</font>
       <include>Colour_WhiteAlpha80</include>
-      <visible>!Skin.HasSetting(bighome)</visible>
-      <scroll>true</scroll>
-      <label>[COLOR=altlabel]$LOCALIZE[20343]:[/COLOR] $INFO[Window.Property(TVShows.Count)]   [COLOR=altlabel]|   $LOCALIZE[20360]:[/COLOR] $INFO[Window.Property(Episodes.Count)]   [COLOR=altlabel]|   $LOCALIZE[16101]:[/COLOR] $INFO[Window.Property(Episodes.UnWatched)]</label>
-      <visible>Container(300).HasFocus(7)</visible>
-    </control>
-    <control type="label" id="71">
-      <posx>10</posx>
-      <posy>-4</posy>
-      <width>520</width>
-      <animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertotals)">Conditional</animation>
-      <font>Font_Home22</font>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>Skin.HasSetting(bighome)</visible>
       <scroll>true</scroll>
       <label>[COLOR=altlabel]$LOCALIZE[20343]:[/COLOR] $INFO[Window.Property(TVShows.Count)]   [COLOR=altlabel]|   $LOCALIZE[20360]:[/COLOR] $INFO[Window.Property(Episodes.Count)]   [COLOR=altlabel]|   $LOCALIZE[16101]:[/COLOR] $INFO[Window.Property(Episodes.UnWatched)]</label>
       <visible>Container(300).HasFocus(7)</visible>
@@ -1892,19 +1844,6 @@
       <width>400</width>
       <font>Font_Normal18</font>
       <include>Colour_WhiteAlpha80</include>
-      <visible>!Skin.HasSetting(bighome)</visible>
-      <scroll>true</scroll>
-      <label>[COLOR=altlabel]$LOCALIZE[132]:[/COLOR] $INFO[Window.Property(Music.AlbumsCount)]   [COLOR=altlabel]|   $LOCALIZE[134]:[/COLOR] $INFO[Window.Property(Music.SongsCount)]   [COLOR=altlabel]|   $LOCALIZE[133]:[/COLOR] $INFO[Window.Property(Music.ArtistsCount)]</label>
-      <visible>Container(300).HasFocus(1)</visible>
-    </control>
-    <control type="label" id="71">
-      <posx>10</posx>
-      <posy>-4</posy>
-      <width>480</width>
-      <animation effect="slide" start="0,0" end="0,7" condition="Skin.HasSetting(highertotals)">Conditional</animation>
-      <font>Font_Home22</font>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>Skin.HasSetting(bighome)</visible>
       <scroll>true</scroll>
       <label>[COLOR=altlabel]$LOCALIZE[132]:[/COLOR] $INFO[Window.Property(Music.AlbumsCount)]   [COLOR=altlabel]|   $LOCALIZE[134]:[/COLOR] $INFO[Window.Property(Music.SongsCount)]   [COLOR=altlabel]|   $LOCALIZE[133]:[/COLOR] $INFO[Window.Property(Music.ArtistsCount)]</label>
       <visible>Container(300).HasFocus(1)</visible>
@@ -1920,10 +1859,6 @@
         <width>471</width>
         <height>27</height>
         <texture>common/librarypanel_mid.png</texture>
-        <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-          <effect type="slide" end="-120,-7" time="0"/>
-          <effect type="zoom" end="125" time="0"/>
-        </animation>
       </control>
       <include>Library_Vars</include>
       <include>Animation_OpenCloseZoom</include>
@@ -1939,10 +1874,6 @@
         <width>491</width>
         <height>27</height>
         <texture flipy="true">common/librarypanel_mid.png</texture>
-        <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-          <effect type="slide" end="-140,0" time="0"/>
-          <effect type="zoom" end="125" time="0"/>
-        </animation>
       </control>
       <include>Library_Vars</include>
       <animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">

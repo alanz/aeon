@@ -75,10 +75,9 @@
   <!--############################################ Buttons ####################################################-->
   <!--#########################################################################################################-->
   <include name="MediaMenuButton_Viewmode">
-    <!--2-->
     <control type="selectbutton" id="2">
       <label></label>
-      <height>55</height>
+      <height>40</height>
       <width>260</width>
       <textcolor>A0FFFFFF</textcolor>
       <focusedcolor>white</focusedcolor>
@@ -88,7 +87,7 @@
       <align>center</align>
       <aligny>center</aligny>
       <pulseonselect>true</pulseonselect>
-      <font>Font_Home30</font>
+      <font>Font_Home24</font>
       <include>Animation_CommonFade</include>
       <textureleft>multiplex/multiplex_arrow2.png</textureleft>
       <textureright>multiplex/multiplex_arrow.png</textureright>
@@ -97,7 +96,6 @@
     </control>
   </include>
   <include name="MediaMenuButton_Showcase">
-    <!-- 700001 700002 -->
     <control type="radiobutton" id="700001">
       <label>31061</label>
       <selected>!Skin.HasSetting(flattenshowcasemovies)</selected>
@@ -349,6 +347,13 @@
       <onclick>Skin.ToggleSetting(bannerlist)</onclick>
       <visible>Control.IsVisible(50) + Container.Content(tvshows)</visible>
     </control>
+    <control type="radiobutton" id="700030">
+      <include>MediaMenuRadioButton</include>
+      <label>Use Poster.jpg</label>
+      <selected>Skin.HasSetting(use_poster_jpg)</selected>
+      <onclick>Skin.ToggleSetting(use_poster_jpg)</onclick>
+      <visible>[Control.IsVisible(50) | Control.IsVisible(551)] + [Container.Content(tvshows) | Container.Content(movies)]</visible>
+    </control>
   </include>
   <include name="MediaMenuButton_Background">
     <control type="radiobutton" id="700324">
@@ -451,7 +456,16 @@
       <onclick>Skin.ToggleSetting(dvdcase_wall)</onclick>
       <onclick>ReloadSkin</onclick>
       <selected>Skin.HasSetting(dvdcase_wall)</selected>
-      <visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows) | Window.IsActive(musiclibrary)]</visible>
+      <visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows)]</visible>
+    </control>
+  </include>
+  <include name="MediaMenuButton_Poster">
+    <control type="radiobutton" id="700035">
+      <include>MediaMenuRadioButton</include>
+      <label>Shift Fanart</label>
+      <onclick>Skin.ToggleSetting(poster_fanartshift)</onclick>
+      <selected>Skin.HasSetting(poster_fanartshift)</selected>
+      <visible>Control.IsVisible(55)</visible>
     </control>
   </include>
   <include name="MediaMenuButton_Multiwall">
@@ -461,7 +475,7 @@
       <onclick>Skin.ToggleSetting(dvdcase_multiwall)</onclick>
       <onclick>ReloadSkin</onclick>
       <selected>Skin.HasSetting(dvdcase_multiwall)</selected>
-      <visible>Control.IsVisible(53) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows) | Window.IsActive(musiclibrary)]</visible>
+      <visible>Control.IsVisible(556) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows) | Window.IsActive(musiclibrary)]</visible>
     </control>  
     <control type="radiobutton" id="7000222">
       <include>MediaMenuRadioButton</include>
@@ -839,6 +853,7 @@
       <visible>ControlGroup(7000).HasFocus() | ControlGroup(7100).HasFocus() | ControlGroup(7011).HasFocus() | ControlGroup(7020).HasFocus() | ControlGroup(7021).HasFocus() | Control.HasFocus(4) | ControlGroup(7023).HasFocus() | ControlGroup(7024).HasFocus()</visible>
     </control>
     <control type="group">
+      <posy>25</posy>
       <include>Animation_OpenCloseZoom</include>
       <visible>![Window.IsActive(musicinformation) | Window.IsActive(movieinformation)]</visible>
       <include>ViewSelect</include>
@@ -948,7 +963,7 @@
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Party</include>
         <include>MediaMenuButton_Watched</include>
         <include condition="Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">MediaMenuButton_Playlist</include>
-        <include condition="Window.IsActive(musicplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
+        <include condition="Window.IsActive(musicplaylisteditor) | Window.IsActive(videoplaylisteditor)">MediaMenuButton_PlaylistEditor</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_ViewTypeSettings</include>
         <include>MediaMenuButton_MediaDebug</include>
         <include condition="!Skin.HasSetting(kioskmode)">MediaMenuButton_Setup</include>
@@ -1038,6 +1053,7 @@
         <include>MediaMenuButton_Stripshow</include>
         <include>MediaMenuButton_Wall</include>
         <include>MediaMenuButton_FullScreenWall</include>
+        <include>MediaMenuButton_Poster</include>
         <include>MediaMenuButton_Multiwall</include>
         <include>MediaMenuButton_Shelf</include>
         <include>MediaMenuButton_InfoTrigger</include>

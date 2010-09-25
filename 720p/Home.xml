@@ -5,12 +5,12 @@
   <controls>
     <control type="button" id="5043">
       <include>HiddenObject</include>
-      <visible>!Skin.HasSetting(homelatest)</visible>
+      <visible>!Skin.HasSetting(homelatest) + !Skin.HasSetting(TotalsOff)</visible>
       <onfocus>Control.SetFocus(5044)</onfocus>
     </control>
     <control type="button" id="5043">
       <include>HiddenObject</include>
-      <visible>Skin.HasSetting(homelatest)</visible>      
+      <visible>Skin.HasSetting(homelatest) | Skin.HasSetting(TotalsOff)</visible>      
       <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>Control.SetFocus(5044)</onfocus>
     </control>
@@ -41,6 +41,12 @@
     <control type="multiimage">
       <include>BackgroundVarsGlobal</include>
       <imagepath background="true">$INFO[Container(300).ListItem.Icon]</imagepath>
+      <visible>![Skin.HasSetting(libraryfanart_music) + Container(300).HasFocus(1)]</visible>
+    </control>
+    <control type="multiimage">
+      <include>BackgroundVarsGlobal</include>
+      <imagepath background="true">special://Thumbnails/Music/Fanart/</imagepath>
+      <visible>[Skin.HasSetting(libraryfanart_music) + Container(300).HasFocus(1)]</visible>
     </control>
     <control type="largeimage">
       <include>BackgroundVarsGlobal</include>
@@ -165,6 +171,26 @@
         <include>Animation_CommonFade2</include>
         <visible>!Skin.HasSetting(nohomegradient)</visible>
         <colordiffuse>whiteD0</colordiffuse>
+      </control>
+      <control type="image">
+        <posx>-400</posx>
+        <posy>329</posy>
+        <width>1780</width>
+        <height>27</height>
+        <texture>common/topbar.png</texture>
+        <visible>Skin.HasSetting(gloweffect_home)</visible>
+        <include>Animation_CommonFade</include>
+        <animation effect="slide" start="0,0" end="400,0" time="2000" pulse="true" tween="cubic" easing="inout" condition="true">Conditional</animation>
+      </control>
+      <control type="image">
+        <posx>-400</posx>
+        <posy>393</posy>
+        <width>1780</width>
+        <height>27</height>
+        <texture>common/topbar.png</texture>
+        <visible>Skin.HasSetting(gloweffect_home)</visible>
+        <include>Animation_CommonFade</include>
+        <animation effect="slide" start="0,0" end="400,0" time="2000" pulse="true" tween="cubic" easing="inout" condition="true">Conditional</animation>
       </control>
     </control>
     <include>BackgroundEffect</include>   

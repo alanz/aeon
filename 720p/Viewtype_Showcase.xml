@@ -390,7 +390,7 @@
     </control>
     <control type="group"><!-- info pane -->
       <posx>0</posx>
-      <posy>26</posy>
+      <posy>30</posy>
       <animation type="Conditional" condition="Player.HasVideo" reversible="false">
         <effect type="rotatey" center="640" start="0" end="-90" time="550" tween="cubic" easing="in"/>
         <effect type="rotatey" center="640" start="-90" end="90" time="0" delay="550"/>
@@ -467,31 +467,7 @@
         <width>1130</width>
         <height>600</height>
         <texture border="0,0,0,0">list/listpanel_back.png</texture>
-      </control>
-      <control type="image">
-        <posx>525</posx>
-        <posy>446</posy>
-        <align>center</align>
-        <width>240</width>
-        <height>32</height>
-        <texture>multiplex/multiplex_trailer_label.png</texture>
-        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-        <visible>!IsEmpty(ListItem.Trailer) + Control.IsVisible(57) + !Control.HasFocus(70197)</visible>
-      </control>
-      <control type="label">
-        <!--press x to stop-->
-        <posx>525</posx>
-        <posy>450</posy>
-        <align>center</align>
-        <width>240</width>
-        <height>32</height>
-        <font>Font_Normal19</font>
-        <label>312574</label>
-        <visible>!IsEmpty(ListItem.Trailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197)</visible>
-        <colordiffuse>whiteD0</colordiffuse>
-        <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-        <animation effect="fade" start="40" time="600" condition="Player.HasVideo" pulse="true">Conditional</animation>
-      </control>      
+      </control>     
 			<control type="videowindow" id="2">
 				<posx>160</posx>
 				<posy>40</posy>
@@ -609,7 +585,7 @@
   </include>
   <include name="MovieShowcaseGroupVars">
     <posx>-83</posx>
-    <posy>380</posy>
+    <posy>384</posy>
     <width>1446</width>
     <height>350</height>
   </include>
@@ -1915,7 +1891,7 @@
   <include name="ShowcaseMovies">
     <control type="group">
       <control type="group" id="6001">
-        <posy>380</posy>
+        <posy>384</posy>
         <camera x="640" y="540"/>
         <visible>Container.OnNext + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]</visible>
         <animation effect="slide" end="-90,0" time="250" reversible="false">Hidden</animation>
@@ -2488,7 +2464,7 @@
         </control>
       </control>
       <control type="group" id="6002">
-        <posy>380</posy>
+        <posy>384</posy>
         <camera x="640" y="540"/>
         <visible>Container.OnPrevious + ![[Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] | [Skin.HasSetting(flattenshowcasetvshows) + Container.Content(tvshows)] | [Skin.HasSetting(flattenshowcaseseasons) + Container.Content(seasons)] |  Container.Content(episodes) | [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]]</visible>
         <animation effect="slide" end="90,0" time="250" reversible="false">Hidden</animation>
@@ -2710,7 +2686,7 @@
             <include>genre_Showcase_ref_9</include>
           </control>
         </control>
-    <!--    <control type="group">
+        <control type="group">
           <posx>-180</posx>
           <visible>!Container.OnPrevious</visible>
           <animation effect="fade" start="0" end="0" delay="0" time="0" reversible="false">Visible</animation>
@@ -2797,7 +2773,7 @@
             </control>
             <include>genre_Showcase_ref_1</include>
           </control>
-        </control>-->
+        </control>
         <control type="group">
           <posx>10</posx>
           <visible>!IsEmpty(Container(57).ListItemNoWrap(-5).label) | !Skin.HasSetting(showcasefixedlist)</visible>
@@ -3064,7 +3040,7 @@
         <animation effect="fade" start="100" end="0" time="800">Hidden</animation>
       </control>
       <control type="group" id="6000">
-        <posy>380</posy>
+        <posy>384</posy>
         <animation effect="fade" time="500">WindowOpen</animation>
         <animation effect="fade" time="200">WindowClose</animation>
         <visible>!Control.IsVisible(6001) + !Control.IsVisible(6002) + Control.IsVisible(960)</visible>

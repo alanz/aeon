@@ -18,7 +18,7 @@
       <animation type="WindowOpen" reversible="false">
         <effect type="fade" start="0" end="100" time="1000" pulse="true" delay="1000"/>
       </animation>
-      <animation effect="fade" start="40" time="700" condition="true" pulse="true">Conditional</animation>
+      <animation effect="fade" start="50" time="1500" condition="true" pulse="true">Conditional</animation>
       <aspectratio>stretch</aspectratio>
       <visible>true</visible>
     </control>
@@ -39,9 +39,8 @@
         <posx>0</posx>
         <posy>0</posy>
         <width>308</width>
-        <include condition="![System.HasLoginScreen | System.HasMediaDVD]">Objects_ButtonMenu09Group</include>
-        <include condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
-        <include condition="System.HasLoginScreen + System.HasMediaDVD">Objects_ButtonMenu11Group</include>
+        <include condition="!System.HasLoginScreen">Objects_ButtonMenu09Group</include>
+        <include condition="System.HasLoginScreen">Objects_ButtonMenu10Group</include>
         <texture>dialogs/context_middle.png</texture>
       </control>
       <control type="image">
@@ -50,8 +49,8 @@
         <posy>428</posy>
         <width>308</width>
         <height>27</height>
-        <animation effect="slide" start="0,-0" end="0,-78" time="0" condition="![System.HasLoginScreen | System.HasMediaDVD]">Conditional</animation>
-        <animation effect="slide" start="0,-0" end="0,-38" time="0" condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Conditional</animation>
+        <animation effect="slide" start="0,-0" end="0,-78" time="0" condition="!System.HasLoginScreen">Conditional</animation>
+        <animation effect="slide" start="0,-0" end="0,-38" time="0" condition="System.HasLoginScreen">Conditional</animation>
         <texture>dialogs/context_bottom.png</texture>
       </control>
       <!-- ShutdownMenu -->
@@ -59,9 +58,8 @@
         <posx>0</posx>
         <posy>0</posy>
         <width>308</width>
-        <include condition="![System.HasLoginScreen | System.HasMediaDVD]">Objects_ButtonMenu09Group</include>
-        <include condition="[System.HasLoginScreen + !System.HasMediaDVD] | [!System.HasLoginScreen + System.HasMediaDVD]">Objects_ButtonMenu10Group</include>
-        <include condition="System.HasLoginScreen + System.HasMediaDVD">Objects_ButtonMenu11Group</include>
+        <include condition="!System.HasLoginScreen">Objects_ButtonMenu09Group</include>
+        <include condition="System.HasLoginScreen">Objects_ButtonMenu10Group</include>
         <itemgap>0</itemgap>
         <orientation>vertical</orientation>
         <onup>4112</onup>
@@ -94,13 +92,6 @@
           <include>Objects_ContextMenuButton</include>
           <onclick>ActivateWindow(musicplaylist)</onclick>
         </control>	
-        <control type="button" id="808">
-          <description>Eject Tray</description>
-          <label>31210</label>
-          <include>Objects_ContextMenuButton</include>
-          <onclick>EjectTray()</onclick>
-          <visible>System.HasMediaDVD</visible>
-        </control>
         <control type="button" id="809">
           <description>File Manager</description>
           <label>10003</label>

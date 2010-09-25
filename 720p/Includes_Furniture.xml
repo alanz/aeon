@@ -8,10 +8,6 @@
       <width>451</width>
       <height>27</height>
       <texture>common/timepanel_mid.png</texture>
-      <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-        <effect type="slide" end="10,-7" time="0"/>
-        <effect type="zoom" start="125" end="125" time="0"/>
-      </animation>
     </control>
     <control type="image">
       <description>Weather image</description>
@@ -22,10 +18,6 @@
       <aspectratio>keep</aspectratio>
       <aligny>center</aligny>
       <texture>$INFO[Weather.Conditions]</texture>
-      <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-        <effect type="slide" end="10,-7" time="0"/>
-        <effect type="zoom" start="125" end="125" time="0"/>
-      </animation>
     </control>
     <control type="label">
       <posx>370</posx>
@@ -34,7 +26,6 @@
       <font>Font_Normal18</font>
       <align>right</align>
       <include>Colour_WhiteAlpha80</include>
-      <visible>!Skin.HasSetting(bighome)</visible>
       <label>[COLOR FFe5e5e5]$INFO[System.Date]   [/COLOR][COLOR=altlabel]$INFO[System.Time][/COLOR]</label>
     </control>
     <control type="label">
@@ -44,152 +35,721 @@
       <font>Font_Normal18</font>
       <align>left</align>
       <textcolor>altlabel</textcolor>
-      <visible>!Skin.HasSetting(bighome)</visible>
-      <label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-    </control>
-    <control type="label">
-      <posx>370</posx>
-      <posy>-4</posy>
-      <width>600</width>
-      <font>Font_Home22</font>
-      <align>right</align>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>Skin.HasSetting(bighome)</visible>
-      <label>[COLOR FFe5e5e5]$INFO[System.Date]  |  [/COLOR][COLOR FFcdcdcd]$INFO[System.Time][/COLOR]</label>
-    </control>
-    <control type="label">
-      <posx>-15</posx>
-      <posy>-4</posy>
-      <width>600</width>
-      <font>Font_Home22</font>
-      <align>left</align>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>Skin.HasSetting(bighome)</visible>
       <label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
     </control>
   </include>
   <include name="Furniture_TimePanelHigh">
     <control type="image">
-      <posx>-70</posx>
+      <posx>830</posx>
       <posy>0</posy>
       <width>451</width>
       <height>27</height>
       <texture flipy="true">common/timepanel_mid.png</texture>
-      <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-        <effect type="slide" end="-30,0" time="0"/>
-        <effect type="zoom" end="120" time="0"/>
-      </animation>
+      <visible>Window.IsActive(home)</visible>
     </control>
-    <control type="image">
-      <description>Weather image</description>
-      <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-        <effect type="slide" end="-30,2" time="0"/>
-        <effect type="zoom" end="120" time="0"/>
-      </animation>
-      <posx>-52</posx>
-      <posy>1</posy>
-      <width>23</width>
-      <height>23</height>
-      <aspectratio>keep</aspectratio>
-      <aligny>center</aligny>
-      <texture>$INFO[Weather.Conditions]</texture>
-    </control>
-    <control type="label">
-      <posx>370</posx>
-      <posy>0</posy>
-      <width>400</width>
-      <font>Font_Normal18</font>
-      <align>right</align>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>!Skin.HasSetting(bighome)</visible>
-      <label>[COLOR FFe5e5e5]$INFO[System.Date]   [/COLOR][COLOR=altlabel]$INFO[System.Time][/COLOR]</label>
-    </control>
-    <control type="label">
-      <posx>-25</posx>
-      <posy>0</posy>
-      <width>400</width>
-      <font>Font_Normal18</font>
-      <align>left</align>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>!Skin.HasSetting(bighome)</visible>
-      <label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-    </control>
-    <control type="label">
-      <posx>370</posx>
-      <posy>3</posy>
-      <width>600</width>
-      <font>Font_Home22</font>
-      <align>right</align>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>Skin.HasSetting(bighome)</visible>
-      <label>[COLOR FFe5e5e5]$INFO[System.Date]  [/COLOR][COLOR=altlabel]|  $INFO[System.Time][/COLOR]</label>
-    </control>
-    <control type="label">
-      <posx>-40</posx>
-      <posy>3</posy>
-      <width>400</width>
-      <font>Font_Home22</font>
-      <align>left</align>
-      <include>Colour_WhiteAlpha80</include>
-      <visible>Skin.HasSetting(bighome)</visible>
-      <label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-    </control>
+    <control type="grouplist">
+          <visible>true</visible>
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>1275</width>
+          <align>right</align>
+          <aligny>center</aligny>
+          <orientation>horizontal</orientation>
+          <control type="image">
+            <description>Weather image</description>
+            <posx>0</posx>
+            <posy>1</posy>
+            <width min="10" max="25">auto</width>
+            <height>23</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[Weather.Conditions]</texture>
+          </control>
+          <control type="label">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width min="10" max="1280">auto</width>
+            <font>Font_Normal18</font>
+            <align>left</align>
+            <include>Colour_WhiteAlpha80</include>
+            <label>  $INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]    </label>
+          </control>
+          <control type="label">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width min="10" max="1280">auto</width>
+            <font>Font_Normal18</font>
+            <include>Colour_WhiteAlpha80</include>
+            <label>[COLOR FFe5e5e5]$INFO[System.Date]    [/COLOR][COLOR=altlabel]$INFO[System.Time][/COLOR]</label>
+          </control>
+        </control> 
   </include>
-  <include name="Furniture_Time">
+  <include name="TopInfoBar">
     <control type="group">
-      <posx>900</posx>
-      <posy>0</posy>
-      <width>451</width>
-      <height>27</height>
-      <animation effect="slide" start="0,0" end="0,-37" time="200" condition="[Control.IsVisible(57) + Control.HasFocus(70197)]">Conditional</animation>
-      <visible>Window.IsActive(FileManager) | [[Control.IsVisible(554) | Control.IsVisible(553) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(52) | Control.IsVisible(556) |  Control.IsVisible(556) | Control.IsVisible(552) | Control.IsVisible(57) | Control.IsVisible(550) | Control.IsVisible(551) | Control.IsVisible(51) | Control.IsVisible(53)] + !Window.IsVisible(112) + !Window.IsVisible(133)]</visible>
-      <include>Furniture_TimePanelHigh</include>
-      <include>Animation_OpenCloseZoom</include>
-    </control>
-  </include>
-  <!-- RSS Feeds-->
-  <include name="Furniture_RSS">
-    <control type="group">
-      <posx>-400</posx>
-      <posy>0</posy>
-      <width>1280</width>
-      <height>57</height>
-      <visible>!Control.IsVisible(54) + !Player.HasMedia</visible>
-      <animation effect="slide" start="0,0" end="0,-37" time="300" condition="[Control.IsVisible(53) + !Control.HasFocus(53) + !Control.HasFocus(71)] | [Control.IsVisible(57) + Control.HasFocus(70197)] | Control.IsVisible(7777)">Conditional</animation>
-      <include>Animation_WidgetZoom</include>
+          <animation type="WindowOpen" reversible="false">
+              <effect type="fade" start="20" end="100" time="1500" delay="500" />
+              <effect type="slide" start="0,-70" end="0,0" time="1000" delay="500" tween="cubic" easing="out" />
+          </animation>
+          <animation type="WindowClose" reversible="false">
+              <effect type="fade" start="100" end="0" time="450" delay="0" />
+              <effect type="slide" start="0,0" end="0,-70" time="350" delay="50" tween="cubic" easing="out" />
+          </animation>
+      <animation effect="slide" start="0,0" end="0,-57" time="600" condition="Control.IsVisible(54) | Control.HasFocus(70197)">Conditional</animation>
       <control type="image">
         <posx>0</posx>
         <posy>0</posy>
-        <width>1240</width>
-        <height>27</height>
-        <texture>common/rssbar_fs.png</texture>
-        <include>Animation_CommonFade</include>
-        <animation type="Conditional" condition="Skin.HasSetting(bighome)">
-          <effect type="slide" start="-472,0" end="-472,0" time="0"/>
-          <effect type="zoom" start="116" end="116" time="0"/>
-        </animation>
-      </control>
-      <control type="rss" id="1">
-        <posx>-70</posx>
-        <posy>3</posy>
         <width>1280</width>
-        <visible>![Player.HasAudio | Skin.HasSetting(bighome)]</visible>
-        <font>Font_Normal16</font>
-        <urlset>1</urlset>
-        <include>Colour_RSSLight</include>
+        <height>28</height>
+        <texture>common/black.png</texture>
+        <colordiffuse>CCFFFFFF</colordiffuse>
         <include>Animation_CommonFade</include>
       </control>
-      <control type="rss" id="1">
-        <posx>-170</posx>
-        <posy>3</posy>
-        <width>1098</width>
-        <font>Font_Normal21</font>
-        <include>Colour_RSSLight</include>
-        <urlset>1</urlset>
+      <control type="group">
+        <control type="group"><!--time-->
+          <control type="grouplist">
+            <visible>true</visible>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1255</width>
+            <align>right</align>
+            <aligny>center</aligny>
+            <orientation>horizontal</orientation>
+            <control type="label">
+              <posx>0</posx>
+              <posy>0</posy>
+              <width min="10" max="1280">auto</width>
+              <font>Font_Normal18</font>
+              <include>Colour_WhiteAlpha80</include>
+              <label>[COLOR FFe5e5e5]$INFO[System.Date]    [/COLOR][COLOR=altlabel]$INFO[System.Time][/COLOR]    </label>
+            </control>
+          </control> 
+        </control>
+        <control type="group"><!--breadcrumbs-->
+          <visible>!Skin.HasSetting(globalrss) + !Player.HasMedia</visible>
+          <!-- left group -->
+          <control type="grouplist">
+            <posx>15</posx>
+            <posy>4</posy>
+            <width>1280</width>
+            <align>left</align>
+            <orientation>horizontal</orientation>
+            
+            <!-- Icon Code -->
+            <control type="image">
+              <description>Movie Icon</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width min="10" max="18">auto</width>
+              <height>18</height>
+              <aspectratio>stretch</aspectratio>
+              <texture>common/movies.png</texture>
+              <colordiffuse>D0ffffff</colordiffuse>
+              <visible>[Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)] | Container.Content(movies)</visible>
+            </control>
+            <control type="image">
+              <description>TV Icon</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width min="10" max="18">auto</width>
+              <height>17</height>
+              <aspectratio>stretch</aspectratio>
+              <texture>common/tv.png</texture>
+              <colordiffuse>bdffffff</colordiffuse>
+              <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+            </control>
+            <control type="image">
+              <description>Music Icon</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width min="10" max="14">auto</width>
+              <height>18</height>
+              <aspectratio>keep</aspectratio>
+              <texture>common/music.png</texture>
+              <colordiffuse>70ffffff</colordiffuse>
+              <visible>substring(Container.FolderPath,musicdb://) | Window.IsActive(musicfiles) | substring(Container.FolderPath,videodb://3) | Window.IsActive(musicplaylist)</visible>
+            </control>
+            
+            <!-- Library labels code -->
+            <control type="label"><!--Movies-->
+              <include>BreadCrumbsLabelVars</include>
+              <description>Movie Label</description>
+              <aligny>top</aligny>
+              <label>$LOCALIZE[20342]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videomovies)</visible>
+            </control>
+            <control type="label"><!--tv-->
+              <description>TV Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[20343]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(videolibrary) + Skin.HasSetting(videotv)</visible>
+            </control>
+            <control type="label"><!--music-->
+              <description>Music Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[249]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)</visible>
+            </control>
+            <control type="label"><!--music playlist-->
+              <description>Music Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[20011]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(musicplaylist)</visible>
+            </control>
+            <control type="label"><!--video playlist-->
+              <description>Music Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[20012]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(videoplaylist)</visible>
+            </control>
+            <control type="label"><!-- music videos-->
+              <description>Music Videos Label - this only seems to work in video library not music library -</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[20389]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>substring(Container.FolderPath,videodb://3)</visible>
+            </control>
+            <control type="label"><!--library-->
+              <description>Library Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[14022]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(videolibrary) | Window.IsActive(musiclibrary)</visible>
+            </control>
+            <control type="label"><!--pictures-->
+              <description>Library Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[1]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(pictures)</visible>
+            </control>
+            <control type="label"><!--programs-->
+              <description>Library Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[0]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(programs)</visible>
+            </control>
+            <control type="label"><!--add-ons-->
+              <description>Library Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $INFO[Container.FolderPath]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsActive(programs) + !substring(Container.FolderPath,addons://) + !IsEmpty(Container.FolderPath)</visible>
+            </control>
+            <control type="label"><!--seasons-->
+              <description>Seasons Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[33054]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Container.Content(Seasons)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>
+            <control type="label"><!--episodes-->
+              <description>Episodes Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[20360]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Container.Content(Episodes) + !substring(Container.FolderPath,videodb://5/)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>
+            <control type="label"><!--artists-->
+              <description>Artists Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[133]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>[Container.Content(Artists)]</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>	
+            <control type="label"><!--albums-->
+              <description>Albums Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[132]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Container.Content(Albums)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>
+            <control type="label"><!--songs-->
+              <description>Songs Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[134]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Container.Content(Songs) + !Window.IsActive(musicplaylist) + !Window.IsActive(videoplaylist)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>	
+            <control type="label"><!--years-->
+              <description>Years Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[652]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Container.Content(Years)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>
+            <control type="label">
+              <description>Genres Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  Genres</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>substring(Container.FolderPath,videodb://1/1/) | substring(Container.FolderPath,videodb://2/1/) | substring(Container.FolderPath,videodb://3/1/) | substring(Container.FolderPath,musicdb://1/)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>  
+            <control type="label">
+              <description>Recentlyadded Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  Recently Added</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>substring(Container.FolderPath,videodb://4) | substring(Container.FolderPath,videodb://5/) | substring(Container.FolderPath,videodb://6/) | substring(Container.FolderPath,musicdb://6/)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>
+            <control type="label">
+              <description>Playlists Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  Playlists</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>substring(Container.FolderPath,special://videoplaylists/) | substring(Container.FolderPath,special://musicplaylists/)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>
+            <control type="label">
+              <description>Playlists Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  Add-Ons</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>substring(Container.FolderPath,addons://)</visible>
+              <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="350" delay="150" />
+              </animation>
+              <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0" />
+              </animation>
+            </control>               
+            <!-- File mode labels code -->
+            <control type="label">
+              <description>Video</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[1212]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsVisible(VideoFiles)</visible>
+            </control>
+            <control type="label">
+              <description>Files Label</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[744]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsVisible(MusicFiles) | Window.IsVisible(VideoFiles)</visible>
+            </control>
+            <control type="label">
+              <description>Video file mode movies</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[20342]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsVisible(VideoFiles) + Container.Content(Movies)</visible>
+            </control>
+            <control type="label">
+              <description>Video file mode tvshows</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[20343]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsVisible(VideoFiles) + Container.Content(TVShows)</visible>
+            </control>
+            <control type="label">
+              <description>Music video file mode</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label> /  $LOCALIZE[20389]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>[Window.IsVisible(VideoFiles) + Container.Content(MusicVideos)]</visible>
+            </control>
+            <control type="label">
+              <description>Music file mode</description>
+              <include>BreadCrumbsLabelVars</include>
+              <label>$LOCALIZE[2]</label>
+              <textcolor>ltgreyblue3</textcolor>
+              <scroll>false</scroll>
+              <visible>Window.IsVisible(MusicFiles)</visible>
+            </control>
+          </control>
+          <!-- center group -->
+          <control type="grouplist">
+            <posx>0</posx>
+            <posy>6</posy>
+            <width>1280</width>
+            <align>center</align>
+            <aligny>center</aligny>
+            <orientation>horizontal</orientation>
+            <control type="image">
+              <description>Items Icon</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width min="10" max="20">auto</width>
+              <height>15</height>
+              <aspectratio>stretch</aspectratio>
+              <texture>common/items.png</texture>
+              <colordiffuse>60ffffff</colordiffuse>
+              <visible>![!IsEmpty(ListItem.Trailer) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(59) | Control.IsVisible(553) | Control.IsVisible(551)]] | Control.IsVisible(7777)</visible>
+              <animation effect="fade" time="400" delay="400">Visible</animation>
+              <animation effect="fade" time="400">Hidden</animation>
+            </control>			
+            <control type="label">
+               <posx>0</posx>
+               <posy>-40</posy>
+               <width min="10" max="1280">auto</width>
+               <font>Font_Normal18</font>
+               <animation effect="slide" start="0,0" end="0,-6" time="0" condition="true">Conditional</animation>
+              <label>$INFO[Container.NumItems] ITEMS</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>![!IsEmpty(ListItem.Trailer) + [Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(59) | Control.IsVisible(553) | Control.IsVisible(551)]] | Control.IsVisible(7777)</visible>
+              <animation effect="fade" time="400" delay="400">Visible</animation>
+              <animation effect="fade" time="400">Hidden</animation>
+            </control>
+            <control type="label">
+               <posx>0</posx>
+               <posy>-40</posy>
+               <width min="10" max="1280">auto</width>
+               <font>Font_Normal18</font>
+               <animation effect="slide" start="0,0" end="0,-6" time="0" condition="true">Conditional</animation>
+              <label>PRESS UP TO SEE TRAILER</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>!IsEmpty(ListItem.Trailer) + [Control.HasFocus(57) | Control.HasFocus(52) | Control.HasFocus(59) | Control.HasFocus(553)]</visible>
+              <animation effect="fade" time="400" delay="400">Visible</animation>
+              <animation effect="fade" time="400">Hidden</animation>
+            </control>
+            <control type="label">
+               <posx>0</posx>
+               <posy>-40</posy>
+               <width min="10" max="1280">auto</width>
+               <font>Font_Normal18</font>
+               <animation effect="slide" start="0,0" end="0,-6" time="0" condition="true">Conditional</animation>
+              <label>PRESS RIGHT FOR EXTENDED INFO / TRAILER</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>!IsEmpty(ListItem.Trailer) + Control.HasFocus(551)</visible>
+              <animation effect="fade" time="400" delay="400">Visible</animation>
+              <animation effect="fade" time="400">Hidden</animation>
+            </control>
+            <control type="label">
+               <posx>0</posx>
+               <posy>-40</posy>
+               <width min="10" max="1280">auto</width>
+               <font>Font_Normal18</font>
+               <animation effect="slide" start="0,0" end="0,-6" time="0" condition="true">Conditional</animation>
+              <label>PRESS SELECT TO SEE TRAILER</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <visible>Control.HasFocus(110) | Control.HasFocus(70110) | Control.HasFocus(111) | Control.HasFocus(112) | [Control.HasFocus(55110) + !IsEmpty(ListItem.Trailer)]</visible>
+              <animation effect="fade" time="400" delay="400">Visible</animation>
+              <animation effect="fade" time="400">Hidden</animation>
+            </control>
+          </control>
+          <!-- right group -->
+          <control type="grouplist">
+            <visible>false</visible>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1140</width>
+            <align>right</align>
+            <aligny>center</aligny>
+            <orientation>horizontal</orientation>
+            <control type="image">
+              <description>Pages Icon</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width min="10" max="25">auto</width>
+              <height>15</height>
+              <aspectratio>stretch</aspectratio>
+              <texture>common/pages.png</texture>
+              <colordiffuse>80ffffff</colordiffuse>
+              <animation effect="slide" start="0,0" end="0,8.5" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(56)">Conditional</animation>
+            </control>
+            <control type="label">
+              <posx>0</posx>
+              <posy>0</posy>
+              <width min="10" max="1280">auto</width>
+              <font>Font_Normal18</font>
+              <label>PAGE $INFO[Container.CurrentPage] OF $INFO[Container.NumPages]</label>
+              <textcolor>whiteD0</textcolor>
+              <scroll>false</scroll>
+              <align>left</align>
+            </control>
+          </control>
+          <control type="group"><!--clock-->
+            <posx>1240</posx>
+            <posy>0</posy>
+            <width>26</width>
+            <height>26</height>
+            <control type="image">
+              <description>Clock Icon</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width>26</width>
+              <height>26</height>
+              <texture>clock\clock_panel.png</texture>
+            </control>
+            <control type="image">
+              <description>Clock Second</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width>26</width>
+              <height>26</height>
+              <texture>clock\seconds\$INFO[System.Time(ss)].png</texture>
+            </control>
+            <control type="image">
+              <description>Clock Minute</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width>26</width>
+              <height>26</height>
+              <texture>clock\minutes\$INFO[System.Time(mm)].png</texture>
+            </control>
+            <control type="image">
+              <description>Clock Hour</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width>26</width>
+              <height>26</height>
+              <texture>clock\hours\$INFO[System.Time(hh)].png</texture>
+            </control>
+            <control type="image">
+              <description>Clock Cap</description>
+              <posx>0</posx>
+              <posy>0</posy>
+              <width>26</width>
+              <height>26</height>
+              <texture>clock\clock_cap.png</texture>
+            </control>
+          </control>
+        </control>
+        <control type="rss" id="1">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>530</width>
+          <height>57</height>
+          <visible>!Control.IsVisible(54) + !Player.HasMedia + Skin.HasSetting(globalrss)</visible>
+          <include>Animation_WidgetZoom</include>
+          <posx>-70</posx>
+          <posy>3</posy>
+          <width>1280</width>
+          <visible>!Player.HasAudio</visible>
+          <font>Font_Normal16</font>
+          <urlset>1</urlset>
+          <include>Colour_RSSLight</include>
+          <include>Animation_CommonFade</include>
+        </control>
+        <control type="group"><!--nowplaying-->
+          <include>Animation_WidgetZoom</include>
+          <visible>Player.HasMedia</visible>
+          <posx>0</posx>
+          <posy>0</posy>
+          <control type="progress" id="20">
+            <description>Progressbar</description>
+            <posx>100</posx>
+            <posy>1</posy>
+            <width>120</width>
+            <height>10</height>
+            <texturebg>dialogs/progress-back.png</texturebg>
+            <lefttexture>dialogs/left-progress.png</lefttexture>
+            <midtexture>dialogs/center-progress.png</midtexture>
+            <righttexture>dialogs/right-progress.png</righttexture>
+            <overlaytexture>-</overlaytexture>
+            <info>Player.Progress</info>
+          </control>
+          <control type="label">
+            <description>Current time</description>
+            <posx>60</posx>
+            <posy>8</posy>
+            <width>200</width>
+            <height>20</height>
+            <font>Font_Normal15</font>
+            <textcolor>altlabel</textcolor>
+            <label>$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration]</label>
+            <align>center</align>
+          </control>
+          <control type="label">
+            <posx>240</posx>
+            <posy>-5</posy>
+            <width>440</width>
+            <height>18</height>
+            <font>Font_Normal15</font>
+            <textcolor>altlabel</textcolor>
+            <scroll>true</scroll>
+            <label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
+          </control>
+          <control type="label">
+            <posx>240</posx>
+            <posy>9</posy>
+            <width>440</width>
+            <height>18</height>
+            <font>Font_Normal14</font>
+            <textcolor>white</textcolor>
+            <scroll>true</scroll>
+            <label>[UPPERCASE][COLOR=white]$INFO[MusicPlayer.Title][/COLOR][/UPPERCASE]</label>
+          </control>
+          <control type="label">
+            <posx>240</posx>
+            <posy>-3</posy>
+            <width>180</width>
+            <height>18</height>
+            <font>Font_Normal13</font>
+            <textcolor>White</textcolor>
+            <scroll>true</scroll>
+            <label>[COLOR=white]$INFO[Videoplayer.TVShowTitle][/COLOR]</label>
+          </control>
+          <control type="label">
+            <posx>240</posx>
+            <posy>4</posy>
+            <width>240</width>
+            <height>18</height>
+            <font>Font_Normal13</font>
+            <textcolor>white</textcolor>
+            <scroll>true</scroll>
+            <label>[COLOR=white]$INFO[Videoplayer.Title][/COLOR]</label>
+            <visible>VideoPlayer.Content(movies)</visible>
+          </control>
+          <control type="label">
+            <posx>240</posx>
+            <posy>0</posy>
+            <width>510</width>
+            <height>18</height>
+            <font>Font_Normal13</font>
+            <textcolor>white</textcolor>
+            <scroll>true</scroll>
+            <label>[COLOR=white]$INFO[Videoplayer.Title][/COLOR]</label>
+            <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
+            <visible>!VideoPlayer.Content(movies)</visible>
+          </control>
+        </control>   
+      </control>
+      <control type="image"><!--glow bar-->
+        <posx>-500</posx>
+        <posy>15</posy>
+        <width>1780</width>
+        <height>27</height>
+        <texture>common/topbar.png</texture>
         <include>Animation_CommonFade</include>
-        <visible>!Player.HasAudio + Skin.HasSetting(bighome)</visible>
+        <animation effect="slide" start="0,0" end="500,0" time="2000" pulse="true" tween="cubic" easing="inout" condition="true">Conditional</animation>
+      </control>
+      <control type="group"><!--nowplaying-->
+        <include>Animation_WidgetZoom</include>
+        <visible>Player.HasMedia + !Control.IsVisible(54)</visible>
+        <animation effect="slide" start="0,0" end="0,8" time="0" condition="VideoPlayer.Content(movies)">Conditional</animation>
+        <control type="image">
+          <description>Cd overlay</description>
+          <animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+          <animation effect="fade" time="100">Hidden</animation>
+          <aspectratio>keep</aspectratio>
+          <width>54</width>
+          <height>54</height>
+          <posx>22</posx>
+          <posy>5</posy>
+          <fadetime>300</fadetime>
+          <visible>VideoPlayer.Content(movies) | Player.HasAudio | VideoPlayer.Content(episodes)</visible>
+          <texture fallback="cdart/default.png">$INFO[Player.FolderPath]cdart.png</texture>
+          <aspectratio align="bottom">keep</aspectratio>
+        </control>
+      </control>
+      <control type="image">
+        <description>COVER</description>
+        <aspectratio>stretch</aspectratio>
+        <width>60</width>
+        <height>60</height>
+        <posx>4</posx>
+        <posy>2</posy>
+        <visible>Player.HasAudio + !Control.IsVisible(54)</visible>
+        <animation effect="fade" time="800">Hidden</animation>
+        <texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
+      </control>
+      <control type="image">
+        <description>COVER</description>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <width>50</width>
+        <height>75</height>
+        <posx>4</posx>
+        <posy>2</posy>
+        <visible>VideoPlayer.Content(movies) + !Control.IsVisible(54)</visible>
+        <animation effect="fade" time="800">Hidden</animation>
+        <texture fallback="DefaultVideo.png" diffuse="thumbs/cdcover_mask2.png">$INFO[VideoPlayer.Cover]</texture>
       </control>
     </control>
+  </include>
+  <include name="BreadCrumbsLabelVars">
+     <posx>0</posx>
+     <posy>-40</posy>
+     <width min="10" max="1280">auto</width>
+     <font>Font_Normal18</font>
+     <animation effect="slide" start="0,0" end="0,-4" time="0" condition="true">Conditional</animation>
   </include>
   <!-- Media windows -->
   <include name="Furniture_MediaPanel">
@@ -198,6 +758,19 @@
       <texture>list/list_filter.png</texture>
       <colordiffuse>whiteD0</colordiffuse>
       <visible>Control.IsVisible(50)| Control.IsVisible(551)</visible>
+    </control>
+    <control type="image">
+      <include>Animation_CommonFade</include>
+      <posx>0</posx>
+      <posy>-30</posy>
+      <width>1280</width>
+      <height>633</height>
+      <texture>home/nowplaying_shadow.png</texture>
+      <visible>Control.IsVisible(50)</visible>
+      <animation effect="fade" time="1000" start="0" end="100" tween="cubic" easing="out">WindowOpen</animation>
+      <animation effect="fade" time="300" start="100" end="0" tween="cubic" easing="out">WindowClose</animation>
+      <animation effect="fade" time="1000" start="0" end="100" tween="cubic" easing="out">Visible</animation>
+      <animation effect="fade" time="300" start="100" end="0" tween="cubic" easing="out">Hidden</animation>
     </control>
     <control type="group">
       <animation effect="slide" end="0,-20" time="400" easing="inout" tween="cubic" condition="Control.IsVisible(55)">Conditional</animation>
@@ -218,10 +791,25 @@
         <width>993</width>
         <height>137</height>
         <texture>showcase/showcase_spot.png</texture>
-        <include>Animation_CommonFade</include>
+        <animation effect="fade" time="200">Visible</animation>
+        <animation effect="fade" time="200">Hidden</animation>
+        <animation effect="fade" time="500" delay="700">WindowOpen</animation>
+        <animation effect="fade" time="200">WindowClose</animation>
         <include>Animation_HideShowcase</include>
         <include>Animation_HideMultiplex</include>
-        <visible>Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(50)</visible>
+        <visible>[Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(552) | Control.IsVisible(50)] + !Control.IsVisible(7777)</visible>
+      </control>
+      <control type="image">
+        <posx>-400</posx>
+        <posy>590</posy>
+        <width>1780</width>
+        <height>27</height>
+        <texture>common/topbar.png</texture>
+        <include>Animation_CommonFade</include>
+        <visible>Control.IsVisible(55) | Control.IsVisible(59) | Control.IsVisible(57) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(552) | Control.IsVisible(50)</visible>
+        <include>Animation_HideShowcase</include>
+        <include>Animation_HideMultiplex</include>
+        <animation effect="slide" start="0,0" end="400,0" time="2000" pulse="true" tween="cubic" easing="inout" condition="true">Conditional</animation>
       </control>
     </control>
       <control type="image">
@@ -236,7 +824,6 @@
         <include>Animation_HideShowcase</include>
         <include>Animation_HideMultiplex</include>
       </control>
-
     <control type="image">
       <posx>0</posx>
       <posy>0</posy>
@@ -370,7 +957,7 @@
   <include name="FloorTextMainLabel">
     <include>FloorTextLabel</include>
     <posx>315</posx>
-    <posy>695</posy>
+    <posy>684</posy>
     <width>650</width>
     <font>Font_Home42</font>
     <visible>!Control.IsVisible(7777)</visible>
@@ -378,7 +965,7 @@
   <include name="FloorTextMainLabelWide">
     <include>FloorTextLabel</include>
     <posx>200</posx>
-    <posy>693</posy>
+    <posy>684</posy>
     <width>880</width>
     <font>Font_Home42</font>
     <visible>!Control.IsVisible(7777)</visible>
@@ -386,141 +973,10 @@
   <include name="FloorTextDetailLabel">
     <include>FloorTextLabel</include>
     <posx>340</posx>
-    <posy>668</posy>
+    <posy>708</posy>
     <width>600</width>
     <font>Font_Normal17</font>
     <visible>!Control.IsVisible(7777)</visible>
-  </include>
-  <include name="Furniture_NowPlayingWidget">
-    <control type="group">
-      <include>Animation_WidgetZoom</include>
-      <animation effect="slide" time="800" start="0,0" end="0,-200" tween="cubic" easing="inout" condition="[Control.IsVisible(53) + !Control.HasFocus(53) + !Control.HasFocus(71)] | [Control.IsVisible(57) + Control.HasFocus(70197)] | Control.IsVisible(7777)">Conditional</animation>
-      <visible>Player.HasMedia + !Control.IsVisible(54)</visible>
-      <posx>0</posx>
-      <posy>0</posy>
-      <control type="image">
-        <width>481</width>
-        <height>32</height>
-        <texture flipy="true" flipx="true">common/timepanel_mid.png</texture>
-      </control>
-      <control type="progress" id="20">
-        <description>Progressbar</description>
-        <posx>340</posx>
-        <posy>3</posy>
-        <width>120</width>
-        <height>10</height>
-        <texturebg>dialogs/progress-back.png</texturebg>
-        <lefttexture>dialogs/left-progress.png</lefttexture>
-        <midtexture>dialogs/center-progress.png</midtexture>
-        <righttexture>dialogs/right-progress.png</righttexture>
-        <overlaytexture>-</overlaytexture>
-        <info>Player.Progress</info>
-      </control>
-      <control type="label">
-        <posx>90</posx>
-        <posy>-3</posy>
-        <width>240</width>
-        <height>18</height>
-        <font>Font_Normal15</font>
-        <textcolor>altlabel</textcolor>
-        <scroll>true</scroll>
-        <label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
-      </control>
-      <control type="label">
-        <posx>92</posx>
-        <posy>11</posy>
-        <width>240</width>
-        <height>18</height>
-        <font>Font_Normal14</font>
-        <textcolor>white</textcolor>
-        <scroll>true</scroll>
-        <label>[UPPERCASE][COLOR=white]$INFO[MusicPlayer.Title][/COLOR][/UPPERCASE]</label>
-      </control>
-      <control type="label">
-        <posx>90</posx>
-        <posy>-3</posy>
-        <width>180</width>
-        <height>18</height>
-        <font>Font_Normal13</font>
-        <textcolor>White</textcolor>
-        <scroll>true</scroll>
-        <label>[COLOR=white]$INFO[Videoplayer.TVShowTitle][/COLOR]</label>
-      </control>
-      <control type="label">
-        <posx>90</posx>
-        <posy>4</posy>
-        <width>240</width>
-        <height>18</height>
-        <font>Font_Normal13</font>
-        <textcolor>white</textcolor>
-        <scroll>true</scroll>
-        <label>[COLOR=white]$INFO[Videoplayer.Title][/COLOR]</label>
-        <visible>VideoPlayer.Content(movies)</visible>
-      </control>
-      <control type="label">
-        <posx>18</posx>
-        <posy>4</posy>
-        <width>310</width>
-        <height>18</height>
-        <font>Font_Normal13</font>
-        <textcolor>white</textcolor>
-        <scroll>true</scroll>
-        <label>[COLOR=white]$INFO[Videoplayer.Title][/COLOR]</label>
-        <animation effect="slide" start="0,0" end="0,7" time="0" condition="VideoPlayer.Content(episodes)">Conditional</animation>
-        <visible>!VideoPlayer.Content(movies)</visible>
-      </control>
-
-      <control type="label">
-        <description>Current time</description>
-        <posx>300</posx>
-        <posy>10</posy>
-        <width>200</width>
-        <height>20</height>
-        <font>Font_Normal15</font>
-        <textcolor>altlabel</textcolor>
-        <label>$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration]</label>
-        <align>center</align>
-      </control>
-      <control type="group">
-        <animation effect="slide" start="0,0" end="0,8" time="0" condition="VideoPlayer.Content(movies)">Conditional</animation>
-        <control type="image">
-          <description>Cd overlay</description>
-          <animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-          <animation effect="fade" time="100">Hidden</animation>
-          <aspectratio>keep</aspectratio>
-          <width>54</width>
-          <height>54</height>
-          <posx>22</posx>
-          <posy>5</posy>
-          <fadetime>300</fadetime>
-          <visible>VideoPlayer.Content(movies) | Player.HasAudio | VideoPlayer.Content(episodes)</visible>
-          <texture fallback="cdart/default.png">$INFO[Player.FolderPath]cdart.png</texture>
-          <aspectratio align="bottom">keep</aspectratio>
-        </control>
-      </control>
-      <control type="image">
-        <description>COVER</description>
-        <aspectratio>stretch</aspectratio>
-        <width>60</width>
-        <height>60</height>
-        <posx>4</posx>
-        <posy>2</posy>
-        <visible>Player.HasAudio + !Control.IsVisible(54)</visible>
-        <animation effect="fade" time="800">Hidden</animation>
-        <texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
-      </control>
-      <control type="image">
-        <description>COVER</description>
-        <aspectratio scalediffuse="false">scale</aspectratio>
-        <width>50</width>
-        <height>75</height>
-        <posx>4</posx>
-        <posy>2</posy>
-        <visible>VideoPlayer.Content(movies) + !Control.IsVisible(54)</visible>
-        <animation effect="fade" time="800">Hidden</animation>
-        <texture fallback="DefaultVideo.png" diffuse="thumbs/cdcover_mask2.png">$INFO[VideoPlayer.Cover]</texture>
-      </control>
-    </control>
   </include>
   <include name="Furniture_DarkGradient">
     <control type="image">
@@ -615,8 +1071,8 @@
   <include name="BackgroundEffectCommon">
     <animations effect="fade" time="1000">Visible</animations>
     <animations effect="fade" time="1000">Hidden</animations>
-    <imagepath background="true">cerberus</imagepath>
-    <timeperimage>0</timeperimage>
+    <imagepath>cerberus</imagepath>
+    <timeperimage>1</timeperimage>
     <fadetime>0</fadetime>
     <loop>yes</loop>
     <randomize>false</randomize>
@@ -837,7 +1293,7 @@
           <height>15</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>Font_OSDGenre</font>
+          <font>Font_Normal16</font>
           <label>$INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20452] ,]</label>
         </control>
         <control type="fadelabel">
@@ -847,7 +1303,7 @@
           <height>15</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>Font_OSDGenre</font>
+          <font>Font_Normal16</font>
           <label>$INFO[VideoPlayer.Studio,$LOCALIZE[31404] ,]</label>
           <label>$INFO[VideoPlayer.premiered,$LOCALIZE[20416]: ,]</label>
           <scrollout>false</scrollout>
@@ -864,7 +1320,7 @@
           <height>15</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>Font_OSDGenre</font>
+          <font>Font_Normal16</font>
           <textcolor>whiteD0</textcolor>
           <label>$INFO[VideoPlayer.Genre]</label>
         </control>
@@ -875,7 +1331,7 @@
           <height>15</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>Font_OSDGenre</font>
+          <font>Font_Normal16</font>
           <label>$INFO[VideoPlayer.Director,$LOCALIZE[31402]: ,]</label>
           <label>$INFO[VideoPlayer.Writer,$LOCALIZE[31401]: ,]</label>
           <scrollout>false</scrollout>
@@ -1521,94 +1977,6 @@
           <!--thumbs left-->
           <visible>Container.Content(movies)</visible>
           <include>Object_ExtraThumbsLeft</include>
-        </control>
-      </control>
-      <control type="group"><!--trailer label showcase-->
-        <posx>518</posx>
-        <posy>328</posy>
-        <visible>Control.IsVisible(57)</visible>
-        <!-- Flat Showcase => Trailer at top -->
-        <animation effect="slide" start="0,0" end="0,-275" time="400" easing="inout" tween="cubic" condition="
-          [Skin.HasSetting(flattenshowcasemovies)] + ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-        <!-- posterlayout, plotlayout, extrathumbslayout => Trailer on the right -->
-        <animation effect="slide" start="0,0" end="230,0" time="400" easing="inout" tween="cubic" condition="
-          ![Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-        <!-- flattenshowcase Focus => slide up -->
-        <animation effect="slide" start="0,0" end="410,0" time="400" easing="inout" tween="cubic" condition="[
-          [Skin.HasSetting(flattenshowcasemovies) + Skin.HasSetting(videomovies)] |
-          [Skin.HasSetting(flattenshowcasetvshows)] + Container.Content(tvshows)] |
-          [Skin.HasSetting(flattenshowcaseseasons)] + Container.Content(seasons)] |
-          Container.Content(episodes) |
-          [!Window.IsActive(videolibrary) + !Window.IsActive(videofiles) + Skin.HasSetting(flattenshowcasemusic)]
-        ] + [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-        <!-- flattenshowcase + showcasefanart => slide down -->
-              <animation effect="slide" start="0,0" end="0,75" time="300" easing="inout" tween="cubic" condition="
-          Skin.HasSetting(showcasefanart) + Skin.HasSetting(flattenshowcasemovies) +
-          [Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)]">Conditional</animation>
-
-        <control type="image">
-          <posx>0</posx>
-          <posy>0</posy>
-          <align>center</align>
-          <aligny>center</aligny>
-          <width>240</width>
-          <height>32</height>
-          <texture>multiplex/multiplex_trailer_label.png</texture>
-          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_movies)]]</visible>
-          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-        </control>
-        <control type="label">
-          <include>InfoPaneTrailerLabelVars</include>
-          <label>312573</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(70197) + !Control.HasFocus(70110) + [Control.IsVisible(109) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + !Skin.HasSetting(infopanel_off_movies)]]</visible>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-        </control>
-        <control type="label">
-          <include>InfoPaneTrailerLabelVars</include>
-          <label>312575</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.HasFocus(70110)</visible>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-          <animation effect="fade" start="40" time="600" condition="Control.HasFocus(70110)" pulse="true">Conditional</animation>
-        </control>
-        <control type="label">
-          <include>InfoPaneTrailerLabelVars</include>
-          <label>312574</label>
-          <visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(showcasetrailer) + Player.HasVideo + Control.IsVisible(57) + !Control.HasFocus(70197) + [Control.IsVisible(109) | Control.HasFocus(70110) | Skin.HasSetting(infopanel_on_movies) | [ControlGroup(7000).HasFocus() + Skin.HasSetting(infopanel_trigger_movies)]]</visible>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-        </control>
-      </control>
-      <control type="group"><!--trailer label multiplex-->
-        <posx>752</posx>
-        <posy>370</posy>
-        <visible>Control.IsVisible(52)</visible>
-        <animation effect="slide" start="0,0" end="-223,0" time="400" easing="inout" tween="cubic" condition="Skin.HasSetting(posterlayout) | Skin.HasSetting(plotlayout) | Skin.HasSetting(extrathumbslayout)">Conditional</animation>
-        <control type="image">
-          <posx>0</posx>
-          <posy>-2</posy>
-          <align>center</align>
-          <width>240</width>
-          <height>32</height>
-          <texture>multiplex/multiplex_trailer_label.png</texture>
-          <visible>!IsEmpty(ListItem.Trailer) + !Control.HasFocus(197) + [Control.IsVisible(109) | Control.HasFocus(111) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + !Skin.HasSetting(infopanel_off_movies)]]</visible>
-          <animation effect="fade" start="100" end="0" time="400" delay="5000" condition="Player.HasVideo">Conditional</animation>
-        </control>
-        <control type="label">
-          <!--press ok to play trailer -->
-          <include>InfoPaneTrailerLabelVars</include>
-          <label>312575</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + Control.HasFocus(111)</visible>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-          <animation effect="fade" start="40" time="600" condition="Control.HasFocus(111)" pulse="true">Conditional</animation>
-        </control>
-        <control type="label">
-          <include>InfoPaneTrailerLabelVars</include>
-          <label>312573</label>
-          <visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo + !Control.HasFocus(197) + !Control.HasFocus(111) + [Control.IsVisible(109) | Skin.HasSetting(infopanel_on_movies) | [Control.IsVisible(7777) + !Skin.HasSetting(infopanel_off_movies)]]</visible>
-          <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
         </control>
       </control>
       <control type="label">
