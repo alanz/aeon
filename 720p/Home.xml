@@ -5,12 +5,12 @@
   <controls>
     <control type="button" id="5043">
       <include>HiddenObject</include>
-      <visible>!Skin.HasSetting(homelatest) + !Skin.HasSetting(TotalsOff)</visible>
+      <visible>!Skin.HasSetting(homelatest) + Skin.HasSetting(TotalsOff)</visible>
       <onfocus>Control.SetFocus(5044)</onfocus>
     </control>
     <control type="button" id="5043">
       <include>HiddenObject</include>
-      <visible>Skin.HasSetting(homelatest) | Skin.HasSetting(TotalsOff)</visible>      
+      <visible>Skin.HasSetting(homelatest) | !Skin.HasSetting(TotalsOff)</visible>      
       <onfocus>RunScript(script.recentlyadded,limit=8&amp;albums=True&amp;unplayed=True&amp;totals=True)</onfocus>
       <onfocus>Control.SetFocus(5044)</onfocus>
     </control>
