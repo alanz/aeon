@@ -41,16 +41,26 @@
           <visible>LastFM.CanBan</visible>
           <onup>Control.SetFocus(12)</onup>
           <ondown>Control.SetFocus(12)</ondown>
+	</control>
+
+        <control type="button" id="921">
+          <include>Objects_OSDButton</include>
+          <onclick>Dialog.Close(MusicOSD)</onclick>
+	  <onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
+          <label>31128</label>
+	  <visible>IsEmpty(Skin.String(LyricScript_Path))</visible>
         </control>
         <control type="button" id="921">
           <include>Objects_OSDButton</include>
           <onclick>Dialog.Close(MusicOSD)</onclick>
-          <onclick>RunScript(script.cu.lyrics,1)</onclick>
+	  <onclick>XBMC.RunScript($INFO[Skin.String(LyricScript_Path)])</onclick>
           <label>31128</label>
           <onup>Control.SetFocus(12)</onup>
           <ondown>Control.SetFocus(12)</ondown>
+	  <visible>!IsEmpty(Skin.String(LyricScript_Path))</visible>
         </control>       
-        <control type="button" id="9">
+
+	<control type="button" id="9">
           <include>Objects_OSDButton</include>
           <onclick>ActivateWindow(musicplaylist)</onclick>
           <label>10517</label>
